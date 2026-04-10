@@ -1,0 +1,7 @@
+Timestamp: 2026-04-07 05:03:59
+Thread: 服务器测试
+Title: l2-step1b-repair-protocol-results-chain-开始
+
+【步骤开始】l2-step1b-repair-protocol-results-chain
+当前 blocker：controller-results-chain-incomplete-after-protocol-injection-task
+本轮先只回收 TargetTaskId=community-v2-live-acceptance-round-l2-l2-step1b-inject-group-protocol-v1 的终态证据；不先重跑 business injection。若确认 protocol injection 已成功，再在同一轮继续最小 live acceptance：trusted system broadcast、worker formal status、plain text gist 不推进 stage、manager done 推进 gate engine、gate_snapshot 与 current_stage 同步。

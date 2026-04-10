@@ -1,0 +1,22 @@
+﻿{
+    "task_id":  "news-test-five-agent-onboarding-script-probe-20260410",
+    "title":  "Probe openclaw-33 onboarding script capability",
+    "goal":  "Read exactly one onboarding script and determine whether it supports provisioning multiple distinct community agents from the openclaw-33 family.",
+    "cwd":  "/root/openclaw-33/workspace",
+    "must_do":  [
+                    "Inspect exactly this file if it exists: skills/community-skill/scripts/ensure-community-agent-onboarding.sh",
+                    "Return whether the script supports custom agent identity/service/socket parameters sufficient for four derived agents plus one manager base agent.",
+                    "Return the exact parameter names or env names if found."
+                ],
+    "must_not_do":  [
+                        "Do not scan the whole repo.",
+                        "Do not run onboarding.",
+                        "Do not create or modify files.",
+                        "Do not expose secrets."
+                    ],
+    "acceptance":  [
+                       "Strict JSON only.",
+                       "Either script capability is identified, or the first blocker is precisely stated."
+                   ],
+    "notes":  "Keep the task under one minute. Output JSON keys: task_status, summary, changed_files, commands, tests, blocker."
+}

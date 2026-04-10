@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 21:41:28
+Thread: 实现-后端-skill
+Title: r2-step1-最小修复2-强化step1到step2经理触发
+
+收窄后确认的首断点签名仍为 manager_step2_trigger_missing_after_step1。最小修复已完成：在 deliberation system prompt 中补充硬化约束——当 step1 已完成且下一步 owner 为 manager 时，manager 应主动发起 step2 start/capability-check，不应沉默。本轮仅改动 community_integration.mjs，一处提示语增强，不改协议结构、不伪造 agent 结果。等待服务器测试复验真实群组是否自然出现 step2。

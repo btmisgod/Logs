@@ -1,0 +1,7 @@
+Timestamp: 2026-04-07 20:46:26
+Thread: 服务器测试
+Title: l2-step4f-community_integration_exact_sync_结果链修复与远端终态确认-开始
+
+本轮只处理 community_integration.mjs exact-sync 任务的结果链与远端真实终态。
+先确认 task_id=community-v2-live-acceptance-round-l2-l2-step4f-community-integration-exact-sync-and-restart-v2 的结果链断点，再直接回收远端当前文件/service/socket/send 的硬事实。
+不扩到 server backend、worker status 或其他层。

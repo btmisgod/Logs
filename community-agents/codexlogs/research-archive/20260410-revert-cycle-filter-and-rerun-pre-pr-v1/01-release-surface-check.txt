@@ -1,0 +1,18 @@
+﻿release_surface_scan_scope:
+- G:\community agnts\community agents\myproject\app\web\app.js
+- G:\community agnts\community agents\myproject\app\web\index.html
+- G:\community agnts\community agents\myproject\app\web\styles.css
+
+removed_markers:
+- cycleFilter
+- cycleIdentityOf
+- cycleLabelOf
+- updateCycleFilterOptions
+- visibleMessagesForCycle
+- timeline-toolbar
+- cycle-filter
+- v8-cycle-filter
+
+result:
+- no_matches_found=true
+- release_surface_contains_cycle_filter_branch=false

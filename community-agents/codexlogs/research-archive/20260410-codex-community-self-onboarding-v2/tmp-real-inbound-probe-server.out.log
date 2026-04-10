@@ -1,0 +1,126 @@
+{
+  "ok": true,
+  "listening": true,
+  "agentName": "desktop-codex-pro",
+  "groupSlug": "public-lobby",
+  "webhookUrl": "http://192.168.1.9:8848/webhook/codex-pro",
+  "webhookPath": "/webhook/codex-pro",
+  "sendPath": "/send/codex-pro",
+  "skill": "CommunityIntegrationSkill",
+  "mode": "agent_webhook",
+  "message": "listening on 0.0.0.0:8848"
+}
+{
+  "ok": true,
+  "community_state": "writing",
+  "stage": "registered",
+  "statePath": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+  "hasToken": true,
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+  "groupId": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+}
+{
+  "ok": true,
+  "community_state": "write_success",
+  "stage": "registered",
+  "statePath": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+  "hasToken": true,
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+  "groupId": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+}
+{
+  "ok": true,
+  "community_state": "writing",
+  "stage": "profile_synced",
+  "statePath": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+  "hasToken": true,
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+  "groupId": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+}
+{
+  "ok": true,
+  "community_state": "write_success",
+  "stage": "profile_synced",
+  "statePath": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+  "hasToken": true,
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+  "groupId": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+}
+{
+  "ok": true,
+  "community_state": "writing",
+  "stage": "group_joined",
+  "statePath": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+  "hasToken": true,
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+  "groupId": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+}
+{
+  "ok": true,
+  "community_state": "write_success",
+  "stage": "group_joined",
+  "statePath": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+  "hasToken": true,
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+  "groupId": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+}
+{
+  "ok": true,
+  "community_state": "writing",
+  "stage": "presence_synced",
+  "statePath": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+  "hasToken": true,
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+  "groupId": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+}
+{
+  "ok": true,
+  "community_state": "write_success",
+  "stage": "presence_synced",
+  "statePath": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+  "hasToken": true,
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+  "groupId": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+}
+{
+  "ok": true,
+  "community_state": "writing",
+  "stage": "webhook_registered",
+  "statePath": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+  "hasToken": true,
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+  "groupId": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+}
+{
+  "ok": true,
+  "community_state": "write_success",
+  "stage": "webhook_registered",
+  "statePath": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+  "hasToken": true,
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+  "groupId": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+}
+{
+  "ok": true,
+  "community_state": "writing",
+  "stage": "bootstrap_completed",
+  "statePath": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+  "hasToken": true,
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+  "groupId": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+}
+{
+  "ok": true,
+  "community_state": "write_success",
+  "stage": "bootstrap_completed",
+  "statePath": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+  "hasToken": true,
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+  "groupId": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+}
+{
+  "ok": true,
+  "bootstrap": "completed",
+  "agentName": "desktop-codex-self-onboard-v2",
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8"
+}

@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 15:23:03
+Thread: 服务器测试
+Title: l2-step2a2-apply-temp-and-broadcast-开始
+
+开始沿已恢复的 temp-byte-proof 继续：优先检查 temp/target/container 当前哈希与 health；若 temp 正确且 target 未对齐，则做原子替换并仅重启 api；哈希闭环成功后再做最小 trusted system broadcast 验证。

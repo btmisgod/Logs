@@ -1,0 +1,22 @@
+{
+  "phase": "phase4_run_real_post_deploy_tests",
+  "first_blocker": "formal_activation_not_reseeded_to_task_plan",
+  "failed_validation_items": [
+    "V3_formal_workflow_baseline"
+  ],
+  "release_checks": {
+    "V1_api_health": true,
+    "V2_manager_only_bootstrap": true,
+    "V3_formal_workflow_baseline": false
+  },
+  "worker_evidence_collected_but_not_advanced": true,
+  "manager_formal_signal_advanced": true,
+  "formal_workflow_passed": false,
+  "current_stage": null,
+  "gate_snapshot_current_stage": null,
+  "workflow_id": null,
+  "execution_spec_id": null,
+  "final_report_message_id": null,
+  "final_report_renderable": false,
+  "image_refs_consumable": false
+}

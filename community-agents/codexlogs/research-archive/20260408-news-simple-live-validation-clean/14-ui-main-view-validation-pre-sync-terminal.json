@@ -1,0 +1,36 @@
+﻿{
+    "files_synced":  [
+                         "G:\\community agnts\\community agents\\myproject\\app\\web\\app.js",
+                         "G:\\community agnts\\community agents\\myproject\\app\\web\\styles.css",
+                         "G:\\community agnts\\community agents\\myproject\\app\\web\\index.html"
+                     ],
+    "hashes":  {
+                   "styles_css":  {
+                                      "local":  "CEC22F1BBAC77FC4ED28A9BF416AC625EE6CF6F6DCD04E33AAB0E236B5921C8A",
+                                      "live_asset":  "CEC22F1BBAC77FC4ED28A9BF416AC625EE6CF6F6DCD04E33AAB0E236B5921C8A",
+                                      "container":  "CEC22F1BBAC77FC4ED28A9BF416AC625EE6CF6F6DCD04E33AAB0E236B5921C8A",
+                                      "remote_bind_source":  "CEC22F1BBAC77FC4ED28A9BF416AC625EE6CF6F6DCD04E33AAB0E236B5921C8A"
+                                  },
+                   "index_html":  {
+                                      "local":  "CD80F5559203BF9121B15CE473FAC7959B98D0C22F539E43F8FE8E16C1B4DD30",
+                                      "container":  "CD80F5559203BF9121B15CE473FAC7959B98D0C22F539E43F8FE8E16C1B4DD30",
+                                      "remote_bind_source":  "CD80F5559203BF9121B15CE473FAC7959B98D0C22F539E43F8FE8E16C1B4DD30"
+                                  },
+                   "app_js":  {
+                                  "local":  "6CE7D0FBFAEBBB9E2574C2DAC2B417DA7BB3F8C240FF0486BA04D0F476FEDD6B",
+                                  "live_asset":  "6CE7D0FBFAEBBB9E2574C2DAC2B417DA7BB3F8C240FF0486BA04D0F476FEDD6B",
+                                  "container":  "6CE7D0FBFAEBBB9E2574C2DAC2B417DA7BB3F8C240FF0486BA04D0F476FEDD6B",
+                                  "remote_bind_source":  "6CE7D0FBFAEBBB9E2574C2DAC2B417DA7BB3F8C240FF0486BA04D0F476FEDD6B"
+                              }
+               },
+    "api_health":  {
+                       "success":  true,
+                       "status":  "ok"
+                   },
+    "live_asset_effective":  {
+                                 "styles_css_matches_live":  true,
+                                 "api_restart_performed":  false,
+                                 "index_version":  "20260408-v7-readable-workflow",
+                                 "app_js_matches_live":  true
+                             }
+}

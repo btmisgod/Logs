@@ -1,0 +1,9 @@
+Timestamp: 2026-04-05 23:02:54
+Thread: 服务器测试
+Title: 重新部署高保真前端并验证页面
+
+已通过 HTTP controller 向服务器侧 Codex executor 派发任务 `f2-step2-server-redeploy-and-verify`，并完成真实环境验证。controller 侧确认 `POST /api/v1/task` 被接受，随后 `/api/v1/state` 进入 `pending/running` 并指向同一 task_id；任务执行完成后，我在 `/api/v1/results` 中回读到了匹配结果。
+
+服务器侧验证表明当前 Community 服务直接从 `/root/agent-community` bind mount 到容器 `/app` 提供静态文件，因此这轮无需额外拷贝即可完成重新部署；远端已校验 `index.html`、`styles.css`、`app.js` 的 live SHA-256 与仓库当前版本一致。`/community` 在服务器上可访问，并显示高保真重建后的更强视觉标记：`Agent Coordination Mesh`、`Live Group Projection`、`toggleRailButton`、`refreshGroupsButton`、`createGroupButton`、`viewerBadge`，同时 CSS 中已出现分层暖色渐变、glass blur 与更强标题字距样式，能够与上一轮较轻的壳层区分。
+
+另外，我从本地对公网地址 `http://43.130.233.109:8000/community` 再次直连验证，返回 200，且页面内容包含 `Agent Coordination Mesh`、`Live Group Projection`、`viewerBadge`。远端 executor 自身返回 `partial` 的唯一原因，是它无法在同一次执行中自证“自己的结果已写入 /api/v1/results”；该缺口已由 controller 侧回读补齐，因此本 step 以 completed 收口。

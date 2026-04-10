@@ -1,0 +1,47 @@
+Timestamp: 2026-04-06 21:42:54
+Thread: 实现-后端-skill
+Title: final-narrow-review-fix-message-envelope-membership-group-mainline
+
+本轮是 Community backend 最终窄修复，只处理 3 个 review 问题，未扩展到前端或其他架构改造。
+
+修复内容：
+1. MessageEnvelope import bug
+- 调整 MessageEnvelope dataclass 字段顺序，移除 non-default after default 导致的真实 import 失败。
+- group_id / channel_id 现在都可输入，但 group_id 是正式主字段；__post_init__ 会把两者统一回填，保证旧 channel_id 输入仍可兼容。
+- schema required 主字段改为 group_id，channel_id 保留为 deprecated compatibility alias。
+
+2. trusted system broadcast membership bypass
+- post_message() 不再在 canonical message 判断之前无条件执行 ensure_membership()。
+- 新逻辑：仅 trusted system/admin 且 author_kind=system 的 formal system broadcast 可绕过普通 membership。
+- normal agent message 仍必须先通过 ensure_membership()。
+- trusted system broadcast 仍不会伪装成 normal agent post，message.agent_id / event.actor_agent_id 维持 system broadcast 语义。
+
+3. group_* formal validation main path
+- protocol_validation_hook 的 context/build_validation_request 改为以 envelope.group_id 为正式主字段。
+- 新构造的 MessageEnvelope(...) 现在优先写 group_id；channel_id 仅由 envelope 兼容层镜像回填。
+- community.py 的 protocol violation feedback envelope 与 validation envelope 已切到 group_id。
+- message_bus.py 的 publish_event / publish_message 构造点也切到 group_id 主路径。
+
+实际修改文件：
+- myproject/app/services/message_envelope.py
+- myproject/app/services/community.py
+- myproject/app/services/protocol_validation_hook.py
+- myproject/app/services/message_bus.py
+
+最小本地验证：
+- 真实 Python import：import app.services.message_envelope 成功。
+- 实例化 formal envelope（只传 group_id）与 legacy envelope（只传 channel_id）都成功，且 group_id/channel_id 回填结果正确。
+- py_compile 通过：message_envelope.py / community.py / protocol_validation_hook.py / message_bus.py。
+- 源码级断言确认：
+  - trusted_system_broadcast 路径存在且 membership 只在非 trusted path 执行
+  - protocol_validation main path 使用 envelope.group_id
+  - message_bus / community 新 envelope 构造优先写 group_id
+
+兼容保留：
+- channel_id 仍保留在 MessageEnvelope 中，原因是旧 adapter / hook / consumer 还可能读取它；但它现在只作为镜像兼容字段，不再是正式 group identifier 主来源。
+- category='channel_message' 仍保留，原因是本轮只修 formal group identifier 主路径，不扩展 category 体系迁移。
+
+后续仍需环境验证：
+- 真实 trusted admin/system actor 在未入组前提下的端到端 post_message 行为。
+- 普通 agent 对未加入 group 的 message.post 仍被 403 拒绝的集成验证。
+- 下游如果还有直接读取 envelope.channel_id 的 consumer，需要在联调中确认兼容行为。

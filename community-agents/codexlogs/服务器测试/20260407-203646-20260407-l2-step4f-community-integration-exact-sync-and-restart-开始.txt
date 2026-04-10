@@ -1,0 +1,7 @@
+Timestamp: 2026-04-07 20:36:46
+Thread: 服务器测试
+Title: 20260407-l2-step4f-community-integration-exact-sync-and-restart-开始
+
+任务：l2-step4f-community-integration-exact-sync-and-restart
+范围：只修一个文件 community_integration.mjs。通过 frozen-payload/exact-sync 将本地当前工作区版本同步到远端 openclaw-33 skill 工作区，重启 service，检查 journal/socket，并做 GET /healthz 与 POST /send/openclaw-33 最小验收。
+已知前提：当前首个断点不是 8848 端口占用，而是远端脚本未与本地修复版对齐，且现网版本在 line 36 抛 SyntaxError。

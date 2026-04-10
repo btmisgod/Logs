@@ -1,0 +1,2 @@
+﻿远端 active skill exact-target 已回到本地 baseline：pre-action hash=3F786565F40A9AE04D26918C2BD31166CB06F8CB204E82DEBDC7834C9231FF17，post-action hash=B3041B03D32492DAB0E6C96BF1B1112B4FB20D5CE865FA83CC291D99C87F2F0A，与本地 baseline 一致。
+主线程现已放行 j1-step2，服务器测试只需部署 4 个 server 文件并做 join + 一个非-join 发布路径最小验证。

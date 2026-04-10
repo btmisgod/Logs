@@ -1,0 +1,22 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step3-community-v2-mainline-minimal-live-acceptance",
+    "step_title":  "Community v2 主线最小 live 验收",
+    "step_type":  "server-validation",
+    "task_status":  "blocked",
+    "summary":  "{\"current_checkpoint\":\"broadcast_runtime_passed_before_worker_submission\",\"passed_points\":[\"baseline_protocol_and_session_recovered\",\"trusted_system_broadcast_observe_only_proved\"],\"failed_point\":\"worker_status_submission\",\"server_facts\":{\"group_id\":\"54b12c32-dbd3-46d8-97ee-22bf8a499709\",\"group_slug\":\"public-lobby\",\"execution_spec_id\":\"bootstrap-test-execution-spec-v1\",\"workflow_id\":\"bootstrap-workflow-v1\",\"current_stage\":\"step1\",\"observed_statuses\":[],\"gate_snapshot\":{\"current_stage\":null,\"satisfied_gates\":null,\"advanced_from\":null,\"advanced_to\":null,\"advanced_at\":null,\"raw\":{\"step0.ready\":true}},\"role_directory\":{\"manager_agent_ids\":[],\"worker_agent_ids\":[]},\"broadcast\":{\"sequence_id\":54018,\"message_id\":\"9a7f9fd2-6250-4080-9551-1654b7496bab\",\"event_type\":\"broadcast.delivered\",\"source\":\"live-trusted-broadcast-ingress-probe\"},\"broadcast_runtime_proof\":{\"no_new_automatic_action_events_after_broadcast\":true,\"events_after_broadcast\":[\"broadcast.delivered\",\"group_session.updated\"],\"no_automatic_agent_reply\":true,\"skill_judgment_records\":[{\"actor\":\"neko\",\"obligation\":\"observe_only\",\"recommendation_mode\":\"observe_only\",\"observed\":true},{\"actor\":\"xhs\",\"obligation\":\"observe_only\",\"recommendation_mode\":\"observe_only\",\"observed\":true}]},\"legal_actor_state\":{\"worker_33_agent_id\":\"b8beedf6-3540-4cf1-b22d-1dd6f5633b3a\",\"worker_xhs_agent_id\":\"e1fb40b4-80b9-4baa-b740-cb5aa51fdee5\",\"manager_neko_agent_id\":\"54f1cbf0-c8f4-4707-a85f-30e461c3e9e8\"}},\"first_breakpoint\":\"live worker path for 33 is unavailable: POST http://127.0.0.1:8848/send/openclaw-33 returned 502 upstream_unavailable with ENOENT on /root/.openclaw/community-ingress/sockets/openclaw-33-443c3db99818.sock; direct POST /api/v1/messages with legal worker tokens is rejected by the live server with skill_channel_required, so the required legal worker submission path is blocked before observed_statuses can grow.\",\"completed\":false}",
+    "blocker":  "live worker path for 33 is unavailable: POST http://127.0.0.1:8848/send/openclaw-33 returned 502 upstream_unavailable with ENOENT on /root/.openclaw/community-ingress/sockets/openclaw-33-443c3db99818.sock; direct POST /api/v1/messages with legal worker tokens is rejected by the live server with skill_channel_required, so the required legal worker submission path is blocked before observed_statuses can grow.",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "GET /api/v1/groups/by-slug/public-lobby/protocol",
+                  "GET /api/v1/groups/by-slug/public-lobby/session",
+                  "broadcast observe_only proof from events and skill judgment records"
+              ],
+    "executed_at":  "2026-04-07T11:00:11.2543552Z"
+}

@@ -1,0 +1,13 @@
+Timestamp: 2026-04-08 16:50:49
+Thread: 服务器测试
+Title: step0-target-group-protocol-ensure-差异修复结果
+
+本轮只比较 33 与 xhs/neko 的 channel 路径，并按最小部署修复处理。
+第一处差异已确认落在 skill 运行文件版本/哈希：33 实际运行的是已验证 baseline community_integration.mjs（SHA256=6CC82FC572D484022C665C29A223B9E2B62E4FB87F4AD38E09AB01849FF5CFB1），xhs/neko 实际运行路径下是旧 bundle，缺少 X-Community-Skill-Channel 关键逻辑。
+已将 33 的 baseline community_integration.mjs 同步到：
+- /root/openclaw-xhs/workspace/skills/CommunityIntegrationSkill/scripts/community_integration.mjs
+- /root/.openclaw/workspace/skills/CommunityIntegrationSkill/scripts/community_integration.mjs
+同步后两端 SHA256 都已对齐到 6CC82FC572D484022C665C29A223B9E2B62E4FB87F4AD38E09AB01849FF5CFB1。
+但重启 xhs/neko service 后，新的第一处断点前移到服务启动阶段：journal 决定性错误为 Request failed for /agents: agent name already exists。
+因此 xhs/neko 当前状态变为：service=activating(auto-restart), socket 不存在, /send 返回 502 upstream_unavailable (ENOENT socket)。
+这说明 422 已不是当前第一断点；当前第一断点是 xhs/neko 的 agent 启动状态/注册状态损坏。

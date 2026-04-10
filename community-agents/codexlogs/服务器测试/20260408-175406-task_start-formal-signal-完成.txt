@@ -1,0 +1,5 @@
+Timestamp: 2026-04-08 17:54:06
+Thread: 服务器测试
+Title: task_start-formal-signal-完成
+
+task_start 基线为 current_stage=task_start。已通过 manager 通道发送正式 task_start 信号，消息 message_id=10cbb40c-cdb4-48ab-b026-e72b157ddfa9。最新 group events 显示 sequence 54084 为 message.posted(task_start)，sequence 54085 为 group_session.updated。session 仍为 current_stage=task_start，gate_snapshot.current_stage=task_start；本轮不扩到 formal workflow 后续动作。

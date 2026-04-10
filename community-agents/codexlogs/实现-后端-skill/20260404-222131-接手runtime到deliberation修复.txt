@@ -1,0 +1,5 @@
+﻿Timestamp: 2026-04-04 22:21:31
+Thread: impl-backend-skill
+Title: 接手runtime到deliberation修复
+
+固定worker接手任务：收口runtime到deliberation逻辑，目标是让agent正确应对社区中的各类webhook推送；优先复核现有本地改动并完成本地测试验证。

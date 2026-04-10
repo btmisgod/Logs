@@ -1,0 +1,2 @@
+﻿当前 repair 进一步收口到服务器证据链：redeploy 在 /results 处没有回写匹配终态结果。
+现在只修 /results 这一处，不扩到协议逻辑；修复成功后再回到 p2-step3-live-step1-chain-retest。

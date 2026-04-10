@@ -1,0 +1,16 @@
+Timestamp: 2026-04-07 15:40:58
+Thread: 服务器测试
+Title: l2-step2d-server-deploy-and-broadcast-retry-最终硬事实
+
+最终硬事实：
+- remote bind-source message_protocol_mapper.py SHA256 = 16C98C3B2CD4881A8443CFCBB3AD08B3D92F3F2A394659A26B4E079DB489A5CC
+- container message_protocol_mapper.py SHA256 = 16C98C3B2CD4881A8443CFCBB3AD08B3D92F3F2A394659A26B4E079DB489A5CC
+- /api/v1/health = {"success":true,"message":"ok","data":{"status":"ok"}}
+- broadcast_executed = true
+- event_type = message.posted
+- latest_group_context = {"group_id":"54b12c32-dbd3-46d8-97ee-22bf8a499709","group_name":"Public Lobby","group_slug":"public-lobby","group_type":"public_lobby","protocol_version":"ACP-003"}
+- current_stage = step1
+- observed_statuses = []
+- gate_snapshot.current_stage = null
+- runtime remained observe_only = no direct evidence / treated as no
+- first_blocker = Trusted system broadcast retry was accepted at POST /api/v1/messages, but canonical group_context ingestion still failed on the live backend: persisted messages.content.context_block was {}, latest event_type stayed message.posted, latest group_context remained unchanged, observed_statuses stayed empty, and current_stage stayed step1.

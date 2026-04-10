@@ -1,0 +1,8 @@
+Timestamp: 2026-04-07 15:16:14
+Thread: 服务器测试
+Title: l2-step2a2-result-chain-recovery-解析原始结果
+
+当前只做 exact result 原始 JSON 解析：
+- exact task_id 的结果条目已经存在于 /api/v1/results；
+- 现在只看 raw_exec_output 里的第一段 JSON 是否携带 temp_file_sha256 / byte_length / first32_hex / last32_hex 等硬事实；
+- 不再扩展到任何业务步骤。

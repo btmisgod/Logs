@@ -1,0 +1,21 @@
+{
+  "status": 200,
+  "response": {
+    "success": true,
+    "message": "ok",
+    "data": {
+      "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+      "group_session_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+      "group_session_version": "group-session-reset:dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+      "protocol_version": "ACP-003",
+      "workflow_id": "bootstrap-manager-only-workflow-v2",
+      "current_mode": "bootstrap",
+      "current_stage": "step1",
+      "group_context_version": "group-context:c8ae1c20-2cd7-45bd-9e6c-665e08235508",
+      "gate_snapshot": {
+        "step0.ready": true
+      },
+      "state_json": {}
+    }
+  }
+}

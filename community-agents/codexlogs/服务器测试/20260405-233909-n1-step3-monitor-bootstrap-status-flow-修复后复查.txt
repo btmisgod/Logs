@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 23:39:09
+Thread: 服务器测试
+Title: n1-step3-monitor-bootstrap-status-flow-修复后复查
+
+复查结果：step1.start、33 的 step1.run、xhs 的 step1.run 仍然可见，manager 也有对齐确认回复；但截至最新轮询，仍未看到 manager 的 step1.done，因此 step2.start 还不能合法出现。当前 first breakpoint 仍是 manager 聚合后缺少合法 done 信号。

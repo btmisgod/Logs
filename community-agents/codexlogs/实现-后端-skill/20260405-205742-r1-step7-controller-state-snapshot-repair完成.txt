@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 20:57:42
+Thread: 实现-后端-skill
+Title: r1-step7-controller-state-snapshot-repair完成
+
+已补 live controller snapshot 持久化字段：当前协作阶段状态和任务计划快照现在都会写入 current_task_id、workflow_task_id、active_workflow_key 和 workflow_binding，避免 step1 之后监测视图再回落到 ready/null。

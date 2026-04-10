@@ -1,0 +1,53 @@
+{
+    "thread":  "实现-后端-skill",
+    "task_id":  "community-v2-architecture-grounding",
+    "step_id":  "c2-step2-to-step7-main-trunk-grounding",
+    "status":  "completed",
+    "executed_at":  "2026-04-06T11:54:57.8970916Z",
+    "changed_files":  [
+                          "G:\\community agnts\\community agents\\myproject\\app\\models\\enums.py",
+                          "G:\\community agnts\\community agents\\myproject\\app\\schemas\\messages.py",
+                          "G:\\community agnts\\community agents\\myproject\\app\\services\\message_protocol_mapper.py",
+                          "G:\\community agnts\\community agents\\myproject\\app\\schemas\\sync.py",
+                          "G:\\community agnts\\community agents\\myproject\\app\\services\\group_session.py",
+                          "G:\\community agnts\\community agents\\myproject\\app\\services\\community.py",
+                          "G:\\community agnts\\community agents\\myproject\\app\\api\\v1\\endpoints\\agents.py",
+                          "G:\\community agnts\\community agents\\myproject\\app\\api\\v1\\endpoints\\groups.py",
+                          "G:\\community agnts\\community agents\\myproject\\app\\schemas\\projection.py",
+                          "G:\\community agnts\\community agents\\myproject\\app\\projectors\\web.py",
+                          "G:\\community agnts\\community agents\\community-skill\\assets\\community-runtime-v0.mjs",
+                          "G:\\community agnts\\community agents\\community-skill\\scripts\\community_integration.mjs"
+                      ],
+    "grounded_design_points":  [
+                                   "统一消息基型主干补强：message canonical 输出显式 author_kind，正式 flow_type 收口为 start/run/result，status 仅保留兼容映射。",
+                                   "Community Server 主干继续承担 message receive/validate/normalize/persist；broadcast 被明确为 author_kind=system 的无作者 group context 输入。",
+                                   "Event 投递契约补强：publishable projection 现在显式携带 occurred_at / delivery_scope / message。",
+                                   "GroupSession 作为正式群级事实落地：新增 group_session service，持久化在 group.metadata_json 的 community_v2 区域，提供 declaration/view/event payload。",
+                                   "session/sync 最小契约落地：新增 AgentSessionSyncRequest/Response schema 与 /agents/me/session/sync 端点，返回 group_session_declarations 与 group_context_updates。",
+                                   "群接口补充 /groups/{id}/session 与 by-slug session 读取入口。",
+                                   "Runtime 瘦身：community-runtime-v0.mjs 只保留 deliverable event 识别、signals、obligation、recommendation，不做 workflow progression、不做最终 action。",
+                                   "Skill 瘦身：community_integration.mjs 只保留 onboarding / webhook base setup / session sync / manual send / judgment-only event receive，不再做自动 deliberation 与自动回发。",
+                                   "sender receipt / canonicalization / debug 被隔离为 non-intake，不进入 runtime 正式输入。"
+                               ],
+    "temporary_compatibility_retained":  [
+                                             "FlowType.STATUS 仍保留在 enums.py 中，但明确标注为 deprecated compatibility alias；mapper 会把 status 收敛为 run。",
+                                             "channel_context 旧字段未全仓删除；mapper 仍可读兼容，groups.py 仍保留 legacy channel-context 读取端点，integration 仍导出 loadChannelContext 兼容别名。",
+                                             "Task / task endpoints 与 task-centered helper 仍在 community.py 中保留，尚未进入本轮删除；它们不再属于当前 formal main trunk。",
+                                             "message_envelope.py、protocol_context_assembler.py 等旧兼容文件本轮未清理，只是被主干绕开。"
+                                         ],
+    "local_verification":  [
+                               "Node 验证 1：runtime targeted message -\u003e required + needs_agent_judgment；integration.receiveCommunityEvent -\u003e judgment_only，且不再自动 posted。",
+                               "Node 验证 2：message.accepted -\u003e non_intake=true，确认 receipt/debug 不进入 runtime 正式 intake。",
+                               "Node 验证 3：broadcast.delivered(author_kind=system) -\u003e category=group_context / observe_only；group_session.updated -\u003e category=group_session_update / observe_only。",
+                               "Python 验证 1：直接运行 message_protocol_mapper.py，确认 flow_type=status 被收敛到 run，author_kind=system 与 context_block.group_context 可透传。",
+                               "Python 验证 2：对改动过的 9 个 server Python 文件执行 py_compile 语法编译通过。",
+                               "说明：尝试做 ORM 级行为验证时，本地 shell 缺少 sqlalchemy 依赖，因此没有做更深的 DB 级运行验证。"
+                           ],
+    "review_risks_for_main_thread":  [
+                                         "GroupSession 当前落在 group.metadata_json.community_v2，而不是独立数据库表；这满足本轮最小 formal fact grounding，但主线程需要决定是否在 server validation 前推进独立持久化模型/迁移。",
+                                         "task-centered 旧 helper 仍在 community.py 共存，虽然已不属于 main trunk，但后续如果某些入口仍调用它们，可能继续泄露旧语义。",
+                                         "runtime/skill 已退出自动热路径，但 CLI/外部 worker 若仍假设 webhook 会自动 deliberation + auto-send，需要主线程同步行为变更。",
+                                         "channel_* 仍有兼容读口与旧端点共存，后续 server validation 前需要确认是否允许继续暴露这些只读别名。",
+                                         "本轮没有做真实 server startup / DB migration / webhook roundtrip 验证，主线程在服务器验证前应先确认迁移策略与现有数据库兼容性。"
+                                     ]
+}

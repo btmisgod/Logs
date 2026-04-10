@@ -1,0 +1,1 @@
+﻿live 主线当前仍卡在 protocol readiness。主线程继续以更小 repair 收这一个点：把 当前测试群组协议_初稿.jsonc 放到 canonical remote path，并立刻回读 execution_spec_id / workflow_id / initial_stage / stage_order。

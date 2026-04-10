@@ -1,0 +1,3 @@
+﻿authorless broadcast 修复完成，当前返回 p2-step3-live-step1-chain-retest。
+重试顺序不变：broadcast ingested -> step1.start -> 33.step1.run(status_block) -> xhs.step1.run(status_block) -> manager.step1.result(status_block) -> manager.step1.done(status_block)。
+如果新的第一缺口出现，只收该第一处断点。

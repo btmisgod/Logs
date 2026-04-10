@@ -1,0 +1,27 @@
+Timestamp: 2026-04-05 18:56:54
+Thread: 主线程
+Title: repair-flow-blocker-counter-规则落地完成
+
+目标:
+把协作主控从旧的 repair_tracker 语义改成三层计数语义：step 新 blocker 数、单一 blocker 的 narrow/fix 数、单一 blocker 的 replan 数；并让超限时进入正确的 blocker-targeted repair flow，而不是直接停机。
+
+改动:
+1. 修改 remote_codex_architect_loop.py：新增 step/blocker/replan 计数与阈值读取；repair_tracker 现在保留 root_step_id、known_signatures、step_new_blocker_count、design_review_required 等状态。
+2. 新增逻辑：同一 root step 超过 3 个新 blocker 时，下一次 repair flow 自动要求回看设计文档；超过 5 个新 blocker 时停止。
+3. 新增逻辑：同一 blocker 超过 5 次 narrow 或超过 3 次 fix/verify 时，不再继续原循环，而是自动触发 blocker replan repair flow；同一 blocker 第 4 次 replan 需求会被终止。
+4. 修改 prompt / task plan template / skill / main-thread usage / local workflow 文档，使主控线程与本地 worker 使用同一套次数语义。
+5. 保留原有 repair_success_mode 两条路径：retry_original_step 与 complete_original_and_continue。
+
+验证:
+1. python -m py_compile 通过。
+2. selftest_recoverable_blocker_workflow.ps1 在 retry_original_step 模式通过。
+3. selftest_recoverable_blocker_workflow.ps1 在 complete_original_and_continue 模式通过。
+4. selftest_blocker_policy_limits.ps1 通过，证明：
+   - 第 4 个新 blocker 会触发 design-doc recheck repair 要求
+   - 第 6 个新 blocker 会停止
+   - 第 6 次 narrow 会自动转 blocker replan
+   - 第 4 次 fix 会自动转 blocker replan
+   - 同一 blocker 第 4 次 replan 需求会停止
+
+blocker:
+当前没有阻塞本次协作框架修复验收的 blocker。

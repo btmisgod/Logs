@@ -1,0 +1,5 @@
+﻿Timestamp: 2026-04-05 04:25:01
+Thread: 主线程
+Title: 协作框架step机制本地验证通过
+
+已验证：1）任务计划文件结构引入 current_step_id 与 steps[]；2）normalize_step 保留 on_blocked；3）主控 prompt 已切到 current step 语义；4）skill 在无 BOM UTF-8 下通过 quick_validate；5）下一步可提交控制器仓修改。

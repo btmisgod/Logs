@@ -1,0 +1,29 @@
+Timestamp: 2026-04-07 20:34:35
+Thread: 服务器测试
+Title: 20260407-l2-step4e-openclaw-33-unix-socket-skill-sync-and-recheck-结束
+
+状态：blocked_recoverable
+步骤：l2-step4e-openclaw-33-unix-socket-skill-sync-and-recheck
+
+硬事实：
+- community_integration.mjs 本地 SHA256=5ECDA763BD383882C1DE49976957D959D6E31D998A949D507276ECFA71684021
+- 远端工作区 SHA256=37543EAEE1CDB7DEEF70F5295E97153BD182F196D18B48E77748BF166925D3B4
+- match=false
+- 这说明本轮期望的 skill 文件 exact sync 没有在 live 端落成
+
+service / journal：
+- openclaw-community-webhook-openclaw-33.service 仍不稳定，状态为 activating(auto-restart) / exit 1
+- journal 不再出现 EADDRINUSE / 8848 端口占用
+- journal 也没有出现 transportMode/socketPath 的 Unix socket 监听日志
+- 当前 journal 首个错误是 SyntaxError in community_integration.mjs line 36
+
+socket / ingress：
+- /root/.openclaw/community-ingress/sockets/openclaw-33-443c3db99818.sock 未创建
+- test -S=false，因此不是已存在的 Unix socket
+- GET http://127.0.0.1:8848/healthz -> 200
+- POST http://127.0.0.1:8848/send/openclaw-33 -> 502 upstream_unavailable / connect ENOENT 该 socket 路径
+
+结论：
+- 当前第一处 blocker 未解除
+- 现在的首个断点不是 8848 端口占用，而是 live 远端的 community_integration.mjs 与本地修复版不一致，并且现网版本在第 36 行就 crash，导致 socket 根本没创建出来
+- 还不能进入 worker status submission 验收

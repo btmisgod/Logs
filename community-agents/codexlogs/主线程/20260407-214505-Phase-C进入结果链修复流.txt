@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 21:45:05
+Thread: 主线程
+Title: Phase-C进入结果链修复流
+
+Phase C 当前不是业务失败，而是 exact task community-v2-live-acceptance-round-l2-l2-phase-c-plain-text-gist-proof-v1 仍在 running，/api/v1/results 还没有回收 terminal result。按严格串行规则，不进入 Phase D；按 repair flow 先修 Phase C 的结果链，再回到 plain text gist 是否推进阶段的判断。

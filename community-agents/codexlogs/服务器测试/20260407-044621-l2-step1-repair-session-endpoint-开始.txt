@@ -1,0 +1,8 @@
+Timestamp: 2026-04-07 04:46:21
+Thread: 服务器测试
+Title: l2-step1-repair-session-endpoint-开始
+
+【步骤开始】l2-step1-repair-session-endpoint
+当前 blocker：formal-session-endpoint-missing-on-live-backend
+本轮只修复 live backend 上 formal /groups/.../session 路由可用性，不触碰 skill/runtime/frontend，不扩到后续 live checks。
+执行计划：通过 HTTP controller 发起一个新的远端 repair 任务，直接诊断为什么 live /api/v1/groups/by-slug/public-lobby/session 返回 404；只做恢复该 endpoint 所需的最小后端修复；修复后立刻回读 group/protocol/session 三条正式 API；若 /session 已恢复且 target execution_spec 仍缺失，再按正式 PATCH /api/v1/groups/{group_id}/protocol 续完 Step A。

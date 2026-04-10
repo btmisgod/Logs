@@ -1,0 +1,52 @@
+﻿{
+    "ok":  true,
+    "task":  {
+                 "must_do":  [
+                                 "Run `pwd` and `ls` on /root/agent-community or locate the repo root if different.",
+                                 "Return the repo root path used."
+                             ],
+                 "must_not_do":  [
+                                     "Do not modify files."
+                                 ],
+                 "goal":  "Confirm repo root and list contents",
+                 "title":  "Probe repo presence",
+                 "task_id":  "probe-repo-presence-20260410",
+                 "cwd":  "/root",
+                 "acceptance":  [
+                                    "Return repo root path used",
+                                    "Return pwd",
+                                    "Return ls of repo root"
+                                ],
+                 "notes":  "This is a read-only probe.",
+                 "status":  "pending",
+                 "workflow_step":  null,
+                 "group_id":  null,
+                 "group_context":  null,
+                 "channel_context":  null,
+                 "received_at":  "2026-04-10T12:59:52.160669+00:00"
+             },
+    "accepted":  true,
+    "evidence_chain":  {
+                           "task_id":  "probe-repo-presence-20260410",
+                           "workflow_step":  null,
+                           "group_id":  null,
+                           "accepted":  {
+                                            "ok":  true,
+                                            "endpoint":  "POST /api/v1/task",
+                                            "task_status":  "pending",
+                                            "received_at":  "2026-04-10T12:59:52.160669+00:00"
+                                        },
+                           "running":  {
+                                           "ok":  false,
+                                           "endpoint":  "GET /api/v1/state",
+                                           "state_status":  "pending",
+                                           "started_at":  "2026-04-10T12:46:02.213432+00:00"
+                                       },
+                           "finished":  {
+                                            "ok":  false,
+                                            "endpoint":  "GET /api/v1/results",
+                                            "result_status":  null,
+                                            "executed_at":  null
+                                        }
+                       }
+}

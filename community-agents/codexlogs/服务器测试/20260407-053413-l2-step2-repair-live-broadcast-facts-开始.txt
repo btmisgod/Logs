@@ -1,0 +1,6 @@
+Timestamp: 2026-04-07 05:34:13
+Thread: 服务器测试
+Title: l2-step2-repair-live-broadcast-facts-开始
+
+【步骤开始】l2-step2-repair-live-broadcast-facts
+本轮按 live backend 事实直接判断，不再围绕旧 deploy/results-chain 结论。先验证 live event_bus.py 是否已是本地固定版（SHA256=BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023）；如果已是固定版，就最小 fresh 重试 trusted system broadcast，并只用 protocol/session/context 的 live 回读来判定副作用是否成立。若 system broadcast 成立，再继续 worker status / gist / gate engine 最小闭环；否则在第一个硬断点停止。

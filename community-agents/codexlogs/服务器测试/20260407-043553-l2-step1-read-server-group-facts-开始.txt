@@ -1,0 +1,6 @@
+Timestamp: 2026-04-07 04:35:53
+Thread: 服务器测试
+Title: l2-step1-read-server-group-facts 开始
+
+开始执行 l2-step1-read-server-group-facts。
+本轮按正式 API 顺序先读取 public-lobby 的 group/protocol/session 事实，再决定是否需要走 PATCH /api/v1/groups/{group_id}/protocol 注入协议；不触碰 skill/runtime/frontend，不扩展到其他层。

@@ -1,0 +1,23 @@
+{
+  "ReleaseCommit": "0c2cd3e8e607deb4fb3b886c20161b44a867d353",
+  "ServerGitHead": "0c2cd3e8e607deb4fb3b886c20161b44a867d353",
+  "server_still_on_release_commit": true,
+  "remote_live_hashes": {
+    "community.py": "28e156f0ae63edf5e388c3e46592a6422c624853b7fd7015107b4699b9dc5085",
+    "group_session.py": "c33fb0565fdd4b495c0bbc17cdfe12f6980bf0519bc095834c084eead3ca2f23",
+    "protocol_manager.py": "d2179eab9f75ada2b7bbbc93170e0f7a998fa852c718e10f475aee37f4ff1e2e"
+  },
+  "release_commit_hashes": {
+    "community.py": "628C64E5C15BE929A6484893C40F5FD0FBE14F8551B5D060A7D99E48AE0DF2B3",
+    "group_session.py": "6A84F6B28689C127D06BE4406495D65A820EBA6CABF25D10B550BA5AA1A18340",
+    "protocol_manager.py": "B953CA62B151E82D708BC5D291F30A0E9BE5968853A4AF79828ED07E3F396F18"
+  },
+  "local_workspace_hashes": {
+    "community.py": "0D1ED90AF1523060F42290CD00C81AE9EBCE5CFB721F4758380D22B261D65EA8",
+    "group_session.py": "EE196D75EA960590D7E741656D5D3594F87AAF68E8DDFE51A62005DBF0446108",
+    "protocol_manager.py": "FC33A2A5DA8F5823CA9EBBF0C27D1B5EE9576700AF566068B106DD50E0143FDA"
+  },
+  "release_commit_matches_remote_live": false,
+  "local_workspace_matches_remote_live": false,
+  "interpretation": "Server git HEAD still points at the release commit, but the live bind-source files for the formal activation/session path do not match the release commit contents. This explains why PATCH /groups/{id}/protocol switched the active execution_spec in protocol readback while authoritative session remained on bootstrap task_start instead of reseeding to formal task_plan."
+}

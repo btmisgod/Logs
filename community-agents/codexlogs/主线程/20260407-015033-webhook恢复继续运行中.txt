@@ -1,0 +1,1 @@
+﻿api 已健康，当前 webhook 恢复链仍在执行中。服务器测试 worker 已把问题继续收窄为 group state 恢复与 group join 恢复两个远端运维子步骤；暂未收到新的结构化终态结果。

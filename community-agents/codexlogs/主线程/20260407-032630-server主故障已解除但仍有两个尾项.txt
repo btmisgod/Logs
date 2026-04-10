@@ -1,0 +1,2 @@
+﻿当前 server-side 主故障已解除：GET /groups/by-slug/public-lobby=200、POST /join=200、api 日志中 MissingGreenlet 已消失。
+仍未完全收口的尾项有两个：1) remote event_bus.py 与 community.py 哈希尚未对齐到本地当前版本；2) 额外 non-join 事件发布路径尚未完成低副作用验证。

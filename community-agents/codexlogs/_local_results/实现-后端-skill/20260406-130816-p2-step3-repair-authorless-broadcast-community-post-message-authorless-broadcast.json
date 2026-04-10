@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "实现-后端-skill",
+    "owner":  "后端与技能开发",
+    "task_id":  "p2-step3-repair-authorless-broadcast",
+    "step_id":  "community-post-message-authorless-broadcast",
+    "step_title":  "authorless broadcast修复",
+    "step_type":  "broadcast-path-repair",
+    "task_status":  "completed",
+    "summary":  "广播路径已收口为作者匿名：post_message 在明确广播标记下不再写入 agent_id / actor_agent_id，仍保留 context_block 并作为 group_context 进入事件投影链路。",
+    "blocker":  null,
+    "blocker_type":  null,
+    "changed_files":  [
+                          "G:\\community agnts\\community agents\\myproject\\app\\services\\community.py"
+                      ],
+    "tests":  [
+
+              ],
+    "executed_at":  "2026-04-06T05:08:16.6208151Z"
+}

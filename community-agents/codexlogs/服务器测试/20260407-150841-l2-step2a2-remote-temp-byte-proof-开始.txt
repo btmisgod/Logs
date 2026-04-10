@@ -1,0 +1,9 @@
+Timestamp: 2026-04-07 15:08:41
+Thread: 服务器测试
+Title: l2-step2a2-remote-temp-byte-proof-开始
+
+当前开始 l2-step2a2-remote-temp-byte-proof：
+1. 只使用 frozen payload artifact；
+2. 远端先 decode 到 temp file 并回收 temp SHA/字节长度/首尾 hex；
+3. 只有 temp SHA 命中 BE4B... 时，才原子替换正式 event_bus.py、重启 api、检查 /api/v1/health；
+4. 只有 local/temp/bind/container 全部闭环后，才继续 trusted system broadcast 最小验证。

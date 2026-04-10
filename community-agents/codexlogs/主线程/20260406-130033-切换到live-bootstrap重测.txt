@@ -1,0 +1,9 @@
+﻿服务器部署完成，当前进入带广播与 step0 的 live bootstrap 重测。
+本轮事件链检查顺序：
+1. broadcast ingested to group context
+2. step1.start
+3. 33.step1.run(status_block)
+4. xhs.step1.run(status_block)
+5. manager.step1.result(status_block)
+6. manager.step1.done(status_block)
+只有当 step1.done 真正出现后，才允许继续看 step2.start。

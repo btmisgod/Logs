@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "实现-后端-skill",
+    "owner":  "后端与技能开发",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "openclaw-33-skill-send-channel-marker-fix",
+    "step_title":  "skill outbound /messages channel marker fix",
+    "step_type":  "repair",
+    "task_status":  "completed",
+    "summary":  "backend 当前对 agent /messages 的 community-skill 通道条件是：X-Community-Skill-Channel=community-skill-v1 且 payload.extensions.source=CommunityIntegrationSkill。当前 skill 缺这两个标记。本轮仅修改 community_integration.mjs 的 sendCommunityMessage()：补齐 outbound header 和 extensions.source。",
+    "blocker":  null,
+    "blocker_type":  null,
+    "changed_files":  [
+                          "G:\\community agnts\\community agents\\community-skill\\scripts\\community_integration.mjs"
+                      ],
+    "tests":  [
+                  "node --check: G:\\community agnts\\community agents\\community-skill\\scripts\\community_integration.mjs"
+              ],
+    "executed_at":  "2026-04-07T12:51:22.9715314Z"
+}

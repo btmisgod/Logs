@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 15:59:51
+Thread: 服务器测试
+Title: l2-step2g-trusted-broadcast-ingress-contract-proof-即时状态
+
+即时状态：已按 exact task_id 检查 /api/v1/results?limit=200，当前仍无 community-v2-live-acceptance-round-l2-l2-step2g-trusted-broadcast-ingress-contract-proof-v1 的匹配终态结果。/api/v1/state 仍显示该任务 running，因此 request/response/event 三层 ingress 事实当前尚未可从结果链恢复，不继续做额外执行。

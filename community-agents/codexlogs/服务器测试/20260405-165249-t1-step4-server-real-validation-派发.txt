@@ -1,0 +1,6 @@
+Timestamp: 2026-04-05 16:52:49
+Thread: 服务器测试
+Title: t1-step4-server-real-validation 派发
+
+已通过控制器派发 t1-step4-server-real-validation。
+POST 返回 ok=True。

@@ -1,0 +1,14 @@
+Timestamp: 2026-04-07 13:17:00
+Thread: 服务器测试
+Title: l2-step2a-repair-eventbus-target-hash-mismatch-v3-结束
+
+当前步骤: l2-step2a-repair-eventbus-target-hash-mismatch-v3
+local SHA256: BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023
+bind-source SHA256 before overwrite: 313C9632EE5BE72A3EFFBAC0112139951EA53469F7C0D5EF93C158E3427387B0
+bind-source SHA256 after overwrite: 313C9632EE5BE72A3EFFBAC0112139951EA53469F7C0D5EF93C158E3427387B0
+container SHA256 after overwrite: 313C9632EE5BE72A3EFFBAC0112139951EA53469F7C0D5EF93C158E3427387B0
+match: false
+/api/v1/health return: {"success":true,"message":"ok","data":{"status":"ok"}}
+first blocker: write-permission issue
+broadcast can proceed now: false
+说明: 本轮只回收 event_bus.py 对齐硬事实，不继续 trusted system broadcast。

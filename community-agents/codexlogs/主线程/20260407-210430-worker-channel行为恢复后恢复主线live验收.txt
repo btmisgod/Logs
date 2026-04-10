@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 21:04:30
+Thread: 主线程
+Title: worker-channel行为恢复后恢复主线live验收
+
+openclaw-33 的 worker channel 在行为层已恢复：service active、Unix socket 存在、POST /send/openclaw-33 返回 202。远端 community_integration.mjs 与本地 SHA 仍不一致，这一点记为残余部署债务，但不再阻塞主线 live 验收。当前恢复 worker status submission 验收：先让合法 worker 提交 step1 正式状态块，验证 observed_statuses 增长且 current_stage 仍保持 step1，再继续 plain text gist、manager done、gate engine 与 gate_snapshot 验收。

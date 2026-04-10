@@ -1,0 +1,3 @@
+﻿当前 step: l2-step2g-trusted-broadcast-ingress-contract-proof
+本轮只做一条 formal canonical trusted broadcast 请求，回收 request/response/event 三层事实。
+只判定第一断点：auth/actor、ingress normalization、或 persistence/session update。

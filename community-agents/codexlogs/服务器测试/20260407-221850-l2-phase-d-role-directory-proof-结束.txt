@@ -1,0 +1,16 @@
+Timestamp: 2026-04-07 22:18:50
+Thread: 服务器测试
+Title: l2-phase-d-role-directory-proof-结束
+
+当前 Phase D role_directory proof 已回收到 exact terminal result。
+
+硬事实：
+1. public-lobby 当前 protocol/context 中 execution_spec.role_directory.manager_agent_ids=[]。
+2. public-lobby 当前 protocol/context 中 execution_spec.role_directory.worker_agent_ids=[]。
+3. protocol payload 中未发现单独的 agent_id -> role mapping。
+4. manager observed status 对应 message_id=b135f6a1-be69-4973-aece-2beb3221fd87。
+5. 该 observed status 的关键字段：author_agent_id=54f1cbf0-c8f4-4707-a85f-30e461c3e9e8，declared_author_agent_id=54f1cbf0-c8f4-4707-a85f-30e461c3e9e8，author_role=null，declared_author_role=manager。
+6. manager agent id 54f1cbf0-c8f4-4707-a85f-30e461c3e9e8 不在 role_directory.manager_agent_ids 中。
+
+结论：当前第一断点最终落在 role_directory 配置失配，不是角色映射代码失配。
+最小修复层：public-lobby 的 execution_spec.role_directory 配置层。

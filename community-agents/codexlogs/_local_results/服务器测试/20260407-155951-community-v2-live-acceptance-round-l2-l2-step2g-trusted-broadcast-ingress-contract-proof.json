@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step2g-trusted-broadcast-ingress-contract-proof",
+    "step_title":  "trusted broadcast ingress contract proof",
+    "step_type":  "live-ingress-proof",
+    "task_status":  "running",
+    "summary":  "已按 exact task_id 检查 /api/v1/results?limit=200，当前仍无 l2-step2g 终态结果；/api/v1/state 显示任务仍在 running，因此 request/response/event 三层 ingress 事实尚未可恢复。",
+    "blocker":  "当前首个可证实阻断是该步的终态 ingress 事实尚未出现在结果链中。",
+    "blocker_type":  null,
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+
+              ],
+    "executed_at":  "2026-04-07T07:59:51.9771561Z"
+}

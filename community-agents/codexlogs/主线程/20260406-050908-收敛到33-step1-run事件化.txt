@@ -1,0 +1,5 @@
+﻿当前 live retest 已确认：
+- 广播已进入 group context
+- step1.start 已出现
+首个缺失事件：33.step1.run(status)
+当前收口方向：只修 worker run 的最小状态事件输出一致性；在 33.step1.run(status) 合规出现前，不进入 xhs.run、manager.step1.result 或 step1.done。

@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-manager-only-bootstrap",
+    "step_id":  "step0-target-group-protocol-ensure",
+    "step_title":  null,
+    "step_type":  null,
+    "task_status":  "blocked",
+    "summary":  "target group protocol 已通过正式路径对齐到 manager-only 目标值，并已在 target group 上完成 direct handshake readout。33 已 ready；xhs 与 neko 的 session_sync/protocol/transport 均正常，但 channel 发送仍返回 400/422，因此 step0.handshake 尚未通过。",
+    "blocker":  "target group handshake direct readout shows xhs and neko channel_ok=false: POST /send/xhs and POST /send/openclaw both return 400 with downstream /messages 422",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+
+              ],
+    "executed_at":  "2026-04-08T08:42:58.8004984Z"
+}

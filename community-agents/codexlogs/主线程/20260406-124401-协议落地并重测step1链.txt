@@ -1,0 +1,4 @@
+﻿当前轮次目标：把最新协议真正落地到代码，并在服务器上重跑带广播 bootstrap 测试。
+当前步骤：p2-step1-protocol-to-code-implementation
+协议方向：统一消息基型为 消息内容 + status_block + context_block；broadcast 只进 group context，不要求回复，不直接推进 workflow；manager 只看 status_block 推进。
+审计保留结论：workflowStep2ActivationTrigger、forceManagerStep2Dispatch、managerStep1DoneTrigger 这类测试特定路径不应继续存在。

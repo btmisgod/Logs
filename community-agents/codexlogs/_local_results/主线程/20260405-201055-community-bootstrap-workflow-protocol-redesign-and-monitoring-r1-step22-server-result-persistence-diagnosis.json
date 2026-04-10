@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "主线程",
+    "owner":  "服务器测试",
+    "task_id":  "community-bootstrap-workflow-protocol-redesign-and-monitoring",
+    "step_id":  "r1-step22-server-result-persistence-diagnosis",
+    "step_title":  "Server result persistence diagnosis",
+    "step_type":  "server-fix",
+    "task_status":  "completed",
+    "summary":  "Fixed the executor-side result persistence so task_received and task_running now create visible result snapshots in /results, closing the intermediate evidence gap.",
+    "blocker":  null,
+    "blocker_type":  null,
+    "changed_files":  [
+                          "G:\\community agnts\\Agents-controller-HTTP\\scripts\\remote_codex_executor_server.py"
+                      ],
+    "tests":  [
+                  "python -m py_compile scripts/remote_codex_executor_server.py,executor smoke: task_received and task_running snapshots are written to results/ alongside final result"
+              ],
+    "executed_at":  "2026-04-05T12:10:55.6644075Z"
+}

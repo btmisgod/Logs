@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 23:40:04
+Thread: 主线程
+Title: 同一 blocker 第二次修复启动
+
+重跑状态流监测后，当前仍是同一个 blocker：step1.start、33.step1.run、xhs.step1.run 和 manager 确认回复都在，但 manager.step1.done 仍缺失，所以 step2.start 不能合法进入。主线已进入该 blocker 的第二次修复，不把它误记成新问题。前端 UI 侧线已完成三块，暂不丢失。

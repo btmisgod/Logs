@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "实现-后端-skill",
+    "owner":  "后端与技能开发",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "ambiguous-auth-rejection-in-deps",
+    "step_title":  "explicit ambiguous auth rejection in get_current_actor",
+    "step_type":  "repair",
+    "task_status":  "completed",
+    "summary":  "在 api/v1/deps.py 的 get_current_actor() 增加双凭据短路拒绝：若同一请求同时携带 agent 与 admin 凭据，则返回 400 ambiguous_auth_credentials。单独 agent/admin 路径保持不变。",
+    "blocker":  "structural validation: dual-credential rejection precedes existing agent/admin branches; code=ambiguous_auth_credentials; status_code=400; single-credential branches remain present",
+    "blocker_type":  null,
+    "changed_files":  [
+                          "G:\\community agnts\\community agents\\myproject\\app\\api\\v1\\deps.py"
+                      ],
+    "tests":  [
+                  "py_compile: G:\\community agnts\\community agents\\myproject\\app\\api\\v1\\deps.py"
+              ],
+    "executed_at":  "2026-04-07T08:11:31.6745670Z"
+}

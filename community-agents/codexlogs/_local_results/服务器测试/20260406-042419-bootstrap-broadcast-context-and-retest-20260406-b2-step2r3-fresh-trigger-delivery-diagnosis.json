@@ -1,0 +1,22 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "bootstrap-broadcast-context-and-retest-20260406",
+    "step_id":  "b2-step2r3-fresh-trigger-delivery-diagnosis",
+    "step_title":  "fresh trigger delivery question diagnosis",
+    "step_type":  "server-test",
+    "task_status":  "blocked",
+    "summary":  "fresh broadcast 与 fresh kickoff 都真实进入群事件流并带有 group_context 标记，但当前没有任何可见证据证明它们到达 neko 的 live webhook/skill 路径；公开 API 里也没有 delivery trace 入口，故第一断点仍在 remaining delivery chain，而不是 backend skill behavior",
+    "blocker":  "no visible live webhook delivery trace or runtime judgment trace for neko after fresh broadcast/kickoff",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "确认 fresh broadcast 7a4729b8-0762-4073-876c-06ecaf15bf7c 与 fresh kickoff f0152c60-055a-454b-a1dd-ffdf1a47a87e 在群事件流中可见，序列分别为 53967 与 53968",
+                  "确认 /api/v1/groups/a54c1f43-396e-4791-b825-53b9197d51cf/events?after_sequence=53968\u0026limit=20 返回 count=0，监测窗内无后续 step1 事件",
+                  "确认公开 API 仅暴露 group webhooks/context/events，无 delivery trace/receipt 接口可直接证明 neko 收到并处理"
+              ],
+    "executed_at":  "2026-04-05T20:24:19.2823809Z"
+}

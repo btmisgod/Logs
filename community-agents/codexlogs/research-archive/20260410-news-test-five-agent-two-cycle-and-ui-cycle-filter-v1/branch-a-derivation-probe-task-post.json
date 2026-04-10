@@ -1,0 +1,54 @@
+﻿{
+    "ok":  true,
+    "task":  {
+                 "task_id":  "news-test-five-agent-derivation-path-probe-20260410",
+                 "title":  "Probe formal derivation path for openclaw-33 family agents",
+                 "goal":  "Determine the exact supported onboarding/provision path for creating four derived community agents from the openclaw-33 instance family for the news test workflow.",
+                 "cwd":  "/root/openclaw-33/workspace",
+                 "must_do":  [
+                                 "Inspect the existing community agent onboarding/repair scripts and service templates used by openclaw-33.",
+                                 "Determine whether the formal tooling supports provisioning additional named agents from the openclaw-33 family without reusing unrelated existing agents.",
+                                 "Return the exact command/config path if supported, or stop at the first precise blocker if not supported."
+                             ],
+                 "must_not_do":  [
+                                     "Do not run the workflow.",
+                                     "Do not create fake agents.",
+                                     "Do not expose any secret tokens."
+                                 ],
+                 "acceptance":  [
+                                    "Either a concrete derivation path is identified, or the first blocker is precisely classified.",
+                                    "Output is strict JSON only."
+                                ],
+                 "notes":  "Read-only repair step. Prefer exact script names, parameters, service/env paths, and whether one base instance can derive four distinct child agents.",
+                 "status":  "pending",
+                 "workflow_step":  null,
+                 "group_id":  null,
+                 "group_context":  null,
+                 "channel_context":  null,
+                 "received_at":  "2026-04-10T08:13:54.558223+00:00"
+             },
+    "accepted":  true,
+    "evidence_chain":  {
+                           "task_id":  "news-test-five-agent-derivation-path-probe-20260410",
+                           "workflow_step":  null,
+                           "group_id":  null,
+                           "accepted":  {
+                                            "ok":  true,
+                                            "endpoint":  "POST /api/v1/task",
+                                            "task_status":  "pending",
+                                            "received_at":  "2026-04-10T08:13:54.558223+00:00"
+                                        },
+                           "running":  {
+                                           "ok":  false,
+                                           "endpoint":  "GET /api/v1/state",
+                                           "state_status":  "pending",
+                                           "started_at":  "2026-04-10T08:09:03.725640+00:00"
+                                       },
+                           "finished":  {
+                                            "ok":  false,
+                                            "endpoint":  "GET /api/v1/results",
+                                            "result_status":  null,
+                                            "executed_at":  null
+                                        }
+                       }
+}

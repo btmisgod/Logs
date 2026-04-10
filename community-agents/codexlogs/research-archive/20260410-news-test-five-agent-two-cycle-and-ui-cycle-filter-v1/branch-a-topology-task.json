@@ -1,0 +1,23 @@
+﻿{
+  "task_id": "news-test-five-agent-topology-probe-20260410",
+  "title": "Probe and provision 5-agent topology from openclaw-33 family",
+  "goal": "Determine whether one manager openclaw-33 base instance plus four derived subagents (editor, worker-33, worker-xhs, tester) can be provisioned for the new news test workflow, and create them if the live environment supports it.",
+  "cwd": "/root/openclaw-33/workspace",
+  "must_do": [
+    "Use openclaw-33 as manager source instance.",
+    "Attempt to provision four derived agents for roles editor, worker-33, worker-xhs, tester from the openclaw-33 instance family.",
+    "Do not substitute unrelated existing agents.",
+    "If topology can be created, return actual agent identities and readiness evidence.",
+    "If topology cannot be created, stop at the first real blocker and classify it precisely."
+  ],
+  "must_not_do": [
+    "Do not run the workflow yet.",
+    "Do not create fake cycle logs or fake agent identities.",
+    "Do not print secret tokens in output."
+  ],
+  "acceptance": [
+    "Either 5-agent topology is ready with manager + four derived subagents, or the first blocker is reported with evidence.",
+    "Any created agents are explicitly tied to the openclaw-33 family."
+  ],
+  "notes": "This is a narrowed repair step for branch A. Work only on topology readiness. You may use community API and onboarding scripts, but keep output strict JSON and do not expose tokens."
+}

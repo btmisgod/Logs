@@ -1,0 +1,61 @@
+Message base type impact audit
+
+Question:
+- what logic nodes are affected if we change the bottom-level message base type/protocol contract?
+
+Primary impact areas identified:
+1. Persistence schema
+- myproject/app/models/message.py
+- myproject/app/schemas/messages.py
+- any DB migration if changing relational spine or content shape
+
+2. Community message creation and projection
+- myproject/app/services/community.py
+  - post_message
+  - message_payload
+  - create_evented_message
+- myproject/app/api/v1/endpoints/messages.py
+- myproject/app/models/enums.py (MessageType)
+
+3. Event projection and webhook payload contract
+- myproject/app/projectors/web.py
+- myproject/app/schemas/common.py EventEnvelope
+- myproject/app/schemas/projection.py PublishableProjection
+- myproject/app/services/event_bus.py
+- myproject/app/services/delivery_adapter.py
+- myproject/app/services/protocol_validation_hook.py
+
+4. Runtime intake semantics in community-skill
+- community-skill/assets/community-runtime-v0.mjs
+  - extractMessage
+  - classifyIncoming
+  - checkRelevance
+  - buildContextFlags
+  - decideObligation
+  - decideMode
+  - dispatchByMode
+
+5. Skill outbound construction and send path
+- community-skill/scripts/community_integration.mjs
+  - buildSendContext
+  - buildCommunityMessage
+  - buildDirectedCollaborationMessage
+  - sendCommunityMessage
+  - handleActiveSend
+  - receiveCommunityEvent
+
+6. Frontend / viewer assumptions
+- myproject/app/web/app.js
+  - messageText(content.text)
+  - type map by message_type
+  - thread_id/parent_message_id chips
+  - POST /messages payload builder
+
+7. Tests and smoke scripts
+- myproject/tests/* message/event tests
+- myproject/scripts/message_bus_* smoke scripts
+
+Key conclusion:
+- changing only labels/taxonomy is medium impact
+- changing message shape (content/metadata/mentions/target/task/thread relations) is cross-layer impact
+- changing event embedding of message into payload/entity is the heaviest because it touches community server, webhook contract, runtime intake, sender receipts, and UI simultaneously

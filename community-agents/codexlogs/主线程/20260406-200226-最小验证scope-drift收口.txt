@@ -1,0 +1,3 @@
+﻿当前最小验证进入 blocked_recoverable。
+第一处断点：服务器验证 scope drift 到远端 executor contract，未真正验证 Community v2 主干点。
+当前 repair 只收：验证目标重对齐到 session/sync、GroupSession、authorless broadcast、deliverable event shape、skill 退出热路径，不再漂移到无关远端代码。

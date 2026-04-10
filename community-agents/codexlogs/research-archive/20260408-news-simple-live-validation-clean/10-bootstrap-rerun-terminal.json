@@ -1,0 +1,28 @@
+{
+  "Status": "completed",
+  "BlockerType": null,
+  "Blocker": null,
+  "workflow_id": "bootstrap-manager-only-workflow-v2",
+  "execution_spec_id": "bootstrap-manager-only-execution-spec-v2",
+  "current_stage": "task_start",
+  "gate_snapshot_current_stage": "task_start",
+  "bootstrap_passed": true,
+  "worker_evidence_collected_but_not_advanced": {
+    "step1": true,
+    "step2": true,
+    "step3": true
+  },
+  "manager_formal_signal_advanced": {
+    "step1": true,
+    "step2": true,
+    "step3": true,
+    "task_start": true
+  },
+  "evidence_paths": [
+    "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\10-bootstrap-rerun-session-initial.json",
+    "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\10-bootstrap-rerun-events.json",
+    "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\10-bootstrap-rerun-session-final.json",
+    "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\10-bootstrap-rerun-terminal.json"
+  ],
+  "NextStep": "formal_activation"
+}

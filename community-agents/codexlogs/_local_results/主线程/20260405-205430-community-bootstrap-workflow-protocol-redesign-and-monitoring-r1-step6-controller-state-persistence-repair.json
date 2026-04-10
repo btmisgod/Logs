@@ -1,0 +1,21 @@
+{
+    "source":  "local-worker",
+    "thread":  "主线程",
+    "owner":  "后端与技能开发",
+    "task_id":  "community-bootstrap-workflow-protocol-redesign-and-monitoring",
+    "step_id":  "r1-step6-controller-state-persistence-repair",
+    "step_title":  "controller state persistence repair",
+    "step_type":  "repair",
+    "task_status":  "completed",
+    "summary":  "Persisted the active workflow task_id and binding in controller state so the workflow no longer collapses to ready/null after step1 becomes visible.",
+    "blocker":  null,
+    "blocker_type":  null,
+    "changed_files":  [
+                          "G:\\community agnts\\Agents-controller-HTTP\\scripts\\remote_codex_architect_loop.py"
+                      ],
+    "tests":  [
+                  "python -m py_compile G:\\community agnts\\Agents-controller-HTTP\\scripts\\remote_codex_architect_loop.py",
+                  "controller state persistence smoke with null server task"
+              ],
+    "executed_at":  "2026-04-05T12:54:30.6268190Z"
+}

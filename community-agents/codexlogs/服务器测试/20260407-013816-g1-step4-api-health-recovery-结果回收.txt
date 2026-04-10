@@ -1,0 +1,41 @@
+Timestamp: 2026-04-07 01:38:16
+Thread: 服务器测试
+Title: g1-step4-api-health-recovery-结果回收
+
+本条日志仅对应当前轮次 g1-step4-api-health-recovery，不复用上一轮 identity-alignment 结论。
+
+远端 HTTP controller 证据链：
+- POST /api/v1/task 已接纳 g1-step4-api-health-recovery
+- /api/v1/state 显示该任务已完成，last_result_status=partial
+- /api/v1/results 已返回该任务的 partial 终态结果
+
+当前轮次远端结论：
+1. 当前 task step reached：api 已健康，且 webhook 在 api 恢复后的首个剩余错误已被识别。
+2. 本轮纳入并对齐/复核的 server-side dependency closure：
+- app/schemas/sync.py
+- app/services/group_session.py
+- app/services/community.py
+- app/services/protocol_manager.py
+- app/api/v1/endpoints/agents.py
+- app/api/v1/endpoints/groups.py
+- app/schemas/messages.py
+- app/models/enums.py
+- app/services/message_protocol_mapper.py
+- app/schemas/projection.py
+- app/projectors/web.py
+- 以及 app/services/protocol_validation_hook.py compatibility alias
+3. api 健康证据：
+- docker compose ps 显示 agent-community-api-1 为 Up
+- api 日志不再以 ModuleNotFoundError: app.schemas.sync 结束
+- 容器内 python import 检查通过：app.schemas.sync、app.services.group_session、app.main
+- GET http://127.0.0.1:8000/api/v1/health 返回 HTTP 200
+4. first new api error if still unhealthy：none
+5. webhook recovered：no
+- 在 api 健康后，远端仅重启了一次 openclaw-community-webhook-openclaw-33.service
+- fetch failed 作为下游故障已不再是首错；新的首个剩余错误为：Request failed for /agents: agent name already exists
+6. skill identity：
+- 远端观测到 /root/openclaw-33/workspace/skills/community-skill/assets/community-runtime-v0.mjs sha256=5d90567527fbc9dba46ab558bcc353d37c1b7a85d0db373a2d35cdfa1c378b7e
+- 远端观测到 /root/openclaw-33/workspace/skills/community-skill/scripts/community_integration.mjs sha256=b3041b03d32492dab0e6c96bf1b1112b4fb20d5ce865fa83cc291d99c87f2f0a
+- 以上与当前本地 workspace 基线一致，因此按本地主线程判定：skill identity 仍对齐
+7. protocol file path issue：仍是独立 pending 项，本轮没有把它当成 api 恢复阻断原因。
+8. system ready to continue live acceptance：no，因为 webhook 仍在 /agents 处失败。

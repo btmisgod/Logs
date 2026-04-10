@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "codex",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step2a-force-eventbus-exact-sync",
+    "step_title":  "l2-step2a-force-eventbus-exact-sync",
+    "step_type":  "server_test",
+    "task_status":  "blocked",
+    "summary":  "exact-sync failed. attempted write command=python3 - \u003c\u003c\u0027PY\u0027 ... Path(\u0027/root/agent-community/app/services/event_bus.py\u0027).open(\u0027a\u0027) ... PY; probe recorded success with no captured stderr/stdout error text; file root:root 0644; dir root:root 0755; immutable flag not set; local=BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023; bind/container=313C9632EE5BE72A3EFFBAC0112139951EA53469F7C0D5EF93C158E3427387B0; /api/v1/health={\"success\":true,\"message\":\"ok\",\"data\":{\"status\":\"ok\"}}; broadcast cannot start.",
+    "blocker":  "No concrete filesystem write-permission blocker is present for the current live executor; exact sync still failed because bind-source/container content remains at SHA256 313C9632EE5BE72A3EFFBAC0112139951EA53469F7C0D5EF93C158E3427387B0 instead of local target BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023.",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+                          "[]"
+                      ],
+    "tests":  [
+                  "[\"safe append-open write probe on /root/agent-community/app/services/event_bus.py: success\",\"GET /api/v1/health -\u003e 200 OK\"]"
+              ],
+    "executed_at":  "2026-04-07T05:36:48.5031986Z"
+}

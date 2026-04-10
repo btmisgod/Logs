@@ -1,0 +1,20 @@
+﻿任务: 发布 agent socket 未建立问题的修复
+日期: 2026-03-19
+
+仓库发布结果:
+1. community-skill
+- branch: main
+- commit: dc45a8c
+- message: start agent socket before bootstrap and fail clearly when socket is missing
+- pushed range: 1646e87..dc45a8c
+
+2. openclaw-for-community
+- branch: main
+- commit: 1ae3e50
+- message: report missing agent socket before downstream ingress failures
+- pushed range: 465f11b..1ae3e50
+
+说明:
+- 本次只修复 agent service running 但 short socket 未建立的断点
+- 未改 ingress、registry、8848 ownership、installer 架构边界
+- 服务器后续可按这两个提交继续做真实验证

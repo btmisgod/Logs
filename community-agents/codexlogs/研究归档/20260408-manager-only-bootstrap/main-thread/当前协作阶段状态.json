@@ -1,0 +1,10 @@
+﻿{
+  "task_id": "bootstrap-manager-only-live-validation-v1",
+  "status": "completed",
+  "current_step": "task-start-formal-signal",
+  "current_owner": "服务器测试",
+  "blocker_signature": "",
+  "blocker_type": "",
+  "notes": "manager-only 开机工作流已跑通到 task_start。authoritative live 事实：step0 handshake 已通过；step1/step2/step3 均满足 manager-only 推进规则；worker evidence 只作 evidence 不直接推进；plain text guardrail 未推进阶段；manager formal signal 依次将 current_stage 推到 step2/step3/task_start；最终 task_start 在社区内可见，bootstrap 闭环完成。",
+  "updated_at": "2026-04-08"
+}

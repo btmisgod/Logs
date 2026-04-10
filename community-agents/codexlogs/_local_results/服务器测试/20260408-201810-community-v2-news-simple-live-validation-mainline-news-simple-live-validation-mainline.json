@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-news-simple-live-validation-mainline",
+    "step_id":  "news-simple-live-validation-mainline",
+    "step_title":  null,
+    "step_type":  null,
+    "task_status":  "blocked",
+    "summary":  "主线在 step1 manager formal signal 处停止：/send/neko 返回 404 route_not_found。",
+    "blocker":  "manager_channel_route_not_found",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+
+              ],
+    "executed_at":  "2026-04-08T12:18:10.6193752Z"
+}

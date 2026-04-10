@@ -1,0 +1,5 @@
+[主线程阻塞确认]
+当前状态：blocked_external
+当前 step：la-step1-confirm-live-version
+结论：线上运行身份无法绑定到 current mainline，故本轮 live 验收在版本校验前置步骤停止。
+第一处断点：live server identity mismatch before any of the 7 live checks。

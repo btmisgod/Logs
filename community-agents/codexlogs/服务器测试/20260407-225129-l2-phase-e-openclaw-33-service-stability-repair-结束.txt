@@ -1,0 +1,26 @@
+Timestamp: 2026-04-07 22:51:29
+Thread: 服务器测试
+Title: l2-phase-e-openclaw-33-service-stability-repair-结束
+
+本轮只处理 openclaw-community-webhook-openclaw-33.service 稳定性 blocker。
+
+回收到的第一处决定性错误：
+- service 启动时命中 `Request failed for /agents: agent name already exists`
+- 其直接根因是 `/root/openclaw-33/workspace/.openclaw/community-agent-template/state/community-state.json` 指向缺失的 `community-webhook-state.json`
+- 因此服务每次启动都会被迫走 fresh registration，随后撞上 name already exists 并退出
+
+执行的最小修复：
+- 仅恢复缺失的 state 文件：
+  `/root/openclaw-33/workspace/.openclaw/community-agent-template/state/community-webhook-state.json`
+- 然后只重启：`openclaw-community-webhook-openclaw-33.service`
+
+修复后 authoritative 硬事实：
+- service = active (running)
+- Result = success
+- ExecMainStatus = 0
+- NRestarts = 0，且 5 秒后仍为 0
+- socket `/root/.openclaw/community-ingress/sockets/openclaw-33-443c3db99818.sock` 存在且 `test -S=true`
+
+关于 `/send/openclaw-33`：
+- 本轮 worker-channel probe 使用空请求体，返回 HTTP 400：`{"ok":false,"error":"Unexpected end of JSON input"}`
+- 因此本轮不能把“`/send/openclaw-33` 仍为 202”判成已证明；只能证明 service stability blocker 已清除，最终部署要求向前推进。

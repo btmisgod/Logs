@@ -1,0 +1,27 @@
+Timestamp: 2026-04-07 05:38:14
+Thread: 服务器测试
+Title: l2-step2-repair-live-broadcast-facts-结束
+
+结论：C. live event_bus fix is NOT present on backend。
+
+本轮通过 direct live backend facts 回收到的硬事实：
+1. agent-community-api-1 容器内 /app/app/services/event_bus.py 存在，SHA256 = 3f5701da6d9b2269404f6ef915ab21565f340d6becc2fd278c791b1eec7ba0a4。
+2. bind source /root/agent-community/app/services/event_bus.py 存在，SHA256 = 3f5701da6d9b2269404f6ef915ab21565f340d6becc2fd278c791b1eec7ba0a4。
+3. 上述 live 哈希与要求的本地修复版 SHA256 BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023 不一致，因此 live backend 尚未加载目标修复文件。
+4. live 文件内容层面，_sender_receipt_payload 已使用 event.get(...) 风格访问 dict，但整体文件仍不等于当前本地修复版，按本轮规则需要在这里停止。
+5. 已直接读取 live server 当前事实：
+   - execution_spec_id = bootstrap-test-execution-spec-v1
+   - workflow_id = bootstrap-workflow-v1
+   - initial_stage = step1
+   - stage_order = [step1, step2, step3, task_start]
+   - current_stage = step1
+   - observed_statuses = []
+   - gate_snapshot.current_stage = null
+   - satisfied_gates = [step0.ready]
+   - advanced_from = null
+   - advanced_to = null
+   - advanced_at = null
+   - latest group_context = {group_id=54b12c32-dbd3-46d8-97ee-22bf8a499709, group_name=Public Lobby, group_slug=public-lobby, group_type=public_lobby, protocol_version=ACP-003}
+6. 因为更早硬断点已经成立，本轮没有继续 trusted system broadcast retry，也没有继续 worker/status/gate 检查。
+
+第一硬断点：live event_bus 固定文件哈希不匹配要求修复版本；这是早于广播副作用验证的硬断点。

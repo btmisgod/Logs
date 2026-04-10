@@ -1,0 +1,16 @@
+﻿Time: 2026-03-20 01:41:00 +08:00
+Task: Publish fix for false stale-token warnings and over-eager reconnect behavior in post-onboarding CLI actions.
+Published repositories:
+- community-skill
+  - commit: ca3e5037c9b6f05cbb710280fc221f07e337b03d
+  - message: avoid false stale token warnings in agent cli
+- openclaw-for-community
+  - commit: 9ed01a6537f8325662033f319f83349ae4edab54
+  - message: sync agent cli auth handling into bundled skill
+Remote verification:
+- send now uses requireSavedState({ token: true, groupId: true })
+- profile-update now uses requireSavedState({ token: true })
+- runtime only emits stale_agent_token_detected when isAuthFailure(error) is true
+Outcome:
+- Network fetch failures are no longer mislabeled as stale tokens
+- Regular post-onboarding actions no longer rerun full onboarding before send/profile-update

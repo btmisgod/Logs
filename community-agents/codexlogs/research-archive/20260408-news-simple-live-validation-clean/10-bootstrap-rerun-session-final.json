@@ -1,0 +1,293 @@
+{
+  "success": true,
+  "message": "ok",
+  "data": {
+    "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+    "group_session_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+    "group_session_version": "group-session:b4eaa008-d15e-479e-be0a-8fe02696f134",
+    "protocol_version": "ACP-003",
+    "workflow_id": "bootstrap-manager-only-workflow-v2",
+    "current_mode": "bootstrap",
+    "current_stage": "task_start",
+    "group_context_version": "group-context:c8ae1c20-2cd7-45bd-9e6c-665e08235508",
+    "gate_snapshot": {
+      "gates": {
+        "manager_task_start": {
+          "satisfied": true,
+          "message_ids": [
+            "b4eaa008-d15e-479e-be0a-8fe02696f134"
+          ],
+          "matched_count": 1,
+          "matched_agent_ids": [
+            "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+          ],
+          "required_agent_ids": [
+            "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+          ]
+        }
+      },
+      "next_stage": null,
+      "advanced_at": "2026-04-08T14:12:56.299975+00:00",
+      "advanced_to": "task_start",
+      "stage_order": [
+        "step1",
+        "step2",
+        "step3",
+        "task_start"
+      ],
+      "step0.ready": true,
+      "workflow_id": "bootstrap-manager-only-workflow-v2",
+      "advanced_from": "step3",
+      "current_stage": "task_start",
+      "satisfied_gates": [
+        "manager_task_start"
+      ],
+      "stage_snapshots": {
+        "step1": {
+          "gates": {
+            "manager_done": {
+              "satisfied": true,
+              "message_ids": [
+                "d0d09794-557a-4629-98b3-fba5e50403b2"
+              ],
+              "matched_count": 1,
+              "matched_agent_ids": [
+                "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+              ],
+              "required_agent_ids": [
+                "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+              ]
+            }
+          },
+          "next_stage": "step2",
+          "evaluated_at": "2026-04-08T14:11:52.798633+00:00",
+          "satisfied_gates": [
+            "manager_done"
+          ],
+          "next_stage_allowed": true,
+          "current_stage_complete": true
+        },
+        "step2": {
+          "gates": {
+            "manager_done": {
+              "satisfied": true,
+              "message_ids": [
+                "042a9b19-a730-41cc-884e-2f3ca50fddd8"
+              ],
+              "matched_count": 1,
+              "matched_agent_ids": [
+                "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+              ],
+              "required_agent_ids": [
+                "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+              ]
+            }
+          },
+          "next_stage": "step3",
+          "evaluated_at": "2026-04-08T14:12:23.334798+00:00",
+          "satisfied_gates": [
+            "manager_done"
+          ],
+          "next_stage_allowed": true,
+          "current_stage_complete": true
+        },
+        "step3": {
+          "gates": {
+            "manager_done": {
+              "satisfied": true,
+              "message_ids": [
+                "0c01aa0c-ec2f-4c72-8926-1e07d510c27d"
+              ],
+              "matched_count": 1,
+              "matched_agent_ids": [
+                "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+              ],
+              "required_agent_ids": [
+                "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+              ]
+            }
+          },
+          "next_stage": "task_start",
+          "evaluated_at": "2026-04-08T14:12:56.299975+00:00",
+          "satisfied_gates": [
+            "manager_done"
+          ],
+          "next_stage_allowed": true,
+          "current_stage_complete": true
+        },
+        "task_start": {
+          "gates": {
+            "manager_task_start": {
+              "satisfied": true,
+              "message_ids": [
+                "b4eaa008-d15e-479e-be0a-8fe02696f134"
+              ],
+              "matched_count": 1,
+              "matched_agent_ids": [
+                "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+              ],
+              "required_agent_ids": [
+                "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+              ]
+            }
+          },
+          "next_stage": null,
+          "evaluated_at": "2026-04-08T14:13:01.023389+00:00",
+          "satisfied_gates": [
+            "manager_task_start"
+          ],
+          "next_stage_allowed": false,
+          "current_stage_complete": true
+        }
+      },
+      "execution_spec_id": "bootstrap-manager-only-execution-spec-v2",
+      "last_evaluated_at": "2026-04-08T14:13:01.023389+00:00",
+      "next_stage_allowed": false,
+      "current_stage_complete": true
+    },
+    "state_json": {
+      "last_message_id": "b4eaa008-d15e-479e-be0a-8fe02696f134",
+      "last_status_block": {
+        "step_id": "task_start",
+        "author_role": "manager",
+        "step_status": "task_start",
+        "workflow_id": "bootstrap-manager-only-workflow-v2",
+        "author_agent_id": null,
+        "lifecycle_phase": "start",
+        "related_message_id": null
+      },
+      "observed_statuses": [
+        {
+          "step_id": "step1",
+          "message_id": "d2201719-8f89-4477-b529-af169c34010c",
+          "author_role": "worker",
+          "observed_at": "2026-04-08T14:11:38.500287+00:00",
+          "step_status": "startup_alignment_submitted",
+          "workflow_id": "bootstrap-manager-only-workflow-v2",
+          "author_agent_id": "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+          "lifecycle_phase": "run",
+          "related_message_id": null,
+          "declared_author_role": "worker",
+          "declared_author_agent_id": null
+        },
+        {
+          "step_id": "step1",
+          "message_id": "0e25a886-9fa2-482d-a4f4-04a94361414f",
+          "author_role": "worker",
+          "observed_at": "2026-04-08T14:11:38.897354+00:00",
+          "step_status": "startup_alignment_submitted",
+          "workflow_id": "bootstrap-manager-only-workflow-v2",
+          "author_agent_id": "e1fb40b4-80b9-4baa-b740-cb5aa51fdee5",
+          "lifecycle_phase": "run",
+          "related_message_id": null,
+          "declared_author_role": "worker",
+          "declared_author_agent_id": null
+        },
+        {
+          "step_id": "step1",
+          "message_id": "d0d09794-557a-4629-98b3-fba5e50403b2",
+          "author_role": "manager",
+          "observed_at": "2026-04-08T14:11:52.798595+00:00",
+          "step_status": "manager_step1_done",
+          "workflow_id": "bootstrap-manager-only-workflow-v2",
+          "author_agent_id": "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+          "lifecycle_phase": "result",
+          "related_message_id": null,
+          "declared_author_role": "manager",
+          "declared_author_agent_id": null
+        },
+        {
+          "step_id": "step2",
+          "message_id": "a50cf509-c58d-47ff-8016-a7c8ceaa5da2",
+          "author_role": "worker",
+          "observed_at": "2026-04-08T14:11:57.862356+00:00",
+          "step_status": "capability_scope_submitted",
+          "workflow_id": "bootstrap-manager-only-workflow-v2",
+          "author_agent_id": "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+          "lifecycle_phase": "run",
+          "related_message_id": null,
+          "declared_author_role": "worker",
+          "declared_author_agent_id": null
+        },
+        {
+          "step_id": "step2",
+          "message_id": "4d2f5e5e-8119-42a7-acef-1e4e5ed01600",
+          "author_role": "worker",
+          "observed_at": "2026-04-08T14:12:05.606035+00:00",
+          "step_status": "capability_scope_submitted",
+          "workflow_id": "bootstrap-manager-only-workflow-v2",
+          "author_agent_id": "e1fb40b4-80b9-4baa-b740-cb5aa51fdee5",
+          "lifecycle_phase": "run",
+          "related_message_id": null,
+          "declared_author_role": "worker",
+          "declared_author_agent_id": null
+        },
+        {
+          "step_id": "step2",
+          "message_id": "042a9b19-a730-41cc-884e-2f3ca50fddd8",
+          "author_role": "manager",
+          "observed_at": "2026-04-08T14:12:23.334753+00:00",
+          "step_status": "manager_step2_done",
+          "workflow_id": "bootstrap-manager-only-workflow-v2",
+          "author_agent_id": "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+          "lifecycle_phase": "result",
+          "related_message_id": null,
+          "declared_author_role": "manager",
+          "declared_author_agent_id": null
+        },
+        {
+          "step_id": "step3",
+          "message_id": "2a2cd0c1-5b94-42d0-b59b-2980d046159e",
+          "author_role": "worker",
+          "observed_at": "2026-04-08T14:12:27.597341+00:00",
+          "step_status": "task_ready_evidence",
+          "workflow_id": "bootstrap-manager-only-workflow-v2",
+          "author_agent_id": "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+          "lifecycle_phase": "run",
+          "related_message_id": null,
+          "declared_author_role": "worker",
+          "declared_author_agent_id": null
+        },
+        {
+          "step_id": "step3",
+          "message_id": "5c09e148-3743-402e-a23a-5a9f646850f8",
+          "author_role": "worker",
+          "observed_at": "2026-04-08T14:12:28.475182+00:00",
+          "step_status": "task_ready_evidence",
+          "workflow_id": "bootstrap-manager-only-workflow-v2",
+          "author_agent_id": "e1fb40b4-80b9-4baa-b740-cb5aa51fdee5",
+          "lifecycle_phase": "run",
+          "related_message_id": null,
+          "declared_author_role": "worker",
+          "declared_author_agent_id": null
+        },
+        {
+          "step_id": "step3",
+          "message_id": "0c01aa0c-ec2f-4c72-8926-1e07d510c27d",
+          "author_role": "manager",
+          "observed_at": "2026-04-08T14:12:56.299926+00:00",
+          "step_status": "manager_step3_done",
+          "workflow_id": "bootstrap-manager-only-workflow-v2",
+          "author_agent_id": "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+          "lifecycle_phase": "result",
+          "related_message_id": null,
+          "declared_author_role": "manager",
+          "declared_author_agent_id": null
+        },
+        {
+          "step_id": "task_start",
+          "message_id": "b4eaa008-d15e-479e-be0a-8fe02696f134",
+          "author_role": "manager",
+          "observed_at": "2026-04-08T14:13:01.023347+00:00",
+          "step_status": "task_start",
+          "workflow_id": "bootstrap-manager-only-workflow-v2",
+          "author_agent_id": "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+          "lifecycle_phase": "start",
+          "related_message_id": null,
+          "declared_author_role": "manager",
+          "declared_author_agent_id": null
+        }
+      ]
+    }
+  }
+}

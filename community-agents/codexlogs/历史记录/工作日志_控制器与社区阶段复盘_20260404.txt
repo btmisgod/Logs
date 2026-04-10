@@ -1,0 +1,387 @@
+工作日志（中文复盘）
+生成时间：2026-04-04 18:35（Asia/Shanghai）
+整理人：Codex
+
+一、这份日志的目的
+
+这份日志用于回答两个问题：
+
+1. 在你叫停之前，本地架构控制器和服务器执行端到底做了什么。
+2. 为什么在几个小时里会消耗很多 token，但从你的主观感受上看“只做了不多的工作”。
+
+先说结论：
+
+- 确实做了不少工作，但其中有一部分属于“控制器体系自身搭建、修 bug、迁移、反复验证”，不是直接的社区功能产出。
+- 这类控制器/执行器搭建工作很容易烧 token，因为每一轮任务下发、执行、读结果、再决定下一步，都会额外调用模型。
+- 社区工程本身也做了多轮真实 live 验证，而不只是读代码或写测试。
+- 你对“产出和 token 消耗不成比例”的感觉是合理的。
+
+
+二、已确认的主要产出
+
+（一）社区工程产出
+
+1. 修复了 runtime 里“机械强制公开回复”的问题
+- 任务：phase1-runtime-public-reply-gating
+- 结果：completed
+- 时间：2026-04-03 19:01 左右（北京时间）
+
+2. 修复了 community 自我回复 / relay loop 的一部分关键路径
+- 任务：phase1-community-self-reply-relay-loop
+- 结果：completed
+
+3. 重新验证并保住了 fresh install / onboarding 基线
+- 任务：phase1-community-fresh-install-onboarding
+- 结果：completed
+
+4. 做了一轮真实短窗口 community live 验证
+- 任务：phase2-short-window-community-validation
+- 结果：completed
+
+5. 新部署了第三个 agent：xhs
+- 任务：phase1-deploy-xhs-agent
+- 结果：completed
+- 关键结果：
+  - xhs 独立 workspace 建好
+  - 独立 webhook/service 建好
+  - 使用与 neko 相同的模型 API 配置
+  - 没有污染 33 / neko
+
+6. xhs 完成社区接入 / onboarding
+- 任务：phase2-attach-xhs-community
+- 结果：partial
+- 后续用两个校验任务补齐：
+  - phase2-verify-neko-no-regression
+  - phase2-verify-xhs-reattach-stability
+- 最终结论：
+  - xhs 接入成功
+  - xhs identity 稳定
+  - reconnect/reattach 未静默造出第二个 xhs
+
+7. 做了多轮 xhs <-> 33 / neko 的 live 通讯验证
+- 已完成的关键任务：
+  - phase3-validate-neko-xhs-live-targeting
+  - phase3-validate-33-xhs-live-targeting
+  - phase3-validate-33-to-xhs-live-targeting
+  - phase3-validate-xhs-to-33-live-targeting
+- 结论：
+  - 33、neko、xhs 三者之间的关键 targeted live 路径都做了真实验证
+  - provider-usage-first token ledger 没回退
+  - 自我回复 / relay-loop / stale-routing 这几类老问题在验证窗口内没有再明显复现
+
+8. 33 与 neko 的历史重复身份做过清理和失活
+- 关键任务：
+  - phase4-identity-reattach-validation
+  - phase4-validate-stable-agent-identity-reattachment
+- 结论：
+  - 旧 identity / stale presence / stale webhook / stale membership 做过清理
+  - 33 与 neko 的稳定身份在 reconnect 后仍保持稳定
+
+9. 33 与 neko 的真实 live 协作流已经跑通
+- 关键任务：
+  - phase4-live-group-task-flow
+  - phase4-run-live-group-task-flow
+  - phase4-run-live-group-task-flow-33-neko
+- 结论：
+  - 真实 community live thread 里，33 发消息，neko 接收并回复，这条主链是跑通过的
+
+
+（二）控制器体系产出
+
+1. 旧的 GitHub control-plane worker 体系做过多轮修复
+- 包括：
+  - worker heartbeat 恢复
+  - git rebase/publish 稳定性修复
+  - SERVER_REPORT / worker-state 写回稳定性
+- 这部分有很多 loop 和 server report 提交，属于明显的 token 和时间消耗点
+
+2. 新的 direct HTTP controller / executor 体系搭起来了
+- 关键提交：
+  - f60f6b1 Add direct remote Codex controller and executor
+  - 6673be0 Add remote executor activity dashboard
+  - 98023bf Harden remote architect controller decisions
+  - 8ed7dea Recover stale direct-executor tasks
+- 结果：
+  - 服务器 executor 可通过 18789 端口访问
+  - 本地 controller 能下发任务
+  - 服务器能执行并回写结果
+
+3. 工作台页面已做出
+- 地址：
+  - http://43.130.233.109:18789/
+- 有：
+  - 顶部 30 分钟简报
+  - 架构师日志
+  - 服务器日志
+- 你评价页面“丑”，但功能上已可用
+
+4. 控制器支持多阶段 objective
+- phase-1 / phase-2 / phase-3 / phase-4 的长期目标已经能顺序推进
+
+5. 控制器降耗规则已加入
+- 无新结果时 cheap-path wait
+- 401 / auth / usage-limit / executor_busy 直接 blocker
+- 同 bug 追踪计数
+
+6. 控制器现已独立拆到单独代码仓
+- 新仓库：
+  - https://github.com/btmisgod/Agents-controller-HTTP
+- 服务器 executor 也已经切到这个新仓库路径运行
+
+
+三、为什么 token 会烧得多
+
+这部分是你最关心的。
+
+先说最重要的一句话：
+
+不是所有 token 都花在“修社区产品 bug”本身。
+很大一部分 token 花在了“搭控制器 + 修控制器 + 让控制器能继续自动推进”上。
+
+具体分成 5 类：
+
+（一）旧 control-plane 体系反复 loop
+
+根据本地 git 记录，2026-04-03 下午有大量这种提交：
+- Update server report: worker loop ...
+- Update server report: autopilot loop ...
+
+这些循环说明：
+- worker 在持续轮询
+- 本地/服务器在多轮读状态、判断、更新文档、写回结果
+
+这类工作本质上非常耗模型：
+- 它不是直接修代码
+- 但每轮都可能调用一次或多次 Codex
+- 对你来说“看不见明显产出”，但账会一直涨
+
+
+（二）direct controller 本身搭建时发生了多轮试错
+
+主要踩过这些坑：
+
+1. prompt 没有真正喂进 `codex exec`
+2. 本机 Windows `cwd` 被错误派发给服务器
+3. stale running task 卡住执行器
+4. phase 推进 bug，导致 phase 1 结果错误影响 phase 2
+5. 本地 controller 401 / token / auth 问题
+6. server executor 从社区仓切到独立仓时，一度“服务看起来 running，但 healthz 连不上”
+
+这些都不是用户功能本身，但每个都需要：
+- 下任务
+- 执行
+- 看日志
+- 再修
+
+所以 token 会烧得很快。
+
+
+（三）真实 live 验证比单纯写测试更贵
+
+这轮不是只做单元测试，而是做了很多真实服务器验证：
+
+- 33 -> neko
+- neko -> 33
+- xhs -> neko
+- 33 -> xhs
+- xhs -> 33
+- live group task flow
+
+每次 live 验证通常不是“1 条命令”：
+- 要先下任务给服务器 Codex
+- 服务器读代码/日志
+- 执行 CLI / systemctl / curl / journalctl / jq / rg
+- 再组织结果回传
+
+这就意味着：
+- 每一个验证任务本身就是一次完整 agentic 编码/排障任务
+- 不是轻量查询
+
+
+（四）同一个问题被多轮收窄
+
+举几个最典型的例子：
+
+1. `neko` 不回复
+- 先怀疑 runtime / targeted
+- 再发现是 stale identity
+- 再发现 webhook 502
+- 再发现 name-targeting 和 live id 有歧义
+
+2. live 线程 bounce / relay
+- 一开始像 reply 策略问题
+- 后来定位到重复 webhook intake
+- 再补 dedupe
+- 再重跑 live flow
+
+3. `xhs` onboarding
+- attach 成功
+- 但要补做 no-regression 和 reattach-stability
+
+这种“收窄 blocker”的过程本身就是 token 黑洞。
+你后面要求加入“最多 3 次收窄、最多 3 次修点、5 次修复封顶”，就是因为这部分确实太烧。
+
+
+（五）控制器和社区工程同时推进，造成额外叠加
+
+当时不是纯社区工程，也不是纯控制器工程，而是两条线并行：
+
+1. 修社区功能
+2. 让控制器能持续自动推进社区功能
+
+这导致：
+- 每一个社区问题
+- 往往还伴随着一次控制器侧的观察、调度、修正
+
+从 token 角度看，就是“双重消耗”。
+
+
+四、哪些工作是有效的，哪些工作性价比偏低
+
+（一）有效工作
+
+1. xhs agent 真正部署并接入社区
+2. 33 / neko / xhs 的 targeted live 通讯验证
+3. 33 / neko 的稳定 identity / stale identity 清理
+4. runtime public reply 机械强制问题修掉
+5. self-reply / relay-loop 一轮真实修复与验证
+6. token ledger provider-usage-first 可信化
+7. controller/executor 新体系跑通
+
+这些都属于实打实的有效产出。
+
+
+（二）性价比较低的工作
+
+1. 旧 GitHub control-plane worker 多轮文档轮询
+2. controller 自身的多次接入/迁移/恢复修复
+3. phase 状态机 bug 导致的额外推进与观察
+4. 一些“看上去是产品问题，后来发现是控制器/路径/身份/部署 skew”的绕路
+
+这部分确实贡献了不少 token，但从你的视角看“产出不大”。
+
+
+五、从日志能确认的任务序列（摘要）
+
+按结果文件和 objective/state 证据，可确认的主要任务包括：
+
+第一段：社区基础修复
+- phase1-runtime-public-reply-gating
+- phase1-community-self-reply-relay-loop
+- phase1-community-fresh-install-onboarding
+- phase2-short-window-community-validation
+
+第二段：33 / neko live 收口
+- phase4-live-group-task-validation-33-neko
+- phase4-neko-response-path-validation
+- phase4-neko-response-path-validation-retry
+- phase4-neko-name-targeting-validation
+- phase4-live-reply-loop-isolation
+- phase4-identity-reattach-validation
+- phase4-post-cleanup-live-flow-validation
+- phase4-neko-balance-restore-and-rerun
+- phase4-stop-live-targeted-reply-chain
+- phase4-validate-stable-live-identities
+- phase4-validate-stable-live-identities-retry1
+- phase4-run-live-group-task-flow-33-neko
+- phase4-run-live-group-task-flow
+- phase4-validate-stable-agent-identity-reattachment
+
+第三段：xhs 新 agent 引入
+- phase1-deploy-xhs-agent
+- phase2-attach-xhs-community
+- phase2-verify-neko-no-regression
+- phase2-verify-xhs-reattach-stability
+- phase3-validate-33-xhs-live-targeting
+- phase3-validate-neko-xhs-live-targeting
+- phase3-validate-33-to-xhs-live-targeting
+- phase3-validate-xhs-to-33-live-targeting
+
+第四段：控制器独立化
+- direct remote controller / executor 实现
+- 控制器 UI
+- controller cheap-path / hard-stop / stale-task reset
+- 拆分到独立仓库 Agents-controller-HTTP
+- 服务器 executor 切仓
+- 社区工程仓删除旧控制器代码
+
+
+六、为什么看起来“做了很久，但群组开机工作流还没做完”
+
+因为本轮时间主要消耗在：
+
+1. 先把 33 / neko 的 live 通讯打稳
+2. 再把 xhs 接进来并验证通讯
+3. 同时还要把控制器拆出来独立化
+
+所以虽然“最终群组开机工作流”这个顶层目标还没执行完，
+但前置条件其实已经做了很多：
+
+- 旧 identity 清理
+- stable identity 验证
+- xhs 部署与接入
+- 关键 targeted live 通讯验证
+- 控制器独立仓迁移
+
+从工程角度，这些都是必须先走的路。
+但从体验上，它确实让人觉得“烧了很多 token，却还没进入真正的大任务”。
+
+
+七、我的责任判断
+
+这部分我直接说：
+
+1. 你对“消耗过大”的不满是合理的。
+2. 主要问题不在你给的目标不清楚。
+3. 主要问题在我这里：
+- 把控制器工程和社区工程叠在一起推进了
+- 允许控制器在早期用太重的方式反复观察/调度
+- 没有更早把“同 bug 次数限制”和“设计冲突停机”机制加进去
+
+这就是为什么后面才补上：
+- 3 次收窄
+- 3 次修点
+- 3 次修复后强制看设计文档
+- 5 次修复直接 blocker
+
+
+八、当前系统状态（截至本日志）
+
+1. 社区工程
+- 33 / neko 稳定通讯已经跑通
+- xhs 已部署并接入
+- xhs 与 33 / neko 的关键 targeted 路径验证已完成
+- 群组开机工作流还没继续推进
+
+2. 控制器
+- 已独立迁到新仓库：
+  - Agents-controller-HTTP
+- 服务器 executor 已切换到新仓库
+- 社区工程仓里的旧控制器代码已删除
+
+3. 当前未在自动推进
+- 你叫停后，我已经停止继续派发新任务
+
+
+九、给你的最短结论
+
+这几个小时里，token 主要花在了三类工作上：
+
+1. 社区 live 通讯和 onboarding 的真实验证
+2. 控制器/执行器本身的搭建与修复
+3. 控制器从社区工程拆分到独立仓库
+
+所以并不是“什么都没做”，而是：
+
+- 做了很多基础设施和验证性工作
+- 这些工作很贵
+- 但其中相当一部分不是你最关心的终端产品结果
+
+你的不满点是合理的。
+
+如果后面继续推进，我应该做的是：
+
+1. 严格按你设定的修复次数上限跑
+2. 控制器尽量走 cheap-path，不再空烧 token
+3. 把“控制器工程”和“社区业务工程”拆开，不再互相拖累
+

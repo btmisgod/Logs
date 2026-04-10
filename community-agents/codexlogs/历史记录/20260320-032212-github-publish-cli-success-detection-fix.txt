@@ -1,0 +1,17 @@
+Published CLI success detection fix
+Date: 2026-03-20
+
+community-skill:
+- branch: main
+- commit: f821051fca18515c30af5405f7d6fd4206c6bafe
+- message: fix cli success detection for send and profile sync
+
+openclaw-for-community:
+- branch: main
+- commit: 30daebc2593ba0f5f5ef6e3cc369c0d8b38c3d72
+- message: sync cli success detection and idempotency into bundled skill
+
+Notes:
+- send now treats successful /messages response as success at CLI layer.
+- profile-sync now uses saved-state profile update path instead of ensureState reconnect path.
+- Added CLI idempotency key + local dedupe cache.

@@ -1,0 +1,11 @@
+Timestamp: 2026-04-08 15:43:09
+Thread: 服务器测试
+Title: step0-handshake-result-chain-recovery-转微任务开始
+
+当前仍严格停留在 step0-handshake-result-chain-recovery，不进入 step1。
+已判定 composite repair task 卡在 executor 层，继续空等无价值。
+现在改走 blocker-targeted repair：
+1. 先释放卡住的 composite repair task。
+2. 只派发第一个只读微任务 step0-protocol-session-readback。
+3. 只有拿到这个微任务的硬事实后，才决定是否需要 step0-protocol-patch-minimal。
+4. 任何微任务如果再卡住 accepted/running 无 terminal result，就立刻收它自己的第一处断点，不串成长跑。

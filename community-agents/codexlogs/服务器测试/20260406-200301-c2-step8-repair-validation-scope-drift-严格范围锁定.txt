@@ -1,0 +1,5 @@
+Timestamp: 2026-04-06 20:03:01
+Thread: 服务器测试
+Title: c2-step8-repair-validation-scope-drift 严格范围锁定
+
+上一轮服务器验证确实跑到了远端 executor contract；这次重新发起严格范围锁定的社区主干最小验证，只检查 session/sync、GroupSession、authorless system broadcast、deliverable event shape、skill hot-path、旧 trigger/force dispatch 路径是否已不再是主路。优先使用已部署环境，只读不改，不做长流程。WorkspaceRoot: G:\community agnts\community agents

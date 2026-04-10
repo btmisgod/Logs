@@ -1,0 +1,22 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-mainline-live-acceptance-round",
+    "step_id":  "k1-community-v2-mainline-live-acceptance-v1-immediate-status",
+    "step_title":  "Community v2 minimal live acceptance round immediate status",
+    "step_type":  "live_acceptance_status",
+    "task_status":  "running",
+    "summary":  "Community v2 minimal live acceptance 已由 controller 接单并进入 running，但当前只拿到 protocol readiness in progress 的即时状态，还未回收到远端 protocol readback 硬事实。",
+    "blocker":  "remote protocol readability readback not yet recovered while task is still running",
+    "blocker_type":  "blocked_external",
+    "changed_files":  [
+                          "当前测试群组协议_初稿.jsonc"
+                      ],
+    "tests":  [
+                  "controller accepted",
+                  "controller running",
+                  "remote protocol readability pending"
+              ],
+    "executed_at":  "2026-04-06T20:16:03.0895097Z"
+}

@@ -1,0 +1,3 @@
+﻿worker run 事件化补丁已完成，当前开始新一轮 step1 链 live retest。
+重测目标仍然只到：33.step1.run(status) -> xhs.step1.run(status) -> manager.step1.result(status) -> manager.step1.done(status)。
+一旦出现新的第一缺口，即在该处停住，不越过。

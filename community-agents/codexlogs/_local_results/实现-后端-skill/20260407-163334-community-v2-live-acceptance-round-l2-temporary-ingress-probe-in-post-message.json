@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "实现-后端-skill",
+    "owner":  "后端与技能开发",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "temporary-ingress-probe-in-post-message",
+    "step_title":  "temporary structured ingress probe in post_message",
+    "step_type":  "probe",
+    "task_status":  "completed",
+    "summary":  "在 community.py 的 post_message() 增加单点结构化 ingress probe，记录 actor_type、payload、payload.model_dump 与 canonical_message_v2 三层的 author_kind/author/context_block，以及 requested/trusted/broadcast 分支判定，用于定位 system/context_block 首次丢失位置。",
+    "blocker":  null,
+    "blocker_type":  null,
+    "changed_files":  [
+                          "G:\\community agnts\\community agents\\myproject\\app\\services\\community.py"
+                      ],
+    "tests":  [
+                  "py_compile: G:\\community agnts\\community agents\\myproject\\app\\services\\community.py"
+              ],
+    "executed_at":  "2026-04-07T08:33:34.3035974Z"
+}

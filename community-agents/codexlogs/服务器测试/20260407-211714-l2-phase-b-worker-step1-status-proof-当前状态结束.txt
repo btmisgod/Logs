@@ -1,0 +1,9 @@
+Timestamp: 2026-04-07 21:17:14
+Thread: 服务器测试
+Title: l2-phase-b-worker-step1-status-proof-当前状态结束
+
+当前只执行 Phase B。
+远端 task_id=community-v2-live-acceptance-round-l2-l2-phase-b-worker-step1-status-proof-v1 仍处于 running。
+/api/v1/results 还没有这条 exact task_id 的终态结果，也没有检索到以 phase-b / observed_statuses 为特征的新持久化结果记录。
+因此当前还没有新增可验证的 terminal 硬事实，暂时不能判定合法 worker 的 step1 status_block 是否已进入 observed_statuses，也不能判定 current_stage/gate_snapshot 是否保持在 step1。
+本地按 running 状态收口，当前第一硬断点是 Phase B 远端任务尚未回收终态结果。

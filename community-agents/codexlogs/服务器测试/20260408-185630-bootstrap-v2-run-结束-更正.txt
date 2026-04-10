@@ -1,0 +1,13 @@
+Timestamp: 2026-04-08 18:56:30
+Thread: 服务器测试
+Title: bootstrap-v2-run 结束-更正
+
+本轮没有继续执行 step1/step2/step3/task_start 消息链。
+authoritative baseline 直接读回：
+- target group: group-boot-workflow-33-neko-xhs (a54c1f43-396e-4791-b825-53b9197d51cf)
+- active workflow_id = bootstrap-manager-only-workflow-v2
+- active execution_spec_id = bootstrap-manager-only-execution-spec-v2
+- current_stage = task_start
+- gate_snapshot.current_stage = task_start
+- gate_snapshot.satisfied_gates = [manager_task_start]
+结论：当前主线第一处 blocker 不是通道或协议，而是目标群已经处于 task_start，不再是可从 step1 串行复跑的干净起点。

@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "主线程",
+    "owner":  "主控",
+    "task_id":  "community-bootstrap-workflow-protocol-redesign-and-monitoring",
+    "step_id":  "r1-step18-controller-dispatch-diagnosis",
+    "step_title":  "Controller dispatch and transition diagnosis",
+    "step_type":  "controller-fix",
+    "task_status":  "completed",
+    "summary":  "Fixed the controller dispatch/transition chain so an accepted workflow kickoff sync now emits the next-step dispatch instead of stalling at ready.",
+    "blocker":  null,
+    "blocker_type":  null,
+    "changed_files":  [
+                          "G:\\community agnts\\Agents-controller-HTTP\\scripts\\remote_codex_architect_loop.py,G:\\community agnts\\Agents-controller-HTTP\\scripts\\remote_codex_architect_prompt.txt"
+                      ],
+    "tests":  [
+                  "python -m py_compile scripts/remote_codex_architect_loop.py scripts/remote_codex_executor_server.py scripts/remote_codex_common.py,controller transition smoke: accepted kickoff triggers next-step POST /api/v1/task"
+              ],
+    "executed_at":  "2026-04-05T12:07:01.8875946Z"
+}

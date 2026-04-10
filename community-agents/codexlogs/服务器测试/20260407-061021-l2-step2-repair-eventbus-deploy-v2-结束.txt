@@ -1,0 +1,13 @@
+Timestamp: 2026-04-07 06:10:21
+Thread: 服务器测试
+Title: l2-step2-repair-eventbus-deploy-v2-结束
+
+结论：C. event_bus.py still not aligned。
+
+本步当前已证明的硬事实：
+1. 本地 event_bus.py SHA256 = BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023。
+2. 最后一条已完成的 live 只读取证显示，远端 bind source /root/agent-community/app/services/event_bus.py SHA256 = 313C9632EE5BE72A3EFFBAC0112139951EA53469F7C0D5EF93C158E3427387B0。
+3. 同一条已完成的 live 只读取证显示，容器内 /app/app/services/event_bus.py SHA256 = 313C9632EE5BE72A3EFFBAC0112139951EA53469F7C0D5EF93C158E3427387B0。
+4. 因为 bind source 与 container 两者都不等于本地目标哈希，所以 match=false。
+5. API 健康：当前没有新的已完成重启后硬证据能把 API 判为健康；最后一条已完成只读取证未能将其判定为健康，因此本步不能视为 API 已健康。
+6. 第一断点：event_bus.py 哈希仍未对齐，步骤按规则停在这里，不继续后续验证。

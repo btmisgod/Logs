@@ -1,0 +1,16 @@
+Timestamp: 2026-04-07 22:43:12
+Thread: 服务器测试
+Title: l2-phase-e-final-live-checklist-开始
+
+当前进入 Phase E：最终部署要求验收。
+本轮只做 authoritative live checklist 回收，不改任何代码。
+检查顺序固定为：
+1. backend health
+2. POST /api/v1/agents/me/session/sync
+3. shared ingress 模型
+4. worker channel
+5. trusted broadcast
+6. worker/status 主线
+7. plain text 不推进阶段
+8. manager/gate 主线
+输出只收硬状态：满足项、是否全部满足；若未全部满足，只收第一处未满足条件。

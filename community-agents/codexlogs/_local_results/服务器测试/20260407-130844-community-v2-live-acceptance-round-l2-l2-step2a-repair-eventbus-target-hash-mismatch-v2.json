@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "codex",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step2a-repair-eventbus-target-hash-mismatch-v2",
+    "step_title":  "l2-step2a-repair-eventbus-target-hash-mismatch-v2",
+    "step_type":  "server_test",
+    "task_status":  "blocked",
+    "summary":  "C. event_bus exact-match still not achieved. bind-source before=313C9632EE5BE72A3EFFBAC0112139951EA53469F7C0D5EF93C158E3427387B0; bind-source after=313C9632EE5BE72A3EFFBAC0112139951EA53469F7C0D5EF93C158E3427387B0; container after=313C9632EE5BE72A3EFFBAC0112139951EA53469F7C0D5EF93C158E3427387B0; local=BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023; match=false; health returned 404 html; broadcast cannot proceed.",
+    "blocker":  "Hash mismatch: bind source and container both equal 313C9632EE5BE72A3EFFBAC0112139951EA53469F7C0D5EF93C158E3427387B0, which does not match target BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023.",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+                          "[]"
+                      ],
+    "tests":  [
+                  "[\"read current bind-source sha\",\"read current container sha\",\"GET /api/v1/health\"]"
+              ],
+    "executed_at":  "2026-04-07T05:08:44.4864566Z"
+}

@@ -1,0 +1,99 @@
+{
+  "verified_at": "2026-04-10T14:11:37.380Z",
+  "results": [
+    {
+      "name": "healthz",
+      "status": 200,
+      "body": "{\"status\":\"ok\",\"ready\":false,\"agent\":\"desktop-codex-pro\",\"agentId\":null,\"webhookPath\":\"/webhook/codex-pro\",\"listen\":\"127.0.0.1:8848\",\"bootstrapError\":null,\"skill\":\"CommunityIntegrationSkill\",\"runtimePath\":\"G:\\\\community agnts\\\\community agents\\\\scripts\\\\community-runtime-v0.mjs\",\"agentProtocolPath\":\"G:\\\\community agnts\\\\community agents\\\\.openclaw\\\\community-agent-template\\\\assets\\\\AGENT_PROTOCOL.md\",\"timestamp\":\"2026-04-10T14:10:03.196Z\"}"
+    },
+    {
+      "name": "root-posted",
+      "status": 202,
+      "body": "{\"ok\":true}",
+      "headers": {
+        "content-type": "application/json",
+        "date": "Fri, 10 Apr 2026 14:10:50 GMT",
+        "connection": "keep-alive",
+        "keep-alive": "timeout=5",
+        "transfer-encoding": "chunked"
+      }
+    },
+    {
+      "name": "reply-posted",
+      "status": 202,
+      "body": "{\"ok\":true}",
+      "headers": {
+        "content-type": "application/json",
+        "date": "Fri, 10 Apr 2026 14:11:13 GMT",
+        "connection": "keep-alive",
+        "keep-alive": "timeout=5",
+        "transfer-encoding": "chunked"
+      }
+    },
+    {
+      "name": "outbound-receipt",
+      "status": 202,
+      "body": "{\"ok\":true}",
+      "headers": {
+        "content-type": "application/json",
+        "date": "Fri, 10 Apr 2026 14:11:13 GMT",
+        "connection": "keep-alive",
+        "keep-alive": "timeout=5",
+        "transfer-encoding": "chunked"
+      }
+    },
+    {
+      "name": "unknown-event",
+      "status": 202,
+      "body": "{\"ok\":true}",
+      "headers": {
+        "content-type": "application/json",
+        "date": "Fri, 10 Apr 2026 14:11:37 GMT",
+        "connection": "keep-alive",
+        "keep-alive": "timeout=5",
+        "transfer-encoding": "chunked"
+      }
+    },
+    {
+      "name": "bad-signature",
+      "status": 401,
+      "body": "invalid signature",
+      "headers": {
+        "date": "Fri, 10 Apr 2026 14:11:37 GMT",
+        "connection": "keep-alive",
+        "keep-alive": "timeout=5",
+        "transfer-encoding": "chunked"
+      }
+    },
+    {
+      "name": "wrong-path",
+      "status": 404,
+      "body": "not found",
+      "headers": {
+        "date": "Fri, 10 Apr 2026 14:11:37 GMT",
+        "connection": "keep-alive",
+        "keep-alive": "timeout=5",
+        "transfer-encoding": "chunked"
+      }
+    },
+    {
+      "name": "send-path-empty-body",
+      "status": 400,
+      "body": "{\"ok\":false,\"error\":\"community-send requires group_id\"}",
+      "headers": {
+        "content-type": "application/json",
+        "date": "Fri, 10 Apr 2026 14:11:37 GMT",
+        "connection": "keep-alive",
+        "keep-alive": "timeout=5",
+        "transfer-encoding": "chunked"
+      }
+    }
+  ],
+  "server": {
+    "webhookPath": "/webhook/codex-pro",
+    "sendPath": "/send/codex-pro",
+    "host": "127.0.0.1",
+    "port": "8848"
+  },
+  "note": "Each webhook test except bad-signature/404 should return 202 and trigger receive path logs; 422 indicates outbound contract block not receive path."
+}

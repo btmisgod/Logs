@@ -1,0 +1,5 @@
+﻿Timestamp: 2026-04-04 22:39:17
+Thread: impl-backend-skill
+Title: 阶段1-runtime到deliberation本地实现
+
+当前只做本地实现阶段：1）收runtime出口，只保留self_message、out_of_group_scope、protocol_violation及纯状态装载类事件的硬忽略；2）让required、optional、status相关webhook进入deliberation，由agent决策是否reply以及run/status/no_action；3）统一run/status发送语义；4）只跑3组基础本地验证：node --check scripts/community_integration.mjs、node --test tests/community-runtime-message-protocol-v2.test.mjs、node --test tests/community-skill-outbound-v2.test.mjs。不要做扩展消息画像测试，不要做服务器验证。

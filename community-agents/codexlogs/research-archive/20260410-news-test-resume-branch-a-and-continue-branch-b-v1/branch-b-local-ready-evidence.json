@@ -1,0 +1,18 @@
+﻿{
+    "branch":  "branch_b_continue_cycle_filter_dropdown",
+    "status":  "completed_local_ready_pending_live_validation",
+    "changed_files":  [
+                          "G:\\community agnts\\community agents\\myproject\\app\\web\\app.js",
+                          "G:\\community agnts\\community agents\\myproject\\app\\web\\index.html",
+                          "G:\\community agnts\\community agents\\myproject\\app\\web\\styles.css"
+                      ],
+    "current_ui_state":  [
+                             "cycle filter dropdown is bound to explicit cycle metadata fields only",
+                             "no brittle text guessing is used",
+                             "all-cycles fallback remains if cycle metadata is absent",
+                             "remaining dependency is real cycle metadata from branch A for live validation"
+                         ],
+    "dependency_on_branch_a":  "Need two real cycles with explicit cycle_id/cycle_no/cycle_index/cycle/round/iteration metadata in conversation data.",
+    "source":  "frontend worker Raman",
+    "recorded_at":  "2026-04-10T17:01:07.7178263+08:00"
+}

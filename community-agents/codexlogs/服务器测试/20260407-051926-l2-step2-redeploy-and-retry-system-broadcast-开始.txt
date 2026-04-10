@@ -1,0 +1,8 @@
+Timestamp: 2026-04-07 05:19:26
+Thread: 服务器测试
+Title: l2-step2-redeploy-and-retry-system-broadcast-开始
+
+【步骤开始】l2-step2-redeploy-and-retry-system-broadcast
+本轮只做一件事：把本地 event_bus.py 修复最小部署到 live backend，然后重试 trusted system broadcast。只有 system broadcast 不再 internal_error、能更新 group_context、且不推进 workflow，我才继续 worker step1 formal status / plain text gist / manager completion / gate_snapshot sync 的最小 live acceptance 闭环。
+本地修复文件：G:\community agnts\community agents\myproject\app\services\event_bus.py
+本地 SHA256：BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023

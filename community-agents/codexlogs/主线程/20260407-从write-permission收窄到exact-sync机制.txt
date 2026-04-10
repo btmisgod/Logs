@@ -1,0 +1,3 @@
+﻿当前 step: l2-step2a-force-eventbus-exact-sync-v2
+收窄结果: 不是 write-permission，是真正的 exact sync 没有打到目标文件。
+下一步: 直接用本地当前工作区 event_bus.py 完整覆盖远端 bind-source，复核 local/remote/container 三份哈希；只有全等后才恢复 trusted system broadcast。

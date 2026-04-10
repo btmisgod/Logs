@@ -1,0 +1,5 @@
+﻿Timestamp: 2026-04-05 02:04:21
+Thread: 主线程
+Title: 控制器中文路径编码收尾完成
+
+已将 remote_codex_architect_loop.py、LOCAL_COLLAB_WORKFLOW.md、community-collab-orchestrator SKILL.md 统一重写为 UTF-8 以便默认读取直接显示中文目录/角色/文件名。未改动控制器机制逻辑，仅做编码与中文路径收尾。

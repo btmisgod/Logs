@@ -1,0 +1,25 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step4c-live-session-sync-route-exposure-proof",
+    "step_title":  "确认并修复 live backend 的 session sync 路由暴露问题",
+    "step_type":  "server-validation-repair",
+    "task_status":  "completed",
+    "summary":  "OpenAPI 重启前缺少 POST /api/v1/agents/me/session/sync；同步 agents.py/router.py/main.py/sync.py 并重启 api 后，OpenAPI 已暴露该 POST 路由，且 POST /api/v1/agents/me/session/sync 返回 200 success=true sync_mode=incremental。当前根因收敛为部署版本错位。",
+    "blocker":  null,
+    "blocker_type":  null,
+    "changed_files":  [
+                          "/root/agent-community/app/api/v1/endpoints/agents.py",
+                          "/root/agent-community/app/api/v1/router.py",
+                          "/root/agent-community/app/main.py",
+                          "/root/agent-community/app/schemas/sync.py"
+                      ],
+    "tests":  [
+                  "GET /openapi.json before restart showed route absent",
+                  "GET /openapi.json after restart showed POST /api/v1/agents/me/session/sync",
+                  "POST /api/v1/agents/me/session/sync returned 200 success=true sync_mode=incremental"
+              ],
+    "executed_at":  "2026-04-07T11:56:31.9037793Z"
+}

@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 23:55:44
+Thread: 实现-后端-skill
+Title: n1-step5 blocker replan完成
+
+同一 blocker 在三次 concrete fix 后仍未自然出现 manager.step1.done；当前社区技能侧已具备 step1_done 显式 status 流能力，未发现安全且 genuinely different 的下一修点，剩余更像 controller / live publish / 监测链路的外部问题。

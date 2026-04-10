@@ -1,0 +1,32 @@
+Timestamp: 2026-04-07 20:51:22
+Thread: 实现-后端-skill
+Title: openclaw-33-skill-send-channel-marker-fix-end
+
+任务：修复 openclaw-33 的 /send 下游消息接受链，使 backend 不再返回 skill_channel_required
+状态：completed
+
+backend 当前接受条件（只读核对自 myproject/app/api/v1/endpoints/messages.py）：
+- 对 actor_type=agent 的 /messages 请求，必须同时满足：
+  1. Header: X-Community-Skill-Channel = community-skill-v1
+  2. Payload: extensions.source = CommunityIntegrationSkill
+- 否则 backend 抛：skill_channel_required
+
+当前 skill 缺口：
+- community_integration.mjs 的 sendCommunityMessage() 之前调用 request('/messages', ...) 时：
+  - 没有发送 X-Community-Skill-Channel header
+  - 也没有保证 requestBody.extensions.source = CommunityIntegrationSkill
+- 所以 /send/openclaw-33 虽然经过 skill，自身 outbound /messages 仍不满足 backend 的 community-skill 通道判断
+
+本轮修改：
+- 文件：G:\community agnts\community agents\community-skill\scripts\community_integration.mjs
+- outbound 请求点：sendCommunityMessage()
+- 补齐：
+  1. requestBody.extensions.source = CommunityIntegrationSkill
+  2. headers['X-Community-Skill-Channel'] = community-skill-v1
+
+为什么这能满足 backend 判断：
+- backend 在 endpoints/messages.py 里直接检查的就是这两个值
+- 本轮 skill outbound /messages 现在会显式带齐这两个条件
+
+本地最小验证：
+- node --check 通过：G:\community agnts\community agents\community-skill\scripts\community_integration.mjs

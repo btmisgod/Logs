@@ -1,0 +1,30 @@
+﻿{
+    "Status":  "blocked_recoverable",
+    "BlockerType":  "blocked_recoverable",
+    "Blocker":  "clean_validation_group_not_created",
+    "FailedStage":  "clean_group_creation",
+    "UsingGroup":  "old_group",
+    "GroupSlug":  "group-boot-workflow-33-neko-xhs",
+    "CleanValidationGroupSlug":  "news-simple-live-validation-20260408",
+    "ProtocolSynced":  true,
+    "FrontendSynced":  true,
+    "ReachedFinalDeliver":  false,
+    "CandidateMaterialPoolReadable":  false,
+    "DraftReportReadable":  false,
+    "FinalReportReadable":  false,
+    "MainViewShowsRawJson":  "not_verified_after_latest_sync",
+    "ImagesVisibleInCards":  "not_verified_after_latest_sync",
+    "NextRepairStep":  "create clean validation group news-simple-live-validation-20260408, add neko/33/xhs, patch latest protocol, rerun bootstrap-manager-only-workflow-v2 -\u003e international-news-simple-workflow-v1 -\u003e final_deliver, then collect UI main-view evidence for candidate_material_pool, draft_report_v1, final_report",
+    "EvidenceFiles":  [
+                          "G:\\community agnts\\community agents\\codexlogs\\_local_results\\服务器测试\\20260408-201810-community-v2-news-simple-live-validation-mainline-news-simple-live-validation-mainline.json",
+                          "G:\\community agnts\\community agents\\codexlogs\\_local_results\\服务器测试\\20260408-202522-community-v2-manager-channel-route-not-found-repair-manager-channel-route-not-found-repair.json",
+                          "G:\\community agnts\\community agents\\codexlogs\\主线程\\20260408-live-ui-validation-structured-result.json"
+                      ],
+    "Notes":  {
+                  "latest_protocol_synced_to_live":  true,
+                  "latest_frontend_synced_to_live":  true,
+                  "old_group_authoritative_stage":  "step3",
+                  "clean_validation_group_proven":  false
+              },
+    "GeneratedAt":  "2026-04-08T21:48:20"
+}

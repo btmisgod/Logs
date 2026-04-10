@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "主线程",
+    "owner":  "主控",
+    "task_id":  "community-bootstrap-workflow-protocol-redesign-and-monitoring",
+    "step_id":  "r1-step16-controller-progression-diagnosis",
+    "step_title":  "Controller progression and dedupe diagnosis",
+    "step_type":  "diagnosis-fix",
+    "task_status":  "completed",
+    "summary":  "Fixed controller-side progression/de-dup handling by incorporating workflow sync state into skip and prompt context.",
+    "blocker":  null,
+    "blocker_type":  null,
+    "changed_files":  [
+                          "G:\\community agnts\\Agents-controller-HTTP\\scripts\\remote_codex_architect_loop.py,G:\\community agnts\\Agents-controller-HTTP\\scripts\\remote_codex_architect_prompt.txt"
+                      ],
+    "tests":  [
+                  "python -m py_compile scripts/remote_codex_architect_loop.py scripts/remote_codex_executor_server.py scripts/remote_codex_common.py,controller sync smoke: should_skip_codex re-evaluates on workflow sync change"
+              ],
+    "executed_at":  "2026-04-05T12:04:13.5786887Z"
+}

@@ -1,0 +1,58 @@
+﻿{
+    "ok":  true,
+    "task":  {
+                 "task_id":  "remote-results-provisioning-probe-20260410-01",
+                 "title":  "Remote executor provisioning result persistence probe",
+                 "goal":  "Run one provisioning-class onboarding probe and prove the terminal result is durably visible through /api/v1/results.",
+                 "cwd":  "/root/openclaw-33/workspace",
+                 "must_do":  [
+                                 "Run exactly this onboarding command shape with the existing script skills/community-skill/scripts/ensure-community-agent-onboarding.sh.",
+                                 "Use COMMUNITY_AGENT_HANDLE=openclaw-33-editor-probe.",
+                                 "Use COMMUNITY_AGENT_NAME=OpenClaw 33 Editor Probe.",
+                                 "Use COMMUNITY_SERVICE_NAME=openclaw-community-webhook-openclaw-33-editor-probe.service.",
+                                 "Use COMMUNITY_AGENT_SOCKET_PATH=/root/.openclaw/community-ingress/sockets/openclaw-33-editor-probe.sock.",
+                                 "Use COMMUNITY_WEBHOOK_PATH=/webhook/openclaw-33-editor-probe and COMMUNITY_SEND_PATH=/send/openclaw-33-editor-probe.",
+                                 "Use COMMUNITY_GROUP_SLUG=public-lobby only for this probe.",
+                                 "Return strict terminal JSON with service/socket/route evidence."
+                             ],
+                 "must_not_do":  [
+                                     "Do not create fake agents.",
+                                     "Do not expose tokens.",
+                                     "Do not run the full news workflow."
+                                 ],
+                 "acceptance":  [
+                                    "The provisioning-class probe reaches terminal state and is visible through /api/v1/results."
+                                ],
+                 "notes":  "This is an infrastructure verification task, not a workflow task.",
+                 "status":  "running",
+                 "workflow_step":  null,
+                 "group_id":  null,
+                 "group_context":  null,
+                 "channel_context":  null,
+                 "received_at":  "2026-04-10T08:36:50.555921+00:00",
+                 "started_at":  "2026-04-10T08:36:53.614324+00:00"
+             },
+    "evidence_chain":  {
+                           "task_id":  "remote-results-provisioning-probe-20260410-01",
+                           "workflow_step":  null,
+                           "group_id":  null,
+                           "accepted":  {
+                                            "ok":  true,
+                                            "endpoint":  "POST /api/v1/task",
+                                            "task_status":  "pending",
+                                            "received_at":  "2026-04-10T08:36:50.555921+00:00"
+                                        },
+                           "running":  {
+                                           "ok":  true,
+                                           "endpoint":  "GET /api/v1/state",
+                                           "state_status":  "running",
+                                           "started_at":  "2026-04-10T08:36:53.614324+00:00"
+                                       },
+                           "finished":  {
+                                            "ok":  false,
+                                            "endpoint":  "GET /api/v1/results",
+                                            "result_status":  null,
+                                            "executed_at":  null
+                                        }
+                       }
+}

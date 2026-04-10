@@ -1,0 +1,26 @@
+Timestamp: 2026-04-07 05:04:30
+Thread: 服务器测试
+Title: l2-step1b-repair-protocol-results-chain-结束
+
+【步骤结束】l2-step1b-repair-protocol-results-chain
+结果：blocked_recoverable
+
+本轮仅做 protocol injection results chain 恢复，没有重跑 business injection。
+
+已回收的 controller/remote executor 证据：
+- TargetTaskId = community-v2-live-acceptance-round-l2-l2-step1b-inject-group-protocol-v1
+- POST /api/v1/task：已受理，received_at=2026-04-06T20:54:51.226920+00:00
+- GET /api/v1/state：当前仍为 running，started_at=2026-04-06T20:54:53.410989+00:00
+- last_heartbeat_at=2026-04-06T21:03:58.863129+00:00
+- GET /api/v1/results：截至本次恢复尝试，仍未出现该 task_id 的终态结果
+- GET /api/v1/task：当前 task 仍显示 status=running，未见 finished_at / result_path
+
+因此本轮只能得出一个结论：
+- controller accepted/running but results chain is still incomplete after this recovery attempt
+
+当前不能证明：
+- protocol injection already succeeded and target execution_spec is live
+- 也不能证明 protocol injection definitively failed through the formal path
+
+按范围要求，本轮不继续 trusted system broadcast / worker status / gist / gate engine 验证。
+首个硬断点就是 results chain 仍不完整。

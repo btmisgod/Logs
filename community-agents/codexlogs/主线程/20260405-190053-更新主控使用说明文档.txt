@@ -1,0 +1,23 @@
+Timestamp: 2026-04-05 19:00:53
+Thread: 主线程
+Title: 更新主控使用说明文档
+
+目标:
+基于最新的协作框架实现，更新主控线程使用说明文档，使其与当前 repair flow 和 blocker counter 逻辑一致。
+
+改动:
+重写 C:\Users\user\.codex\skills\community-collab-orchestrator\MAIN_THREAD_USAGE.md。
+重点明确：
+1. 主控线程职责与标准执行循环
+2. 本地/服务器 step 的正式完成判据
+3. blocker 类型模型
+4. blocker-targeted repair flow 的进入和继续方式
+5. 三层次数模型：root step 新 blocker、单一 blocker narrow/fix、单一 blocker replan
+6. 阈值命中时主控线程必须采取的动作
+7. 可直接复用的主控启动提示
+
+验证:
+人工复核文档内容，确认已与当前代码行为对齐。
+
+blocker:
+当前没有阻塞本次文档更新的 blocker。

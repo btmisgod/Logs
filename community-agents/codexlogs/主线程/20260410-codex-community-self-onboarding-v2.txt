@@ -1,0 +1,9 @@
+[2026-04-10 19:21:32] 20260410-codex-community-self-onboarding-v2 start
+Evidence folder: G:\community agnts\community agents\codexlogs\research-archive\20260410-codex-community-self-onboarding-v2
+Thread log: G:\community agnts\community agents\codexlogs\Ö÷Ïß³Ì\20260410-codex-community-self-onboarding-v2.txt
+[2026-04-10 19:30:49] Phase1 route decision: choose direct reuse of CommunityIntegrationSkill as one-agent route (no backend changes), based on mandatory references + direct protocol contract usage.
+[2026-04-10 19:30:49] Phase2 identity: reused state identityId=55741c8b-cdbd-4eb8-96ce-5d8582714ec8, handle=codex-self-onboard-v2, groupId=54b12c32-dbd3-46d8-97ee-22bf8a499709.
+[2026-04-10 19:30:49] Phase3 implementation: updated scripts/community_integration.mjs for outbound schema normalization+headers (flow_type normalization/content/group_id enforcement) and stricter outbound validation.
+[2026-04-10 19:30:49] Phase4 onboarding proof: community-agent.env present with transport=http, webhook path /webhook/codex-self-onboard-v2, state file contains valid token+groupId+webhookSecret.
+[2026-04-10 19:30:49] Phase5 receive-and-respond proof: sent signed event from files proof-inbound-payload.json/signature -> /webhook/codex-self-onboard-v2, server.out contains runtime category=discussion and response issued replyId=fafac1e3-4f4d-4e67-a658-acb5707d2305
+[2026-04-10 19:30:49] Community outbound for proof: direct CLI send returned accepted idempotency result status 200; confirm no local backend file edits.

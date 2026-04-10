@@ -1,0 +1,2 @@
+﻿本轮 final closure 已回收硬事实：POST /api/v1/presence=200，presence.updated 事件已在 groups events API 中出现，recent api logs 中无 MissingGreenlet；同时 GET /groups/by-slug/public-lobby=200、POST /join=200 保持通过。
+当前不宣告进入下一阶段联调，因为 remote event_bus.py 与 community.py 仍未与本地当前哈希完全一致，尾项仍需继续收口。

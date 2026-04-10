@@ -1,0 +1,79 @@
+﻿【派单时间】2026-04-05 19:13:58
+【task_id】t2-step1-bootstrap-plan
+【POST 请求】
+{
+    "task_id":  "t2-step1-bootstrap-plan",
+    "title":  "Group bootstrap step1: target and role alignment",
+    "goal":  "In the real group, have manager neko publish the task goal and formal workflow description, then have 33, neko, and xhs each confirm understanding of their roles and responsibilities. Correct any misunderstanding immediately as manager. Collect real evidence of the group messages and confirmations. Keep all community-facing content in Chinese. Do not proceed to step2.",
+    "must_do":  [
+                    "Use the real group and the real agents 33, neko, and xhs",
+                    "Have manager neko publish the task goal and formal workflow description in Chinese",
+                    "Have 33, neko, and xhs each confirm understanding of their roles and responsibilities in Chinese",
+                    "If any misunderstanding appears, correct it immediately as manager in Chinese",
+                    "Collect real evidence of the group messages and confirmations",
+                    "Do not move to step2 until step1 is actually done"
+                ],
+    "must_not_do":  [
+                        "Do not start task2 step2",
+                        "Do not expand scope",
+                        "Do not modify business code",
+                        "Do not fake confirmations"
+                    ],
+    "acceptance":  [
+                       "manager published the goal and workflow",
+                       "33 / neko / xhs each responded with role understanding",
+                       "any mismatch was corrected",
+                       "real group evidence is captured"
+                   ],
+    "notes":  "Step0 is already handled out of band by the human and should not be re-run as a group fact. All messages into the community must be Chinese.",
+    "cwd":  "/root/agent-community"
+}
+【POST 结果】
+{
+    "ok":  true,
+    "task":  {
+                 "task_id":  "t2-step1-bootstrap-plan",
+                 "title":  "Group bootstrap step1: target and role alignment",
+                 "goal":  "In the real group, have manager neko publish the task goal and formal workflow description, then have 33, neko, and xhs each confirm understanding of their roles and responsibilities. Correct any misunderstanding immediately as manager. Collect real evidence of the group messages and confirmations. Keep all community-facing content in Chinese. Do not proceed to step2.",
+                 "must_do":  [
+                                 "Use the real group and the real agents 33, neko, and xhs",
+                                 "Have manager neko publish the task goal and formal workflow description in Chinese",
+                                 "Have 33, neko, and xhs each confirm understanding of their roles and responsibilities in Chinese",
+                                 "If any misunderstanding appears, correct it immediately as manager in Chinese",
+                                 "Collect real evidence of the group messages and confirmations",
+                                 "Do not move to step2 until step1 is actually done"
+                             ],
+                 "must_not_do":  [
+                                     "Do not start task2 step2",
+                                     "Do not expand scope",
+                                     "Do not modify business code",
+                                     "Do not fake confirmations"
+                                 ],
+                 "acceptance":  [
+                                    "manager published the goal and workflow",
+                                    "33 / neko / xhs each responded with role understanding",
+                                    "any mismatch was corrected",
+                                    "real group evidence is captured"
+                                ],
+                 "notes":  "Step0 is already handled out of band by the human and should not be re-run as a group fact. All messages into the community must be Chinese.",
+                 "cwd":  "/root/agent-community",
+                 "status":  "pending",
+                 "received_at":  "2026-04-05T11:13:57.750889+00:00"
+             }
+}
+【STATE 结果】
+{
+    "ok":  true,
+    "state":  {
+                  "worker_id":  "server-primary",
+                  "status":  "running",
+                  "current_task_id":  "t2-step1-bootstrap-plan",
+                  "last_task_started_at":  "2026-04-05T11:13:57.908359+00:00",
+                  "last_task_finished_at":  "2026-04-05T09:00:41.659035+00:00",
+                  "last_heartbeat_at":  "2026-04-05T11:13:57.908682+00:00",
+                  "last_result_status":  "completed",
+                  "last_result_summary":  "Real validation completed against the live executor, community API, backend webhook fan-out, and two running agent runtimes. `/api/v1/task` and `/api/v1/state` confirmed the current task `t1-step4-server-real-validation` is accepted and running on `server-primary`. Four live webhook/message classes were exercised toward `openclaw-33` (`b8beedf6-3540-4cf1-b22d-1dd6f5633b3a`): targeted run `3c5807bc-fafc-429d-b88a-2becd1454cfb`, normal run `f30d2ac4-df83-429f-bb5c-a6d60cab9b9c`, bootstrap/start `0b9aecde-59ec-4ad8-b489-2ca4e7f43b60`, and status `a09d544a-db0c-48a0-a1b1-d91b1b1ee86c`. Targeted, normal, and bootstrap all reached 33 intake and deliberation: each has an intake record plus exactly one deliberation ledger entry, and each correctly ended `execution_state=no_action` with `send_result=null` because the payload explicitly requested no reply. Status reached 33 intake but correctly short-circuited before deliberation: intake contains `a09d544a-db0c-48a0-a1b1-d91b1b1ee86c` and the 33 deliberation ledger has zero entries for that message id. No misreply or loop was observed: each thread query returned count `1`, so no extra reply messages were posted. No swallowed agent-side runtime error was observed in the 33 deliberation ledger (`error=null` on the deliberated cases). One real backend inconsistency was observed: the first targeted POST hung long enough for a 30s client timeout even though sender receipt later showed `message.accepted` and 33 intake/deliberation prove it processed; and the bootstrap/start case logged `agent_webhook_delivery_failed` for 33 in `agent-community-api-1` while 33 intake and deliberation still prove successful processing. That points to slow or misreported webhook fan-out around stale/dead subscriptions, not a deliberation-chain miss.",
+                  "current_blocker":  null,
+                  "updated_at":  "2026-04-05T11:13:57.908688+00:00"
+              }
+}

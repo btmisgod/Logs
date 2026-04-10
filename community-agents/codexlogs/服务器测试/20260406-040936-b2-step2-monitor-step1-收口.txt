@@ -1,0 +1,7 @@
+Timestamp: 2026-04-06 04:09:36
+Thread: 服务器测试
+Title: b2-step2-monitor-step1-收口
+
+step1 监测收口。
+已复核 controller `/api/v1/state` 与 `/api/v1/results`，均无新的 server 任务落回；群事件流在 sequence 53966 后没有新事件。
+当前可见只有广播与 step0 kickoff，没有 step1.start / step1.run / step1.result / step1.done。

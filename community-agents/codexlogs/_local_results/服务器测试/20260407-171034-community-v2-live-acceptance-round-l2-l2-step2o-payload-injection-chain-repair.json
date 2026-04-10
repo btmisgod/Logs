@@ -1,0 +1,23 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step2o-payload-injection-chain-repair",
+    "step_title":  "修 schemas/messages.py 与 messages endpoint 的 payload 注入链，并在成功后自动恢复单次 trusted broadcast",
+    "step_type":  "server-validation-repair",
+    "task_status":  "partial",
+    "summary":  "{\"payload_injection_chain\":\"proved\",\"schema_literal\":{\"sha256\":\"23D9563A5C9574554AAD0689722DCC118FBC7D942E478EC2ABC059802B242588\",\"length\":7172,\"matches_expected\":true},\"endpoint_literal\":{\"sha256\":\"9C03D59C6863F4DC660BCE0D4155410659E347FD3A310D982A53ACE1A696BCB9\",\"length\":2656,\"matches_expected\":true},\"exact_sync\":{\"schemas_messages_py\":{\"bind\":\"84F2E150407D60AE932C1D62CD5A8AF2CC1F257B7FB8DB3579BD86B0F6AD7D82\",\"container\":\"84F2E150407D60AE932C1D62CD5A8AF2CC1F257B7FB8DB3579BD86B0F6AD7D82\"},\"endpoint_messages_py\":{\"bind\":\"227F5F43F7CC546BE4D48C5A9137270F9739A47981933CB3DF26D5C48E798AB8\",\"container\":\"227F5F43F7CC546BE4D48C5A9137270F9739A47981933CB3DF26D5C48E798AB8\"}},\"api_health\":{\"success\":true,\"message\":\"ok\",\"data\":{\"status\":\"ok\"}},\"response_body\":{\"author_kind\":null,\"author.agent_id\":null,\"context_block\":null},\"latest_group_event\":{\"event_type\":\"message.posted\",\"payload.message.author_kind\":\"agent\",\"payload.message.author.agent_id\":\"9ad42605-cc23-4ad5-a768-ef35d4467ed2\",\"payload.message.context_block\":{}},\"ingress_probe\":{\"payload.author_kind\":\"system\",\"payload.author.agent_id\":null,\"payload.context_block\":{\"context_scope\":\"group\",\"context_type\":\"group_context\",\"group_context\":{\"proof\":\"live-trusted-broadcast-ingress-contract\",\"group_id\":\"54b12c32-dbd3-46d8-97ee-22bf8a499709\",\"group_slug\":\"public-lobby\"}},\"payload_model_dump.author_kind\":\"system\",\"payload_model_dump.author.agent_id\":null,\"payload_model_dump.context_block\":{\"context_scope\":\"group\",\"context_type\":\"group_context\",\"group_context\":{\"proof\":\"live-trusted-broadcast-ingress-contract\",\"group_id\":\"54b12c32-dbd3-46d8-97ee-22bf8a499709\",\"group_slug\":\"public-lobby\"},\"channel_context\":null},\"canonical_message_v2.author_kind\":\"system\",\"canonical_message_v2.author.agent_id\":null,\"canonical_message_v2.context_block\":{\"context_scope\":\"group\",\"context_type\":\"group_context\",\"group_context\":{\"proof\":\"live-trusted-broadcast-ingress-contract\",\"group_id\":\"54b12c32-dbd3-46d8-97ee-22bf8a499709\",\"group_slug\":\"public-lobby\"}}},\"first_blocker\":\"version_skew_not_cleared\",\"server_exception\":\"AttributeError: BROADCAST_DELIVERED\",\"exception_site\":\"/app/app/services/community.py:545\",\"remote_task_id\":\"community-v2-live-acceptance-round-l2-l2-step2o-payload-chain-repair-and-retry-v2\"}",
+    "blocker":  "AttributeError: BROADCAST_DELIVERED",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+                          "/root/agent-community/app/schemas/messages.py",
+                          "/root/agent-community/app/api/v1/endpoints/messages.py"
+                      ],
+    "tests":  [
+                  "remote literal proof for two frozen payloads matched",
+                  "GET /api/v1/health returned ok",
+                  "single canonical trusted broadcast rerun executed"
+              ],
+    "executed_at":  "2026-04-07T09:10:34.0646898Z"
+}

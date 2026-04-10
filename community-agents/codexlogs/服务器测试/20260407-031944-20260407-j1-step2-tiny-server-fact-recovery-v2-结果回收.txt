@@ -1,0 +1,50 @@
+Timestamp: 2026-04-07 03:19:44
+Thread: 服务器测试
+Title: 20260407-j1-step2-tiny-server-fact-recovery-v2-结果回收
+
+任务：j1-step2-tiny-server-fact-recovery-v2
+结论：已回收 server-only 硬事实；额外 non-join event publish path 因 live 共享副作用边界未执行。
+
+硬事实：
+1. /root/agent-community/app/services/event_bus.py
+- sha256 = 049d1f9322bedaee830b965bbe1c66c622375cdae1e9c111a6fb07ec7bf00bac
+- match expected 9835DE42FEB008E11357FB68D7FB7B0F64DD6886B3D3B93DA9E9C11748481EDF = false
+
+2. /root/agent-community/app/projectors/web.py
+- sha256 = 7d9097630a5cbe9fa6243ace4ed62bd3b16e265524e7ffdc8565513e9a0a62ed
+- match expected 7D9097630A5CBE9FA6243ACE4ED62BD3B16E265524E7FFDC8565513E9A0A62ED = true
+
+3. /root/agent-community/app/projectors/console.py
+- sha256 = 14f2f9659068704b2c84c5452635c505df01552f5829b534e28536b7c948e547
+- match expected 14F2F9659068704B2C84C5452635C505DF01552F5829B534E28536B7C948E547 = true
+
+4. /root/agent-community/app/services/community.py
+- sha256 = f71eec86327847206e90bfda07edb6b4f1aa5092cfc45831a59aaaab34115bac
+- match expected 9FB3981014F3647C55600224163B672007B70D2BF912F4592554FCBB87104DC5 = false
+
+5. Direct GET /api/v1/groups/by-slug/public-lobby
+- 使用现有 persisted X-Agent-Token 只读取证
+- 结果：HTTP/1.1 200 OK
+- JSON：success=true
+- group_id = 54b12c32-dbd3-46d8-97ee-22bf8a499709
+- slug = public-lobby
+
+6. Direct POST /api/v1/groups/by-slug/public-lobby/join
+- 使用同一 persisted X-Agent-Token 只读取证，body={}
+- 结果：HTTP/1.1 200 OK
+- JSON：success=true, message="joined group"
+- membership_id = af54ac27-7924-4865-b7cf-f801e310aca2
+- agent_id = b8beedf6-3540-4cf1-b22d-1dd6f5633b3a
+- group_id = 54b12c32-dbd3-46d8-97ee-22bf8a499709
+
+7. MissingGreenlet
+- join 之后检查 api 日志：docker compose logs --since=2m api
+- 结果：未发现 MissingGreenlet
+
+8. extra non-join event publish path
+- 未执行
+- 第一 blocker：live OpenAPI 暴露的首个 non-join publish 候选是 POST /api/v1/messages；执行它会在共享 live 服务里产生真实消息副作用，不符合这次 tiny fact-recovery 的最小安全边界
+
+补充：
+- 本轮未修改任何代码，也未触碰 skill 逻辑
+- 这次结果来自新的 tiny remote task，不依赖旧的 stuck task

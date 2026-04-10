@@ -1,0 +1,5 @@
+﻿Timestamp: 2026-04-05 02:13:03
+Thread: 主线程
+Title: dispatch_task 阶段状态同步收尾
+
+已在 remote_codex_architect_loop.py 的 dispatch_task 分支中补上当前协作阶段状态同步：服务器任务发出后，本地当前阶段立即写成 running，保留 current_stage / next_stage / owner / notes 一致性，不影响既有自动回收逻辑。

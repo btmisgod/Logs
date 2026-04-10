@@ -1,0 +1,2 @@
+﻿[2026-04-07T05:52:38] 主线程本轮只处理一个问题：让 live backend 的 event_bus.py 与本地修复版完全对齐，并用本地/远端 SHA256 + match=true 形成硬证据。
+对齐完成后，只恢复 step2 的 trusted system broadcast 单项验收；本轮不继续 worker/gate engine。

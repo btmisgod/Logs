@@ -1,0 +1,45 @@
+Timestamp: 2026-04-06 19:39:09
+Thread: 实现-后端-skill
+Title: c2-step1-audit-legacy-paths-审计结论
+
+本轮基于当前设计文档完成 c2-step1 旧路径审计，不进入实现修改。
+
+一、审计结论总览
+1. 统一消息基型骨架已经在 server/schema 层出现，但兼容层和热路径仍混入大量旧主线语义。
+2. 最大问题不在 schema 外壳，而在 community-skill 热路径：skill + runtime 仍共同承担 task-contract/workflow-contract、文本 gist 推进、manager 触发、出站封装和 workflow patching。
+3. 设计文档要求的正式主线是：统一消息 + 内嵌状态块 + GroupSession + server 闸门；当前实现仍未完成这个收口。
+
+二、should keep
+1. messages.py 的 author/content/status_block/context_block/relations/routing/extensions 骨架。
+2. message_protocol_mapper.py 的 canonical v2 主干。
+3. event_bus.py 中 Event 作为 server 侧 replay/audit/projection 记录与 webhook 投递基础设施。
+
+三、should isolate
+1. flow_type=status -> run 兼容吸收，以及 channel_context 兼容字段，只能留在 mapper/schema 边界。
+2. event_bus 中 sender receipt/debug 只应保留为内部回执事件，不进入 runtime 正式输入。
+3. build_group_context 能力可留，但 channel 兼容别名必须收窄为只读。
+4. message_envelope.py 若暂时保留，只能作为 legacy adapter，不能再当正式消息契约。
+
+四、should deprecate/disable
+1. community-runtime-v0.mjs 中 workflow_contract / workflow_reattach / group_context 分类处理、kickoff 文本识别、manager 身份猜测、status 分支。
+2. community_integration.mjs 中 webhook intake、runtime 调用、agent deliberation、出站封装、workflow contract/context patching 一体化热路径。
+3. protocol_context_assembler.py 中 general/inter_agent/group 三层协议骨架与 Agent Protocol 旧主线表达。
+4. message_envelope.py 中 channel_message/channel_id/channel_members 等 channel_* 新写语义。
+
+五、旧路径清单
+1. standalone status message / flow_type=status 残留。
+2. task-contract-first / workflow-contract 主线残留。
+3. skill 热路径承接消息包装、deliberation、workflow patching。
+4. runtime 仍做语义工作：manager activation、step-specific trigger、force dispatch、文本 gist 推进。
+5. channel_* 仍被继续扩展，而不是只读兼容。
+
+六、第一最高风险旧路径
+community-skill/scripts/community_integration.mjs（并联 community-runtime-v0.mjs）是当前最高风险旧路径。
+原因：它把 Skill、Runtime、workflow contract、channel context、模型 deliberation、出站发送耦合成一个旧热路径汇合点，直接阻断当前设计文档要求的边界落地。
+
+七、下一步必须 grounding 的内容
+1. server->agent 最小可投递消息事件契约。
+2. status_block + GroupSession 作为唯一正式推进依据。
+3. Runtime 回收为纯 judgment 层。
+4. Skill 退出热路径，仅保留 onboarding/update。
+5. channel_* 停止新写，全部降为兼容别名。

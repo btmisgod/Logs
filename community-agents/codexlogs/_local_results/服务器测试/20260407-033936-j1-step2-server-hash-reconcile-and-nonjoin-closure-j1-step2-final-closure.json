@@ -1,0 +1,28 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "j1-step2-server-hash-reconcile-and-nonjoin-closure",
+    "step_id":  "j1-step2-final-closure",
+    "step_title":  "j1-step2 对齐后闭环验证",
+    "step_type":  "server-validation",
+    "task_status":  "partial",
+    "summary":  "plain-event-envelope publish chain 已在 live server 上成立：通过 POST /api/v1/presence =\u003e 200、api 日志 event_published presence.updated、以及 groups events API 中出现 presence.updated 事件完成闭环。join 仍然可用：GET /api/v1/groups/by-slug/public-lobby =\u003e 200，POST /api/v1/groups/by-slug/public-lobby/join =\u003e 200，且 recent api logs 无 MissingGreenlet。最终哈希状态：web.py 与 console.py 匹配目标；event_bus.py=049D1F9322BEDAEE830B965BBE1C66C622375CDAE1E9C111A6FB07EC7BF00BAC 与目标不符，community.py=F71EEC86327847206E90BFDA07EDB6B4F1AA5092CFC45831A59AAAAB34115BAC 与目标不符。因此系统尚未 ready for next integration stage。",
+    "blocker":  "event_bus.py 与 community.py 仍未对齐到要求的目标哈希，因此目标部署身份未完全对齐。",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "final event_bus.py sha256=049D1F9322BEDAEE830B965BBE1C66C622375CDAE1E9C111A6FB07EC7BF00BAC match=false",
+                  "final web.py sha256=7D9097630A5CBE9FA6243ACE4ED62BD3B16E265524E7FFDC8565513E9A0A62ED match=true",
+                  "final console.py sha256=14F2F9659068704B2C84C5452635C505DF01552F5829B534E28536B7C948E547 match=true",
+                  "final community.py sha256=F71EEC86327847206E90BFDA07EDB6B4F1AA5092CFC45831A59AAAAB34115BAC match=false",
+                  "GET /api/v1/groups/by-slug/public-lobby =\u003e 200 OK",
+                  "POST /api/v1/groups/by-slug/public-lobby/join =\u003e 200 OK",
+                  "POST /api/v1/presence =\u003e 200 OK, message=presence updated",
+                  "groups events API contains presence.updated events 54006/54007/54008 with final note",
+                  "recent api logs contain event_published presence.updated and no MissingGreenlet"
+              ],
+    "executed_at":  "2026-04-06T19:39:36.8705954Z"
+}

@@ -1,0 +1,55 @@
+Timestamp: 2026-04-07 03:39:36
+Thread: 服务器测试
+Title: 20260407-j1-step2-对齐后闭环验证-结果回收
+
+任务：j1-step2 对齐后闭环验证
+
+结论：
+- plain-event-envelope publish chain 已在 live server 上被证明成立，但这是基于当前实际部署哈希与实际运行路径，不等于目标 target-hash 已全部对齐。
+- join 仍然可用。
+- 已完成一个低副作用 non-join event publish 路径验证：POST /api/v1/presence。
+- api 日志未再出现 MissingGreenlet。
+- 系统还不能判定为 ready for next integration stage，因为 event_bus.py 与 community.py 仍未对齐到要求的目标哈希。
+
+最终硬事实：
+1. /root/agent-community/app/services/event_bus.py
+- final sha256 = 049D1F9322BEDAEE830B965BBE1C66C622375CDAE1E9C111A6FB07EC7BF00BAC
+- expected = 9835DE42FEB008E11357FB68D7FB7B0F64DD6886B3D3B93DA9E9C11748481EDF
+- match = false
+
+2. /root/agent-community/app/projectors/web.py
+- final sha256 = 7D9097630A5CBE9FA6243ACE4ED62BD3B16E265524E7FFDC8565513E9A0A62ED
+- expected = 7D9097630A5CBE9FA6243ACE4ED62BD3B16E265524E7FFDC8565513E9A0A62ED
+- match = true
+
+3. /root/agent-community/app/projectors/console.py
+- final sha256 = 14F2F9659068704B2C84C5452635C505DF01552F5829B534E28536B7C948E547
+- expected = 14F2F9659068704B2C84C5452635C505DF01552F5829B534E28536B7C948E547
+- match = true
+
+4. /root/agent-community/app/services/community.py
+- final sha256 = F71EEC86327847206E90BFDA07EDB6B4F1AA5092CFC45831A59AAAAB34115BAC
+- expected = 9FB3981014F3647C55600224163B672007B70D2BF912F4592554FCBB87104DC5
+- match = false
+
+5. join 链路
+- GET /api/v1/groups/by-slug/public-lobby => 200 OK
+- POST /api/v1/groups/by-slug/public-lobby/join => 200 OK
+- membership_id = e7c77f62-7576-4a8f-b0ad-84bffdd7f056
+
+6. non-join event publish 路径
+- 已验证路径：POST /api/v1/presence
+- 结果：200 OK
+- message = "presence updated"
+- data.id = 86572b84-6180-48bb-91bc-d04193843fc6
+- note = "j1-step2-presence-check-final"
+- group events API 返回 after_sequence=54005 limit=5 中存在 presence.updated 事件 54006、54007、54008，包含最终 note
+- api 日志同时出现 event_published sequence_id 54008 event_type presence.updated 以及 POST /api/v1/presence 200 OK
+
+7. MissingGreenlet
+- join 与 presence 路径之后，recent agent-community-api-1 logs 未出现 MissingGreenlet
+
+plain-event-envelope 结论：
+- 已证明成立。
+- 依据：当前 live server 的实际部署哈希 + 实际运行路径 presence update -> event_published -> events API entry。
+- 但 target-hash reconciliation 未完成，因此这是“功能链路成立”，不是“目标部署身份完全对齐”。

@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 17:14:28
+Thread: 主线程
+Title: 进入trusted-broadcast最小依赖集合同步与复测
+
+实现-后端-skill 已确认 BROADCAST_DELIVERED 定义于 app/models/enums.py，且 trusted broadcast 当前分支最小依赖集合为 enums.py、community.py、group_session.py、event_bus.py。本轮只同步这 4 个文件到 live backend，重启 api，重跑 1 次 canonical trusted broadcast，再依据 response/event/group_context/current_stage 判定下一断点。

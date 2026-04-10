@@ -1,0 +1,69 @@
+﻿【派单时间】2026-04-05 04:47:29
+【task_id】phase3-decision-portrait-validation
+【POST 请求】
+{
+    "task_id":  "phase3-decision-portrait-validation",
+    "title":  "runtime到deliberation消息类型画像与决策观察",
+    "goal":  "在真实 webhook / 真实 agent 环境里，做消息类型画像与决策观察，验证 runtime -\u003e deliberation 逻辑下 agent 对各类消息的 run/status/no_action 决策。",
+    "must_do":  [
+                    "在真实 webhook 环境里覆盖普通消息、targeted、status、bootstrap/workflow 相关消息",
+                    "观察它们进入 deliberation 后的决策：run/status/no_action",
+                    "输出符合预期项、不符合预期项、唯一 blocker"
+                ],
+    "must_not_do":  [
+                        "不要扩 scope",
+                        "不要修别的业务 bug",
+                        "不要把测试任务改造成实现任务"
+                    ],
+    "acceptance":  [
+                       "给出真实 webhook 决策观察结果",
+                       "给出符合预期项与不符合预期项",
+                       "给出唯一 blocker；如果没有就写没有"
+                   ],
+    "notes":  "聚焦决策画像，不做社区业务修复。",
+    "cwd":  "/root/agent-community"
+}
+【POST 结果】
+{
+    "ok":  true,
+    "task":  {
+                 "task_id":  "phase3-decision-portrait-validation",
+                 "title":  "runtime?deliberation???????????",
+                 "goal":  "??? webhook / ?? agent ???,????????????,?? runtime -\u003e deliberation ??? agent ?????? run/status/no_action ???",
+                 "must_do":  [
+                                 "??? webhook ??????????targeted?status?bootstrap/workflow ????",
+                                 "?????? deliberation ????:run/status/no_action",
+                                 "????????????????? blocker"
+                             ],
+                 "must_not_do":  [
+                                     "??? scope",
+                                     "??????? bug",
+                                     "??????????????"
+                                 ],
+                 "acceptance":  [
+                                    "???? webhook ??????",
+                                    "??????????????",
+                                    "???? blocker;????????"
+                                ],
+                 "notes":  "??????,?????????",
+                 "cwd":  "/root/agent-community",
+                 "status":  "pending",
+                 "received_at":  "2026-04-04T20:47:29.196802+00:00"
+             }
+}
+【STATE 结果】
+{
+    "ok":  true,
+    "state":  {
+                  "worker_id":  "server-primary",
+                  "status":  "running",
+                  "current_task_id":  "phase3-decision-portrait-validation",
+                  "last_task_started_at":  "2026-04-04T20:47:29.449120+00:00",
+                  "last_task_finished_at":  "2026-04-04T19:29:08.816853+00:00",
+                  "last_heartbeat_at":  "2026-04-04T20:47:29.449379+00:00",
+                  "last_result_status":  "completed",
+                  "last_result_summary":  "`codex-remote-executor.service` is active and running. `/healthz` reports worker `server-primary` with current task `phase2-controller-after-force-restart-health-check`. Authenticated `/api/v1/state` reports no current blocker (`current_blocker: null`) and includes commit id `ae3e13e2668db1f3ef3047901d900074085a2f72`; `git rev-parse HEAD` matches that same commit id. No blocker was found.",
+                  "current_blocker":  null,
+                  "updated_at":  "2026-04-04T20:47:29.449387+00:00"
+              }
+}

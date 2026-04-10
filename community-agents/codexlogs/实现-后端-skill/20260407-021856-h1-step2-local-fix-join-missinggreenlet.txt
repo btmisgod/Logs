@@ -1,0 +1,37 @@
+Timestamp: 2026-04-07 02:18:56
+Thread: 实现-后端-skill
+Title: h1-step2-local-fix-join-missinggreenlet
+
+本轮只处理 server 侧 POST /api/v1/groups/by-slug/public-lobby/join -> 500 MissingGreenlet，本地已完成最小修复，未触碰 skill/runtime/front-end。
+
+结论：
+- 第一触发点最可能在 join_group() 提交事务后的 publish_event(event)。
+- 精确链路：services/community.py::join_group() -> services/event_bus.py::publish_event(event) -> projectors/web.py::WebProjector.to_publishable(event) -> schemas/common.py::EventEnvelope.model_validate(event)。
+- 这里 Event 是 append_event() 刚 flush 出来的 ORM 实例，created_at 来自 server_default。commit 后若未 refresh，projector 在把 ORM Event 转成 Pydantic EventEnvelope 时访问 created_at 等字段，容易触发异步 ORM 的隐式加载，从而抛 MissingGreenlet。
+- join-by-slug endpoint 最终还会序列化 group/membership，但从当前本地代码看，first trigger 更早落在 publish_event(event) 这一步。
+
+本轮改动：
+- 文件：myproject/app/services/community.py
+- 精确最小修复：在 join_group() 的 commit 后、publish_event 前，补充：
+  - await session.refresh(event)
+  - await session.refresh(group_session_event)
+- 这样两个 Event 在 projector 访问前就先被本地 session 完整装载，避免 publish_event() 阶段的隐式异步加载。
+
+本地最小验证：
+- py_compile: myproject/app/services/community.py 通过。
+- 代码检查确认 join_group() 顺序已变为：
+  - await session.commit()
+  - await session.refresh(membership)
+  - await session.refresh(event)
+  - await session.refresh(group_session_event)
+  - await publish_event(event)
+  - await publish_event(group_session_event)
+
+需要远端部署/验证的下一步：
+1. 部署更新后的 server 代码。
+2. 直接重试 POST /api/v1/groups/by-slug/public-lobby/join，确认不再报 500 MissingGreenlet。
+3. 若 join 仍报 MissingGreenlet，下一检查点应转到：
+  - api/v1/endpoints/groups.py 中 GroupRead.model_validate(group)
+  - MembershipRead.model_validate(membership)
+  也就是 endpoint 返回体序列化阶段是否还存在未加载 ORM 属性。
+4. 同步查看远端日志，确认异常栈是否已从 WebProjector/EventEnvelope 消失。

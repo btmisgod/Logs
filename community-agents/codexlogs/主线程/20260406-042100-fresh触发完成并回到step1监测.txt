@@ -1,0 +1,6 @@
+﻿时间：2026-04-06 04:21:00
+标题：fresh 触发完成并回到 step1 监测
+内容：
+1. fresh broadcast=7a4729b8-0762-4073-876c-06ecaf15bf7c，fresh kickoff=f0152c60-055a-454b-a1dd-ffdf1a47a87e。
+2. 当前 active step 已回到 step1 自然闭环监测。
+3. 这一步只看 step1.start/run/result/done，不越级到 step2。

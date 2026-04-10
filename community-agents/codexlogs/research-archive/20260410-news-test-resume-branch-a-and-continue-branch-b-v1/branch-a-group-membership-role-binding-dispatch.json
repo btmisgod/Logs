@@ -1,0 +1,59 @@
+﻿{
+    "ok":  true,
+    "task":  {
+                 "must_do":  [
+                                 "Create or verify a community group with name news test and slug news-test.",
+                                 "Use exactly these authoritative agents from the completed topology: manager openclaw-33 agent_id=b8beedf6-3540-4cf1-b22d-1dd6f5633b3a; editor openclaw-33-editor agent_id=b5eff68e-0497-466f-9a74-734bcbb177b7; worker-33 openclaw-33-worker-33 agent_id=8a8c144a-1efb-4c01-8084-f7bb45e33106; worker-xhs openclaw-33-worker-xhs agent_id=a734a7b8-1fe1-4779-a92b-f4f5268b4a95; tester openclaw-33-tester agent_id=738e280d-af02-4618-85ed-2fd5fe4ab4b4.",
+                                 "Ensure all five agents are joined to the target group and return authoritative membership evidence.",
+                                 "Establish authoritative role binding for the 5-role news workflow using a formal server-side path. If a minimal protocol or role-directory stub is needed, use that formal path, but do not run bootstrap or the formal workflow yet.",
+                                 "Return strict JSON with group_id, group_slug, joined members, and the authoritative role binding evidence or the first precise blocker."
+                             ],
+                 "must_not_do":  [
+                                     "Do not substitute unrelated agents like neko or xhs.",
+                                     "Do not start bootstrap or the formal workflow.",
+                                     "Do not silently downgrade to the old 3-role workflow.",
+                                     "Do not fake membership or role binding evidence."
+                                 ],
+                 "goal":  "Create or verify the target community group news test / news-test, ensure the five authoritative openclaw-33 family agents are joined, and establish an authoritative role binding for manager, editor, worker-33, worker-xhs, and tester without yet running the workflow cycles.",
+                 "title":  "Create news test group and establish authoritative 5-agent role binding",
+                 "task_id":  "news-test-group-membership-role-binding-20260410",
+                 "cwd":  "/root/openclaw-33/workspace",
+                 "acceptance":  [
+                                    "Target group exists and is readable.",
+                                    "All five authoritative agents are joined.",
+                                    "Authoritative role binding for manager/editor/worker-33/worker-xhs/tester is visible through a formal server-side fact.",
+                                    "Output strict JSON only."
+                                ],
+                 "notes":  "This is branch A active step a3 only. Stop after group creation, membership, and role binding. Do not continue into workflow execution.",
+                 "status":  "pending",
+                 "workflow_step":  null,
+                 "group_id":  null,
+                 "group_context":  null,
+                 "channel_context":  null,
+                 "received_at":  "2026-04-10T09:12:18.988062+00:00"
+             },
+    "accepted":  true,
+    "evidence_chain":  {
+                           "task_id":  "news-test-group-membership-role-binding-20260410",
+                           "workflow_step":  null,
+                           "group_id":  null,
+                           "accepted":  {
+                                            "ok":  true,
+                                            "endpoint":  "POST /api/v1/task",
+                                            "task_status":  "pending",
+                                            "received_at":  "2026-04-10T09:12:18.988062+00:00"
+                                        },
+                           "running":  {
+                                           "ok":  false,
+                                           "endpoint":  "GET /api/v1/state",
+                                           "state_status":  "pending",
+                                           "started_at":  "2026-04-10T08:58:52.345857+00:00"
+                                       },
+                           "finished":  {
+                                            "ok":  false,
+                                            "endpoint":  "GET /api/v1/results",
+                                            "result_status":  null,
+                                            "executed_at":  null
+                                        }
+                       }
+}

@@ -1,0 +1,4 @@
+[主线程阻塞确认]
+当前状态：blocked_external
+当前 step：di-step3-remote-identity-recheck
+结论：远端 bind source/target 形态正确，但 bind source 树本身不是 current mainline；因此部署身份断点仍未解除。

@@ -1,0 +1,22 @@
+Timestamp: 2026-04-08 19:03:36
+Thread: 服务器测试
+Title: bootstrap-v2 baseline reset 结束
+
+{
+    "current_task_step":  "bootstrap-v2-baseline-reset",
+    "first_blocker":  "切回 bootstrap v2 后 session 未回到 step1 干净起点，而是 task_start / gate=task_start",
+    "after_formal":  {
+                         "workflow_id":  "international-news-simple-workflow-v1",
+                         "execution_spec_id":  "international-news-simple-execution-spec-v1",
+                         "current_stage":  "task_plan",
+                         "gate_snapshot_current_stage":  null
+                     },
+    "after_bootstrap":  {
+                            "workflow_id":  "bootstrap-manager-only-workflow-v2",
+                            "execution_spec_id":  "bootstrap-manager-only-execution-spec-v2",
+                            "current_stage":  "task_start",
+                            "gate_snapshot_current_stage":  "task_start"
+                        },
+    "baseline_reset_to_step1":  false
+}
+summary=bootstrap v2 baseline reset 失败：切回 bootstrap v2 后 session 未回到 step1 干净起点，而是 task_start / gate=task_start

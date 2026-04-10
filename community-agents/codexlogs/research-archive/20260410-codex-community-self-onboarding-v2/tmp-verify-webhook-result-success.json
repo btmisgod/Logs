@@ -1,0 +1,110 @@
+﻿[
+  {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json",
+      "date": "Fri, 10 Apr 2026 13:52:32 GMT",
+      "connection": "keep-alive",
+      "keep-alive": "timeout=5",
+      "transfer-encoding": "chunked"
+    },
+    "body": "{\"status\":\"ok\",\"ready\":false,\"agent\":\"desktop-codex-pro\",\"agentId\":null,\"webhookPath\":\"/webhook/codex-pro\",\"listen\":\"127.0.0.1:8848\",\"bootstrapError\":null,\"skill\":\"CommunityIntegrationSkill\",\"runtimePath\":\"G:\\\\community agnts\\\\community agents\\\\scripts\\\\community-runtime-v0.mjs\",\"agentProtocolPath\":\"G:\\\\community agnts\\\\community agents\\\\.openclaw\\\\community-agent-template\\\\assets\\\\AGENT_PROTOCOL.md\",\"timestamp\":\"2026-04-10T13:52:32.358Z\"}",
+    "path": "/healthz",
+    "method": "GET"
+  },
+  {
+    "name": "root-posted",
+    "status": 500,
+    "headers": {
+      "content-type": "application/json",
+      "date": "Fri, 10 Apr 2026 13:52:51 GMT",
+      "connection": "keep-alive",
+      "keep-alive": "timeout=5",
+      "transfer-encoding": "chunked"
+    },
+    "body": "{\"ok\":false,\"error\":\"Request failed for /messages: 422\"}",
+    "path": "/webhook/codex-pro",
+    "method": "POST"
+  },
+  {
+    "name": "reply-posted",
+    "status": 500,
+    "headers": {
+      "content-type": "application/json",
+      "date": "Fri, 10 Apr 2026 13:52:51 GMT",
+      "connection": "keep-alive",
+      "keep-alive": "timeout=5",
+      "transfer-encoding": "chunked"
+    },
+    "body": "{\"ok\":false,\"error\":\"Request failed for /messages: 422\"}",
+    "path": "/webhook/codex-pro",
+    "method": "POST"
+  },
+  {
+    "name": "outbound-receipt",
+    "status": 202,
+    "headers": {
+      "content-type": "application/json",
+      "date": "Fri, 10 Apr 2026 13:52:51 GMT",
+      "connection": "keep-alive",
+      "keep-alive": "timeout=5",
+      "transfer-encoding": "chunked"
+    },
+    "body": "{\"ok\":true}",
+    "path": "/webhook/codex-pro",
+    "method": "POST"
+  },
+  {
+    "name": "bad-signature",
+    "status": 401,
+    "headers": {
+      "date": "Fri, 10 Apr 2026 13:52:51 GMT",
+      "connection": "keep-alive",
+      "keep-alive": "timeout=5",
+      "transfer-encoding": "chunked"
+    },
+    "body": "invalid signature",
+    "path": "/webhook/codex-pro",
+    "method": "POST"
+  },
+  {
+    "name": "no-signature",
+    "status": 401,
+    "headers": {
+      "date": "Fri, 10 Apr 2026 13:52:51 GMT",
+      "connection": "keep-alive",
+      "keep-alive": "timeout=5",
+      "transfer-encoding": "chunked"
+    },
+    "body": "invalid signature",
+    "path": "/webhook/codex-pro",
+    "method": "POST"
+  },
+  {
+    "name": "wrong-path",
+    "status": 404,
+    "headers": {
+      "date": "Fri, 10 Apr 2026 13:52:51 GMT",
+      "connection": "keep-alive",
+      "keep-alive": "timeout=5",
+      "transfer-encoding": "chunked"
+    },
+    "body": "not found",
+    "path": "/webhook/not-your-path",
+    "method": "POST"
+  },
+  {
+    "name": "send-path",
+    "status": 400,
+    "headers": {
+      "content-type": "application/json",
+      "date": "Fri, 10 Apr 2026 13:52:52 GMT",
+      "connection": "keep-alive",
+      "keep-alive": "timeout=5",
+      "transfer-encoding": "chunked"
+    },
+    "body": "{\"ok\":false,\"error\":\"Request failed for /messages: 422\"}",
+    "path": "/send/codex-pro",
+    "method": "POST"
+  }
+]

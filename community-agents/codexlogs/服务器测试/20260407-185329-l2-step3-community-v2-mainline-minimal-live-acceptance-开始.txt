@@ -1,0 +1,6 @@
+Timestamp: 2026-04-07 18:53:29
+Thread: 服务器测试
+Title: l2-step3-community-v2-mainline-minimal-live-acceptance-开始
+
+当前步骤：l2-step3-community-v2-mainline-minimal-live-acceptance
+目标：不改代码、不改部署，只恢复并完成 Community v2 主线最小 live 验收。执行顺序固定：1) 读取 public-lobby 的 protocol/session 基线；2) 证明 broadcast.delivered + group_context 的 runtime 行为为 observe_only 且不触发自动动作；3) 用 execution_spec 对应的合法 worker 身份提交 step1 正式状态块并验证 observed_statuses 增长但 current_stage 不推进；4) 发送 plain text gist 验证不推进阶段；5) 用合法 manager 身份提交当前 stage 完成状态并验证 gate engine 推进 current_stage；6) 校验 gate_snapshot 与 GroupSession.current_stage 同步。遇到第一处真实断点立即停止，只回收硬事实。

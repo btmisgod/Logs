@@ -1,0 +1,128 @@
+﻿{
+    "task_id":  "bootstrap-manager-only-live-validation-v1",
+    "title":  "新版 manager-only 群组开机工作流 live 验证",
+    "status":  "completed",
+    "current_step":  "task-start-formal-signal",
+    "steps":  [
+                  {
+                      "step_id":  "step0-handshake-preflight",
+                      "title":  "Step0：server-led handshake preflight",
+                      "owner":  "服务器测试",
+                      "type":  "server_validation",
+                      "status":  "completed",
+                      "acceptance":  [
+                                         "目标群协议已切到 protocol_id=bootstrap-test-protocol-v0.4",
+                                         "workflow_id=bootstrap-manager-only-workflow-v1",
+                                         "execution_spec_id=bootstrap-manager-only-execution-spec-v1",
+                                         "execution_spec.stage_order=[step1,step2,step3,task_start]",
+                                         "形成 handshake_report，至少包含 agent_id/session_sync_ok/transport_ok/protocol_ok/channel_ok/last_error/ready_for_bootstrap",
+                                         "target group session 与 manager-only 协议事实一致，允许从 step1 起步"
+                                     ],
+                      "on_success":  "自动推进到 step1-startup-plan",
+                      "on_blocked":  "只收 handshake preflight 的第一处断点",
+                      "blocker_type":  "",
+                      "recovery_owner":  "服务器测试",
+                      "recovery_step_template":  "step0_target_group_session_refresh_repair",
+                      "resume_to":  "step0-handshake-preflight",
+                      "repair_success_mode":  "complete_original_and_continue",
+                      "max_recovery_attempts":  3,
+                      "recovery_attempt_count":  5,
+                      "notes":  "handshake_report 已闭合：33/xhs/neko 的 session_sync/transport/protocol/channel 均为 true。target group session 已回到 workflow_id=bootstrap-manager-only-workflow-v1,current_stage=step1；gate_snapshot.step0.ready 视为 preflight 标记，不再视为旧 workflow 漂移。"
+                  },
+                  {
+                      "step_id":  "step1-startup-plan",
+                      "title":  "Step1：worker evidence 收集 + manager formal close",
+                      "owner":  "服务器测试",
+                      "type":  "server_validation",
+                      "status":  "completed",
+                      "acceptance":  [
+                                         "合法 worker 提交 step1 evidence 并进入消息流/observed_statuses",
+                                         "worker evidence 不直接推进阶段，current_stage 仍为 step1",
+                                         "manager 提交 manager_step1_done 正式信号",
+                                         "current_stage 从 step1 推进到 step2",
+                                         "gate_snapshot.current_stage=step2"
+                                     ],
+                      "on_success":  "自动推进到 step2-capability-close",
+                      "on_blocked":  "只收 step1 的第一处断点",
+                      "blocker_type":  "",
+                      "recovery_owner":  "服务器测试",
+                      "recovery_step_template":  "step1_manager_only_repair",
+                      "resume_to":  "step1-startup-plan",
+                      "repair_success_mode":  "retry_original_step",
+                      "max_recovery_attempts":  3,
+                      "recovery_attempt_count":  0,
+                      "notes":  "worker evidence 已进入 observed_statuses 且未推进；plain text guardrail 未推进；manager formal signal 已把 step1 推到 step2。"
+                  },
+                  {
+                      "step_id":  "step2-capability-close",
+                      "title":  "Step2：worker capability evidence + manager formal close",
+                      "owner":  "服务器测试",
+                      "type":  "server_validation",
+                      "status":  "completed",
+                      "acceptance":  [
+                                         "合法 worker 提交 capability evidence 并进入消息流/observed_statuses",
+                                         "worker evidence 不直接推进阶段，current_stage 仍为 step2",
+                                         "manager 提交 manager_step2_done 正式信号",
+                                         "current_stage 从 step2 推进到 step3",
+                                         "gate_snapshot.current_stage=step3"
+                                     ],
+                      "on_success":  "自动推进到 step3-ready-close",
+                      "on_blocked":  "只收 step2 的第一处断点",
+                      "blocker_type":  "",
+                      "recovery_owner":  "服务器测试",
+                      "recovery_step_template":  "step2_manager_only_repair",
+                      "resume_to":  "step2-capability-close",
+                      "repair_success_mode":  "retry_original_step",
+                      "max_recovery_attempts":  3,
+                      "recovery_attempt_count":  0,
+                      "notes":  "worker capability evidence 已进入 observed_statuses 且未推进；plain text guardrail 未推进；manager formal signal 已把 step2 推到 step3。"
+                  },
+                  {
+                      "step_id":  "step3-ready-close",
+                      "title":  "Step3：worker ready evidence + manager formal close",
+                      "owner":  "服务器测试",
+                      "type":  "server_validation",
+                      "status":  "completed",
+                      "acceptance":  [
+                                         "合法 worker 提交 ready evidence 并进入消息流/observed_statuses",
+                                         "worker evidence 不直接推进阶段，current_stage 仍为 step3",
+                                         "manager 提交 manager_step3_done 正式信号",
+                                         "current_stage 从 step3 推进到 task_start",
+                                         "gate_snapshot.current_stage=task_start"
+                                     ],
+                      "on_success":  "自动推进到 task-start-formal-signal",
+                      "on_blocked":  "只收 step3 的第一处断点",
+                      "blocker_type":  "",
+                      "recovery_owner":  "服务器测试",
+                      "recovery_step_template":  "step3_manager_only_repair",
+                      "resume_to":  "step3-ready-close",
+                      "repair_success_mode":  "retry_original_step",
+                      "max_recovery_attempts":  3,
+                      "recovery_attempt_count":  0,
+                      "notes":  "worker ready evidence 已进入 observed_statuses 且未推进；plain text guardrail 未推进；manager formal signal 已把 step3 推到 task_start。"
+                  },
+                  {
+                      "step_id":  "task-start-formal-signal",
+                      "title":  "task_start：manager 正式开工信号与 bootstrap 闭环",
+                      "owner":  "服务器测试",
+                      "type":  "server_validation",
+                      "status":  "completed",
+                      "acceptance":  [
+                                         "manager 提交 task_start 正式信号",
+                                         "task_start 在社区里可见",
+                                         "bootstrap 闭环完成",
+                                         "formal workflow 进入可启动状态"
+                                     ],
+                      "on_success":  "任务完成",
+                      "on_blocked":  "只收 task_start 的第一处断点",
+                      "blocker_type":  "",
+                      "recovery_owner":  "服务器测试",
+                      "recovery_step_template":  "task_start_repair",
+                      "resume_to":  "task-start-formal-signal",
+                      "repair_success_mode":  "retry_original_step",
+                      "max_recovery_attempts":  3,
+                      "recovery_attempt_count":  0,
+                      "notes":  "manager formal task_start signal 已成立，task_start 在社区里可见，bootstrap 闭环完成。"
+                  }
+              ]
+}

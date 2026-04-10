@@ -1,0 +1,5 @@
+Timestamp: 2026-04-10 16:09:54
+Thread: 主线程
+Title: branch-b-ui-cycle-filter-local-patch
+
+已完成本地前端轮次筛选基础补丁：index.html 新增对话区右上轮次下拉；styles.css 已有样式；app.js 已接入显式 cycle metadata 读取、过滤选项刷新、筛选事件与本地缓存。当前硬缺口：现有历史消息样本未发现 cycle_no/cycle_id，后续需要 branch A 新工作流真实写入轮次字段，才能完成 live UI 验证。

@@ -1,0 +1,74 @@
+﻿{
+    "sequence_id":  54147,
+    "event_id":  "9119c4f3-8469-49c4-b659-772059ada45a",
+    "group_id":  "a54c1f43-396e-4791-b825-53b9197d51cf",
+    "event_type":  "message.posted",
+    "delivery_scope":  null,
+    "aggregate_type":  "message",
+    "aggregate_id":  "ac9f33b8-f0bd-42d2-a8e3-908a6a401412",
+    "actor_agent_id":  "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+    "payload":  {
+                    "message":  {
+                                    "id":  "ac9f33b8-f0bd-42d2-a8e3-908a6a401412",
+                                    "author":  {
+                                                   "agent_id":  "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+                                                   "author_kind":  "agent"
+                                               },
+                                    "content":  {
+                                                    "text":  "neko æäº¤ final_report / manager_final_deliveredã",
+                                                    "blocks":  [
+
+                                                               ],
+                                                    "payload":  {
+                                                                    "kind":  "final_report",
+                                                                    "artifact_refs":  [
+                                                                                          "2e02fc81-6aba-48bd-bddd-a4aef30ea6d1",
+                                                                                          "7f528a63-0481-47a2-a931-549c558bb0f5"
+                                                                                      ],
+                                                                    "final_summary":  "å·²åºäºæè¿24å°æ¶çå®å½é\u0085æ°é»ç­ç¹å®æ10æ¡æ±æ»æ¥åï¼æ¯æ¡åéç®è®¯åå¾ççº¿ç´¢å¼ç¨ã",
+                                                                    "final_report_ref":  "7f528a63-0481-47a2-a931-549c558bb0f5",
+                                                                    "delivery_complete":  true,
+                                                                    "delivered_item_count":  10
+                                                                },
+                                                    "attachments":  [
+
+                                                                    ]
+                                                },
+                                    "routing":  {
+                                                    "target":  {
+                                                                   "agent_id":  null
+                                                               },
+                                                    "mentions":  [
+
+                                                                 ]
+                                                },
+                                    "group_id":  "a54c1f43-396e-4791-b825-53b9197d51cf",
+                                    "flow_type":  "run",
+                                    "relations":  {
+                                                      "thread_id":  "ac9f33b8-f0bd-42d2-a8e3-908a6a401412",
+                                                      "parent_message_id":  null
+                                                  },
+                                    "created_at":  "2026-04-08T11:28:42.915895+00:00",
+                                    "extensions":  {
+                                                       "source":  "CommunityIntegrationSkill"
+                                                   },
+                                    "updated_at":  "2026-04-08T11:28:42.915895+00:00",
+                                    "author_kind":  "agent",
+                                    "message_type":  "analysis",
+                                    "status_block":  {
+                                                         "step_id":  "final_deliver",
+                                                         "author_role":  "manager",
+                                                         "step_status":  "manager_final_delivered",
+                                                         "workflow_id":  "international-news-simple-workflow-v1",
+                                                         "author_agent_id":  null,
+                                                         "lifecycle_phase":  "result",
+                                                         "related_message_id":  null
+                                                     },
+                                    "context_block":  {
+
+                                                      }
+                                }
+                },
+    "occurred_at":  "2026-04-08T11:28:42.915895Z",
+    "created_at":  "2026-04-08T11:28:42.915895Z"
+}

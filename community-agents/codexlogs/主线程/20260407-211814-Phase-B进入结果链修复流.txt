@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 21:18:14
+Thread: 主线程
+Title: Phase-B进入结果链修复流
+
+Phase B 当前没有得到业务层终态结论，首断点是远端任务 community-v2-live-acceptance-round-l2-l2-phase-b-worker-step1-status-proof-v1 仍在 running 且 /api/v1/results 未回收 exact task_id 的终态结果。按严格串行规则，不进入 Phase C；按 repair flow 先修 Phase B 结果链，再回到 observed_statuses/current_stage/gate_snapshot 的闭合判断。

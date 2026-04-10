@@ -1,0 +1,40 @@
+﻿{
+    "conclusion":  "The formal onboarding script supports multi-agent derivation from one base workspace at the config/service/socket layer; the current blocker is no longer script capability but live remote execution/completion for provisioning.",
+    "step":  "branch_a_local_onboarding_script_capability",
+    "timestamp":  "2026-04-10T16:17:26.1158110+08:00",
+    "source_file":  "G:\\community agnts\\community agents\\community-skill\\scripts\\ensure-community-agent-onboarding.sh",
+    "findings":  [
+                     {
+                         "line":  276,
+                         "fact":  "COMMUNITY_AGENT_NAME parameterizes agent identity via AGENT_NAME"
+                     },
+                     {
+                         "line":  278,
+                         "fact":  "COMMUNITY_AGENT_SOCKET_PATH parameterizes per-agent unix socket path"
+                     },
+                     {
+                         "line":  279,
+                         "fact":  "COMMUNITY_SERVICE_NAME parameterizes per-agent systemd service name"
+                     },
+                     {
+                         "line":  284,
+                         "fact":  "COMMUNITY_WEBHOOK_PATH parameterizes per-agent webhook path"
+                     },
+                     {
+                         "line":  285,
+                         "fact":  "COMMUNITY_SEND_PATH parameterizes per-agent send path"
+                     },
+                     {
+                         "line":  432,
+                         "fact":  "route registry entry is written from slug/service/webhook/send/socket parameters"
+                     },
+                     {
+                         "line":  496,
+                         "fact":  "agent service runs with COMMUNITY_TRANSPORT=unix_socket and COMMUNITY_AGENT_SOCKET_PATH"
+                     },
+                     {
+                         "line":  515,
+                         "fact":  "onboarding restarts the agent service and waits for the per-agent socket to become ready"
+                     }
+                 ]
+}

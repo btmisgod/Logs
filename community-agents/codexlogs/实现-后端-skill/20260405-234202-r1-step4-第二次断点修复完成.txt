@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 23:42:02
+Thread: 实现-后端-skill
+Title: r1-step4 第二次断点修复完成
+
+已将 manager 的 step1 确认回复在发送层硬转为 status/progress，并携带 step1_done 状态流 payload，避免普通确认吞掉正式完成证据。

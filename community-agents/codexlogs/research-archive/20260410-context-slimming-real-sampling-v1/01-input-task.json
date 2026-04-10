@@ -1,0 +1,129 @@
+{
+  "command_id": "20260410-context-slimming-real-sampling-v1",
+  "version": "1.0",
+  "created_at": "2026-04-10",
+  "target_thread": "main-controller",
+  "workspace_root": "G:\\community agnts\\community agents",
+  "title": "Run real-LLM regression sampling for context slimming on a credentialed clean workspace",
+  "objective": "Use a clean agent workspace that already has valid MODEL_* or OPENAI_* credentials to deploy the slimmed CommunityIntegrationSkill prompt path, then execute one real worker sample and one real manager sample against the clean validation group to verify that trusted broadcast, worker evidence collection, and manager-only gate advancement do not regress.",
+  "references": [
+    {
+      "path": "G:\\community agnts\\community agents\\docs\\control-plane\\community-llm-context-slimming-v1.md",
+      "description": "Requirement baseline for context slimming."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-context-slimming-v1\\05-structured-result.json",
+      "description": "Previous blocked result: implementation complete, real LLM sampling not completed due to missing local credentials."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\16-final-closeout.json",
+      "description": "Clean validation group and previously validated workflow baseline."
+    }
+  ],
+  "target_group": {
+    "group_slug": "news-simple-live-validation-20260408",
+    "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf"
+  },
+  "current_known_facts": {
+    "slimming_code_changed": [
+      "G:\\community agnts\\community agents\\openclaw-for-community\\skills\\CommunityIntegrationSkill\\scripts\\community_integration.mjs"
+    ],
+    "previous_token_result": {
+      "before_token_total_worker": 36204,
+      "after_token_total_worker": 582,
+      "before_token_total_manager": 36183,
+      "after_token_total_manager": 586
+    },
+    "removed_injection_sources": [
+      "full channel-context prompt injection",
+      "full group_protocol/group_context/context_block/channel_context duplicate prompt injection",
+      "full workflow contract JSON prompt injection"
+    ],
+    "current_runtime_cards": [
+      "通用运行规则卡",
+      "任务简报卡",
+      "小状态卡",
+      "角色卡",
+      "当前阶段卡",
+      "当前 schema 卡"
+    ],
+    "previous_blocker": "Local environment lacked MODEL_* / OPENAI_* credentials, so real LLM generation sampling was not executed."
+  },
+  "required_work": [
+    {
+      "id": "locate_credentialed_clean_workspace",
+      "description": "Use a clean agent workspace or execution environment that already has working MODEL_* or OPENAI_* credentials. Do not spend this task repairing local credential absence on the current machine."
+    },
+    {
+      "id": "deploy_slimmed_prompt_path",
+      "description": "Deploy or sync the already modified CommunityIntegrationSkill prompt path into that credentialed workspace so the real run uses the slimmed context injection implementation."
+    },
+    {
+      "id": "run_one_real_worker_sample",
+      "description": "Execute one real worker sample against the clean validation group. Preferred samples: worker 33 at material_collect, or xhs at draft_compile."
+    },
+    {
+      "id": "run_one_real_manager_sample",
+      "description": "Execute one real manager sample against the clean validation group. Preferred samples: neko at material_collect, draft_compile, or final_deliver."
+    },
+    {
+      "id": "verify_no_regression",
+      "description": "Verify that trusted broadcast still works, worker evidence is still collected without directly advancing the stage, and only manager formal signal advances the gate."
+    },
+    {
+      "id": "capture_real_prompt_and_token_evidence",
+      "description": "Record the actual prompt composition and resulting token totals for the real worker sample and the real manager sample after slimming."
+    },
+    {
+      "id": "write_logs_and_structured_result",
+      "description": "Write detailed execution logs to the main controller log folder, and publish a structured terminal result with evidence paths."
+    }
+  ],
+  "do_not": [
+    "Do not redo the slimming implementation itself unless a real-run regression proves the current code path is broken.",
+    "Do not expand this task into new feature work, UI work, or unrelated workflow changes.",
+    "Do not block on repairing credentials on the current local machine if a credentialed clean workspace is available.",
+    "Do not silently downgrade this back to prompt-only proof; this task is specifically for real LLM sampling."
+  ],
+  "acceptance": [
+    "A credentialed clean workspace was actually used.",
+    "At least one real worker sample executed with the slimmed prompt path.",
+    "At least one real manager sample executed with the slimmed prompt path.",
+    "Trusted broadcast / worker evidence / manager-only gate behavior did not regress.",
+    "Real prompt/token evidence was recorded for both samples.",
+    "A structured terminal result exists and points to the evidence and log paths."
+  ],
+  "deliverables": [
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-context-slimming-real-sampling-v1",
+      "description": "Evidence folder for real-sampling run, including prompt samples, token report, regression check, and terminal result."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\主线程",
+      "description": "Main-controller log root; this task must also leave a detailed log path here or in a stable subfolder."
+    }
+  ],
+  "working_principles": [
+    "Use the already completed slimming implementation as the code baseline.",
+    "Keep the task narrow: credentialed real sampling only.",
+    "If the first chosen credentialed workspace fails for environment reasons, classify the blocker explicitly instead of blurring it into workflow failure.",
+    "Detailed process belongs in logs; user-facing summary should stay brief."
+  ],
+  "result_format": {
+    "required_fields": [
+      "Status",
+      "BlockerType",
+      "Blocker",
+      "CredentialedWorkspaceUsed",
+      "WorkerSampleExecuted",
+      "ManagerSampleExecuted",
+      "TrustedBroadcastRegressed",
+      "WorkerEvidenceRegressed",
+      "ManagerGateRegressed",
+      "RealTokenEvidenceCaptured",
+      "evidence_paths",
+      "log_path",
+      "NextStep"
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step2a2-recovered-temp-proof-followthrough",
+    "step_title":  "恢复 temp proof 并续接广播结果",
+    "step_type":  "live-recovery-followthrough",
+    "task_status":  "blocked",
+    "summary":  "已从 persisted artifacts 恢复 temp-byte-proof 硬事实，并确认 temp SHA=BE4B 后，该远端任务已完成原子替换 event_bus.py、仅重启 api、hash/health 闭环成立；随后 trusted system broadcast 重试不再触发旧 event_bus internal_error，但 payload 仍在摄取前被丢弃，group_context 未更新。",
+    "blocker":  "trusted system/group-context payload 仍在摄取前被丢弃：POST /api/v1/messages 已返回 200，但 context_block.group_context 未持久化，latest_group_context 未变化，runtime 未走到期望的 broadcast.delivered + observe_only。",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+
+              ],
+    "executed_at":  "2026-04-07T07:24:01.4175495Z"
+}

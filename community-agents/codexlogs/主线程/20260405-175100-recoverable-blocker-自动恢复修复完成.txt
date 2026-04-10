@@ -1,0 +1,25 @@
+﻿目标
+把协作 skill / 主控框架从“step blocked 后整体停住”等用户催，改成“recoverable blocker 自动进入恢复流程、恢复成功后自动回原 step、再继续后续 step”。
+
+改动
+1. 在 remote_codex_architect_loop.py 中新增 blocker 类型模型：blocked_recoverable / blocked_terminal / blocked_design_conflict / blocked_external。
+2. 为 step 补足 recovery 字段：blocker_type、recovery_owner、recovery_step_template、resume_to、max_recovery_attempts、recovery_attempt_count、recovery_for、recovery_hint、is_recovery_step。
+3. 新增 recoverable blocker 处理链：blocked_recoverable 时自动生成 recovery step；recovery 完成后自动 resume 原 step；超限后升级为 terminal blocker。
+4. 为 server-test 增加证据链不闭合时的默认恢复入口，不再把 result 缺失直接等同于整体停机。
+5. 新增按 step 记录 handled result 的去重水位，避免 recovery 完成后回到原 step 时再次消费旧 blocker 结果，重复创建 recovery。
+6. 新增最小闭环自测脚本 selftest_recoverable_blocker_workflow.ps1，验证框架级恢复流程。
+7. 同步更新 SKILL.md、MAIN_THREAD_USAGE.md、LOCAL_COLLAB_WORKFLOW.md、remote_codex_architect_prompt.txt、remote_codex_task_plan_template.json、openai.yaml。
+
+验证
+1. python -m py_compile 通过：remote_codex_architect_loop.py。
+2. 最小闭环自测通过：
+   - workspace: C:\Users\user\AppData\Local\Temp\community-collab-recovery-selftest-36255d20864d4cfd97ef3f79f07393e3
+   - runtime: C:\Users\user\AppData\Local\Temp\community-collab-recovery-runtime-fa4af77992674711ae1995cc1396a3de
+3. 结构化证据：
+   - 当前协作阶段状态.json 最终 task_status=completed
+   - 协作阶段历史.jsonl 明确出现 blocked_recoverable -> recovery step -> auto_resumed_from_recovery -> step2 completed -> step3 completed
+   - events.jsonl 共 5 条，覆盖 step1、step2 blocked、recovery、step2 retry completed、step3 completed
+4. 这次自测中没有再出现“recovery 成功后立即重新创建 recovery step”的旧问题。
+
+blocker
+无当前阻塞。主验收语句已成立：在 step 出现 recoverable blocker 时，协作框架会自动创建 recovery step、自动恢复原 step、并继续推进后续任务，而不会把整个任务停在原地等用户催。

@@ -1,0 +1,154 @@
+{
+  "command_id": "20260410-open-pr-deploy-and-validate-codex-v1",
+  "version": "1.0",
+  "created_at": "2026-04-10",
+  "target_thread": "main-controller",
+  "workspace_root": "G:\\community agnts\\community agents",
+  "title": "Open the frozen-scope PR, deploy that PR version to server, run post-deploy validation, then verify existing Codex community connectivity",
+  "objective": "The current frozen release scope is already PR-ready. Open the actual PR for that frozen scope only, update the server to the latest PR branch/commit, run post-deploy debug validation for the frozen release baseline, and then verify that the already-onboarded Codex identity still connects and responds correctly through community on the updated server. Do not use this task to add new Codex onboarding features or expand the PR scope.",
+  "release_gate": {
+    "source_of_truth": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-revert-cycle-filter-and-rerun-pre-pr-v1\\99-structured-result.json",
+    "required_fact": "ReadyForPR must remain true before opening the PR."
+  },
+  "mandatory_references": [
+    {
+      "path": "G:\\community agnts\\community agents\\AGENTS.md",
+      "why": "Main collaboration and JSON-first controller rules."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-revert-cycle-filter-and-rerun-pre-pr-v1\\99-structured-result.json",
+      "why": "Fresh structured proof that the frozen scope is PR-ready."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-revert-cycle-filter-and-rerun-pre-pr-v1\\PR_READY_SUMMARY.md",
+      "why": "Human-readable frozen scope and explicit deferred scope."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\myproject",
+      "why": "This is the release repo that contains the frozen validated code to be published."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\openclaw-for-community",
+      "why": "Read only to confirm that current deferred skill-side work is not silently mixed into this PR."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+      "why": "Existing Codex community identity state. Reuse this identity for post-deploy validation; do not invent a new one."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-codex-community-self-onboarding-v2\\continue-server2.out.log",
+      "why": "Existing inbound/outbound handling evidence for the current Codex community identity."
+    }
+  ],
+  "known_current_identity": {
+    "handle": "codex-self-onboard-v2",
+    "agent_id": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+    "expected_group_slug_for_connectivity_check": "public-lobby"
+  },
+  "frozen_scope": {
+    "release_repo": "G:\\community agnts\\community agents\\myproject",
+    "release_branch": "codex/community-v2-live-baseline-20260408",
+    "include": [
+      "Validated community backend/control-plane baseline already proven in the 2026-04-08 clean live validation chain.",
+      "Validated frontend main-view artifact rendering baseline after cycle-filter revert.",
+      "Validated manager-only bootstrap and simple formal workflow baseline."
+    ],
+    "exclude": [
+      "UI cycle-filter dropdown / two-cycle filter branch.",
+      "community-llm-context-slimming-v1.",
+      "Desktop Codex onboarding feature expansion or redesign.",
+      "OpenClaw same-instance multi-identity child-agent support.",
+      "Any unvalidated five-agent/two-cycle workflow branch work."
+    ]
+  },
+  "required_work": [
+    {
+      "id": "phase1_confirm_pr_scope_and_repo_state",
+      "description": "Confirm that the frozen PR scope still matches the PR-ready summary. Verify that only the intended validated changes inside the release repo are included. Explicitly confirm that deferred changes in openclaw-for-community are not being carried into this PR."
+    },
+    {
+      "id": "phase2_open_actual_pr",
+      "description": "Commit any remaining frozen-scope release repo changes if needed, push the release branch, and open the actual PR against the correct remote repository. This task is now authorized to perform the actual git publication needed for the PR. Prefer a ready PR, not a draft, unless a fresh blocker appears before creation."
+    },
+    {
+      "id": "phase3_update_server_to_pr_version",
+      "description": "Update the target server to the exact branch/commit that backs the PR. Record the deployed branch/commit SHA and prove the server is now running that release version."
+    },
+    {
+      "id": "phase4_post_deploy_debug_validation",
+      "description": "Run post-deploy validation for the frozen release scope. Recheck the validated baseline, including manager-only bootstrap semantics and main-view artifact rendering baseline, but do not reopen deferred scope. If a release-scope bug appears on server, fix only the minimum blocker on the PR branch and redeploy."
+    },
+    {
+      "id": "phase5_verify_existing_codex_connectivity",
+      "description": "Using the existing Codex community identity only, verify that Codex is still correctly connected to community against the updated server. This verification must be real, not only local mock evidence."
+    },
+    {
+      "id": "phase6_final_closeout",
+      "description": "Close with a structured result that states whether PR creation succeeded, server deployment succeeded, frozen-scope post-deploy validation passed, and Codex connectivity verification passed."
+    }
+  ],
+  "codex_connectivity_validation": {
+    "goal": "Prove that the already-onboarded Codex identity is accurately connected to the updated community deployment.",
+    "required_checks": [
+      "Identity check: the current Codex identity is still valid and readable as a real community identity.",
+      "Membership check: the expected group membership is still real on the server side.",
+      "Real inbound check: community-originated message/task reaches the Codex webhook path on the updated deployment. Do not rely only on local mock curl proof.",
+      "Real outbound check: Codex reply is accepted by community as a proper agent message, not rejected and not degraded into an invalid path.",
+      "Round-trip check: one real community-directed input produces one real Codex-side response visible in community."
+    ],
+    "important_note": "This is validation of the existing Codex identity and bridge path. Do not redesign onboarding in this task. If connectivity fails for reasons outside the frozen PR scope, classify it precisely instead of silently expanding code scope."
+  },
+  "do_not": [
+    "Do not reopen cycle-filter work.",
+    "Do not include community-llm-context-slimming-v1 in this PR.",
+    "Do not include openclaw-for-community skill-side deferred changes in this PR unless fresh evidence proves they are already part of the frozen validated release scope.",
+    "Do not redesign Codex onboarding or Codex-community bridge in this task.",
+    "Do not treat an in-flight deployment as a finished failure without fresh evidence.",
+    "Do not publish unrelated repos just because they are dirty locally."
+  ],
+  "working_principles": [
+    "Frozen release scope stays frozen unless a fresh release blocker proves otherwise.",
+    "Publish only the validated repo scope. Deferred work remains deferred.",
+    "After PR publication, validate the exact deployed branch/commit, not a vague latest state.",
+    "Codex connectivity validation must use real community interaction on the updated server, not only local simulation.",
+    "If a failure appears, stop at the first real blocker and classify whether it is inside the released scope or outside it."
+  ],
+  "deliverables": [
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-open-pr-deploy-and-validate-codex-v1",
+      "description": "Evidence bundle for PR creation, deployed version proof, post-deploy validation, and Codex connectivity verification."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\主线程\\20260410-open-pr-deploy-and-validate-codex-v1.txt",
+      "description": "Detailed execution log for this end-to-end publication and validation task."
+    }
+  ],
+  "acceptance": [
+    "A real PR is opened for the frozen validated release scope only.",
+    "The server is updated to the exact PR branch/commit and that deployed version is proven.",
+    "Frozen-scope post-deploy validation passes or stops at the first real release-scope blocker.",
+    "The existing Codex identity passes identity, membership, inbound, outbound, and round-trip connectivity checks on the updated deployment, or the first real blocker is precisely classified.",
+    "The final result makes it unambiguous whether PR publication, deployment, validation, and Codex connectivity all succeeded."
+  ],
+  "result_format": {
+    "required_fields": [
+      "Status",
+      "BlockerType",
+      "Blocker",
+      "PRCreated",
+      "PRUrl",
+      "ReleaseRepo",
+      "ReleaseBranch",
+      "ReleaseCommit",
+      "ServerUpdatedToReleaseCommit",
+      "PostDeployValidationPassed",
+      "CodexConnectivityPassed",
+      "CodexIdentityHandle",
+      "CodexRoundTripVerified",
+      "changed_files",
+      "evidence_paths",
+      "log_path",
+      "NextStep"
+    ]
+  }
+}

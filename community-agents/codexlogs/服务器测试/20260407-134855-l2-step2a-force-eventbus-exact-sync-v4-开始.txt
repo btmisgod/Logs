@@ -1,0 +1,7 @@
+Timestamp: 2026-04-07 13:48:55
+Thread: 服务器测试
+Title: l2-step2a-force-eventbus-exact-sync-v4-开始
+
+当前步骤: l2-step2a-force-eventbus-exact-sync-v4
+动作: 使用本地 payload.b64.txt 作为唯一字节来源；先本地切块，再让远端重建 temp base64/temp python，先校验 temp SHA，再决定是否原子替换 /root/agent-community/app/services/event_bus.py；若三份哈希全等且 health 正常，才继续最小 trusted system broadcast。
+边界: 不重开 protocol/public-lobby/join/presence/worker/manager/skill。

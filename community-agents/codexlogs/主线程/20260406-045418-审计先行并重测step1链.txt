@@ -1,0 +1,5 @@
+﻿当前轮次：代码审计收口并基于新协议重测 step1 链
+当前步骤：a1-step1-code-audit-and-classification
+执行原则：先审计社区 skill/runtime/controller 中的测试特定逻辑，确认哪些应保留、哪些应隔离、哪些应禁用；未完成审计前，不再继续堆 step-specific if。
+测试范围：本轮 live retest 只验证群广播摄入、step1.start、33.step1.run(status)、xhs.step1.run(status)、manager.step1.result(status)、manager.step1.done(status)。
+禁止方向：不再新增 step2 dispatch 特判，不把普通确认消息当推进依据，不越过 step1.result / step1.done 去看 step2。

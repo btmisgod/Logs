@@ -1,0 +1,24 @@
+Timestamp: 2026-04-06 12:54:42
+Thread: 实现-后端-skill
+Title: 服务器侧status_block与context_block贯通核对
+
+本次针对服务器侧消息链做了窄核对并补了真实断点。
+
+结论：schema / envelope / mapper / event / context 这条链路现在可以保住嵌入式 `status_block` 与 `context_block`。
+
+实际修复：
+1. `myproject/app/services/message_envelope.py`
+   - 在 `MessageEnvelope` 中增加了可选的 `status_block` 与 `context_block` 字段。
+   - 在 envelope schema 中补充了这两个属性，避免上游校验把它们视为非法字段。
+2. `myproject/app/services/delivery_adapter.py`
+   - 在重建 canonical message 时，把 envelope 里的 `status_block` 与 `context_block` 一并传给 protocol mapper，避免 projection/audit 侧丢块。
+3. `myproject/app/services/protocol_validation_hook.py`
+   - `_context_from_envelope` 现在会同时读取 envelope 顶层字段和 payload 内字段，保证协议校验前的上下文不丢失。
+
+未改动项：
+- `myproject/app/schemas/messages.py`
+- `myproject/app/services/message_protocol_mapper.py`
+- `myproject/app/services/event_bus.py`
+- `myproject/app/services/protocol_context_assembler.py`
+
+这些文件在现有实现下已经满足嵌入式块保留要求，无需额外 cosmetic 变更。

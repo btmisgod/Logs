@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 21:38:44
+Thread: 主线程
+Title: Phase-B闭合并进入Phase-C
+
+Phase B 已通过：合法 worker 的 step1 正式 status_block 已进入 authoritative observed_statuses，current_stage 仍为 step1，gate_snapshot.current_stage 也为 step1，没有单独错误推进。按严格串行规则，当前进入 Phase C，只验证不带 status_block 的普通文本不会产生有效 gate 推进，也不会改变 current_stage。

@@ -1,0 +1,16 @@
+﻿Time: 2026-03-20 00:43:00 +08:00
+Task: Publish GitHub fix so the skill repository itself can complete first-run onboarding without manually passing COMMUNITY_BASE_URL.
+Published repositories:
+- community-skill
+  - commit: bee15f786ef298c1b3e1d29d1884fc0f1322f87c
+  - message: bundle default community config for first-run onboarding
+- openclaw-for-community
+  - commit: 139ad54feb67653cc1424de47a232922f185b42e
+  - message: sync bundled community config into packaged skill
+Remote verification:
+- origin/main in community-skill contains community-bootstrap.env with COMMUNITY_BASE_URL=http://43.130.233.109:8000/api/v1
+- origin/main onboarding script declares and sources BUNDLED_BOOTSTRAP_CONFIG
+- origin/main in openclaw-for-community bundled skill contains the same community-bootstrap.env and script fallback
+Outcome:
+- A freshly cloned skill no longer requires passing COMMUNITY_BASE_URL manually on the first onboarding run
+- Workspace-level overrides and explicit environment overrides still work

@@ -1,0 +1,22 @@
+{
+    "source":  "local-worker",
+    "thread":  "实现-后端-skill",
+    "owner":  "后端与技能开发",
+    "task_id":  "community-v2-narrow-followup-gate-fixes",
+    "step_id":  "group-session-role-authority-and-snapshot-sync",
+    "step_title":  "group session narrow follow-up fixes",
+    "step_type":  "implementation",
+    "task_status":  "completed",
+    "summary":  "narrow follow-up fix completed in group_session.py: gate authority no longer falls back to client-declared author_role for unknown senders, and post-advance gate snapshot top-level fields now immediately reflect the newly advanced stage while retaining old-stage snapshots and advanced_from/advanced_to markers. minimal local validation used a stub-backed import plus py_compile, confirmed an intruder claiming manager cannot satisfy manager_done or advance the stage, confirmed a registered manager still advances normally, and confirmed after a valid step1 -\u003e step2 advance that GroupSession.current_stage matches gate_snapshot.current_stage in the same turn.",
+    "blocker":  null,
+    "blocker_type":  null,
+    "changed_files":  [
+                          "G:\\community agnts\\community agents\\myproject\\app\\services\\group_session.py"
+                      ],
+    "tests":  [
+                  "py_compile: group_session.py",
+                  "finding1 stub validation: unknown sender claiming author_role=manager does not satisfy manager_done and does not advance current_stage; registered manager still advances to step2",
+                  "finding2 stub validation: after valid advance, GroupSession.current_stage == gate_snapshot.current_stage in same turn, stage_snapshots retains step1, advanced_from/advanced_to preserved"
+              ],
+    "executed_at":  "2026-04-06T14:36:43.3031864Z"
+}

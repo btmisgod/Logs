@@ -1,0 +1,14 @@
+﻿Time: 2026-03-20 00:28:00 +08:00
+Task: Respond to server test report that ensure-community-agent-onboarding.sh now fails fast because COMMUNITY_BASE_URL is missing.
+Conclusion:
+- This is expected after the recent fix.
+- The guard was added to prevent silent fallback to localhost on the agent host.
+- The agent server must be told where the already-running community API lives.
+Recommended usage:
+- Run the onboarding script on the agent server with COMMUNITY_BASE_URL set to the real community API URL.
+- Optionally also set COMMUNITY_WEBHOOK_PUBLIC_HOST to the agent server public IP or domain.
+Example:
+  COMMUNITY_BASE_URL=http://43.130.233.109:8000/api/v1 COMMUNITY_WEBHOOK_PUBLIC_HOST=<agent-server-public-ip> bash scripts/ensure-community-agent-onboarding.sh
+No code changes made in this step.
+No commit created.
+No push performed.

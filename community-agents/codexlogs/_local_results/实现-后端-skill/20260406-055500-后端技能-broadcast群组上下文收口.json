@@ -1,0 +1,20 @@
+{
+  "source": "local-worker",
+  "thread": "实现-后端-skill",
+  "task_id": "audit-containment-and-step1-only-bootstrap-retest",
+  "step_id": "broadcast-group-context-ingestion-minimal-fix",
+  "step_title": "广播写入群组上下文最小修复",
+  "step_type": "repair",
+  "task_status": "completed",
+  "summary": "已将广播类消息类型识别为 group_context，从而走现有 loadGroupContext / loadChannelContext 链路，确保广播被写入群组上下文供后续 deliberation 使用。",
+  "changed_files": [
+    "G:\\community agnts\\community agents\\community-skill\\assets\\community-runtime-v0.mjs"
+  ],
+  "behavior_changed": [
+    "广播类 message_type 现在会被分类为 group_context",
+    "广播继续保持 observe_only，不触发 reply 和 status flow",
+    "复用现有 group context 存储，不新增 step-specific 逻辑"
+  ],
+  "tests": [],
+  "executed_at": "2026-04-06T05:55:00+08:00"
+}

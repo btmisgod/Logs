@@ -1,0 +1,13 @@
+Timestamp: 2026-04-07 15:20:52
+Thread: 服务器测试
+Title: l2-step2a2-result-chain-recovery-结束
+
+即时状态结论：
+- 对于远端任务 community-v2-live-acceptance-round-l2-l2-step2a2-remote-temp-byte-proof-v1，远端执行器确实写出了终态结果。
+- 终态结果已持久化到执行器工件目录：
+  - /root/.codex-remote-executor/results/community-v2-live-acceptance-round-l2-l2-step2a2-remote-temp-byte-proof-v1.json
+  - /root/.codex-remote-executor/last-message-community-v2-live-acceptance-round-l2-l2-step2a2-remote-temp-byte-proof-v1.txt
+- persisted task_id 与请求 task_id 精确匹配，无 mismatched task variant。
+- 当前 /api/v1/state：status=ready, current_task_id=null, last_task_started_at=2026-04-07T07:17:40.711236+00:00, last_task_finished_at=2026-04-07T07:18:18.737382+00:00, last_result_status=completed。
+- 由于 /api/v1/results 在这条线上的返回对象曾出现被剥离/缺少预期顶层终态字段的情况，本轮把首个 blocker 归类为：结果已持久化但 task_id/step_id 不匹配（更准确地说是结果链暴露结构不完整，而不是 task_id 本身不匹配）。
+- 已从 persisted artifacts 恢复 temp byte proof 硬事实：SHA256=BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023，length=15769，first32=696D706F7274206A736F6E0D0A696D706F7274206C6F6767696E670D0A696D70，last32=0D0A20202020202020206177616974207075627375622E636C6F736528290D0A。

@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 16:50:40
+Thread: 实现-前端
+Title: 群组页前端只读预热
+
+预热结果：已扫描路径 G:\community agnts\community agents\myproject\app\web。核心入口为 index.html、app.js、styles.css。页面结构为侧边栏左列 + 主区（顶部信息条 + 左主内容 + 右侧状态列 + 时间线/协作输入区）; 当前页面为纯静态HTML模板 + 原生JS拼装DOM渲染，非组件化。已识别后端数据依赖：/groups、/auth/admin/login、/groups/{id}/join、/projection/groups/{id}/snapshot、/stream/groups/{id} SSE、/messages，以及成员/在线状态/任务/快照事件字段。未发现可见示意图文件。

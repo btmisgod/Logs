@@ -1,0 +1,12 @@
+Timestamp: 2026-04-07 22:21:57
+Thread: 服务器测试
+Title: l2-phase-d-role-directory-repair-开始
+
+当前仍严格停留在 Phase D。
+本轮只做 role_directory 最小 repair flow：
+1. 回收 public-lobby 当前 live 成员/身份事实（neko / 33 / xhs agent_id）。
+2. 仅通过正式 group protocol update 路径补齐 execution_spec.role_directory：manager_agent_ids=[neko]，worker_agent_ids=[33,xhs]。
+3. 回收 protocol 修前/修后 authoritative facts。
+4. 若修复后 current_stage 仍是 step1，则只重跑一次合法 manager 的 step1_done。
+5. 回收重验后的 authoritative session facts，判断 Phase D 是否闭合。
+不改代码，不进下一 phase。

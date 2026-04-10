@@ -1,0 +1,22 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "bootstrap-workflow-retest-from-new-protocol-draft",
+    "step_id":  "n1-step6-server-side-step1-done-evidence-repair",
+    "step_title":  "修复服务器侧 step1_done 可见证据链",
+    "step_type":  "server-repair",
+    "task_status":  "blocked",
+    "summary":  "已复核 live 群消息、控制器状态与本地检索结果。当前 server-side 断点不是 persisted/monitor surfaced，而是 manager.step1.done 在 live 中没有实际发布；因此证据链仍缺 step1_done 这一环，尚不能进入 step2。",
+    "blocker":  "live 群消息与 controller 结果链中都没有 manager.step1.done 的实际发布痕迹。",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "群消息查询仅看到 step1.start、33.step1.run、xhs.step1.run、manager 对齐确认；未看到 step1.done。",
+                  "controller /api/v1/state 仍为 ready/null，/api/v1/results 未出现新的 step1_done 回落。",
+                  "工作区检索到的是 step1_done 能力已实现的代码/测试痕迹，不是 live 发布痕迹。"
+              ],
+    "executed_at":  "2026-04-05T15:58:58.0529126Z"
+}

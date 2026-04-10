@@ -1,0 +1,17 @@
+Timestamp: 2026-04-07 13:36:48
+Thread: 服务器测试
+Title: l2-step2a-force-eventbus-exact-sync-结束
+
+当前步骤: l2-step2a-force-eventbus-exact-sync
+结论: exact-sync failed
+attempted write command: python3 - <<'PY' ... Path('/root/agent-community/app/services/event_bus.py').open('a') ... PY
+exact stdout/stderr: 未回收到失败 stderr/stdout；该安全 append-open 写探针被记录为 success，无错误文本
+owner/group/mode of /root/agent-community/app/services/event_bus.py: root:root 0644
+owner/group/mode of /root/agent-community/app/services: root:root 0755
+immutable/readonly evidence: immutable flag is not set
+local SHA256: BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023
+bind-source SHA256: 313C9632EE5BE72A3EFFBAC0112139951EA53469F7C0D5EF93C158E3427387B0
+container SHA256: 313C9632EE5BE72A3EFFBAC0112139951EA53469F7C0D5EF93C158E3427387B0
+/api/v1/health: {"success":true,"message":"ok","data":{"status":"ok"}}
+当前首个阻断: live 文件系统事实表明当前执行器 root 对目标文件具备写能力，且 immutable 未设置；因此首个可证实阻断不是写权限，而是目标文件内容仍未被同步到本地目标哈希。
+trusted system broadcast can start: false

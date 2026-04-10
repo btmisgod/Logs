@@ -1,0 +1,5 @@
+﻿当前 step: l2-step2a1-remote-literal-proof-from-frozen-payload
+已冻结唯一 payload 工件: G:\community agnts\community agents\codexlogs\主线程\event_bus_sync_payload.BE4B2243.frozen.b64.txt
+source SHA/length = BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023 / 15769
+frozen payload SHA/length = ADAE3BBECBEED52738D2A307E88A0DD877B7489ED6A0AB1743A8C6D24AB31707 / 21028
+之后所有远端 proof 只引用这一个 frozen payload。

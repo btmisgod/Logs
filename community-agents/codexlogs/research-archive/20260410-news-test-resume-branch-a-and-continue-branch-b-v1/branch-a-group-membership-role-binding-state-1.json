@@ -1,0 +1,38 @@
+﻿{
+    "ok":  true,
+    "state":  {
+                  "worker_id":  "server-primary",
+                  "status":  "running",
+                  "current_task_id":  "news-test-group-membership-role-binding-20260410",
+                  "last_task_started_at":  "2026-04-10T09:12:19.936445+00:00",
+                  "last_task_finished_at":  "2026-04-10T09:09:04.904190+00:00",
+                  "last_heartbeat_at":  "2026-04-10T09:12:34.953282+00:00",
+                  "last_result_status":  "completed",
+                  "last_result_summary":  "Authoritative 5-agent topology verified. I kept openclaw-33 as manager and provisioned four derived family agents in separate workspace roots with separate .openclaw state trees. I also patched the formal bootstrap at /root/openclaw-community-agent-template/scripts/bootstrap-community-agent-template.sh so explicit COMMUNITY_/MODEL_ overrides are not overwritten by template defaults. Evidence: role=manager agent_slug=openclaw-33 workspace_root=/root/openclaw-33/workspace service_name=openclaw-community-webhook-openclaw-33.service socket_path=/root/.openclaw/community-ingress/sockets/openclaw-33-443c3db99818.sock send_path=/send/openclaw-33 agent_id=b8beedf6-3540-4cf1-b22d-1dd6f5633b3a; role=editor agent_slug=openclaw-33-editor workspace_root=/root/openclaw-33-editor/workspace service_name=openclaw-community-webhook-openclaw-33-editor.service socket_path=/root/.openclaw/community-ingress/sockets/openclaw-33-editor-9da1a254d989.sock send_path=/send/openclaw-33-editor agent_id=b5eff68e-0497-466f-9a74-734bcbb177b7; role=worker-33 agent_slug=openclaw-33-worker-33 workspace_root=/root/openclaw-33-worker-33/workspace service_name=openclaw-community-webhook-openclaw-33-worker-33.service socket_path=/root/.openclaw/community-ingress/sockets/openclaw-33-worker-33-2525062ba5d4.sock send_path=/send/openclaw-33-worker-33 agent_id=8a8c144a-1efb-4c01-8084-f7bb45e33106; role=worker-xhs agent_slug=openclaw-33-worker-xhs workspace_root=/root/openclaw-33-worker-xhs/workspace service_name=openclaw-community-webhook-openclaw-33-worker-xhs.service socket_path=/root/.openclaw/community-ingress/sockets/openclaw-33-worker-xhs-3edb2237867a.sock send_path=/send/openclaw-33-worker-xhs agent_id=a734a7b8-1fe1-4779-a92b-f4f5268b4a95; role=tester agent_slug=openclaw-33-tester workspace_root=/root/openclaw-33-tester/workspace service_name=openclaw-community-webhook-openclaw-33-tester.service socket_path=/root/.openclaw/community-ingress/sockets/openclaw-33-tester-cdde6c10a5b7.sock send_path=/send/openclaw-33-tester agent_id=738e280d-af02-4618-85ed-2fd5fe4ab4b4.",
+                  "current_blocker":  null,
+                  "updated_at":  "2026-04-10T09:12:34.953292+00:00"
+              },
+    "evidence_chain":  {
+                           "task_id":  "news-test-group-membership-role-binding-20260410",
+                           "workflow_step":  null,
+                           "group_id":  null,
+                           "accepted":  {
+                                            "ok":  true,
+                                            "endpoint":  "POST /api/v1/task",
+                                            "task_status":  "pending",
+                                            "received_at":  "2026-04-10T09:12:18.988062+00:00"
+                                        },
+                           "running":  {
+                                           "ok":  true,
+                                           "endpoint":  "GET /api/v1/state",
+                                           "state_status":  "running",
+                                           "started_at":  "2026-04-10T09:12:19.936445+00:00"
+                                       },
+                           "finished":  {
+                                            "ok":  false,
+                                            "endpoint":  "GET /api/v1/results",
+                                            "result_status":  null,
+                                            "executed_at":  null
+                                        }
+                       }
+}

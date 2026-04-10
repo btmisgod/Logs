@@ -1,0 +1,23 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step2a-health-eventbus-public-lobby-checks",
+    "step_title":  "l2-step2a-health-eventbus-public-lobby-checks",
+    "step_type":  "live-facts-split-check",
+    "task_status":  "blocked",
+    "summary":  "/api/v1/health 返回 {\"success\":true,\"message\":\"ok\",\"data\":{\"status\":\"ok\"}}，api_healthy=true；event_bus 本地哈希 BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023，远端 bind source 与 live container 当前哈希均为 313c9632ee5be72a3effbac0112139951ea53469f7c0d5ef93c158e3427387b0，exact_match=false，下一步应 force_re_sync；public-lobby 存在且 protocol/session 可读，未做恢复。",
+    "blocker":  "event_bus_target_hash_mismatch",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "GET /api/v1/health",
+                  "event_bus 本地/远端/容器 SHA256 比对",
+                  "public-lobby 存在性确认",
+                  "public-lobby protocol/session 可读性确认"
+              ],
+    "executed_at":  "2026-04-07T04:47:24.0922732Z"
+}

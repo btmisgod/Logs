@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 19:11:05
+Thread: 主线程
+Title: task1 进入 blocked_recoverable repair flow
+
+已核实 task1 step4 的 blocker 仍然存在，但属于可恢复问题：远端 executor 已接收任务并处于 running，只是 /api/v1/results 还没有匹配结果。按最新版 skill，当前不应停整个任务，而应把 step4 迁入 blocked_recoverable repair flow，先修复证据链，再回到原 step4 重跑。

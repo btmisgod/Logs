@@ -1,0 +1,2 @@
+﻿[2026-04-07T13:18:18] 当前唯一断点已收敛为 event_bus_write_permission_issue。
+主线程已进入 l2-step2a-repair-eventbus-write-permission：只修 /root/agent-community/app/services/event_bus.py 的写权限问题，修复后立即重试覆盖并回收前后哈希；只有 local==remote==container==target hash 成立后，才恢复 trusted system broadcast。

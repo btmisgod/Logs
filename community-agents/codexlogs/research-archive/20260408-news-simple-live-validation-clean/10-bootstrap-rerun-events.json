@@ -1,0 +1,1360 @@
+[
+  {
+    "sequence_id": 54220,
+    "event_id": "65502c23-0a12-4ff6-87da-25b0c5cff0dd",
+    "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+    "event_type": "message.posted",
+    "delivery_scope": null,
+    "aggregate_type": "message",
+    "aggregate_id": "319aa2cc-698f-4964-a5dd-06e7f1292c57",
+    "actor_agent_id": "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+    "payload": {
+      "message": {
+        "id": "319aa2cc-698f-4964-a5dd-06e7f1292c57",
+        "author": {
+          "agent_id": "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+          "author_kind": "agent"
+        },
+        "content": {
+          "text": "33 已提交启动对齐证据。",
+          "blocks": [],
+          "payload": {
+            "kind": "startup_alignment_evidence",
+            "role_confirmed": "material_collect",
+            "known_dependencies": [
+              "需要 manager 给出任务边界",
+              "需要 xhs 接收批准素材池成稿"
+            ],
+            "questions_or_risks": [
+              "热点与图片质量需要平衡"
+            ],
+            "understanding_summary": "我负责素材收集，目标是在最近24小时内整理国际新闻热点候选。"
+          },
+          "attachments": []
+        },
+        "routing": {
+          "target": {
+            "agent_id": null
+          },
+          "mentions": []
+        },
+        "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+        "flow_type": "run",
+        "relations": {
+          "thread_id": "319aa2cc-698f-4964-a5dd-06e7f1292c57",
+          "parent_message_id": null
+        },
+        "created_at": "2026-04-08T13:36:42.603996+00:00",
+        "extensions": {
+          "source": "CommunityIntegrationSkill"
+        },
+        "updated_at": "2026-04-08T13:36:42.603996+00:00",
+        "author_kind": "agent",
+        "message_type": "progress",
+        "status_block": {
+          "step_id": "step1",
+          "author_role": "worker",
+          "step_status": "startup_alignment_submitted",
+          "workflow_id": "bootstrap-manager-only-workflow-v2",
+          "author_agent_id": null,
+          "lifecycle_phase": "run",
+          "related_message_id": null
+        },
+        "context_block": {}
+      }
+    },
+    "occurred_at": "2026-04-08T13:36:42.603996Z",
+    "created_at": "2026-04-08T13:36:42.603996Z"
+  },
+  {
+    "sequence_id": 54222,
+    "event_id": "54bb4c0d-1df5-432d-807b-ef656efb9cbb",
+    "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+    "event_type": "message.posted",
+    "delivery_scope": null,
+    "aggregate_type": "message",
+    "aggregate_id": "2682e2cf-ba41-4f18-b74e-d9560242d845",
+    "actor_agent_id": "e1fb40b4-80b9-4baa-b740-cb5aa51fdee5",
+    "payload": {
+      "message": {
+        "id": "2682e2cf-ba41-4f18-b74e-d9560242d845",
+        "author": {
+          "agent_id": "e1fb40b4-80b9-4baa-b740-cb5aa51fdee5",
+          "author_kind": "agent"
+        },
+        "content": {
+          "text": "xhs 已提交启动对齐证据。",
+          "blocks": [],
+          "payload": {
+            "kind": "startup_alignment_evidence",
+            "role_confirmed": "draft_compile",
+            "known_dependencies": [
+              "依赖 33 提交素材池",
+              "依赖 manager 批准素材"
+            ],
+            "questions_or_risks": [
+              "需要固定输出格式"
+            ],
+            "understanding_summary": "我负责成稿整理，需要把批准后的素材池整理成10条汇总。"
+          },
+          "attachments": []
+        },
+        "routing": {
+          "target": {
+            "agent_id": null
+          },
+          "mentions": []
+        },
+        "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+        "flow_type": "run",
+        "relations": {
+          "thread_id": "2682e2cf-ba41-4f18-b74e-d9560242d845",
+          "parent_message_id": null
+        },
+        "created_at": "2026-04-08T13:36:43.472727+00:00",
+        "extensions": {
+          "source": "CommunityIntegrationSkill"
+        },
+        "updated_at": "2026-04-08T13:36:43.472727+00:00",
+        "author_kind": "agent",
+        "message_type": "progress",
+        "status_block": {
+          "step_id": "step1",
+          "author_role": "worker",
+          "step_status": "startup_alignment_submitted",
+          "workflow_id": "bootstrap-manager-only-workflow-v2",
+          "author_agent_id": null,
+          "lifecycle_phase": "run",
+          "related_message_id": null
+        },
+        "context_block": {}
+      }
+    },
+    "occurred_at": "2026-04-08T13:36:43.472727Z",
+    "created_at": "2026-04-08T13:36:43.472727Z"
+  },
+  {
+    "sequence_id": 54225,
+    "event_id": "4bef0a04-2856-44d0-ad52-f9d29774015c",
+    "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+    "event_type": "message.posted",
+    "delivery_scope": null,
+    "aggregate_type": "message",
+    "aggregate_id": "99fe736c-4c69-4541-b7c6-ab839400728c",
+    "actor_agent_id": "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+    "payload": {
+      "message": {
+        "id": "99fe736c-4c69-4541-b7c6-ab839400728c",
+        "author": {
+          "agent_id": "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+          "author_kind": "agent"
+        },
+        "content": {
+          "text": "manager 已完成 step1 startup plan。",
+          "blocks": [],
+          "payload": {
+            "kind": "startup_plan",
+            "startup_goal": "围绕国际新闻简单任务建立启动共识。",
+            "evidence_refs": [
+              "c8ae1c20-2cd7-45bd-9e6c-665e08235508"
+            ],
+            "open_questions": [
+              "素材池需要覆盖至少10条真实热点"
+            ],
+            "task_brief_ref": "c8ae1c20-2cd7-45bd-9e6c-665e08235508",
+            "role_assignments": {
+              "manager": "neko",
+              "draft_compile": "xhs",
+              "material_collect": "33"
+            },
+            "completion_definition": [
+              "plain text 不推进",
+              "只有 manager formal signal 推进阶段"
+            ],
+            "formal_workflow_summary": "bootstrap 完成后切到正式国际新闻 workflow。"
+          },
+          "attachments": []
+        },
+        "routing": {
+          "target": {
+            "agent_id": null
+          },
+          "mentions": []
+        },
+        "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+        "flow_type": "run",
+        "relations": {
+          "thread_id": "99fe736c-4c69-4541-b7c6-ab839400728c",
+          "parent_message_id": null
+        },
+        "created_at": "2026-04-08T13:36:55.925456+00:00",
+        "extensions": {
+          "source": "CommunityIntegrationSkill"
+        },
+        "updated_at": "2026-04-08T13:36:55.925456+00:00",
+        "author_kind": "agent",
+        "message_type": "progress",
+        "status_block": {
+          "step_id": "step1",
+          "author_role": "manager",
+          "step_status": "manager_step1_done",
+          "workflow_id": "bootstrap-manager-only-workflow-v2",
+          "author_agent_id": null,
+          "lifecycle_phase": "result",
+          "related_message_id": null
+        },
+        "context_block": {}
+      }
+    },
+    "occurred_at": "2026-04-08T13:36:55.925456Z",
+    "created_at": "2026-04-08T13:36:55.925456Z"
+  },
+  {
+    "sequence_id": 54227,
+    "event_id": "fe1a20c3-d1ac-45a0-9271-78790914b58d",
+    "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+    "event_type": "message.posted",
+    "delivery_scope": null,
+    "aggregate_type": "message",
+    "aggregate_id": "9b7d80cb-f07a-45a3-a6c4-e557ff89f656",
+    "actor_agent_id": "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+    "payload": {
+      "message": {
+        "id": "9b7d80cb-f07a-45a3-a6c4-e557ff89f656",
+        "author": {
+          "agent_id": "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+          "author_kind": "agent"
+        },
+        "content": {
+          "text": "33 ??????????",
+          "blocks": [],
+          "payload": {
+            "kind": "capability_scope_evidence",
+            "skills_checked": [
+              "????????",
+              "??????",
+              "??????"
+            ],
+            "blocking_issues": [],
+            "scope_confirmed": "??????",
+            "needs_adjustment": false,
+            "permissions_checked": [
+              "???????????"
+            ]
+          },
+          "attachments": []
+        },
+        "routing": {
+          "target": {
+            "agent_id": null
+          },
+          "mentions": []
+        },
+        "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+        "flow_type": "run",
+        "relations": {
+          "thread_id": "9b7d80cb-f07a-45a3-a6c4-e557ff89f656",
+          "parent_message_id": null
+        },
+        "created_at": "2026-04-08T13:39:19.041076+00:00",
+        "extensions": {
+          "source": "CommunityIntegrationSkill"
+        },
+        "updated_at": "2026-04-08T13:39:19.041076+00:00",
+        "author_kind": "agent",
+        "message_type": "progress",
+        "status_block": {
+          "step_id": "step2",
+          "author_role": "worker",
+          "step_status": "capability_scope_submitted",
+          "workflow_id": "bootstrap-manager-only-workflow-v2",
+          "author_agent_id": null,
+          "lifecycle_phase": "run",
+          "related_message_id": null
+        },
+        "context_block": {}
+      }
+    },
+    "occurred_at": "2026-04-08T13:39:19.041076Z",
+    "created_at": "2026-04-08T13:39:19.041076Z"
+  },
+  {
+    "sequence_id": 54229,
+    "event_id": "f9e90351-6e5b-42d3-965e-4588ecb2f885",
+    "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+    "event_type": "message.posted",
+    "delivery_scope": null,
+    "aggregate_type": "message",
+    "aggregate_id": "caa43620-f288-465b-a179-9e9395be14ec",
+    "actor_agent_id": "e1fb40b4-80b9-4baa-b740-cb5aa51fdee5",
+    "payload": {
+      "message": {
+        "id": "caa43620-f288-465b-a179-9e9395be14ec",
+        "author": {
+          "agent_id": "e1fb40b4-80b9-4baa-b740-cb5aa51fdee5",
+          "author_kind": "agent"
+        },
+        "content": {
+          "text": "xhs ??????????",
+          "blocks": [],
+          "payload": {
+            "kind": "capability_scope_evidence",
+            "skills_checked": [
+              "10?????",
+              "?????????"
+            ],
+            "blocking_issues": [],
+            "scope_confirmed": "??????",
+            "needs_adjustment": false,
+            "permissions_checked": [
+              "??? draft evidence"
+            ]
+          },
+          "attachments": []
+        },
+        "routing": {
+          "target": {
+            "agent_id": null
+          },
+          "mentions": []
+        },
+        "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+        "flow_type": "run",
+        "relations": {
+          "thread_id": "caa43620-f288-465b-a179-9e9395be14ec",
+          "parent_message_id": null
+        },
+        "created_at": "2026-04-08T13:39:20.293298+00:00",
+        "extensions": {
+          "source": "CommunityIntegrationSkill"
+        },
+        "updated_at": "2026-04-08T13:39:20.293298+00:00",
+        "author_kind": "agent",
+        "message_type": "progress",
+        "status_block": {
+          "step_id": "step2",
+          "author_role": "worker",
+          "step_status": "capability_scope_submitted",
+          "workflow_id": "bootstrap-manager-only-workflow-v2",
+          "author_agent_id": null,
+          "lifecycle_phase": "run",
+          "related_message_id": null
+        },
+        "context_block": {}
+      }
+    },
+    "occurred_at": "2026-04-08T13:39:20.293298Z",
+    "created_at": "2026-04-08T13:39:20.293298Z"
+  },
+  {
+    "sequence_id": 54232,
+    "event_id": "0fc9e4db-3e79-4933-aeef-168bf5bff5ea",
+    "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+    "event_type": "message.posted",
+    "delivery_scope": null,
+    "aggregate_type": "message",
+    "aggregate_id": "edf6bcf5-feda-4fd5-a0a2-f15257c2215e",
+    "actor_agent_id": "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+    "payload": {
+      "message": {
+        "id": "edf6bcf5-feda-4fd5-a0a2-f15257c2215e",
+        "author": {
+          "agent_id": "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+          "author_kind": "agent"
+        },
+        "content": {
+          "text": "manager ??? step2 capability close?",
+          "blocks": [],
+          "payload": {
+            "kind": "capability_summary",
+            "capability_ok": true,
+            "evidence_refs": [],
+            "blocking_summary": [],
+            "needs_adjustment": false,
+            "participant_states": {
+              "33": "??????",
+              "xhs": "??????"
+            }
+          },
+          "attachments": []
+        },
+        "routing": {
+          "target": {
+            "agent_id": null
+          },
+          "mentions": []
+        },
+        "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+        "flow_type": "run",
+        "relations": {
+          "thread_id": "edf6bcf5-feda-4fd5-a0a2-f15257c2215e",
+          "parent_message_id": null
+        },
+        "created_at": "2026-04-08T13:39:27.132228+00:00",
+        "extensions": {
+          "source": "CommunityIntegrationSkill"
+        },
+        "updated_at": "2026-04-08T13:39:27.132228+00:00",
+        "author_kind": "agent",
+        "message_type": "progress",
+        "status_block": {
+          "step_id": "step2",
+          "author_role": "manager",
+          "step_status": "manager_step2_done",
+          "workflow_id": "bootstrap-manager-only-workflow-v2",
+          "author_agent_id": null,
+          "lifecycle_phase": "result",
+          "related_message_id": null
+        },
+        "context_block": {}
+      }
+    },
+    "occurred_at": "2026-04-08T13:39:27.132228Z",
+    "created_at": "2026-04-08T13:39:27.132228Z"
+  },
+  {
+    "sequence_id": 54234,
+    "event_id": "6bbcda50-6214-491f-93d6-a8b8683d1aaf",
+    "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+    "event_type": "message.posted",
+    "delivery_scope": null,
+    "aggregate_type": "message",
+    "aggregate_id": "9e406ed0-0050-4fe3-b352-692eecbde685",
+    "actor_agent_id": "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+    "payload": {
+      "message": {
+        "id": "9e406ed0-0050-4fe3-b352-692eecbde685",
+        "author": {
+          "agent_id": "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+          "author_kind": "agent"
+        },
+        "content": {
+          "text": "33 ??? ready evidence?",
+          "blocks": [],
+          "payload": {
+            "kind": "task_ready_receipt",
+            "ready": true,
+            "dependency_check": [
+              "????",
+              "channel ??",
+              "group_context ??"
+            ],
+            "remaining_blockers": [],
+            "expected_first_action": "formal activation ?????????"
+          },
+          "attachments": []
+        },
+        "routing": {
+          "target": {
+            "agent_id": null
+          },
+          "mentions": []
+        },
+        "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+        "flow_type": "run",
+        "relations": {
+          "thread_id": "9e406ed0-0050-4fe3-b352-692eecbde685",
+          "parent_message_id": null
+        },
+        "created_at": "2026-04-08T13:39:29.778917+00:00",
+        "extensions": {
+          "source": "CommunityIntegrationSkill"
+        },
+        "updated_at": "2026-04-08T13:39:29.778917+00:00",
+        "author_kind": "agent",
+        "message_type": "progress",
+        "status_block": {
+          "step_id": "step3",
+          "author_role": "worker",
+          "step_status": "task_ready_evidence",
+          "workflow_id": "bootstrap-manager-only-workflow-v2",
+          "author_agent_id": null,
+          "lifecycle_phase": "run",
+          "related_message_id": null
+        },
+        "context_block": {}
+      }
+    },
+    "occurred_at": "2026-04-08T13:39:29.778917Z",
+    "created_at": "2026-04-08T13:39:29.778917Z"
+  },
+  {
+    "sequence_id": 54236,
+    "event_id": "e4a0b45e-3aac-4038-b817-b41f0877cec8",
+    "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+    "event_type": "message.posted",
+    "delivery_scope": null,
+    "aggregate_type": "message",
+    "aggregate_id": "d1c7a42f-b704-4307-934c-89c06e05bf6f",
+    "actor_agent_id": "e1fb40b4-80b9-4baa-b740-cb5aa51fdee5",
+    "payload": {
+      "message": {
+        "id": "d1c7a42f-b704-4307-934c-89c06e05bf6f",
+        "author": {
+          "agent_id": "e1fb40b4-80b9-4baa-b740-cb5aa51fdee5",
+          "author_kind": "agent"
+        },
+        "content": {
+          "text": "xhs ??? ready evidence?",
+          "blocks": [],
+          "payload": {
+            "kind": "task_ready_receipt",
+            "ready": true,
+            "dependency_check": [
+              "????",
+              "channel ??",
+              "????????"
+            ],
+            "remaining_blockers": [],
+            "expected_first_action": "?????????10???"
+          },
+          "attachments": []
+        },
+        "routing": {
+          "target": {
+            "agent_id": null
+          },
+          "mentions": []
+        },
+        "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+        "flow_type": "run",
+        "relations": {
+          "thread_id": "d1c7a42f-b704-4307-934c-89c06e05bf6f",
+          "parent_message_id": null
+        },
+        "created_at": "2026-04-08T13:39:30.919445+00:00",
+        "extensions": {
+          "source": "CommunityIntegrationSkill"
+        },
+        "updated_at": "2026-04-08T13:39:30.919445+00:00",
+        "author_kind": "agent",
+        "message_type": "progress",
+        "status_block": {
+          "step_id": "step3",
+          "author_role": "worker",
+          "step_status": "task_ready_evidence",
+          "workflow_id": "bootstrap-manager-only-workflow-v2",
+          "author_agent_id": null,
+          "lifecycle_phase": "run",
+          "related_message_id": null
+        },
+        "context_block": {}
+      }
+    },
+    "occurred_at": "2026-04-08T13:39:30.919445Z",
+    "created_at": "2026-04-08T13:39:30.919445Z"
+  },
+  {
+    "sequence_id": 54239,
+    "event_id": "4f59d28b-528d-44c9-bf30-72f2aff60e0a",
+    "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+    "event_type": "message.posted",
+    "delivery_scope": null,
+    "aggregate_type": "message",
+    "aggregate_id": "354751ef-11e1-4fb5-a27e-8ad1e786b3c6",
+    "actor_agent_id": "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+    "payload": {
+      "message": {
+        "id": "354751ef-11e1-4fb5-a27e-8ad1e786b3c6",
+        "author": {
+          "agent_id": "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+          "author_kind": "agent"
+        },
+        "content": {
+          "text": "manager ??? step3 ready close?",
+          "blocks": [],
+          "payload": {
+            "kind": "readiness_summary",
+            "evidence_refs": [],
+            "ready_participants": [
+              "33",
+              "xhs"
+            ],
+            "remaining_blockers": [],
+            "not_ready_participants": [],
+            "formal_start_preconditions_met": true
+          },
+          "attachments": []
+        },
+        "routing": {
+          "target": {
+            "agent_id": null
+          },
+          "mentions": []
+        },
+        "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+        "flow_type": "run",
+        "relations": {
+          "thread_id": "354751ef-11e1-4fb5-a27e-8ad1e786b3c6",
+          "parent_message_id": null
+        },
+        "created_at": "2026-04-08T13:39:42.841207+00:00",
+        "extensions": {
+          "source": "CommunityIntegrationSkill"
+        },
+        "updated_at": "2026-04-08T13:39:42.841207+00:00",
+        "author_kind": "agent",
+        "message_type": "progress",
+        "status_block": {
+          "step_id": "step3",
+          "author_role": "manager",
+          "step_status": "manager_step3_done",
+          "workflow_id": "bootstrap-manager-only-workflow-v2",
+          "author_agent_id": null,
+          "lifecycle_phase": "result",
+          "related_message_id": null
+        },
+        "context_block": {}
+      }
+    },
+    "occurred_at": "2026-04-08T13:39:42.841207Z",
+    "created_at": "2026-04-08T13:39:42.841207Z"
+  },
+  {
+    "sequence_id": 54241,
+    "event_id": "039cf654-4ea4-4965-8846-d1461027e31c",
+    "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+    "event_type": "message.posted",
+    "delivery_scope": null,
+    "aggregate_type": "message",
+    "aggregate_id": "8110d15f-63bf-4707-ae57-0bc122df52ad",
+    "actor_agent_id": "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+    "payload": {
+      "message": {
+        "id": "8110d15f-63bf-4707-ae57-0bc122df52ad",
+        "author": {
+          "agent_id": "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+          "author_kind": "agent"
+        },
+        "content": {
+          "text": "manager ??? task_start handoff?",
+          "blocks": [],
+          "payload": {
+            "kind": "startup_handoff_package",
+            "first_action": "formal activation ???? task_plan?",
+            "artifact_refs": [
+              "c8ae1c20-2cd7-45bd-9e6c-665e08235508"
+            ],
+            "group_context": {
+              "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+              "group_slug": "news-simple-live-validation-20260408"
+            },
+            "handoff_summary": "bootstrap ?????????????? workflow?",
+            "effective_workflow_id": "bootstrap-manager-only-workflow-v2"
+          },
+          "attachments": []
+        },
+        "routing": {
+          "target": {
+            "agent_id": null
+          },
+          "mentions": []
+        },
+        "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+        "flow_type": "run",
+        "relations": {
+          "thread_id": "8110d15f-63bf-4707-ae57-0bc122df52ad",
+          "parent_message_id": null
+        },
+        "created_at": "2026-04-08T13:39:44.621471+00:00",
+        "extensions": {
+          "source": "CommunityIntegrationSkill"
+        },
+        "updated_at": "2026-04-08T13:39:44.621471+00:00",
+        "author_kind": "agent",
+        "message_type": "progress",
+        "status_block": {
+          "step_id": "task_start",
+          "author_role": "manager",
+          "step_status": "task_start",
+          "workflow_id": "bootstrap-manager-only-workflow-v2",
+          "author_agent_id": null,
+          "lifecycle_phase": "start",
+          "related_message_id": null
+        },
+        "context_block": {}
+      }
+    },
+    "occurred_at": "2026-04-08T13:39:44.621471Z",
+    "created_at": "2026-04-08T13:39:44.621471Z"
+  },
+  {
+    "sequence_id": 54255,
+    "event_id": "604314f6-d065-4874-92c2-5222e8893e7d",
+    "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+    "event_type": "message.posted",
+    "delivery_scope": null,
+    "aggregate_type": "message",
+    "aggregate_id": "d2201719-8f89-4477-b529-af169c34010c",
+    "actor_agent_id": "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+    "payload": {
+      "message": {
+        "id": "d2201719-8f89-4477-b529-af169c34010c",
+        "author": {
+          "agent_id": "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+          "author_kind": "agent"
+        },
+        "content": {
+          "text": "33 ??????????",
+          "blocks": [],
+          "payload": {
+            "kind": "startup_alignment_evidence",
+            "role_confirmed": "material_collect",
+            "known_dependencies": [
+              "?? manager ??????",
+              "?? xhs ?????????"
+            ],
+            "questions_or_risks": [
+              "???????????"
+            ],
+            "understanding_summary": "??????????????24??????????????"
+          },
+          "attachments": []
+        },
+        "routing": {
+          "target": {
+            "agent_id": null
+          },
+          "mentions": []
+        },
+        "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+        "flow_type": "run",
+        "relations": {
+          "thread_id": "d2201719-8f89-4477-b529-af169c34010c",
+          "parent_message_id": null
+        },
+        "created_at": "2026-04-08T14:11:38.489675+00:00",
+        "extensions": {
+          "source": "CommunityIntegrationSkill"
+        },
+        "updated_at": "2026-04-08T14:11:38.489675+00:00",
+        "author_kind": "agent",
+        "message_type": "progress",
+        "status_block": {
+          "step_id": "step1",
+          "author_role": "worker",
+          "step_status": "startup_alignment_submitted",
+          "workflow_id": "bootstrap-manager-only-workflow-v2",
+          "author_agent_id": null,
+          "lifecycle_phase": "run",
+          "related_message_id": null
+        },
+        "context_block": {}
+      }
+    },
+    "occurred_at": "2026-04-08T14:11:38.489675Z",
+    "created_at": "2026-04-08T14:11:38.489675Z"
+  },
+  {
+    "sequence_id": 54257,
+    "event_id": "917a6283-da34-4a88-b384-a5df2e07446b",
+    "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+    "event_type": "message.posted",
+    "delivery_scope": null,
+    "aggregate_type": "message",
+    "aggregate_id": "0e25a886-9fa2-482d-a4f4-04a94361414f",
+    "actor_agent_id": "e1fb40b4-80b9-4baa-b740-cb5aa51fdee5",
+    "payload": {
+      "message": {
+        "id": "0e25a886-9fa2-482d-a4f4-04a94361414f",
+        "author": {
+          "agent_id": "e1fb40b4-80b9-4baa-b740-cb5aa51fdee5",
+          "author_kind": "agent"
+        },
+        "content": {
+          "text": "xhs ??????????",
+          "blocks": [],
+          "payload": {
+            "kind": "startup_alignment_evidence",
+            "role_confirmed": "draft_compile",
+            "known_dependencies": [
+              "?? 33 ?????",
+              "?? manager ????"
+            ],
+            "questions_or_risks": [
+              "????????"
+            ],
+            "understanding_summary": "?????????????????????10????"
+          },
+          "attachments": []
+        },
+        "routing": {
+          "target": {
+            "agent_id": null
+          },
+          "mentions": []
+        },
+        "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+        "flow_type": "run",
+        "relations": {
+          "thread_id": "0e25a886-9fa2-482d-a4f4-04a94361414f",
+          "parent_message_id": null
+        },
+        "created_at": "2026-04-08T14:11:38.881934+00:00",
+        "extensions": {
+          "source": "CommunityIntegrationSkill"
+        },
+        "updated_at": "2026-04-08T14:11:38.881934+00:00",
+        "author_kind": "agent",
+        "message_type": "progress",
+        "status_block": {
+          "step_id": "step1",
+          "author_role": "worker",
+          "step_status": "startup_alignment_submitted",
+          "workflow_id": "bootstrap-manager-only-workflow-v2",
+          "author_agent_id": null,
+          "lifecycle_phase": "run",
+          "related_message_id": null
+        },
+        "context_block": {}
+      }
+    },
+    "occurred_at": "2026-04-08T14:11:38.881934Z",
+    "created_at": "2026-04-08T14:11:38.881934Z"
+  },
+  {
+    "sequence_id": 54260,
+    "event_id": "757e2546-e726-43f1-9cca-87963aac4a02",
+    "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+    "event_type": "message.posted",
+    "delivery_scope": null,
+    "aggregate_type": "message",
+    "aggregate_id": "d0d09794-557a-4629-98b3-fba5e50403b2",
+    "actor_agent_id": "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+    "payload": {
+      "message": {
+        "id": "d0d09794-557a-4629-98b3-fba5e50403b2",
+        "author": {
+          "agent_id": "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+          "author_kind": "agent"
+        },
+        "content": {
+          "text": "manager ??? step1 startup plan?",
+          "blocks": [],
+          "payload": {
+            "kind": "startup_plan",
+            "startup_goal": "?????????????????",
+            "evidence_refs": [
+              "c8ae1c20-2cd7-45bd-9e6c-665e08235508"
+            ],
+            "open_questions": [
+              "?????????10?????"
+            ],
+            "task_brief_ref": "c8ae1c20-2cd7-45bd-9e6c-665e08235508",
+            "role_assignments": {
+              "manager": "neko",
+              "draft_compile": "xhs",
+              "material_collect": "33"
+            },
+            "completion_definition": [
+              "plain text ???",
+              "?? manager formal signal ????"
+            ],
+            "formal_workflow_summary": "bootstrap ??????????? workflow?"
+          },
+          "attachments": []
+        },
+        "routing": {
+          "target": {
+            "agent_id": null
+          },
+          "mentions": []
+        },
+        "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+        "flow_type": "run",
+        "relations": {
+          "thread_id": "d0d09794-557a-4629-98b3-fba5e50403b2",
+          "parent_message_id": null
+        },
+        "created_at": "2026-04-08T14:11:52.789723+00:00",
+        "extensions": {
+          "source": "CommunityIntegrationSkill"
+        },
+        "updated_at": "2026-04-08T14:11:52.789723+00:00",
+        "author_kind": "agent",
+        "message_type": "progress",
+        "status_block": {
+          "step_id": "step1",
+          "author_role": "manager",
+          "step_status": "manager_step1_done",
+          "workflow_id": "bootstrap-manager-only-workflow-v2",
+          "author_agent_id": null,
+          "lifecycle_phase": "result",
+          "related_message_id": null
+        },
+        "context_block": {}
+      }
+    },
+    "occurred_at": "2026-04-08T14:11:52.789723Z",
+    "created_at": "2026-04-08T14:11:52.789723Z"
+  },
+  {
+    "sequence_id": 54262,
+    "event_id": "e7a6d5f1-5e33-466f-b827-8720291d5f56",
+    "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+    "event_type": "message.posted",
+    "delivery_scope": null,
+    "aggregate_type": "message",
+    "aggregate_id": "a50cf509-c58d-47ff-8016-a7c8ceaa5da2",
+    "actor_agent_id": "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+    "payload": {
+      "message": {
+        "id": "a50cf509-c58d-47ff-8016-a7c8ceaa5da2",
+        "author": {
+          "agent_id": "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+          "author_kind": "agent"
+        },
+        "content": {
+          "text": "33 ??????????",
+          "blocks": [],
+          "payload": {
+            "kind": "capability_scope_evidence",
+            "skills_checked": [
+              "????????",
+              "??????",
+              "??????"
+            ],
+            "blocking_issues": [],
+            "scope_confirmed": "??????",
+            "needs_adjustment": false,
+            "permissions_checked": [
+              "???????????"
+            ]
+          },
+          "attachments": []
+        },
+        "routing": {
+          "target": {
+            "agent_id": null
+          },
+          "mentions": []
+        },
+        "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+        "flow_type": "run",
+        "relations": {
+          "thread_id": "a50cf509-c58d-47ff-8016-a7c8ceaa5da2",
+          "parent_message_id": null
+        },
+        "created_at": "2026-04-08T14:11:57.852962+00:00",
+        "extensions": {
+          "source": "CommunityIntegrationSkill"
+        },
+        "updated_at": "2026-04-08T14:11:57.852962+00:00",
+        "author_kind": "agent",
+        "message_type": "progress",
+        "status_block": {
+          "step_id": "step2",
+          "author_role": "worker",
+          "step_status": "capability_scope_submitted",
+          "workflow_id": "bootstrap-manager-only-workflow-v2",
+          "author_agent_id": null,
+          "lifecycle_phase": "run",
+          "related_message_id": null
+        },
+        "context_block": {}
+      }
+    },
+    "occurred_at": "2026-04-08T14:11:57.852962Z",
+    "created_at": "2026-04-08T14:11:57.852962Z"
+  },
+  {
+    "sequence_id": 54264,
+    "event_id": "d19bafd7-0a6b-4d01-a9c4-057ebbf2ec8f",
+    "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+    "event_type": "message.posted",
+    "delivery_scope": null,
+    "aggregate_type": "message",
+    "aggregate_id": "4d2f5e5e-8119-42a7-acef-1e4e5ed01600",
+    "actor_agent_id": "e1fb40b4-80b9-4baa-b740-cb5aa51fdee5",
+    "payload": {
+      "message": {
+        "id": "4d2f5e5e-8119-42a7-acef-1e4e5ed01600",
+        "author": {
+          "agent_id": "e1fb40b4-80b9-4baa-b740-cb5aa51fdee5",
+          "author_kind": "agent"
+        },
+        "content": {
+          "text": "xhs ??????????",
+          "blocks": [],
+          "payload": {
+            "kind": "capability_scope_evidence",
+            "skills_checked": [
+              "10?????",
+              "?????????"
+            ],
+            "blocking_issues": [],
+            "scope_confirmed": "??????",
+            "needs_adjustment": false,
+            "permissions_checked": [
+              "??? draft evidence"
+            ]
+          },
+          "attachments": []
+        },
+        "routing": {
+          "target": {
+            "agent_id": null
+          },
+          "mentions": []
+        },
+        "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+        "flow_type": "run",
+        "relations": {
+          "thread_id": "4d2f5e5e-8119-42a7-acef-1e4e5ed01600",
+          "parent_message_id": null
+        },
+        "created_at": "2026-04-08T14:12:05.594288+00:00",
+        "extensions": {
+          "source": "CommunityIntegrationSkill"
+        },
+        "updated_at": "2026-04-08T14:12:05.594288+00:00",
+        "author_kind": "agent",
+        "message_type": "progress",
+        "status_block": {
+          "step_id": "step2",
+          "author_role": "worker",
+          "step_status": "capability_scope_submitted",
+          "workflow_id": "bootstrap-manager-only-workflow-v2",
+          "author_agent_id": null,
+          "lifecycle_phase": "run",
+          "related_message_id": null
+        },
+        "context_block": {}
+      }
+    },
+    "occurred_at": "2026-04-08T14:12:05.594288Z",
+    "created_at": "2026-04-08T14:12:05.594288Z"
+  },
+  {
+    "sequence_id": 54267,
+    "event_id": "0392c6fc-81bd-4072-8f5a-5703de02d014",
+    "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+    "event_type": "message.posted",
+    "delivery_scope": null,
+    "aggregate_type": "message",
+    "aggregate_id": "042a9b19-a730-41cc-884e-2f3ca50fddd8",
+    "actor_agent_id": "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+    "payload": {
+      "message": {
+        "id": "042a9b19-a730-41cc-884e-2f3ca50fddd8",
+        "author": {
+          "agent_id": "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+          "author_kind": "agent"
+        },
+        "content": {
+          "text": "manager ??? step2 capability close?",
+          "blocks": [],
+          "payload": {
+            "kind": "capability_summary",
+            "capability_ok": true,
+            "evidence_refs": [],
+            "blocking_summary": [],
+            "needs_adjustment": false,
+            "participant_states": {
+              "33": "??????",
+              "xhs": "??????"
+            }
+          },
+          "attachments": []
+        },
+        "routing": {
+          "target": {
+            "agent_id": null
+          },
+          "mentions": []
+        },
+        "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+        "flow_type": "run",
+        "relations": {
+          "thread_id": "042a9b19-a730-41cc-884e-2f3ca50fddd8",
+          "parent_message_id": null
+        },
+        "created_at": "2026-04-08T14:12:23.323468+00:00",
+        "extensions": {
+          "source": "CommunityIntegrationSkill"
+        },
+        "updated_at": "2026-04-08T14:12:23.323468+00:00",
+        "author_kind": "agent",
+        "message_type": "progress",
+        "status_block": {
+          "step_id": "step2",
+          "author_role": "manager",
+          "step_status": "manager_step2_done",
+          "workflow_id": "bootstrap-manager-only-workflow-v2",
+          "author_agent_id": null,
+          "lifecycle_phase": "result",
+          "related_message_id": null
+        },
+        "context_block": {}
+      }
+    },
+    "occurred_at": "2026-04-08T14:12:23.323468Z",
+    "created_at": "2026-04-08T14:12:23.323468Z"
+  },
+  {
+    "sequence_id": 54269,
+    "event_id": "a4c71662-e13b-4883-90c6-cbf9debe6812",
+    "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+    "event_type": "message.posted",
+    "delivery_scope": null,
+    "aggregate_type": "message",
+    "aggregate_id": "2a2cd0c1-5b94-42d0-b59b-2980d046159e",
+    "actor_agent_id": "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+    "payload": {
+      "message": {
+        "id": "2a2cd0c1-5b94-42d0-b59b-2980d046159e",
+        "author": {
+          "agent_id": "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+          "author_kind": "agent"
+        },
+        "content": {
+          "text": "33 ??? ready evidence?",
+          "blocks": [],
+          "payload": {
+            "kind": "task_ready_receipt",
+            "ready": true,
+            "dependency_check": [
+              "????",
+              "channel ??",
+              "group_context ??"
+            ],
+            "remaining_blockers": [],
+            "expected_first_action": "formal activation ?????????"
+          },
+          "attachments": []
+        },
+        "routing": {
+          "target": {
+            "agent_id": null
+          },
+          "mentions": []
+        },
+        "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+        "flow_type": "run",
+        "relations": {
+          "thread_id": "2a2cd0c1-5b94-42d0-b59b-2980d046159e",
+          "parent_message_id": null
+        },
+        "created_at": "2026-04-08T14:12:27.585732+00:00",
+        "extensions": {
+          "source": "CommunityIntegrationSkill"
+        },
+        "updated_at": "2026-04-08T14:12:27.585732+00:00",
+        "author_kind": "agent",
+        "message_type": "progress",
+        "status_block": {
+          "step_id": "step3",
+          "author_role": "worker",
+          "step_status": "task_ready_evidence",
+          "workflow_id": "bootstrap-manager-only-workflow-v2",
+          "author_agent_id": null,
+          "lifecycle_phase": "run",
+          "related_message_id": null
+        },
+        "context_block": {}
+      }
+    },
+    "occurred_at": "2026-04-08T14:12:27.585732Z",
+    "created_at": "2026-04-08T14:12:27.585732Z"
+  },
+  {
+    "sequence_id": 54271,
+    "event_id": "a4d04758-33df-4254-82c4-ed29a02a04c1",
+    "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+    "event_type": "message.posted",
+    "delivery_scope": null,
+    "aggregate_type": "message",
+    "aggregate_id": "5c09e148-3743-402e-a23a-5a9f646850f8",
+    "actor_agent_id": "e1fb40b4-80b9-4baa-b740-cb5aa51fdee5",
+    "payload": {
+      "message": {
+        "id": "5c09e148-3743-402e-a23a-5a9f646850f8",
+        "author": {
+          "agent_id": "e1fb40b4-80b9-4baa-b740-cb5aa51fdee5",
+          "author_kind": "agent"
+        },
+        "content": {
+          "text": "xhs ??? ready evidence?",
+          "blocks": [],
+          "payload": {
+            "kind": "task_ready_receipt",
+            "ready": true,
+            "dependency_check": [
+              "????",
+              "channel ??",
+              "????????"
+            ],
+            "remaining_blockers": [],
+            "expected_first_action": "?????????10???"
+          },
+          "attachments": []
+        },
+        "routing": {
+          "target": {
+            "agent_id": null
+          },
+          "mentions": []
+        },
+        "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+        "flow_type": "run",
+        "relations": {
+          "thread_id": "5c09e148-3743-402e-a23a-5a9f646850f8",
+          "parent_message_id": null
+        },
+        "created_at": "2026-04-08T14:12:28.457946+00:00",
+        "extensions": {
+          "source": "CommunityIntegrationSkill"
+        },
+        "updated_at": "2026-04-08T14:12:28.457946+00:00",
+        "author_kind": "agent",
+        "message_type": "progress",
+        "status_block": {
+          "step_id": "step3",
+          "author_role": "worker",
+          "step_status": "task_ready_evidence",
+          "workflow_id": "bootstrap-manager-only-workflow-v2",
+          "author_agent_id": null,
+          "lifecycle_phase": "run",
+          "related_message_id": null
+        },
+        "context_block": {}
+      }
+    },
+    "occurred_at": "2026-04-08T14:12:28.457946Z",
+    "created_at": "2026-04-08T14:12:28.457946Z"
+  },
+  {
+    "sequence_id": 54274,
+    "event_id": "92c483cf-4bef-46b8-9fa6-cbb39c348043",
+    "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+    "event_type": "message.posted",
+    "delivery_scope": null,
+    "aggregate_type": "message",
+    "aggregate_id": "0c01aa0c-ec2f-4c72-8926-1e07d510c27d",
+    "actor_agent_id": "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+    "payload": {
+      "message": {
+        "id": "0c01aa0c-ec2f-4c72-8926-1e07d510c27d",
+        "author": {
+          "agent_id": "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+          "author_kind": "agent"
+        },
+        "content": {
+          "text": "manager ??? step3 ready close?",
+          "blocks": [],
+          "payload": {
+            "kind": "readiness_summary",
+            "evidence_refs": [],
+            "ready_participants": [
+              "33",
+              "xhs"
+            ],
+            "remaining_blockers": [],
+            "not_ready_participants": [],
+            "formal_start_preconditions_met": true
+          },
+          "attachments": []
+        },
+        "routing": {
+          "target": {
+            "agent_id": null
+          },
+          "mentions": []
+        },
+        "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+        "flow_type": "run",
+        "relations": {
+          "thread_id": "0c01aa0c-ec2f-4c72-8926-1e07d510c27d",
+          "parent_message_id": null
+        },
+        "created_at": "2026-04-08T14:12:56.288966+00:00",
+        "extensions": {
+          "source": "CommunityIntegrationSkill"
+        },
+        "updated_at": "2026-04-08T14:12:56.288966+00:00",
+        "author_kind": "agent",
+        "message_type": "progress",
+        "status_block": {
+          "step_id": "step3",
+          "author_role": "manager",
+          "step_status": "manager_step3_done",
+          "workflow_id": "bootstrap-manager-only-workflow-v2",
+          "author_agent_id": null,
+          "lifecycle_phase": "result",
+          "related_message_id": null
+        },
+        "context_block": {}
+      }
+    },
+    "occurred_at": "2026-04-08T14:12:56.288966Z",
+    "created_at": "2026-04-08T14:12:56.288966Z"
+  },
+  {
+    "sequence_id": 54276,
+    "event_id": "abb987bc-03a4-447c-9f16-3079c83d757c",
+    "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+    "event_type": "message.posted",
+    "delivery_scope": null,
+    "aggregate_type": "message",
+    "aggregate_id": "b4eaa008-d15e-479e-be0a-8fe02696f134",
+    "actor_agent_id": "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+    "payload": {
+      "message": {
+        "id": "b4eaa008-d15e-479e-be0a-8fe02696f134",
+        "author": {
+          "agent_id": "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+          "author_kind": "agent"
+        },
+        "content": {
+          "text": "manager ??? task_start handoff?",
+          "blocks": [],
+          "payload": {
+            "kind": "startup_handoff_package",
+            "first_action": "formal activation ???? task_plan?",
+            "artifact_refs": [
+              "c8ae1c20-2cd7-45bd-9e6c-665e08235508"
+            ],
+            "group_context": {
+              "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+              "group_slug": "news-simple-live-validation-20260408"
+            },
+            "handoff_summary": "bootstrap ?????????????? workflow?",
+            "effective_workflow_id": "bootstrap-manager-only-workflow-v2"
+          },
+          "attachments": []
+        },
+        "routing": {
+          "target": {
+            "agent_id": null
+          },
+          "mentions": []
+        },
+        "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+        "flow_type": "run",
+        "relations": {
+          "thread_id": "b4eaa008-d15e-479e-be0a-8fe02696f134",
+          "parent_message_id": null
+        },
+        "created_at": "2026-04-08T14:13:01.011548+00:00",
+        "extensions": {
+          "source": "CommunityIntegrationSkill"
+        },
+        "updated_at": "2026-04-08T14:13:01.011548+00:00",
+        "author_kind": "agent",
+        "message_type": "progress",
+        "status_block": {
+          "step_id": "task_start",
+          "author_role": "manager",
+          "step_status": "task_start",
+          "workflow_id": "bootstrap-manager-only-workflow-v2",
+          "author_agent_id": null,
+          "lifecycle_phase": "start",
+          "related_message_id": null
+        },
+        "context_block": {}
+      }
+    },
+    "occurred_at": "2026-04-08T14:13:01.011548Z",
+    "created_at": "2026-04-08T14:13:01.011548Z"
+  }
+]

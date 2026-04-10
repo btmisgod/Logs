@@ -1,0 +1,25 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step2p-trusted-broadcast-minimal-file-sync",
+    "step_title":  "trusted broadcast 分支最小配套文件 exact sync 并重跑单次 canonical broadcast",
+    "step_type":  "server-validation-repair",
+    "task_status":  "partial",
+    "summary":  "{\"file_sync\":{\"/root/agent-community/app/models/enums.py\":{\"local_sha256\":\"A25B66DA141E686AD3C001ECABA653D198230B79D7BDE97BAE224E3C0575A416\",\"remote_bind_source_sha256\":\"A25B66DA141E686AD3C001ECABA653D198230B79D7BDE97BAE224E3C0575A416\",\"container_sha256\":\"A25B66DA141E686AD3C001ECABA653D198230B79D7BDE97BAE224E3C0575A416\",\"match\":true},\"/root/agent-community/app/services/community.py\":{\"local_sha256\":\"4BF0B6BEF53BA55188438E7CF019B46D6B13C7A08DB4F77BE664D139FBB1FF1F\",\"remote_bind_source_sha256\":\"4BF0B6BEF53BA55188438E7CF019B46D6B13C7A08DB4F77BE664D139FBB1FF1F\",\"container_sha256\":\"4BF0B6BEF53BA55188438E7CF019B46D6B13C7A08DB4F77BE664D139FBB1FF1F\",\"match\":true},\"/root/agent-community/app/services/group_session.py\":{\"local_sha256\":\"0877562FBF220D7361E69612C0F63305E4DCBD1D01E723432957F99130633D41\",\"remote_bind_source_sha256\":\"0877562FBF220D7361E69612C0F63305E4DCBD1D01E723432957F99130633D41\",\"container_sha256\":\"0877562FBF220D7361E69612C0F63305E4DCBD1D01E723432957F99130633D41\",\"match\":true},\"/root/agent-community/app/services/event_bus.py\":{\"local_sha256\":\"BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023\",\"remote_bind_source_sha256\":\"BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023\",\"container_sha256\":\"BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023\",\"match\":true}},\"health\":{\"success\":true,\"message\":\"ok\",\"data\":{\"status\":\"ok\"}},\"response_body\":{\"author_kind\":\"system\",\"author.agent_id\":null,\"context_block\":{\"context_scope\":\"group\",\"context_type\":\"group_context\",\"group_context\":{\"proof\":\"live-ingress-probe\",\"group_id\":\"54b12c32-dbd3-46d8-97ee-22bf8a499709\",\"group_slug\":\"public-lobby\"},\"channel_context\":null}},\"latest_group_event\":{\"event_type\":\"broadcast.delivered\",\"payload.message.author_kind\":\"system\",\"payload.message.author.agent_id\":null,\"payload.message.context_block\":{\"context_type\":\"group_context\",\"context_scope\":\"group\",\"group_context\":{\"proof\":\"live-ingress-probe\",\"group_id\":\"54b12c32-dbd3-46d8-97ee-22bf8a499709\",\"group_slug\":\"public-lobby\"}},\"sequence_id\":54016},\"server_side_facts\":{\"latest_group_context_content\":{\"group_id\":\"54b12c32-dbd3-46d8-97ee-22bf8a499709\",\"group_name\":\"Public Lobby\",\"group_slug\":\"public-lobby\",\"group_type\":\"public_lobby\",\"protocol_version\":\"ACP-003\"},\"latest_group_session_event_group_context\":{\"proof\":\"live-ingress-probe\",\"group_id\":\"54b12c32-dbd3-46d8-97ee-22bf8a499709\",\"group_slug\":\"public-lobby\"},\"current_stage\":\"step1\",\"observed_statuses\":[],\"gate_snapshot_current_stage\":null},\"first_blocker\":\"persistence/serialize\"}",
+    "blocker":  "persistence/serialize",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+                          "/root/agent-community/app/models/enums.py",
+                          "/root/agent-community/app/services/community.py",
+                          "/root/agent-community/app/services/group_session.py",
+                          "/root/agent-community/app/services/event_bus.py"
+                      ],
+    "tests":  [
+                  "4 file sync hashes all match local targets",
+                  "GET /api/v1/health returned ok",
+                  "single canonical trusted broadcast rerun executed"
+              ],
+    "executed_at":  "2026-04-07T09:21:39.6060171Z"
+}

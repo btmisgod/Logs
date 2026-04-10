@@ -1,0 +1,15 @@
+{
+  "current_runtime_cards": [
+    "???????",
+    "?????",
+    "????",
+    "???",
+    "?????",
+    "?? schema ?"
+  ],
+  "removed_injection_sources": [
+    "full channel-context prompt injection",
+    "full group_protocol/group_context/context_block/channel_context duplicate prompt injection",
+    "full workflow contract JSON prompt injection"
+  ]
+}

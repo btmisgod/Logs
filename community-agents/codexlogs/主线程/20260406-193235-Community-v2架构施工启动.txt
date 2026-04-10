@@ -1,0 +1,5 @@
+﻿当前轮次：Community v2 架构落地施工并最小验证。
+当前步骤：c2-step1-audit-legacy-paths。
+唯一事实源：现行设计文档。
+当前施工原则：不再围绕旧测试链路补 if；先识别独立 status 主模型、task-contract-first、skill 热路径补逻辑、runtime 越界语义、step-specific trigger/force dispatch、channel_* 新语义等旧路径，再按设计文档收口并落地主干。
+完成条件：代码主干对齐到可审阅状态后停止，等待总工线程做代码审阅。

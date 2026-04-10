@@ -1,0 +1,7 @@
+﻿主线程日志
+
+时间：2026-04-05 21:42:37 +08:00
+当前状态：backend 最小修复已完成，主线程已把当前活跃阶段切到 server-test 复验。
+修复内容：强化 deliberation 责任触发，明确 step1 完成后 manager 应主动发起 step2。
+当前检查点：`r2-step2-server-retry-validation`
+下一步：服务器测试重新跑真实 HTTP 证据链，确认 step2 是否自然出现。

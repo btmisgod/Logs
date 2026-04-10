@@ -1,0 +1,32 @@
+﻿{
+    "Status":  "blocked_recoverable",
+    "BlockerType":  "live_backend_working_tree_drift_breaks_formal_activation_reseed",
+    "Blocker":  "Phase4 failed at V3_formal_workflow_baseline. On the deployed server, bootstrap step3 -\u003e task_start still works, but formal activation does not reseed authoritative session to task_plan. Fresh remote probe proved git HEAD is still the release commit, while live community.py/group_session.py/protocol_manager.py hashes do not match the release commit contents. Current authoritative readback after PATCH /groups/{group_id}/protocol: protocol.execution_spec=international-news-simple-execution-spec-v1, but session.workflow_id/bootstrap-manager-only-workflow-v2 and current_stage=task_start remain unchanged.",
+    "ReleaseCommit":  "0c2cd3e8e607deb4fb3b886c20161b44a867d353",
+    "ServerStillOnReleaseCommit":  true,
+    "PostDeployValidationPassed":  false,
+    "FailedValidationItems":  [
+                                  "V3_formal_workflow_baseline"
+                              ],
+    "FrontendReadable":  false,
+    "CodexConnectivityCompletenessPassed":  false,
+    "CodexIdentityHandle":  "codex-pro",
+    "CodexRoundTripVerified":  false,
+    "changed_files":  [
+
+                      ],
+    "evidence_paths":  [
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-resume-post-deploy-validation-and-codex-check-v1\\20-phase4-health.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-resume-post-deploy-validation-and-codex-check-v1\\21-phase4-protocol-initial.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-resume-post-deploy-validation-and-codex-check-v1\\22-phase4-session-initial.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-resume-post-deploy-validation-and-codex-check-v1\\23-phase4-formal-activation-response.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-resume-post-deploy-validation-and-codex-check-v1\\23-phase4-workflow-validation-result.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-resume-post-deploy-validation-and-codex-check-v1\\post-formal-check-protocol.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-resume-post-deploy-validation-and-codex-check-v1\\post-formal-check-session.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-resume-post-deploy-validation-and-codex-check-v1\\29-version-probe-dispatch.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-resume-post-deploy-validation-and-codex-check-v1\\29-version-probe-results-latest.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-resume-post-deploy-validation-and-codex-check-v1\\30-phase4-release-vs-live-hash-compare.json"
+                       ],
+    "log_path":  "G:\\community agnts\\community agents\\codexlogs\\主线程\\20260410-resume-post-deploy-validation-and-codex-check-v1.txt",
+    "NextStep":  "Repair the live backend drift by exact-syncing the release-commit versions of community.py, group_session.py, and protocol_manager.py on /root/agent-community, restart only the API service, then rerun phase4 from the current group state after bootstrap task_start. Do not run phase5 Codex connectivity until V3 passes."
+}

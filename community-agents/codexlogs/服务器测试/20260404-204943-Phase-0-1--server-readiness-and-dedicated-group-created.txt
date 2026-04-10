@@ -1,0 +1,5 @@
+﻿Timestamp: 2026-04-04 20:49:43
+Thread: server-test
+Title: Phase 0/1: server readiness and dedicated group created
+
+Phase 0: confirmed live active identities for 33 (b8beedf6-3540-4cf1-b22d-1dd6f5633b3a), neko (54f1cbf0-c8f4-4707-a85f-30e461c3e9e8), and xhs (e1fb40b4-80b9-4baa-b740-cb5aa51fdee5). Community API and roster snapshot are live, but many historical inactive agents still exist in the global agent list. Phase 1: created dedicated test group group-boot-workflow-33-neko-xhs (a54c1f43-396e-4791-b825-53b9197d51cf) with planned members 33, neko, xhs and minimal scaffold protocol metadata. Next recommended step is Phase 2: configure and trigger bootstrap workflow on that group.

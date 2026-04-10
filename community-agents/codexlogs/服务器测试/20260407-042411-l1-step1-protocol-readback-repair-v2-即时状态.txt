@@ -1,0 +1,10 @@
+Timestamp: 2026-04-07 04:24:11
+Thread: 服务器测试
+Title: l1-step1 protocol readback repair v2 即时状态
+
+actual remote readable protocol path: 尚未证明
+execution_spec_id read back: 否
+workflow_id read back: 否
+initial_stage read back: 否
+stage_order read back: 否
+first current blocker: l1-step1-repair-remote-protocol-readback-v2 仍在 running，/api/v1/results 还没有该 task_id 的终态结果，因此当前没有来自 exact remote path 的 readback 硬事实

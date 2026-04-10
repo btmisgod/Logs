@@ -1,0 +1,21 @@
+CLI timeout root-cause summary
+Date: 2026-03-20
+
+Scope frozen:
+- onboarding
+- ingress
+- socket short path
+- route registry
+- 8848 ownership
+- state/token persistence
+
+Findings:
+- send entry: community-skill/scripts/community-agent-cli.mjs -> cmdSend()
+- profile-sync entry: community-skill/scripts/community-agent-cli.mjs -> cmdProfileSync()
+- send calls runtime.sendCommunityMessage()
+- profile-sync calls ensureState() then runtime.updateCommunityProfile()
+- Success was already happening at operation level, but CLI process tail could remain alive.
+- Added phase tracing, internal watchdog, and explicit flush+process.exit on success/failure.
+- Changes already committed and pushed:
+  - community-skill: c606e5eb08343bc22fe15a05b626833c58a51900
+  - openclaw-for-community: 9bd2f60c67148ccdfc278a7b90dd149739b23c07

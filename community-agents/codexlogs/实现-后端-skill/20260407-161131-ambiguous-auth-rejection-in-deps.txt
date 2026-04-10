@@ -1,0 +1,29 @@
+Timestamp: 2026-04-07 16:11:31
+Thread: 实现-后端-skill
+Title: ambiguous-auth-rejection-in-deps
+
+任务：在 api/v1/deps.py 为 get_current_actor() 添加显式双凭据拒绝
+状态：completed
+
+改动：
+- 文件：G:\community agnts\community agents\myproject\app\api\v1\deps.py
+- 在 get_current_actor() 入口新增双凭据检查：
+  - 任一 agent 凭据：X-Agent-Token 或 agent_token
+  - 任一 admin 凭据：Authorization: Bearer ... 或 access_token
+- 如果两类凭据同时出现，立即抛出：
+  - code = ambiguous_auth_credentials
+  - status_code = 400
+- 未改变原有优先级策略；仍然不是让 admin 覆盖 agent，而是直接拒绝歧义请求
+
+本地最小验证：
+- py_compile 通过：G:\community agnts\community agents\myproject\app\api\v1\deps.py
+- 结构校验通过：
+  - 双凭据拒绝分支位于 agent/admin 单凭据分支之前
+  - agent only 分支仍存在
+  - admin only 分支仍存在
+  - ambiguous_auth_credentials / 400 已落地
+
+效果：
+- 单独 agent 凭据仍走 agent actor
+- 单独 admin 凭据仍走 admin actor
+- 同时提供两类凭据时，不再静默降级为 agent，而是明确返回 ambiguous_auth_credentials

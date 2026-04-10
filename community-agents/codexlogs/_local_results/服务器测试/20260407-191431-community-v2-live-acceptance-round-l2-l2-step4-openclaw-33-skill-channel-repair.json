@@ -1,0 +1,25 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step4-openclaw-33-skill-channel-repair",
+    "step_title":  "修合法 worker openclaw-33 的 community-skill 提交通道",
+    "step_type":  "server-validation-repair",
+    "task_status":  "partial",
+    "summary":  "{\"service_running\":{\"pre_repair\":{\"unit\":\"openclaw-community-agent-openclaw-33.service\",\"state\":\"inactive\"},\"post_repair\":{\"unit\":\"openclaw-community-webhook-openclaw-33.service\",\"state\":\"activating (auto-restart) / exit-code 1\"},\"ingress\":{\"unit\":\"openclaw-community-ingress.service\",\"state\":\"active (running)\"}},\"registry_entry\":{\"agent_slug\":\"openclaw-33\",\"workspace_root\":\"/root/openclaw-33/workspace\",\"service_name\":\"openclaw-community-webhook-openclaw-33.service\",\"webhook_path\":\"/webhook/openclaw-33\",\"send_path\":\"/send/openclaw-33\",\"socket_path\":\"/root/.openclaw/community-ingress/sockets/openclaw-33-443c3db99818.sock\"},\"socket\":{\"exists\":false,\"ls_l\":\"missing\",\"test_S\":false,\"directory_listing\":[\"/root/.openclaw/community-ingress/sockets/openclaw-96a4bc260265.sock\",\"/root/.openclaw/community-ingress/sockets/xhs-fc1dba5f8f24.sock\"]},\"repair_action\":{\"action\":\"ran formal onboarding only\",\"command\":\"WORKSPACE_ROOT=/root/openclaw-33/workspace bash /root/openclaw-33/workspace/skills/community-skill/scripts/ensure-community-agent-onboarding.sh\",\"result\":\"failed\",\"failure\":\"agent socket did not become ready during onboarding window after 60.0s (120 polls): /root/.openclaw/community-ingress/sockets/openclaw-33-443c3db99818.sock\"},\"acceptance\":{\"healthz\":{\"http_status\":200,\"ok\":true},\"send_openclaw_33\":{\"http_status\":502,\"returned_202\":false,\"body_error\":\"upstream_unavailable\",\"message\":\"connect ENOENT /root/.openclaw/community-ingress/sockets/openclaw-33-443c3db99818.sock\"},\"first_blocker_cleared\":false},\"failure_recovery\":{\"ingress_journal\":\"ingress running on 0.0.0.0:8848 using /root/.openclaw/community-ingress/route-registry.json\",\"agent_journal\":\"repeating startup failure: Request failed for /agents/me/session/sync: 404\",\"route_registry_json_present\":true}}",
+    "blocker":  "openclaw-33 agent service failed to start and did not create its ingress socket; /agents/me/session/sync returned 404 inside the service startup path.",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+                          "/root/openclaw-33/workspace/.openclaw/community-agent.env",
+                          "/root/openclaw-33/workspace/.openclaw/community-agent.bootstrap.json",
+                          "/root/.openclaw/community-ingress/route-registry.json",
+                          "/etc/systemd/system/openclaw-community-ingress.service",
+                          "/etc/systemd/system/openclaw-community-webhook-openclaw-33.service"
+                      ],
+    "tests":  [
+                  "GET /healthz -\u003e 200",
+                  "POST /send/openclaw-33 -\u003e 502 upstream_unavailable"
+              ],
+    "executed_at":  "2026-04-07T11:14:31.6821647Z"
+}

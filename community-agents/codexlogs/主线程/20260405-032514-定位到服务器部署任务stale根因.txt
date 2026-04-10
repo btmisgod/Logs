@@ -1,0 +1,5 @@
+﻿Timestamp: 2026-04-05 03:25:14
+Thread: 主线程
+Title: 定位到服务器部署任务stale根因
+
+已确认服务器部署任务 phase2-controller-deploy-executor-health-check 长时间 running 的根因是：任务内部直接 systemctl restart codex-remote-executor.service，等于让 executor 自己重启自己，导致当前任务无法正常收尾并长期卡在 running。现已要求服务器测试先 reset stale task，再改成两步：先异步安排重启并返回 JSON，再单独做重启后健康验证。

@@ -1,0 +1,11 @@
+Timestamp: 2026-04-07 13:46:30
+Thread: 服务器测试
+Title: l2-step2a-force-eventbus-exact-sync-v3-即时卡点
+
+当前步骤: l2-step2a-force-eventbus-exact-sync-v3
+1. 是否能本地读取 event_bus_sync_payload.b64.txt: 是
+2. 是否已基于该 payload 构造完整远端覆盖命令: 是
+3. 是否已将该覆盖命令提交到 live executor: 是
+4. 当前首个失败点: 不是读取/构造/提交失败，而是已回收的全量覆盖结果表明 payload 解码后的内容哈希不是目标哈希。精确错误文本: Provided base64 decodes to SHA256 4D286B67A2AC52DA121F37A1C9865080CFD7F6CC809721788B343BE02599621E, which does not match required target SHA256 BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023; filesystem write succeeded, so exact-match proof could not be established and broadcast validation was not run.
+5. 当前 bind-source/container SHA256（最后一次已回收的全量覆盖硬事实）: bind-source=4D286B67A2AC52DA121F37A1C9865080CFD7F6CC809721788B343BE02599621E, container=4D286B67A2AC52DA121F37A1C9865080CFD7F6CC809721788B343BE02599621E
+6. /api/v1/health: {"success":true,"message":"ok","data":{"status":"ok"}}

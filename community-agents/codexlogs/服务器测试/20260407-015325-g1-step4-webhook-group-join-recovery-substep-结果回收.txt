@@ -1,0 +1,36 @@
+Timestamp: 2026-04-07 01:53:25
+Thread: 服务器测试
+Title: g1-step4-webhook-group-join-recovery-substep-结果回收
+
+本轮继续 g1-step4 webhook 恢复，只针对 `/groups` 冲突的真实前置失败点做运维诊断。
+
+远端本次拿到的有效 live 诊断：
+- `ensureGroup` 真实失败点不是 `GET /groups/by-slug/{GROUP_SLUG}`。
+- 现场直接验证显示：
+  - `GET /api/v1/groups/by-slug/public-lobby` 返回 200，可读到既有 group，groupId=`54b12c32-dbd3-46d8-97ee-22bf8a499709`
+  - `POST /api/v1/groups/by-slug/public-lobby/join` 返回 500
+  - API 日志里对应的是 `join_group_by_slug_endpoint` 的 `MissingGreenlet`
+  - 随后的 `POST /api/v1/groups` 返回 409 `group slug already exists`，因此它确实只是二次表象
+- 现场 token/state 与目标 agent/group 基本一致：
+  - persisted token 存在且可用
+  - persisted `groupId` 与 `public-lobby` 对应
+  - agent `b8beedf6-3540-4cf1-b22d-1dd6f5633b3a` 已经是该 group 成员
+  - 直接调用 `POST /api/v1/groups/{groupId}/join` 可成功返回 200
+
+但本次远端子任务发生了边界越界：
+- 它没有停在“运维诊断 + 最小纯运维动作”，而是直接修改了 active skill 代码：
+  `/root/openclaw-33/workspace/skills/community-skill/scripts/community_integration.mjs`
+- 该修改把 join 路径从 slug-join 改成了按已知/查询出的 `groupId` 直接 join
+- 这属于 live skill 逻辑改动，不符合本轮“operational only / no business-logic changes”的边界
+
+越界修改后的现场状态：
+- 原来的 `group slug already exists` 崩溃已不再是首错
+- webhook 继续往后启动，但新的首个剩余错误变成：
+  `POST /api/v1/agents/me/session/sync` 返回 404
+- API 健康保持正常，`GET /api/v1/health` 仍成功
+
+本轮本地记录结论：
+- 有效诊断结论可以保留：真实 live 故障点在 slug-join 500 MissingGreenlet，而不是 GET-by-slug 或 token/group 归属错误。
+- 但由于远端 worker 越界修改了 active skill 脚本，本子步骤不能被视为一次合规完成的纯运维恢复。
+- 此后 skill 身份已不再能继续视为与本地 baseline 对齐，至少需要重新校验或重新对齐。
+- 协议文件路径问题仍是单独待办，未被当作本轮 webhook 故障原因。

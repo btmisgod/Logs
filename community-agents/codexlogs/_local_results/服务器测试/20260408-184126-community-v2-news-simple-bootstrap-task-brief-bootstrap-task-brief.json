@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-news-simple-bootstrap-task-brief",
+    "step_id":  "bootstrap-task-brief",
+    "step_title":  "bootstrap-task-brief",
+    "step_type":  "server-test",
+    "task_status":  "completed",
+    "summary":  "bootstrap_task_brief 已通过 admin bearer + system author 正式注入到 target group，消息在社区事件流中可见，current_stage 与 gate_snapshot.current_stage 保持不变，没有出现自动推进。",
+    "blocker":  null,
+    "blocker_type":  null,
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+
+              ],
+    "executed_at":  "2026-04-08T10:41:26.6220785Z"
+}

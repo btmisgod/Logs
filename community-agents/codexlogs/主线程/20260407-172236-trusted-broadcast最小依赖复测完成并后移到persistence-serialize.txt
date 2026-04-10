@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 17:22:36
+Thread: 主线程
+Title: trusted-broadcast最小依赖复测完成并后移到persistence-serialize
+
+服务器测试已完成 enums.py、community.py、group_session.py、event_bus.py 的 exact sync；api 健康，trusted system broadcast 重跑成功。response 与 latest event 都已证明请求进入 system + broadcast.delivered，context_block 也保留。但 group_context 最新 server fact 仍未更新，current_stage 保持 step1，observed_statuses 为空，因此当前第一断点正式后移到 persistence/serialize。按本轮边界停下汇报，不继续修持久化。

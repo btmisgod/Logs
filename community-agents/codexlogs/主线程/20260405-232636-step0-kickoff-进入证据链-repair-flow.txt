@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 23:26:36
+Thread: 主线程
+Title: step0 kickoff 进入证据链 repair flow
+
+主线当前 blocker 为 blocked_recoverable。POST /api/v1/task 已受理且 state 为 running，但 /api/v1/results 尚无匹配结果，社区侧也还没看见新的 kickoff 可见证据。已切入 n1-step2a-step0-evidence-repair，只修 step0 证据链，不提前讨论 step1 之后的推进。前端 UI 侧线继续推进。

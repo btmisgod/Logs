@@ -1,0 +1,2 @@
+﻿当前 step: l2-step2a2-remote-temp-byte-proof
+动作: 已重新下发真实 decode/write proof；要求远端先生成 temp 文件并回收 SHA/长度/前后32字节hex，temp SHA 命中后自动推进正式替换、health 复核与 trusted system broadcast 最小验收。

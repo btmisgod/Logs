@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 23:31:10
+Thread: 主线程
+Title: step0 kickoff 已闭环并切换到状态流监测
+
+step0 kickoff 已完成：/api/v1/results 已回落匹配结果，社区可见 kickoff 落点与事件序列已确认。当前 active step 切换到 n1-step3-monitor-bootstrap-status-flow，开始按新协议逐层监测 step1.start/run/result/done、step2、step3、task_start 的状态流闭合。前端 UI 侧线继续推进。

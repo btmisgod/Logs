@@ -1,0 +1,9 @@
+Timestamp: 2026-04-07 22:07:57
+Thread: 服务器测试
+Title: l2-phase-d-breakpoint-narrowing-结果链修复当前状态结束
+
+当前检查点：Phase D 第一处断点收窄 / 结果链修复。
+硬事实：/api/v1/state 仍显示 current_task_id=community-v2-live-acceptance-round-l2-l2-phase-d-breakpoint-narrowing-v1 且 status=running；/api/v1/task 也仍显示该 exact task 在 running。/api/v1/results?limit=400 中没有 exact task_id 的 terminal result；同时按 phase-d-breakpoint-narrowing / manager_done / message id b135f6a1-be69-4973-aece-2beb3221fd87 / observed_statuses 等特征搜索，也没有找到 task_id 变体持久化结果。
+因此这条 exact task 的结果链当前第一断点不在 persistence 或 results matching，而仍在 executor 侧：executor 尚未写出 terminal result。
+在 exact terminal result 或等价权威证据缺失前，latest manager event 关键字段与最新 observed_statuses 明细仍未回收，所以还不能在两项业务断点里做最终二选一。
+下一步类型：最小修复仍是结果链修复，不是业务重跑。

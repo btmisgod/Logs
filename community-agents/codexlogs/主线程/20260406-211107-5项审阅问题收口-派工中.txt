@@ -1,0 +1,5 @@
+[主线程派工]
+当前 step：q5-step1-server-authority-and-groupsession
+后端 worker：收 system broadcast 伪造、GroupSession 保守化、sync/version、group-first 兼容收口。
+integration/runtime worker：收 send path 信任边界、status_block-only 发送、removed_groups 消费、group-first 兼容收口。
+说明：本轮不碰前端，不扩范围，回收后直接进入 5 项最小验证。

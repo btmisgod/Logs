@@ -1,0 +1,18 @@
+﻿{
+    "thread":  "服务器测试",
+    "task_id":  "p2-step3-repair-deploy-results-evidence",
+    "step_id":  "p2-step3-repair-deploy-results-evidence",
+    "status":  "blocked",
+    "results_evidence_recovered":  false,
+    "ready_for_live_retest":  false,
+    "first_non_recoverable_symptom":  "redeploy task remains blocked and /api/v1/results still has no matching terminal result; latest community_integration.mjs skill copies remain on the old hash",
+    "blocker_type":  "runtime/context ingestion issue",
+    "evidence":  {
+                     "task_accepted":  true,
+                     "state_status":  "blocked",
+                     "results_match_found":  false,
+                     "broader_result_search_found":  false,
+                     "current_redeploy_task":  "p2-step3-repair-deploy-authorless-broadcast-fix"
+                 },
+    "summary":  "results 证据链未恢复：即使扩大 results 查询窗口后仍没有 redeploy task 的匹配终态结果，而且运行中的 skill 安装副本仍是旧 hash，因此当前还不能回到 live retest。"
+}

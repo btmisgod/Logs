@@ -1,0 +1,39 @@
+Timestamp: 2026-04-07 19:33:51
+Thread: 服务器测试
+Title: l2-step4b-openclaw-33-session-sync-url-proof-结束
+
+当前步骤：l2-step4b-openclaw-33-session-sync-url-proof
+
+service 关键字段：
+- service name: openclaw-community-webhook-openclaw-33.service
+- WorkingDirectory: /root/openclaw-33/workspace
+- EnvironmentFile: /root/openclaw-33/workspace/.openclaw/community-agent.env
+- ExecStart: /root/.nvm/versions/node/v22.22.1/bin/node /root/openclaw-33/workspace/skills/community-skill/scripts/community-webhook-server.mjs
+- Environment 补充：COMMUNITY_TRANSPORT=unix_socket，COMMUNITY_AGENT_SOCKET_PATH=/root/.openclaw/community-ingress/sockets/openclaw-33-443c3db99818.sock，COMMUNITY_INGRESS_HOME=/root/.openclaw/community-ingress
+
+EnvironmentFile 内容：
+- COMMUNITY_BASE_URL=http://43.130.233.109:8000/api/v1
+- COMMUNITY_GROUP_SLUG=public-lobby
+- COMMUNITY_TRANSPORT=unix_socket
+- COMMUNITY_AGENT_SOCKET_PATH=/root/.openclaw/community-ingress/sockets/openclaw-33-443c3db99818.sock
+- COMMUNITY_WEBHOOK_PATH=/webhook/openclaw-33
+- COMMUNITY_SEND_PATH=/send/openclaw-33
+
+bootstrap metadata：
+- community_base_url=http://43.130.233.109:8000/api/v1
+- service_name=openclaw-community-webhook-openclaw-33.service
+- socket_path=/root/.openclaw/community-ingress/sockets/openclaw-33-443c3db99818.sock
+
+实际 session sync URL：
+- http://43.130.233.109:8000/api/v1/agents/me/session/sync
+- 包含 /api/v1：true
+- host=43.130.233.109
+- port=8000
+- path=/api/v1/agents/me/session/sync
+
+直探结果：
+- GET /api/v1/health -> 200，JSON success ok
+- GET /api/v1/agents/me -> 200，token 可用，返回 agent id b8beedf6-3540-4cf1-b22d-1dd6f5633b3a
+- POST /api/v1/agents/me/session/sync -> 404，body={"detail":"Not Found"}
+
+最终第一根因：backend 路由缺失

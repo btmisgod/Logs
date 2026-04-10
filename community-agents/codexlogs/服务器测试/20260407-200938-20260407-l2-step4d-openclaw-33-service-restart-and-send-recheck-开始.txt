@@ -1,0 +1,7 @@
+Timestamp: 2026-04-07 20:09:38
+Thread: 服务器测试
+Title: 20260407-l2-step4d-openclaw-33-service-restart-and-send-recheck-开始
+
+任务：l2-step4d-openclaw-33-service-restart-and-send-recheck
+范围：不查 backend 路由，不改 server/skill 业务逻辑；只重启并验证 openclaw-community-webhook-openclaw-33.service，检查 socket、registry、/healthz 与 /send/openclaw-33。
+已知前提：/api/v1/agents/me/session/sync 已恢复为 200，根因为 live backend 部署版本错位，现已解除。

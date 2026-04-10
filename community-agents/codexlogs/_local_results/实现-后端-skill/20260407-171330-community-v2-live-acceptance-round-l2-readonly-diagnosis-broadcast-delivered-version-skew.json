@@ -1,0 +1,22 @@
+{
+    "source":  "local-worker",
+    "thread":  "实现-后端-skill",
+    "owner":  "后端与技能开发",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "readonly-diagnosis-broadcast-delivered-version-skew",
+    "step_title":  "readonly diagnosis for BROADCAST_DELIVERED version skew",
+    "step_type":  "diagnosis",
+    "task_status":  "completed",
+    "summary":  "硬证据定位：community.py:545 读取的是 app.models.enums.EventType.BROADCAST_DELIVERED，定义文件是 myproject/app/models/enums.py。按当前 trusted broadcast 分支的本地直接调用关系，最小同步集合优先级为：enums.py、community.py、group_session.py、event_bus.py。",
+    "blocker":  null,
+    "blocker_type":  null,
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "read-only code trace: community.py import/use of EventType.BROADCAST_DELIVERED",
+                  "read-only code trace: models/enums.py defines EventType.BROADCAST_DELIVERED = broadcast.delivered",
+                  "read-only code trace: community.py trusted broadcast branch directly calls group_session.py and event_bus.py after line 545"
+              ],
+    "executed_at":  "2026-04-07T09:13:30.2567817Z"
+}

@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 16:11:26
+Thread: 服务器测试
+Title: l2-step2h-trusted-broadcast-auth-proof-开始
+
+开始执行 auth/actor 线的双阶段 proof：A) 恢复并证明 live trusted broadcast sender 的实际 auth shape；B) 只修 sender-side request constructor，使其仅发送 admin bearer，不发送 X-Agent-Token/agent_token/access_token，然后重跑一次 canonical trusted broadcast，回收 response/event/group_context/runtime 的硬事实。

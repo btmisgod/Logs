@@ -1,0 +1,9 @@
+Timestamp: 2026-04-07 05:40:37
+Thread: 服务器测试
+Title: l2-step2-repair-eventbus-deploy-开始
+
+开始执行 l2-step2-repair-eventbus-deploy。
+目标：仅对齐远端 event_bus.py 到当前本地修复版，随后用 bind source 与容器内双哈希证明部署成立；若部署成立，再立即重试 trusted system broadcast，并按规则在首个硬断点停止。
+已知本地目标 SHA256：BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023。
+已知远端修复前哈希：容器内 /app/app/services/event_bus.py = 3f5701da6d9b2269404f6ef915ab21565f340d6becc2fd278c791b1eec7ba0a4；bind source /root/agent-community/app/services/event_bus.py = 3f5701da6d9b2269404f6ef915ab21565f340d6becc2fd278c791b1eec7ba0a4。
+本轮范围：只修 event_bus.py 部署，只在部署证明完成后继续 trusted system broadcast 与后续最小 live acceptance。

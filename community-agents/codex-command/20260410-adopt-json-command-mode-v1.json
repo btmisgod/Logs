@@ -1,0 +1,80 @@
+{
+  "command_id": "20260410-adopt-json-command-mode-v1",
+  "version": "1.0",
+  "created_at": "2026-04-10",
+  "target_thread": "main-controller",
+  "workspace_root": "G:\\community agnts\\community agents",
+  "title": "Adopt JSON command mode for main controller",
+  "objective": "Create or update the main controller's own AGENTS.md so that on future task starts it reads user-provided command JSON files from the codex command directory before executing work.",
+  "command_source_dir": "G:\\community agnts\\community agents\\codex command",
+  "assumptions": [
+    "Use G:\\community agnts\\community agents\\codexlogs\\主线程\\AGENTS.md as the main-controller-specific instruction file.",
+    "This task only changes the main controller's operating instructions. It does not execute any product feature work."
+  ],
+  "required_work": [
+    {
+      "id": "write_or_update_main_thread_agents_md",
+      "description": "Create or update G:\\community agnts\\community agents\\codexlogs\\主线程\\AGENTS.md."
+    },
+    {
+      "id": "define_json_first_intake_rule",
+      "description": "State that when a new task is started from the user, the main controller must first look for a user-provided JSON command in G:\\community agnts\\community agents\\codex command."
+    },
+    {
+      "id": "define_command_selection_rule",
+      "description": "If the user names a specific JSON file, use that file. If the user does not name a JSON file, do not auto-pick the newest JSON; use the current plain-text instruction from the chat."
+    },
+    {
+      "id": "define_json_as_source_of_truth_rule",
+      "description": "State that the selected JSON command is the source of truth for scope, required work, forbidden work, acceptance, deliverables, and output format."
+    },
+    {
+      "id": "define_reporting_rule",
+      "description": "State that the main controller must include the selected JSON command path in its first status update, task plan, and final structured result."
+    },
+    {
+      "id": "define_missing_json_fallback_rule",
+      "description": "If no JSON file is explicitly provided for the current task, the main controller must treat the current plain-text user instruction as the source of truth and should note that no command JSON was explicitly supplied."
+    }
+  ],
+  "do_not": [
+    "Do not modify the repository root AGENTS.md for this task.",
+    "Do not execute any unrelated workflow, backend, frontend, or live validation work.",
+    "Do not invent a second command source outside the codex command directory.",
+    "Do not leave the rule only in memory; it must be written to the main controller's own AGENTS.md."
+  ],
+  "deliverables": [
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\主线程\\AGENTS.md",
+      "description": "Main-controller-specific operating instructions updated to prefer command JSON files."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\主线程\\20260410-json-command-mode-result.json",
+      "description": "Structured completion result for this instruction update."
+    }
+  ],
+  "working_principles": [
+    "Keep the instruction concise and operational.",
+    "Prefer explicit file-path-based behavior over vague language.",
+    "Do not weaken existing structured-result discipline.",
+    "Do not remove current repair-flow rules; only add JSON-first intake rules."
+  ],
+  "success_criteria": [
+    "G:\\community agnts\\community agents\\codexlogs\\主线程\\AGENTS.md exists and contains the JSON-first intake rule.",
+    "The instruction file tells the main controller where to read command JSON files from.",
+    "The instruction file defines selection, fallback, and reporting behavior.",
+    "A structured result file for this task exists and points to the updated AGENTS.md path."
+  ],
+  "result_format": {
+    "required_fields": [
+      "Status",
+      "BlockerType",
+      "Blocker",
+      "UpdatedFile",
+      "ResultFile",
+      "JSONCommandPath",
+      "RulesWritten",
+      "NextStep"
+    ]
+  }
+}

@@ -1,0 +1,62 @@
+﻿{
+    "ok":  true,
+    "task":  {
+                 "must_do":  [
+                                 "Work only on group 8d9d8e44-54b2-4279-aab2-0a6d9ce851b2 with slug news-test.",
+                                 "Keep the five authoritative agents exactly as already bound: manager=openclaw-33, editor=openclaw-33-editor, worker-33=openclaw-33-worker-33, worker-xhs=openclaw-33-worker-xhs, tester=openclaw-33-tester.",
+                                 "Do not keep protocol_meta.status=declared_only and do not keep the old binding-only execution_spec as the active baseline.",
+                                 "Install a real executable news workflow baseline whose initial stage is cycle_task_plan and whose stage chain covers at least: cycle_task_plan, material.collect, material.review, draft.compose, draft.proofread, draft.revise, draft.recheck, publish.decision, report.publish, product.test, product.benchmark, product.cross_cycle_compare, product.report, retrospective.plan, retrospective.discussion, retrospective.summary, agent.optimization, agent.self_optimize.",
+                                 "Preserve the server/manager model: server controls stage progression, manager is the formal transition authority, non-manager roles produce evidence or artifacts but do not directly advance stages.",
+                                 "Declare explicit cycle identity fields for later validation. cycle_no and cycle_id must have an authoritative location in session/protocol/state and must be expected in workflow artifacts or message metadata so branch B can filter real cycle 1 vs cycle 2 content later.",
+                                 "Return strict JSON only with authoritative readback facts after patch: protocol_id, workflow_id, execution_spec_id, current_stage, gate_snapshot.current_stage or equivalent, stage_order, and where cycle identity surfaces."
+                             ],
+                 "must_not_do":  [
+                                     "Do not run cycle 1 or cycle 2.",
+                                     "Do not downgrade to the old 3-role simple-news workflow.",
+                                     "Do not leave only a binding-only stub in place.",
+                                     "Do not fake cycle identity by prose without a machine-readable location."
+                                 ],
+                 "goal":  "For group 8d9d8e44-54b2-4279-aab2-0a6d9ce851b2 / news-test, replace the current binding-only bootstrap-style protocol with a real executable news workflow baseline derived from the five-agent news workflow design, but stop before running cycle 1.",
+                 "title":  "Repair activation: replace binding-only protocol with real news workflow baseline",
+                 "task_id":  "news-test-five-role-workflow-activation-repair-20260410",
+                 "cwd":  "/root/openclaw-33/workspace",
+                 "acceptance":  [
+                                    "news-test reads back as a real executable news workflow baseline, not declared-only binding.",
+                                    "current_stage is cycle_task_plan or the exact authoritative initial stage for the real workflow.",
+                                    "execution_spec_id is the real news workflow baseline, not news-five-role-binding-execution-spec-v1.",
+                                    "Cycle identity location is explicitly declared for later cycle-filter validation.",
+                                    "Output strict JSON only."
+                                ],
+                 "notes":  "This is the blocker-targeted repair step for branch A a4. Stop after activation baseline is corrected.",
+                 "status":  "running",
+                 "workflow_step":  null,
+                 "group_id":  null,
+                 "group_context":  null,
+                 "channel_context":  null,
+                 "received_at":  "2026-04-10T09:41:01.080151+00:00",
+                 "started_at":  "2026-04-10T09:41:05.847155+00:00"
+             },
+    "evidence_chain":  {
+                           "task_id":  "news-test-five-role-workflow-activation-repair-20260410",
+                           "workflow_step":  null,
+                           "group_id":  null,
+                           "accepted":  {
+                                            "ok":  true,
+                                            "endpoint":  "POST /api/v1/task",
+                                            "task_status":  "pending",
+                                            "received_at":  "2026-04-10T09:41:01.080151+00:00"
+                                        },
+                           "running":  {
+                                           "ok":  true,
+                                           "endpoint":  "GET /api/v1/state",
+                                           "state_status":  "running",
+                                           "started_at":  "2026-04-10T09:41:05.847155+00:00"
+                                       },
+                           "finished":  {
+                                            "ok":  false,
+                                            "endpoint":  "GET /api/v1/results",
+                                            "result_status":  null,
+                                            "executed_at":  null
+                                        }
+                       }
+}

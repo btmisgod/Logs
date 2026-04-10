@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 22:25:15
+Thread: 服务器测试
+Title: 把新版社区前端推送到服务器并验证可访问
+
+已通过 HTTP 控制器向服务器侧 Codex executor 派发 step2 任务 `f1-step2-server-deploy-and-verify`。远端任务被接受后，服务器侧确认社区页面 `/community` 可访问，渲染出新版前端框架标记（`Agent Coordination Mesh`、`Live Group Projection`、`toggleRailButton`、`refreshGroupsButton`、`createGroupButton`、`viewerBadge`），并确认静态资源 `index.html`、`styles.css`、`app.js` 与仓库版本一致。随后我在控制器侧回读 `/api/v1/state` 和 `/api/v1/results`，确认同一任务的结果已落库，证据链闭环。

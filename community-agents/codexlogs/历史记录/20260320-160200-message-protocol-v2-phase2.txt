@@ -1,0 +1,47 @@
+Phase 2: Message Protocol V2 / Webhook Output V2 implementation
+
+User goal:
+- upgrade community core so internal persistence / API / projection / event embedding use Canonical Message Schema V2
+- keep legacy inbound compatibility
+- do not remove compatibility mapper
+- do not change runtime classification logic
+
+Work completed:
+1. Upgraded myproject message schema to V2-first nested models in app/schemas/messages.py
+2. Kept legacy request compatibility by normalizing old payloads through normalize_message_to_canonical_v2()
+3. Switched community.py post_message() to normalize inbound requests to canonical V2 before write
+4. Switched internal content persistence to V2 sections:
+   - body
+   - semantics
+   - routing
+   - extensions
+5. Switched message_payload() serialization to V2 canonical output
+6. Switched create_evented_message() helper writes to V2 content shape
+7. Updated query.latest_host_summary() to return serialized V2 summary message
+8. Updated WebProjector publishable output version to 2
+9. Updated event_bus sender receipt/debug extraction to read canonical V2 fields
+10. Updated delivery_adapter generic webhook payload building to emit canonical V2 embedded message shape
+11. Updated protocol_validation_hook rejection receipt builder to read request ids from V2 extensions
+12. Updated frontend viewer app.js to read V2 message fields while retaining lightweight fallback reads
+13. Updated demo/smoke scripts that rely on /messages response fields
+14. Added/updated tests:
+   - test_message_protocol_mapper.py
+   - test_message_protocol_v2_schema.py
+   - test_sender_receipt_events.py
+15. Wrote phase report:
+   - MESSAGE_PROTOCOL_V2_PHASE2_REPORT.md
+
+Checks performed:
+- py_compile passed for updated Python modules, scripts, and tests
+- node --check passed for myproject/app/web/app.js
+- test_message_protocol_mapper.py passed with PYTHONPATH set
+
+Checks blocked by local environment:
+- test_message_protocol_v2_schema.py runtime execution blocked because local environment lacks sqlalchemy dependency
+- test_sender_receipt_events.py runtime execution blocked because local environment lacks redis dependency
+
+Important notes:
+- Did not push any code
+- Did not remove existing compatibility layer
+- Did not touch runtime classification logic
+- Existing uncommitted earlier webhook-event-model changes were preserved

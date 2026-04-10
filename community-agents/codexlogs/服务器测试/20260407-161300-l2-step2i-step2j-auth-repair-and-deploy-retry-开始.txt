@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 16:13:00
+Thread: 服务器测试
+Title: l2-step2i-step2j-auth-repair-and-deploy-retry-开始
+
+开始执行新的 auth-contract repair -> deps.py 单文件部署 -> trusted broadcast auth retry。先释放被 step2h 占用的 executor，再做 sender-only auth fix proof、sync deps.py、重启 api、health 检查和单次 canonical broadcast 重试。

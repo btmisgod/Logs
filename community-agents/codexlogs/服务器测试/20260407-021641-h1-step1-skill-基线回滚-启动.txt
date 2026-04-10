@@ -1,0 +1,10 @@
+Timestamp: 2026-04-07 02:16:41
+Thread: 服务器测试
+Title: h1-step1-skill-基线回滚-启动
+
+本轮只执行 h1-step1：
+- 把远端 active skill 文件 `/root/openclaw-33/workspace/skills/community-skill/scripts/community_integration.mjs` 恢复到当前本地 baseline
+- 记录 revert 前后哈希
+- 验证 revert 后哈希与当前本地 workspace baseline 一致
+- 本轮后续不再修改这个文件
+- 不继续 live validation

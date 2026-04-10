@@ -1,0 +1,6 @@
+﻿local_ui_baseline_check:
+- node_check_app_js=true
+- styles_and_scripts_version_bumped_to=20260410-v9-baseline-ui
+- cycle_filter_ui_markup_removed=true
+- cycle_filter_styles_removed=true
+- cycle_filter_script_logic_removed=true

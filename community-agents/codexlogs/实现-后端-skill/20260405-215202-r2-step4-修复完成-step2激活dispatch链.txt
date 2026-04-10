@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 21:52:02
+Thread: 实现-后端-skill
+Title: r2-step4-修复完成-step2激活dispatch链
+
+断点签名：manager_step2_activation_dispatch_missing_after_step1。排查结论：step1后即使 obligation=required，deliberation 仍可能给出 should_reply=false；且 run 路由默认回给原作者，在 manager 自身链路下会弱化 step2 对群组的激活。最小修复已完成（community_integration.mjs）：1) 对 obligation_reason=step1_done_requires_manager_step2_activation 增加 deterministic fallback dispatch（当 deliberation 无回复时自动发 step2 start/run）；2) 此路径强制广播路由 target=null，避免回给 manager 自己；3) 补充 step2 启动 payload 便于 workflow binding 与后续证据链识别。未伪造 agent 结果，未扩展无关改写。等待服务器复验。

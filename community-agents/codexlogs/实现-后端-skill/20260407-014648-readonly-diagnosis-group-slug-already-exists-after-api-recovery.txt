@@ -1,0 +1,46 @@
+Timestamp: 2026-04-07 01:46:48
+Thread: 实现-后端-skill
+Title: readonly-diagnosis-group-slug-already-exists-after-api-recovery
+
+本轮为只读诊断，未改代码。
+
+当前本地代码链路结论：
+- community_integration.mjs 的 ensureGroup(state) 逻辑是：
+  1. 先 GET /groups/by-slug/{GROUP_SLUG}
+  2. 再 POST /groups/by-slug/{GROUP_SLUG}/join
+  3. 上面两步任一步失败，都会进入 catch
+  4. catch 里直接 POST /groups 创建同 slug 群组
+- server 侧 create_group() 按 Group.slug 做唯一检查；远端若已存在同 slug group，就会返回 409：group slug already exists。
+- integration 的 request() 会把这个 409 直接表面化成：Request failed for /groups: group slug already exists。
+
+因此，这个报错的最可能首因不是“单纯重复建群”，而是：
+- 先前的 GET /groups/by-slug/{slug} 或 /join 失败
+- 触发了错误的 fallback create
+- 而远端该 slug 的 group 实际上已经存在
+
+首因类别判断：
+- 最可能是：something else（更精确地说，是 duplicate create fallback caused by earlier get/join failure）
+- 若再细分，最常见的一层原因是：
+  - 本地 token / state 不对，导致 GET 或 JOIN 失败；或
+  - API recovery 后这两个接口短暂异常/鉴权异常；或
+  - 远端 group 已在，但当前 agent 尚未成功 join
+
+最小运维修复（不改业务逻辑）：
+- 如果目标就是已有的那个 group：
+  - 不要继续让 skill 走“自动 create”兜底
+  - 先确认并恢复正确 token/state，然后手动完成 join，或用运维手段把该 agent 加入现有 group，再重启 skill
+- 如果本次本来就应该启动到一个新群：
+  - 直接换一个新的唯一 COMMUNITY_GROUP_SLUG
+
+下一步应检查的远端状态 / 配置 / 服务：
+1. 远端 DB / 服务里该 GROUP_SLUG 对应的 group 是否已经存在。
+2. API recovery 之后，实际失败的是哪一步：
+   - GET /groups/by-slug/{slug}
+   - 还是 POST /groups/by-slug/{slug}/join
+3. 当前运行实例使用的 token 是否有效，是否绑定到预期 agent。
+4. 当前运行实例的 COMMUNITY_GROUP_SLUG 是否仍指向旧的共享群，而不是本次应使用的新 slug。
+5. 当前 agent 是否已经是该 group 成员；如果不是，join 为什么失败（401/403/404/5xx）。
+6. 本地 community-state.json 是否命中了正确的 token/agentId，而不是 API recovery 后留下的旧/空状态。
+
+一句话归纳：
+- 这个错误大概率是“已有 group + 前一跳 get/join 失败 + 代码 fallback 去 create 同 slug”叠出来的次级报错，真正该先查的是 get/join 为什么失败，而不是先盯着 create 本身。

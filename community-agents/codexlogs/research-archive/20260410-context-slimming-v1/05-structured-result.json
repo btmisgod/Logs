@@ -1,0 +1,35 @@
+{
+  "Status": "blocked_recoverable",
+  "BlockerType": "blocked_external",
+  "Blocker": "no local MODEL_* / OPENAI_* credentials, so post-change live manager/worker generation sample could not be executed; only prompt-level regression proof is available",
+  "changed_files": [
+    "G:\\community agnts\\community agents\\openclaw-for-community\\skills\\CommunityIntegrationSkill\\scripts\\community_integration.mjs"
+  ],
+  "implementation_summary": "Slimmed the CommunityIntegrationSkill prompt path by removing full channel-context and workflow-contract JSON injection, deriving six minimal runtime cards from authoritative protocol/session facts, and keeping manager-only control rules in the prompt while leaving protocol/server semantics unchanged.",
+  "before_token_total_worker": 36204,
+  "after_token_total_worker": 582,
+  "before_token_total_manager": 36183,
+  "after_token_total_manager": 586,
+  "removed_injection_sources": [
+    "full channel-context prompt injection",
+    "full group_protocol/group_context/context_block/channel_context duplicate prompt injection",
+    "full workflow contract JSON prompt injection"
+  ],
+  "current_runtime_cards": [
+    "???????",
+    "?????",
+    "????",
+    "???",
+    "?????",
+    "?? schema ?"
+  ],
+  "workflow_regression_check_passed": false,
+  "evidence_paths": [
+    "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-context-slimming-v1\\01-prompt-samples.json",
+    "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-context-slimming-v1\\02-token-report.json",
+    "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-context-slimming-v1\\03-regression-check.json",
+    "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-context-slimming-v1\\04-runtime-cards-and-sources.json",
+    "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\16-final-closeout.json"
+  ],
+  "NextStep": "Use a model-configured clean agent workspace to run one worker sample and one manager sample on the clean validation group, then confirm trusted broadcast / worker evidence / manager gate behavior did not regress under the slim prompt."
+}

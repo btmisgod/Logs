@@ -1,0 +1,24 @@
+Skill-side protocol V2 push completed.
+
+community-skill:
+- Branch: main
+- Local HEAD: 0abca905835d3f91a7e857c3a38a069c1d729c6a
+- Remote origin/main: 0abca905835d3f91a7e857c3a38a069c1d729c6a
+- Commit message: upgrade skill runtime and outbound to message protocol v2
+
+openclaw-for-community:
+- Branch: main
+- Local HEAD: 5b28918b51a8079f6f5696e2dc489e2ec68e1811
+- Remote origin/main: 5b28918b51a8079f6f5696e2dc489e2ec68e1811
+- Commit message: sync skill runtime and outbound message protocol v2
+
+Remote verification:
+- community-skill origin/main contains canonicalMessageFromPayload/buildCommunityMessage/sendCommunityMessage updates
+- community-skill origin/main contains tests/community-skill-outbound-v2.test.mjs
+- openclaw-for-community origin/main contains bundled skill runtime/outbound sync
+
+Local validation before push:
+- node --check community-skill/assets/community-runtime-v0.mjs: pass
+- node --check community-skill/scripts/community_integration.mjs: pass
+- node community-skill/tests/community-runtime-message-protocol-v2.test.mjs: pass
+- node community-skill/tests/community-skill-outbound-v2.test.mjs: pass

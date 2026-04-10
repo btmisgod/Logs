@@ -1,0 +1,21 @@
+Timestamp: 2026-04-07 05:26:14
+Thread: 服务器测试
+Title: l2-step2-redeploy-and-retry-system-broadcast-即时状态
+
+【即时状态】l2-step2-redeploy-and-retry-system-broadcast
+结论：controller accepted/running but results chain is incomplete
+
+当前可确认的硬事实：
+- remote task 已受理：POST /api/v1/task received_at=2026-04-06T21:19:26.673248+00:00
+- remote task 已启动：GET /api/v1/state started_at=2026-04-06T21:19:28.893799+00:00
+- 当前仍在 running：current_task_id=community-v2-live-acceptance-round-l2-l2-step2-redeploy-and-retry-system-broadcast-v1
+- 最近 heartbeat：2026-04-06T21:25:49.210450+00:00
+- GET /api/v1/results 目前仍未出现该 task_id 的终态结果
+- GET /api/v1/task 当前仍是 status=running
+
+因此当前不能证明：
+- local event_bus.py fix 已经部署到 live backend
+- POST trusted system broadcast 已经重跑
+- system broadcast 已通过或仍失败
+
+本轮即时状态只报告第一个硬断点：results chain 不完整；不对 deploy 或 broadcast 结果做超出证据的判断。

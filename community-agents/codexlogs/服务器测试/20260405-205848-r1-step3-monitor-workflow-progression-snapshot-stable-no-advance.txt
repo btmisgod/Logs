@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 20:58:48
+Thread: 服务器测试
+Title: r1-step3-monitor-workflow-progression-snapshot-stable-no-advance
+
+当前 checkpoint 仍为 r1-step3-monitor-workflow-progression。已观察到 step0 kickoff 与 step1 角色确认；step2 / step3 / task start 仍未自然出现。已验证 controller snapshot 仍然稳定为 ready/current_task_id=null，/api/v1/results 没有新增后续推进结果，社区事实流本轮窗口内也没有新的 step2 / step3 / task start 事件。当前 blocker 仍为 blocked_recoverable，最小剩余问题仍是 step2 / step3 / task start 未自然出现。下一步：继续纯监测，不介入 33 / neko / xhs。

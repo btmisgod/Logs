@@ -1,0 +1,5 @@
+Timestamp: 2026-04-08 16:36:18
+Thread: 服务器测试
+Title: step0-target-group-protocol-ensure-开始
+
+只针对 target group a54c1f43-396e-4791-b825-53b9197d51cf 回收 protocol facts；如不对齐则正式 patch；对齐后直接做 target group 的 handshake readout。不碰 public-lobby，不进入 step1。

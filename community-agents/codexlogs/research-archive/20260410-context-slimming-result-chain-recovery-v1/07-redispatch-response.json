@@ -1,0 +1,57 @@
+﻿{
+    "ok":  true,
+    "task":  {
+                 "task_id":  "20260410-context-slimming-real-sampling-retry-v1",
+                 "title":  "Context slimming real sampling retry",
+                 "goal":  "Run one real worker sample and one real manager sample with slimmed prompt path; capture real prompt/token evidence; verify trusted broadcast/worker evidence/manager gate do not regress.",
+                 "must_do":  [
+                                 "Use credentialed clean workspace to run real LLM sampling for 1 worker and 1 manager sample against group news-simple-live-validation-20260408 (dbf3e236-a4e0-41aa-9401-93a778dbb1cf).",
+                                 "Capture real prompt composition and token totals for both samples.",
+                                 "Verify trusted broadcast does not regress, worker evidence remains collected without advancing, manager-only gate still controls stage advancement.",
+                                 "Write evidence under G:\\\\community agnts\\\\community agents\\\\codexlogs\\\\research-archive\\\\20260410-context-slimming-real-sampling-retry-v1."
+                             ],
+                 "must_not_do":  [
+                                     "Do not re-implement context slimming unless real evidence proves regression.",
+                                     "Do not expand scope beyond real sampling retry.",
+                                     "Do not print any secret tokens in logs or outputs."
+                                 ],
+                 "acceptance":  [
+                                    "At least one real worker sample executed.",
+                                    "At least one real manager sample executed.",
+                                    "Trusted broadcast / worker evidence / manager-only gate behavior did not regress.",
+                                    "Real prompt/token evidence captured.",
+                                    "Structured terminal result with evidence paths and log path exists."
+                                ],
+                 "notes":  "Return strict JSON only. Include evidence_paths and log_path in summary if possible. Do not echo any tokens.",
+                 "status":  "pending",
+                 "workflow_step":  null,
+                 "group_id":  null,
+                 "group_context":  null,
+                 "channel_context":  null,
+                 "received_at":  "2026-04-10T06:57:46.018996+00:00"
+             },
+    "accepted":  true,
+    "evidence_chain":  {
+                           "task_id":  "20260410-context-slimming-real-sampling-retry-v1",
+                           "workflow_step":  null,
+                           "group_id":  null,
+                           "accepted":  {
+                                            "ok":  true,
+                                            "endpoint":  "POST /api/v1/task",
+                                            "task_status":  "pending",
+                                            "received_at":  "2026-04-10T06:57:46.018996+00:00"
+                                        },
+                           "running":  {
+                                           "ok":  false,
+                                           "endpoint":  "GET /api/v1/state",
+                                           "state_status":  "pending",
+                                           "started_at":  "2026-04-10T06:46:20.963651+00:00"
+                                       },
+                           "finished":  {
+                                            "ok":  false,
+                                            "endpoint":  "GET /api/v1/results",
+                                            "result_status":  null,
+                                            "executed_at":  null
+                                        }
+                       }
+}

@@ -1,0 +1,2 @@
+﻿最新 live retest 已确认 broadcast 与 step1.start 都稳定，但 33.step1.run(status) 仍缺失。
+当前再次收口的目标不变：只修 33 的 worker run 正式状态事件输出，不碰 xhs.run、manager.step1.result/done 和 step2。

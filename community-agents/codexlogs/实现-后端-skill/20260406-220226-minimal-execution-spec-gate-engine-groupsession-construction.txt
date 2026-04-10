@@ -1,0 +1,59 @@
+Timestamp: 2026-04-06 22:02:26
+Thread: 实现-后端-skill
+Title: minimal-execution-spec-gate-engine-groupsession-construction
+
+本轮是 Community 最小架构建设，不是旧链路补丁，也没有把语义推回 runtime/skill。
+
+本轮完成：
+1. 最小 execution_spec 落地
+- 在群组协议主路径增加 execution_spec，明确 server-only execution control。
+- execution_spec 最小字段包含：stage_id / allowed_roles / accepted_status_blocks / completion_condition / next_stage。
+- 覆盖主干 stage：step1 / step2 / step3 / task_start。
+- protocol_manager 现在会在 group protocol metadata 上自动补齐/归一 execution_spec，并允许从当前协议路径读取。
+- 当前测试协议样例文件也已补入 execution_spec。
+
+2. 最小 gate/stage engine 落地
+- gate engine 落在 group_session.py。
+- 输入：GroupSession.current_stage + observed_statuses + group protocol execution_spec。
+- 能力：
+  - 按 current_stage 收集 observed statuses
+  - 校验 author_role 是否属于 allowed_roles
+  - 校验 status_block 是否属于当前 stage 的 accepted set
+  - 按 completion_condition 计算 gates 是否满足
+  - 满足后由 server 更新 GroupSession.current_stage / gate_snapshot
+- 未实现任何 step-specific if / force dispatch / workflow DSL 扩张。
+
+3. GroupSession 集成
+- observed_statuses / last_status_block 保留，并继续先记录观察事实。
+- 新增 observed author identity/role 归一：优先使用 server 已知 actor_agent_id，再结合 role_directory 推断有效 author_role。
+- client status_block 不再直接推进 current_stage；只有 gate engine 评估后才会推进。
+- ensure_group_session_fact 现在会同时确保 group protocol metadata 上存在 execution_spec，并把默认 current_stage 收口到 execution_spec.initial_stage。
+
+4. 保持边界
+- 没有改 runtime。
+- 没有改 JS skill。
+- system broadcast -> group context 路径未回推到 workflow 语义，只保留 group_context 更新。
+
+实际修改文件：
+- myproject/app/services/protocol_manager.py
+- myproject/app/services/group_session.py
+- myproject/app/services/community.py
+- 当前测试群组协议_初稿.jsonc
+
+最小本地验证：
+- py_compile：protocol_manager.py / group_session.py / community.py 通过。
+- Select-String：确认当前测试协议样例已有 execution_spec / execution_spec_id / stage_order。
+- 轻依赖真实行为验证：用最小 stub 装载 protocol_manager + group_session，验证：
+  - server 可从 current protocol path 读 execution_spec
+  - 单个 worker 的 step1.run 只进入 observed_statuses，current_stage 仍为 step1
+  - 当两个 worker 的 step1_submitted + manager 的 step1_done 齐备时，gate engine 将 current_stage 从 step1 推进到 step2
+  - context_block 风格的 system broadcast 输入仍会更新 group_context_version，不扰动最后一次 status fact
+
+保留兼容：
+- gate_snapshot.step0.ready 仍保留，只作历史兼容，不再作为主干 execution stage。
+- channel protocol binding 旧命名仍在底层复用，但 execution_spec 和 gate engine 都以 group_* 语义为正式主线。
+
+留给 server-test 的主要风险：
+- 真实 DB 中已有 current_stage=step0 的历史 group，需要确认升级后是否符合预期地转入 execution_spec.initial_stage。
+- 当前 gate engine 只评估 current_stage，不做跨 stage 回补或历史追溯；这是刻意保持最小 skeleton，但联调时要确认是否足够。
+- 目前 completion_condition 只支持最小 all_of + count/distinct-agents 模式，后续若协议需要更复杂门槛，要在 server 侧扩展，不应推回 runtime/skill。

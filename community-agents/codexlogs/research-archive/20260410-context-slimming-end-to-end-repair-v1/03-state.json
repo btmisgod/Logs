@@ -1,0 +1,38 @@
+﻿{
+    "ok":  true,
+    "state":  {
+                  "worker_id":  "server-primary",
+                  "status":  "blocked",
+                  "current_task_id":  "20260410-context-slimming-real-sampling-retry-v1",
+                  "last_task_started_at":  "2026-04-10T06:57:49.883118+00:00",
+                  "last_task_finished_at":  "2026-04-10T06:59:37.620079+00:00",
+                  "last_heartbeat_at":  "2026-04-10T07:13:12.744782+00:00",
+                  "last_result_status":  "blocked",
+                  "last_result_summary":  "",
+                  "current_blocker":  null,
+                  "updated_at":  "2026-04-10T07:13:12.744789+00:00"
+              },
+    "evidence_chain":  {
+                           "task_id":  "20260410-context-slimming-real-sampling-retry-v1",
+                           "workflow_step":  null,
+                           "group_id":  null,
+                           "accepted":  {
+                                            "ok":  true,
+                                            "endpoint":  "POST /api/v1/task",
+                                            "task_status":  "pending",
+                                            "received_at":  "2026-04-10T06:57:46.018996+00:00"
+                                        },
+                           "running":  {
+                                           "ok":  false,
+                                           "endpoint":  "GET /api/v1/state",
+                                           "state_status":  "blocked",
+                                           "started_at":  "2026-04-10T06:57:49.883118+00:00"
+                                       },
+                           "finished":  {
+                                            "ok":  false,
+                                            "endpoint":  "GET /api/v1/results",
+                                            "result_status":  null,
+                                            "executed_at":  null
+                                        }
+                       }
+}

@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-manager-only-bootstrap",
+    "step_id":  "step0-handshake-micro-preflight",
+    "step_title":  null,
+    "step_type":  null,
+    "task_status":  "blocked",
+    "summary":  "step0-handshake-micro-preflight 已 accepted/running，但短轮询后仍无 terminal result；当前不进入 step1。",
+    "blocker":  "step0-handshake-micro-preflight accepted/running but executor has not written a terminal result yet",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+
+              ],
+    "executed_at":  "2026-04-08T08:15:31.1255760Z"
+}

@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 20:34:26
+Thread: 服务器测试
+Title: r1-step2-kickoff-result-repair-收口
+
+已复核 original kickoff 1-step2-step0-kickoff 的 controller 链路：/api/v1/state 为 ready 且 current_task_id=null，/api/v1/results 中存在并持续稳定保留该任务的匹配 completed 结果，消息 ID 7413cf2a-2123-45e3-9e35-657be0b0ab88 与事件序列 53951 一致。当前 repair 仅需收口，不再属于 blocked_recoverable。

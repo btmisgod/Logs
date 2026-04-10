@@ -1,0 +1,101 @@
+{
+  "command_id": "20260410-context-slimming-result-chain-recovery-v1",
+  "version": "1.0",
+  "created_at": "2026-04-10",
+  "target_thread": "main-controller",
+  "workspace_root": "G:\\community agnts\\community agents",
+  "title": "Recover remote result chain for context slimming real sampling retry",
+  "objective": "Handle the current server-side result-chain failure for task 20260410-context-slimming-real-sampling-retry-v1. First try to recover a normal terminal result from /api/v1/results. If the task remains running without a result, perform one controlled reset of the stale running task and one re-dispatch of the same real-sampling objective, then collect the final terminal result or the first repair blocker.",
+  "references": [
+    {
+      "path": "G:\\community agnts\\community agents\\codex command\\20260410-controller-env-bootstrap-and-real-sampling-retry-v1.json",
+      "description": "The most recent dispatch task that led to the current running-without-result state."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-context-slimming-real-sampling-retry-v1\\06-structured-result.json",
+      "description": "Structured result that incorrectly closed early while the remote executor was still running."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\docs\\control-plane\\community-llm-context-slimming-v1.md",
+      "description": "Original requirement baseline."
+    }
+  ],
+  "remote_task": {
+    "task_id": "20260410-context-slimming-real-sampling-retry-v1",
+    "expected_goal": "Run one real worker sample and one real manager sample with slimmed prompt path; capture real prompt/token evidence; verify trusted broadcast/worker evidence/manager gate do not regress."
+  },
+  "required_work": [
+    {
+      "id": "refresh_remote_state_and_results",
+      "description": "Read /api/v1/state and /api/v1/results using the current controller environment. Determine whether the remote task already has a terminal result."
+    },
+    {
+      "id": "normal_result_recovery_first",
+      "description": "If the result is already present in /api/v1/results, stop repair flow immediately and collect the result instead of resetting anything."
+    },
+    {
+      "id": "detect_running_without_result",
+      "description": "If the task is still running and /api/v1/results still has no matching terminal result, classify it as a result-chain recovery case rather than a task-content failure."
+    },
+    {
+      "id": "controlled_reset_once_if_needed",
+      "description": "If the task remains running without a result, perform exactly one controlled POST /api/v1/admin/reset-running-task with a precise reason describing result-chain recovery."
+    },
+    {
+      "id": "redispatch_once_if_reset_succeeds",
+      "description": "After a confirmed reset, re-dispatch the same real-sampling objective exactly once. Do not create multiple duplicate remote tasks."
+    },
+    {
+      "id": "collect_terminal_result_or_first_repair_blocker",
+      "description": "After one recovery cycle, either collect the remote terminal result or stop at the first concrete blocker with evidence."
+    },
+    {
+      "id": "write_logs_and_structured_result",
+      "description": "Write detailed execution logs to the main-thread log folder and publish a structured terminal result with evidence and log paths."
+    }
+  ],
+  "do_not": [
+    "Do not classify the current situation as a content/workflow regression before checking result-chain recovery.",
+    "Do not spam repeated resets or repeated redispatches. Allow at most one reset and one re-dispatch in this repair task.",
+    "Do not create multiple duplicate remote tasks for the same retry objective.",
+    "Do not expand this task into UI work, feature work, or new protocol changes."
+  ],
+  "acceptance": [
+    "Either a matching terminal result is recovered from /api/v1/results, or a precise first repair blocker is produced after one controlled recovery cycle.",
+    "The result chain is treated as a server repair problem, not confused with workflow-content failure.",
+    "Evidence includes fresh /api/v1/state and /api/v1/results snapshots.",
+    "If reset is used, the reset response and re-dispatch response are recorded.",
+    "A structured terminal result exists with evidence paths and a log path."
+  ],
+  "deliverables": [
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-context-slimming-result-chain-recovery-v1",
+      "description": "Evidence folder for result-chain recovery."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\主线程",
+      "description": "Main-thread log root for detailed logs."
+    }
+  ],
+  "working_principles": [
+    "First prefer normal result recovery over resetting active work.",
+    "If accepted+runs but no result appears, handle it as a server repair flow.",
+    "Use one controlled reset and one single re-dispatch at most.",
+    "Keep the task narrow: result-chain recovery only."
+  ],
+  "result_format": {
+    "required_fields": [
+      "Status",
+      "BlockerType",
+      "Blocker",
+      "RemoteResultRecovered",
+      "UsedReset",
+      "UsedRedispatch",
+      "RecoveredTerminalStatus",
+      "RecoveredTerminalSummary",
+      "evidence_paths",
+      "log_path",
+      "NextStep"
+    ]
+  }
+}

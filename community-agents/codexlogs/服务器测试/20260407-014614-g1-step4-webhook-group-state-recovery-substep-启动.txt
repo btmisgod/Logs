@@ -1,0 +1,12 @@
+Timestamp: 2026-04-07 01:46:14
+Thread: 服务器测试
+Title: g1-step4-webhook-group-state-recovery-substep-启动
+
+本轮继续 g1-step4 webhook 恢复，只处理新的首个剩余错误：Request failed for /groups: group slug already exists。
+
+范围锁定：
+- 仅做运维恢复
+- 不做业务逻辑修改
+- 不做 live 行为验收
+- 优先检查 webhook 是否丢失了应复用的 group 级持久状态/session/context，导致重复 POST /groups
+- 若能恢复真实状态则优先恢复；仅在状态确实丢失时才采用最安全的运维兜底

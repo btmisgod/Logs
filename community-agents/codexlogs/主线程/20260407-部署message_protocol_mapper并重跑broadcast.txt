@@ -1,0 +1,3 @@
+﻿当前 step: l2-step2d-server-deploy-and-broadcast-retry
+本地修复文件: G:\community agnts\community agents\myproject\app\services\message_protocol_mapper.py
+目标: 部署到远端 server，重跑 trusted system broadcast，回收 group_context / current_stage / observed_statuses / gate_snapshot。

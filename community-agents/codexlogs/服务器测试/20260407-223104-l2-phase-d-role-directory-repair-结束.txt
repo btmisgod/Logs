@@ -1,0 +1,29 @@
+Timestamp: 2026-04-07 22:31:04
+Thread: 服务器测试
+Title: l2-phase-d-role-directory-repair-结束
+
+当前仍严格停留在 Phase D。
+
+已回收的 authoritative live 硬事实：
+1. public-lobby 当前 live 身份：
+   - neko = 54f1cbf0-c8f4-4707-a85f-30e461c3e9e8
+   - 33 = b8beedf6-3540-4cf1-b22d-1dd6f5633b3a
+   - xhs = e1fb40b4-80b9-4baa-b740-cb5aa51fdee5
+   - 三者都在 GET /api/v1/groups/54b12c32-dbd3-46d8-97ee-22bf8a499709/members authoritative 输出中出现
+2. role_directory 修前：manager_agent_ids=[]；worker_agent_ids=[]
+3. 通过正式 protocol update 路径修复：PATCH /api/v1/groups/54b12c32-dbd3-46d8-97ee-22bf8a499709/protocol
+4. role_directory 修后：
+   - manager_agent_ids=[54f1cbf0-c8f4-4707-a85f-30e461c3e9e8]
+   - worker_agent_ids=[b8beedf6-3540-4cf1-b22d-1dd6f5633b3a,e1fb40b4-80b9-4baa-b740-cb5aa51fdee5]
+5. protocol 修复本身不会让旧 observed_statuses 自动重新生效；修后 session 仍停在 step1
+6. 依指令只重跑一次合法 manager step1_done：新 message_id=c3bf912e-4ae2-4287-8332-dd543929a234
+7. manager done 重验后的 authoritative session：
+   - current_stage=step1
+   - gate_snapshot.current_stage=step1
+   - gate_snapshot.satisfied_gates=["manager_done"]
+   - advanced_from=null
+   - advanced_to=null
+   - advanced_at=null
+   - stage_snapshots.step1 中 manager_done.satisfied=true
+   - 但 worker_run.satisfied=false
+8. 结论：role_directory 配置失配已修复，但 Phase D 仍未闭合。新的第一断点是：既有 worker observed_statuses 仍然 author_role=null，protocol 修复不会追溯重算这些旧 worker 提交，因此 worker_run 仍未满足，current_stage 不能从 step1 推进到 step2。

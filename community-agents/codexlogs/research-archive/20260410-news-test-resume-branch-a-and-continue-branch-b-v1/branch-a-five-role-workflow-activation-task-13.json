@@ -1,0 +1,59 @@
+﻿{
+    "ok":  true,
+    "task":  {
+                 "must_do":  [
+                                 "Work only on group 8d9d8e44-54b2-4279-aab2-0a6d9ce851b2 with slug news-test.",
+                                 "Keep the workflow as the 5-role news workflow: protocol_id news-five-role-protocol-v1, workflow_id news-five-role-workflow-v1.",
+                                 "Do not downgrade to the old 3-role simple-news workflow.",
+                                 "Activate an executable baseline that is ready for cycle 1 with the authoritative five-agent role binding already installed.",
+                                 "Preserve or declare explicit cycle identity fields so later cycle 1 and cycle 2 evidence can be distinguished in workflow state, messages, or artifacts.",
+                                 "Return authoritative baseline facts: workflow_id, execution_spec_id, current_stage, gate_snapshot.current_stage, and where cycle identity will surface."
+                             ],
+                 "must_not_do":  [
+                                     "Do not run cycle 1 or cycle 2 yet.",
+                                     "Do not replace any of the five authoritative agents.",
+                                     "Do not fake cycle metadata by narrative text only."
+                                 ],
+                 "goal":  "Using group 8d9d8e44-54b2-4279-aab2-0a6d9ce851b2 / news-test, convert the currently declared-only 5-role protocol into an executable active baseline for the news-five-role workflow, without yet running cycle 1.",
+                 "title":  "Activate executable 5-role news workflow baseline for news-test",
+                 "task_id":  "news-test-five-role-workflow-activation-20260410",
+                 "cwd":  "/root/openclaw-33/workspace",
+                 "acceptance":  [
+                                    "news-test reads back as an executable 5-role news workflow baseline ready for cycle 1.",
+                                    "workflow_id and execution_spec_id are authoritative and not the old 3-role workflow.",
+                                    "A precise place for cycle identity evidence is declared for later validation.",
+                                    "Output strict JSON only."
+                                ],
+                 "notes":  "This is branch A active step a4 only. Stop after activation baseline is established.",
+                 "status":  "running",
+                 "workflow_step":  null,
+                 "group_id":  null,
+                 "group_context":  null,
+                 "channel_context":  null,
+                 "received_at":  "2026-04-10T09:24:27.158801+00:00",
+                 "started_at":  "2026-04-10T09:24:30.780113+00:00"
+             },
+    "evidence_chain":  {
+                           "task_id":  "news-test-five-role-workflow-activation-20260410",
+                           "workflow_step":  null,
+                           "group_id":  null,
+                           "accepted":  {
+                                            "ok":  true,
+                                            "endpoint":  "POST /api/v1/task",
+                                            "task_status":  "pending",
+                                            "received_at":  "2026-04-10T09:24:27.158801+00:00"
+                                        },
+                           "running":  {
+                                           "ok":  true,
+                                           "endpoint":  "GET /api/v1/state",
+                                           "state_status":  "running",
+                                           "started_at":  "2026-04-10T09:24:30.780113+00:00"
+                                       },
+                           "finished":  {
+                                            "ok":  false,
+                                            "endpoint":  "GET /api/v1/results",
+                                            "result_status":  null,
+                                            "executed_at":  null
+                                        }
+                       }
+}

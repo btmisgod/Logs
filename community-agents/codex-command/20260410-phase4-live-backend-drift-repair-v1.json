@@ -1,0 +1,108 @@
+{
+  "command_id": "20260410-phase4-live-backend-drift-repair-v1",
+  "version": "1.0",
+  "created_at": "2026-04-10",
+  "target_thread": "main-controller-thread",
+  "workspace_root": "G:\\community agnts\\community agents",
+  "title": "Repair live backend working tree drift and rerun phase4 formal workflow baseline validation",
+  "objective": "Fix the live backend drift on the deployed server so the release commit's formal activation path is actually what the API service is running, then rerun phase4 post-deploy validation. Do not continue to phase5 Codex connectivity until phase4 passes.",
+  "frozen_context": {
+    "release_repo": "G:\\community agnts\\community agents\\myproject",
+    "release_commit": "0c2cd3e8e607deb4fb3b886c20161b44a867d353",
+    "known_blocker": "live_backend_working_tree_drift_breaks_formal_activation_reseed"
+  },
+  "mandatory_references": [
+    {
+      "order": 1,
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-resume-post-deploy-validation-and-codex-check-v1\\99-structured-result.json",
+      "why": "Use the latest structured result as the authoritative blocker statement and current stop point."
+    },
+    {
+      "order": 2,
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-resume-post-deploy-validation-and-codex-check-v1\\30-phase4-release-vs-live-hash-compare.json",
+      "why": "This is the direct evidence that live file contents do not match the release commit even though git HEAD does."
+    },
+    {
+      "order": 3,
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-phase3-deploy-commit-repair-v1\\99-structured-result.json",
+      "why": "Use the known-good deployment context: server repo root, compose path, API service name, and release commit."
+    },
+    {
+      "order": 4,
+      "path": "G:\\community agnts\\community agents\\myproject\\app\\services\\community.py",
+      "why": "One of the three files proven to be drifting on the live server."
+    },
+    {
+      "order": 5,
+      "path": "G:\\community agnts\\community agents\\myproject\\app\\services\\group_session.py",
+      "why": "One of the three files proven to be drifting on the live server."
+    },
+    {
+      "order": 6,
+      "path": "G:\\community agnts\\community agents\\myproject\\app\\services\\protocol_manager.py",
+      "why": "One of the three files proven to be drifting on the live server."
+    }
+  ],
+  "required_work": [
+    {
+      "id": "phase1_confirm_drift_scope",
+      "description": "Reconfirm the exact drift scope on the live server. Verify that git HEAD is still the release commit and that the live contents of community.py, group_session.py, and protocol_manager.py still do not match the release commit."
+    },
+    {
+      "id": "phase2_identify_drift_source",
+      "description": "Determine why live file contents diverged from the release commit. Check for bind-mounted source, local hot edits, uncommitted remote edits, copied overlay files, or restart path mistakes. Stop at the first real source of drift."
+    },
+    {
+      "id": "phase3_exact_sync_release_files",
+      "description": "Exact-sync the live server copies of community.py, group_session.py, and protocol_manager.py to the release commit contents only. Do not broaden to unrelated files."
+    },
+    {
+      "id": "phase4_restart_api_only",
+      "description": "Restart only the API service needed to pick up the corrected files. Do not redeploy the whole stack if an API-only restart is sufficient."
+    },
+    {
+      "id": "phase5_rerun_phase4_validation",
+      "description": "Rerun phase4 post-deploy validation from the current group state. Verify V1_api_health, V2_manager_only_bootstrap, and especially V3_formal_workflow_baseline."
+    },
+    {
+      "id": "phase6_stop_condition",
+      "description": "If V3 now passes, stop and report phase4 completed. If V3 still fails, stop at the first real blocker and do not continue to phase5 Codex connectivity."
+    }
+  ],
+  "do_not": [
+    "Do not continue to phase5 Codex connectivity until phase4 passes.",
+    "Do not change PR scope.",
+    "Do not modify deferred features.",
+    "Do not treat this as a generic executor outage unless fresh evidence proves that.",
+    "Do not redeploy the full stack if an API-only sync and restart is enough."
+  ],
+  "working_principles": [
+    "This is a release-blocking drift repair, not a feature task.",
+    "Use exact file hashes and exact file contents as evidence, not git HEAD alone.",
+    "Repair the smallest live surface necessary to restore release-commit behavior.",
+    "Stop at the first real blocker."
+  ],
+  "acceptance": [
+    "Live community.py, group_session.py, and protocol_manager.py match the release commit contents.",
+    "API service is healthy after restart.",
+    "Phase4 V3_formal_workflow_baseline passes.",
+    "Task stops before phase5 unless phase4 is fully green."
+  ],
+  "result_format": {
+    "required_fields": [
+      "Status",
+      "BlockerType",
+      "Blocker",
+      "DriftSourceConfirmed",
+      "ReleaseCommit",
+      "LiveFilesNowMatchReleaseCommit",
+      "ApiServiceHealthy",
+      "Phase4Passed",
+      "FailedValidationItems",
+      "changed_files",
+      "evidence_paths",
+      "log_path",
+      "NextStep"
+    ]
+  }
+}

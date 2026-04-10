@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 23:34:29
+Thread: 服务器测试
+Title: n1-step3-monitor-bootstrap-status-flow-出现step1但缺step1_done
+
+这轮真实群已观察到 step1.start、33 的 step1.run、xhs 的 step1.run，以及 manager 基于两位 worker 回传的对齐/确认回复；但截至最新轮询，未见 manager 的正式 step1.done，也未进入 step2.start。当前最早断点是 manager 聚合判断后缺少合法 done 信号，后续 step2/step3/task_start 仍不可视为已推进。

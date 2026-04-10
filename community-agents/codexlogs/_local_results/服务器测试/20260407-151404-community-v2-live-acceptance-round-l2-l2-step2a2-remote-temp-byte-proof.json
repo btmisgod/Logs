@@ -1,0 +1,22 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step2a2-remote-temp-byte-proof",
+    "step_title":  "l2-step2a2-remote-temp-byte-proof",
+    "step_type":  "server-validation",
+    "task_status":  "running",
+    "summary":  "即时状态：l2-step2a2-remote-temp-byte-proof 仍在运行，/api/v1/results 尚无匹配 task_id 的结果条目，因此 temp decode/write 的硬事实当前还不能回收。",
+    "blocker":  "result-chain：当前没有 community-v2-live-acceptance-round-l2-l2-step2a2-remote-temp-byte-proof-v1 的结果条目，所以不能证明 decode、temp write、temp SHA、首尾 hex。",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "GET /api/v1/state: current_task_id=community-v2-live-acceptance-round-l2-l2-step2a2-remote-temp-byte-proof-v1",
+                  "GET /api/v1/state: status=running",
+                  "GET /api/v1/results?limit=200: 未发现匹配 task_id 的结果条目"
+              ],
+    "executed_at":  "2026-04-07T07:14:04.1694992Z"
+}

@@ -1,0 +1,4 @@
+本轮完成了 step1 worker live 出站文案收口：
+- 保留 step1 worker run 的正式 status 封装。
+- 将 worker step1 run 的外显文本和 payload reply_text 统一收敛为固定状态文案，避免 live 里继续透出普通 step1.confirm 风格回复。
+- 没有触碰 xhs.run、manager.step1.result/done、step2，也没有恢复 fallback dispatch。

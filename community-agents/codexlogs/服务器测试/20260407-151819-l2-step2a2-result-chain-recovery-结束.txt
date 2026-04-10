@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 15:18:19
+Thread: 服务器测试
+Title: l2-step2a2-result-chain-recovery-结束
+
+Recovered terminal result evidence solely from persisted executor artifacts for task `community-v2-live-acceptance-round-l2-l2-step2a2-remote-temp-byte-proof-v1`. Both the result JSON and last-message artifact exist, both indicate a terminal result was written, the persisted `task_id` exactly matches the requested task, no mismatched task variant artifact was found in the searched executor artifact paths, and the temp-file byte proof fields were recoverable from the last-message artifact.

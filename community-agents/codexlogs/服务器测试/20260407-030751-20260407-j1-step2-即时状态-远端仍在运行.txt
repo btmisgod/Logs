@@ -1,0 +1,21 @@
+Timestamp: 2026-04-07 03:07:51
+Thread: 服务器测试
+Title: 20260407-j1-step2-即时状态-远端仍在运行
+
+当前仅发布 j1-step2-server-deploy-and-verify 的即时状态，不等待 /api/v1/results 终态记录。
+
+当前 remote step:
+- task_id: j1-step2-server-deploy-and-verify
+- worker_id: server-primary
+- controller state: running
+- accepted_at: 2026-04-06T18:54:56.584942+00:00
+- started_at: 2026-04-06T18:54:58.426989+00:00
+- last_heartbeat_at: 2026-04-06T19:07:24.123249+00:00
+- finished_result: none
+
+本次只能确认的硬事实:
+1. event publish chain 是否已作为 plain event envelope 部署到 remote api：尚未证明
+2. GET /api/v1/groups/by-slug/public-lobby 是否返回 200：尚未证明
+3. POST /api/v1/groups/by-slug/public-lobby/join 是否仍然 500：尚未证明
+4. api 日志是否仍出现 MissingGreenlet：尚未证明
+5. 已验证的 non-join event publish path：无；首个 blocker 是 j1-step2 远端任务仍在 running，/api/v1/results 还没有该 task_id 的终态结果，因此当前没有可回收的部署后 live 证据

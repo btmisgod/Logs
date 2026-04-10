@@ -1,0 +1,7 @@
+﻿[2026-04-10T16:21:48.9696452+08:00] branch_a_server_deploy => blocked_recoverable
+blocker: remote_provisioning_executor_no_terminal_result
+facts:
+- local onboarding script supports per-agent handle/name/service/socket/webhook/send parameterization
+- remote topology/derivation/single-child probes were accepted and entered running
+- no matching terminal results were persisted for those provisioning probes
+evidence: G:\community agnts\community agents\codexlogs\research-archive\20260410-news-test-five-agent-two-cycle-and-ui-cycle-filter-v1\branch-a-blocker-remote-provisioning-executor.json

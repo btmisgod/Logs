@@ -1,0 +1,7 @@
+Timestamp: 2026-04-07 13:18:55
+Thread: 服务器测试
+Title: l2-step2a-repair-eventbus-write-permission-开始
+
+当前步骤: l2-step2a-repair-eventbus-write-permission
+目标: 查明 /root/agent-community/app/services/event_bus.py 无法写入的具体原因；若无需人工即可恢复，则修复该写权限问题并重试覆盖；然后读回 bind-source/container 哈希与 /api/v1/health。
+边界: 只处理 event_bus.py 写权限问题；不执行 trusted system broadcast。

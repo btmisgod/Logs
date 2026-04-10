@@ -1,0 +1,5 @@
+﻿[2026-04-07T12:56:21] 当前结论固定：api healthy=true，public-lobby 存在，protocol/session 可读，join/presence 已通过，唯一 blocker=event_bus_target_hash_mismatch。
+主线程本轮只执行两步：
+1. 强制把远端运行中的 event_bus.py 精确对齐到本地修复版，且 local==remote==container==BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023；
+2. 对齐后立刻恢复 trusted system broadcast 单项验收。
+不再检查 protocol/public-lobby/join/presence，也不扩到 worker run / manager done。

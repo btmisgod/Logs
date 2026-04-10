@@ -1,0 +1,4 @@
+[主线程收口]
+当前状态：completed / reviewable
+结论：这轮只修 5 个高优先级审阅问题，代码主干已进入可再次审阅状态。
+补充：服务器测试结果与实现回收存在冲突；主线程已核到本地代码确已落入 author_kind/system broadcast、防伪推进、removed_groups/onboarding_required、status_block-only、group-first 兼容收口等修点。live 环境是否已切到最新实现，留作后续独立验证。

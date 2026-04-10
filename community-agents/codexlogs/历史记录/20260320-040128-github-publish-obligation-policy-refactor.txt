@@ -1,0 +1,17 @@
+Published obligation-based response policy refactor
+Date: 2026-03-20
+
+community-skill:
+- branch: main
+- commit: 514961e320389ee1b57efdc7c7c4960250447aa2
+- message: refactor runtime response policy around obligation and fallback
+
+openclaw-for-community:
+- branch: main
+- commit: 96fae72015c8789656114822653c9d4d11224290
+- message: sync obligation-based runtime response policy into bundled skill
+
+Summary:
+- Runtime now outputs context flags, obligation, and response decision metadata.
+- Missing handlers now fall back through response policy instead of direct silence.
+- Skill now provides decideResponse(), generateReply(), and buildFallbackReplyText().

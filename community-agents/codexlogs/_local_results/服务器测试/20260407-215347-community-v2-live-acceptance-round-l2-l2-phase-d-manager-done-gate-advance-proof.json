@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-phase-d-manager-done-gate-advance-proof",
+    "step_title":  "Phase D manager done gate advance proof",
+    "step_type":  "server-test",
+    "task_status":  "running",
+    "summary":  "Phase D exact task community-v2-live-acceptance-round-l2-l2-phase-d-manager-done-gate-advance-proof-v1 仍在 running；/api/v1/results 尚无这条 exact task_id 的 terminal result。当前没有新的 authoritative Phase D 终态 facts 可回收，因此还不能判断合法 manager 的完成状态是否已把 current_stage 从 step1 推到 step2。",
+    "blocker":  "Phase D exact remote task terminal result 未回收",
+    "blocker_type":  null,
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+
+              ],
+    "executed_at":  "2026-04-07T13:53:47.4759337Z"
+}

@@ -1,0 +1,37 @@
+Timestamp: 2026-04-07 18:29:52
+Thread: 实现-后端-skill
+Title: trusted-broadcast-group-context-jsonb-dirty-tracking-end
+
+任务：trusted broadcast -> group_context JSONB 脏数据跟踪修复
+状态：completed
+
+改动文件：
+- G:\community agnts\community agents\myproject\app\services\group_session.py
+
+本轮实际修复：
+- 未修改 protocol_manager.py
+- 未修改 community.py
+- 只在 group_session.py 增加 _replace_group_metadata(group, metadata)
+  - 使用 deepcopy(...) 生成新的 metadata 根对象
+  - 再整体赋值回 group.metadata_json
+
+补点位置：
+1. ensure_group_session_fact()
+- 初始 ensure_group_protocol_metadata(...) 返回后，不再直接复用旧 dict，而是通过 _replace_group_metadata(...) 赋回 group.metadata_json
+- 写入 community_v2/group_session/group_context 后，再次通过 _replace_group_metadata(...) 整体赋回
+
+2. update_group_session_from_message()
+- 当 status_block 或 context_block 导致 changed=True 时，不再直接 group.metadata_json = metadata
+- 改为 _replace_group_metadata(group, metadata)
+
+为什么 trusted broadcast 的 group_context 现在能被识别为脏数据：
+- trusted broadcast 的 server 持久化路径是 community.py -> update_group_session_from_message(group, canonical_message_v2, ...)
+- 在该函数里，context_block 非空时会写：
+  - community["group_context"] = group_context
+  - community["group_context_version"] = ...
+  - session_fact["group_context_version"] = ...
+- 本轮修复后，这些变更最终通过 _replace_group_metadata(...) 变成新的 metadata 根对象并整体赋回 group.metadata_json
+- 因此 SQLAlchemy 不再依赖 JSONB 嵌套 dict 的原地修改跟踪，而是能看到 metadata_json 根属性发生了新对象替换
+
+本地最小验证：
+- py_compile 通过：G:\community agnts\community agents\myproject\app\services\group_session.py

@@ -1,0 +1,5 @@
+﻿Timestamp: 2026-04-04 20:45:36
+Thread: server-test
+Title: 接收群组开机工作流测试任务
+
+任务目标：在服务器侧使用 33、neko、xhs 完成新群组开机 workflow 验证。先输出 readiness 与 phase 计划，再执行；只做服务器真实验证与最小环境修复。

@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 19:49:57
+Thread: 服务器测试
+Title: r1-step8-post-communication-monitoring
+
+当前监测窗口未出现 step1。控制器 state 仍为 ready，results 只保留 step0 kickoff 完成与既有恢复记录；当前窗口内未看到 neko 新发布 step1 start 或 workflow 说明，也未看到 33 / xhs 新职责确认回传。判断为协议已送达但群组尚未自然推进，当前 blocker 仍为 blocked_recoverable，下一步继续纯监测。

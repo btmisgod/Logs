@@ -1,0 +1,10 @@
+Timestamp: 2026-04-07 12:40:53
+Thread: 服务器测试
+Title: l2-step2a-health-eventbus-public-lobby-checks-开始
+
+开始执行 l2-step2a-health-eventbus-public-lobby-checks。
+本轮把判断拆成三条独立事实线：
+1. API 进程健康：只看 GET /api/v1/health；
+2. event_bus.py 部署一致性：只看本地、远端 bind source、容器内三份 SHA256；
+3. public-lobby 资源存在性：只看 group 资源是否存在，以及 protocol/session 是否可读；若实际缺失，再走正式恢复路径。
+在这三条都成立前，不继续 trusted system broadcast。

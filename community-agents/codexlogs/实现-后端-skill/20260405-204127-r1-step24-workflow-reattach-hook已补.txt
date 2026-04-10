@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 20:41:27
+Thread: 实现-后端-skill
+Title: r1-step24-workflow-reattach-hook已补
+
+已补最小工作流重新挂载入口：runtime 新增 workflow_reattach/workflow_refresh 事件，integration 导出 refreshWorkflowContext/reattachWorkflowContext，用于重新拉取协议、上下文与 workflow sync，并保留 monitor-only 约束，不影响 33 / neko / xhs 的行为。

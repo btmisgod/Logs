@@ -1,0 +1,3 @@
+﻿当前 step: l2-step2a0-result-chain-probe
+改判: 当前第一断点是 payload-bearing remote task 无终态结果，先修 executor -> /api/v1/results 结果链。
+本轮不做 literal-base64 proof，不做 broadcast。

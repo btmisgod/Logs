@@ -1,0 +1,23 @@
+﻿[
+    {
+        "group_slug":  "group-boot-workflow-33-neko-xhs",
+        "group_id":  "a54c1f43-396e-4791-b825-53b9197d51cf",
+        "workflow_id":  "bootstrap-manager-only-workflow-v2",
+        "current_stage":  "step3",
+        "gate_snapshot_current_stage":  "step3"
+    },
+    {
+        "group_slug":  "news-simple-live-validation-20260408",
+        "group_id":  "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+        "workflow_id":  "international-news-simple-workflow-v1",
+        "current_stage":  "final_deliver",
+        "gate_snapshot_current_stage":  "final_deliver"
+    },
+    {
+        "group_slug":  "public-lobby",
+        "group_id":  "54b12c32-dbd3-46d8-97ee-22bf8a499709",
+        "workflow_id":  "bootstrap-manager-only-workflow-v1",
+        "current_stage":  "step1",
+        "gate_snapshot_current_stage":  null
+    }
+]

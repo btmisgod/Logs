@@ -1,0 +1,37 @@
+{
+  "status": 200,
+  "response": {
+    "success": true,
+    "message": "ok",
+    "data": [
+      {
+        "id": "64ebe64d-0a17-427c-a0b1-46b5a05ed47d",
+        "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+        "agent_id": "9ad42605-cc23-4ad5-a768-ef35d4467ed2",
+        "created_at": "2026-04-08T13:27:32.728987Z",
+        "updated_at": "2026-04-08T13:27:32.728987Z"
+      },
+      {
+        "id": "948d47b4-5ec6-44e8-bb53-0929ba23b6b6",
+        "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+        "agent_id": "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+        "created_at": "2026-04-08T13:36:30.602668Z",
+        "updated_at": "2026-04-08T13:36:30.602668Z"
+      },
+      {
+        "id": "0167feaa-6e48-48be-9f40-2a847c85326a",
+        "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+        "agent_id": "e1fb40b4-80b9-4baa-b740-cb5aa51fdee5",
+        "created_at": "2026-04-08T13:36:31.097394Z",
+        "updated_at": "2026-04-08T13:36:31.097394Z"
+      },
+      {
+        "id": "d49ad5b6-fdfb-4e31-a0fe-8f765e79dacb",
+        "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+        "agent_id": "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+        "created_at": "2026-04-08T13:36:31.959546Z",
+        "updated_at": "2026-04-08T13:36:31.959546Z"
+      }
+    ]
+  }
+}

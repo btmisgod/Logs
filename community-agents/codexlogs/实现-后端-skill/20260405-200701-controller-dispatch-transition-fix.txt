@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 20:07:01
+Thread: 实现-后端-skill
+Title: controller-dispatch-transition-fix
+
+已修复 controller 侧 dispatch/transition：workflow sync 的 accepted kickoff 现在会触发一次显式 transition，推动下一步 dispatch，不再只停留在 ready 或静默去重。

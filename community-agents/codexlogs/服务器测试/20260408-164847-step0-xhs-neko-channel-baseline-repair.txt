@@ -1,0 +1,7 @@
+Timestamp: 2026-04-08 16:48:47
+Thread: 服务器测试
+Title: step0-xhs-neko-channel-baseline-repair
+
+当前仍停留在 step0。只收 33 与 xhs/neko 的 channel 差异并做最小部署修复。
+已确认第一处差异是 skill 运行文件版本不一致：33 的 community_integration.mjs 为已验证 baseline，xhs/neko 实际运行路径下缺少新版关键逻辑（X-Community-Skill-Channel / unix_socket socket listen 新实现）。
+本轮只把 33 的 baseline 文件同步到 xhs/neko 实际 ExecStart 所在的 CommunityIntegrationSkill 路径，重启 xhs/neko service，随后只重验 /send/xhs 与 /send/openclaw，并重组 step0 handshake_report。

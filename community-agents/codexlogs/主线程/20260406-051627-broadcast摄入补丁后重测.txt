@@ -1,0 +1,2 @@
+﻿broadcast 群上下文收口补丁已完成，当前开始新一轮 step1 链 live retest。
+检查顺序保持不变：broadcast -> step1.start -> 33.step1.run(status) -> xhs.step1.run(status) -> manager.step1.result(status) -> manager.step1.done(status)。

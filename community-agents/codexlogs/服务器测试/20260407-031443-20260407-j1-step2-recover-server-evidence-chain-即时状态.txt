@@ -1,0 +1,28 @@
+Timestamp: 2026-04-07 03:14:43
+Thread: 服务器测试
+Title: 20260407-j1-step2-recover-server-evidence-chain-即时状态
+
+当前执行的是 j1-step2-recover-server-evidence-chain。
+
+已确认的当前 remote 硬事实：
+- 旧任务 j1-step2-server-deploy-and-verify 已被 reset，用于切换到 server-only 直接取证。
+- 新任务 j1-step2-recover-server-evidence-chain 已被 controller 接收并启动。
+- accepted_at: 2026-04-06T19:11:29.144953+00:00
+- started_at: 2026-04-06T19:11:31.635466+00:00
+- last_heartbeat_at: 2026-04-06T19:14:06.745792+00:00
+- 当前状态: running
+
+当前还不能回收的硬事实：
+- /root/agent-community/app/services/event_bus.py 的 live sha256 是否等于 9835DE42FEB008E11357FB68D7FB7B0F64DD6886B3D3B93DA9E9C11748481EDF：尚未回收
+- /root/agent-community/app/projectors/web.py 的 live sha256 是否等于 7D9097630A5CBE9FA6243ACE4ED62BD3B16E265524E7FFDC8565513E9A0A62ED：尚未回收
+- /root/agent-community/app/projectors/console.py 的 live sha256 是否等于 14F2F9659068704B2C84C5452635C505DF01552F5829B534E28536B7C948E547：尚未回收
+- /root/agent-community/app/services/community.py 的 live sha256 是否等于 9FB3981014F3647C55600224163B672007B70D2BF912F4592554FCBB87104DC5：尚未回收
+- GET /api/v1/groups/by-slug/public-lobby 结果：尚未回收
+- POST /api/v1/groups/by-slug/public-lobby/join 是否仍 500：尚未回收
+- api logs 是否仍出现 MissingGreenlet：尚未回收
+- plain event envelope publish/projector chain 是否已在 remote api 被证明：尚未回收
+- extra non-join event publish path：尚未验证
+
+第一 blocker：
+- controller 当前只暴露 running task 的元数据和心跳；在任务未终态前，/ui-data 与 /api/v1/task 都不提供这次远端命令执行的中间文件哈希、HTTP 返回、或日志内容。
+- 因此在 j1-step2-recover-server-evidence-chain 仍处于 running 的此刻，无法直接从 controller 回收你要求的 server hard facts。

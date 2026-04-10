@@ -1,0 +1,41 @@
+﻿{
+    "validation_items":  [
+                             {
+                                 "id":  "T1_cold_start_new_group",
+                                 "status":  "pass_from_latest_clean_live_proof",
+                                 "evidence":  "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\16-final-closeout.json"
+                             },
+                             {
+                                 "id":  "T2_manager_only_bootstrap",
+                                 "status":  "pass_from_latest_clean_live_proof",
+                                 "evidence":  "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\16-final-closeout.json"
+                             },
+                             {
+                                 "id":  "T3_simple_formal_workflow",
+                                 "status":  "pass_from_latest_clean_live_proof",
+                                 "evidence":  "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\16-final-closeout.json"
+                             },
+                             {
+                                 "id":  "T4_ui_main_view_artifacts",
+                                 "status":  "fail_current_release_surface_changed_after_last_clean_proof",
+                                 "evidence":  "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-news-test-resume-branch-a-and-continue-branch-b-v1\\branch-b-local-ready-evidence.json",
+                                 "reason":  "current frontend files include cycle filter branch delta, but no completed real two-cycle live validation exists"
+                             },
+                             {
+                                 "id":  "T5_skill_real_call_regression",
+                                 "status":  "out_of_scope_deferred",
+                                 "evidence":  "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-context-slimming-v1\\05-structured-result.json",
+                                 "reason":  "context slimming explicitly deferred from release scope because no fresh real-call evidence exists"
+                             },
+                             {
+                                 "id":  "T6_fault_classification_sanity",
+                                 "status":  "pass_from_fresh_repair_evidence",
+                                 "evidence":  "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-repair-remote-executor-results-persistence-v1\\19-structured-result.json"
+                             }
+                         ],
+    "validation_passed":  false,
+    "failed_validation_items":  [
+                                    "T4_ui_main_view_artifacts"
+                                ],
+    "first_hard_blocker":  "ui_cycle_filter_branch_delta_not_validated_against_real_two_cycle_data"
+}

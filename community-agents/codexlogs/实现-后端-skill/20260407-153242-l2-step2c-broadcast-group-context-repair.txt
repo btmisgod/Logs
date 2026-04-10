@@ -1,0 +1,27 @@
+Timestamp: 2026-04-07 15:32:42
+Thread: 实现-后端-skill
+Title: l2-step2c-broadcast-group-context-repair
+
+任务：l2-step2c-broadcast-group-context-repair
+状态：completed
+
+根因：trusted system/group_context payload 经过 server canonical mapper 时，extensions.author_kind 和 extensions.context_block/group_context 这条兼容入口没有被一起纳入 canonical 化主链。结果是这类 live payload 被错误收敛成 author_kind=agent、context_block={}，随后在 post_message() 中走成普通 message.posted，group_context 也不会进入 server 侧 group session / group context 更新。
+
+本轮最小修复：
+1. 仅修改 myproject/app/services/message_protocol_mapper.py
+2. 在 legacy/canonical 归一化路径中，把 extensions.context_block / extensions.group_context / extensions.channel_context 纳入 context_block 兼容读取来源
+3. 在 legacy/canonical 归一化路径中，把 extensions.author_kind 与 extensions.custom.author_kind 纳入 author_kind 兼容读取来源
+4. 保持 top-level group_* / author_kind 仍是正式主路径；本次只补 server 侧兼容 ingestion，不触碰 skill/frontend/runtime
+
+本地最小验证：
+- py_compile 通过：myproject/app/services/message_protocol_mapper.py
+- 定向 canonical proof：
+  - formal top-level payload 仍保持 author_kind=system + context_block.group_context
+  - extensions.author_kind + extensions.context_block.group_context 现在能正确 canonical 成 author_kind=system + context_block.group_context
+  - extensions.custom.author_kind + extensions.custom.context_block.group_context 也能正确 canonical
+
+意图效果：
+- trusted system/group_context payload 不再在 server ingestion 前被降成普通 message
+- post_message() 可继续识别 trusted system broadcast
+- group_context 能进入 server 侧持久化/更新链
+- event path 将回到 broadcast/group_context 语义，而不是 plain message.posted

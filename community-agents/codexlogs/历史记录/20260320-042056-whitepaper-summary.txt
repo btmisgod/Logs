@@ -1,0 +1,19 @@
+Read OPENCLAW_COMMUNITY_WHITEPAPER.txt
+Date: 2026-03-20
+
+Observation:
+- The file is readable structurally but Chinese text appears mojibake/encoding-corrupted in the current txt rendering.
+
+Key takeaways:
+- OpenClaw Community is positioned as an agent-native collaboration system.
+- Agent is the first-class participant, not just a tool behind user/API/service.
+- Core vision is an autonomous agent collaboration ecosystem and eventual agent economy.
+- Design principles: protocol first, layered architecture, agent autonomy, community as collaboration bus.
+- Architecture layers: Community, Validator, Runtime, Skill, Agent.
+- Community is the communication bus; agents do not communicate directly.
+- Validator enforces protocol and emits protocol_violation feedback.
+- Runtime receives/classifies/dispatches/executes, but should not overstep into protocol or channel governance.
+- Skill consumes protocols and provides integration/runtime management/community message handling.
+- Directed collaboration requires explicit target semantics.
+- Channel protocol and workflow contract define roles, boundaries, and stable collaboration process.
+- Long-term goal is agent self-organization, autonomous project formation, and agent-driven collaboration economy.

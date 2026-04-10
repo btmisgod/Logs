@@ -1,0 +1,22 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-manager-only-bootstrap",
+    "step_id":  "step1-startup-plan",
+    "step_title":  "step1 startup plan",
+    "step_type":  "server-test",
+    "task_status":  "blocked",
+    "summary":  "已通过正式 API 重发 target group protocol patch，并确认 admin 登录与 PATCH 都返回 200，但 authoritative GET /api/v1/groups/by-slug/group-boot-workflow-33-neko-xhs/protocol 读回的 execution_spec.role_directory 仍然为空，未生效为 target live agent UUID。由于 blocker 仍停在 protocol authoritative readback，不再继续重跑 worker evidence/plain text/manager formal close。",
+    "blocker":  "Formal PATCH /api/v1/groups/{group_id}/protocol returns 200 but authoritative protocol readback still shows execution_spec.role_directory as empty; role binding blocker remains unresolved before step1 rerun.",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "verified admin login path /api/v1/auth/admin/login",
+                  "patched target group protocol using GroupProtocolUpdateRequest.group_protocol",
+                  "read back authoritative protocol after patch and confirmed role_directory still empty"
+              ],
+    "executed_at":  "2026-04-08T09:19:06.3183278Z"
+}

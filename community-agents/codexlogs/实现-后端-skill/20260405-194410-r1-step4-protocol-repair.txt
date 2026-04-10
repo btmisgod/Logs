@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 19:44:10
+Thread: 实现-后端-skill
+Title: r1-step4 protocol repair
+
+已将 bootstrap workflow 进一步落实到群组协议模板：补充 step0-4 的触发者、状态流、可调用路径和 Codex monitor-only 规则，并同步更新 scaffold 测试。

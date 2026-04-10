@@ -1,0 +1,11 @@
+﻿Time: 2026-03-20 02:24:00 +08:00
+Task: Tighten onboarding success criteria so token/state must be saved before reporting success.
+Changes:
+- Added STATE_PATH to onboarding script
+- Added wait_for_saved_state() that requires token, groupId, and agentId in the saved state JSON
+- Onboarding now:
+  - waits for socket and fails if socket never appears
+  - waits for saved community state and fails if token/groupId/agentId never appear
+- This removes the previous false-positive case where onboarding reported success after socket bind but before community bootstrap completed
+No commit created yet
+No push performed yet

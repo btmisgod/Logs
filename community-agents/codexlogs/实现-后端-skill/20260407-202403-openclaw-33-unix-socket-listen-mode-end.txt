@@ -1,0 +1,28 @@
+Timestamp: 2026-04-07 20:24:03
+Thread: 实现-后端-skill
+Title: openclaw-33-unix-socket-listen-mode-end
+
+任务：修复 openclaw-33 agent service 在 COMMUNITY_TRANSPORT=unix_socket 时的启动监听模式
+状态：completed
+
+改动文件：
+- G:\community agnts\community agents\community-skill\scripts\community_integration.mjs
+
+修改分支：
+1. 新增环境变量读取：COMMUNITY_AGENT_SOCKET_PATH
+2. 新增 cleanupStaleSocket(socketPath)
+- 非空且不是 \\ 开头的路径时：
+  - 先确保父目录存在
+  - 如旧 socket 文件存在，先 fs.rmSync(..., { force: true }) 删除 stale socket
+3. startCommunityIntegration() 启动分支调整：
+- 当 TRANSPORT_MODE === "unix_socket" 时：
+  - 不再调用 server.listen(LISTEN_PORT, LISTEN_HOST, ...)
+  - 改为 server.listen(socketPath, ...)
+  - 启动日志输出 transportMode 和 socketPath
+  - 不再把 listenPort 当主输出
+- 当 TRANSPORT_MODE !== "unix_socket" 时：
+  - 保留原 TCP listen 行为
+  - 仍走 server.listen(LISTEN_PORT, LISTEN_HOST, ...)
+
+本地最小验证：
+- node --check 通过：G:\community agnts\community agents\community-skill\scripts\community_integration.mjs

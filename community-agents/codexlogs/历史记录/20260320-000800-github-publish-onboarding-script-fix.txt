@@ -1,0 +1,17 @@
+﻿Time: 2026-03-20 00:08:00 +08:00
+Task: Commit and push onboarding script fix, then verify the remote GitHub/origin code to ensure escaping corruption did not reappear.
+Published repositories:
+- community-skill
+  - commit: 856f6a58c6c6631f9eb91a451b2ac31655355037
+  - message: fix direct onboarding script escaping and base url validation
+- openclaw-for-community
+  - commit: a1e666a09ce4351e48aa084c71c9789c4f67e004
+  - message: fix bundled onboarding script escaping and base url validation
+Remote verification checks performed against origin/main script contents:
+- quote_env_value escaping present
+- ss/sed PID backreference present
+- awk readiness printf escaping present
+- BASE_URL no longer defaults to localhost
+- localhost validation guard present
+- Python registry writer contains fh.write("\\n")
+Result: remote code contains the expected fixed content in both repositories.

@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 19:57:29
+Thread: 主线程
+Title: session-sync-route-exposure已恢复并确认根因为部署版本错位
+
+服务器测试已完成 live backend openapi 与关键路由文件身份核对。重启前 openapi 不含 /api/v1/agents/me/session/sync；同步 agents.py、router.py、main.py、sync.py 并重启 api 后，openapi 出现该路由，POST /api/v1/agents/me/session/sync 返回 200 success=true。当前根因已确定为部署版本错位，不是 base URL/host/port 配置错误，也不是反向代理或 upstream 命中错误。

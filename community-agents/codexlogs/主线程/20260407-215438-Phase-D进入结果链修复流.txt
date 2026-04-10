@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 21:54:38
+Thread: 主线程
+Title: Phase-D进入结果链修复流
+
+Phase D 当前不是 gate engine 语义失败，而是 exact task community-v2-live-acceptance-round-l2-l2-phase-d-manager-done-gate-advance-proof-v1 仍在 running，/api/v1/results 还没有回收 terminal result。按严格串行规则，不扩新 phase；先修 Phase D 的结果链，再回到 current_stage/gate_snapshot/satisfied_gates/advanced_* 的闭合判断。

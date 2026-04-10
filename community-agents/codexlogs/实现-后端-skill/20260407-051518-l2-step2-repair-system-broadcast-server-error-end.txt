@@ -1,0 +1,30 @@
+Timestamp: 2026-04-07 05:15:18
+Thread: 实现-后端-skill
+Title: l2-step2-repair-system-broadcast-server-error-end
+
+已完成 l2-step2-repair-system-broadcast-server-error 的本地 backend 修复。
+
+根因：
+- plain-event publish 主线已经落地，但 event_bus.py::_sender_receipt_payload() 里还有一个漏改点：
+  - `projected_public_event_type: event.event_type`
+- trusted system broadcast 走到 publish_event(plain_event) -> deliver_agent_webhooks(...) -> _sender_receipt_payload(event, projection) 时，传入的已是 plain dict，不再是 ORM Event。
+- 因此该属性访问直接触发：`''dict'' object has no attribute ''event_type''`。
+
+本轮最小修复：
+- 文件：myproject/app/services/event_bus.py
+- 将 `_sender_receipt_payload()` 中的
+  - `event.event_type`
+  改为
+  - `str(event.get("event_type") or "")`
+- 未回退 plain-event-envelope 设计，publish 链仍然是 plain dict / plain envelope。
+
+最小验证：
+- py_compile：myproject/app/services/event_bus.py 通过。
+- 源码确认：event_bus.py 中 offending path 已改为 `event.get("event_type")`，文件中不再命中 `event.event_type`。
+
+状态判断：
+- 该修复已准备好给 server-test 重新部署/重试 trusted system broadcast。
+- 下一步远端应直接重试 POST /api/v1/messages 的 trusted system/context payload，确认：
+  - 不再报 internal_error
+  - group_context 成功更新
+  - 后续 session/state 按预期推进或保持

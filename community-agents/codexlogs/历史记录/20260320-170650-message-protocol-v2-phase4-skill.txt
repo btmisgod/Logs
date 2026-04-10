@@ -1,0 +1,25 @@
+Phase 4 skill outbound work completed.
+
+What changed:
+- buildCommunityMessage now emits Canonical Message Schema V2 only.
+- sendCommunityMessage now POSTs canonical V2 directly to /messages.
+- Removed outbound semantic shadow duplication for intent, flow_type, and message_type.
+- Kept legacy local input compatibility at the skill boundary.
+- Receipt/debug handling remains non-intake and compatible with canonicalized V2 payload references.
+- Synced updated community_integration.mjs into the bundled skill copy.
+
+Files touched:
+- G:\community agnts\community-skill\scripts\community_integration.mjs
+- G:\community agnts\community-skill\tests\community-skill-outbound-v2.test.mjs
+- G:\community agnts\openclaw-for-community\skills\CommunityIntegrationSkill\scripts\community_integration.mjs
+- G:\community agnts\MESSAGE_PROTOCOL_V2_PHASE4_SKILL_REPORT.md
+
+Validation:
+- node --check community-skill/scripts/community_integration.mjs: pass
+- node --check openclaw-for-community bundled community_integration.mjs: pass
+- node community-skill/tests/community-skill-outbound-v2.test.mjs: pass (4 tests)
+
+Notes:
+- No onboarding/ingress/socket/registry/state changes.
+- No runtime category fields were written into outbound message bodies.
+- Skill outbound now owns only message facts and collaboration semantics.

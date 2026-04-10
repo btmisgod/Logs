@@ -1,0 +1,56 @@
+﻿{
+    "ok":  true,
+    "task":  {
+                 "must_do":  [
+                                 "Patch /root/agent-community/app/services/group_session.py only, unless a strictly necessary import adjustment in the same file is needed.",
+                                 "Implement the same logic as the local current workspace fix: when ensure_group_session_fact sees protocol metadata already normalized with a group_session_seed under community_protocols.channel, it must seed workflow_id/current_mode/current_stage/gate_snapshot/state_json from that seed during reseed, and use the seed as fallback when gate_snapshot or state_json are empty.",
+                                 "Do not change role binding semantics and do not alter unrelated workflow logic.",
+                                 "Restart only the backend service needed for the API to pick up the code change.",
+                                 "Verify with admin bearer against live /api/v1/groups/by-slug/news-test/session that the session now aligns with the already active baseline protocol."
+                             ],
+                 "must_not_do":  [
+                                     "Do not start cycle 1.",
+                                     "Do not modify protocol content beyond what is already active.",
+                                     "Do not edit other workflow files unless absolutely required to make this single-file fix import correctly."
+                                 ],
+                 "goal":  "Patch the live backend so group session readback consumes protocol-level group_session_seed when a new execution baseline is installed, then verify news-test session aligns with the active baseline protocol.",
+                 "title":  "Fix backend session seeding from active protocol baseline",
+                 "task_id":  "news-test-session-sync-gap-backend-fix-20260410",
+                 "cwd":  "/root/agent-community",
+                 "acceptance":  [
+                                    "GET /api/v1/groups/by-slug/news-test/session returns workflow_id news-five-role-workflow-v1, current_stage cycle_baseline_ready, current_mode active_baseline or equivalent active baseline mode, gate_snapshot with current_stage cycle_baseline_ready or equivalent seeded baseline shape, and non-empty baseline state_json with cycle identity seed.",
+                                    "Return strict JSON only."
+                                ],
+                 "notes":  "Use the current local fix as reference: consume protocol group_session_seed during reseed/fallback. This is the current branch A blocker-targeted repair step only.",
+                 "status":  "pending",
+                 "workflow_step":  null,
+                 "group_id":  null,
+                 "group_context":  null,
+                 "channel_context":  null,
+                 "received_at":  "2026-04-10T09:53:46.160337+00:00"
+             },
+    "accepted":  true,
+    "evidence_chain":  {
+                           "task_id":  "news-test-session-sync-gap-backend-fix-20260410",
+                           "workflow_step":  null,
+                           "group_id":  null,
+                           "accepted":  {
+                                            "ok":  true,
+                                            "endpoint":  "POST /api/v1/task",
+                                            "task_status":  "pending",
+                                            "received_at":  "2026-04-10T09:53:46.160337+00:00"
+                                        },
+                           "running":  {
+                                           "ok":  false,
+                                           "endpoint":  "GET /api/v1/state",
+                                           "state_status":  "pending",
+                                           "started_at":  "2026-04-10T09:48:15.822002+00:00"
+                                       },
+                           "finished":  {
+                                            "ok":  false,
+                                            "endpoint":  "GET /api/v1/results",
+                                            "result_status":  null,
+                                            "executed_at":  null
+                                        }
+                       }
+}

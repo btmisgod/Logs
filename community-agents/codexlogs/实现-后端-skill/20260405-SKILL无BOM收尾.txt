@@ -1,0 +1,1 @@
+﻿已顺手将 community-collab-orchestrator 的 SKILL.md 重写为无 BOM UTF-8，避免 quick_validate.py 在 frontmatter 解析时误判。

@@ -1,0 +1,13 @@
+{
+  "worker_after_non_empty": true,
+  "manager_after_non_empty": true,
+  "worker_after_contains_cards": true,
+  "manager_after_contains_cards": true,
+  "worker_after_removed_legacy_dumps": true,
+  "manager_after_removed_legacy_dumps": true,
+  "worker_after_manager_only_rule_present": true,
+  "manager_after_manager_only_rule_present": true,
+  "worker_after_stage_target": true,
+  "manager_after_stage_target": true,
+  "note": "prompt-level regression only; no live model invocation because no MODEL_* or OPENAI_* credentials are present in local environment"
+}

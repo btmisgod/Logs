@@ -1,0 +1,35 @@
+﻿{
+    "Status":  "blocked_recoverable",
+    "BlockerType":  "blocked_recoverable",
+    "Blocker":  "server executor accepted deploy task but no terminal result after multiple retries (executor-result-chain-recovery)",
+    "PRCreated":  true,
+    "PRUrl":  "https://github.com/btmisgod/myproject/pull/1",
+    "ReleaseRepo":  "G:\\community agnts\\community agents\\myproject",
+    "ReleaseBranch":  "codex/pr-community-v2-live-baseline-20260410",
+    "ReleaseCommit":  "0c2cd3e8e607deb4fb3b886c20161b44a867d353",
+    "ServerUpdatedToReleaseCommit":  false,
+    "PostDeployValidationPassed":  false,
+    "CodexConnectivityCompletenessPassed":  false,
+    "CodexIdentityHandle":  "codex-self-onboard-v2",
+    "CodexRoundTripVerified":  false,
+    "changed_files":  [
+                          "G:\\community agnts\\community agents\\myproject\\app\\web\\app.js",
+                          "G:\\community agnts\\community agents\\myproject\\app\\web\\index.html",
+                          "G:\\community agnts\\community agents\\myproject\\app\\web\\styles.css"
+                      ],
+    "evidence_paths":  [
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-main-controller-pr-deploy-and-codex-connectivity-check-v2\\01-release-surface-git-status.txt",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-main-controller-pr-deploy-and-codex-connectivity-check-v2\\02-release-surface-git-diff-names.txt",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-main-controller-pr-deploy-and-codex-connectivity-check-v2\\04-pr-info.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-main-controller-pr-deploy-and-codex-connectivity-check-v2\\05-phase3-task-dispatch.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-main-controller-pr-deploy-and-codex-connectivity-check-v2\\06-phase3-state.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-main-controller-pr-deploy-and-codex-connectivity-check-v2\\08-phase3-result-terminal.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-main-controller-pr-deploy-and-codex-connectivity-check-v2\\11-phase3-reset.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-main-controller-pr-deploy-and-codex-connectivity-check-v2\\15-phase3-retry1-result-terminal.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-main-controller-pr-deploy-and-codex-connectivity-check-v2\\18-phase3-retry1-reset.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-main-controller-pr-deploy-and-codex-connectivity-check-v2\\22-smoke-result-terminal.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-main-controller-pr-deploy-and-codex-connectivity-check-v2\\26-phase3-retry2-result-terminal.json"
+                       ],
+    "log_path":  "G:\\community agnts\\community agents\\codexlogs\\主线程\\20260410-main-controller-pr-deploy-and-codex-connectivity-check-v2.txt",
+    "NextStep":  "Run executor-result-chain recovery for deploy tasks on server executor; once terminal result is returned, resume phase3 deployment and then phase4/phase5."
+}

@@ -1,0 +1,35 @@
+Timestamp: 2026-04-07 04:40:57
+Thread: 服务器测试
+Title: l2-step1-read-server-group-facts-结束
+
+【步骤结束】l2-step1-read-server-group-facts
+结果：blocked_recoverable
+
+本轮通过 HTTP controller 回收到了 remote task community-v2-live-acceptance-round-l2-l2-step1-v1 的终态硬事实。
+
+已通过的正式 API 读取：
+1. GET /api/v1/groups/by-slug/public-lobby
+2. GET /api/v1/groups/by-slug/public-lobby/protocol
+3. 通过 GET /api/v1/groups/by-slug/public-lobby/context 的 fallback 回收到部分 GroupSession 事实
+
+回收到的服务器事实：
+- group_id = 54b12c32-dbd3-46d8-97ee-22bf8a499709
+- protocol_version = ACP-003
+- execution_spec_id = community-server-execution-spec-v1
+- workflow_id = bootstrap-workflow-v1
+- initial_stage = step1
+- stage_order = [step1, step2, step3, task_start]
+- current_stage = step1
+- gate_snapshot = {"step0.ready": true}
+
+未通过/首个断点：
+- GET /api/v1/groups/by-slug/public-lobby/session 返回 404 Not Found
+- 由于 formal session path 在 live backend 上不存在，Step A 不能按要求的 formal path 顺序完成
+
+补充观察：
+- 当前 live protocol 的 execution_spec_id 仍是 community-server-execution-spec-v1，不是目标 bootstrap-test-execution-spec-v1
+- 本轮尚未进入 protocol PATCH 注入，也未进入 trusted broadcast / worker status / gate engine 验证
+
+结论：
+- 当前 root breakpoint 属于“server group/protocol/session facts unreadable or missing”
+- 默认分类 blocked_recoverable，后续应进入仅针对 formal session / protocol readiness 的 repair flow

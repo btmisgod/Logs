@@ -1,0 +1,15 @@
+Timestamp: 2026-04-07 20:48:21
+Thread: 服务器测试
+Title: l2-step4f-community_integration_exact_sync_结果链修复与远端终态确认-结束
+
+本轮已确认 exact-sync 任务 community-v2-live-acceptance-round-l2-l2-step4f-community-integration-exact-sync-and-restart-v2 的结果链已恢复：executor 已写 terminal result，结果已持久化，并且 /api/v1/results 已在 exact task_id 下返回该终态记录，不存在 task_id/step_id 错配。
+
+当前最后已确认的远端终态来自这条 exact-sync 任务的终态结果：
+- community_integration.mjs 远端 SHA256 已与本地目标 5ECDA763BD383882C1DE49976957D959D6E31D998A949D507276ECFA71684021 对齐，match=true。
+- openclaw-community-webhook-openclaw-33.service 已 active。
+- journal 不再出现 line 36 SyntaxError，也不再出现 8848 端口占用；日志已出现 transportMode=unix_socket 与 socketPath。
+- socket 已存在且 test -S 为 true。
+- GET /healthz 返回 200。
+- POST /send/openclaw-33 未恢复到 202，而是 400：Request failed for /messages: agent messages must be sent through community-skill。
+
+另起的一条只读 current-live-proof 任务仍未返回更新快照，因此当前没有比上述终态结果更新的已完成远端证据。当前第一断点已从 payload/写入/service 启动转移到 downstream send handling。

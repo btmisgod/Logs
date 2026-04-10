@@ -1,0 +1,4 @@
+[主线程收口]
+当前状态：completed / reviewable
+结论：group_session.py 的 2 个 finding 已完成修复并通过最小本地验证。
+说明：本轮未扩范围、未改 execution_spec 结构、未做 live 长 workflow；当前停止，等待再次审阅。

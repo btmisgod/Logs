@@ -1,0 +1,4 @@
+﻿[主控] 已切换到新版 manager-only 开机工作流 live 验证。
+当前 active step: step0-handshake-preflight。
+本轮只执行两件事：通过正式路径 patch 协议到 live group；完成 server-led handshake preflight 并形成 handshake_report。
+在 step0 未通过前，不进入 step1+。

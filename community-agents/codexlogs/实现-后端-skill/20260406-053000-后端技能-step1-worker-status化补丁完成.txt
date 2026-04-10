@@ -1,0 +1,4 @@
+本轮完成了 step1 worker 事件化最小修复：
+- 新增 worker step1 run 的正式 status 封装，避免普通确认回复直接按 analysis 出站。
+- 仅对 step1 链路中的 worker 参与消息做 status/progress 归一，不触碰 manager.step1.result / done。
+- 未引入 step2/step3 逻辑，也未恢复任何 fallback dispatch。

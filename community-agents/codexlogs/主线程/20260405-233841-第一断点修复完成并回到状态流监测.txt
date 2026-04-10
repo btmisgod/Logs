@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 23:38:41
+Thread: 主线程
+Title: 第一断点修复完成并回到状态流监测
+
+已回收实现-后端-skill 的 repair 结果：第一处原因是缺少 required status-flow emission，而不是协议草稿本身不支持 step1.done。当前 active step 回到 n1-step3-monitor-bootstrap-status-flow，重跑 step1 到 step2 的合法推进判断。前端 UI 侧线已完成左栏、中间时间线、右侧看板与顶部区三块。

@@ -1,0 +1,2 @@
+﻿[2026-04-07T13:10:27] 上一轮已证明 bind-source 覆盖前后哈希完全一样，说明覆盖动作本身没有落到 active bind-source 上。
+主线程已进入 l2-step2a-repair-eventbus-target-hash-mismatch-v3：要求服务器测试显式传输本地 event_bus.py 的原始字节内容到 /root/agent-community/app/services/event_bus.py，并回收覆盖前后哈希与容器内哈希；在 local==remote==container==target hash 成立前，不恢复 trusted system broadcast。

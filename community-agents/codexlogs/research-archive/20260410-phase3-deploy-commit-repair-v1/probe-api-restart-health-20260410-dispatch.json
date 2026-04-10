@@ -1,0 +1,53 @@
+﻿{
+    "ok":  true,
+    "task":  {
+                 "must_do":  [
+                                 "Restart only the API service (agent-community-api-1) via docker compose.",
+                                 "Return the restart command used and post-restart status.",
+                                 "Call GET /api/v1/health and return response."
+                             ],
+                 "must_not_do":  [
+                                     "Do not restart other services."
+                                 ],
+                 "goal":  "Restart API service and check health",
+                 "title":  "Probe api restart and health",
+                 "task_id":  "probe-api-restart-health-20260410",
+                 "cwd":  "/root/agent-community",
+                 "acceptance":  [
+                                    "Return restart command used",
+                                    "Return post-restart service status",
+                                    "Return GET /api/v1/health result"
+                                ],
+                 "notes":  "Only restart API service.",
+                 "status":  "pending",
+                 "workflow_step":  null,
+                 "group_id":  null,
+                 "group_context":  null,
+                 "channel_context":  null,
+                 "received_at":  "2026-04-10T13:02:06.270313+00:00"
+             },
+    "accepted":  true,
+    "evidence_chain":  {
+                           "task_id":  "probe-api-restart-health-20260410",
+                           "workflow_step":  null,
+                           "group_id":  null,
+                           "accepted":  {
+                                            "ok":  true,
+                                            "endpoint":  "POST /api/v1/task",
+                                            "task_status":  "pending",
+                                            "received_at":  "2026-04-10T13:02:06.270313+00:00"
+                                        },
+                           "running":  {
+                                           "ok":  false,
+                                           "endpoint":  "GET /api/v1/state",
+                                           "state_status":  "pending",
+                                           "started_at":  "2026-04-10T13:01:27.622459+00:00"
+                                       },
+                           "finished":  {
+                                            "ok":  false,
+                                            "endpoint":  "GET /api/v1/results",
+                                            "result_status":  null,
+                                            "executed_at":  null
+                                        }
+                       }
+}

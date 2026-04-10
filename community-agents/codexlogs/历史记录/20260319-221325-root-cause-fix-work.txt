@@ -1,0 +1,46 @@
+﻿任务: 修复 socket path 长度超限与 8848 ownership 两个服务器真实断点
+日期: 2026-03-19
+
+代码级判断:
+1. socket path 根因:
+- bootstrap 直接用 .openclaw/run/<agent_slug>.sock 生成 socket_path
+- 当 workspace 路径和 slug 过长时，Unix socket 实际路径超出 Linux 限制，导致创建文件名被截断，installer 等待完整路径失败
+
+2. 8848 ownership 根因:
+- agent systemd unit 中 Environment=COMMUNITY_TRANSPORT=unix_socket 写在 EnvironmentFile 之前
+- 旧 env 若残留 tcp 配置，会覆盖前面的强制值，agent 仍可能 listen(8848)
+- 旧 openclaw-community-webhook-33.service 因此仍可能占住 8848，导致 ingress 启动失败并出现 EADDRINUSE
+
+本次修改:
+- openclaw-for-community/scripts/bootstrap-community-agent-template.sh
+- openclaw-for-community/scripts/install-community-webhook-service.sh
+- openclaw-for-community/scripts/install-community-ingress-service.sh
+- openclaw-for-community/scripts/server-verify-agent-onboarding.sh
+- openclaw-for-community/docs/server-verification.md
+- community-skill/scripts/community_integration.mjs
+
+新 socket path 方案:
+- 使用固定目录: <COMMUNITY_INGRESS_HOME>/sockets/
+- 文件名规则: <slug前24位>-<sha256前12位>.sock
+- 例: /root/.openclaw/community-ingress/sockets/openclaw-server-verify-ag-1a2b3c4d5e6f.sock
+- 该规则稳定、可重复、由同一 slug 生成同一路径
+
+为什么能避免 Unix socket 长度问题:
+- 不再把完整 workspace 路径和完整 slug 直接拼进 socket 文件名
+- 目录固定且短，文件名长度受控，整体路径显著缩短
+- installer、registry、runtime 全部从同一规则得到同一 socket_path
+
+为什么能确保 ingress 才是唯一 8848 listener:
+- agent unit 现在先加载 EnvironmentFile，再用后续 Environment 强制覆盖成 unix_socket
+- community-skill 默认 transport 也改为 unix_socket，防止缺省回退到 tcp
+- ingress installer 启动前会尝试停止占住 8848 的 legacy openclaw-community-webhook*.service
+- server verify 不再只看 8848 有监听，而是校验监听 pid 必须属于 ingress service
+- healthz 也会校验 mode=community_ingress，防止误把旧 agent 的 200 当成 PASS
+
+本地验证说明:
+- 未在 Windows 本地执行真实 Linux/systemd 运行验证
+- 已完成静态审阅
+- community-skill/scripts/community_integration.mjs 已通过 node --check
+
+建议 commit message:
+fix socket path length and enforce ingress ownership of 8848

@@ -1,0 +1,124 @@
+{
+  "command_id": "20260410-context-slimming-end-to-end-repair-v1",
+  "version": "1.0",
+  "created_at": "2026-04-10",
+  "target_thread": "main-controller",
+  "workspace_root": "G:\\community agnts\\community agents",
+  "title": "End-to-end repair for context slimming real sampling and remote result persistence",
+  "objective": "Close the entire blocked chain around real LLM sampling for context slimming. Do not stop at pre-checks. Run the full repair flow needed to reach one definitive outcome: either recover a real remote terminal result for the sampling task, or prove with evidence that the remote executor currently has a result-persistence problem that blocks completion.",
+  "references": [
+    {
+      "path": "G:\\community agnts\\community agents\\docs\\control-plane\\community-llm-context-slimming-v1.md",
+      "description": "Original requirement baseline."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codex command\\20260410-controller-env-bootstrap-and-real-sampling-retry-v1.json",
+      "description": "Task that bootstrapped controller env and retried the real-sampling dispatch."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codex command\\20260410-context-slimming-result-chain-recovery-v1.json",
+      "description": "Previous recovery task that stopped too early after only the pre-reset check."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-context-slimming-result-chain-recovery-v1\\09-structured-result.json",
+      "description": "Latest incomplete recovery result. It says no reset/redispatch were used, but the evidence folder also contains reset and redispatch responses."
+    }
+  ],
+  "remote_task": {
+    "task_id": "20260410-context-slimming-real-sampling-retry-v1",
+    "expected_goal": "Run one real worker sample and one real manager sample with slimmed prompt path; capture real prompt/token evidence; verify trusted broadcast/worker evidence/manager gate do not regress."
+  },
+  "target_group": {
+    "group_slug": "news-simple-live-validation-20260408",
+    "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf"
+  },
+  "required_work": [
+    {
+      "id": "phase1_refresh_authoritative_remote_facts",
+      "description": "Read fresh /api/v1/state and /api/v1/results. If the target task already has a terminal result, stop recovery and collect it immediately."
+    },
+    {
+      "id": "phase2_resolve_result_chain_inconsistency",
+      "description": "Compare structured-result claims with evidence files. If prior evidence already shows reset and redispatch happened, do not keep reporting 'pre-reset only'. Use evidence as the source of truth."
+    },
+    {
+      "id": "phase3_handle_running_without_result",
+      "description": "If the target task is still running and /api/v1/results still lacks a matching terminal result, classify this specifically as a remote result-chain / result-persistence repair case."
+    },
+    {
+      "id": "phase4_controlled_reset_if_current_task_is_stale",
+      "description": "If the task remains running without a result after a reasonable poll window, perform one controlled POST /api/v1/admin/reset-running-task with an explicit reason describing stale running task plus missing terminal result."
+    },
+    {
+      "id": "phase5_executor_result_persistence_smoke_test",
+      "description": "Before re-dispatching the expensive real-sampling task again, dispatch one tiny executor smoke task whose only job is to return a strict JSON terminal result. Verify whether that result appears in /api/v1/results."
+    },
+    {
+      "id": "phase6_branch_by_smoke_test_outcome",
+      "description": "If the smoke task itself cannot produce a terminal result, stop and classify the blocker as a remote executor result-persistence problem. If the smoke task produces a terminal result successfully, continue."
+    },
+    {
+      "id": "phase7_redispatch_real_sampling_once_after_smoke_passes",
+      "description": "After a passing smoke test, re-dispatch the real-sampling task exactly once and poll long enough to either recover its terminal result or reach a precise blocker."
+    },
+    {
+      "id": "phase8_collect_real_sampling_outcome",
+      "description": "If the real-sampling terminal result is recovered, collect worker/manager sample facts, prompt/token evidence, and regression outcomes. If not recovered, classify the first blocker precisely."
+    },
+    {
+      "id": "phase9_write_logs_and_terminal_result",
+      "description": "Write detailed logs and publish one final structured result that reflects what actually happened, not an early partial snapshot."
+    }
+  ],
+  "do_not": [
+    "Do not stop after only reading pre-reset state/results again.",
+    "Do not report 'UsedReset=false' or 'UsedRedispatch=false' if the evidence files already show reset/redispatch happened.",
+    "Do not spam multiple resets or multiple redispatches. Keep recovery controlled and bounded.",
+    "Do not redispatch the expensive real-sampling task again before proving that the executor can currently return terminal results through /api/v1/results.",
+    "Do not expand this task into UI work, new features, or unrelated protocol changes."
+  ],
+  "acceptance": [
+    "One definitive outcome is reached.",
+    "Either the real-sampling task yields a recovered terminal result with evidence, or the remote executor result-persistence problem is proven with evidence from a smoke task.",
+    "Fresh /api/v1/state and /api/v1/results snapshots are captured.",
+    "If reset is used, the reset response is captured.",
+    "If smoke task is used, its dispatch/state/results chain is captured.",
+    "If redispatch is used, the redispatch response and terminal outcome are captured.",
+    "The final structured result is consistent with the evidence files."
+  ],
+  "deliverables": [
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-context-slimming-end-to-end-repair-v1",
+      "description": "Evidence folder for the full repair chain."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\主线程",
+      "description": "Main-thread log root for detailed logs."
+    }
+  ],
+  "working_principles": [
+    "Evidence beats narration. If file evidence and a summary conflict, trust the evidence and say so.",
+    "A task that is accepted and running but never appears in /api/v1/results is a server repair problem until proven otherwise.",
+    "Prove executor result persistence with a cheap smoke task before burning more retries on the expensive real-sampling task.",
+    "The goal of this task is closure, not another shallow status note."
+  ],
+  "result_format": {
+    "required_fields": [
+      "Status",
+      "BlockerType",
+      "Blocker",
+      "RemoteResultRecovered",
+      "UsedReset",
+      "UsedSmokeTask",
+      "SmokeTaskTerminalResultRecovered",
+      "UsedRedispatch",
+      "RealSamplingTerminalResultRecovered",
+      "RecoveredTerminalStatus",
+      "RecoveredTerminalSummary",
+      "ExecutorResultPersistenceBroken",
+      "evidence_paths",
+      "log_path",
+      "NextStep"
+    ]
+  }
+}

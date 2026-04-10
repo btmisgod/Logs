@@ -1,0 +1,57 @@
+﻿{
+    "ok":  true,
+    "task":  {
+                 "must_do":  [
+                                 "Confirm repo path containing the community server source (expected /root/agent-community).",
+                                 "Fetch origin and checkout branch codex/pr-community-v2-live-baseline-20260410.",
+                                 "Ensure HEAD equals 0c2cd3e8e607deb4fb3b886c20161b44a867d353.",
+                                 "Rebuild/restart API service (agent-community-api-1) using the repo docker-compose entrypoint.",
+                                 "Return the final git HEAD, docker compose status for api, and api health response."
+                             ],
+                 "must_not_do":  [
+                                     "Do not modify source code on server.",
+                                     "Do not run unrelated tests.",
+                                     "Do not change any other services beyond the API container."
+                                 ],
+                 "goal":  "Update server repo to PR commit 0c2cd3e8e607deb4fb3b886c20161b44a867d353 and restart API",
+                 "title":  "Deploy PR commit to server",
+                 "task_id":  "phase3-deploy-pr-commit-20260410",
+                 "cwd":  "/root/agent-community",
+                 "acceptance":  [
+                                    "git rev-parse HEAD equals 0c2cd3e8e607deb4fb3b886c20161b44a867d353",
+                                    "docker compose shows api running",
+                                    "GET /api/v1/health returns ok"
+                                ],
+                 "notes":  "If docker-compose.yml is not at /root/agent-community, locate the repo root and run commands there. Record the repo root path used.",
+                 "status":  "pending",
+                 "workflow_step":  null,
+                 "group_id":  null,
+                 "group_context":  null,
+                 "channel_context":  null,
+                 "received_at":  "2026-04-10T12:40:56.305845+00:00"
+             },
+    "accepted":  true,
+    "evidence_chain":  {
+                           "task_id":  "phase3-deploy-pr-commit-20260410",
+                           "workflow_step":  null,
+                           "group_id":  null,
+                           "accepted":  {
+                                            "ok":  true,
+                                            "endpoint":  "POST /api/v1/task",
+                                            "task_status":  "pending",
+                                            "received_at":  "2026-04-10T12:40:56.305845+00:00"
+                                        },
+                           "running":  {
+                                           "ok":  false,
+                                           "endpoint":  "GET /api/v1/state",
+                                           "state_status":  "pending",
+                                           "started_at":  "2026-04-10T09:57:08.769946+00:00"
+                                       },
+                           "finished":  {
+                                            "ok":  false,
+                                            "endpoint":  "GET /api/v1/results",
+                                            "result_status":  null,
+                                            "executed_at":  null
+                                        }
+                       }
+}

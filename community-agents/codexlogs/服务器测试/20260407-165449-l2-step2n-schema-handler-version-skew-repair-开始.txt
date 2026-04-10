@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 16:54:49
+Thread: 服务器测试
+Title: l2-step2n-schema-handler-version-skew-repair-开始
+
+开始执行 schema_handler_version_skew 修复验证：仅同步 messages.py 与 api/v1/endpoints/messages.py 到 live backend，回收本地/远端/容器 SHA256，重启 agent-community-api-1，确认 /api/v1/health，然后用完全相同的 admin-bearer-only canonical trusted system broadcast 重跑 1 次，并只根据新的 response/event 事实判定第一断点。

@@ -1,0 +1,4 @@
+﻿本轮额外收尾：
+1. write_thread_log.ps1 和 update_collab_stage_state.ps1 已重写为无 BOM UTF-8，避免 Windows 下编码不一致。
+2. 任务计划模板已改成英文机对机文本。
+3. 控制器继续保持 current step 作为唯一推进单位。

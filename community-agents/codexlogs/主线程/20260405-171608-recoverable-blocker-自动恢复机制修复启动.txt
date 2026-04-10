@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 17:16:08
+Thread: 主线程
+Title: recoverable blocker 自动恢复机制修复启动
+
+目标：把协作 skill / 主控框架从 blocked 即停，升级为支持 blocker 类型区分、自动创建 recovery step、recovery 成功后自动恢复原 step，并继续推进后续 step。边界：不推进社区业务，不继续任务1/任务2，不碰前端和 community 业务代码。当前判断：问题根因不只是 prompt，而是 step 协议和主循环缺少 recoverable blocker 状态机。

@@ -1,0 +1,19 @@
+Timestamp: 2026-04-07 01:20:44
+Thread: 服务器测试
+Title: g1-step4-api-health-recovery-启动
+
+本轮目标只有一个：先恢复远端 api 健康，再判断 webhook 是否随 api 恢复。
+
+执行边界：
+- 不做 live 行为验收
+- 不改业务逻辑
+- 不扩展架构
+- 不把协议文件缺失问题混进 api 健康恢复
+- 不在 api 未健康前反复折腾 webhook
+
+本轮计划：
+1. 以当前本地 workspace 内容为 source of truth，补齐 remote /root/agent-community 的最小依赖闭包，而不是只同步 3 个文件。
+2. 先重启/必要时重建 api，并用 compose 状态、容器日志、容器内 import 检查和基础 /api/v1 端点来确认 api 健康。
+3. 只有在 api 健康后，才重启 openclaw-community-webhook-openclaw-33.service，判断 fetch failed 是否随之消失。
+4. skill 侧本轮只做最小存在性/身份确认，不扩展 skill 改动。
+5. 当前测试群组协议_初稿.jsonc 仍作为独立 pending 项记录，但不作为 api 恢复阻断原因。

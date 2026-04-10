@@ -1,0 +1,166 @@
+﻿【派单时间】2026-04-05 03:27:57
+【任务A POST 请求】
+{
+    "task_id":  "phase2-controller-force-async-restart",
+    "title":  "控制器仓强制异步重启",
+    "goal":  "无条件安排一次 detached executor 重启，并让当前任务在重启前先返回 strict JSON。",
+    "must_do":  [
+                    "记录当前 commit id",
+                    "直接用 detached 方式安排 executor 重启，例如 nohup bash -lc \u0027sleep 2; systemctl restart codex-remote-executor.service\u0027 \u003e/tmp/codex-executor-restart.log 2\u003e\u00261 \u0026",
+                    "当前任务必须在重启发生前返回 strict JSON",
+                    "明确输出 commit id、是否已安排重启、当前 blocker"
+                ],
+    "must_not_do":  [
+                        "不要再以 HEAD 是否 detached 作为是否重启的条件",
+                        "不要开始社区业务任务",
+                        "不要重跑 phase3",
+                        "不要改社区仓代码"
+                    ],
+    "acceptance":  [
+                       "输出当前 commit id",
+                       "输出是否已安排重启",
+                       "输出当前唯一 blocker；如果没有就写当前没有 blocker"
+                   ],
+    "notes":  "只做控制器仓强制异步重启安排。",
+    "cwd":  "/root/Agents-controller-HTTP"
+}
+【任务A POST 结果】
+{
+    "ok":  true,
+    "task":  {
+                 "task_id":  "phase2-controller-force-async-restart",
+                 "title":  "??????????",
+                 "goal":  "??????? detached executor ??,????????????? strict JSON?",
+                 "must_do":  [
+                                 "???? commit id",
+                                 "??? detached ???? executor ??,?? nohup bash -lc \u0027sleep 2; systemctl restart codex-remote-executor.service\u0027 \u003e/tmp/codex-executor-restart.log 2\u003e\u00261 \u0026",
+                                 "?????????????? strict JSON",
+                                 "???? commit id??????????? blocker"
+                             ],
+                 "must_not_do":  [
+                                     "???? HEAD ?? detached ?????????",
+                                     "??????????",
+                                     "???? phase3",
+                                     "????????"
+                                 ],
+                 "acceptance":  [
+                                    "???? commit id",
+                                    "?????????",
+                                    "?????? blocker;?????????? blocker"
+                                ],
+                 "notes":  "???????????????",
+                 "cwd":  "/root/Agents-controller-HTTP",
+                 "status":  "pending",
+                 "received_at":  "2026-04-04T19:27:56.909741+00:00"
+             }
+}
+【任务A STATE 结果】
+{
+    "ok":  true,
+    "state":  {
+                  "worker_id":  "server-primary",
+                  "status":  "pending",
+                  "current_task_id":  "phase2-controller-force-async-restart",
+                  "last_task_started_at":  "2026-04-04T19:26:20.788155+00:00",
+                  "last_task_finished_at":  "2026-04-04T19:26:37.766827+00:00",
+                  "last_heartbeat_at":  "2026-04-04T19:27:56.910145+00:00",
+                  "last_result_status":  "completed",
+                  "last_result_summary":  "`codex-remote-executor.service` is active and running. `http://127.0.0.1:18789/healthz` returned healthy status, and authenticated `/api/v1/state` returned `status=running` with `current_task_id=phase2-controller-post-restart-health-check`. Current commit id is `ae3e13e2668db1f3ef3047901d900074085a2f72`. No blocker was reported by the executor API (`current_blocker=null`), and I did not identify any additional blocker from these checks.",
+                  "current_blocker":  null,
+                  "updated_at":  "2026-04-04T19:27:56.910151+00:00"
+              }
+}
+
+【任务B派单时间】2026-04-05 03:28:44
+【任务B POST 请求】
+{
+    "task_id":  "phase2-controller-after-force-restart-health-check",
+    "title":  "强制重启后健康验证",
+    "goal":  "验证重启后的 executor 健康，并明确输出当前 commit id、服务是否正常、当前唯一 blocker。",
+    "must_do":  [
+                    "systemctl status codex-remote-executor.service --no-pager",
+                    "curl http://127.0.0.1:18789/healthz",
+                    "curl -H \"Authorization: Bearer $(cat /root/.codex-remote-executor/auth-token.txt)\" http://127.0.0.1:18789/api/v1/state",
+                    "明确输出当前 commit id、服务是否正常、当前唯一 blocker；如果没有就写当前没有 blocker"
+                ],
+    "must_not_do":  [
+                        "不要开始社区业务任务",
+                        "不要重跑 phase3",
+                        "不要改社区仓代码",
+                        "只做控制器仓重启与健康验证"
+                    ],
+    "acceptance":  [
+                       "输出当前 commit id",
+                       "输出服务是否正常",
+                       "输出当前唯一 blocker；如果没有就写当前没有 blocker"
+                   ],
+    "notes":  "仅做健康检查。",
+    "cwd":  "/root/Agents-controller-HTTP"
+}
+【任务B POST 结果】
+{
+    "ok":  true,
+    "task":  {
+                 "task_id":  "phase2-controller-after-force-restart-health-check",
+                 "title":  "?????????",
+                 "goal":  "?????? executor ??,??????? commit id???????????? blocker?",
+                 "must_do":  [
+                                 "systemctl status codex-remote-executor.service --no-pager",
+                                 "curl http://127.0.0.1:18789/healthz",
+                                 "curl -H \"Authorization: Bearer $(cat /root/.codex-remote-executor/auth-token.txt)\" http://127.0.0.1:18789/api/v1/state",
+                                 "?????? commit id???????????? blocker;?????????? blocker"
+                             ],
+                 "must_not_do":  [
+                                     "??????????",
+                                     "???? phase3",
+                                     "????????",
+                                     "?????????????"
+                                 ],
+                 "acceptance":  [
+                                    "???? commit id",
+                                    "????????",
+                                    "?????? blocker;?????????? blocker"
+                                ],
+                 "notes":  "???????",
+                 "cwd":  "/root/Agents-controller-HTTP",
+                 "status":  "pending",
+                 "received_at":  "2026-04-04T19:28:44.334224+00:00"
+             }
+}
+【任务B STATE 结果】
+{
+    "ok":  true,
+    "state":  {
+                  "worker_id":  "server-primary",
+                  "status":  "pending",
+                  "current_task_id":  "phase2-controller-after-force-restart-health-check",
+                  "last_task_started_at":  "2026-04-04T19:27:57.778358+00:00",
+                  "last_task_finished_at":  "2026-04-04T19:28:33.161423+00:00",
+                  "last_heartbeat_at":  "2026-04-04T19:28:44.334642+00:00",
+                  "last_result_status":  "completed",
+                  "last_result_summary":  "Detached executor restart command was launched successfully, and codex-remote-executor.service is active. Current commit id: ae3e13e2668db1f3ef3047901d900074085a2f72.",
+                  "current_blocker":  null,
+                  "updated_at":  "2026-04-04T19:28:44.334651+00:00"
+              }
+}
+【最终复查时间】2026-04-05 03:29:15
+【最终 STATE】
+{
+    "ok":  true,
+    "state":  {
+                  "worker_id":  "server-primary",
+                  "status":  "ready",
+                  "current_task_id":  null,
+                  "last_task_started_at":  "2026-04-04T19:28:48.165144+00:00",
+                  "last_task_finished_at":  "2026-04-04T19:29:08.816853+00:00",
+                  "last_heartbeat_at":  "2026-04-04T19:29:13.818174+00:00",
+                  "last_result_status":  "completed",
+                  "last_result_summary":  "`codex-remote-executor.service` is active and running. `/healthz` reports worker `server-primary` with current task `phase2-controller-after-force-restart-health-check`. Authenticated `/api/v1/state` reports no current blocker (`current_blocker: null`) and includes commit id `ae3e13e2668db1f3ef3047901d900074085a2f72`; `git rev-parse HEAD` matches that same commit id. No blocker was found.",
+                  "current_blocker":  null,
+                  "updated_at":  "2026-04-04T19:29:13.818178+00:00"
+              }
+}
+【结论摘要】
+- 任务A: 已成功安排 detached 重启
+- 任务B: 已确认重启后 executor 健康
+- 当前 blocker: 无

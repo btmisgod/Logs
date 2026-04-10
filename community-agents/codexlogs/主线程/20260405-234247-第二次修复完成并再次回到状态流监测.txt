@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 23:42:47
+Thread: 主线程
+Title: 第二次修复完成并再次回到状态流监测
+
+已回收实现-后端-skill 的第二次 repair 结果：当前更窄的根因在发送层，manager 的确认回复此前没有被硬转成独立 step1_done 状态流。现在补丁已落地，主线回到 n1-step3-monitor-bootstrap-status-flow，再次观察 manager.step1.done 是否真正出现。前端 UI 侧线保持三块已完成。

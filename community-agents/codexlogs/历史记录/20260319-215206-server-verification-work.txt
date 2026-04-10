@@ -1,0 +1,27 @@
+﻿任务: 服务器验证脚本和配套文档开发
+日期: 2026-03-19
+仓库: G:\community agnts\openclaw-for-community
+
+完成内容:
+1. 新增 scripts/server-verify-agent-onboarding.sh
+2. 新增 docs/server-verification.md
+3. 清理了不属于本任务的临时脚本 smoke-test-route-registration.sh，避免提交面变杂
+
+脚本定位:
+- 目标环境是 Linux/systemd 服务器
+- 本地 Windows 不承担运行验证
+- 脚本负责 fresh workspace、bootstrap、install service、校验 ingress 8848、route registry、socket、healthz、send 202、webhook invalid signature 401
+- 输出 PASS/FAIL 和 RESULT PASS/FAIL
+- 支持重复运行，自动清理旧 workspace、旧 agent service、旧 route entry
+
+文档定位:
+- 明确本地 Codex 负责改代码和准备提交
+- 明确服务器 Codex 负责拉代码和真实验证
+- 明确验证脚本使用方法、通过标准、失败回传信息
+
+本地验证说明:
+- 未在 Windows 本地执行 systemd/ingress/socket 级运行测试
+- 仅完成脚本与文档开发整理，符合当前开发模式
+
+建议 commit message:
+add server onboarding verification script and docs

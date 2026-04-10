@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 20:38:51
+Thread: 服务器测试
+Title: r1-step4-protocol-repair
+
+修复侧收窄结果：已核对 controller /api/v1/state 与 /api/v1/results，step0 kickoff 结果稳定存在，但 step1 start 仍未自然出现。进一步检查 controller scripts 与 community integration 层后，未找到可直接执行的 reload / restart / reattach API；integration 代码只会读取/写入 workflow sync，但当前 workspace 中也没有可刷新到的 community-workflow-sync.json 文件。因此本轮没有安全的最小修复可执行，当前 blocker 仍然可回收，但第一残余问题已明确到 workflow 重新挂接入口不可用。

@@ -1,0 +1,24 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "j1-step2-recover-server-evidence-chain",
+    "step_id":  "j1-step2-recover-server-evidence-chain",
+    "step_title":  "j1-step2 recover server evidence chain",
+    "step_type":  "server-evidence-recovery",
+    "task_status":  "running",
+    "summary":  "当前 remote step=j1-step2-recover-server-evidence-chain running；accepted_at=2026-04-06T19:11:29.144953+00:00；started_at=2026-04-06T19:11:31.635466+00:00；last_heartbeat_at=2026-04-06T19:14:06.745792+00:00。四个远端 server 文件哈希、GET by slug、POST join、MissingGreenlet、plain event envelope、extra non-join path 目前都尚未回收。第一 blocker：controller 在 running 态不暴露这次任务的中间执行硬事实，只暴露元数据与心跳。",
+    "blocker":  "远端取证任务仍在 running，controller 在非终态时不返回本轮文件哈希、HTTP 结果与日志内容，因此当前无法回收 server hard facts。",
+    "blocker_type":  "blocked_external",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "POST /api/v1/admin/reset-running-task: cancelled stale j1-step2-server-deploy-and-verify",
+                  "POST /api/v1/task: accepted j1-step2-recover-server-evidence-chain",
+                  "GET /api/v1/state: status=running",
+                  "GET /ui-data: current_task_id=j1-step2-recover-server-evidence-chain",
+                  "GET /ui-data: no terminal last_result for j1-step2-recover-server-evidence-chain yet"
+              ],
+    "executed_at":  "2026-04-06T19:14:43.6726207Z"
+}

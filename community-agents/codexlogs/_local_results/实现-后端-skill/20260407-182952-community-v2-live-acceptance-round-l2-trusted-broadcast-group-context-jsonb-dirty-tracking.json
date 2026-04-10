@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "实现-后端-skill",
+    "owner":  "后端与技能开发",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "trusted-broadcast-group-context-jsonb-dirty-tracking",
+    "step_title":  "Group.metadata_json dirty tracking for trusted broadcast group_context",
+    "step_type":  "repair",
+    "task_status":  "completed",
+    "summary":  "仅修改 group_session.py：把 group.metadata_json 的关键写回改成 deepcopy 后整体赋值的新对象，覆盖 ensure_group_session_fact() 与 update_group_session_from_message()。trusted broadcast 的 group_context 更新现在会通过新的 metadata 根对象回写，被 SQLAlchemy 识别为 JSONB 脏数据。",
+    "blocker":  null,
+    "blocker_type":  null,
+    "changed_files":  [
+                          "G:\\community agnts\\community agents\\myproject\\app\\services\\group_session.py"
+                      ],
+    "tests":  [
+                  "py_compile: G:\\community agnts\\community agents\\myproject\\app\\services\\group_session.py"
+              ],
+    "executed_at":  "2026-04-07T10:29:52.8773056Z"
+}

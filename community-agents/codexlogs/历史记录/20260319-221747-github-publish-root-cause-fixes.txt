@@ -1,0 +1,21 @@
+﻿任务: 将 socket path / 8848 ownership 根因修复发布到 GitHub
+日期: 2026-03-19
+
+仓库发布结果:
+1. openclaw-for-community
+- branch: main
+- commit: 465f11b
+- message: fix socket path length and enforce ingress ownership of 8848
+- pushed range: 33e54a9..465f11b
+
+2. community-skill
+- branch: main
+- commit: 1646e87
+- message: default community runtime to shared ingress socket transport
+- pushed range: aca4464..1646e87
+
+说明:
+- 本次只修复两个服务器真实根因: socket path 长度超限, 以及 8848 ownership 未收口到 ingress
+- 未回退共享 ingress 架构
+- 未引入多端口方案
+- 服务器后续可按这两个提交进行真实 Linux/systemd 验证

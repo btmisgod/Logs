@@ -1,0 +1,2 @@
+﻿主线程已正式改判：MissingGreenlet 主故障已行为收口，event_bus.py / community.py 的 exact-match 尾项降级为 hygiene debt，不再阻塞下一阶段 live 联调。
+本轮 live 主线恢复为：协议文件远端可读 -> trusted system broadcast -> worker 状态块 -> gate engine 推进 -> gate_snapshot 同步一致。

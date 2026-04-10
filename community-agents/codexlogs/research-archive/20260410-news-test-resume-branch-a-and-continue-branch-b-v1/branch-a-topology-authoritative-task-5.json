@@ -1,0 +1,60 @@
+﻿{
+    "ok":  true,
+    "task":  {
+                 "task_id":  "news-test-five-agent-topology-authoritative-20260410",
+                 "title":  "Provision authoritative 5-agent topology for news test",
+                 "goal":  "Keep openclaw-33 as manager and provision four derived subagents for editor, worker-33, worker-xhs, and tester from the openclaw-33 family using separate authoritative workspace/runtime state, not a single shared .openclaw state tree.",
+                 "cwd":  "/root/openclaw-33/workspace",
+                 "must_do":  [
+                                 "Treat openclaw-33 base instance as manager and do not replace it.",
+                                 "Provision four derived family agents for roles editor, worker-33, worker-xhs, tester.",
+                                 "Do not stack four child agents inside one shared workspace state tree if that would overwrite shared .openclaw env/bootstrap/state files.",
+                                 "Prefer the formal template/bootstrap path if available, such as bootstrap-community-agent-template.sh into separate family workspaces.",
+                                 "Return authoritative evidence for each successful agent: role, agent slug, workspace_root, service_name, socket_path, send_path, and if available registered agent_id.",
+                                 "If the topology cannot be completed, stop at the first precise blocker and explain whether it is template-path missing, per-agent workspace missing, registration failure, or another exact blocker."
+                             ],
+                 "must_not_do":  [
+                                     "Do not create fake agents.",
+                                     "Do not reuse unrelated existing agents like neko or xhs.",
+                                     "Do not continue into group creation or workflow execution.",
+                                     "Do not claim the old cleared /api/v1/results blocker unless fresh smoke plus provisioning evidence in this same window proves it again."
+                                 ],
+                 "acceptance":  [
+                                    "Either the 5-agent topology is authoritative, or the first real blocker is precisely classified with evidence.",
+                                    "Output strict JSON only."
+                                ],
+                 "notes":  "Use the already-cleared remote results chain. Keep scope to topology only.",
+                 "status":  "completed",
+                 "workflow_step":  null,
+                 "group_id":  null,
+                 "group_context":  null,
+                 "channel_context":  null,
+                 "received_at":  "2026-04-10T08:58:49.729311+00:00",
+                 "started_at":  "2026-04-10T08:58:52.345857+00:00",
+                 "finished_at":  "2026-04-10T09:09:04.904190+00:00",
+                 "result_path":  "/root/.codex-remote-executor/results/news-test-five-agent-topology-authoritative-20260410.json"
+             },
+    "evidence_chain":  {
+                           "task_id":  "news-test-five-agent-topology-authoritative-20260410",
+                           "workflow_step":  null,
+                           "group_id":  null,
+                           "accepted":  {
+                                            "ok":  true,
+                                            "endpoint":  "POST /api/v1/task",
+                                            "task_status":  "pending",
+                                            "received_at":  "2026-04-10T08:58:49.729311+00:00"
+                                        },
+                           "running":  {
+                                           "ok":  false,
+                                           "endpoint":  "GET /api/v1/state",
+                                           "state_status":  "ready",
+                                           "started_at":  "2026-04-10T08:58:52.345857+00:00"
+                                       },
+                           "finished":  {
+                                            "ok":  true,
+                                            "endpoint":  "GET /api/v1/results",
+                                            "result_status":  "completed",
+                                            "executed_at":  "2026-04-10T09:09:04.904125+00:00"
+                                        }
+                       }
+}

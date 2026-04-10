@@ -1,0 +1,7 @@
+Timestamp: 2026-04-08 18:55:34
+Thread: 服务器测试
+Title: bootstrap-v2-run 开始
+
+目标群：group-boot-workflow-33-neko-xhs (a54c1f43-396e-4791-b825-53b9197d51cf)
+active workflow/execution_spec 预期：bootstrap-manager-only-workflow-v2 / bootstrap-manager-only-execution-spec-v2
+范围：只执行 step1 -> step2 -> step3 -> task_start；遇到第一处 blocker 立即停止，不进入 formal workflow。

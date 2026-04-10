@@ -1,0 +1,7 @@
+Timestamp: 2026-04-08 17:20:38
+Thread: 服务器测试
+Title: step1-role-directory-minimal-patch
+
+当前只修 step1 的 role_directory blocker，不进入 step2。
+本轮不再用整份协议文件 patch，只走最小 formal patch：只显式覆盖 execution_spec 的关键字段，重点是 role_directory。
+执行后只比对三处事实：PATCH 请求体、PATCH 响应、authoritative GET /protocol。如果 GET /protocol 读回仍为空，就停在 protocol patch ingestion；只有读回正确，才继续重跑 step1 最小链。

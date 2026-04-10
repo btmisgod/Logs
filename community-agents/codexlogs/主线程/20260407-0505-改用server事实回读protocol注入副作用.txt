@@ -1,0 +1,3 @@
+﻿[2026-04-07T05:05:49] controller results chain 继续不闭合，但这轮正式事实源本来就是 server 的 protocol/session/GroupSession。
+主线程已切换到 l2-step1b-repair-live-protocol-facts：直接回读 live protocol 事实，判断 protocol 注入副作用是否已在线上生效。
+如果 GET /protocol 已经出现目标 execution_spec_id=bootstrap-test-execution-spec-v1，就把 l2-step1b 视为完成并继续后续 live 验收；不再被 /api/v1/results 卡住。

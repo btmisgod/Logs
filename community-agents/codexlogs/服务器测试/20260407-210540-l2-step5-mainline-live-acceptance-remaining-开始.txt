@@ -1,0 +1,7 @@
+Timestamp: 2026-04-07 21:05:40
+Thread: 服务器测试
+Title: l2-step5-mainline-live-acceptance-remaining-开始
+
+本轮恢复 Community v2 主线最小 live 验收剩余部分。
+顺序固定：先回收 protocol/session 基线，再走合法 worker step1 状态提交、plain text gist、manager 阶段完成状态提交、最后做快照一致性检查。
+只做 live 行为验收，不改 skill，不改 server backend，不扩到其他修复线。

@@ -1,0 +1,12 @@
+Timestamp: 2026-04-07 01:47:42
+Thread: 服务器测试
+Title: g1-step4-webhook-group-join-recovery-substep-启动
+
+本轮继续 webhook 恢复，但范围进一步收窄：不再笼统追 groups 冲突，而是只定位 ensureGroup 早一步到底失败在 GET /groups/by-slug/{GROUP_SLUG} 还是 POST /groups/by-slug/{GROUP_SLUG}/join。
+
+操作边界：
+- 仅做运维恢复
+- 不改业务逻辑
+- 不做 live 行为验收
+- 优先核对当前 token、agent 归属、group membership、COMMUNITY_GROUP_SLUG 是否与目标一致
+- 优先恢复正确 token/state 并复用既有 group；只有本轮确实需要全新隔离群组时才允许新 slug

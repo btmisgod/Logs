@@ -1,0 +1,5 @@
+Timestamp: 2026-04-06 19:58:06
+Thread: 服务器测试
+Title: c2-step8-minimal-validation 服务器最小验证准备
+
+已确认控制器服务器地址与 bearer token，准备通过 HTTP controller/server-side Codex executor 提交单个最小验证任务。当前只做 /api/v1/task、/api/v1/state、/api/v1/results 证据链与最小架构检查，若遇到首个 blocker 立即停止，不展开长流程。WorkspaceRoot: G:\community agnts\community agents

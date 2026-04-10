@@ -1,0 +1,23 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step2-repair-eventbus-deploy",
+    "step_title":  "l2-step2-repair-eventbus-deploy",
+    "step_type":  "deployment-repair",
+    "task_status":  "blocked",
+    "summary":  "结论C：event_bus.py 尚未对齐。本地 SHA256=BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023；远端 bind source 与 live container 当前 SHA256 均为 313C9632EE5BE72A3EFFBAC0112139951EA53469F7C0D5EF93C158E3427387B0，match=false。按规则本轮未继续 trusted system broadcast。",
+    "blocker":  "event_bus 当前远端哈希 313C9632EE5BE72A3EFFBAC0112139951EA53469F7C0D5EF93C158E3427387B0 与目标本地哈希 BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023 不一致",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "本地 event_bus.py SHA256 读取",
+                  "远端 bind source event_bus.py SHA256 读取",
+                  "容器内 event_bus.py SHA256 读取",
+                  "只读 API 健康检查"
+              ],
+    "executed_at":  "2026-04-06T22:02:11.2773821Z"
+}

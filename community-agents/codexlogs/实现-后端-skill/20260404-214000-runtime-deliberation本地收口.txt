@@ -1,0 +1,5 @@
+﻿Timestamp: 2026-04-04 21:40:00
+Thread: impl-backend-skill
+Title: runtime-deliberation本地收口
+
+复核 observe_only 短路，先跑 community-skill 本地测试，再根据结果只收口 runtime 到 deliberation 的执行入口。

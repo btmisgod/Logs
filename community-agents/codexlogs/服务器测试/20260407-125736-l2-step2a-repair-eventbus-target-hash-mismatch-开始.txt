@@ -1,0 +1,9 @@
+Timestamp: 2026-04-07 12:57:36
+Thread: 服务器测试
+Title: l2-step2a-repair-eventbus-target-hash-mismatch-开始
+
+开始执行 l2-step2a-repair-eventbus-target-hash-mismatch。
+本轮只做两段：
+1. 强制精确重同步 event_bus.py 到远端 bind source，并仅重启 agent-community-api-1；
+2. 只有在 local/remote/container 三份哈希完全一致且 /api/v1/health 仍为 ok 时，才继续 trusted system broadcast 单项验证。
+不回头检查 protocol/public-lobby/join/presence，也不扩展到 worker/manager 后续步骤。

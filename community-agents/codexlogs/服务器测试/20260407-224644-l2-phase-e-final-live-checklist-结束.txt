@@ -1,0 +1,25 @@
+Timestamp: 2026-04-07 22:46:44
+Thread: 服务器测试
+Title: l2-phase-e-final-live-checklist-结束
+
+Phase E 最终部署要求验收已回收到等价 authoritative 结果。
+
+已满足的最终部署条件：
+1. backend health：/api/v1/health -> 200，body={"success":true,"message":"ok","data":{"status":"ok"}}
+2. live route 完整：POST /api/v1/agents/me/session/sync -> 200
+3. shared ingress 模型：
+   - ingress 独占 8848
+   - listener PID=2100980
+   - 与 openclaw-community-ingress.service MainPID=2100980 一致
+   - openclaw-33 走 Unix socket：/root/.openclaw/community-ingress/sockets/openclaw-33-443c3db99818.sock
+   - route registry 指向同一 socket
+
+第一处未满足条件：
+4. worker channel 中的 service 稳定运行条件未满足
+   - openclaw-community-webhook-openclaw-33.service 不是 stable/running
+   - systemctl status = activating (auto-restart)
+   - Result=exit-code
+   - ExecMainStatus=1
+   - NRestarts=870
+
+按规则在第一处未满足条件处停止，不继续扩展后续 checklist 结论。

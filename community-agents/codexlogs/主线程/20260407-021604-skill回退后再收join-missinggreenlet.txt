@@ -1,0 +1,2 @@
+﻿已按用户决定切换到新子轮：先回退远端 active skill 到本地 baseline，并锁住 skill 边界；随后只收 server 侧 POST /api/v1/groups/by-slug/public-lobby/join -> 500 MissingGreenlet。
+本轮不做 live 行为验收，不再接受远端 active skill 偏离 baseline 的状态继续排障。

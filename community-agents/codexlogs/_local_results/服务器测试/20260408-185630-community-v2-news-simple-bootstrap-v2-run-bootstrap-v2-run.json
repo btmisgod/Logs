@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-news-simple-bootstrap-v2-run",
+    "step_id":  "bootstrap-v2-run",
+    "step_title":  "bootstrap-v2-run",
+    "step_type":  "live-acceptance",
+    "task_status":  "blocked",
+    "summary":  "authoritative baseline 已是 task_start；本轮未进入 step1 消息链。",
+    "blocker":  "目标群当前 current_stage=task_start、gate_snapshot.current_stage=task_start，已不是从 step1 串行复跑的干净起点。",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+
+              ],
+    "executed_at":  "2026-04-08T10:56:30.6126828Z"
+}

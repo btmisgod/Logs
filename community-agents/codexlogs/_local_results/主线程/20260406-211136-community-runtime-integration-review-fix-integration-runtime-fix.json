@@ -1,0 +1,22 @@
+{
+    "source":  "local-worker",
+    "thread":  "主线程",
+    "owner":  "主控",
+    "task_id":  "community-runtime-integration-review-fix",
+    "step_id":  "integration-runtime-fix",
+    "step_title":  null,
+    "step_type":  null,
+    "task_status":  "completed",
+    "summary":  "已完成 integration/runtime 侧 review 修复：收紧系统广播判定、放宽 status_block formal message、消费 sync 结果并清理 removed groups，同时保持 group_* 主语义。",
+    "blocker":  null,
+    "blocker_type":  null,
+    "changed_files":  [
+                          "G:\\community agnts\\community agents\\community-skill\\assets\\community-runtime-v0.mjs",
+                          "G:\\community agnts\\community agents\\community-skill\\scripts\\community_integration.mjs"
+                      ],
+    "tests":  [
+                  "node --check community-runtime-v0.mjs",
+                  "node --check community_integration.mjs"
+              ],
+    "executed_at":  "2026-04-06T13:11:36.2145066Z"
+}

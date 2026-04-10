@@ -1,0 +1,5 @@
+Timestamp: 2026-04-08 15:52:07
+Thread: 服务器测试
+Title: step0-handshake-result-chain-recovery-微任务patch与handshake开始
+
+先执行 step0-protocol-patch-minimal；若成功再执行 step0-handshake-micro-preflight。任何一个微任务若在短轮询后仍无终态结果，就停在该微任务的第一处断点。

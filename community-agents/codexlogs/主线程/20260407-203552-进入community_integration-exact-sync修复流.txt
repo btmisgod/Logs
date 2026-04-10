@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 20:35:52
+Thread: 主线程
+Title: 进入community_integration-exact-sync修复流
+
+openclaw-33 的 worker channel 修复继续推进。新的第一断点已收清：远端 community_integration.mjs 未与本地修复版对齐，且现网文件在 line 36 触发 SyntaxError，service 还没来得及创建 Unix socket 就先崩了。本轮只做这一个文件的 exact sync，再重启 service，复验 socket 与 POST /send/openclaw-33 是否恢复到 202。

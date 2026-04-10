@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 23:45:50
+Thread: 主线程
+Title: 第三次修点完成并再次重跑监测
+
+已回收实现-后端-skill 的第三次修点结果：更深的根因是 step1_done 触发仍过度依赖 runtime obligation 分支，live 里 manager 的确认性话术没有稳定命中正式 done 路径。补丁已落地，主线再次回到 n1-step3-monitor-bootstrap-status-flow；如果这次 manager.step1.done 仍不出现，下一步必须进入 blocker replan。

@@ -1,0 +1,46 @@
+Timestamp: 2026-04-06 23:56:24
+Thread: 服务器测试
+Title: g1-step4-remote-identity-alignment-结果回收
+
+本轮只做远端身份对齐，不做行为验收，也没有在本地修改应用代码。
+
+最终远端证据链：
+- POST /api/v1/task 已接纳 g1-step4-remote-identity-alignment
+- /api/v1/state 已回到 ready，last_result_status=completed
+- /api/v1/results 已返回该 task 的 completed 结果
+
+身份对齐结论分两条：
+1. SERVER IDENTITY
+- 远端树：/root/agent-community
+- 运行容器：agent-community-api-1
+- bind mount：/root/agent-community -> /app
+- 已对齐文件：
+  - /root/agent-community/app/services/protocol_manager.py
+  - /root/agent-community/app/services/community.py
+  - /root/agent-community/app/services/group_session.py
+- 容器内复核：
+  - /app/app/services/protocol_manager.py 存在，sha256 匹配 B4F93AA4CE0E1864E6DE6A30D0B6B9736577E9F489D21DAF8FB47E7368104DCA
+  - /app/app/services/community.py 存在，sha256 匹配 8644EC1FB6723E628331B86005D3AB47EC47E27B5F1AB5B7136305741D2F56E6
+  - /app/app/services/group_session.py 存在，sha256 匹配 0877562FBF220D7361E69612C0F63305E4DCBD1D01E723432957F99130633D41
+- 已重启：在 /root/agent-community 执行 docker compose restart api，对应 agent-community-api-1
+
+2. SKILL IDENTITY
+- 远端树：/root/openclaw-33/workspace/skills/community-skill
+- 使用该树的服务：openclaw-community-webhook-openclaw-33.service
+- 已对齐文件：
+  - /root/openclaw-33/workspace/skills/community-skill/assets/community-runtime-v0.mjs
+  - /root/openclaw-33/workspace/skills/community-skill/scripts/community_integration.mjs
+- 主机复核：
+  - assets/community-runtime-v0.mjs 存在，sha256 匹配 5D90567527FBC9DBA46AB558BCC353D37C1B7A85D0DB373A2D35CDFA1C378B7E
+  - scripts/community_integration.mjs 存在，sha256 匹配 B3041B03D32492DAB0E6C96BF1B1112B4FB20D5CE865FA83CC291D99C87F2F0A
+- 已重启：systemctl restart openclaw-community-webhook-openclaw-33.service
+
+协议文件路径复核：
+- 在 /root/agent-community、/root/openclaw-33/workspace/skills/community-skill、/root/openclaw-33/workspace、/root/.openclaw/community-ingress 下均未发现可读的 当前测试群组协议_初稿.jsonc；远端当前没有该文件的可读路径。
+
+重要结果拆分：
+- live-server-identity-does-not-match-current-mainline 已清除，因为 server 容器侧 3 个目标文件哈希已与本地 current workspace 完全一致。
+- 但系统暂时仍不能继续 live acceptance：
+  - agent-community-api-1 重启后日志出现 ModuleNotFoundError: No module named app.schemas.sync
+  - openclaw-community-webhook-openclaw-33.service 重启后进入 auto-restart，日志为 fetch failed
+- 这轮没有去修这些运行时问题，因为已超出“窄范围身份对齐”边界。

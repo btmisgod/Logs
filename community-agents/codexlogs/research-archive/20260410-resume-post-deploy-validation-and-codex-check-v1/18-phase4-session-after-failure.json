@@ -1,0 +1,269 @@
+﻿{
+    "success":  true,
+    "message":  "ok",
+    "data":  {
+                 "group_id":  "a54c1f43-396e-4791-b825-53b9197d51cf",
+                 "group_session_id":  "a54c1f43-396e-4791-b825-53b9197d51cf",
+                 "group_session_version":  "group-session:8acb5866-7bc4-4b3a-8cec-c73ee21fa1a4",
+                 "protocol_version":  "ACP-003",
+                 "workflow_id":  "bootstrap-manager-only-workflow-v2",
+                 "current_mode":  "bootstrap",
+                 "current_stage":  "step3",
+                 "group_context_version":  "group-context:a54c1f43-396e-4791-b825-53b9197d51cf",
+                 "gate_snapshot":  {
+                                       "gates":  {
+                                                     "manager_done":  {
+                                                                          "satisfied":  false,
+                                                                          "message_ids":  [
+
+                                                                                          ],
+                                                                          "matched_count":  0,
+                                                                          "matched_agent_ids":  [
+
+                                                                                                ],
+                                                                          "required_agent_ids":  [
+                                                                                                     "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                                                                                                 ]
+                                                                      }
+                                                 },
+                                       "next_stage":  "task_start",
+                                       "advanced_at":  "2026-04-08T13:08:17.240755+00:00",
+                                       "advanced_to":  "step3",
+                                       "stage_order":  [
+                                                           "step1",
+                                                           "step2",
+                                                           "step3",
+                                                           "task_start"
+                                                       ],
+                                       "step0.ready":  true,
+                                       "workflow_id":  "bootstrap-manager-only-workflow-v2",
+                                       "advanced_from":  "step2",
+                                       "current_stage":  "step3",
+                                       "satisfied_gates":  [
+
+                                                           ],
+                                       "stage_snapshots":  {
+                                                               "step1":  {
+                                                                             "gates":  {
+                                                                                           "manager_done":  {
+                                                                                                                "satisfied":  true,
+                                                                                                                "message_ids":  [
+                                                                                                                                    "37d3aac0-afef-452f-87c8-3eef263493e2"
+                                                                                                                                ],
+                                                                                                                "matched_count":  1,
+                                                                                                                "matched_agent_ids":  [
+                                                                                                                                          "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                                                                                                                                      ],
+                                                                                                                "required_agent_ids":  [
+                                                                                                                                           "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                                                                                                                                       ]
+                                                                                                            }
+                                                                                       },
+                                                                             "next_stage":  "step2",
+                                                                             "evaluated_at":  "2026-04-08T13:08:04.686382+00:00",
+                                                                             "satisfied_gates":  [
+                                                                                                     "manager_done"
+                                                                                                 ],
+                                                                             "next_stage_allowed":  true,
+                                                                             "current_stage_complete":  true
+                                                                         },
+                                                               "step2":  {
+                                                                             "gates":  {
+                                                                                           "manager_done":  {
+                                                                                                                "satisfied":  true,
+                                                                                                                "message_ids":  [
+                                                                                                                                    "de3427ca-53a7-4b83-a24c-189f65799ae2"
+                                                                                                                                ],
+                                                                                                                "matched_count":  1,
+                                                                                                                "matched_agent_ids":  [
+                                                                                                                                          "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                                                                                                                                      ],
+                                                                                                                "required_agent_ids":  [
+                                                                                                                                           "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                                                                                                                                       ]
+                                                                                                            }
+                                                                                       },
+                                                                             "next_stage":  "step3",
+                                                                             "evaluated_at":  "2026-04-08T13:08:17.240755+00:00",
+                                                                             "satisfied_gates":  [
+                                                                                                     "manager_done"
+                                                                                                 ],
+                                                                             "next_stage_allowed":  true,
+                                                                             "current_stage_complete":  true
+                                                                         },
+                                                               "step3":  {
+                                                                             "gates":  {
+                                                                                           "manager_done":  {
+                                                                                                                "satisfied":  false,
+                                                                                                                "message_ids":  [
+
+                                                                                                                                ],
+                                                                                                                "matched_count":  0,
+                                                                                                                "matched_agent_ids":  [
+
+                                                                                                                                      ],
+                                                                                                                "required_agent_ids":  [
+                                                                                                                                           "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                                                                                                                                       ]
+                                                                                                            }
+                                                                                       },
+                                                                             "next_stage":  "task_start",
+                                                                             "evaluated_at":  "2026-04-10T13:32:18.679528+00:00",
+                                                                             "satisfied_gates":  [
+
+                                                                                                 ],
+                                                                             "next_stage_allowed":  false,
+                                                                             "current_stage_complete":  false
+                                                                         }
+                                                           },
+                                       "execution_spec_id":  "bootstrap-manager-only-execution-spec-v2",
+                                       "last_evaluated_at":  "2026-04-10T13:32:18.679528+00:00",
+                                       "next_stage_allowed":  false,
+                                       "current_stage_complete":  false
+                                   },
+                 "state_json":  {
+                                    "last_message_id":  "8acb5866-7bc4-4b3a-8cec-c73ee21fa1a4",
+                                    "last_status_block":  {
+                                                              "step_id":  "step3",
+                                                              "author_role":  "worker",
+                                                              "step_status":  "task_ready_evidence",
+                                                              "workflow_id":  "bootstrap-manager-only-workflow-v2",
+                                                              "author_agent_id":  null,
+                                                              "lifecycle_phase":  "run",
+                                                              "related_message_id":  null
+                                                          },
+                                    "observed_statuses":  [
+                                                              {
+                                                                  "step_id":  "step1",
+                                                                  "message_id":  "329939d1-3c43-4cb5-916a-80c0bdfc78d5",
+                                                                  "author_role":  "worker",
+                                                                  "observed_at":  "2026-04-08T13:08:00.504859+00:00",
+                                                                  "step_status":  "startup_alignment_submitted",
+                                                                  "workflow_id":  "bootstrap-manager-only-workflow-v2",
+                                                                  "author_agent_id":  "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+                                                                  "lifecycle_phase":  "run",
+                                                                  "related_message_id":  null,
+                                                                  "declared_author_role":  "worker",
+                                                                  "declared_author_agent_id":  null
+                                                              },
+                                                              {
+                                                                  "step_id":  "step1",
+                                                                  "message_id":  "a2156656-b49e-4903-a2f2-629cc450ea58",
+                                                                  "author_role":  "worker",
+                                                                  "observed_at":  "2026-04-08T13:08:01.300956+00:00",
+                                                                  "step_status":  "startup_alignment_submitted",
+                                                                  "workflow_id":  "bootstrap-manager-only-workflow-v2",
+                                                                  "author_agent_id":  "e1fb40b4-80b9-4baa-b740-cb5aa51fdee5",
+                                                                  "lifecycle_phase":  "run",
+                                                                  "related_message_id":  null,
+                                                                  "declared_author_role":  "worker",
+                                                                  "declared_author_agent_id":  null
+                                                              },
+                                                              {
+                                                                  "step_id":  "step1",
+                                                                  "message_id":  "37d3aac0-afef-452f-87c8-3eef263493e2",
+                                                                  "author_role":  "manager",
+                                                                  "observed_at":  "2026-04-08T13:08:04.686342+00:00",
+                                                                  "step_status":  "manager_step1_done",
+                                                                  "workflow_id":  "bootstrap-manager-only-workflow-v2",
+                                                                  "author_agent_id":  "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+                                                                  "lifecycle_phase":  "result",
+                                                                  "related_message_id":  null,
+                                                                  "declared_author_role":  "manager",
+                                                                  "declared_author_agent_id":  null
+                                                              },
+                                                              {
+                                                                  "step_id":  "step2",
+                                                                  "message_id":  "8b84c082-d1bd-4d45-867c-52097b9a9cec",
+                                                                  "author_role":  "worker",
+                                                                  "observed_at":  "2026-04-08T13:08:05.828359+00:00",
+                                                                  "step_status":  "capability_scope_submitted",
+                                                                  "workflow_id":  "bootstrap-manager-only-workflow-v2",
+                                                                  "author_agent_id":  "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+                                                                  "lifecycle_phase":  "run",
+                                                                  "related_message_id":  null,
+                                                                  "declared_author_role":  "worker",
+                                                                  "declared_author_agent_id":  null
+                                                              },
+                                                              {
+                                                                  "step_id":  "step2",
+                                                                  "message_id":  "d12742f1-c9be-4fd0-a3ad-4966dacecef1",
+                                                                  "author_role":  "worker",
+                                                                  "observed_at":  "2026-04-08T13:08:06.360074+00:00",
+                                                                  "step_status":  "capability_scope_submitted",
+                                                                  "workflow_id":  "bootstrap-manager-only-workflow-v2",
+                                                                  "author_agent_id":  "e1fb40b4-80b9-4baa-b740-cb5aa51fdee5",
+                                                                  "lifecycle_phase":  "run",
+                                                                  "related_message_id":  null,
+                                                                  "declared_author_role":  "worker",
+                                                                  "declared_author_agent_id":  null
+                                                              },
+                                                              {
+                                                                  "step_id":  "step2",
+                                                                  "message_id":  "de3427ca-53a7-4b83-a24c-189f65799ae2",
+                                                                  "author_role":  "manager",
+                                                                  "observed_at":  "2026-04-08T13:08:17.240693+00:00",
+                                                                  "step_status":  "manager_step2_done",
+                                                                  "workflow_id":  "bootstrap-manager-only-workflow-v2",
+                                                                  "author_agent_id":  "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+                                                                  "lifecycle_phase":  "result",
+                                                                  "related_message_id":  null,
+                                                                  "declared_author_role":  "manager",
+                                                                  "declared_author_agent_id":  null
+                                                              },
+                                                              {
+                                                                  "step_id":  "step3",
+                                                                  "message_id":  "cc96fb1b-647f-4803-85a0-de6151c70232",
+                                                                  "author_role":  "worker",
+                                                                  "observed_at":  "2026-04-08T13:08:20.343207+00:00",
+                                                                  "step_status":  "task_ready_evidence",
+                                                                  "workflow_id":  "bootstrap-manager-only-workflow-v2",
+                                                                  "author_agent_id":  "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+                                                                  "lifecycle_phase":  "run",
+                                                                  "related_message_id":  null,
+                                                                  "declared_author_role":  "worker",
+                                                                  "declared_author_agent_id":  null
+                                                              },
+                                                              {
+                                                                  "step_id":  "step3",
+                                                                  "message_id":  "97aa991b-7571-420d-a875-a74f9e94c23f",
+                                                                  "author_role":  "worker",
+                                                                  "observed_at":  "2026-04-08T13:08:21.110058+00:00",
+                                                                  "step_status":  "task_ready_evidence",
+                                                                  "workflow_id":  "bootstrap-manager-only-workflow-v2",
+                                                                  "author_agent_id":  "e1fb40b4-80b9-4baa-b740-cb5aa51fdee5",
+                                                                  "lifecycle_phase":  "run",
+                                                                  "related_message_id":  null,
+                                                                  "declared_author_role":  "worker",
+                                                                  "declared_author_agent_id":  null
+                                                              },
+                                                              {
+                                                                  "step_id":  "step3",
+                                                                  "message_id":  "5afb0693-4926-4c7b-810c-062dc4417f07",
+                                                                  "author_role":  "worker",
+                                                                  "observed_at":  "2026-04-10T13:32:17.845403+00:00",
+                                                                  "step_status":  "task_ready_evidence",
+                                                                  "workflow_id":  "bootstrap-manager-only-workflow-v2",
+                                                                  "author_agent_id":  "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+                                                                  "lifecycle_phase":  "run",
+                                                                  "related_message_id":  null,
+                                                                  "declared_author_role":  "worker",
+                                                                  "declared_author_agent_id":  null
+                                                              },
+                                                              {
+                                                                  "step_id":  "step3",
+                                                                  "message_id":  "8acb5866-7bc4-4b3a-8cec-c73ee21fa1a4",
+                                                                  "author_role":  "worker",
+                                                                  "observed_at":  "2026-04-10T13:32:18.679471+00:00",
+                                                                  "step_status":  "task_ready_evidence",
+                                                                  "workflow_id":  "bootstrap-manager-only-workflow-v2",
+                                                                  "author_agent_id":  "e1fb40b4-80b9-4baa-b740-cb5aa51fdee5",
+                                                                  "lifecycle_phase":  "run",
+                                                                  "related_message_id":  null,
+                                                                  "declared_author_role":  "worker",
+                                                                  "declared_author_agent_id":  null
+                                                              }
+                                                          ]
+                                }
+             }
+}

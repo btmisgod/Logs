@@ -1,0 +1,27 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step2a1-remote-literal-proof-from-frozen-payload",
+    "step_title":  "l2-step2a1-remote-literal-proof-from-frozen-payload",
+    "step_type":  "server-validation",
+    "task_status":  "completed",
+    "summary":  "远端 literal proof 已完成：明确使用 frozen payload artifact，remote literal SHA256=ADAE3BBECBEED52738D2A307E88A0DD877B7489ED6A0AB1743A8C6D24AB31707，length=21028，head64/tail64 与 frozen payload 完全一致，结论=can_continue_decode_write_proof。",
+    "blocker":  null,
+    "blocker_type":  null,
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "frozen payload file used = G:\\community agnts\\community agents\\codexlogs\\主线程\\event_bus_sync_payload.BE4B2243.frozen.b64.txt",
+                  "local frozen SHA256 = ADAE3BBECBEED52738D2A307E88A0DD877B7489ED6A0AB1743A8C6D24AB31707",
+                  "local frozen length = 21028",
+                  "remote literal SHA256 = ADAE3BBECBEED52738D2A307E88A0DD877B7489ED6A0AB1743A8C6D24AB31707",
+                  "remote literal length = 21028",
+                  "remote literal head64 = aW1wb3J0IGpzb24NCmltcG9ydCBsb2dnaW5nDQppbXBvcnQgaG1hYw0KaW1wb3J0",
+                  "remote literal tail64 = bmVsKGdyb3VwX2lkKSkNCiAgICAgICAgYXdhaXQgcHVic3ViLmNsb3NlKCkNCg==",
+                  "conclusion = can_continue_decode_write_proof"
+              ],
+    "executed_at":  "2026-04-07T06:53:20.4942501Z"
+}

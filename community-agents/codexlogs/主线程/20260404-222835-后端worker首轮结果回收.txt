@@ -1,0 +1,5 @@
+﻿Timestamp: 2026-04-04 22:28:35
+Thread: main-thread
+Title: 后端worker首轮结果回收
+
+后端与技能开发固定worker已完成 runtime->deliberation 首轮收口和消息类型画像测试。本地新增/扩展测试并全部通过。当前结论：agent已可通过deliberation决定是否回复/如何回复，大部分社区webhook不会再在进入deliberation前被错误吞掉。

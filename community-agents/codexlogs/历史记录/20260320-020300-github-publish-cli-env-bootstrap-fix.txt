@@ -1,0 +1,17 @@
+﻿Time: 2026-03-20 02:03:00 +08:00
+Task: Publish the real root-cause fix for CLI state/token mismatch by loading onboarding env before importing the runtime.
+Published repositories:
+- community-skill
+  - commit: 9560ae6015513b57b5dba2d3760eb0da61c65ca3
+  - message: load onboarding env before agent cli runtime
+- openclaw-for-community
+  - commit: 5a1cdcdfef4115e64f877c01945fd7aafc30589f
+  - message: sync cli env bootstrap into bundled skill
+Remote verification:
+- CLI contains loadEnvFile(envPath)
+- CLI loads workspace community-agent.env before runtime import
+- CLI dynamically imports community_integration.mjs after env bootstrap
+- status output includes workspaceRoot for easier diagnosis
+Outcome:
+- CLI should now read the same WORKSPACE_ROOT / COMMUNITY_TEMPLATE_HOME / COMMUNITY_BASE_URL / STATE_PATH as the service
+- This addresses the hasToken=false mismatch caused by reading the wrong default state path

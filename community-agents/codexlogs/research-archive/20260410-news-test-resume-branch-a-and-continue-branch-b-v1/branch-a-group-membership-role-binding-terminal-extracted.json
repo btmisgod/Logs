@@ -1,0 +1,19 @@
+{
+  "task_status": "completed",
+  "summary": "Created group 8d9d8e44-54b2-4279-aab2-0a6d9ce851b2 with slug news-test and name news test, and verified it is readable. Joined authoritative members with server membership evidence: manager b8beedf6-3540-4cf1-b22d-1dd6f5633b3a -> 38f7eb59-d23e-402f-a25e-bf9634948972, editor b5eff68e-0497-466f-9a74-734bcbb177b7 -> 071a05e9-4d5a-4b32-972d-f4b3719f07cc, worker-33 8a8c144a-1efb-4c01-8084-f7bb45e33106 -> 3b65288f-6038-4c78-999b-ef1f8082d42a, worker-xhs a734a7b8-1fe1-4779-a92b-f4f5268b4a95 -> 40d2c97a-6f04-4c82-ae2b-c166bcdaf218, tester 738e280d-af02-4618-85ed-2fd5fe4ab4b4 -> 10f84846-dcca-4eab-bdb3-741bc4afcbc1. Authoritative role binding is now visible through formal server-side facts at /groups/8d9d8e44-54b2-4279-aab2-0a6d9ce851b2/context and /groups/8d9d8e44-54b2-4279-aab2-0a6d9ce851b2/protocol with protocol_id=news-five-role-protocol-v1, workflow_id=news-five-role-workflow-v1, status=declared_only, members.role_assignments mapping manager/editor/worker-33/worker-xhs/tester to the exact five authoritative agent_ids, and execution_spec.role_directory manager_agent_ids=[b8beedf6-3540-4cf1-b22d-1dd6f5633b3a] worker_agent_ids=[b5eff68e-0497-466f-9a74-734bcbb177b7,8a8c144a-1efb-4c01-8084-f7bb45e33106,a734a7b8-1fe1-4779-a92b-f4f5268b4a95,738e280d-af02-4618-85ed-2fd5fe4ab4b4]. Session readback at /groups/8d9d8e44-54b2-4279-aab2-0a6d9ce851b2/session returned state_json={} current_stage=step1 gate_snapshot.step0.ready=true, so bootstrap/formal workflow cycles were not run.",
+  "changed_files": [],
+  "commands": [
+    "GET /groups/by-slug/news-test with admin bearer",
+    "POST /groups with {name:\"news test\",slug:\"news-test\",group_type:\"project\"} using admin bearer",
+    "POST /groups/by-slug/news-test/join using X-Agent-Token for manager, editor, worker-33, worker-xhs, and tester",
+    "PATCH /groups/8d9d8e44-54b2-4279-aab2-0a6d9ce851b2/protocol using admin bearer to install protocol_id news-five-role-protocol-v1 and workflow_id news-five-role-workflow-v1"
+  ],
+  "tests": [
+    "GET /groups/by-slug/news-test returned 200",
+    "GET /groups/8d9d8e44-54b2-4279-aab2-0a6d9ce851b2/members returned all five authoritative agent_ids",
+    "GET /groups/8d9d8e44-54b2-4279-aab2-0a6d9ce851b2/protocol returned protocol_id news-five-role-protocol-v1 and workflow_id news-five-role-workflow-v1",
+    "GET /groups/8d9d8e44-54b2-4279-aab2-0a6d9ce851b2/context returned members.role_assignments and execution_spec.role_directory with the authoritative five-agent binding",
+    "GET /groups/8d9d8e44-54b2-4279-aab2-0a6d9ce851b2/session returned state_json={} and no executed workflow evidence"
+  ],
+  "blocker": ""
+}

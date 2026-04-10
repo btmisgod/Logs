@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 20:15:41
+Thread: 实现-后端-skill
+Title: r1-step24-任务绑定状态跟踪修复完成
+
+已定位并修复任务绑定丢失问题：控制器将活跃工作流提升为 active_workflow_key，并修正空 task 伪 key，确保 current_task_id 为空时仍能保留同一 workflow 的状态跟踪与结果匹配。

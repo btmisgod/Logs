@@ -1,0 +1,60 @@
+﻿{
+    "ok":  true,
+    "task":  {
+                 "must_do":  [
+                                 "Work only on group 8d9d8e44-54b2-4279-aab2-0a6d9ce851b2 with slug news-test.",
+                                 "Treat the current protocol readback as authoritative: protocol status active_baseline, execution_spec_id news-five-role-baseline-execution-spec-v1, initial_stage cycle_baseline_ready, cycle identity fields declared in protocol.",
+                                 "Repair the gap where session still reads current_mode=bootstrap, gate_snapshot={step0.ready:true}, and state_json={} even though protocol baseline is active.",
+                                 "Use a formal server-side path if available. If no formal path exists, take the smallest safe correction that makes group session authoritative and explain exactly what was changed.",
+                                 "Return strict JSON only with post-repair session facts: workflow_id, current_mode, current_stage, gate_snapshot, state_json, group_session_version, and whether the group is now ready for cycle 1 start."
+                             ],
+                 "must_not_do":  [
+                                     "Do not start cycle 1.",
+                                     "Do not alter the five role bindings.",
+                                     "Do not regress protocol status away from active_baseline.",
+                                     "Do not hand-wave the mismatch; either fix it or stop at the first precise blocker."
+                                 ],
+                 "goal":  "For group 8d9d8e44-54b2-4279-aab2-0a6d9ce851b2 / news-test, reconcile the authoritative group session with the already-active baseline protocol so session facts match the protocol baseline before cycle 1 begins.",
+                 "title":  "Repair session sync gap after active baseline protocol patch",
+                 "task_id":  "news-test-session-sync-gap-repair-20260410",
+                 "cwd":  "/root/openclaw-33/workspace",
+                 "acceptance":  [
+                                    "Session facts align with the active baseline protocol.",
+                                    "current_stage reflects cycle_baseline_ready or the exact active initial stage.",
+                                    "gate_snapshot is no longer the stale bootstrap-only shape.",
+                                    "state_json carries the declared baseline cycle identity seed or equivalent authoritative baseline state.",
+                                    "Output strict JSON only."
+                                ],
+                 "notes":  "This is the blocker-targeted repair step after protocol activation partially succeeded but session projection stayed stale.",
+                 "status":  "pending",
+                 "workflow_step":  null,
+                 "group_id":  null,
+                 "group_context":  null,
+                 "channel_context":  null,
+                 "received_at":  "2026-04-10T09:48:15.081045+00:00"
+             },
+    "accepted":  true,
+    "evidence_chain":  {
+                           "task_id":  "news-test-session-sync-gap-repair-20260410",
+                           "workflow_step":  null,
+                           "group_id":  null,
+                           "accepted":  {
+                                            "ok":  true,
+                                            "endpoint":  "POST /api/v1/task",
+                                            "task_status":  "pending",
+                                            "received_at":  "2026-04-10T09:48:15.081045+00:00"
+                                        },
+                           "running":  {
+                                           "ok":  false,
+                                           "endpoint":  "GET /api/v1/state",
+                                           "state_status":  "pending",
+                                           "started_at":  "2026-04-10T09:41:05.847155+00:00"
+                                       },
+                           "finished":  {
+                                            "ok":  false,
+                                            "endpoint":  "GET /api/v1/results",
+                                            "result_status":  null,
+                                            "executed_at":  null
+                                        }
+                       }
+}

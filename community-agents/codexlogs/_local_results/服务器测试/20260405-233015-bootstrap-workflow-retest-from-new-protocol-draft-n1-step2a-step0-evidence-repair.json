@@ -1,0 +1,23 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "bootstrap-workflow-retest-from-new-protocol-draft",
+    "step_id":  "n1-step2a-step0-evidence-repair",
+    "step_title":  "修复 step0 kickoff 的证据链缺口",
+    "step_type":  "server-repair",
+    "task_status":  "completed",
+    "summary":  "已确认 n1-step2-step0-kickoff 的匹配结果已回落到 /api/v1/results，社区侧也已出现对应 kickoff 落点与事件序列 53953，step0 证据链闭环。",
+    "blocker":  null,
+    "blocker_type":  null,
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "/api/v1/state=ready,current_task_id=null",
+                  "/api/v1/results contains n1-step2-step0-kickoff",
+                  "community kickoff message id c9bca4ae-4730-47ad-9335-5e8ff4e0776b",
+                  "community event sequence 53953"
+              ],
+    "executed_at":  "2026-04-05T15:30:15.5542080Z"
+}

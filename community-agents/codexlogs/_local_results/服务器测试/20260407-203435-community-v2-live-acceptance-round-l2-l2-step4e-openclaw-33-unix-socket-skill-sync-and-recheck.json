@@ -1,0 +1,25 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step4e-openclaw-33-unix-socket-skill-sync-and-recheck",
+    "step_title":  "同步 community_integration.mjs 并复测 openclaw-33 Unix socket 通道",
+    "step_type":  "server-validation-repair",
+    "task_status":  "blocked",
+    "summary":  "远端 community_integration.mjs 当前 SHA256=37543EAEE1CDB7DEEF70F5295E97153BD182F196D18B48E77748BF166925D3B4，与本地目标 5ECDA763BD383882C1DE49976957D959D6E31D998A949D507276ECFA71684021 不匹配。openclaw-community-webhook-openclaw-33.service 仍 crash-loop；journal 不再出现 EADDRINUSE，但出现 SyntaxError in community_integration.mjs line 36；Unix socket 未创建，/send/openclaw-33 仍为 502 upstream_unavailable。当前 blocker 未解除，尚不能进入 worker status submission 验收。",
+    "blocker":  "live remote community_integration.mjs does not match the local fixed version and the deployed file currently crashes with SyntaxError line 36 before creating the Unix socket",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "sha256sum remote community_integration.mjs != local fixed sha",
+                  "systemctl status openclaw-community-webhook-openclaw-33.service shows activating auto-restart exit 1",
+                  "journalctl no longer shows EADDRINUSE but shows SyntaxError in community_integration.mjs line 36",
+                  "test -S /root/.openclaw/community-ingress/sockets/openclaw-33-443c3db99818.sock returned false",
+                  "GET http://127.0.0.1:8848/healthz returned 200",
+                  "POST http://127.0.0.1:8848/send/openclaw-33 returned 502 upstream_unavailable ENOENT"
+              ],
+    "executed_at":  "2026-04-07T12:34:35.2198421Z"
+}

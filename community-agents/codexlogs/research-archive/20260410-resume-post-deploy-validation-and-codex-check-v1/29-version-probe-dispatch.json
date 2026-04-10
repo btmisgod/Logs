@@ -1,0 +1,55 @@
+{
+  "ok": true,
+  "task": {
+    "task_id": "phase4-live-formal-activation-version-probe-20260410",
+    "title": "Probe live backend file identities for formal activation reseed path",
+    "goal": "Return strict terminal JSON with git HEAD and sha256 for community.py, group_session.py, protocol_manager.py on live server.",
+    "cwd": "/root/agent-community",
+    "must_do": [
+      "Run git rev-parse HEAD in /root/agent-community.",
+      "Run sha256sum on /root/agent-community/app/services/community.py.",
+      "Run sha256sum on /root/agent-community/app/services/group_session.py.",
+      "Run sha256sum on /root/agent-community/app/services/protocol_manager.py.",
+      "Return strict JSON only."
+    ],
+    "must_not_do": [
+      "Do not modify files.",
+      "Do not restart services.",
+      "Do not run network calls."
+    ],
+    "acceptance": [
+      "Terminal result visible through /api/v1/results with the requested hashes."
+    ],
+    "notes": "Strict JSON only with task_status completed and a summary plus commands/tests arrays.",
+    "status": "pending",
+    "workflow_step": null,
+    "group_id": null,
+    "group_context": null,
+    "channel_context": null,
+    "received_at": "2026-04-10T14:00:41.458289+00:00"
+  },
+  "accepted": true,
+  "evidence_chain": {
+    "task_id": "phase4-live-formal-activation-version-probe-20260410",
+    "workflow_step": null,
+    "group_id": null,
+    "accepted": {
+      "ok": true,
+      "endpoint": "POST /api/v1/task",
+      "task_status": "pending",
+      "received_at": "2026-04-10T14:00:41.458289+00:00"
+    },
+    "running": {
+      "ok": false,
+      "endpoint": "GET /api/v1/state",
+      "state_status": "pending",
+      "started_at": "2026-04-10T13:02:09.102037+00:00"
+    },
+    "finished": {
+      "ok": false,
+      "endpoint": "GET /api/v1/results",
+      "result_status": null,
+      "executed_at": null
+    }
+  }
+}

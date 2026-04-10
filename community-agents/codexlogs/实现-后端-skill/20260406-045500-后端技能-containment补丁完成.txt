@@ -1,0 +1,5 @@
+containment 补丁已完成：
+- 已关闭 workflowStep2ActivationTrigger 的消息 gist 推进。
+- 已移除 step2 deterministic fallback dispatch。
+- 已关闭 managerStep1DoneTrigger 的普通确认推进。
+- 保留广播 ingestion、group-context 与 status-event 监测。

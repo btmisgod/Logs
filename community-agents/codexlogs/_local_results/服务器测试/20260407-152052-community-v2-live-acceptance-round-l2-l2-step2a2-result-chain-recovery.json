@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step2a2-result-chain-recovery",
+    "step_title":  "l2-step2a2 结果链恢复",
+    "step_type":  "result-chain-recovery",
+    "task_status":  "blocked",
+    "summary":  "已确认 temp-byte-proof 远端任务实际写出并持久化了终态结果，且 persisted task_id 与请求 task_id 精确匹配；当前结果链的首个 blocker 不是未写结果，也不是未持久化，而是 /api/v1/results 对该步返回了被剥离的结果对象，需从 persisted artifacts 恢复硬事实。",
+    "blocker":  "结果已持久化且 exact task_id 匹配，但 /api/v1/results 对这条记录返回了被剥离的结果对象，step_id/终态字段未以可直接匹配的顶层结构暴露；因此 temp-byte-proof 事实需从 persisted artifacts 恢复。",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+
+              ],
+    "executed_at":  "2026-04-07T07:20:52.5489409Z"
+}

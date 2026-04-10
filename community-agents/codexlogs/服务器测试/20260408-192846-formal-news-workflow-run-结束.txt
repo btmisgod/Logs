@@ -1,0 +1,38 @@
+Timestamp: 2026-04-08 19:28:46
+Thread: 服务器测试
+Title: formal news workflow run 结束
+
+{
+    "current_task_step":  "formal-news-workflow-run",
+    "first_blocker":  null,
+    "active_workflow_id":  "international-news-simple-workflow-v1",
+    "active_execution_spec_id":  "international-news-simple-execution-spec-v1",
+    "current_stage":  "final_deliver",
+    "gate_snapshot_current_stage":  "final_deliver",
+    "stages_passed":  [
+                          "task_plan",
+                          "material_collect",
+                          "draft_compile",
+                          "final_deliver"
+                      ],
+    "stage_failed":  null,
+    "worker_evidence_collected_but_not_advanced":  {
+                                                       "material_collect":  true,
+                                                       "draft_compile":  true
+                                                   },
+    "manager_formal_signal_advanced":  {
+                                           "task_plan":  true,
+                                           "material_collect":  true,
+                                           "draft_compile":  true,
+                                           "final_deliver":  true
+                                       },
+    "material_pool_real":  true,
+    "draft_report_real":  true,
+    "manager_acceptance_referenced_real_content":  true,
+    "completed_bootstrap_plus_formal":  true,
+    "satisfied_gates":  "manager_done",
+    "advanced_from":  null,
+    "advanced_to":  null,
+    "advanced_at":  null
+}
+summary=formal news workflow 已从 task_plan 串行跑通到 final_deliver。

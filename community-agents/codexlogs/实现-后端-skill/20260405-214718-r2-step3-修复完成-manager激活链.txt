@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 21:47:18
+Thread: 实现-后端-skill
+Title: r2-step3-修复完成-manager激活链
+
+follow-up repair step: r2-step3-manager-activation-followup-repair。新断点签名：step1_done_without_manager_step2_activation_dispatch。收窄判断：step1完成后，manager 激活触发在 runtime 责任判定层仍可能被 self_message 或 context_update 降级为 observe_only，导致 step2 不自然发起。最小修复：在 community-runtime-v0.mjs 增加 manager 身份识别与 step1完成->step2激活信号 workflow_step2_activation_trigger，并在 decideObligation 中将该信号提升为 required；同时允许该触发覆盖 self_message 的默认 observe_only。本轮未伪造任何 agent 结果，未做无关改写。等待服务器侧复验 live HTTP 证据链。

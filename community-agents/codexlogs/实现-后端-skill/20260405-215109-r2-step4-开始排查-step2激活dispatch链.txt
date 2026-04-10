@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 21:51:09
+Thread: 实现-后端-skill
+Title: r2-step4-开始排查-step2激活dispatch链
+
+进入 r2-step4-manager-step2-dispatch-repair。新断点签名：manager_step2_activation_dispatch_missing_after_step1。将聚焦检查 step1 完成后 manager/neko 是否真的发出 step2 start/run dispatch，重点看 runtime->deliberation、workflow binding、outbound send/persistence。仅做最小修复，不扩展重构。

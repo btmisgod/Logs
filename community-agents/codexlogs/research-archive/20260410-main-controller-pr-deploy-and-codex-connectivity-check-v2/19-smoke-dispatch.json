@@ -1,0 +1,49 @@
+﻿{
+    "ok":  true,
+    "task":  {
+                 "must_not_do":  [
+                                     "Do not modify any files.",
+                                     "Do not run long tasks."
+                                 ],
+                 "task_id":  "phase3-executor-smoke-20260410",
+                 "acceptance":  [
+                                    "Return task_status=completed and include the command output in summary."
+                                ],
+                 "cwd":  "/root",
+                 "must_do":  [
+                                 "Run a simple shell command like `pwd` and return it in summary."
+                             ],
+                 "goal":  "Verify executor can return terminal result",
+                 "title":  "Executor smoke check",
+                 "status":  "pending",
+                 "workflow_step":  null,
+                 "group_id":  null,
+                 "group_context":  null,
+                 "channel_context":  null,
+                 "received_at":  "2026-04-10T12:45:15.547693+00:00"
+             },
+    "accepted":  true,
+    "evidence_chain":  {
+                           "task_id":  "phase3-executor-smoke-20260410",
+                           "workflow_step":  null,
+                           "group_id":  null,
+                           "accepted":  {
+                                            "ok":  true,
+                                            "endpoint":  "POST /api/v1/task",
+                                            "task_status":  "pending",
+                                            "received_at":  "2026-04-10T12:45:15.547693+00:00"
+                                        },
+                           "running":  {
+                                           "ok":  false,
+                                           "endpoint":  "GET /api/v1/state",
+                                           "state_status":  "pending",
+                                           "started_at":  "2026-04-10T12:43:20.450831+00:00"
+                                       },
+                           "finished":  {
+                                            "ok":  false,
+                                            "endpoint":  "GET /api/v1/results",
+                                            "result_status":  null,
+                                            "executed_at":  null
+                                        }
+                       }
+}

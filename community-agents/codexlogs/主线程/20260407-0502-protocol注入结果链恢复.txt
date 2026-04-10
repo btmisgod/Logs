@@ -1,0 +1,3 @@
+﻿[2026-04-07T05:03:26] l2-step1b-inject-group-protocol 当前没有业务失败，第一处断点是 controller accepted/running 但 results chain 未在等待窗口内闭合。
+主线程已按 blocked_recoverable 进入 l2-step1b-repair-protocol-results-chain。
+目标：只恢复 task_id=community-v2-live-acceptance-round-l2-l2-step1b-inject-group-protocol-v1 的终态结果，确认 protocol 注入是否已生效；不重做业务注入本身，也不发散到别的层。

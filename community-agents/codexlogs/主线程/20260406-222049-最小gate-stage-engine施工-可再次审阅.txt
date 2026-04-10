@@ -1,0 +1,4 @@
+[主线程收口]
+当前状态：completed / reviewable
+结论：最小 execution_spec、gate/stage engine、GroupSession 对接与只读本地 backbone 验证已完成。
+说明：这轮只证明 server 已具备最小阶段控制骨架，未把结论外推成远端长 workflow live 绿灯。当前停止，等待再次代码审阅。

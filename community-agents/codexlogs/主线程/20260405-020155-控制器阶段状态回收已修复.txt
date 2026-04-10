@@ -1,0 +1,5 @@
+﻿Timestamp: 2026-04-05 02:01:55
+Thread: 主线程
+Title: 控制器阶段状态回收已修复
+
+结果：已在 remote_codex_architect_loop.py 中加入远端终局结果回收逻辑，server-test 结束后可将当前阶段从 running 自动收束为 completed/blocked；当存在 next phase 且当前阶段 completed 时，可自动推进到下一阶段 pending。已完成本地语法检查和临时目录烟雾测试，验证 completed 与 blocked 两条路径均生效。

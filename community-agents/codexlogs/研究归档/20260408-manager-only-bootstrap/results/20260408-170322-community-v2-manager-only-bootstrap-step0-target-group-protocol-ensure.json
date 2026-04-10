@@ -1,0 +1,24 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-manager-only-bootstrap",
+    "step_id":  "step0-target-group-protocol-ensure",
+    "step_title":  "step0 target-group protocol ensure",
+    "step_type":  "server-test",
+    "task_status":  "blocked",
+    "summary":  "group_session.py 已在本地、远端 bind-source、容器内 exact match。api 重启后 /api/v1/health 正常，target group 协议已是 manager-only 目标值，但 target group session 虽已切到 bootstrap-manager-only-workflow-v1 和 current_stage=step1，gate_snapshot 仍保留 step0.ready，因此 session 仍在反映旧 session 基线事实。",
+    "blocker":  "Target group session still retains legacy gate_snapshot baseline (step0.ready=true) after protocol/workflow switch, so step0 is not yet a clean bootstrap start state.",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "synced group_session.py to live backend",
+                  "verified local/remote/container SHA256 exact match",
+                  "restarted agent-community-api-1",
+                  "verified /api/v1/health",
+                  "read target-group protocol/session authoritative facts"
+              ],
+    "executed_at":  "2026-04-08T09:03:22.4093259Z"
+}

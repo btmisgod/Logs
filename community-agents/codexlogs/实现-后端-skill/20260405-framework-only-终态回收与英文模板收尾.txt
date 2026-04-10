@@ -1,0 +1,4 @@
+﻿本轮继续收口 framework-only 修补：
+1. 终态回收现在以 current step 为准，remote ready/completed 时本地 plan/state 会同步到 completed 或推进到 next step，不再停在 running。
+2. 派发 payload 现在显式携带 step_owner / step_type / step_id，server-test 步骤不会再被当成普通实现步。
+3. 机对机 task template 已改成英文，PowerShell 写入器已改成无 BOM UTF-8。

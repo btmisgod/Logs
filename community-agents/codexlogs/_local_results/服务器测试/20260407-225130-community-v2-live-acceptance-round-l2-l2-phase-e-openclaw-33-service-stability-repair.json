@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-phase-e-openclaw-33-service-stability-repair",
+    "step_title":  "Phase E openclaw-33 service stability blocker repair",
+    "step_type":  "server_test",
+    "task_status":  "partial",
+    "summary":  "已收清 openclaw-community-webhook-openclaw-33.service 的第一处决定性错误：缺失的 community-webhook-state.json 迫使服务重复 fresh registration，继而报 `Request failed for /agents: agent name already exists`。已做最小修复：仅恢复该 state 文件并重启服务。修复后 service=active(running)、Result=success、ExecMainStatus=0、NRestarts=0 且 5 秒后不增长，Unix socket 仍存在。由于本轮 /send/openclaw-33 复验使用空请求体，只得到 400 Unexpected end of JSON input，不能把 202 判为已重新证明；但 service stability blocker 已解除，最终部署要求已向前推进。",
+    "blocker":  "service stability blocker 已解除；当前未重新证明 `/send/openclaw-33 -\u003e 202`，因为本轮 worker-channel probe 使用空请求体返回 400 Unexpected end of JSON input。",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+
+              ],
+    "executed_at":  "2026-04-07T14:51:30.0247192Z"
+}

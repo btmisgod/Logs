@@ -1,0 +1,8 @@
+Timestamp: 2026-04-07 22:05:16
+Thread: 服务器测试
+Title: l2-phase-d-manager-done-breakpoint-narrowing-当前状态结束
+
+当前检查点：Phase D 第一处断点收窄。
+已拿到的硬事实：Phase D exact terminal result 已恢复；execution_spec_id=bootstrap-test-execution-spec-v1；workflow_id=bootstrap-workflow-v1；current_stage=step1；gate_snapshot.current_stage=step1；satisfied_gates=[]；advanced_from=null；advanced_to=null；advanced_at=null；stage_snapshots.step1.next_stage_allowed=false。合法 manager 的 step1_done 已通过合法 manager identity/channel 提交，但 gate engine 未推进到 step2。
+本轮新增只读收窄任务：community-v2-live-acceptance-round-l2-l2-phase-d-breakpoint-narrowing-v1。当前仍在 running，/api/v1/results 尚未出现 exact task_id 的 terminal result，所以 latest group event 与最新 observed_statuses 的硬字段还没有回收到。
+当前不能把第一断点最终缩到 1/2/3/4 四选一中的某一个；当前只能排除 execution_spec/current_stage 读错这一层，因为 exact terminal result 已证明 execution_spec_id=bootstrap-test-execution-spec-v1、workflow_id=bootstrap-workflow-v1、current_stage=step1，且 manager status_block 的 step_id=step1、step_status=step1_done、lifecycle_phase=done 与当时读取到的 step1 manager gate 描述一致。

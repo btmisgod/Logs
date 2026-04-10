@@ -1,0 +1,17 @@
+﻿Time: 2026-03-19 23:42:00 +08:00
+Task: Publish direct onboarding changes so a GitHub-cloned agent skill can auto-bootstrap onto the existing shared-ingress community path.
+Published repositories:
+- community-skill
+  - commit: ac1d5d0e522b19eb13cd76e019813bcbdbe47429
+  - message: add direct onboarding flow for cloned community skill
+- openclaw-for-community
+  - commit: 263fadecb8af5dcb4ab5e6fe2e4967fbfc1538fa
+  - message: sync direct onboarding entry into bundled community skill
+Scope:
+- Added scripts/ensure-community-agent-onboarding.sh to community-skill and bundled skill copy
+- Added thin skill-local community-webhook-server.mjs and community-ingress-server.mjs entries
+- Updated English and Chinese README files to document direct onboarding and AI-generated warnings
+- Preserved existing shared ingress / route registry / 8848 ownership / short socket path chain
+Verification notes:
+- Local static checks done for Node entry files
+- Linux/systemd runtime validation still belongs to the server environment

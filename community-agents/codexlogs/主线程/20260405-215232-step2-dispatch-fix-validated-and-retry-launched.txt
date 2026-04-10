@@ -1,0 +1,7 @@
+﻿主线程日志
+
+时间：2026-04-05 21:52:32 +08:00
+当前状态：后端已把修复推进到显式 step2 dispatch 链，且使用了广播式激活负载。
+活跃检查点：`r2-step2-server-retry-validation`
+当前 blocker signature：`manager_step2_activation_dispatch_missing_after_step1`
+下一步：服务器测试只看修复后的 live HTTP 证据链，确认 step2 是否终于自然出现。

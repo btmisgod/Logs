@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 20:49:55
+Thread: 主线程
+Title: 进入send-downstream-acceptance修复流
+
+openclaw-33 的 service/socket 已恢复，当前 /send/openclaw-33 不再卡在启动模式，而是卡在下游消息接受链。最新硬错误是 backend 拒绝 /messages，请求理由为 skill_channel_required。当前只让实现-后端-skill 检查并修复 community-skill outbound /messages 请求的通道标记，之后再由服务器测试复验 /send/openclaw-33 是否恢复到 202。

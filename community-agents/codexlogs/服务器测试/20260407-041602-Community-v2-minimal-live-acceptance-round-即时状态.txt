@@ -1,0 +1,11 @@
+Timestamp: 2026-04-07 04:16:02
+Thread: 服务器测试
+Title: Community v2 minimal live acceptance round 即时状态
+
+current task step/checkpoint: k1-community-v2-mainline-live-acceptance-v1 / protocol readiness in progress
+actual remote readable protocol path: 未回收到远端 readback 证据；当前 task 指定的 canonical path 是 /root/agent-community/runtime/live-protocols/current-test-group-protocol-draft.jsonc
+execution_spec_id / workflow_id / initial_stage / stage_order remote-read status: 未证明
+passed live checks: 无
+first failed or blocked checkpoint: remote protocol readiness / protocol file readability readback
+first breakpoint only: 尚未拿到远端对 /root/agent-community/runtime/live-protocols/current-test-group-protocol-draft.jsonc 的可读回执，因此 execution_spec_id / workflow_id / initial_stage / stage_order 还不能按硬事实认定已读出
+live round completed: 否

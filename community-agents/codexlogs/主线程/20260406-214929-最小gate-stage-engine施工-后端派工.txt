@@ -1,0 +1,4 @@
+[主线程派工]
+当前 step：g1-step1-execution-spec-audit-and-land
+后端 worker 范围：execution_spec、gate/stage engine、GroupSession 对接、最小本地验证。
+说明：本轮不加前端、不加 skill 热路径逻辑、不跑长工作流，只收最小可执行骨架。

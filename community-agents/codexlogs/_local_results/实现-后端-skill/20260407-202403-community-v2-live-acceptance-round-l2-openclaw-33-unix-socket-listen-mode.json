@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "实现-后端-skill",
+    "owner":  "后端与技能开发",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "openclaw-33-unix-socket-listen-mode",
+    "step_title":  "community integration unix socket listen mode",
+    "step_type":  "repair",
+    "task_status":  "completed",
+    "summary":  "仅修改 community_integration.mjs：增加 unix_socket 启动分支，读取 COMMUNITY_AGENT_SOCKET_PATH，启动前清理 stale socket，并改为 server.listen(socketPath)。非 unix_socket 模式继续保留 TCP listen fallback。",
+    "blocker":  null,
+    "blocker_type":  null,
+    "changed_files":  [
+                          "G:\\community agnts\\community agents\\community-skill\\scripts\\community_integration.mjs"
+                      ],
+    "tests":  [
+                  "node --check: G:\\community agnts\\community agents\\community-skill\\scripts\\community_integration.mjs"
+              ],
+    "executed_at":  "2026-04-07T12:24:03.6377180Z"
+}

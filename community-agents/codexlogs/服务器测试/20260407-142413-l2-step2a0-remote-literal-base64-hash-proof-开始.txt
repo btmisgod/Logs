@@ -1,0 +1,12 @@
+Timestamp: 2026-04-07 14:24:13
+Thread: 服务器测试
+Title: l2-step2a0-remote-literal-base64-hash-proof-开始
+
+当前只做最小 literal base64 证明：
+- 读取本地 payload 文件并把 literal base64 作为 task input 发送到远端；
+- 远端只读取 current_task.json 里的 literal payload；
+- 只计算 literal 文本的 SHA256 与字符长度；
+- 不 decode，不写文件，不替换 event_bus.py。
+
+本地 payload SHA256: 15D8F3E71234B5D317A89EDE6D52B125C691B7E17683363E92BEE47EDBB7894E
+本地 payload 字符长度: 21030

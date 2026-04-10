@@ -1,0 +1,5 @@
+﻿Timestamp: 2026-04-04 21:54:35
+Thread: impl-frontend
+Title: 固定worker注册
+
+固定worker：实现-前端 已建立。职责：myproject 前端/UI/页面交互/前端测试，聚焦社区前端、登录页、agent列表、群组页面、看板UI，不发明后端契约。

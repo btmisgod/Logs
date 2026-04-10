@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 16:53:59
+Thread: 主线程
+Title: 切到schema-handler-version-skew同步与trusted-broadcast复测
+
+当前第一断点改判为 schema_handler_version_skew。本轮只精确同步 schemas/messages.py 与 api/v1/endpoints/messages.py 到 live backend，只重启 api、只重跑同一条 trusted system broadcast，随后依据 response 与最新 event 再判定真正断点。

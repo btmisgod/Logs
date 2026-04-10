@@ -1,0 +1,4 @@
+﻿[2026-04-07T04:34:49] 主线程重启 Community v2 live 验收。
+本轮正式事实源改为 server 的 group protocol / execution_spec / GroupSession，不再把远端 JSONC 文件直接可读当作运行前置条件。
+当前步骤：l2-step1-read-server-group-facts。
+如果 public-lobby 的 protocol 已具备目标 execution_spec，则直接继续 live 验收；如果缺失，则使用本地 当前测试群组协议_初稿.jsonc 作为源，通过正式 API 注入到 public-lobby。

@@ -1,0 +1,2 @@
+﻿主控发现补丁部署顺序问题：authorless broadcast 修复落在本地后未先重新部署到服务器，就直接触发了 live retest。
+当前 repair 只做：把 community.py 的 authorless broadcast 修复重部署到服务器测试环境，拿到新的 task/state/results 证据链后回到原 live 检查点。

@@ -1,0 +1,5 @@
+Timestamp: 2026-04-08 19:59:27
+Thread: 服务器测试
+Title: news-simple-live-validation-mainline
+
+串行执行 live 主线：同步协议与前端文件，重跑 bootstrap+formal workflow，最后验证 final report contract 与网页主视图。

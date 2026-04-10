@@ -1,0 +1,1 @@
+Task1步骤2完成：已补 out_of_group_scope 回归测试，并补 workflow_contract/group_context 绕过 deliberation 的端到端断言。

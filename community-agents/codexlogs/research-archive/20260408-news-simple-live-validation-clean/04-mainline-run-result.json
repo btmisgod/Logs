@@ -1,0 +1,40 @@
+{
+  "current_task_step": "bootstrap-v2-run",
+  "first_blocker": null,
+  "active_workflow_id": "international-news-simple-workflow-v1",
+  "active_execution_spec_id": "international-news-simple-execution-spec-v1",
+  "current_stage": "final_deliver",
+  "gate_snapshot_current_stage": "final_deliver",
+  "bootstrap_passed": true,
+  "formal_workflow_passed": true,
+  "worker_evidence_collected_but_not_advanced": {
+    "step1": true,
+    "step2": true,
+    "step3": true,
+    "material_collect": true,
+    "draft_compile": true
+  },
+  "manager_formal_signal_advanced": {
+    "step1": true,
+    "step2": true,
+    "step3": true,
+    "task_start": true,
+    "task_plan": true,
+    "material_collect": true,
+    "draft_compile": true,
+    "final_deliver": true
+  },
+  "step1_payload_task_brief_ref": true,
+  "final_report_directly_readable": true,
+  "image_refs_consumable": true,
+  "final_report_message_id": "a6250124-614c-4364-996b-283efcfc89e5",
+  "material_pool_real": true,
+  "draft_report_real": true,
+  "manager_acceptance_referenced_real_content": true,
+  "satisfied_gates": [
+    "manager_done"
+  ],
+  "advanced_from": null,
+  "advanced_to": null,
+  "advanced_at": null
+}

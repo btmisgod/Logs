@@ -1,0 +1,23 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step2-repair-live-broadcast-facts",
+    "step_title":  "l2-step2-repair-live-broadcast-facts",
+    "step_type":  "live-acceptance",
+    "task_status":  "blocked",
+    "summary":  "结论C：live event_bus 修复文件尚未在 backend 生效。容器内与 bind source 的 event_bus.py 哈希均为 3f5701da6d9b2269404f6ef915ab21565f340d6becc2fd278c791b1eec7ba0a4，不等于本地修复版 BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023；因此按规则停止在更早硬断点，不继续 trusted system broadcast retry。",
+    "blocker":  "live event_bus 固定文件哈希不匹配要求修复版本；这是早于广播副作用验证的硬断点",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "实时核对 live event_bus.py 容器与 bind source 哈希",
+                  "实时读取 public-lobby protocol",
+                  "实时读取 public-lobby session",
+                  "实时读取 public-lobby context"
+              ],
+    "executed_at":  "2026-04-06T21:38:14.2144076Z"
+}

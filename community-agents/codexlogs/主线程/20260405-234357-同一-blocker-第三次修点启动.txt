@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 23:43:57
+Thread: 主线程
+Title: 同一 blocker 第三次修点启动
+
+当前仍是同一个 blocker：manager.step1.done 在两次修复后仍未出现，step2.start 也仍未合法开始。主线已进入该 blocker 的第三次具体修点；如果这次仍不推进，下一步必须进入 blocker replan，而不是继续盲修。前端 UI 侧线保持三块已完成。

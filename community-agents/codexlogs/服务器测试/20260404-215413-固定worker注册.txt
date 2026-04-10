@@ -1,0 +1,5 @@
+﻿Timestamp: 2026-04-04 21:54:13
+Thread: server-test
+Title: 固定worker注册
+
+固定worker：服务器测试 已建立。职责：真实环境验证、多agent通讯测试、功能测试、blocker收窄、少量环境修复。

@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step2a2-result-chain-recovery",
+    "step_title":  "l2-step2a2-result-chain-recovery",
+    "step_type":  "server-validation",
+    "task_status":  "completed",
+    "summary":  "Recovered terminal result evidence solely from persisted executor artifacts for task `community-v2-live-acceptance-round-l2-l2-step2a2-remote-temp-byte-proof-v1`. Both the result JSON and last-message artifact exist, both indicate a terminal result was written, the persisted `task_id` exactly matches the requested task, no mismatched task variant artifact was found in the searched executor artifact paths, and the temp-file byte proof fields were recoverable from the last-message artifact.",
+    "blocker":  null,
+    "blocker_type":  null,
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+
+              ],
+    "executed_at":  "2026-04-07T07:18:19.0604143Z"
+}

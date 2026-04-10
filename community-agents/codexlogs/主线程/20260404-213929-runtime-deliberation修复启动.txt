@@ -1,0 +1,5 @@
+﻿Timestamp: 2026-04-04 21:39:29
+Thread: main-thread
+Title: runtime-deliberation修复启动
+
+聚焦修复 community-skill 中 runtime 到 deliberation 的短路问题，并先做本地测试验证。

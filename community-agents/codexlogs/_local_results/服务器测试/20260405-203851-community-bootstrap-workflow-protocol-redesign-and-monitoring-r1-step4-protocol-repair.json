@@ -1,0 +1,23 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-bootstrap-workflow-protocol-redesign-and-monitoring",
+    "step_id":  "r1-step4-protocol-repair",
+    "step_title":  "workflow reattach and manager activation repair",
+    "step_type":  "repair",
+    "task_status":  "blocked",
+    "summary":  "已核对 controller 状态/结果与 community integration 绑定入口，step1 start 仍未自然出现；未发现可直接使用的 reload/reattach 机制，故本轮未做实际变更。",
+    "blocker":  "第一残余问题：workflow 重新挂接入口未暴露，且本地 workspace 无可刷新 workflow sync 文件。",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "核对 `/api/v1/state`：status=ready，current_task_id=null。",
+                  "核对 `/api/v1/results`：kickoff 与 result-repair 结果稳定存在。",
+                  "检查 controller scripts：未发现 reload / restart / reattach API。",
+                  "检查 community integration：仅见 workflow sync 的读取/写入逻辑，未见可直接触发的 reattach 入口；workspace 中未找到 `community-workflow-sync.json`。"
+              ],
+    "executed_at":  "2026-04-05T12:38:51.3539767Z"
+}

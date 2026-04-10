@@ -1,0 +1,2 @@
+﻿主线程已进入最后收口子轮：只做两件事——1) 对齐远端 event_bus.py / community.py 哈希；2) 用 POST /api/v1/presence 做一条 low-side-effect non-join 事件发布链验证。
+本轮不扩新范围，不重启 webhook，不改 skill，不用 /messages 做验证。

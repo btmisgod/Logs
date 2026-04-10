@@ -1,0 +1,15 @@
+Timestamp: 2026-04-07 14:16:58
+Thread: 服务器测试
+Title: l2-step2a1-remote-base64-proof-开始
+
+当前只做最小 remote base64 证明：
+1. 取消挂起的 broad temp proof 占用；
+2. 新建只重建 remote base64 文本的任务；
+3. 不解码，不写 temp python file，不替换 event_bus.py。
+
+目标输出：
+- remote reconstructed base64 text SHA256
+- remote reconstructed base64 text length
+- 是否与本地 payload 完全一致
+- 若不一致，首个失败阶段只能是 transport-before-reassembly 或 reassembly
+- 生成这些事实的远端命令 stdout/stderr

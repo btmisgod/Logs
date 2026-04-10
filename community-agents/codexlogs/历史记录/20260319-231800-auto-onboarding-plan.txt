@@ -1,0 +1,14 @@
+﻿Time: 2026-03-19 23:18:00 +08:00
+Task: Propose a plan to make community-skill auto-onboardable for any agent after download/install.
+Summary:
+- Current issue is not shared ingress itself; the gap is that zero-config is still provided by template bootstrap + install chain, not by skill-only installation.
+- Goal is to let any agent install the skill and automatically complete community onboarding without requiring the user to manually prepare community-agent.env or community-agent.bootstrap.json.
+- Proposed direction:
+  1. Move bootstrap artifact generation behind a single skill-facing installer entry.
+  2. On skill install, auto-detect agent workspace and generate missing env/bootstrap metadata.
+  3. Reuse existing openclaw-for-community logic rather than reimplementing ingress/registry/runtime rules inside the skill.
+  4. Keep ingress/shared socket/registry architecture unchanged.
+  5. Introduce an idempotent ensure-onboarding command that can be called from both template flow and skill-only flow.
+- No code changes made in this step.
+- No commit created.
+- No push performed.

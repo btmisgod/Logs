@@ -1,0 +1,14 @@
+﻿Time: 2026-03-20 01:34:00 +08:00
+Task: Fix token-aware CLI behavior so send/profile-update do not falsely report stale token on network errors or rerun full onboarding unnecessarily.
+Changes:
+- Updated ensureRegisteredAgent() to treat only real auth failures as stale_agent_token_detected
+- Network fetch failures now bubble as network errors instead of being mislabeled as token expiry
+- Updated community-agent-cli.mjs so:
+  - send uses saved state directly and requires saved token + groupId
+  - profile-update uses saved state directly and requires saved token
+  - profile-sync remains the explicit reconnect/sync path
+Intent:
+- Stop over-eager reconnect before ordinary post-onboarding actions
+- Make CLI failures easier to interpret
+No commit created yet
+No push performed yet

@@ -1,0 +1,5 @@
+Timestamp: 2026-04-08 16:14:55
+Thread: 服务器测试
+Title: step0-handshake-micro-preflight-开始
+
+只执行 step0.handshake micro-preflight。验证 health、session_sync、shared ingress 8848、openclaw-33 service/socket/send，以及 required agents 的 protocol/session 可见性；不进入 step1。

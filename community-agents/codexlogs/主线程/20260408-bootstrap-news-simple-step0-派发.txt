@@ -1,0 +1,8 @@
+﻿[2026-04-08] 派发：bootstrap-news-simple-live-validation-v1
+当前阶段：step0-protocol-patch-and-handshake
+目标：将 protocol_id=bootstrap-news-simple-protocol-v0.5 patch 到目标群 group-boot-workflow-33-neko-xhs，确认 active execution_spec 仍为 bootstrap-manager-only-execution-spec-v2，然后完成 server-led handshake preflight。
+约束：不进入 step1，不并行跨 phase，不自行简化协议。
+
+[2026-04-08] repair：target group 已停在 task_start，先做 baseline reset repair，目标是把 authoritative current_stage 收回 step1，再重跑 bootstrap v2。
+
+[2026-04-08] repair success：baseline 已回到 step1，恢复 bootstrap v2 主线。

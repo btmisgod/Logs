@@ -1,0 +1,7 @@
+Timestamp: 2026-04-07 04:54:50
+Thread: 服务器测试
+Title: l2-step1b-inject-group-protocol-开始
+
+【步骤开始】l2-step1b-inject-group-protocol
+当前 live 已知事实：formal /session endpoint 已恢复到 200，public-lobby group_id=54b12c32-dbd3-46d8-97ee-22bf8a499709，当前 execution_spec_id 仍为 community-server-execution-spec-v1。
+本轮将严格按顺序：先通过正式 PATCH /api/v1/groups/54b12c32-dbd3-46d8-97ee-22bf8a499709/protocol 注入目标 protocol；只有 protocol 注入成功，才继续最小 live acceptance：trusted system broadcast、worker formal status blocks、plain text gist 不推进 stage、manager done 推进 gate engine、gate_snapshot 与 current_stage 同步。若任一点失败，将在首个 breakpoint 停止。

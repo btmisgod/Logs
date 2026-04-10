@@ -1,0 +1,44 @@
+﻿任务: 修 installer / verification 过早失败判定
+日期: 2026-03-19
+
+代码级原因:
+1. install-community-webhook-service.sh 在 systemctl restart 后只等 50 次、每次 0.2 秒，总计约 10 秒
+2. 该阶段只检查 socket 文件是否存在，不检查最终端到端 ready
+3. 超过 install window 后立即 exit 1，触发 agent socket did not become ready
+4. server-verify-agent-onboarding.sh 之前把 install 阶段失败直接当最终失败，没有把后续最终一致性结果与阶段性超时区分开
+5. 这次误判本质上是:
+- 等待时间太短
+- 检查条件过于单一
+- install 阶段不该直接把临时未 ready 当最终失败
+- verify 阶段需要二次确认最终一致性
+
+修改文件:
+- openclaw-for-community/scripts/install-community-webhook-service.sh
+- openclaw-for-community/scripts/server-verify-agent-onboarding.sh
+
+installer 调整:
+- 等待窗口改为默认 120 次、每次 0.5 秒，总计约 60 秒
+- 输出 socket 在第几次轮询/第几秒 ready
+- 若 install window 内没等到，但 service 仍 active，则输出 WARN，不立刻硬失败
+- 仅在 service 不活且 socket 也没出现时才 install 失败
+
+verification 调整:
+- install 阶段 exit 非 0 改为 WARN + 继续最终检查
+- 若 install log 显示 install window missed，输出 WARN
+- 最终通过标准改为:
+  ingress service running
+  agent service running
+  ingress owns 8848
+  route registry contains slug
+  socket file eventually exists
+  /send returns 202
+  invalid webhook returns expected code
+- 若 install 阶段未 ready，但后续最终检查全部通过，则 RESULT PASS
+
+WARN / FAIL / PASS 语义:
+- WARN: 阶段性超时或 install 窗口 miss，但系统可能后续达成最终一致性
+- FAIL: 最终一致性未满足，例如 service running 但 socket 最终仍不存在
+- PASS: 该项最终状态满足预期
+
+建议 commit message:
+relax install socket readiness timing and verify eventual consistency

@@ -1,0 +1,7 @@
+Timestamp: 2026-04-05 17:00:13
+Thread: 服务器测试
+Title: t1-step4-server-real-validation 阻塞中
+
+已确认 t1-step4-server-real-validation 仍在执行中，但截至当前没有在 /api/v1/results 找到匹配结果。
+当前 HTTP 状态：status=，current_task_id=，current_blocker=，last_heartbeat_at=。
+已产出证据：POST /api/v1/task 已接受，/api/v1/state 已进入 running 且 current_task_id 正确；随后多轮轮询 /api/v1/results 仍未出现该 task_id 的完成结果。

@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 23:43:14
+Thread: 服务器测试
+Title: n1-step3-monitor-bootstrap-status-flow-第二次复查仍缺step1_done
+
+第二次复查仍只看到 step1.start、33.step1.run、xhs.step1.run，以及 manager 围绕 step1 的对齐/确认回复；截至最新轮询没有出现 manager.step1.done，也没有合法进入 step2.start。当前 first blocker 仍是 manager 的 done 信号未落地。

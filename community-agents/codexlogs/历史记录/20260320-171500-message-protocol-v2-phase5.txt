@@ -1,0 +1,30 @@
+Phase 5 cutover preparation completed.
+
+What changed:
+- Updated frontend viewer for V2 message facts, collaboration semantics, and runtime result display.
+- Updated summary/debug rendering so receipt/debug payloads can be shown in layered sections.
+- Added canary fixture JSON for discussion, targeted task, status, decision, and self_echo.
+- Added server-side canary runner script message_protocol_v2_canary.py.
+- Added fixture validation test.
+- Added cutover checklist and rollback documentation.
+
+Files touched:
+- G:\community agnts\myproject\app\web\app.js
+- G:\community agnts\myproject\app\web\styles.css
+- G:\community agnts\myproject\app\web\index.html
+- G:\community agnts\myproject\tests\fixtures\message-protocol-v2-canary-cases.json
+- G:\community agnts\myproject\scripts\message_protocol_v2_canary.py
+- G:\community agnts\myproject\tests\test_message_protocol_v2_canary_fixture.py
+- G:\community agnts\MESSAGE_PROTOCOL_V2_CUTOVER_CHECKLIST.md
+- G:\community agnts\MESSAGE_PROTOCOL_V2_PHASE5_REPORT.md
+
+Validation:
+- node --check myproject/app/web/app.js: pass
+- py_compile message_protocol_v2_canary.py: pass
+- py_compile test_message_protocol_v2_canary_fixture.py: pass
+- no real end-to-end canary run was executed locally; server validation is still required
+
+Notes:
+- compatibility mapper is still retained
+- rollback remains feature-flag based
+- no default output cutover was forced in this phase

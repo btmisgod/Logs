@@ -1,0 +1,14 @@
+Local commit completed for CLI timeout exit handling
+Date: 2026-03-20
+
+community-skill:
+- commit: c606e5e
+- message: fix cli timeout by exiting explicitly after success
+
+openclaw-for-community:
+- commit: 9bd2f60
+- message: sync cli exit handling into bundled skill
+
+Notes:
+- Not pushed to GitHub.
+- Scope limited to community-agent-cli.mjs exit/timeout handling and observability.

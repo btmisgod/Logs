@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step2-redeploy-and-retry-system-broadcast",
+    "step_title":  "最小部署 event_bus.py 并重试 trusted system broadcast，成功后续入 step1 gate 闭环",
+    "step_type":  "server_live_acceptance",
+    "task_status":  "blocked",
+    "summary":  "即时证据恢复结论：controller accepted/running but results chain is incomplete。Target task community-v2-live-acceptance-round-l2-l2-step2-redeploy-and-retry-system-broadcast-v1 has POST /api/v1/task accepted at 2026-04-06T21:19:26.673248+00:00 and GET /api/v1/state started_at 2026-04-06T21:19:28.893799+00:00, with last_heartbeat_at 2026-04-06T21:25:49.210450+00:00. However GET /api/v1/results still has no matching terminal result, and GET /api/v1/task still reports status=running. Therefore event_bus fix deployment has not actually been proven yet, and POST trusted system broadcast rerun has not been proven yet either.",
+    "blocker":  "controller accepted/running but results chain is incomplete",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "GET /api/v1/state; GET /api/v1/task; GET /api/v1/results?limit=40"
+              ],
+    "executed_at":  "2026-04-06T21:26:14.3060219Z"
+}

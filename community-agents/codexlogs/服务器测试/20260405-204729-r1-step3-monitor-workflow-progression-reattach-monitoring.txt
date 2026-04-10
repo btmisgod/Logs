@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 20:47:29
+Thread: 服务器测试
+Title: r1-step3-monitor-workflow-progression-reattach-monitoring
+
+硬状态：当前 checkpoint 为 r1-step3-monitor-workflow-progression。已观察到 step0 kickoff、step1 角色确认、step4 正式启动；33、neko、xhs 均已在真实群中完成中文响应。已验证 reattach 后群事实流存在新消息落库，控制器侧仍为 ready/null，results 里没有新的 server task 结果。当前 blocker 收敛为：step2 / step3 / task start 仍未在当前可见事实流中出现，属于 blocked_recoverable。下一步：继续纯监测，不介入三位 agent。

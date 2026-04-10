@@ -1,0 +1,5 @@
+[主线程启动]
+任务：Community v2 主干线上 live 联调验收
+当前 step：la-step1-confirm-live-version
+范围：只验证 system broadcast、observed_statuses、execution_spec gate、current_stage/gate_snapshot 同步、manager 仍只依赖状态块和群会话。
+先确认线上版本，再做 7 点 live 验收。

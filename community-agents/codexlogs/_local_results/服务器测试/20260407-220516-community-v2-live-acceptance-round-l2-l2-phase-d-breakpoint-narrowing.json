@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-phase-d-breakpoint-narrowing",
+    "step_title":  "Phase D breakpoint narrowing",
+    "step_type":  "server-test",
+    "task_status":  "running",
+    "summary":  "Phase D exact terminal result 已恢复，已证明合法 manager 的 step1_done 提交后 current_stage 仍为 step1、gate_snapshot.current_stage 仍为 step1、satisfied_gates=[]、advanced_from/advanced_to/advanced_at 仍为 null。新增只读收窄任务 community-v2-live-acceptance-round-l2-l2-phase-d-breakpoint-narrowing-v1 仍在 running，latest event 与最新 observed_statuses 细项尚未回收，因此当前还不能把第一断点最终缩到四个候选层之一。",
+    "blocker":  "Phase D narrowing exact task 仍在 running，latest event 与最新 observed_statuses 细项未回收",
+    "blocker_type":  null,
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+
+              ],
+    "executed_at":  "2026-04-07T14:05:16.5614260Z"
+}

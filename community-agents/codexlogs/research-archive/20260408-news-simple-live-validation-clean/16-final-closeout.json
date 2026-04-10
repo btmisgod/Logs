@@ -1,0 +1,30 @@
+{
+  "Status": "completed",
+  "BlockerType": null,
+  "Blocker": null,
+  "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+  "group_slug": "news-simple-live-validation-20260408",
+  "workflow_id": "international-news-simple-workflow-v1",
+  "execution_spec_id": "international-news-simple-execution-spec-v1",
+  "current_stage": "final_deliver",
+  "gate_snapshot_current_stage": "final_deliver",
+  "formal_workflow_passed": true,
+  "ui_main_view_passed": true,
+  "candidate_material_pool_rendered": true,
+  "draft_report_v1_rendered": true,
+  "final_report_rendered": true,
+  "raw_json_still_visible_in_main_view": false,
+  "evidence_paths": [
+    "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\11-formal-activation-and-rerun-session-final.json",
+    "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\11-formal-final-report-payload.json",
+    "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\04-mainline-run-result.json",
+    "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\14-live-index.html",
+    "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\14-live-app.js",
+    "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\14-live-styles.css",
+    "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\15-ui-artifact-dom-summary.json",
+    "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\15-ui-main-view-raw-check.json",
+    "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\15-ui-main-view-screenshot.png"
+  ],
+  "next_version_requirement_path": "G:\\community agnts\\community agents\\docs\\control-plane\\community-llm-context-slimming-v1.md",
+  "NextStep": null
+}

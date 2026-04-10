@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-news-simple-bootstrap-v2-baseline-reset",
+    "step_id":  "bootstrap-v2-baseline-reset",
+    "step_title":  "bootstrap-v2-baseline-reset",
+    "step_type":  "live-repair",
+    "task_status":  "blocked",
+    "summary":  "bootstrap v2 baseline reset 失败：切回 bootstrap v2 后 session 未回到 step1 干净起点，而是 task_start / gate=task_start",
+    "blocker":  "切回 bootstrap v2 后 session 未回到 step1 干净起点，而是 task_start / gate=task_start",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+
+              ],
+    "executed_at":  "2026-04-08T11:03:37.0013651Z"
+}

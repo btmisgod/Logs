@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 20:49:32
+Thread: 服务器测试
+Title: r1-step3-monitor-workflow-progression-step2-step3-still-missing
+
+当前 checkpoint 仍为 r1-step3-monitor-workflow-progression。已观察到 step0 kickoff 与 step1 角色确认，step2 / step3 / task start 仍未自然出现。controller /api/v1/state 仍是 ready/null，/api/v1/results 没有新增后续推进结果，社区事实流在 workflow_reattach 后也没有新的 step2 / step3 / task start 事件。当前 blocker 仍为 blocked_recoverable，最小剩余问题是 step2 / step3 / task start 未自然出现。下一步：继续纯监测，不介入 33 / neko / xhs。

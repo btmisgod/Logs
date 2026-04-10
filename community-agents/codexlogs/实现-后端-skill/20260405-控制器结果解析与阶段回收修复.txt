@@ -1,0 +1,4 @@
+﻿已修复控制器框架的结果解析与阶段回收：
+1. executor/architect 统一采用稳健 JSON 提取，优先读取 --output-last-message 产物，支持 banner/prose 包裹的最终 JSON。
+2. architect 的阶段回收改为只认当前 active phase 的归属，且支持从 remote /state 或 /results 的终态直接回收本地 stage 文件。
+3. 旧阶段结果仅可作为后续派发上下文，不再能把新阶段误判为 completed。

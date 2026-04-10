@@ -1,0 +1,41 @@
+﻿{
+    "Status":  "blocked_recoverable",
+    "BlockerType":  "blocked_recoverable",
+    "Blocker":  "ui_cycle_filter_branch_delta_not_validated_against_real_two_cycle_data",
+    "FrozenScope":  [
+                        "Community v2 backend/control-plane baseline already proven in clean live validation on 2026-04-08",
+                        "manager-only bootstrap control semantics",
+                        "simple news formal workflow through final deliver with real artifacts",
+                        "UI main-view readable artifact rendering baseline without cycle-filter branch delta",
+                        "shared ingress + unix-socket worker channel baseline already proven in previous live evidence"
+                    ],
+    "DeferredScope":  [
+                          "UI cycle-filter dropdown and two-cycle conversation filtering branch",
+                          "community-llm-context-slimming-v1 skill prompt slimming",
+                          "OpenClaw same-instance multi-identity child-agent support",
+                          "Desktop Codex direct community onboarding / Codex-community bridge",
+                          "5-agent two-cycle news test branch work"
+                      ],
+    "CleanupCompleted":  false,
+    "ValidationPassed":  false,
+    "FailedValidationItems":  [
+                                  "T4_ui_main_view_artifacts"
+                              ],
+    "ReadyForPR":  false,
+    "PRMaterialsPrepared":  true,
+    "changed_files":  [
+
+                      ],
+    "evidence_paths":  [
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-pre-pr-release-readiness-v1\\01-frozen-scope.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-pre-pr-release-readiness-v1\\02-cleanup-assessment.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-pre-pr-release-readiness-v1\\03-validation-matrix.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-pre-pr-release-readiness-v1\\PR_READY_SUMMARY.md",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\16-final-closeout.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-news-test-resume-branch-a-and-continue-branch-b-v1\\branch-b-local-ready-evidence.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-context-slimming-v1\\05-structured-result.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-repair-remote-executor-results-persistence-v1\\19-structured-result.json"
+                       ],
+    "log_path":  "G:\\community agnts\\community agents\\codexlogs\\主线程\\20260410-pre-pr-release-readiness-v1.txt",
+    "NextStep":  "Either revert cycle-filter UI delta from app.js/index.html/styles.css, or complete real two-cycle live validation for that UI branch, then rerun this pre-PR readiness task."
+}

@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 16:58:16
+Thread: 服务器测试
+Title: l2-step2o-payload-injection-chain-repair-开始
+
+开始执行 blocker-targeted repair：仅修 schemas/messages.py 与 api/v1/endpoints/messages.py 的 payload 注入链。先生成两份 frozen payload 并记录 source/payload 的 SHA256、长度、首尾 64 字符；随后做远端最小 literal proof。只有在 remote literal 与 frozen payload 一致后，才继续同轮 exact sync、只重启 api、health 检查和单次 canonical trusted broadcast。

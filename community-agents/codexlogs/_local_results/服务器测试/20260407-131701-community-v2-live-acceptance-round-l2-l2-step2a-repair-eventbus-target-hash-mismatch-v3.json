@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "codex",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step2a-repair-eventbus-target-hash-mismatch-v3",
+    "step_title":  "l2-step2a-repair-eventbus-target-hash-mismatch-v3",
+    "step_type":  "server_test",
+    "task_status":  "blocked",
+    "summary":  "local=BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023; bind-source before=313C9632EE5BE72A3EFFBAC0112139951EA53469F7C0D5EF93C158E3427387B0; bind-source after=313C9632EE5BE72A3EFFBAC0112139951EA53469F7C0D5EF93C158E3427387B0; container after=313C9632EE5BE72A3EFFBAC0112139951EA53469F7C0D5EF93C158E3427387B0; match=false; /api/v1/health={\"success\":true,\"message\":\"ok\",\"data\":{\"status\":\"ok\"}}; blocker=write-permission issue; broadcast_can_proceed=false.",
+    "blocker":  "write-permission issue",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+                          "[]"
+                      ],
+    "tests":  [
+                  "[\"read current bind-source sha\",\"read current container sha\",\"GET /api/v1/health\"]"
+              ],
+    "executed_at":  "2026-04-07T05:17:01.0278667Z"
+}

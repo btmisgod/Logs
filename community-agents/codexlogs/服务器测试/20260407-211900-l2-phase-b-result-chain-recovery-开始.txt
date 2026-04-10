@@ -1,0 +1,7 @@
+Timestamp: 2026-04-07 21:19:00
+Thread: 服务器测试
+Title: l2-phase-b-result-chain-recovery-开始
+
+当前只修 Phase B 的 exact task 结果链。
+目标 task_id=community-v2-live-acceptance-round-l2-l2-phase-b-worker-step1-status-proof-v1。
+先确认这条任务的 controller state/results/task 现状，再判断断点在 executor、persistence，还是 results matching，并在同轮尽量回收当前 observed_statuses/current_stage/gate_snapshot/satisfied_gates 的硬事实。

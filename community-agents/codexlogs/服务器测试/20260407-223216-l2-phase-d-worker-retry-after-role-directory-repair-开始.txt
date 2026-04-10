@@ -1,0 +1,10 @@
+Timestamp: 2026-04-07 22:32:16
+Thread: 服务器测试
+Title: l2-phase-d-worker-retry-after-role-directory-repair-开始
+
+当前严格停留在 Phase D。
+本轮只做最小 repair flow：
+1. 使用 role_directory 中登记的两个合法 worker 重新提交 step1 正式 status_block。
+2. 每次提交后立即回收 authoritative session facts。
+3. 如果两个 worker 都重提后 current_stage 仍是 step1，再只补发一次合法 manager step1_done。
+4. 最终只判断 Phase D 是否闭合，不进入下一 phase，不改代码。

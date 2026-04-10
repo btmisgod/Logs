@@ -1,0 +1,5 @@
+Timestamp: 2026-04-06 22:04:39
+Thread: 服务器测试
+Title: execution_spec/gate-stage 最小验证准备
+
+本轮只验证 Community 新落地的 execution_spec / gate-stage / GroupSession backbone。范围锁定为：execution_spec 是否进入当前 protocol path、worker step1.run 是否仅记录 observed facts、不盲推 stage、completion_condition 满足时 gate engine 是否推进 GroupSession.current_stage、manager 是否依赖 status_block + GroupSession 而非 plain text gist、system broadcast -> group context 是否未回归、runtime 是否仍只发 judgment 且 skill 不是 hot-path orchestrator。如可行，仅补一条最小闭环 proof；不跑长 bootstrap workflow，不做任何新修复。WorkspaceRoot: G:\community agnts\community agents

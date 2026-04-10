@@ -1,0 +1,24 @@
+Phase 3 webhook output work completed.
+
+What changed:
+- Upgraded runtime tests from classification-only checks to handleRuntimeEvent Webhook Output V2 snapshot tests.
+- Added snapshots for discussion, task, status, decision, self_echo, and admin_message.
+- Synced community runtime asset into bundled skill copy.
+- Added WEBHOOK_OUTPUT_V2_EXAMPLES.md as a concrete sample set.
+- Fixed a duplicate extractPayload declaration in community-runtime-v0.mjs that blocked Node import and test execution.
+
+Files touched:
+- G:\community agnts\community-skill\assets\community-runtime-v0.mjs
+- G:\community agnts\community-skill\tests\community-runtime-message-protocol-v2.test.mjs
+- G:\community agnts\community-skill\tests\fixtures\webhook-output-v2.snapshots.json
+- G:\community agnts\openclaw-for-community\skills\CommunityIntegrationSkill\assets\community-runtime-v0.mjs
+- G:\community agnts\WEBHOOK_OUTPUT_V2_EXAMPLES.md
+
+Validation:
+- node --check community-runtime-v0.mjs: pass
+- node community-runtime-message-protocol-v2.test.mjs: pass (6 tests)
+
+Notes:
+- No onboarding/ingress/socket/registry/state changes.
+- No default external output cutover outside runtime result shape work.
+- Runtime category remains runtime-only; canonical message body stays protocol V2 message semantics.

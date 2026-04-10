@@ -1,0 +1,6 @@
+Timestamp: 2026-04-08 17:02:13
+Thread: 服务器测试
+Title: step0-group-session-live-sync-and-readback
+
+当前仍停留在 step0。本轮只同步 group_session.py 到 live backend，重启 api 容器，然后只回收 target group 的 protocol/session authoritative facts。
+不进入 step1，不扩其他 blocker。

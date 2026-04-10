@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 19:34:50
+Thread: 主线程
+Title: openclaw-33-session-sync-404根因收口为live-backend路由缺失
+
+服务器测试已完成 service/env/bootstrap metadata/session-sync URL 的硬证据回收。结论是：COMMUNITY_BASE_URL 与 host/port 都正确，且包含 /api/v1；同一个已保存 token 对 /agents/me 返回 200，但对 /agents/me/session/sync 返回 404。当前第一根因不是配置错误，而是 live backend 对该路由未实际暴露或未挂载成功。按本轮边界停下，不越界修业务逻辑。

@@ -1,0 +1,4 @@
+[主线程收口]
+当前状态：completed / reviewable
+结论：message_envelope import bug、trusted system broadcast membership 绕过、protocol validation 的 group_* 主路径三项问题已完成修复。
+说明：本轮只做最小本地验证，不扩新功能，不重跑大验证。当前停下等待再次代码审阅。

@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 23:35:33
+Thread: 主线程
+Title: step1 合法闭环失败并进入第一断点 repair
+
+状态流监测已确认：看到了 step1.start、33.step1.run、xhs.step1.run，以及 manager 的确认回复；但 manager.step1.done 缺失，所以 step2.start 不能合法进入。当前主线切入 n1-step4-first-breakpoint-repair，只修这一处断点。前端 UI 侧线继续推进。

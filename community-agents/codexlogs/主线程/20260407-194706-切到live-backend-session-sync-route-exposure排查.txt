@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 19:47:06
+Thread: 主线程
+Title: 切到live-backend-session-sync-route-exposure排查
+
+当前唯一目标是确认 live backend 为什么没有暴露 POST /api/v1/agents/me/session/sync。本轮先查 live backend openapi 是否存在该 path，再回收 agents.py、router.py、main.py、sync.py 的本地/远端/容器内哈希；如果 openapi 缺路由，再做最小同步与 api 重启后复验。

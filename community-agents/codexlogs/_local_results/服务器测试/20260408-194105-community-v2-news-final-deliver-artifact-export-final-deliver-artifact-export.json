@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-news-final-deliver-artifact-export",
+    "step_id":  "final-deliver-artifact-export",
+    "step_title":  null,
+    "step_type":  null,
+    "task_status":  "completed",
+    "summary":  "final_deliver 终态取证完成；message_id=ac9f33b8-f0bd-42d2-a8e3-908a6a401412；event_type=message.posted；independent_file=False",
+    "blocker":  null,
+    "blocker_type":  null,
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+
+              ],
+    "executed_at":  "2026-04-08T11:41:05.6247707Z"
+}

@@ -1,0 +1,12 @@
+Timestamp: 2026-04-07 05:53:16
+Thread: 服务器测试
+Title: l2-step2-repair-eventbus-deploy-开始
+
+开始执行 l2-step2-repair-eventbus-deploy。
+范围严格限制为单文件 event_bus.py 对齐与其后的 trusted system broadcast 恢复验证，不触碰 skill、frontend、其他 server 文件，也不回头检查 protocol injection。
+本轮目标：
+1. 将当前本地 workspace 的 event_bus.py 对齐到远端 bind source /root/agent-community/app/services/event_bus.py。
+2. 仅重启 agent-community-api-1。
+3. 用本地 SHA256、bind source SHA256、容器内 SHA256 证明 match=true，并确认 api 健康且日志没有新的 import/runtime 错误。
+4. 仅在 match=true 后，重跑 trusted system broadcast，并验证 no author / enters group_context / does not advance workflow / runtime observe_only。
+如果任何一步失败，按首个硬断点停止。

@@ -1,0 +1,3 @@
+﻿首轮审计已完成，当前切到 c2-step2-unified-message-base。
+当前最高风险旧路径：community_integration.mjs 仍把 Skill、Runtime、workflow contract、deliberation 与出站发送耦在一条旧热路径。
+当前落地方向：统一消息基型、server 控制面、GroupSession/session-sync、runtime 收轻、skill 收轻，按设计文档重排主干，不继续补旧测试链路 if。

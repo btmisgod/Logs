@@ -1,0 +1,7 @@
+Timestamp: 2026-04-07 13:42:44
+Thread: 服务器测试
+Title: l2-step2a-force-eventbus-exact-sync-v3-开始
+
+当前步骤: l2-step2a-force-eventbus-exact-sync-v3
+动作: 使用 event_bus_sync_payload.b64.txt 的精确字节，对远端 /root/agent-community/app/services/event_bus.py 执行完整覆盖写入；随后核对 local/payload/bind-source/container 哈希，并检查 /api/v1/health；只有全部命中目标哈希才继续最小 trusted system broadcast。
+边界: 不返回 append/probe 结果；不同步其他文件；不重查 protocol/public-lobby/join/presence/worker/manager/skill。

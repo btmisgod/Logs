@@ -1,0 +1,105 @@
+{
+  "command_id": "20260410-context-slimming-real-sampling-retry-v1",
+  "version": "1.0",
+  "created_at": "2026-04-10",
+  "target_thread": "main-controller",
+  "workspace_root": "G:\\community agnts\\community agents",
+  "title": "Retry real LLM sampling for context slimming after controller credentials are configured",
+  "objective": "Now that REMOTE_CODEX_SERVER_URL and REMOTE_CODEX_SERVER_TOKEN have been provided, rerun the real-LLM regression sampling task for the slimmed CommunityIntegrationSkill prompt path and close the blocked_external gap.",
+  "references": [
+    {
+      "path": "G:\\community agnts\\community agents\\codex command\\20260410-context-slimming-real-sampling-v1.json",
+      "description": "Original real-sampling task definition."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-context-slimming-real-sampling-v1\\05-structured-result.json",
+      "description": "Previous blocked result caused by missing remote controller credentials."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\docs\\control-plane\\community-llm-context-slimming-v1.md",
+      "description": "Requirement baseline for prompt-context slimming."
+    }
+  ],
+  "target_group": {
+    "group_slug": "news-simple-live-validation-20260408",
+    "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf"
+  },
+  "required_work": [
+    {
+      "id": "preflight_controller_env_check",
+      "description": "Verify that REMOTE_CODEX_SERVER_URL and REMOTE_CODEX_SERVER_TOKEN are now available in the execution environment before dispatch."
+    },
+    {
+      "id": "dispatch_real_sampling_task",
+      "description": "Use the configured remote controller path to dispatch the real-sampling work to a credentialed clean workspace."
+    },
+    {
+      "id": "run_one_real_worker_sample",
+      "description": "Execute one real worker sample against the clean validation group using the slimmed prompt path."
+    },
+    {
+      "id": "run_one_real_manager_sample",
+      "description": "Execute one real manager sample against the clean validation group using the slimmed prompt path."
+    },
+    {
+      "id": "verify_no_workflow_regression",
+      "description": "Verify that trusted broadcast does not regress, worker evidence remains collected without directly advancing the stage, and manager-only formal signal still controls gate advancement."
+    },
+    {
+      "id": "capture_real_prompt_and_token_evidence",
+      "description": "Collect the prompt composition and token totals for the real worker sample and the real manager sample."
+    },
+    {
+      "id": "write_logs_and_terminal_result",
+      "description": "Write detailed execution logs to the main-thread log folder and publish a structured terminal result with evidence and log paths."
+    }
+  ],
+  "do_not": [
+    "Do not re-implement context slimming unless the real run proves the current code path is broken.",
+    "Do not expand this task into new feature work, UI work, or unrelated workflow changes.",
+    "Do not silently stop after env preflight passes; this task is for real sampling execution.",
+    "Do not replace real-sampling verification with prompt-only proof."
+  ],
+  "acceptance": [
+    "Controller environment preflight confirms REMOTE_CODEX_SERVER_URL and REMOTE_CODEX_SERVER_TOKEN are present.",
+    "At least one real worker sample executed.",
+    "At least one real manager sample executed.",
+    "Trusted broadcast / worker evidence / manager-only gate behavior did not regress.",
+    "Real prompt/token evidence was captured.",
+    "A structured terminal result exists with evidence paths and a log path."
+  ],
+  "deliverables": [
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-context-slimming-real-sampling-retry-v1",
+      "description": "Evidence folder for the retry run."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\主线程",
+      "description": "Main-thread log root for detailed logs."
+    }
+  ],
+  "working_principles": [
+    "Reuse the existing slimming implementation as-is unless real evidence proves a regression.",
+    "Keep the task narrow: real sampling retry only.",
+    "If the remote controller dispatch still fails, classify the first blocker precisely and stop.",
+    "Detailed process belongs in logs; user-facing summary should stay brief."
+  ],
+  "result_format": {
+    "required_fields": [
+      "Status",
+      "BlockerType",
+      "Blocker",
+      "ControllerEnvReady",
+      "CredentialedWorkspaceUsed",
+      "WorkerSampleExecuted",
+      "ManagerSampleExecuted",
+      "TrustedBroadcastRegressed",
+      "WorkerEvidenceRegressed",
+      "ManagerGateRegressed",
+      "RealTokenEvidenceCaptured",
+      "evidence_paths",
+      "log_path",
+      "NextStep"
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+﻿{
+    "ok":  true,
+    "task":  {
+                 "task_id":  "remote-results-smoke-20260410-01",
+                 "title":  "Remote executor result persistence smoke task",
+                 "goal":  "Return strict terminal JSON: completed / smoke ok.",
+                 "cwd":  "/root/Agents-controller-HTTP",
+                 "must_do":  [
+                                 "Return strict JSON only with task_status=completed and summary=smoke ok."
+                             ],
+                 "must_not_do":  [
+                                     "Do not run external network calls.",
+                                     "Do not modify files."
+                                 ],
+                 "acceptance":  [
+                                    "The terminal result becomes visible through /api/v1/results."
+                                ],
+                 "notes":  "Strict JSON only.",
+                 "status":  "pending",
+                 "workflow_step":  null,
+                 "group_id":  null,
+                 "group_context":  null,
+                 "channel_context":  null,
+                 "received_at":  "2026-04-10T08:35:56.359281+00:00"
+             },
+    "accepted":  true,
+    "evidence_chain":  {
+                           "task_id":  "remote-results-smoke-20260410-01",
+                           "workflow_step":  null,
+                           "group_id":  null,
+                           "accepted":  {
+                                            "ok":  true,
+                                            "endpoint":  "POST /api/v1/task",
+                                            "task_status":  "pending",
+                                            "received_at":  "2026-04-10T08:35:56.359281+00:00"
+                                        },
+                           "running":  {
+                                           "ok":  false,
+                                           "endpoint":  "GET /api/v1/state",
+                                           "state_status":  "pending",
+                                           "started_at":  "2026-04-10T08:18:32.190769+00:00"
+                                       },
+                           "finished":  {
+                                            "ok":  false,
+                                            "endpoint":  "GET /api/v1/results",
+                                            "result_status":  null,
+                                            "executed_at":  null
+                                        }
+                       }
+}

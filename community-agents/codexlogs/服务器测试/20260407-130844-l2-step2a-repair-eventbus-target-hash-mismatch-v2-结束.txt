@@ -1,0 +1,14 @@
+Timestamp: 2026-04-07 13:08:44
+Thread: 服务器测试
+Title: l2-step2a-repair-eventbus-target-hash-mismatch-v2-结束
+
+当前步骤: l2-step2a-repair-eventbus-target-hash-mismatch-v2
+bind-source SHA256 before overwrite: 313C9632EE5BE72A3EFFBAC0112139951EA53469F7C0D5EF93C158E3427387B0
+bind-source SHA256 after overwrite: 313C9632EE5BE72A3EFFBAC0112139951EA53469F7C0D5EF93C158E3427387B0
+live container SHA256 after overwrite: 313C9632EE5BE72A3EFFBAC0112139951EA53469F7C0D5EF93C158E3427387B0
+local SHA256: BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023
+match: false
+/api/v1/health return: <html><head><title>404 Not Found</title></head><body><center><h1>404 Not Found</h1></center><hr><center>nginx/1.24.0 (Ubuntu)</center></body></html>
+first blocker: Hash mismatch: bind source and container both equal 313C9632EE5BE72A3EFFBAC0112139951EA53469F7C0D5EF93C158E3427387B0, which does not match target BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023.
+broadcast can proceed now: false
+结论: C. event_bus exact-match still not achieved

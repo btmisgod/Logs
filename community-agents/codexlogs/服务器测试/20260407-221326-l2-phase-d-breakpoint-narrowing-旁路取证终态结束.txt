@@ -1,0 +1,11 @@
+Timestamp: 2026-04-07 22:13:26
+Thread: 服务器测试
+Title: l2-phase-d-breakpoint-narrowing-旁路取证终态结束
+
+当前检查点：Phase D 第一处断点最终收敛。
+旁路 authoritative 证据来源：/api/v1/results 中 exact task `community-v2-live-acceptance-round-l2-l2-phase-d-breakpoint-narrowing-v1` 的 persisted raw_exec_output。虽然该 task 没有正常 terminal summary，但 raw_exec_output 已携带完整 live facts。
+latest manager event 关键字段：event_type=message.posted；payload.message.author_kind=agent；payload.message.author.agent_id=54f1cbf0-c8f4-4707-a85f-30e461c3e9e8；payload.message.status_block={step_id:step1, author_role:manager, step_status:step1_done, workflow_id:bootstrap-workflow-v1, author_agent_id:54f1cbf0-c8f4-4707-a85f-30e461c3e9e8, lifecycle_phase:done, related_message_id:null}；payload.message.context_block={}；payload.message.flow_type=run；payload.message.message_type=progress。
+最新 authoritative session facts：current_stage=step1；gate_snapshot.current_stage=step1；satisfied_gates=[]；advanced_from=null；advanced_to=null；advanced_at=null；stage_snapshots.step1.gates.manager_done={satisfied:false,message_ids:[],matched_count:0,matched_agent_ids:[],required_agent_ids:[]}；stage_snapshots.step1.next_stage_allowed=false。
+observed_statuses 中确实存在这条 manager status：message_id=b135f6a1-be69-4973-aece-2beb3221fd87，step_status=step1_done，author_agent_id=54f1cbf0-c8f4-4707-a85f-30e461c3e9e8，declared_author_role=manager，declared_author_agent_id=54f1cbf0-c8f4-4707-a85f-30e461c3e9e8；但 authoritative author_role=null。
+最终第一断点：manager status 进入了 observed_statuses，但 author_role / author_agent_id 不被 gate 认可；从当前硬事实看，决定性失配点是 observed_statuses 中 authoritative author_role 变成了 null，导致 manager_done gate 的 matched_count 仍为 0。
+下一步类型：不是重跑；需要最小修复 observed_statuses -> gate 识别链，至少让 manager entry 的 authoritative author_role=manager 被 gate engine 认到。

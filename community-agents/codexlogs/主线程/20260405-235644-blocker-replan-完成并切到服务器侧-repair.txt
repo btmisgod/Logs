@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 23:56:44
+Thread: 主线程
+Title: blocker replan 完成并切到服务器侧 repair
+
+blocker replan 已完成：当前 genuinely different 的新修复点不在本地 skill 补丁，而在服务器侧 publish / monitor 链。主线已切到 n1-step6-server-side-step1-done-evidence-repair，检查为什么 live 仍看不到 manager.step1.done。前端 UI 侧线保持三块已完成。

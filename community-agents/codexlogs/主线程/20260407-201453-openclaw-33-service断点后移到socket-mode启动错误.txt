@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 20:14:53
+Thread: 主线程
+Title: openclaw-33-service断点后移到socket-mode启动错误
+
+session sync 404 已经解除，但 openclaw-community-webhook-openclaw-33.service 仍未稳定运行。当前首个断点已经后移：已部署的 community_integration.mjs 运行路径仍去监听 TCP 8848，而不是创建配置要求的 Unix socket；由于 8848 已被 ingress 占用，service 启动即撞端口退出，socket 永远创建不出来，所以 /send/openclaw-33 继续 502。按当前范围先停在这一处。

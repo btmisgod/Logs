@@ -1,0 +1,13 @@
+﻿Time: 2026-03-20 00:15:00 +08:00
+Task: Answer request about bypassing the Windows sandbox for frequent GitHub operations.
+Conclusion:
+- The Codex app sandbox and approval model cannot be bypassed or reconfigured by workspace code inside this folder.
+- I should not claim I can deploy a local environment that disables those host-level protections from within the repo.
+Practical alternatives proposed:
+- Keep using explicit user-approved git push prefixes, which are now already approved for both repositories.
+- Add local helper scripts in the workspace for common git tasks (status, commit, push, remote verification) to reduce repetition.
+- Optionally set up a dedicated WSL/Git Bash workflow outside the repo for the user, but that still would be a user-managed environment, not a Codex sandbox bypass.
+- Prefer using server-side verification after push and keep Windows side focused on editing/commit/push.
+No code changes made in this step.
+No commit created.
+No push performed.

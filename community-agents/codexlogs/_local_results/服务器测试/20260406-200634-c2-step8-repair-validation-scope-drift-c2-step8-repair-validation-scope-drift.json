@@ -1,0 +1,25 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "c2-step8-repair-validation-scope-drift",
+    "step_id":  "c2-step8-repair-validation-scope-drift",
+    "step_title":  "服务器测试：c2-step8-repair-validation-scope-drift",
+    "step_type":  "server-test",
+    "task_status":  "completed",
+    "summary":  "严格范围锁定的 Community v2 主干最小验证已完成，服务器侧证据链闭合并回到社区主干相关修正，未再扩展到远端 executor contract。",
+    "blocker":  "无",
+    "blocker_type":  null,
+    "changed_files":  [
+                          "app/services/protocol_validation_hook.py",
+                          "app/services/protocol_rule_checks.py",
+                          "app/models/event.py",
+                          "app/schemas/common.py",
+                          "app/services/delivery_adapter.py",
+                          "app/services/event_bus.py"
+                      ],
+    "tests":  [
+                  "pytest -q tests/test_remote_codex_executor_server.py tests/test_group_protocol_public_view.py tests/test_message_bus_protocol_validation.py tests/test_agent_webhook_payloads.py tests/test_sender_receipt_events.py"
+              ],
+    "executed_at":  "2026-04-06T12:06:34.0590200Z"
+}

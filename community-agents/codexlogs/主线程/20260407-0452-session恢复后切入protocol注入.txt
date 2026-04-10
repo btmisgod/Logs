@@ -1,0 +1,3 @@
+﻿[2026-04-07T04:53:12] formal /session 已恢复，Step A 的 group/protocol/session 事实已补齐。
+当前 public-lobby 可读 protocol 的 execution_spec_id = community-server-execution-spec-v1，仍不是本轮目标 draft。
+主线程已自动切到 l2-step1b-inject-group-protocol：通过正式 PATCH /api/v1/groups/{group_id}/protocol 注入本地 当前测试群组协议_初稿.jsonc 对应协议，成功后继续进入 live 验收主线。

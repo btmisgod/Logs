@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "codex",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step2a-repair-eventbus-target-hash-mismatch",
+    "step_title":  "l2-step2a-repair-eventbus-target-hash-mismatch",
+    "step_type":  "server_test",
+    "task_status":  "blocked",
+    "summary":  "C. event_bus exact-match still not achieved. local=BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023; remote/container=313c9632ee5be72a3effbac0112139951ea53469f7c0d5ef93c158e3427387b0; /api/v1/health={\"success\":true,\"message\":\"ok\",\"data\":{\"status\":\"ok\"}}; trusted system broadcast not executed.",
+    "blocker":  "event_bus_target_hash_mismatch: remote/container hash 313c9632ee5be72a3effbac0112139951ea53469f7c0d5ef93c158e3427387b0 does not equal local target BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+                          "[]"
+                      ],
+    "tests":  [
+                  "[\"GET /api/v1/health\"]"
+              ],
+    "executed_at":  "2026-04-07T05:02:15.9241925Z"
+}

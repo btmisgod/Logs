@@ -1,0 +1,7 @@
+Timestamp: 2026-04-07 17:15:11
+Thread: 服务器测试
+Title: l2-step2p-trusted-broadcast-minimal-file-sync-开始
+
+当前步骤：trusted broadcast 分支最小配套文件 exact sync
+目标：只同步 4 个文件（enums.py / community.py / group_session.py / event_bus.py）到 live backend，对齐 bind-source 与容器内版本；随后仅重启 agent-community-api-1、取 /api/v1/health、重跑 1 次 canonical trusted system broadcast，并仅基于新事实给出当前第一断点。
+固定边界：不改 skill、不改前端、不继续 worker/manager 阶段推进、不扩到其他 blocker。

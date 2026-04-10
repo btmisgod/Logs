@@ -1,0 +1,134 @@
+{
+  "command_id": "20260410-codex-community-self-onboarding-v1",
+  "version": "1.0",
+  "created_at": "2026-04-10",
+  "target_thread": "new-feature-thread",
+  "workspace_root": "G:\\community agnts\\community agents",
+  "title": "Connect desktop Codex capability into Agent Community as one new identity without changing community",
+  "objective": "Use the existing community integration model as reference, but do not modify the community backend, protocol, or UI. The only task is to make this Codex-side capability obtain one valid community identity, join a target group, and prove that it can correctly receive community tasks and send compliant responses back through the community channel.",
+  "target_outcome": {
+    "identity_goal": "Desktop Codex side obtains exactly one new community identity.",
+    "integration_goal": "That identity can join a target group, receive community-originated work, and send correct community responses.",
+    "boundary_goal": "No change is made to the community backend, protocol definitions, workflow engine, or existing community UI."
+  },
+  "references": [
+    {
+      "path": "G:\\community agnts\\community agents\\openclaw-for-community\\skills\\CommunityIntegrationSkill\\README.md",
+      "description": "Primary local reference for how a community-connected agent is expected to onboard and communicate."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\openclaw-for-community\\skills\\CommunityIntegrationSkill\\scripts\\community_integration.mjs",
+      "description": "Current agent-side community integration implementation. Use as behavior reference, not as permission to change community."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\openclaw-for-community\\skills\\CommunityIntegrationSkill\\scripts\\ensure-community-agent-onboarding.sh",
+      "description": "Current onboarding script showing what identity, route, socket, and state artifacts are required."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\openclaw-for-community\\community-agent.env.example",
+      "description": "Reference environment variables used by a community-connected agent."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\openclaw-for-community\\README.md",
+      "description": "Top-level OpenClaw community template overview."
+    },
+    {
+      "path": "G:\\community agnts\\Agents-controller-HTTP\\README.md",
+      "description": "Reference for the prior HTTP controller pattern. Useful if a Codex-community bridge is needed instead of pretending desktop Codex is an OpenClaw runtime."
+    },
+    {
+      "path": "https://docs.openclaw.ai/concepts/multi-agent",
+      "description": "Official OpenClaw multi-agent model. Use to distinguish independent agents from sub-agent sessions."
+    },
+    {
+      "path": "https://docs.openclaw.ai/tools/subagents",
+      "description": "Official OpenClaw sub-agent model. Use to avoid assuming sub-agents are fully isolated agents."
+    },
+    {
+      "path": "https://docs.openclaw.ai/tools/skills",
+      "description": "Official OpenClaw skills model. Use to verify workspace-scoped skill behavior."
+    }
+  ],
+  "assumptions": [
+    "This thread is allowed to add or modify Codex-side adapter/bridge code or local support scripts if needed.",
+    "This thread is not allowed to change the community backend, protocol, workflow engine, or frontend.",
+    "The target is one new Codex-connected community identity, not a multi-identity runtime.",
+    "If direct reuse of CommunityIntegrationSkill is not technically appropriate for desktop Codex, it is acceptable to build a thin Codex-community bridge that follows the same community-facing contract."
+  ],
+  "required_work": [
+    {
+      "id": "phase1_confirm_integration_route",
+      "description": "Determine the correct technical route for desktop Codex to join the community as one identity. Decide explicitly between: (a) direct reuse/adaptation of the current CommunityIntegrationSkill model, or (b) a thinner Codex-community bridge that presents one community identity while delegating actual work to desktop Codex. The decision must be based on the local references and official OpenClaw docs, not guesswork."
+    },
+    {
+      "id": "phase2_define_codex_identity_bundle",
+      "description": "Define the minimum Codex-side identity bundle needed to join the community: name/handle, local state path, auth token storage, send path or equivalent outbound identity binding, and the community-facing response format."
+    },
+    {
+      "id": "phase3_implement_local_codex_side_integration",
+      "description": "Implement the minimum local integration needed for one Codex identity to register or reuse an identity, join the target group, receive community-directed work, and send compliant community messages back. Keep the implementation local to the Codex side; do not patch community services."
+    },
+    {
+      "id": "phase4_onboard_one_identity",
+      "description": "Run onboarding for exactly one new Codex-connected identity and capture the resulting identity/state evidence."
+    },
+    {
+      "id": "phase5_prove_receive_and_respond_behavior",
+      "description": "Prove the new Codex-connected identity can correctly participate in the community: receive a task or message, process it, and send a structurally correct response back through the expected community path."
+    },
+    {
+      "id": "phase6_closeout_with_boundaries",
+      "description": "Write a closeout that clearly states what was built, what identity was created, what message path was used, what remains out of scope, and why no community-side modifications were needed."
+    }
+  ],
+  "do_not": [
+    "Do not modify the community backend code.",
+    "Do not modify community protocol definitions.",
+    "Do not modify the workflow engine or group-session logic.",
+    "Do not modify community UI code.",
+    "Do not broaden the task into multi-agent or multi-identity support.",
+    "Do not claim desktop Codex is an OpenClaw sub-agent unless the official docs explicitly support that model for this use case.",
+    "Do not solve the task by pretending payload self-declared ids are enough for identity; use a real authenticated identity path."
+  ],
+  "working_principles": [
+    "Community remains the communication bus and identity authority.",
+    "Desktop Codex remains an external execution capability, not a reason to redesign community.",
+    "If a bridge is required, keep it thin: identity/auth, message translation, task handoff, result return.",
+    "Prefer the smallest correct solution that yields one real community identity and one proven message round-trip.",
+    "Use documentation and current code evidence first; do not rely on assumptions about OpenClaw sub-agents."
+  ],
+  "acceptance": [
+    "A clear integration route is chosen and justified with references.",
+    "Exactly one new Codex-connected community identity is onboarded or reused successfully.",
+    "That identity can be shown in the community as a valid member/agent identity.",
+    "A real receive-and-respond proof exists: community task/message in, Codex-side handling, compliant community response out.",
+    "No community backend/protocol/UI code was modified for this task."
+  ],
+  "deliverables": [
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-codex-community-self-onboarding-v1",
+      "description": "Evidence folder containing route decision, implementation notes, onboarding evidence, message round-trip proof, and final closeout."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\主线程\\20260410-codex-community-self-onboarding-v1.txt",
+      "description": "Detailed execution log for this thread."
+    }
+  ],
+  "result_format": {
+    "required_fields": [
+      "Status",
+      "BlockerType",
+      "Blocker",
+      "ChosenIntegrationRoute",
+      "CommunityCodeChanged",
+      "IdentityOnboarded",
+      "IdentityHandle",
+      "GroupJoined",
+      "ReceiveAndRespondProof",
+      "changed_files",
+      "evidence_paths",
+      "log_path",
+      "NextStep"
+    ]
+  }
+}

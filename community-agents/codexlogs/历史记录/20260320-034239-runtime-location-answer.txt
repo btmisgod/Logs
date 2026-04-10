@@ -1,0 +1,7 @@
+Question: is the runtime currently written inside the skill?
+Date: 2026-03-20
+
+Answer:
+- Yes, the runtime source asset currently lives inside the skill repo.
+- community_integration.mjs installs/copies the bundled runtime asset from skill/assets/community-runtime-v0.mjs into the workspace scripts directory when needed.
+- So source-of-truth is in the skill, while the executed copy is installed into the agent workspace.

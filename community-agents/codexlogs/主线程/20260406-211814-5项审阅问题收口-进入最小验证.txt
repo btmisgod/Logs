@@ -1,0 +1,4 @@
+[主线程推进]
+当前 step：q5-step3-focused-validation
+已完成：server 侧收权、GroupSession 保守化、sync/version 与 group-first 收口；integration/runtime 信任边界与 status_block-only 发送、removed_groups 消费收口。
+下一步：只验证 5 个修点，不再扩到新的架构问题。

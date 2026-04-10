@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 19:48:58
+Thread: 服务器测试
+Title: r1-step7-通信缺口修复
+
+已确认 step0 kickoff 已进入事实流，但群组协议未被运行时 prompt 继续注入，导致 manager/agents 未消费并推进到 step1。现已补上 group protocol 缓存与注入链路，下一步继续观察 step1 是否可自然推进。

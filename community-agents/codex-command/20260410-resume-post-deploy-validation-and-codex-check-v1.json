@@ -1,0 +1,151 @@
+{
+  "command_id": "20260410-resume-post-deploy-validation-and-codex-check-v1",
+  "version": "1.0",
+  "created_at": "2026-04-10",
+  "target_thread": "main-controller",
+  "workspace_root": "G:\\community agnts\\community agents",
+  "title": "Resume the top-level PR task at real post-deploy validation, then validate existing Codex connectivity completeness",
+  "objective": "Phase3 deployment is complete and the server is now on the PR commit. Resume the top-level publication task at phase4_run_real_post_deploy_tests. First run real post-deploy validation for the frozen release scope on the updated server. Then, if phase4 passes, validate completeness of the already-onboarded Codex identity. Do not rebuild deployment, and do not modify Codex onboarding implementation.",
+  "resume_basis": {
+    "source_of_truth": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-phase3-deploy-commit-repair-v1\\99-structured-result.json",
+    "required_fact": "TopLevelTaskMayResume must be true."
+  },
+  "mandatory_references": [
+    {
+      "path": "G:\\community agnts\\community agents\\AGENTS.md",
+      "why": "Controller execution discipline."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-phase3-deploy-commit-repair-v1\\99-structured-result.json",
+      "why": "Proof that phase3 deployment succeeded and the server is on the PR commit."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-revert-cycle-filter-and-rerun-pre-pr-v1\\PR_READY_SUMMARY.md",
+      "why": "Frozen release scope and deferred items."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+      "why": "Existing Codex identity to be validated after release verification."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-codex-community-self-onboarding-v2\\continue-server2.out.log",
+      "why": "Baseline reference for the existing Codex ingress/egress path."
+    }
+  ],
+  "release_target": {
+    "pr_url": "https://github.com/btmisgod/myproject/pull/1",
+    "release_repo": "G:\\community agnts\\community agents\\myproject",
+    "release_branch": "codex/pr-community-v2-live-baseline-20260410",
+    "release_commit": "0c2cd3e8e607deb4fb3b886c20161b44a867d353"
+  },
+  "existing_codex_identity": {
+    "handle": "codex-self-onboard-v2",
+    "agent_id": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+    "expected_group_slug": "public-lobby"
+  },
+  "required_work": [
+    {
+      "id": "phase4_run_real_post_deploy_tests",
+      "description": "Run real post-deploy validation for the frozen release scope on the updated server. Revalidate the release baseline rather than only checking API health."
+    },
+    {
+      "id": "phase4a_frontend_readability_gate",
+      "description": "Explicitly verify that the deployed frontend main view is readable in real usage. If Chinese UI text or workflow artifact UI is visibly garbled/encoded incorrectly, classify that as a release blocker immediately."
+    },
+    {
+      "id": "phase5_validate_existing_codex_connectivity_completeness",
+      "description": "Only if phase4 passes, validate completeness of the already-onboarded Codex identity against the updated server. Use the existing identity only; do not modify its onboarding or bridge code."
+    },
+    {
+      "id": "phase6_final_closeout",
+      "description": "Close the top-level task with a structured result for release validation and Codex connectivity completeness."
+    }
+  ],
+  "phase4_validation_matrix": [
+    {
+      "id": "V1_api_health",
+      "required": true,
+      "description": "API health remains OK on the deployed commit."
+    },
+    {
+      "id": "V2_manager_only_bootstrap",
+      "required": true,
+      "description": "Manager-only bootstrap semantics still hold on the deployed server."
+    },
+    {
+      "id": "V3_formal_workflow_baseline",
+      "required": true,
+      "description": "The frozen-scope simple formal workflow baseline can still complete on the deployed server."
+    },
+    {
+      "id": "V4_ui_artifact_main_view",
+      "required": true,
+      "description": "Artifact main-view rendering remains correct and raw JSON does not dominate the UI."
+    },
+    {
+      "id": "V5_ui_text_readability",
+      "required": true,
+      "description": "Core UI text is readable. If the deployed UI shows obvious mojibake/garbled Chinese in major visible areas, fail phase4."
+    }
+  ],
+  "codex_connectivity_completeness_check": {
+    "purpose": "Validate the existing Codex identity end-to-end after the server upgrade.",
+    "required_checks": [
+      "Identity is still valid and readable as a community identity.",
+      "Group membership is still valid on the server side.",
+      "A real community-originated inbound event reaches the Codex webhook path.",
+      "Codex emits a proper agent reply that the community accepts.",
+      "A real round-trip closes on the deployed server."
+    ],
+    "do_not": [
+      "Do not redesign or modify Codex onboarding in this task.",
+      "Do not treat local mock-only evidence as sufficient."
+    ]
+  },
+  "do_not": [
+    "Do not rerun phase3 deployment.",
+    "Do not reopen deferred scope.",
+    "Do not modify Codex onboarding implementation.",
+    "Do not ignore visible frontend readability defects just because API/workflow checks pass."
+  ],
+  "working_principles": [
+    "Phase3 is already complete; resume from phase4.",
+    "Post-deploy validation must be real and must include human-visible frontend quality gates.",
+    "If phase4 fails, stop there; do not continue to Codex validation.",
+    "Codex connectivity validation is about completeness of the existing connected identity, not new feature work."
+  ],
+  "deliverables": [
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-resume-post-deploy-validation-and-codex-check-v1",
+      "description": "Evidence bundle for post-deploy validation and Codex connectivity completeness."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\主线程\\20260410-resume-post-deploy-validation-and-codex-check-v1.txt",
+      "description": "Detailed controller log for the resumed top-level validation task."
+    }
+  ],
+  "acceptance": [
+    "Post-deploy validation passes all required release-scope checks, including frontend readability.",
+    "If post-deploy validation passes, Codex connectivity completeness is validated end-to-end with real evidence.",
+    "If any blocker appears, the first real blocker is precisely classified and the task stops there."
+  ],
+  "result_format": {
+    "required_fields": [
+      "Status",
+      "BlockerType",
+      "Blocker",
+      "ReleaseCommit",
+      "ServerStillOnReleaseCommit",
+      "PostDeployValidationPassed",
+      "FailedValidationItems",
+      "FrontendReadable",
+      "CodexConnectivityCompletenessPassed",
+      "CodexIdentityHandle",
+      "CodexRoundTripVerified",
+      "changed_files",
+      "evidence_paths",
+      "log_path",
+      "NextStep"
+    ]
+  }
+}

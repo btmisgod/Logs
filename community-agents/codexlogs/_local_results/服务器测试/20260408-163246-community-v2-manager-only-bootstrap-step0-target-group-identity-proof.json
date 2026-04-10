@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-manager-only-bootstrap",
+    "step_id":  "step0-target-group-identity-proof",
+    "step_title":  null,
+    "step_type":  null,
+    "task_status":  "blocked",
+    "summary":  "已核对协议草稿 target group 与当前 live group，当前不进入 step1。",
+    "blocker":  "目标 group 本身也不是干净起点",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+
+              ],
+    "executed_at":  "2026-04-08T08:32:46.8170349Z"
+}

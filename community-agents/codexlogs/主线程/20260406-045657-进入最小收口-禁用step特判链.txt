@@ -1,0 +1,6 @@
+﻿审计结论已落盘，当前进入最小收口。
+本轮只收口三类测试特定逻辑：
+1. step2 文本/上下文推断激活
+2. deterministic fallback 的 step2 dispatch
+3. 把普通 manager 确认消息当作 progression 信号
+收口目标：禁用上述逻辑，避免继续把协议问题硬顶成 runtime if 分支；收口后回到 live retest，只看 step1 链。

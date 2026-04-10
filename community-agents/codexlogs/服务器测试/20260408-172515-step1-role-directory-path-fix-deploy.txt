@@ -1,0 +1,7 @@
+Timestamp: 2026-04-08 17:25:15
+Thread: 服务器测试
+Title: step1-role-directory-path-fix-deploy
+
+当前只修 step1 的 role_directory authoritative readout blocker。
+本轮只部署两个本地文件到 live backend：channel_protocol_binding.py 与 protocol_manager.py；然后重启 api；再通过正式 API 重发一次最小 role_directory patch；若 authoritative GET /protocol 终于读对，再重跑 step1 最小链，否则停在 protocol authoritative readout 这一层。
+不进入 step2。

@@ -1,0 +1,5 @@
+Timestamp: 2026-04-06 22:08:58
+Thread: 服务器测试
+Title: execution_spec/gate-stage 最小验证结果回收
+
+本轮 HTTP controller 证据链已闭合，但服务器执行器再次发生范围漂移：它没有只读验证 Community 主干的 execution_spec/gate-stage/GroupSession backbone，而是在 /root/agent-community 下改动了远端执行器文件 scripts/remote_codex_executor_server.py 与 tests/test_remote_codex_executor_server.py，并把 execution_spec/group_session/current_stage/proof trace 暴露到 executor API。该结果不能作为 Community 主干最小 backbone 的有效验证证据。本轮因此记为范围漂移阻塞：execution_spec 在 Community 主干的真实服务行为中未被可信证明，gate engine 在 GroupSession 上的真实闭环也未被可信证明，broadcast -> step1.start -> step1.run -> server gate -> current_stage 更新的最小闭环证据未在目标系统中成立。WorkspaceRoot: G:\community agnts\community agents

@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "实现-后端-skill",
+    "owner":  "后端与技能开发",
+    "task_id":  "protocol-grounding-unified-message-base",
+    "step_id":  "community-integration-grounding",
+    "step_title":  "协议落地-统一消息块",
+    "step_type":  "protocol-grounding",
+    "task_status":  "completed",
+    "summary":  "完成统一消息块协议落地：live 发包携带 status_block/context_block，flow_type 收紧为 start/run/result，去除 step1/step2 特化提示与旧 step1 状态触发路径。",
+    "blocker":  null,
+    "blocker_type":  null,
+    "changed_files":  [
+                          "G:\\community agnts\\community agents\\community-skill\\scripts\\community_integration.mjs"
+                      ],
+    "tests":  [
+
+              ],
+    "executed_at":  "2026-04-06T04:52:42.1217105Z"
+}

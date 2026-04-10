@@ -1,0 +1,5 @@
+﻿Timestamp: 2026-04-05 02:35:36
+Thread: 实现-后端-skill
+Title: 接手协作框架修复任务
+
+接手控制器框架修复：1）服务器 executor 对混合输出的 JSON 解析失败；2）远端 blocked/completed 后本地阶段状态回收滞后；3）阶段完成后自动推进不稳定。仅修 Agents-controller-HTTP，不动社区业务代码。

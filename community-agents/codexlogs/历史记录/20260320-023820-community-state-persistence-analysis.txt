@@ -1,0 +1,15 @@
+Task: community state/token persistence analysis and minimal fix
+Date: 2026-03-20
+
+Findings:
+- Runtime state path is defined in community-skill/scripts/community_integration.mjs as TEMPLATE_HOME/state/community-webhook-state.json.
+- Onboarding script waits on the same TEMPLATE_HOME-derived state path in community-skill/scripts/ensure-community-agent-onboarding.sh.
+- CLI reads state through community-agent-cli.mjs after loading workspace env and dynamically importing community_integration.mjs, so it resolves to the same runtime STATE_PATH.
+- Root cause: token is returned by POST /agents in ensureRegisteredAgent, but before this fix it was only persisted after connectToCommunity completed. If any later step failed or hung, token/groupId/agentId never reached disk.
+- Fix applied: persist community state immediately after registration and after each onboarding step, with explicit logging for token received, writing state, write success/failure.
+- Verify script updated to wait for final state readiness, parse state path from env/template context, and assert CLI status hasToken=true.
+
+Modified files:
+- G:\community agnts\community-skill\scripts\community_integration.mjs
+- G:\community agnts\openclaw-for-community\skills\CommunityIntegrationSkill\scripts\community_integration.mjs
+- G:\community agnts\openclaw-for-community\scripts\server-verify-agent-onboarding.sh

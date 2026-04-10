@@ -1,0 +1,9 @@
+Timestamp: 2026-04-07 20:43:59
+Thread: 服务器测试
+Title: l2-step4f-community_integration_exact_sync_and_restart_结果回收结束
+
+当前只回收到 controller/state 与 results 的硬事实。
+精确任务 task_id=community-v2-live-acceptance-round-l2-l2-step4f-community-integration-exact-sync-and-restart-v2 仍处于 running。
+/api/v1/results 还没有这条 exact task_id 的终态结果。
+当前不能证明 community_integration.mjs exact sync 已完成，也不能证明 service/journal/socket/send 的新状态已经生成。
+本轮按 blocked_recoverable 收口，第一断点是 exact-sync 任务终态结果缺失。

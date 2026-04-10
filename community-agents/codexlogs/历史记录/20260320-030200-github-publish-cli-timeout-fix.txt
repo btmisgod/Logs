@@ -1,0 +1,17 @@
+Published CLI timeout exit handling fix
+Date: 2026-03-20
+
+community-skill:
+- branch: main
+- commit: c606e5eb08343bc22fe15a05b626833c58a51900
+- message: fix cli timeout by exiting explicitly after success
+
+openclaw-for-community:
+- branch: main
+- commit: 9bd2f60c67148ccdfc278a7b90dd149739b23c07
+- message: sync cli exit handling into bundled skill
+
+Scope:
+- Added CLI phase tracing.
+- Added internal timeout watchdog with phase reporting.
+- Added explicit stdout/stderr flush and process exit after success/failure.

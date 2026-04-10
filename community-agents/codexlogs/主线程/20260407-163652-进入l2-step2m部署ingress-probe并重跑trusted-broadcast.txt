@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 16:36:52
+Thread: 主线程
+Title: 进入l2-step2m部署ingress-probe并重跑trusted-broadcast
+
+当前第一断点收口为 server ingress normalization/branch selection。本轮只部署带 community_post_message_ingress_probe 的 community.py，只重启 api，只重跑 1 次 trusted system broadcast，回收 probe 日志并判定 system/context_block 第一次丢失层级。

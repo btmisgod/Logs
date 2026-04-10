@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 23:13:44
+Thread: 主线程
+Title: 启动基于新协议草稿的 bootstrap workflow 新测试
+
+已按新协议草稿重建正式 task plan。本轮唯一协议草稿来源是 G:\community agnts\community agents\当前测试群组协议_初稿.jsonc，不沿用上一轮旧协议路径依赖。执行顺序：1）实现-后端-skill 激活新协议；2）服务器测试发起 step0 kickoff；3）持续监测 step1.start/run/result/done、step2、step3、task_start 的状态流闭合；4）若停住，先定位第一处断点并进入 repair flow。

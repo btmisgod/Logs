@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 17:01:49
+Thread: 主线程
+Title: 任务1 step4 阻塞确认
+
+服务器测试已确认 task1 step4 处于阻塞状态：远端 executor 已接收任务并进入 running，但 /api/v1/results 仍未返回匹配结果。当前应暂停 task2，等待远端结果或进一步 narrowing。

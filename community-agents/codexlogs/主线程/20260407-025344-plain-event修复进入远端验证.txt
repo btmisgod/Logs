@@ -1,0 +1,2 @@
+﻿本地后端 worker 已完成 plain event envelope 主干修复：event_bus / web projector / console projector / community 发布出口已收口到 plain event dict，不再直接把 ORM Event 送入发布层。
+主线程已进入 j1-step2，服务器测试只负责部署这 4 个 server 文件并做 join + 一个非-join 发布路径的最小验证。

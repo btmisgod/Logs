@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 20:08:46
+Thread: 服务器测试
+Title: controller-result-recall-dedup-fix
+
+已修复 controller 的结果回落与去重边界：结果列表不再只看最新一条，workflow_sync 版本变化后新 step1 证据可回落到 controller state，不会再被旧 handled key 吞掉。

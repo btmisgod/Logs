@@ -1,0 +1,109 @@
+﻿{
+  "command_id": "20260410-controller-env-bootstrap-and-real-sampling-retry-v1",
+  "version": "1.0",
+  "created_at": "2026-04-10",
+  "target_thread": "main-controller",
+  "workspace_root": "G:\\community agnts\\community agents",
+  "title": "Configure controller environment in main-controller context, then rerun real sampling retry",
+  "objective": "Inside the main-controller's own execution environment, configure REMOTE_CODEX_SERVER_URL and REMOTE_CODEX_SERVER_TOKEN, verify they are visible in process scope, and then rerun the real LLM sampling retry task for context slimming.",
+  "sensitive": true,
+  "security_note": "This JSON contains a live bearer token. Do not echo the token value into chat, logs, screenshots, or structured results. Only report whether the variable is present and the token length.",
+  "controller_env": {
+    "REMOTE_CODEX_SERVER_URL": "http://43.130.233.109:18789",
+    "REMOTE_CODEX_SERVER_TOKEN": "<REDACTED_REMOTE_CODEX_SERVER_TOKEN>"
+  },
+  "references": [
+    {
+      "path": "G:\\community agnts\\community agents\\codex command\\20260410-context-slimming-real-sampling-retry-v1.json",
+      "description": "Retry task that previously failed only because controller env was missing."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\docs\\control-plane\\community-llm-context-slimming-v1.md",
+      "description": "Requirement baseline for context slimming."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-context-slimming-real-sampling-retry-v1\\05-structured-result.json",
+      "description": "Previous blocked result showing missing REMOTE_CODEX_SERVER_URL and REMOTE_CODEX_SERVER_TOKEN in the main-controller context."
+    }
+  ],
+  "target_group": {
+    "group_slug": "news-simple-live-validation-20260408",
+    "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf"
+  },
+  "required_work": [
+    {
+      "id": "configure_process_scope_controller_env",
+      "description": "In the main-controller's current execution environment, set REMOTE_CODEX_SERVER_URL and REMOTE_CODEX_SERVER_TOKEN from controller_env so the current task can dispatch remote work immediately."
+    },
+    {
+      "id": "optionally_persist_user_scope_controller_env",
+      "description": "If safe and applicable in the same Windows PowerShell environment, also persist the variables at User scope for future sessions. This is secondary; current-process visibility is the hard requirement."
+    },
+    {
+      "id": "verify_controller_env_ready",
+      "description": "Verify REMOTE_CODEX_SERVER_URL is visible in process scope and REMOTE_CODEX_SERVER_TOKEN is visible with a non-zero length. Do not print the token value; only print length."
+    },
+    {
+      "id": "rerun_real_sampling_retry",
+      "description": "After controller env is verified, continue the real LLM sampling retry flow: one real worker sample, one real manager sample, and regression checks for trusted broadcast, worker evidence collection, and manager-only gate control."
+    },
+    {
+      "id": "capture_real_prompt_and_token_evidence",
+      "description": "Capture the real prompt composition and token totals for the worker and manager samples after slimming."
+    },
+    {
+      "id": "write_logs_and_structured_result",
+      "description": "Write detailed execution logs to the main-thread log folder and publish a structured terminal result with evidence and log paths."
+    }
+  ],
+  "do_not": [
+    "Do not ask the user to manually set the controller environment again for this task.",
+    "Do not echo REMOTE_CODEX_SERVER_TOKEN in chat, logs, screenshots, or structured results.",
+    "Do not stop after env setup succeeds; continue into the real sampling retry in the same task.",
+    "Do not re-implement context slimming unless real sampling proves the current code path is broken.",
+    "Do not expand this task into unrelated UI, workflow, or feature work."
+  ],
+  "acceptance": [
+    "Controller environment is visible in the main-controller process scope.",
+    "At least one real worker sample executed.",
+    "At least one real manager sample executed.",
+    "Trusted broadcast / worker evidence / manager-only gate behavior did not regress.",
+    "Real prompt/token evidence was captured.",
+    "A structured terminal result exists with evidence paths and a log path."
+  ],
+  "deliverables": [
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-controller-env-bootstrap-and-real-sampling-retry-v1",
+      "description": "Evidence folder for env bootstrap plus real sampling retry."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\涓荤嚎绋?,
+      "description": "Main-thread log root for detailed logs."
+    }
+  ],
+  "working_principles": [
+    "Use process-scope env as the primary unblocker because the controller must be able to dispatch in the current run.",
+    "Only report environment presence and token length, never the token value itself.",
+    "Once env is ready, continue directly into the real sampling retry instead of stopping at preflight.",
+    "Keep the task narrow: env bootstrap plus the blocked retry only."
+  ],
+  "result_format": {
+    "required_fields": [
+      "Status",
+      "BlockerType",
+      "Blocker",
+      "ControllerEnvProcessReady",
+      "ControllerEnvUserReady",
+      "WorkerSampleExecuted",
+      "ManagerSampleExecuted",
+      "TrustedBroadcastRegressed",
+      "WorkerEvidenceRegressed",
+      "ManagerGateRegressed",
+      "RealTokenEvidenceCaptured",
+      "evidence_paths",
+      "log_path",
+      "NextStep"
+    ]
+  }
+}
+

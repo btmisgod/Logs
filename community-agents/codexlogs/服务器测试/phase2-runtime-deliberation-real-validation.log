@@ -1,0 +1,76 @@
+﻿【派单时间】2026-04-04 23:26:00
+【POST 请求】
+{
+    "task_id":  "phase2-runtime-deliberation-real-validation",
+    "title":  "runtime到deliberation真实验证",
+    "goal":  "在服务器真实 webhook 环境和真实 agent 环境里验证 runtime -\u003e deliberation 逻辑是否能让 agent 正确应对社区中的各类 webhook 推送。",
+    "must_do":  [
+                    "验证普通消息 webhook 是否进入 deliberation",
+                    "验证 targeted 消息 webhook 是否进入 deliberation 并按预期处理",
+                    "验证 status webhook 是否可走公共 status 流，而不是伪装成普通 directed reply",
+                    "验证 bootstrap/workflow 相关 webhook 是否进入正确路径，不再被错误吞掉",
+                    "用真实 agent 33、neko、xhs 做真实验证，不只看代码和数据库",
+                    "明确检查是否存在：被错误吞掉、误回、loop、不进入 deliberation"
+                ],
+    "must_not_do":  [
+                        "不要在服务器上开始大范围业务改造",
+                        "不要扩展到群组开机 workflow 全量修复",
+                        "不要把测试任务改造成新的实现任务"
+                    ],
+    "acceptance":  [
+                       "给出真实 webhook 验证结果",
+                       "给出真实 agent 验证结果",
+                       "给出当前唯一 blocker；如果没有就写当前没有 blocker",
+                       "如果发现问题，只先收窄最小 blocker，不要无限修复"
+                   ],
+    "notes":  "严格遵守3次/5次规则；如与设计文档冲突，停下汇报。",
+    "cwd":  "/root/agent-community"
+}
+【POST 结果】
+{
+    "ok":  true,
+    "task":  {
+                 "task_id":  "phase2-runtime-deliberation-real-validation",
+                 "title":  "runtime?deliberation????",
+                 "goal":  "?????? webhook ????? agent ????? runtime -\u003e deliberation ?????? agent ?????????? webhook ???",
+                 "must_do":  [
+                                 "?????? webhook ???? deliberation",
+                                 "?? targeted ?? webhook ???? deliberation ??????",
+                                 "?? status webhook ?????? status ?,???????? directed reply",
+                                 "?? bootstrap/workflow ?? webhook ????????,???????",
+                                 "??? agent 33?neko?xhs ?????,?????????",
+                                 "????????:?????????loop???? deliberation"
+                             ],
+                 "must_not_do":  [
+                                     "????????????????",
+                                     "????????? workflow ????",
+                                     "????????????????"
+                                 ],
+                 "acceptance":  [
+                                    "???? webhook ????",
+                                    "???? agent ????",
+                                    "?????? blocker;?????????? blocker",
+                                    "??????,?????? blocker,??????"
+                                ],
+                 "notes":  "????3?/5???;????????,?????",
+                 "cwd":  "/root/agent-community",
+                 "status":  "pending",
+                 "received_at":  "2026-04-04T15:25:53.502149+00:00"
+             }
+}
+【STATE 结果】
+{
+    "ok":  true,
+    "state":  {
+                  "worker_id":  "server-primary",
+                  "status":  "running",
+                  "current_task_id":  "phase2-runtime-deliberation-real-validation",
+                  "last_task_started_at":  "2026-04-04T15:25:57.037323+00:00",
+                  "last_task_finished_at":  "2026-04-04T13:02:00.640388+00:00",
+                  "last_heartbeat_at":  "2026-04-04T15:25:57.037762+00:00",
+                  "last_result_status":  "completed",
+                  "last_result_summary":  "Validated live evidence for group a54c1f43-396e-4791-b825-53b9197d51cf. The expected bootstrap sequence is present through group_created -\u003e members_confirmed -\u003e startup_signal_emitted: event 53914 shows group.created, current membership/presence shows 33 (agent_id b8beedf6-3540-4cf1-b22d-1dd6f5633b3a), neko (54f1cbf0-c8f4-4707-a85f-30e461c3e9e8), and xhs (e1fb40b4-80b9-4baa-b740-cb5aa51fdee5) attached and online, and message 7a5c830b-49d6-43f0-b51c-05b6b16a2aac records workflow_id=bootstrap, step_id=startup_signal_emitted, step_status=completed. All three webhook services logged that same group/message with observed=true, group_scope=true, status=true, obligation=observe_only, recommendation.mode=observe_only, and no_action=true, confirming each agent sensed the startup signal and entered the bootstrap intake path. There is no live evidence of any later bootstrap status message or event for members_ready or bootstrap_completed; the group remains at metadata community_protocols.channel.status=bootstrap with only the single startup status message persisted.",
+                  "current_blocker":  null,
+                  "updated_at":  "2026-04-04T15:25:57.037768+00:00"
+              }
+}

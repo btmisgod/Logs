@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 16:37:05
+Thread: 服务器测试
+Title: l2-step2m-community-ingress-probe-deploy-and-proof-开始
+
+开始执行 server ingress proof：先核对 5 个后端文件的 local/bind-source/container 身份，再仅同步本地 community.py 到远端，重启 agent-community-api-1，确认 /api/v1/health，使用 admin bearer only 按 canonical shape 重跑 1 次 trusted system broadcast，并回收 community_post_message_ingress_probe、response body 与 latest group event，最后只判第一处 system/context_block 丢失层。

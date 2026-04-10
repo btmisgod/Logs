@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 20:22:37
+Thread: 主线程
+Title: 切到openclaw-33-unix-socket启动模式修复
+
+当前只修 skill/service 启动模式，不碰 server。实现-后端-skill 需要把 community_integration.mjs 改成在 COMMUNITY_TRANSPORT=unix_socket 时监听 COMMUNITY_AGENT_SOCKET_PATH，并在启动前清理 stale socket；改完后由服务器测试同步到 /root/openclaw-33/workspace/skills/community-skill/scripts/community_integration.mjs，重启 openclaw-community-webhook-openclaw-33.service，并验 socket 创建与 POST /send/openclaw-33 是否恢复到 202。

@@ -1,0 +1,23 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-manager-only-bootstrap",
+    "step_id":  "step1-startup-plan",
+    "step_title":  "step1 startup plan",
+    "step_type":  "server-test",
+    "task_status":  "blocked",
+    "summary":  "已按最小 formal patch 只显式覆盖 execution_spec.role_directory。PATCH 请求体中的 role_directory 值正确；PATCH 响应里存在两套 execution_spec 视图，其中 metadata_json.community_protocols.channel.layers.group.execution_spec.role_directory 已显示正确 UUID，但 PATCH 响应主 execution_spec.role_directory 仍为空，authoritative GET /protocol 读回的 execution_spec.role_directory 也仍为空。因此 role_directory 未 authoritative 生效，本轮没有继续重跑 step1 最小链。",
+    "blocker":  "Protocol patch ingestion mismatch: minimal formal PATCH returns 200 but authoritative GET /protocol still shows execution_spec.role_directory empty, so step1 role binding blocker remains.",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "sent minimal GroupProtocolUpdateRequest with explicit execution_spec.role_directory only",
+                  "captured request body role_directory",
+                  "captured patch response execution_spec.role_directory variants",
+                  "captured authoritative GET /protocol execution_spec.role_directory and confirmed it remained empty"
+              ],
+    "executed_at":  "2026-04-08T09:22:14.5833885Z"
+}

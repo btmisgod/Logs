@@ -1,0 +1,94 @@
+{
+  "command_id": "20260410-adopt-json-command-mode-v2",
+  "version": "2.0",
+  "created_at": "2026-04-10",
+  "target_thread": "main-controller",
+  "workspace_root": "G:\\community agnts\\community agents",
+  "title": "Adopt JSON command mode and log-folder result discipline for main controller",
+  "objective": "Create or update the main controller's own AGENTS.md so that on future task starts it executes user-provided JSON commands when explicitly supplied, falls back to plain-text user instructions when no JSON is named, and after each task writes detailed logs into its own logs folder while only giving the user a brief result summary plus the log path.",
+  "command_source_dir": "G:\\community agnts\\community agents\\codex command",
+  "assumptions": [
+    "Use G:\\community agnts\\community agents\\codexlogs\\主线程\\AGENTS.md as the main-controller-specific instruction file.",
+    "Use G:\\community agnts\\community agents\\codexlogs\\主线程 as the main controller's working log root.",
+    "This task only changes the main controller's operating instructions. It does not execute product feature work."
+  ],
+  "required_work": [
+    {
+      "id": "write_or_update_main_thread_agents_md",
+      "description": "Create or update G:\\community agnts\\community agents\\codexlogs\\主线程\\AGENTS.md."
+    },
+    {
+      "id": "define_json_first_intake_rule",
+      "description": "State that when a new task is started from the user and a specific command JSON is explicitly supplied, the main controller must read that JSON before executing work."
+    },
+    {
+      "id": "define_command_selection_rule",
+      "description": "If the user names a specific JSON file, use that file. If the user does not name a JSON file, do not auto-pick the newest JSON; use the current plain-text instruction from the chat."
+    },
+    {
+      "id": "define_json_as_source_of_truth_rule",
+      "description": "State that the selected JSON command is the source of truth for scope, required work, forbidden work, acceptance, deliverables, and output format."
+    },
+    {
+      "id": "define_reporting_rule",
+      "description": "State that the main controller must include the selected JSON command path in its first status update, task plan, and final structured result. If no JSON was explicitly supplied, it must state that the current plain-text user instruction is the task source."
+    },
+    {
+      "id": "define_log_folder_rule",
+      "description": "State that after every task, the main controller must write detailed execution logs to its own logs folder under G:\\community agnts\\community agents\\codexlogs\\主线程 or a stable subfolder below it."
+    },
+    {
+      "id": "define_brief_user_summary_rule",
+      "description": "State that the main controller should give the user only a brief task-result summary in chat, and must provide the detailed log folder path or log file path for follow-up inspection."
+    },
+    {
+      "id": "define_missing_json_fallback_rule",
+      "description": "If no JSON file is explicitly provided for the current task, the main controller must treat the current plain-text user instruction as the source of truth and should note that no command JSON was explicitly supplied."
+    }
+  ],
+  "do_not": [
+    "Do not modify the repository root AGENTS.md for this task.",
+    "Do not execute any unrelated workflow, backend, frontend, or live validation work.",
+    "Do not invent a second command source outside the codex command directory and the current plain-text user instruction fallback.",
+    "Do not leave the rule only in memory; it must be written to the main controller's own AGENTS.md.",
+    "Do not reply to the user with long narrative logs in chat if those logs can be written to the log folder."
+  ],
+  "deliverables": [
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\主线程\\AGENTS.md",
+      "description": "Main-controller-specific operating instructions updated to prefer command JSON files and to write detailed logs to its own logs folder."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\主线程\\20260410-json-command-mode-v2-result.json",
+      "description": "Structured completion result for this instruction update."
+    }
+  ],
+  "working_principles": [
+    "Keep the instruction concise and operational.",
+    "Prefer explicit file-path-based behavior over vague language.",
+    "Do not weaken existing structured-result discipline.",
+    "Do not remove current repair-flow rules; only add JSON-first intake and log-folder output rules.",
+    "Detailed execution traces belong in log files, not in the main chat reply."
+  ],
+  "success_criteria": [
+    "G:\\community agnts\\community agents\\codexlogs\\主线程\\AGENTS.md exists and contains the JSON-first intake rule.",
+    "The instruction file tells the main controller where to read command JSON files from.",
+    "The instruction file defines selection, fallback, and reporting behavior.",
+    "The instruction file states that detailed logs must be written to the main controller's logs folder.",
+    "The instruction file states that chat replies to the user should stay brief and include the log path.",
+    "A structured result file for this task exists and points to the updated AGENTS.md path."
+  ],
+  "result_format": {
+    "required_fields": [
+      "Status",
+      "BlockerType",
+      "Blocker",
+      "UpdatedFile",
+      "ResultFile",
+      "JSONCommandPath",
+      "RulesWritten",
+      "LogFolderPolicyWritten",
+      "NextStep"
+    ]
+  }
+}

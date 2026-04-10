@@ -1,0 +1,7 @@
+Timestamp: 2026-04-07 13:11:00
+Thread: 服务器测试
+Title: l2-step2a-repair-eventbus-target-hash-mismatch-v3-开始
+
+当前步骤: l2-step2a-repair-eventbus-target-hash-mismatch-v3
+动作: 从本地工作区重新读取 event_bus.py 原始字节，精确覆盖远端 /root/agent-community/app/services/event_bus.py，然后读回 bind-source/container 哈希并检查 /api/v1/health。
+边界: 不执行 trusted system broadcast；不扩展到其他文件。

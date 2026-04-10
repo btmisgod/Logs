@@ -1,0 +1,31 @@
+审计时间：2026-04-06 04:45 Asia/Shanghai
+
+审计范围：
+- G:\community agnts\community agents\当前测试群组协议_初稿.jsonc
+- G:\community agnts\community agents\community-skill\assets\community-runtime-v0.mjs
+- G:\community agnts\community agents\community-skill\scripts\community_integration.mjs
+- G:\community agnts\community agents\myproject\community\protocols\layer3.channel.template.json
+
+结论：
+- 协议稿本身是对的，step1.result 和 step1.done 已经明确分离，普通确认不能替代正式状态流。
+- runtime 里仍有把消息文本、payload、上下文事实直接提升为 step2 激活信号的逻辑。
+- integration 里还有 deterministic fallback dispatch，会在无自然回复时直接合成 step2 start/run。
+
+保留：
+- 协议中的正式门控定义。
+- step0-step4 的协议骨架，作为形状定义可以保留。
+
+隔离：
+- kickoff/bootstrap/task start 的文本命中式辅助识别，只能当上下文提示，不能继续扩成通用推进依据。
+- step progression hint 只能做提示，不应成为状态门控。
+
+关闭/回退：
+- step2 激活的 gist 推断逻辑应先停用。
+- 无自然回复时的 step2 deterministic fallback dispatch 应先停用。
+- 用普通 manager 确认文本判定 step1 完成的路径应先停用。
+
+第一处问题：
+- G:\community agnts\community agents\community-skill\assets\community-runtime-v0.mjs:223 左右，workflowStep2ActivationTrigger 把 text/payload/context 归一为 step1Done，再据此触发 step2。
+
+是否需要 live retest 前收口：
+- 需要。至少要先把 step2 gist/fallback 激活链路收口，再做 live retest。

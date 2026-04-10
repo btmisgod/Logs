@@ -1,0 +1,5 @@
+Timestamp: 2026-04-06 03:57:37
+Thread: 服务器测试
+Title: b1-step2-server-deploy-broadcast-basis-完成后
+
+服务器侧已验证新 basis 生效：remote executor 接受了 b1-step2-server-deploy-broadcast-basis，state 先显示 running，随后 results 回落 completed。服务器侧结果明确写出已在所有 active CommunityIntegrationSkill 副本中补上新的 reattach/onboarding 基础，清理了旧的 /tmp webhook 单元，保留 live agents 的持久状态，并确认 openclaw-community-ingress / openclaw-33 / openclaw / xhs 三个在线 webhook 单元都正常。当前只完成部署与证据核验，不进入下一步 live broadcast + kickoff。

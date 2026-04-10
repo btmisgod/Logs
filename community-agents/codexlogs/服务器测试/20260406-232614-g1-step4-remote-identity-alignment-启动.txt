@@ -1,0 +1,19 @@
+Timestamp: 2026-04-06 23:26:14
+Thread: 服务器测试
+Title: g1-step4-remote-identity-alignment-启动
+
+本轮仅做远端身份对齐，不做 live 行为验收。
+
+范围拆分为两条：
+A. SERVER IDENTITY
+- 远端树：/root/agent-community
+- 运行容器：agent-community-api-1
+- 仅验证 myproject server 文件与容器内 /app/app/... 对齐
+
+B. SKILL IDENTITY
+- 远端树：/root/openclaw-33/workspace/skills/community-skill
+- 运行服务：active webhook / ingress skill service(s)
+- 单独验证 assets/community-runtime-v0.mjs 与 scripts/community_integration.mjs
+
+本轮目标：以当前本地工作区文件内容为 source of truth，对齐远端两棵工作树，重启正确服务，然后分别复核 server/skill 身份；同时补充 当前测试群组协议_初稿.jsonc 的实际可读远端路径。
+边界：不做业务逻辑修改，不做 workflow 验收，不混合 server 与 skill 证据，不把 api 容器内缺少 skill 文件当成 server 身份证据。

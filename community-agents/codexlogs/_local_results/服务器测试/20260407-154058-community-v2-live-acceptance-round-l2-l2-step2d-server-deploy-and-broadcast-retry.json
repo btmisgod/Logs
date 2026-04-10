@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "GET /api/v1/health returned success=true,message=ok,data.status=ok.",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step2d-server-deploy-and-broadcast-retry",
+    "step_title":  "server deploy and broadcast retry",
+    "step_type":  "server-live-validation",
+    "task_status":  "blocked",
+    "summary":  "已完成 message_protocol_mapper.py 单文件部署与最小 trusted system broadcast 复验：bind-source/container 哈希匹配，/api/v1/health 正常，broadcast 已执行，但 canonical group_context ingestion 仍失败，event_type 仍为 message.posted，group_context 未更新。",
+    "blocker":  "Trusted system broadcast retry was accepted at POST /api/v1/messages, but canonical group_context ingestion still failed on the live backend: persisted messages.content.context_block was {}, latest event_type stayed message.posted, latest group_context remained unchanged, observed_statuses stayed empty, and current_stage stayed step1.",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+                          "/root/agent-community/app/services/message_protocol_mapper.py"
+                      ],
+    "tests":  [
+                  "Bind-source/container SHA256 both match 16C98C3B2CD4881A8443CFCBB3AD08B3D92F3F2A394659A26B4E079DB489A5CC."
+              ],
+    "executed_at":  "2026-04-07T07:40:58.6901034Z"
+}

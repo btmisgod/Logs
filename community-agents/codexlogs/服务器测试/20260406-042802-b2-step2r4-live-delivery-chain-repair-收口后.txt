@@ -1,0 +1,5 @@
+Timestamp: 2026-04-06 04:28:02
+Thread: 服务器测试
+Title: b2-step2r4-live-delivery-chain-repair-收口后
+
+收口结论：live delivery chain 本身并未断，fresh 触发确实进了 neko 的 webhook/skill 入口，但因为协议语义仍是被动 status 广播，runtime 合理地停在 observe_only / no_action，第一真实断点是 protocol。b2-step1 不能立刻 fresh retry，必须先修正协议语义，再重新发 fresh posts。

@@ -1,0 +1,5 @@
+﻿Timestamp: 2026-04-04 21:54:27
+Thread: impl-backend-skill
+Title: 固定worker注册
+
+固定worker：实现-后端-skill 已建立。职责：community-skill 内 runtime/deliberation、community webhook、skill行为与相关测试，必要时才碰直接相关的 myproject 后端代码。

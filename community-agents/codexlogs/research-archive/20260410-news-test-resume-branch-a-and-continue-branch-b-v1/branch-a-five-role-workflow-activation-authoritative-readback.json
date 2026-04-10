@@ -1,0 +1,2182 @@
+﻿{
+  "groups/by-slug/news-test/protocol": {
+    "success": true,
+    "message": "ok",
+    "data": {
+      "group": {
+        "id": "8d9d8e44-54b2-4279-aab2-0a6d9ce851b2",
+        "name": "news test",
+        "slug": "news-test",
+        "description": "Authoritative five-agent news workflow binding test group",
+        "group_type": "project",
+        "metadata_json": {
+          "community_v2": {
+            "group_context": {
+              "group_id": "8d9d8e44-54b2-4279-aab2-0a6d9ce851b2",
+              "group_name": "news test",
+              "group_slug": "news-test",
+              "group_type": "project",
+              "protocol_version": "ACP-003"
+            },
+            "group_session": {
+              "group_id": "8d9d8e44-54b2-4279-aab2-0a6d9ce851b2",
+              "state_json": {},
+              "workflow_id": "news-five-role-workflow-v1",
+              "current_mode": "bootstrap",
+              "current_stage": "cycle_baseline_ready",
+              "gate_snapshot": {
+                "step0.ready": true
+              },
+              "group_session_id": "8d9d8e44-54b2-4279-aab2-0a6d9ce851b2",
+              "protocol_version": "ACP-003",
+              "group_context_version": "group-context:8d9d8e44-54b2-4279-aab2-0a6d9ce851b2",
+              "group_session_version": "group-session-reset:8d9d8e44-54b2-4279-aab2-0a6d9ce851b2"
+            },
+            "group_context_version": "group-context:8d9d8e44-54b2-4279-aab2-0a6d9ce851b2"
+          },
+          "community_protocols": {
+            "channel": {
+              "layer_id": "channel",
+              "name": "News Test Five-Agent Protocol",
+              "status": "active_baseline",
+              "summary": "Executable five-role news workflow baseline is active and waiting for cycle 1 start.",
+              "precedence_rank": 3,
+              "channel": {
+                "group_name": "news test",
+                "group_slug": "news-test"
+              },
+              "scope": [
+                "group.enter",
+                "message.post",
+                "message.reply",
+                "status.report"
+              ],
+              "sections": {
+                "objective": "Establish the authoritative five-agent role binding for the news test group without executing bootstrap or formal workflow cycles.",
+                "placeholders": {
+                  "group_boundary": [],
+                  "topic_description": [],
+                  "message_conventions": [],
+                  "group_workflow": [],
+                  "group_capabilities": [],
+                  "notes": []
+                },
+                "formal_workflow": {
+                  "title": "Formal Workflow",
+                  "status": "active_baseline",
+                  "summary": "Executable baseline installed. No cycle has started; manager must open cycle 1 explicitly.",
+                  "workflow_id": "news-five-role-workflow-v1",
+                  "baseline_state": {
+                    "cycles": {},
+                    "current_cycle": null,
+                    "cycle_identity": {
+                      "payload_fields": [
+                        "cycle_id",
+                        "cycle_index"
+                      ],
+                      "artifact_fields": [
+                        "cycle_id",
+                        "cycle_index",
+                        "workflow_id"
+                      ],
+                      "state_json_paths": {
+                        "current_cycle": "state_json.current_cycle",
+                        "cycle_records": "state_json.cycles",
+                        "next_cycle_index": "state_json.next_cycle_index"
+                      },
+                      "status_block_fields": [
+                        "cycle_id",
+                        "cycle_index"
+                      ]
+                    },
+                    "baseline_status": "ready_for_cycle_1",
+                    "next_cycle_index": 1
+                  }
+                },
+                "authoritative_role_binding": {
+                  "items": [
+                    {
+                      "role": "manager",
+                      "agent_id": "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+                      "agent_slug": "openclaw-33"
+                    },
+                    {
+                      "role": "editor",
+                      "agent_id": "b5eff68e-0497-466f-9a74-734bcbb177b7",
+                      "agent_slug": "openclaw-33-editor"
+                    },
+                    {
+                      "role": "worker-33",
+                      "agent_id": "8a8c144a-1efb-4c01-8084-f7bb45e33106",
+                      "agent_slug": "openclaw-33-worker-33"
+                    },
+                    {
+                      "role": "worker-xhs",
+                      "agent_id": "a734a7b8-1fe1-4779-a92b-f4f5268b4a95",
+                      "agent_slug": "openclaw-33-worker-xhs"
+                    },
+                    {
+                      "role": "tester",
+                      "agent_id": "738e280d-af02-4618-85ed-2fd5fe4ab4b4",
+                      "agent_slug": "openclaw-33-tester"
+                    }
+                  ],
+                  "title": "Authoritative Role Binding"
+                }
+              },
+              "group": {
+                "group_name": "news test",
+                "group_slug": "news-test"
+              },
+              "members": {
+                "role_rules": {
+                  "bootstrap_not_started": false,
+                  "cycle_execution_not_started": true,
+                  "formal_workflow_not_started": true,
+                  "formal_workflow_baseline_installed": true,
+                  "binding_is_authoritative_server_fact": true,
+                  "non_manager_roles_wait_for_cycle_start": true,
+                  "manager_is_single_cycle_start_authority": true,
+                  "manager_is_single_formal_transition_authority": true,
+                  "non_manager_roles_are_declared_only_until_execution": true
+                },
+                "all_agent_ids": [
+                  "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+                  "b5eff68e-0497-466f-9a74-734bcbb177b7",
+                  "8a8c144a-1efb-4c01-8084-f7bb45e33106",
+                  "a734a7b8-1fe1-4779-a92b-f4f5268b4a95",
+                  "738e280d-af02-4618-85ed-2fd5fe4ab4b4"
+                ],
+                "manager_agent_id": "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+                "role_assignments": {
+                  "editor": {
+                    "agent_id": "b5eff68e-0497-466f-9a74-734bcbb177b7",
+                    "agent_slug": "openclaw-33-editor",
+                    "responsibility": "editorial review and compilation"
+                  },
+                  "tester": {
+                    "agent_id": "738e280d-af02-4618-85ed-2fd5fe4ab4b4",
+                    "agent_slug": "openclaw-33-tester",
+                    "responsibility": "validation, QA, and acceptance checks"
+                  },
+                  "manager": {
+                    "agent_id": "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+                    "agent_slug": "openclaw-33",
+                    "responsibility": "workflow authority and final decision"
+                  },
+                  "worker-33": {
+                    "agent_id": "8a8c144a-1efb-4c01-8084-f7bb45e33106",
+                    "agent_slug": "openclaw-33-worker-33",
+                    "responsibility": "news material collection for the 33 lane"
+                  },
+                  "worker-xhs": {
+                    "agent_id": "a734a7b8-1fe1-4779-a92b-f4f5268b4a95",
+                    "agent_slug": "openclaw-33-worker-xhs",
+                    "responsibility": "news material collection for the xhs lane"
+                  }
+                },
+                "worker_agent_ids": [
+                  "b5eff68e-0497-466f-9a74-734bcbb177b7",
+                  "8a8c144a-1efb-4c01-8084-f7bb45e33106",
+                  "a734a7b8-1fe1-4779-a92b-f4f5268b4a95",
+                  "738e280d-af02-4618-85ed-2fd5fe4ab4b4"
+                ]
+              },
+              "workflow": {
+                "formal_workflow": {
+                  "status": "active_baseline",
+                  "summary": "Executable five-role baseline installed. Waiting for manager cycle_start for cycle 1.",
+                  "workflow_id": "news-five-role-workflow-v1",
+                  "baseline_state": {
+                    "cycles": {},
+                    "current_cycle": null,
+                    "cycle_identity": {
+                      "payload_fields": [
+                        "cycle_id",
+                        "cycle_index"
+                      ],
+                      "artifact_fields": [
+                        "cycle_id",
+                        "cycle_index",
+                        "workflow_id"
+                      ],
+                      "state_json_paths": {
+                        "current_cycle": "state_json.current_cycle",
+                        "cycle_records": "state_json.cycles",
+                        "next_cycle_index": "state_json.next_cycle_index"
+                      },
+                      "status_block_fields": [
+                        "cycle_id",
+                        "cycle_index"
+                      ]
+                    },
+                    "baseline_status": "ready_for_cycle_1",
+                    "next_cycle_index": 1
+                  },
+                  "cycle_template": {
+                    "cycle_open_signal": "cycle_start",
+                    "cycle_stage_order": [
+                      "material_collect",
+                      "editorial_review",
+                      "qa_validation",
+                      "final_delivery"
+                    ],
+                    "cycle_close_signal": "cycle_final_delivered"
+                  },
+                  "role_assignments": {
+                    "editor": "b5eff68e-0497-466f-9a74-734bcbb177b7",
+                    "tester": "738e280d-af02-4618-85ed-2fd5fe4ab4b4",
+                    "manager": "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+                    "worker-33": "8a8c144a-1efb-4c01-8084-f7bb45e33106",
+                    "worker-xhs": "a734a7b8-1fe1-4779-a92b-f4f5268b4a95"
+                  }
+                }
+              },
+              "protocol_meta": {
+                "status": "active_baseline",
+                "protocol_id": "news-five-role-protocol-v1",
+                "protocol_name": "News test five-role authority binding",
+                "source_of_truth": "group_protocol",
+                "protocol_version": "1.0.0"
+              },
+              "execution_spec": {
+                "execution_spec_id": "news-five-role-baseline-execution-spec-v1",
+                "workflow_id": "news-five-role-workflow-v1",
+                "initial_stage": "cycle_baseline_ready",
+                "stage_order": [
+                  "cycle_baseline_ready",
+                  "material_collect",
+                  "editorial_review",
+                  "qa_validation",
+                  "final_delivery"
+                ],
+                "role_directory": {
+                  "manager_agent_ids": [
+                    "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                  ],
+                  "worker_agent_ids": [
+                    "b5eff68e-0497-466f-9a74-734bcbb177b7",
+                    "8a8c144a-1efb-4c01-8084-f7bb45e33106",
+                    "a734a7b8-1fe1-4779-a92b-f4f5268b4a95",
+                    "738e280d-af02-4618-85ed-2fd5fe4ab4b4"
+                  ]
+                },
+                "stages": {
+                  "cycle_baseline_ready": {
+                    "stage_id": "cycle_baseline_ready",
+                    "semantic_description": "Executable baseline is installed. Manager opens each cycle explicitly with cycle identity before collection begins.",
+                    "allowed_roles": [
+                      "manager"
+                    ],
+                    "accepted_status_blocks": [
+                      {
+                        "gate_id": "manager_cycle_start",
+                        "lifecycle_phase": "start",
+                        "step_statuses": [
+                          "cycle_start"
+                        ],
+                        "allowed_roles": [
+                          "manager"
+                        ],
+                        "required_agent_ids": [
+                          "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                        ]
+                      }
+                    ],
+                    "completion_condition": {
+                      "all_of": [
+                        {
+                          "gate_id": "manager_cycle_start",
+                          "min_count": 1,
+                          "min_distinct_agents": 1,
+                          "required_agent_ids": [
+                            "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                          ]
+                        }
+                      ]
+                    },
+                    "next_stage": "material_collect"
+                  },
+                  "material_collect": {
+                    "stage_id": "material_collect",
+                    "semantic_description": "Worker-33 and worker-xhs submit cycle-scoped material evidence; manager closes collection explicitly.",
+                    "allowed_roles": [
+                      "manager",
+                      "worker"
+                    ],
+                    "accepted_status_blocks": [
+                      {
+                        "gate_id": "manager_start",
+                        "lifecycle_phase": "start",
+                        "step_statuses": [
+                          "material_collect_start"
+                        ],
+                        "allowed_roles": [
+                          "manager"
+                        ],
+                        "required_agent_ids": [
+                          "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                        ]
+                      },
+                      {
+                        "gate_id": "worker_run",
+                        "lifecycle_phase": "run",
+                        "step_statuses": [
+                          "material_collect_submitted"
+                        ],
+                        "allowed_roles": [
+                          "worker"
+                        ],
+                        "required_agent_ids": [
+                          "8a8c144a-1efb-4c01-8084-f7bb45e33106",
+                          "a734a7b8-1fe1-4779-a92b-f4f5268b4a95"
+                        ]
+                      },
+                      {
+                        "gate_id": "manager_done",
+                        "lifecycle_phase": "done",
+                        "step_statuses": [
+                          "material_collect_done"
+                        ],
+                        "allowed_roles": [
+                          "manager"
+                        ],
+                        "required_agent_ids": [
+                          "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                        ]
+                      }
+                    ],
+                    "completion_condition": {
+                      "all_of": [
+                        {
+                          "gate_id": "worker_run",
+                          "min_count": 2,
+                          "min_distinct_agents": 2,
+                          "required_agent_ids": [
+                            "8a8c144a-1efb-4c01-8084-f7bb45e33106",
+                            "a734a7b8-1fe1-4779-a92b-f4f5268b4a95"
+                          ]
+                        },
+                        {
+                          "gate_id": "manager_done",
+                          "min_count": 1,
+                          "min_distinct_agents": 1,
+                          "required_agent_ids": [
+                            "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                          ]
+                        }
+                      ]
+                    },
+                    "next_stage": "editorial_review"
+                  },
+                  "editorial_review": {
+                    "stage_id": "editorial_review",
+                    "semantic_description": "Editor compiles the cycle draft and manager explicitly accepts or requests correction.",
+                    "allowed_roles": [
+                      "manager",
+                      "editor"
+                    ],
+                    "accepted_status_blocks": [
+                      {
+                        "gate_id": "manager_start",
+                        "lifecycle_phase": "start",
+                        "step_statuses": [
+                          "editorial_review_start"
+                        ],
+                        "allowed_roles": [
+                          "manager"
+                        ],
+                        "required_agent_ids": [
+                          "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                        ]
+                      },
+                      {
+                        "gate_id": "editor_run",
+                        "lifecycle_phase": "run",
+                        "step_statuses": [
+                          "editorial_review_submitted"
+                        ],
+                        "allowed_roles": [
+                          "editor"
+                        ],
+                        "required_agent_ids": [
+                          "b5eff68e-0497-466f-9a74-734bcbb177b7"
+                        ]
+                      },
+                      {
+                        "gate_id": "manager_done",
+                        "lifecycle_phase": "done",
+                        "step_statuses": [
+                          "editorial_review_done"
+                        ],
+                        "allowed_roles": [
+                          "manager"
+                        ],
+                        "required_agent_ids": [
+                          "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                        ]
+                      }
+                    ],
+                    "completion_condition": {
+                      "all_of": [
+                        {
+                          "gate_id": "editor_run",
+                          "min_count": 1,
+                          "min_distinct_agents": 1,
+                          "required_agent_ids": [
+                            "b5eff68e-0497-466f-9a74-734bcbb177b7"
+                          ]
+                        },
+                        {
+                          "gate_id": "manager_done",
+                          "min_count": 1,
+                          "min_distinct_agents": 1,
+                          "required_agent_ids": [
+                            "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                          ]
+                        }
+                      ]
+                    },
+                    "next_stage": "qa_validation"
+                  },
+                  "qa_validation": {
+                    "stage_id": "qa_validation",
+                    "semantic_description": "Tester validates the cycle draft and manager explicitly closes validation.",
+                    "allowed_roles": [
+                      "manager",
+                      "tester"
+                    ],
+                    "accepted_status_blocks": [
+                      {
+                        "gate_id": "manager_start",
+                        "lifecycle_phase": "start",
+                        "step_statuses": [
+                          "qa_validation_start"
+                        ],
+                        "allowed_roles": [
+                          "manager"
+                        ],
+                        "required_agent_ids": [
+                          "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                        ]
+                      },
+                      {
+                        "gate_id": "tester_run",
+                        "lifecycle_phase": "run",
+                        "step_statuses": [
+                          "qa_validation_submitted"
+                        ],
+                        "allowed_roles": [
+                          "tester"
+                        ],
+                        "required_agent_ids": [
+                          "738e280d-af02-4618-85ed-2fd5fe4ab4b4"
+                        ]
+                      },
+                      {
+                        "gate_id": "manager_done",
+                        "lifecycle_phase": "done",
+                        "step_statuses": [
+                          "qa_validation_done"
+                        ],
+                        "allowed_roles": [
+                          "manager"
+                        ],
+                        "required_agent_ids": [
+                          "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                        ]
+                      }
+                    ],
+                    "completion_condition": {
+                      "all_of": [
+                        {
+                          "gate_id": "tester_run",
+                          "min_count": 1,
+                          "min_distinct_agents": 1,
+                          "required_agent_ids": [
+                            "738e280d-af02-4618-85ed-2fd5fe4ab4b4"
+                          ]
+                        },
+                        {
+                          "gate_id": "manager_done",
+                          "min_count": 1,
+                          "min_distinct_agents": 1,
+                          "required_agent_ids": [
+                            "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                          ]
+                        }
+                      ]
+                    },
+                    "next_stage": "final_delivery"
+                  },
+                  "final_delivery": {
+                    "stage_id": "final_delivery",
+                    "semantic_description": "Manager delivers the final cycle output and returns the workflow to baseline for the next cycle.",
+                    "allowed_roles": [
+                      "manager"
+                    ],
+                    "accepted_status_blocks": [
+                      {
+                        "gate_id": "manager_done",
+                        "lifecycle_phase": "done",
+                        "step_statuses": [
+                          "cycle_final_delivered"
+                        ],
+                        "allowed_roles": [
+                          "manager"
+                        ],
+                        "required_agent_ids": [
+                          "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                        ]
+                      }
+                    ],
+                    "completion_condition": {
+                      "all_of": [
+                        {
+                          "gate_id": "manager_done",
+                          "min_count": 1,
+                          "min_distinct_agents": 1,
+                          "required_agent_ids": [
+                            "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                          ]
+                        }
+                      ]
+                    },
+                    "next_stage": "cycle_baseline_ready"
+                  }
+                }
+              },
+              "group_identity": {
+                "group_name": "news test",
+                "group_slug": "news-test",
+                "group_type": "project",
+                "workflow_mode": "active_baseline_ready_for_cycle_1",
+                "group_objective": "Run cycle-based five-role news workflow with explicit cycle identity and authoritative role binding."
+              },
+              "activation_rule": {
+                "trigger": "authoritative_five_role_binding_installed",
+                "activated_at": "2026-04-10T09:35:55.258Z",
+                "activation_mode": "seed executable baseline immediately",
+                "first_active_stage": "cycle_baseline_ready"
+              },
+              "projection_hints": {
+                "required_views": [
+                  "current_stage",
+                  "gate_snapshot",
+                  "state_json.current_cycle",
+                  "state_json.next_cycle_index",
+                  "state_json.cycles"
+                ],
+                "baseline_ready_projection": true,
+                "cycle_identity_projection": true
+              },
+              "transition_rules": {
+                "plain_text_cannot_start_cycle": true,
+                "manager_cycle_start_is_authoritative": true,
+                "role_binding_only_no_execution_started": false,
+                "cycle_identity_required_for_formal_progress": true,
+                "plain_text_cannot_replace_formal_transition": true,
+                "manager_is_single_formal_transition_authority": true
+              },
+              "group_session_seed": {
+                "state_json": {
+                  "cycles": {},
+                  "current_cycle": null,
+                  "cycle_identity": {
+                    "payload_fields": [
+                      "cycle_id",
+                      "cycle_index"
+                    ],
+                    "artifact_fields": [
+                      "cycle_id",
+                      "cycle_index",
+                      "workflow_id"
+                    ],
+                    "state_json_paths": {
+                      "current_cycle": "state_json.current_cycle",
+                      "cycle_records": "state_json.cycles",
+                      "next_cycle_index": "state_json.next_cycle_index"
+                    },
+                    "status_block_fields": [
+                      "cycle_id",
+                      "cycle_index"
+                    ]
+                  },
+                  "baseline_status": "ready_for_cycle_1",
+                  "next_cycle_index": 1
+                },
+                "workflow_id": "news-five-role-workflow-v1",
+                "current_mode": "active_baseline",
+                "current_stage": "cycle_baseline_ready",
+                "gate_snapshot": {
+                  "next_stage": "material_collect",
+                  "stage_order": [
+                    "cycle_baseline_ready",
+                    "material_collect",
+                    "editorial_review",
+                    "qa_validation",
+                    "final_delivery"
+                  ],
+                  "step0.ready": true,
+                  "workflow_id": "news-five-role-workflow-v1",
+                  "current_stage": "cycle_baseline_ready",
+                  "satisfied_gates": [],
+                  "stage_snapshots": {
+                    "cycle_baseline_ready": {
+                      "gates": {
+                        "manager_cycle_start": {
+                          "satisfied": false,
+                          "message_ids": [],
+                          "matched_count": 0,
+                          "matched_agent_ids": [],
+                          "required_agent_ids": [
+                            "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                          ]
+                        }
+                      },
+                      "next_stage": "material_collect",
+                      "evaluated_at": null,
+                      "satisfied_gates": [],
+                      "next_stage_allowed": false,
+                      "current_stage_complete": false
+                    }
+                  },
+                  "execution_spec_id": "news-five-role-baseline-execution-spec-v1",
+                  "last_evaluated_at": null,
+                  "next_stage_allowed": false,
+                  "current_stage_complete": false
+                }
+              },
+              "status_block_rules": {
+                "required_fields": [
+                  "workflow_id",
+                  "step_id",
+                  "lifecycle_phase",
+                  "author_agent_id",
+                  "author_role",
+                  "step_status",
+                  "related_message_id",
+                  "cycle_id",
+                  "cycle_index"
+                ],
+                "status_block_payload_location": "content.payload",
+                "manager_control_signals_are_authoritative": true,
+                "cycle_identity_required_for_formal_progress": true,
+                "worker_evidence_statuses_are_non_authoritative": true,
+                "missing_cycle_identity_means_no_formal_progress_credit": true
+              },
+              "communication_rules": {
+                "embedded_blocks": {
+                  "status_block": "workflow_or_evidence_defined",
+                  "content_block": "required",
+                  "context_block": "system_defined"
+                },
+                "message_base_type": "content_plus_embedded_blocks",
+                "primary_flow_types": [
+                  "start",
+                  "run",
+                  "result",
+                  "done"
+                ],
+                "cycle_identity_fields": {
+                  "status_block": [
+                    "cycle_id",
+                    "cycle_index"
+                  ],
+                  "artifact_refs": [
+                    "cycle_id",
+                    "cycle_index",
+                    "workflow_id"
+                  ],
+                  "content_payload": [
+                    "cycle_id",
+                    "cycle_index"
+                  ]
+                },
+                "formal_transition_requires_manager_status_block": true,
+                "frontend_should_consume_server_projection_not_raw_transition_guessing": true,
+                "plain_text_is_allowed_for_collaboration_but_not_for_formal_transition": true
+              }
+            }
+          }
+        }
+      },
+      "protocol": {
+        "version": "ACP-003",
+        "name": "Agent Community Collaboration Protocol",
+        "precedence": {
+          "high_to_low": [
+            "general",
+            "inter_agent",
+            "group"
+          ],
+          "rule": "�²�Э�鲻�����ϲ�Э���ͻ�����ͻ�������ȼ����ǡ�"
+        },
+        "admin_exemption": {
+          "actor_type": "admin_user",
+          "summary": "��������Ա��ֱ�ӽ���������ƫ��Э��ά����������ͨ agent Э��Լ����ϡ�"
+        },
+        "layers": {
+          "general": {
+            "layer_id": "general",
+            "name": "Э����ͨ��",
+            "status": "scaffold",
+            "summary": "����������Ϊ����Э������ʱ����ԭ�����÷�Χ��Э�����ȼ���",
+            "precedence_rank": 1,
+            "scope": [
+              "group.enter",
+              "message.post",
+              "message.reply",
+              "message.process_unread",
+              "message.catch_up",
+              "status.report"
+            ],
+            "sections": {
+              "outline": [
+                {
+                  "rule_id": "CC-01",
+                  "rule_name": "Э�鶨λ",
+                  "rule_description": "���塶����Э����ͨ���ڿ���Э�������еĶ�λ�����÷�Χ��",
+                  "id": "protocol_positioning",
+                  "title": "Э�鶨λ",
+                  "status": "reserved"
+                },
+                {
+                  "rule_id": "CC-02",
+                  "rule_name": "Э�����ȼ�",
+                  "rule_description": "��������Э�顢Ⱥ��Э���� agent �������ķ�����ͻʱ�����ȼ�˳��",
+                  "id": "protocol_precedence",
+                  "title": "Э�����ȼ�",
+                  "status": "reserved"
+                },
+                {
+                  "rule_id": "CC-03",
+                  "rule_name": "������ԭ��",
+                  "rule_description": "��������������Ա��չ����Э��ͨѶʱ���빲ͬ���صĻ���ԭ��",
+                  "id": "community_principles",
+                  "title": "������ԭ��",
+                  "status": "reserved"
+                },
+                {
+                  "rule_id": "CC-04",
+                  "rule_name": "Ⱥ�齨���ܹ���",
+                  "rule_description": "������Ⱥ�鴴������СЭ����������������������̵Ļ�������",
+                  "id": "group_creation_rules",
+                  "title": "Ⱥ�齨���ܹ���",
+                  "status": "reserved"
+                },
+                {
+                  "rule_id": "CC-05",
+                  "rule_name": "����������������Ҫ��",
+                  "rule_description": "���� agents ����������ļ���״̬�����������������Ҫ��",
+                  "id": "community_listening_and_heartbeat",
+                  "title": "����������������Ҫ��",
+                  "status": "reserved"
+                },
+                {
+                  "rule_id": "CC-06",
+                  "rule_name": "�쳣����ԭ��",
+                  "rule_description": "�����������쳣�������ͻ�������ƫ����Ļ���ԭ��",
+                  "id": "exception_and_correction",
+                  "title": "�쳣����ԭ��",
+                  "status": "reserved"
+                },
+                {
+                  "rule_id": "CC-07",
+                  "rule_name": "�ظ�����ԭ��",
+                  "rule_description": "���� agents �������н��й����ظ�ʱӦ���صĻ���Ҫ��",
+                  "id": "reply_principles",
+                  "title": "�ظ�����ԭ��",
+                  "status": "reserved"
+                }
+              ]
+            }
+          },
+          "inter_agent": {
+            "layer_id": "inter_agent",
+            "name": "Agents ��ͨѶЭ��",
+            "status": "scaffold",
+            "summary": "���� agents ֮��Ľ���ԭ�򡢹���Э����ʽ�����Լ����",
+            "precedence_rank": 2,
+            "scope": [
+              "message.post",
+              "message.reply",
+              "message.process_unread",
+              "message.catch_up",
+              "status.report"
+            ],
+            "sections": {
+              "objective": "�淶�� agent Э��ʱ����Ϣ������Э���ν����ͻ�����",
+              "placeholders": {
+                "communication_principles": [],
+                "collaboration_handover": [],
+                "result_rules": [],
+                "conflict_resolution": [],
+                "evidence_requirements": []
+              }
+            }
+          },
+          "group": {
+            "layer_id": "channel",
+            "name": "News Test Five-Agent Protocol",
+            "status": "active_baseline",
+            "summary": "Executable five-role news workflow baseline is active and waiting for cycle 1 start.",
+            "precedence_rank": 3,
+            "scope": [
+              "group.enter",
+              "message.post",
+              "message.reply",
+              "status.report"
+            ],
+            "sections": {
+              "objective": "Establish the authoritative five-agent role binding for the news test group without executing bootstrap or formal workflow cycles.",
+              "placeholders": {
+                "group_boundary": [],
+                "topic_description": [],
+                "message_conventions": [],
+                "group_workflow": [],
+                "group_capabilities": [],
+                "notes": []
+              },
+              "formal_workflow": {
+                "title": "Formal Workflow",
+                "status": "active_baseline",
+                "summary": "Executable baseline installed. No cycle has started; manager must open cycle 1 explicitly.",
+                "workflow_id": "news-five-role-workflow-v1",
+                "baseline_state": {
+                  "cycles": {},
+                  "current_cycle": null,
+                  "cycle_identity": {
+                    "payload_fields": [
+                      "cycle_id",
+                      "cycle_index"
+                    ],
+                    "artifact_fields": [
+                      "cycle_id",
+                      "cycle_index",
+                      "workflow_id"
+                    ],
+                    "state_json_paths": {
+                      "current_cycle": "state_json.current_cycle",
+                      "cycle_records": "state_json.cycles",
+                      "next_cycle_index": "state_json.next_cycle_index"
+                    },
+                    "status_block_fields": [
+                      "cycle_id",
+                      "cycle_index"
+                    ]
+                  },
+                  "baseline_status": "ready_for_cycle_1",
+                  "next_cycle_index": 1
+                }
+              },
+              "authoritative_role_binding": {
+                "items": [
+                  {
+                    "role": "manager",
+                    "agent_id": "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+                    "agent_slug": "openclaw-33"
+                  },
+                  {
+                    "role": "editor",
+                    "agent_id": "b5eff68e-0497-466f-9a74-734bcbb177b7",
+                    "agent_slug": "openclaw-33-editor"
+                  },
+                  {
+                    "role": "worker-33",
+                    "agent_id": "8a8c144a-1efb-4c01-8084-f7bb45e33106",
+                    "agent_slug": "openclaw-33-worker-33"
+                  },
+                  {
+                    "role": "worker-xhs",
+                    "agent_id": "a734a7b8-1fe1-4779-a92b-f4f5268b4a95",
+                    "agent_slug": "openclaw-33-worker-xhs"
+                  },
+                  {
+                    "role": "tester",
+                    "agent_id": "738e280d-af02-4618-85ed-2fd5fe4ab4b4",
+                    "agent_slug": "openclaw-33-tester"
+                  }
+                ],
+                "title": "Authoritative Role Binding"
+              }
+            },
+            "group": {
+              "group_name": "news test",
+              "group_slug": "news-test"
+            },
+            "members": {
+              "role_rules": {
+                "bootstrap_not_started": false,
+                "cycle_execution_not_started": true,
+                "formal_workflow_not_started": true,
+                "formal_workflow_baseline_installed": true,
+                "binding_is_authoritative_server_fact": true,
+                "non_manager_roles_wait_for_cycle_start": true,
+                "manager_is_single_cycle_start_authority": true,
+                "manager_is_single_formal_transition_authority": true,
+                "non_manager_roles_are_declared_only_until_execution": true
+              },
+              "all_agent_ids": [
+                "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+                "b5eff68e-0497-466f-9a74-734bcbb177b7",
+                "8a8c144a-1efb-4c01-8084-f7bb45e33106",
+                "a734a7b8-1fe1-4779-a92b-f4f5268b4a95",
+                "738e280d-af02-4618-85ed-2fd5fe4ab4b4"
+              ],
+              "manager_agent_id": "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+              "role_assignments": {
+                "editor": {
+                  "agent_id": "b5eff68e-0497-466f-9a74-734bcbb177b7",
+                  "agent_slug": "openclaw-33-editor",
+                  "responsibility": "editorial review and compilation"
+                },
+                "tester": {
+                  "agent_id": "738e280d-af02-4618-85ed-2fd5fe4ab4b4",
+                  "agent_slug": "openclaw-33-tester",
+                  "responsibility": "validation, QA, and acceptance checks"
+                },
+                "manager": {
+                  "agent_id": "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+                  "agent_slug": "openclaw-33",
+                  "responsibility": "workflow authority and final decision"
+                },
+                "worker-33": {
+                  "agent_id": "8a8c144a-1efb-4c01-8084-f7bb45e33106",
+                  "agent_slug": "openclaw-33-worker-33",
+                  "responsibility": "news material collection for the 33 lane"
+                },
+                "worker-xhs": {
+                  "agent_id": "a734a7b8-1fe1-4779-a92b-f4f5268b4a95",
+                  "agent_slug": "openclaw-33-worker-xhs",
+                  "responsibility": "news material collection for the xhs lane"
+                }
+              },
+              "worker_agent_ids": [
+                "b5eff68e-0497-466f-9a74-734bcbb177b7",
+                "8a8c144a-1efb-4c01-8084-f7bb45e33106",
+                "a734a7b8-1fe1-4779-a92b-f4f5268b4a95",
+                "738e280d-af02-4618-85ed-2fd5fe4ab4b4"
+              ]
+            },
+            "workflow": {
+              "formal_workflow": {
+                "status": "active_baseline",
+                "summary": "Executable five-role baseline installed. Waiting for manager cycle_start for cycle 1.",
+                "workflow_id": "news-five-role-workflow-v1",
+                "baseline_state": {
+                  "cycles": {},
+                  "current_cycle": null,
+                  "cycle_identity": {
+                    "payload_fields": [
+                      "cycle_id",
+                      "cycle_index"
+                    ],
+                    "artifact_fields": [
+                      "cycle_id",
+                      "cycle_index",
+                      "workflow_id"
+                    ],
+                    "state_json_paths": {
+                      "current_cycle": "state_json.current_cycle",
+                      "cycle_records": "state_json.cycles",
+                      "next_cycle_index": "state_json.next_cycle_index"
+                    },
+                    "status_block_fields": [
+                      "cycle_id",
+                      "cycle_index"
+                    ]
+                  },
+                  "baseline_status": "ready_for_cycle_1",
+                  "next_cycle_index": 1
+                },
+                "cycle_template": {
+                  "cycle_open_signal": "cycle_start",
+                  "cycle_stage_order": [
+                    "material_collect",
+                    "editorial_review",
+                    "qa_validation",
+                    "final_delivery"
+                  ],
+                  "cycle_close_signal": "cycle_final_delivered"
+                },
+                "role_assignments": {
+                  "editor": "b5eff68e-0497-466f-9a74-734bcbb177b7",
+                  "tester": "738e280d-af02-4618-85ed-2fd5fe4ab4b4",
+                  "manager": "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+                  "worker-33": "8a8c144a-1efb-4c01-8084-f7bb45e33106",
+                  "worker-xhs": "a734a7b8-1fe1-4779-a92b-f4f5268b4a95"
+                }
+              }
+            },
+            "protocol_meta": {
+              "status": "active_baseline",
+              "protocol_id": "news-five-role-protocol-v1",
+              "protocol_name": "News test five-role authority binding",
+              "source_of_truth": "group_protocol",
+              "protocol_version": "1.0.0"
+            },
+            "execution_spec": {
+              "stages": {
+                "qa_validation": {
+                  "stage_id": "qa_validation",
+                  "next_stage": "final_delivery",
+                  "allowed_roles": [
+                    "manager",
+                    "tester"
+                  ],
+                  "completion_condition": {
+                    "all_of": [
+                      {
+                        "gate_id": "tester_run",
+                        "min_count": 1,
+                        "required_agent_ids": [
+                          "738e280d-af02-4618-85ed-2fd5fe4ab4b4"
+                        ],
+                        "min_distinct_agents": 1
+                      },
+                      {
+                        "gate_id": "manager_done",
+                        "min_count": 1,
+                        "required_agent_ids": [
+                          "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                        ],
+                        "min_distinct_agents": 1
+                      }
+                    ]
+                  },
+                  "semantic_description": "Tester validates the cycle draft and manager explicitly closes validation.",
+                  "accepted_status_blocks": [
+                    {
+                      "gate_id": "manager_start",
+                      "allowed_roles": [
+                        "manager"
+                      ],
+                      "step_statuses": [
+                        "qa_validation_start"
+                      ],
+                      "lifecycle_phase": "start",
+                      "required_agent_ids": [
+                        "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                      ]
+                    },
+                    {
+                      "gate_id": "tester_run",
+                      "allowed_roles": [
+                        "tester"
+                      ],
+                      "step_statuses": [
+                        "qa_validation_submitted"
+                      ],
+                      "lifecycle_phase": "run",
+                      "required_agent_ids": [
+                        "738e280d-af02-4618-85ed-2fd5fe4ab4b4"
+                      ]
+                    },
+                    {
+                      "gate_id": "manager_done",
+                      "allowed_roles": [
+                        "manager"
+                      ],
+                      "step_statuses": [
+                        "qa_validation_done"
+                      ],
+                      "lifecycle_phase": "done",
+                      "required_agent_ids": [
+                        "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                      ]
+                    }
+                  ]
+                },
+                "final_delivery": {
+                  "stage_id": "final_delivery",
+                  "next_stage": "cycle_baseline_ready",
+                  "allowed_roles": [
+                    "manager"
+                  ],
+                  "completion_condition": {
+                    "all_of": [
+                      {
+                        "gate_id": "manager_done",
+                        "min_count": 1,
+                        "required_agent_ids": [
+                          "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                        ],
+                        "min_distinct_agents": 1
+                      }
+                    ]
+                  },
+                  "semantic_description": "Manager delivers the final cycle output and returns the workflow to baseline for the next cycle.",
+                  "accepted_status_blocks": [
+                    {
+                      "gate_id": "manager_done",
+                      "allowed_roles": [
+                        "manager"
+                      ],
+                      "step_statuses": [
+                        "cycle_final_delivered"
+                      ],
+                      "lifecycle_phase": "done",
+                      "required_agent_ids": [
+                        "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                      ]
+                    }
+                  ]
+                },
+                "editorial_review": {
+                  "stage_id": "editorial_review",
+                  "next_stage": "qa_validation",
+                  "allowed_roles": [
+                    "manager",
+                    "editor"
+                  ],
+                  "completion_condition": {
+                    "all_of": [
+                      {
+                        "gate_id": "editor_run",
+                        "min_count": 1,
+                        "required_agent_ids": [
+                          "b5eff68e-0497-466f-9a74-734bcbb177b7"
+                        ],
+                        "min_distinct_agents": 1
+                      },
+                      {
+                        "gate_id": "manager_done",
+                        "min_count": 1,
+                        "required_agent_ids": [
+                          "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                        ],
+                        "min_distinct_agents": 1
+                      }
+                    ]
+                  },
+                  "semantic_description": "Editor compiles the cycle draft and manager explicitly accepts or requests correction.",
+                  "accepted_status_blocks": [
+                    {
+                      "gate_id": "manager_start",
+                      "allowed_roles": [
+                        "manager"
+                      ],
+                      "step_statuses": [
+                        "editorial_review_start"
+                      ],
+                      "lifecycle_phase": "start",
+                      "required_agent_ids": [
+                        "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                      ]
+                    },
+                    {
+                      "gate_id": "editor_run",
+                      "allowed_roles": [
+                        "editor"
+                      ],
+                      "step_statuses": [
+                        "editorial_review_submitted"
+                      ],
+                      "lifecycle_phase": "run",
+                      "required_agent_ids": [
+                        "b5eff68e-0497-466f-9a74-734bcbb177b7"
+                      ]
+                    },
+                    {
+                      "gate_id": "manager_done",
+                      "allowed_roles": [
+                        "manager"
+                      ],
+                      "step_statuses": [
+                        "editorial_review_done"
+                      ],
+                      "lifecycle_phase": "done",
+                      "required_agent_ids": [
+                        "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                      ]
+                    }
+                  ]
+                },
+                "material_collect": {
+                  "stage_id": "material_collect",
+                  "next_stage": "editorial_review",
+                  "allowed_roles": [
+                    "manager",
+                    "worker"
+                  ],
+                  "completion_condition": {
+                    "all_of": [
+                      {
+                        "gate_id": "worker_run",
+                        "min_count": 2,
+                        "required_agent_ids": [
+                          "8a8c144a-1efb-4c01-8084-f7bb45e33106",
+                          "a734a7b8-1fe1-4779-a92b-f4f5268b4a95"
+                        ],
+                        "min_distinct_agents": 2
+                      },
+                      {
+                        "gate_id": "manager_done",
+                        "min_count": 1,
+                        "required_agent_ids": [
+                          "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                        ],
+                        "min_distinct_agents": 1
+                      }
+                    ]
+                  },
+                  "semantic_description": "Worker-33 and worker-xhs submit cycle-scoped material evidence; manager closes collection explicitly.",
+                  "accepted_status_blocks": [
+                    {
+                      "gate_id": "manager_start",
+                      "allowed_roles": [
+                        "manager"
+                      ],
+                      "step_statuses": [
+                        "material_collect_start"
+                      ],
+                      "lifecycle_phase": "start",
+                      "required_agent_ids": [
+                        "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                      ]
+                    },
+                    {
+                      "gate_id": "worker_run",
+                      "allowed_roles": [
+                        "worker"
+                      ],
+                      "step_statuses": [
+                        "material_collect_submitted"
+                      ],
+                      "lifecycle_phase": "run",
+                      "required_agent_ids": [
+                        "8a8c144a-1efb-4c01-8084-f7bb45e33106",
+                        "a734a7b8-1fe1-4779-a92b-f4f5268b4a95"
+                      ]
+                    },
+                    {
+                      "gate_id": "manager_done",
+                      "allowed_roles": [
+                        "manager"
+                      ],
+                      "step_statuses": [
+                        "material_collect_done"
+                      ],
+                      "lifecycle_phase": "done",
+                      "required_agent_ids": [
+                        "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                      ]
+                    }
+                  ]
+                },
+                "cycle_baseline_ready": {
+                  "stage_id": "cycle_baseline_ready",
+                  "next_stage": "material_collect",
+                  "allowed_roles": [
+                    "manager"
+                  ],
+                  "completion_condition": {
+                    "all_of": [
+                      {
+                        "gate_id": "manager_cycle_start",
+                        "min_count": 1,
+                        "required_agent_ids": [
+                          "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                        ],
+                        "min_distinct_agents": 1
+                      }
+                    ]
+                  },
+                  "semantic_description": "Executable baseline is installed. Manager opens each cycle explicitly with cycle identity before collection begins.",
+                  "accepted_status_blocks": [
+                    {
+                      "gate_id": "manager_cycle_start",
+                      "allowed_roles": [
+                        "manager"
+                      ],
+                      "step_statuses": [
+                        "cycle_start"
+                      ],
+                      "lifecycle_phase": "start",
+                      "required_agent_ids": [
+                        "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "stage_order": [
+                "cycle_baseline_ready",
+                "material_collect",
+                "editorial_review",
+                "qa_validation",
+                "final_delivery"
+              ],
+              "workflow_id": "news-five-role-workflow-v1",
+              "initial_stage": "cycle_baseline_ready",
+              "role_directory": {
+                "worker_agent_ids": [
+                  "b5eff68e-0497-466f-9a74-734bcbb177b7",
+                  "8a8c144a-1efb-4c01-8084-f7bb45e33106",
+                  "a734a7b8-1fe1-4779-a92b-f4f5268b4a95",
+                  "738e280d-af02-4618-85ed-2fd5fe4ab4b4"
+                ],
+                "manager_agent_ids": [
+                  "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                ]
+              },
+              "execution_spec_id": "news-five-role-baseline-execution-spec-v1"
+            },
+            "group_identity": {
+              "group_name": "news test",
+              "group_slug": "news-test",
+              "group_type": "project",
+              "workflow_mode": "active_baseline_ready_for_cycle_1",
+              "group_objective": "Run cycle-based five-role news workflow with explicit cycle identity and authoritative role binding."
+            },
+            "activation_rule": {
+              "trigger": "authoritative_five_role_binding_installed",
+              "activated_at": "2026-04-10T09:35:55.258Z",
+              "activation_mode": "seed executable baseline immediately",
+              "first_active_stage": "cycle_baseline_ready"
+            },
+            "projection_hints": {
+              "required_views": [
+                "current_stage",
+                "gate_snapshot",
+                "state_json.current_cycle",
+                "state_json.next_cycle_index",
+                "state_json.cycles"
+              ],
+              "baseline_ready_projection": true,
+              "cycle_identity_projection": true
+            },
+            "transition_rules": {
+              "plain_text_cannot_start_cycle": true,
+              "manager_cycle_start_is_authoritative": true,
+              "role_binding_only_no_execution_started": false,
+              "cycle_identity_required_for_formal_progress": true,
+              "plain_text_cannot_replace_formal_transition": true,
+              "manager_is_single_formal_transition_authority": true
+            },
+            "group_session_seed": {
+              "state_json": {
+                "cycles": {},
+                "current_cycle": null,
+                "cycle_identity": {
+                  "payload_fields": [
+                    "cycle_id",
+                    "cycle_index"
+                  ],
+                  "artifact_fields": [
+                    "cycle_id",
+                    "cycle_index",
+                    "workflow_id"
+                  ],
+                  "state_json_paths": {
+                    "current_cycle": "state_json.current_cycle",
+                    "cycle_records": "state_json.cycles",
+                    "next_cycle_index": "state_json.next_cycle_index"
+                  },
+                  "status_block_fields": [
+                    "cycle_id",
+                    "cycle_index"
+                  ]
+                },
+                "baseline_status": "ready_for_cycle_1",
+                "next_cycle_index": 1
+              },
+              "workflow_id": "news-five-role-workflow-v1",
+              "current_mode": "active_baseline",
+              "current_stage": "cycle_baseline_ready",
+              "gate_snapshot": {
+                "next_stage": "material_collect",
+                "stage_order": [
+                  "cycle_baseline_ready",
+                  "material_collect",
+                  "editorial_review",
+                  "qa_validation",
+                  "final_delivery"
+                ],
+                "step0.ready": true,
+                "workflow_id": "news-five-role-workflow-v1",
+                "current_stage": "cycle_baseline_ready",
+                "satisfied_gates": [],
+                "stage_snapshots": {
+                  "cycle_baseline_ready": {
+                    "gates": {
+                      "manager_cycle_start": {
+                        "satisfied": false,
+                        "message_ids": [],
+                        "matched_count": 0,
+                        "matched_agent_ids": [],
+                        "required_agent_ids": [
+                          "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                        ]
+                      }
+                    },
+                    "next_stage": "material_collect",
+                    "evaluated_at": null,
+                    "satisfied_gates": [],
+                    "next_stage_allowed": false,
+                    "current_stage_complete": false
+                  }
+                },
+                "execution_spec_id": "news-five-role-baseline-execution-spec-v1",
+                "last_evaluated_at": null,
+                "next_stage_allowed": false,
+                "current_stage_complete": false
+              }
+            },
+            "status_block_rules": {
+              "required_fields": [
+                "workflow_id",
+                "step_id",
+                "lifecycle_phase",
+                "author_agent_id",
+                "author_role",
+                "step_status",
+                "related_message_id",
+                "cycle_id",
+                "cycle_index"
+              ],
+              "status_block_payload_location": "content.payload",
+              "manager_control_signals_are_authoritative": true,
+              "cycle_identity_required_for_formal_progress": true,
+              "worker_evidence_statuses_are_non_authoritative": true,
+              "missing_cycle_identity_means_no_formal_progress_credit": true
+            },
+            "communication_rules": {
+              "embedded_blocks": {
+                "status_block": "workflow_or_evidence_defined",
+                "content_block": "required",
+                "context_block": "system_defined"
+              },
+              "message_base_type": "content_plus_embedded_blocks",
+              "primary_flow_types": [
+                "start",
+                "run",
+                "result",
+                "done"
+              ],
+              "cycle_identity_fields": {
+                "status_block": [
+                  "cycle_id",
+                  "cycle_index"
+                ],
+                "artifact_refs": [
+                  "cycle_id",
+                  "cycle_index",
+                  "workflow_id"
+                ],
+                "content_payload": [
+                  "cycle_id",
+                  "cycle_index"
+                ]
+              },
+              "formal_transition_requires_manager_status_block": true,
+              "frontend_should_consume_server_projection_not_raw_transition_guessing": true,
+              "plain_text_is_allowed_for_collaboration_but_not_for_formal_transition": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "groups/by-slug/news-test/session": {
+    "success": true,
+    "message": "ok",
+    "data": {
+      "group_id": "8d9d8e44-54b2-4279-aab2-0a6d9ce851b2",
+      "group_session_id": "8d9d8e44-54b2-4279-aab2-0a6d9ce851b2",
+      "group_session_version": "group-session-reset:8d9d8e44-54b2-4279-aab2-0a6d9ce851b2",
+      "protocol_version": "ACP-003",
+      "workflow_id": "news-five-role-workflow-v1",
+      "current_mode": "bootstrap",
+      "current_stage": "cycle_baseline_ready",
+      "group_context_version": "group-context:8d9d8e44-54b2-4279-aab2-0a6d9ce851b2",
+      "gate_snapshot": {
+        "step0.ready": true
+      },
+      "state_json": {}
+    }
+  },
+  "groups/by-slug/news-test/context": {
+    "success": true,
+    "message": "ok",
+    "data": {
+      "group_id": "8d9d8e44-54b2-4279-aab2-0a6d9ce851b2",
+      "group_name": "news test",
+      "group_slug": "news-test",
+      "group_protocol": {
+        "layer_id": "channel",
+        "name": "News Test Five-Agent Protocol",
+        "status": "active_baseline",
+        "summary": "Executable five-role news workflow baseline is active and waiting for cycle 1 start.",
+        "precedence_rank": 3,
+        "scope": [
+          "group.enter",
+          "message.post",
+          "message.reply",
+          "status.report"
+        ],
+        "sections": {
+          "objective": "Establish the authoritative five-agent role binding for the news test group without executing bootstrap or formal workflow cycles.",
+          "placeholders": {
+            "group_boundary": [],
+            "topic_description": [],
+            "message_conventions": [],
+            "group_workflow": [],
+            "group_capabilities": [],
+            "notes": []
+          },
+          "formal_workflow": {
+            "title": "Formal Workflow",
+            "status": "active_baseline",
+            "summary": "Executable baseline installed. No cycle has started; manager must open cycle 1 explicitly.",
+            "workflow_id": "news-five-role-workflow-v1",
+            "baseline_state": {
+              "cycles": {},
+              "current_cycle": null,
+              "cycle_identity": {
+                "payload_fields": [
+                  "cycle_id",
+                  "cycle_index"
+                ],
+                "artifact_fields": [
+                  "cycle_id",
+                  "cycle_index",
+                  "workflow_id"
+                ],
+                "state_json_paths": {
+                  "current_cycle": "state_json.current_cycle",
+                  "cycle_records": "state_json.cycles",
+                  "next_cycle_index": "state_json.next_cycle_index"
+                },
+                "status_block_fields": [
+                  "cycle_id",
+                  "cycle_index"
+                ]
+              },
+              "baseline_status": "ready_for_cycle_1",
+              "next_cycle_index": 1
+            }
+          },
+          "authoritative_role_binding": {
+            "items": [
+              {
+                "role": "manager",
+                "agent_id": "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+                "agent_slug": "openclaw-33"
+              },
+              {
+                "role": "editor",
+                "agent_id": "b5eff68e-0497-466f-9a74-734bcbb177b7",
+                "agent_slug": "openclaw-33-editor"
+              },
+              {
+                "role": "worker-33",
+                "agent_id": "8a8c144a-1efb-4c01-8084-f7bb45e33106",
+                "agent_slug": "openclaw-33-worker-33"
+              },
+              {
+                "role": "worker-xhs",
+                "agent_id": "a734a7b8-1fe1-4779-a92b-f4f5268b4a95",
+                "agent_slug": "openclaw-33-worker-xhs"
+              },
+              {
+                "role": "tester",
+                "agent_id": "738e280d-af02-4618-85ed-2fd5fe4ab4b4",
+                "agent_slug": "openclaw-33-tester"
+              }
+            ],
+            "title": "Authoritative Role Binding"
+          }
+        },
+        "group": {
+          "group_name": "news test",
+          "group_slug": "news-test"
+        },
+        "members": {
+          "role_rules": {
+            "bootstrap_not_started": false,
+            "cycle_execution_not_started": true,
+            "formal_workflow_not_started": true,
+            "formal_workflow_baseline_installed": true,
+            "binding_is_authoritative_server_fact": true,
+            "non_manager_roles_wait_for_cycle_start": true,
+            "manager_is_single_cycle_start_authority": true,
+            "manager_is_single_formal_transition_authority": true,
+            "non_manager_roles_are_declared_only_until_execution": true
+          },
+          "all_agent_ids": [
+            "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+            "b5eff68e-0497-466f-9a74-734bcbb177b7",
+            "8a8c144a-1efb-4c01-8084-f7bb45e33106",
+            "a734a7b8-1fe1-4779-a92b-f4f5268b4a95",
+            "738e280d-af02-4618-85ed-2fd5fe4ab4b4"
+          ],
+          "manager_agent_id": "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+          "role_assignments": {
+            "editor": {
+              "agent_id": "b5eff68e-0497-466f-9a74-734bcbb177b7",
+              "agent_slug": "openclaw-33-editor",
+              "responsibility": "editorial review and compilation"
+            },
+            "tester": {
+              "agent_id": "738e280d-af02-4618-85ed-2fd5fe4ab4b4",
+              "agent_slug": "openclaw-33-tester",
+              "responsibility": "validation, QA, and acceptance checks"
+            },
+            "manager": {
+              "agent_id": "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+              "agent_slug": "openclaw-33",
+              "responsibility": "workflow authority and final decision"
+            },
+            "worker-33": {
+              "agent_id": "8a8c144a-1efb-4c01-8084-f7bb45e33106",
+              "agent_slug": "openclaw-33-worker-33",
+              "responsibility": "news material collection for the 33 lane"
+            },
+            "worker-xhs": {
+              "agent_id": "a734a7b8-1fe1-4779-a92b-f4f5268b4a95",
+              "agent_slug": "openclaw-33-worker-xhs",
+              "responsibility": "news material collection for the xhs lane"
+            }
+          },
+          "worker_agent_ids": [
+            "b5eff68e-0497-466f-9a74-734bcbb177b7",
+            "8a8c144a-1efb-4c01-8084-f7bb45e33106",
+            "a734a7b8-1fe1-4779-a92b-f4f5268b4a95",
+            "738e280d-af02-4618-85ed-2fd5fe4ab4b4"
+          ]
+        },
+        "workflow": {
+          "formal_workflow": {
+            "status": "active_baseline",
+            "summary": "Executable five-role baseline installed. Waiting for manager cycle_start for cycle 1.",
+            "workflow_id": "news-five-role-workflow-v1",
+            "baseline_state": {
+              "cycles": {},
+              "current_cycle": null,
+              "cycle_identity": {
+                "payload_fields": [
+                  "cycle_id",
+                  "cycle_index"
+                ],
+                "artifact_fields": [
+                  "cycle_id",
+                  "cycle_index",
+                  "workflow_id"
+                ],
+                "state_json_paths": {
+                  "current_cycle": "state_json.current_cycle",
+                  "cycle_records": "state_json.cycles",
+                  "next_cycle_index": "state_json.next_cycle_index"
+                },
+                "status_block_fields": [
+                  "cycle_id",
+                  "cycle_index"
+                ]
+              },
+              "baseline_status": "ready_for_cycle_1",
+              "next_cycle_index": 1
+            },
+            "cycle_template": {
+              "cycle_open_signal": "cycle_start",
+              "cycle_stage_order": [
+                "material_collect",
+                "editorial_review",
+                "qa_validation",
+                "final_delivery"
+              ],
+              "cycle_close_signal": "cycle_final_delivered"
+            },
+            "role_assignments": {
+              "editor": "b5eff68e-0497-466f-9a74-734bcbb177b7",
+              "tester": "738e280d-af02-4618-85ed-2fd5fe4ab4b4",
+              "manager": "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+              "worker-33": "8a8c144a-1efb-4c01-8084-f7bb45e33106",
+              "worker-xhs": "a734a7b8-1fe1-4779-a92b-f4f5268b4a95"
+            }
+          }
+        },
+        "protocol_meta": {
+          "status": "active_baseline",
+          "protocol_id": "news-five-role-protocol-v1",
+          "protocol_name": "News test five-role authority binding",
+          "source_of_truth": "group_protocol",
+          "protocol_version": "1.0.0"
+        },
+        "execution_spec": {
+          "stages": {
+            "qa_validation": {
+              "stage_id": "qa_validation",
+              "next_stage": "final_delivery",
+              "allowed_roles": [
+                "manager",
+                "tester"
+              ],
+              "completion_condition": {
+                "all_of": [
+                  {
+                    "gate_id": "tester_run",
+                    "min_count": 1,
+                    "required_agent_ids": [
+                      "738e280d-af02-4618-85ed-2fd5fe4ab4b4"
+                    ],
+                    "min_distinct_agents": 1
+                  },
+                  {
+                    "gate_id": "manager_done",
+                    "min_count": 1,
+                    "required_agent_ids": [
+                      "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                    ],
+                    "min_distinct_agents": 1
+                  }
+                ]
+              },
+              "semantic_description": "Tester validates the cycle draft and manager explicitly closes validation.",
+              "accepted_status_blocks": [
+                {
+                  "gate_id": "manager_start",
+                  "allowed_roles": [
+                    "manager"
+                  ],
+                  "step_statuses": [
+                    "qa_validation_start"
+                  ],
+                  "lifecycle_phase": "start",
+                  "required_agent_ids": [
+                    "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                  ]
+                },
+                {
+                  "gate_id": "tester_run",
+                  "allowed_roles": [
+                    "tester"
+                  ],
+                  "step_statuses": [
+                    "qa_validation_submitted"
+                  ],
+                  "lifecycle_phase": "run",
+                  "required_agent_ids": [
+                    "738e280d-af02-4618-85ed-2fd5fe4ab4b4"
+                  ]
+                },
+                {
+                  "gate_id": "manager_done",
+                  "allowed_roles": [
+                    "manager"
+                  ],
+                  "step_statuses": [
+                    "qa_validation_done"
+                  ],
+                  "lifecycle_phase": "done",
+                  "required_agent_ids": [
+                    "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                  ]
+                }
+              ]
+            },
+            "final_delivery": {
+              "stage_id": "final_delivery",
+              "next_stage": "cycle_baseline_ready",
+              "allowed_roles": [
+                "manager"
+              ],
+              "completion_condition": {
+                "all_of": [
+                  {
+                    "gate_id": "manager_done",
+                    "min_count": 1,
+                    "required_agent_ids": [
+                      "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                    ],
+                    "min_distinct_agents": 1
+                  }
+                ]
+              },
+              "semantic_description": "Manager delivers the final cycle output and returns the workflow to baseline for the next cycle.",
+              "accepted_status_blocks": [
+                {
+                  "gate_id": "manager_done",
+                  "allowed_roles": [
+                    "manager"
+                  ],
+                  "step_statuses": [
+                    "cycle_final_delivered"
+                  ],
+                  "lifecycle_phase": "done",
+                  "required_agent_ids": [
+                    "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                  ]
+                }
+              ]
+            },
+            "editorial_review": {
+              "stage_id": "editorial_review",
+              "next_stage": "qa_validation",
+              "allowed_roles": [
+                "manager",
+                "editor"
+              ],
+              "completion_condition": {
+                "all_of": [
+                  {
+                    "gate_id": "editor_run",
+                    "min_count": 1,
+                    "required_agent_ids": [
+                      "b5eff68e-0497-466f-9a74-734bcbb177b7"
+                    ],
+                    "min_distinct_agents": 1
+                  },
+                  {
+                    "gate_id": "manager_done",
+                    "min_count": 1,
+                    "required_agent_ids": [
+                      "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                    ],
+                    "min_distinct_agents": 1
+                  }
+                ]
+              },
+              "semantic_description": "Editor compiles the cycle draft and manager explicitly accepts or requests correction.",
+              "accepted_status_blocks": [
+                {
+                  "gate_id": "manager_start",
+                  "allowed_roles": [
+                    "manager"
+                  ],
+                  "step_statuses": [
+                    "editorial_review_start"
+                  ],
+                  "lifecycle_phase": "start",
+                  "required_agent_ids": [
+                    "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                  ]
+                },
+                {
+                  "gate_id": "editor_run",
+                  "allowed_roles": [
+                    "editor"
+                  ],
+                  "step_statuses": [
+                    "editorial_review_submitted"
+                  ],
+                  "lifecycle_phase": "run",
+                  "required_agent_ids": [
+                    "b5eff68e-0497-466f-9a74-734bcbb177b7"
+                  ]
+                },
+                {
+                  "gate_id": "manager_done",
+                  "allowed_roles": [
+                    "manager"
+                  ],
+                  "step_statuses": [
+                    "editorial_review_done"
+                  ],
+                  "lifecycle_phase": "done",
+                  "required_agent_ids": [
+                    "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                  ]
+                }
+              ]
+            },
+            "material_collect": {
+              "stage_id": "material_collect",
+              "next_stage": "editorial_review",
+              "allowed_roles": [
+                "manager",
+                "worker"
+              ],
+              "completion_condition": {
+                "all_of": [
+                  {
+                    "gate_id": "worker_run",
+                    "min_count": 2,
+                    "required_agent_ids": [
+                      "8a8c144a-1efb-4c01-8084-f7bb45e33106",
+                      "a734a7b8-1fe1-4779-a92b-f4f5268b4a95"
+                    ],
+                    "min_distinct_agents": 2
+                  },
+                  {
+                    "gate_id": "manager_done",
+                    "min_count": 1,
+                    "required_agent_ids": [
+                      "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                    ],
+                    "min_distinct_agents": 1
+                  }
+                ]
+              },
+              "semantic_description": "Worker-33 and worker-xhs submit cycle-scoped material evidence; manager closes collection explicitly.",
+              "accepted_status_blocks": [
+                {
+                  "gate_id": "manager_start",
+                  "allowed_roles": [
+                    "manager"
+                  ],
+                  "step_statuses": [
+                    "material_collect_start"
+                  ],
+                  "lifecycle_phase": "start",
+                  "required_agent_ids": [
+                    "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                  ]
+                },
+                {
+                  "gate_id": "worker_run",
+                  "allowed_roles": [
+                    "worker"
+                  ],
+                  "step_statuses": [
+                    "material_collect_submitted"
+                  ],
+                  "lifecycle_phase": "run",
+                  "required_agent_ids": [
+                    "8a8c144a-1efb-4c01-8084-f7bb45e33106",
+                    "a734a7b8-1fe1-4779-a92b-f4f5268b4a95"
+                  ]
+                },
+                {
+                  "gate_id": "manager_done",
+                  "allowed_roles": [
+                    "manager"
+                  ],
+                  "step_statuses": [
+                    "material_collect_done"
+                  ],
+                  "lifecycle_phase": "done",
+                  "required_agent_ids": [
+                    "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                  ]
+                }
+              ]
+            },
+            "cycle_baseline_ready": {
+              "stage_id": "cycle_baseline_ready",
+              "next_stage": "material_collect",
+              "allowed_roles": [
+                "manager"
+              ],
+              "completion_condition": {
+                "all_of": [
+                  {
+                    "gate_id": "manager_cycle_start",
+                    "min_count": 1,
+                    "required_agent_ids": [
+                      "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                    ],
+                    "min_distinct_agents": 1
+                  }
+                ]
+              },
+              "semantic_description": "Executable baseline is installed. Manager opens each cycle explicitly with cycle identity before collection begins.",
+              "accepted_status_blocks": [
+                {
+                  "gate_id": "manager_cycle_start",
+                  "allowed_roles": [
+                    "manager"
+                  ],
+                  "step_statuses": [
+                    "cycle_start"
+                  ],
+                  "lifecycle_phase": "start",
+                  "required_agent_ids": [
+                    "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                  ]
+                }
+              ]
+            }
+          },
+          "stage_order": [
+            "cycle_baseline_ready",
+            "material_collect",
+            "editorial_review",
+            "qa_validation",
+            "final_delivery"
+          ],
+          "workflow_id": "news-five-role-workflow-v1",
+          "initial_stage": "cycle_baseline_ready",
+          "role_directory": {
+            "worker_agent_ids": [
+              "b5eff68e-0497-466f-9a74-734bcbb177b7",
+              "8a8c144a-1efb-4c01-8084-f7bb45e33106",
+              "a734a7b8-1fe1-4779-a92b-f4f5268b4a95",
+              "738e280d-af02-4618-85ed-2fd5fe4ab4b4"
+            ],
+            "manager_agent_ids": [
+              "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+            ]
+          },
+          "execution_spec_id": "news-five-role-baseline-execution-spec-v1"
+        },
+        "group_identity": {
+          "group_name": "news test",
+          "group_slug": "news-test",
+          "group_type": "project",
+          "workflow_mode": "active_baseline_ready_for_cycle_1",
+          "group_objective": "Run cycle-based five-role news workflow with explicit cycle identity and authoritative role binding."
+        },
+        "activation_rule": {
+          "trigger": "authoritative_five_role_binding_installed",
+          "activated_at": "2026-04-10T09:35:55.258Z",
+          "activation_mode": "seed executable baseline immediately",
+          "first_active_stage": "cycle_baseline_ready"
+        },
+        "projection_hints": {
+          "required_views": [
+            "current_stage",
+            "gate_snapshot",
+            "state_json.current_cycle",
+            "state_json.next_cycle_index",
+            "state_json.cycles"
+          ],
+          "baseline_ready_projection": true,
+          "cycle_identity_projection": true
+        },
+        "transition_rules": {
+          "plain_text_cannot_start_cycle": true,
+          "manager_cycle_start_is_authoritative": true,
+          "role_binding_only_no_execution_started": false,
+          "cycle_identity_required_for_formal_progress": true,
+          "plain_text_cannot_replace_formal_transition": true,
+          "manager_is_single_formal_transition_authority": true
+        },
+        "group_session_seed": {
+          "state_json": {
+            "cycles": {},
+            "current_cycle": null,
+            "cycle_identity": {
+              "payload_fields": [
+                "cycle_id",
+                "cycle_index"
+              ],
+              "artifact_fields": [
+                "cycle_id",
+                "cycle_index",
+                "workflow_id"
+              ],
+              "state_json_paths": {
+                "current_cycle": "state_json.current_cycle",
+                "cycle_records": "state_json.cycles",
+                "next_cycle_index": "state_json.next_cycle_index"
+              },
+              "status_block_fields": [
+                "cycle_id",
+                "cycle_index"
+              ]
+            },
+            "baseline_status": "ready_for_cycle_1",
+            "next_cycle_index": 1
+          },
+          "workflow_id": "news-five-role-workflow-v1",
+          "current_mode": "active_baseline",
+          "current_stage": "cycle_baseline_ready",
+          "gate_snapshot": {
+            "next_stage": "material_collect",
+            "stage_order": [
+              "cycle_baseline_ready",
+              "material_collect",
+              "editorial_review",
+              "qa_validation",
+              "final_delivery"
+            ],
+            "step0.ready": true,
+            "workflow_id": "news-five-role-workflow-v1",
+            "current_stage": "cycle_baseline_ready",
+            "satisfied_gates": [],
+            "stage_snapshots": {
+              "cycle_baseline_ready": {
+                "gates": {
+                  "manager_cycle_start": {
+                    "satisfied": false,
+                    "message_ids": [],
+                    "matched_count": 0,
+                    "matched_agent_ids": [],
+                    "required_agent_ids": [
+                      "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                    ]
+                  }
+                },
+                "next_stage": "material_collect",
+                "evaluated_at": null,
+                "satisfied_gates": [],
+                "next_stage_allowed": false,
+                "current_stage_complete": false
+              }
+            },
+            "execution_spec_id": "news-five-role-baseline-execution-spec-v1",
+            "last_evaluated_at": null,
+            "next_stage_allowed": false,
+            "current_stage_complete": false
+          }
+        },
+        "status_block_rules": {
+          "required_fields": [
+            "workflow_id",
+            "step_id",
+            "lifecycle_phase",
+            "author_agent_id",
+            "author_role",
+            "step_status",
+            "related_message_id",
+            "cycle_id",
+            "cycle_index"
+          ],
+          "status_block_payload_location": "content.payload",
+          "manager_control_signals_are_authoritative": true,
+          "cycle_identity_required_for_formal_progress": true,
+          "worker_evidence_statuses_are_non_authoritative": true,
+          "missing_cycle_identity_means_no_formal_progress_credit": true
+        },
+        "communication_rules": {
+          "embedded_blocks": {
+            "status_block": "workflow_or_evidence_defined",
+            "content_block": "required",
+            "context_block": "system_defined"
+          },
+          "message_base_type": "content_plus_embedded_blocks",
+          "primary_flow_types": [
+            "start",
+            "run",
+            "result",
+            "done"
+          ],
+          "cycle_identity_fields": {
+            "status_block": [
+              "cycle_id",
+              "cycle_index"
+            ],
+            "artifact_refs": [
+              "cycle_id",
+              "cycle_index",
+              "workflow_id"
+            ],
+            "content_payload": [
+              "cycle_id",
+              "cycle_index"
+            ]
+          },
+          "formal_transition_requires_manager_status_block": true,
+          "frontend_should_consume_server_projection_not_raw_transition_guessing": true,
+          "plain_text_is_allowed_for_collaboration_but_not_for_formal_transition": true
+        }
+      },
+      "group_session": {
+        "group_id": "8d9d8e44-54b2-4279-aab2-0a6d9ce851b2",
+        "group_session_id": "8d9d8e44-54b2-4279-aab2-0a6d9ce851b2",
+        "group_session_version": "group-session-reset:8d9d8e44-54b2-4279-aab2-0a6d9ce851b2",
+        "protocol_version": "ACP-003",
+        "workflow_id": "news-five-role-workflow-v1",
+        "current_mode": "bootstrap",
+        "current_stage": "cycle_baseline_ready",
+        "group_context_version": "group-context:8d9d8e44-54b2-4279-aab2-0a6d9ce851b2",
+        "gate_snapshot": {
+          "step0.ready": true
+        },
+        "state_json": {}
+      }
+    }
+  }
+}

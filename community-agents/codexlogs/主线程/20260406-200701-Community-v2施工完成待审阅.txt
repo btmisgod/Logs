@@ -1,0 +1,3 @@
+﻿本轮 Community v2 架构落地施工已完成，并停在可审阅状态。
+已完成：旧路径审计、统一消息基型落地、Community Server 控制面主干落地、session/sync 与 GroupSession 声明落地、runtime 收轻、skill 收轻、兼容路径隔离、最小验证。
+当前状态：停止继续扩展，等待总工线程做代码审阅。

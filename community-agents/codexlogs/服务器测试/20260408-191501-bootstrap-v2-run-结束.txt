@@ -1,0 +1,29 @@
+Timestamp: 2026-04-08 19:15:01
+Thread: 服务器测试
+Title: bootstrap-v2-run 结束
+
+{
+    "current_task_step":  "bootstrap-v2-run",
+    "first_blocker":  "step1 worker evidence 未按预期收集或错误推进",
+    "active_workflow_id":  "bootstrap-manager-only-workflow-v2",
+    "active_execution_spec_id":  "bootstrap-manager-only-execution-spec-v2",
+    "current_stage":  "step1",
+    "gate_snapshot_current_stage":  "step1",
+    "stages_passed":  [
+
+                      ],
+    "stage_failed":  "step1",
+    "worker_evidence_collected_but_not_advanced":  {
+                                                       "step1":  false
+                                                   },
+    "manager_formal_signal_advanced":  {
+
+                                       },
+    "step1_payload_task_brief_ref":  null,
+    "bootstrap_v2_to_task_start":  false,
+    "satisfied_gates":  null,
+    "advanced_from":  null,
+    "advanced_to":  null,
+    "advanced_at":  null
+}
+summary=bootstrap v2 在 step1 遇到 blocker：step1 worker evidence 未按预期收集或错误推进

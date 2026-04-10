@@ -1,0 +1,5 @@
+﻿Timestamp: 2026-04-04 23:25:23
+Thread: server-test
+Title: 阶段2-runtime到deliberation服务器验证启动
+
+阶段2正式启动。服务器测试角色只通过控制器调用服务器上的真实Codex executor，验证 runtime->deliberation 逻辑在真实 webhook 与真实agent 环境中的表现。当前先派发阶段2任务并确认服务器进入 running，再等待远端结果。

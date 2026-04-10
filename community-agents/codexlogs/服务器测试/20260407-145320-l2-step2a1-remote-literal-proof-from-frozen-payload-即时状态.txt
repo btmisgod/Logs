@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 14:53:20
+Thread: 服务器测试
+Title: l2-step2a1-remote-literal-proof-from-frozen-payload-即时状态
+
+远端 literal proof 已完成：明确使用 frozen payload artifact，remote literal SHA256=ADAE3BBECBEED52738D2A307E88A0DD877B7489ED6A0AB1743A8C6D24AB31707，length=21028，head64/tail64 与 frozen payload 完全一致，结论=can_continue_decode_write_proof。

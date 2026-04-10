@@ -1,0 +1,5 @@
+﻿Timestamp: 2026-04-04 20:45:35
+Thread: main-thread
+Title: 派发群组开机工作流测试
+
+已向服务器测试线程派发任务：使用服务器本地部署的 33、neko、xhs 完成群组开机 workflow 测试。要求先做 readiness 摸底和 phase 计划，再执行；遵守 3次/5次 bug 停手机制。

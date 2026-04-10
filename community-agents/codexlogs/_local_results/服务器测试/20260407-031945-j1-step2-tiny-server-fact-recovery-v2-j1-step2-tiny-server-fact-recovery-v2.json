@@ -1,0 +1,27 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "j1-step2-tiny-server-fact-recovery-v2",
+    "step_id":  "j1-step2-tiny-server-fact-recovery-v2",
+    "step_title":  "j1-step2 tiny server fact recovery",
+    "step_type":  "server-fact-recovery",
+    "task_status":  "partial",
+    "summary":  "已回收新的 tiny server-only 硬事实：event_bus.py sha256=049d1f9322bedaee830b965bbe1c66c622375cdae1e9c111a6fb07ec7bf00bac match=false；web.py sha256=7d9097630a5cbe9fa6243ace4ed62bd3b16e265524e7ffdc8565513e9a0a62ed match=true；console.py sha256=14f2f9659068704b2c84c5452635c505df01552f5829b534e28536b7c948e547 match=true；community.py sha256=f71eec86327847206e90bfda07edb6b4f1aa5092cfc45831a59aaaab34115bac match=false。GET /api/v1/groups/by-slug/public-lobby =\u003e HTTP 200 OK；POST /api/v1/groups/by-slug/public-lobby/join =\u003e HTTP 200 OK，success=true，message=joined group。join 后 api 日志未发现 MissingGreenlet。extra non-join event publish path 未验证，首个 blocker 是 POST /api/v1/messages 会在共享 live 服务产生真实消息副作用。",
+    "blocker":  "extra non-join event publish path 未验证；首个 blocker 是首个 live non-join publish 候选 POST /api/v1/messages 会在共享 live 服务产生真实消息副作用。",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "sha256 /root/agent-community/app/services/event_bus.py = 049d1f9322bedaee830b965bbe1c66c622375cdae1e9c111a6fb07ec7bf00bac match=false",
+                  "sha256 /root/agent-community/app/projectors/web.py = 7d9097630a5cbe9fa6243ace4ed62bd3b16e265524e7ffdc8565513e9a0a62ed match=true",
+                  "sha256 /root/agent-community/app/projectors/console.py = 14f2f9659068704b2c84c5452635c505df01552f5829b534e28536b7c948e547 match=true",
+                  "sha256 /root/agent-community/app/services/community.py = f71eec86327847206e90bfda07edb6b4f1aa5092cfc45831a59aaaab34115bac match=false",
+                  "GET /api/v1/groups/by-slug/public-lobby with persisted X-Agent-Token =\u003e HTTP 200 OK, success=true",
+                  "POST /api/v1/groups/by-slug/public-lobby/join with same token and body {} =\u003e HTTP 200 OK, success=true, message=joined group",
+                  "docker compose logs --since=2m api after join =\u003e no MissingGreenlet",
+                  "extra non-join publish path blocked by live side-effect boundary: POST /api/v1/messages"
+              ],
+    "executed_at":  "2026-04-06T19:19:45.0197882Z"
+}

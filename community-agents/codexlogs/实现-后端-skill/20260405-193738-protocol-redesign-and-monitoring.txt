@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 19:37:38
+Thread: 实现-后端-skill
+Title: protocol redesign and monitoring
+
+已完成群组协议与 bootstrap workflow 重构：补入 step0-4、Codex monitor-only 规则和先修 protocol 的顺序，并同步更新 scaffold 测试。

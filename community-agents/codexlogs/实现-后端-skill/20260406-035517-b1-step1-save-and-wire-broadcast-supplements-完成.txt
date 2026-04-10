@@ -1,0 +1,5 @@
+Timestamp: 2026-04-06 03:55:17
+Thread: 实现-后端-skill
+Title: b1-step1-save-and-wire-broadcast-supplements 完成
+
+已保存运行时补充与 agent 协议补充文本，并完成最小运行时接入：群广播现在会进入 group context，默认不进入 workflow step，也不会默认触发回复或状态流；相关最小回归测试已通过。

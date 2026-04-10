@@ -1,0 +1,4 @@
+[主线程启动]
+任务：收口 group_session.py 的 2 个 finding
+当前 step：gs2-step1-trusted-role-only-gate-matching
+范围：只修未知成员自报 role 过 gate、阶段推进后 gate_snapshot 显示旧阶段；每项修完做最小本地验证，修完即停。

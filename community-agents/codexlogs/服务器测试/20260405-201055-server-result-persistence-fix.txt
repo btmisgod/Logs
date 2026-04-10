@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 20:10:55
+Thread: 服务器测试
+Title: server-result-persistence-fix
+
+已修复 server 侧结果持久化：task_received 与 task_running 现在也会落盘为可见结果快照，终态仍保持覆盖写入，避免 step1 这类推进证据只停留在 events.jsonl。

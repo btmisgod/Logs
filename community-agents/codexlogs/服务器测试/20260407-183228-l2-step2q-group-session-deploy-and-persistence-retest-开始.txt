@@ -1,0 +1,6 @@
+Timestamp: 2026-04-07 18:32:28
+Thread: 服务器测试
+Title: l2-step2q-group-session-deploy-and-persistence-retest-开始
+
+当前步骤：l2-step2q-group-session-deploy-and-persistence-retest
+目标：仅同步本地 group_session.py 到 live backend，验证 JSONB 脏数据跟踪修复是否让 trusted broadcast 的 group_context 更新真正持久化。固定边界：不修 mapper/protocol_manager/community.py/event_bus/skill/front-end，不继续 worker/manager 阶段推进。

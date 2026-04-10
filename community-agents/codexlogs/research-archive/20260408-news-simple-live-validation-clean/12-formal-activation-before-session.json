@@ -1,0 +1,244 @@
+{
+  "status": 200,
+  "response": {
+    "success": true,
+    "message": "ok",
+    "data": {
+      "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+      "group_session_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+      "group_session_version": "group-session:73e8feda-e7df-4c5c-8e0b-5f0dcb91c91d",
+      "protocol_version": "ACP-003",
+      "workflow_id": "international-news-simple-workflow-v1",
+      "current_mode": "bootstrap",
+      "current_stage": "final_deliver",
+      "group_context_version": "group-context:c8ae1c20-2cd7-45bd-9e6c-665e08235508",
+      "gate_snapshot": {
+        "gates": {
+          "manager_done": {
+            "satisfied": true,
+            "message_ids": [
+              "73e8feda-e7df-4c5c-8e0b-5f0dcb91c91d"
+            ],
+            "matched_count": 1,
+            "matched_agent_ids": [
+              "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+            ],
+            "required_agent_ids": [
+              "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+            ]
+          }
+        },
+        "next_stage": null,
+        "advanced_at": "2026-04-08T14:21:40.947416+00:00",
+        "advanced_to": "final_deliver",
+        "stage_order": [
+          "task_plan",
+          "material_collect",
+          "draft_compile",
+          "final_deliver"
+        ],
+        "step0.ready": true,
+        "workflow_id": "international-news-simple-workflow-v1",
+        "advanced_from": "draft_compile",
+        "current_stage": "final_deliver",
+        "satisfied_gates": [
+          "manager_done"
+        ],
+        "stage_snapshots": {
+          "task_plan": {
+            "gates": {
+              "manager_done": {
+                "satisfied": true,
+                "message_ids": [
+                  "3662add5-5d24-467d-988f-29ca7453a3fd"
+                ],
+                "matched_count": 1,
+                "matched_agent_ids": [
+                  "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                ],
+                "required_agent_ids": [
+                  "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                ]
+              }
+            },
+            "next_stage": "material_collect",
+            "evaluated_at": "2026-04-08T14:20:16.948788+00:00",
+            "satisfied_gates": [
+              "manager_done"
+            ],
+            "next_stage_allowed": true,
+            "current_stage_complete": true
+          },
+          "draft_compile": {
+            "gates": {
+              "manager_done": {
+                "satisfied": true,
+                "message_ids": [
+                  "179da8ee-34c9-4787-a1c7-536827f9a423"
+                ],
+                "matched_count": 1,
+                "matched_agent_ids": [
+                  "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                ],
+                "required_agent_ids": [
+                  "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                ]
+              }
+            },
+            "next_stage": "final_deliver",
+            "evaluated_at": "2026-04-08T14:21:40.947416+00:00",
+            "satisfied_gates": [
+              "manager_done"
+            ],
+            "next_stage_allowed": true,
+            "current_stage_complete": true
+          },
+          "final_deliver": {
+            "gates": {
+              "manager_done": {
+                "satisfied": true,
+                "message_ids": [
+                  "73e8feda-e7df-4c5c-8e0b-5f0dcb91c91d"
+                ],
+                "matched_count": 1,
+                "matched_agent_ids": [
+                  "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                ],
+                "required_agent_ids": [
+                  "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                ]
+              }
+            },
+            "next_stage": null,
+            "evaluated_at": "2026-04-08T14:21:56.956691+00:00",
+            "satisfied_gates": [
+              "manager_done"
+            ],
+            "next_stage_allowed": false,
+            "current_stage_complete": true
+          },
+          "material_collect": {
+            "gates": {
+              "manager_done": {
+                "satisfied": true,
+                "message_ids": [
+                  "cf8a18ed-406e-4068-84a3-8c9c0199d99f"
+                ],
+                "matched_count": 1,
+                "matched_agent_ids": [
+                  "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                ],
+                "required_agent_ids": [
+                  "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                ]
+              }
+            },
+            "next_stage": "draft_compile",
+            "evaluated_at": "2026-04-08T14:21:00.645805+00:00",
+            "satisfied_gates": [
+              "manager_done"
+            ],
+            "next_stage_allowed": true,
+            "current_stage_complete": true
+          }
+        },
+        "execution_spec_id": "international-news-simple-execution-spec-v1",
+        "last_evaluated_at": "2026-04-08T14:21:56.956691+00:00",
+        "next_stage_allowed": false,
+        "current_stage_complete": true
+      },
+      "state_json": {
+        "last_message_id": "73e8feda-e7df-4c5c-8e0b-5f0dcb91c91d",
+        "last_status_block": {
+          "step_id": "final_deliver",
+          "author_role": "manager",
+          "step_status": "manager_final_delivered",
+          "workflow_id": "international-news-simple-workflow-v1",
+          "author_agent_id": null,
+          "lifecycle_phase": "result",
+          "related_message_id": null
+        },
+        "observed_statuses": [
+          {
+            "step_id": "task_plan",
+            "message_id": "3662add5-5d24-467d-988f-29ca7453a3fd",
+            "author_role": "manager",
+            "observed_at": "2026-04-08T14:20:16.948752+00:00",
+            "step_status": "manager_task_plan_done",
+            "workflow_id": "international-news-simple-workflow-v1",
+            "author_agent_id": "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+            "lifecycle_phase": "result",
+            "related_message_id": null,
+            "declared_author_role": "manager",
+            "declared_author_agent_id": null
+          },
+          {
+            "step_id": "material_collect",
+            "message_id": "5a4865bb-8d20-44aa-9d1b-e06a015570d5",
+            "author_role": "worker",
+            "observed_at": "2026-04-08T14:20:56.566508+00:00",
+            "step_status": "material_pool_submitted",
+            "workflow_id": "international-news-simple-workflow-v1",
+            "author_agent_id": "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+            "lifecycle_phase": "run",
+            "related_message_id": null,
+            "declared_author_role": "worker",
+            "declared_author_agent_id": null
+          },
+          {
+            "step_id": "material_collect",
+            "message_id": "cf8a18ed-406e-4068-84a3-8c9c0199d99f",
+            "author_role": "manager",
+            "observed_at": "2026-04-08T14:21:00.645766+00:00",
+            "step_status": "manager_materials_approved",
+            "workflow_id": "international-news-simple-workflow-v1",
+            "author_agent_id": "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+            "lifecycle_phase": "result",
+            "related_message_id": null,
+            "declared_author_role": "manager",
+            "declared_author_agent_id": null
+          },
+          {
+            "step_id": "draft_compile",
+            "message_id": "16cc4e82-c89a-4a51-b431-a080ed4437fa",
+            "author_role": "worker",
+            "observed_at": "2026-04-08T14:21:35.524428+00:00",
+            "step_status": "draft_report_submitted",
+            "workflow_id": "international-news-simple-workflow-v1",
+            "author_agent_id": "e1fb40b4-80b9-4baa-b740-cb5aa51fdee5",
+            "lifecycle_phase": "run",
+            "related_message_id": null,
+            "declared_author_role": "worker",
+            "declared_author_agent_id": null
+          },
+          {
+            "step_id": "draft_compile",
+            "message_id": "179da8ee-34c9-4787-a1c7-536827f9a423",
+            "author_role": "manager",
+            "observed_at": "2026-04-08T14:21:40.947373+00:00",
+            "step_status": "manager_draft_accepted",
+            "workflow_id": "international-news-simple-workflow-v1",
+            "author_agent_id": "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+            "lifecycle_phase": "result",
+            "related_message_id": null,
+            "declared_author_role": "manager",
+            "declared_author_agent_id": null
+          },
+          {
+            "step_id": "final_deliver",
+            "message_id": "73e8feda-e7df-4c5c-8e0b-5f0dcb91c91d",
+            "author_role": "manager",
+            "observed_at": "2026-04-08T14:21:56.956640+00:00",
+            "step_status": "manager_final_delivered",
+            "workflow_id": "international-news-simple-workflow-v1",
+            "author_agent_id": "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+            "lifecycle_phase": "result",
+            "related_message_id": null,
+            "declared_author_role": "manager",
+            "declared_author_agent_id": null
+          }
+        ]
+      }
+    }
+  }
+}

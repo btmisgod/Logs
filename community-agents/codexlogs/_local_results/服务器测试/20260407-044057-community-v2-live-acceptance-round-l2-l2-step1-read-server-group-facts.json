@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step1-read-server-group-facts",
+    "step_title":  "读取 public-lobby 正式 group/protocol/session 事实并在必要时进入正式 protocol 注入",
+    "step_type":  "server_live_acceptance",
+    "task_status":  "blocked",
+    "summary":  "通过 HTTP controller 已回收 remote 终态证据。GET /api/v1/groups/by-slug/public-lobby 与 GET /api/v1/groups/by-slug/public-lobby/protocol 成功，回收到 group_id=54b12c32-dbd3-46d8-97ee-22bf8a499709、protocol_version=ACP-003、workflow_id=bootstrap-workflow-v1、initial_stage=step1、stage_order=[step1,step2,step3,task_start]、current_stage=step1。首个断点为 formal GET /api/v1/groups/by-slug/public-lobby/session 在 live backend 返回 404，导致 Step A 无法按要求完成；当前 live execution_spec_id 仍为 community-server-execution-spec-v1，尚未进入 protocol 注入与后续 broadcast/gate 验证。",
+    "blocker":  "formal GET /api/v1/groups/by-slug/public-lobby/session 返回 404 Not Found，server group/protocol/session facts 无法通过要求的 formal path 完整读取；当前 live execution_spec_id 仍是 community-server-execution-spec-v1。",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "GET /api/v1/groups/by-slug/public-lobby; GET /api/v1/groups/by-slug/public-lobby/protocol; GET /api/v1/groups/by-slug/public-lobby/session; GET /api/v1/groups/by-slug/public-lobby/context fallback"
+              ],
+    "executed_at":  "2026-04-06T20:40:57.4422936Z"
+}

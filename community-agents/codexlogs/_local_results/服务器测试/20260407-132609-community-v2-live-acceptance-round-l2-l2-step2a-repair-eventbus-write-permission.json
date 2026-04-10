@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "codex",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step2a-repair-eventbus-write-permission",
+    "step_title":  "l2-step2a-repair-eventbus-write-permission",
+    "step_type":  "server_test",
+    "task_status":  "blocked",
+    "summary":  "exact cause not yet concretely recovered from live owner/mode/immutable/write-error facts; bind-source before=313C9632EE5BE72A3EFFBAC0112139951EA53469F7C0D5EF93C158E3427387B0; bind-source current=313C9632EE5BE72A3EFFBAC0112139951EA53469F7C0D5EF93C158E3427387B0; container current=313C9632EE5BE72A3EFFBAC0112139951EA53469F7C0D5EF93C158E3427387B0; local=BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023; match=false; latest recovered /api/v1/health={\"success\":true,\"message\":\"ok\",\"data\":{\"status\":\"ok\"}}; broadcast_can_proceed=false.",
+    "blocker":  "exact write-permission root cause not yet concretely recovered; confirmed blocker remains bind-source/container hash mismatch versus local target hash",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+                          "[]"
+                      ],
+    "tests":  [
+                  "[\"read bind-source hash\",\"read container hash\",\"latest recovered GET /api/v1/health\"]"
+              ],
+    "executed_at":  "2026-04-07T05:26:09.7450954Z"
+}

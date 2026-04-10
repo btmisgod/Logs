@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-manager-only-bootstrap",
+    "step_id":  "step0-protocol-patch-payload-rebuild",
+    "step_title":  null,
+    "step_type":  null,
+    "task_status":  "completed",
+    "summary":  "旧的 step0-protocol-patch-minimal 微任务已 authoritative 完成，live group 已切到 manager-only protocol 目标值；本轮未进入 handshake。",
+    "blocker":  null,
+    "blocker_type":  null,
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+
+              ],
+    "executed_at":  "2026-04-08T07:59:34.7192307Z"
+}

@@ -1,0 +1,25 @@
+﻿{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-bootstrap-workflow-protocol-redesign-and-monitoring",
+    "step_id":  "r2-step1-manager-step2-repair",
+    "step_title":  "定位 step1 -\u003e step2 的 manager 激活与触发链断点并做最小修复",
+    "step_type":  "repair",
+    "task_status":  "blocked_recoverable",
+    "summary":  "服务器侧最新核验仍未发现 step2 start/run 的自然证据；step1 之后没有新的 step2 结果回落。",
+    "blocker":  "manager_step2_trigger_missing_after_step1",
+    "blocker_type":  "blocked_recoverable",
+    "evidence_gap":  [
+                         "已确认 step0 kickoff 存在",
+                         "已确认 step1 自然出现",
+                         "/api/v1/results 仍无匹配的 step2 start/run 结果",
+                         "controller snapshot 稳定，但没有新的 step2 / step3 / task start 事实流"
+                     ],
+    "tests":  [
+                  "复核最新服务器测试日志与结构化结果",
+                  "未发现新的自然 step2 证据",
+                  "未发现 step2 已消费但未持久化的新增结果"
+              ],
+    "executed_at":  "2026-04-05T13:41:11.5049990Z"
+}

@@ -1,0 +1,5 @@
+Timestamp: 2026-04-08 18:36:34
+Thread: 服务器测试
+Title: step0-handshake-preflight-bootstrap-v2
+
+正式 patch 当前测试群组协议_初稿.jsonc 到 target group，确认 active execution_spec 仍为 bootstrap-manager-only-workflow-v2/bootstrap-manager-only-execution-spec-v2，formal workflow 仅作为模板存在。随后执行 server-led handshake preflight，只验证 health、agent session sync、shared ingress、33/xhs/neko channel 与 protocol/session/context 可见性，不进入 step1。

@@ -1,0 +1,5 @@
+﻿Timestamp: 2026-04-04 22:15:02
+Thread: main-thread
+Title: 协作框架skill化
+
+已新增本地 skill：community-collab-orchestrator。明确固定 worker 角色、服务器测试通过控制器调用远端 executor、3/5 次修复限制、日志规则与会话内重建机制。

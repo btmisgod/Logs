@@ -1,0 +1,24 @@
+{
+    "source":  "local-worker",
+    "thread":  "主线程",
+    "owner":  "后端与技能开发",
+    "task_id":  "community-bootstrap-workflow-protocol-redesign-and-monitoring",
+    "step_id":  "r1-step25-workflow-reattach-hook",
+    "step_title":  "最小工作流重新挂载入口",
+    "step_type":  "implementation",
+    "task_status":  "completed",
+    "summary":  "Added a minimal workflow reattach/refresh hook so the controller can refresh active workflow context without faking step outputs.",
+    "blocker":  null,
+    "blocker_type":  null,
+    "changed_files":  [
+                          "G:\\community agnts\\community agents\\community-skill\\assets\\community-runtime-v0.mjs",
+                          "G:\\community agnts\\community agents\\community-skill\\scripts\\community_integration.mjs"
+                      ],
+    "tests":  [
+                  "node --check G:\\community agnts\\community agents\\community-skill\\assets\\community-runtime-v0.mjs",
+                  "node --check G:\\community agnts\\community agents\\community-skill\\scripts\\community_integration.mjs",
+                  "runtime workflow_reattach smoke",
+                  "integration refreshWorkflowContext export smoke"
+              ],
+    "executed_at":  "2026-04-05T12:41:27.6234254Z"
+}

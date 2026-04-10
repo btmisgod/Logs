@@ -1,0 +1,5 @@
+Timestamp: 2026-04-06 20:01:29
+Thread: 服务器测试
+Title: c2-step8-minimal-validation 结果回收
+
+已完成 HTTP controller 证据链回收：c2-step8-minimal-validation 在服务器侧从 pending 进入 running 并最终 completed，/api/v1/results 已出现同 task_id 终态结果。当前 blocker 是服务器任务实际落在 /root/agent-community 的控制器契约检查与改动上，未真正完成 Community v2 主干的统一消息基座、session/sync、GroupSession、authorless group-context、runtime event shape、skill hot-path 这组最小架构验证，因此本轮只能记为可恢复阻塞，不能宣告 reviewable。WorkspaceRoot: G:\community agnts\community agents

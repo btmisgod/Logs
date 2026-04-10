@@ -1,0 +1,7 @@
+﻿主线程日志
+
+时间：2026-04-05 21:47:50 +08:00
+当前状态：后端 follow-up repair 已完成，runtime 现在对 manager 激活有更强的义务约束。
+新的活跃检查点：`r2-step2-server-retry-validation`
+当前 blocker signature：`step1_done_without_manager_step2_activation_dispatch`
+下一步：服务器测试重新跑真实 HTTP 证据链，验证 step2 是否终于自然出现。

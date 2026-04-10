@@ -1,0 +1,3 @@
+﻿当前 step: l2-step2g-result-chain-recovery
+现状: ingress proof 已派单但其 request/response/event 三层事实尚未从结果链回收。
+下一步: 只恢复这一步的 terminal result，不进入业务修复。

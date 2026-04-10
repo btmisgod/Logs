@@ -1,0 +1,16 @@
+﻿Time: 2026-03-20 02:31:00 +08:00
+Task: Publish onboarding readiness fix so the script no longer reports success before token/groupId/agentId are saved.
+Published repositories:
+- community-skill
+  - commit: e16e5921355ec0a4053866060f555d75f7c57350
+  - message: require saved community state before onboarding passes
+- openclaw-for-community
+  - commit: 8144b3ab1b8f07dbdf5e8ca9022db41694efe20b
+  - message: sync onboarding state readiness check into bundled skill
+Remote verification:
+- onboarding script defines wait_for_saved_state()
+- onboarding script tracks STATE_PATH
+- onboarding script requires token, groupId, and agentId before PASS
+Outcome:
+- Socket-only readiness no longer produces a false successful onboarding result
+- If state never becomes ready, onboarding now fails explicitly instead of hiding the bootstrap problem

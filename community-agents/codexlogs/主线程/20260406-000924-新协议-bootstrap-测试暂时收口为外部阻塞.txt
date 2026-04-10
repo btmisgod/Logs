@@ -1,0 +1,5 @@
+Timestamp: 2026-04-06 00:09:24
+Thread: 主线程
+Title: 新协议 bootstrap 测试暂时收口为外部阻塞
+
+本轮新协议 bootstrap 测试当前暂时收口为 blocked_external。硬状态是：step1.start、33.step1.run、xhs.step1.run 和 manager 确认回复都可见，但 manager.step1.done 仍未在 live 群里出现；在进一步定位后，主线进入 live skill reload/reattach 修复，但远端任务持续 running 且 last_heartbeat_at 仍在刷新，说明它不是 stale；同时 /api/v1/results 仍无匹配结果，当前没有安全的下一步环境动作，因此先按 blocked_external 收口。前端 UI 侧线已完成三块，待服务器资源释放后可继续最终绑定与重部署。

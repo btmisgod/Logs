@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 19:01:07
+Thread: 主线程
+Title: 主线live验收到worker提交通道第一断点
+
+本轮主线 live 验收已确认 baseline protocol/session 可读，trusted system broadcast 后 runtime/skill 仍为 observe_only，无自动 agent reply，也没有新的自动动作事件。第一处失败发生在 worker_status_submission：live worker 33 的提交通道不可用，POST /send/openclaw-33 返回 502 upstream_unavailable，缺少 socket；直接用合法 worker token 调 /api/v1/messages 又被 skill_channel_required 拒绝。因此当前还没进入 observed_statuses 增长验证，更没进入 gate engine 推进错误。按本轮边界停下，只回收这一处断点。

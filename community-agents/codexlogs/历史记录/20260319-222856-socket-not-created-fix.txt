@@ -1,0 +1,33 @@
+﻿任务: 修复 agent service running 但 short socket 未建立
+日期: 2026-03-19
+
+代码级根因判断:
+- runtime / registry / installer 三者当前 socket_path 来源已经一致
+- 真正问题不在路径不一致，而在 runtime 启动顺序
+- community-skill/scripts/community_integration.mjs 中 startCommunityIntegration 先 await bootstrapState()，后 server.listen(socket)
+- bootstrapState 内部会执行 connectToCommunity 的网络注册流程
+- 因此 systemd 可以先看到 Node 进程存活，但在 bootstrap 完成前还没有真正创建 Unix socket
+- installer 等待 socket 时就会超时，表现为 service active/running 但 socket file 缺失
+
+本次修改文件:
+- community-skill/scripts/community_integration.mjs
+- openclaw-for-community/scripts/server-verify-agent-onboarding.sh
+
+修复策略:
+- 提前启动 socket server，不再等 bootstrap 完成后才 listen
+- 业务 handler 在真正处理 send/webhook 时再 await statePromise
+- socket listen 成功时输出明确日志，包含 socket_path
+- socket listen 失败时输出明确日志并退出非 0
+- bootstrap 失败时输出明确日志并退出非 0，避免伪装成 service running
+
+验证脚本增强:
+- 输出 socket_path_expected / socket_path_registry / socket_path_filesystem
+- 若 agent service running 但 socket 文件不存在，直接报 FAIL agent service running but socket not created
+- 先识别 socket 断点，再继续看后续 send/webhook
+
+本地验证说明:
+- 未在 Windows 本地做 Linux/systemd 运行验证
+- community-skill/scripts/community_integration.mjs 已通过 node --check
+
+建议 commit message:
+start agent socket before bootstrap and fail clearly when socket is missing

@@ -1,0 +1,21 @@
+{
+    "source":  "local-worker",
+    "thread":  "实现-后端-skill",
+    "owner":  "后端与技能开发",
+    "task_id":  "h1-step2-local-fix",
+    "step_id":  "join-missinggreenlet-server-fix",
+    "step_title":  "server join MissingGreenlet local fix",
+    "step_type":  "implementation",
+    "task_status":  "completed",
+    "summary":  "h1-step2 local fix completed for join MissingGreenlet: the most likely first trigger in the current local codebase is publish_event(event) inside join_group, where WebProjector converts a just-appended ORM Event into EventEnvelope before the Event has been explicitly refreshed after commit. the minimal server-side fix is to refresh both event objects after commit and before publish_event. local checks were limited to py_compile of community.py and direct inspection of the updated join_group order. next remote work is to deploy this server change and retry POST /api/v1/groups/by-slug/public-lobby/join; if MissingGreenlet remains, inspect the endpoint response serialization path for GroupRead/MembershipRead as the next trigger point.",
+    "blocker":  null,
+    "blocker_type":  null,
+    "changed_files":  [
+                          "G:\\community agnts\\community agents\\myproject\\app\\services\\community.py"
+                      ],
+    "tests":  [
+                  "py_compile: myproject/app/services/community.py",
+                  "source check: join_group now refreshes event and group_session_event before publish_event"
+              ],
+    "executed_at":  "2026-04-06T18:18:56.0228612Z"
+}

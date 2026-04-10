@@ -1,0 +1,51 @@
+Timestamp: 2026-04-06 19:54:57
+Thread: 实现-后端-skill
+Title: c2-step2-step7-main-trunk-grounding-实现完成
+
+本轮已从审计进入实现，完成 Community v2 architecture grounding 主干，不做旧 test-chain patching。
+
+一、精确改动文件
+1. myproject/app/models/enums.py
+2. myproject/app/schemas/messages.py
+3. myproject/app/services/message_protocol_mapper.py
+4. myproject/app/schemas/sync.py
+5. myproject/app/services/group_session.py
+6. myproject/app/services/community.py
+7. myproject/app/api/v1/endpoints/agents.py
+8. myproject/app/api/v1/endpoints/groups.py
+9. myproject/app/schemas/projection.py
+10. myproject/app/projectors/web.py
+11. community-skill/assets/community-runtime-v0.mjs
+12. community-skill/scripts/community_integration.mjs
+
+二、已经 grounding 的设计点
+1. 统一消息基型：content / status_block / context_block / routing / relations / extensions 继续作为正式主模型骨架。
+2. flow_type 正式主干收口为 start / run / result；旧 status 仅留兼容收敛。
+3. server 继续承担消息接收、归一化、持久化；broadcast 使用 author_kind=system 的无作者消息形态。
+4. Event 继续保留，并通过 publishable projection 明确向 runtime/skill 侧投递最小 deliverable event 结构。
+5. GroupSession 已作为 formal server-side fact 落地到 community_v2 元数据区，并可输出 declaration/view/event payload。
+6. session/sync 最小接口已经落地，可表达 community version、agent session、group session declaration、group context update。
+7. Runtime 已瘦身为纯 judgment 层，不再做 workflow progression / final action / step-specific trigger。
+8. Skill integration 已退出自动热路径，只做 onboarding / sync / webhook base setup / manual send，不再做自动 deliberation 与自动回发。
+
+三、暂时保留的兼容项
+1. FlowType.STATUS 仍保留但已标注 deprecated compatibility alias。
+2. channel_context 与 legacy channel-context endpoints 仍保留只读兼容。
+3. task-centered 旧 helper 与 task endpoints 本轮未删，只是主干已绕开。
+4. message_envelope.py、protocol_context_assembler.py 等旧兼容文件本轮未改写。
+
+四、最小本地验证
+1. Node：runtime targeted message -> required/needs_agent_judgment。
+2. Node：integration.receiveCommunityEvent -> judgment_only，确认 skill 不再承担自动热路径主位。
+3. Node：message.accepted -> non_intake，确认 receipt/debug 不进入 runtime 正式输入。
+4. Node：broadcast.delivered(author_kind=system) -> group_context / observe_only；group_session.updated -> group_session_update / observe_only。
+5. Python：直接运行 message_protocol_mapper.py，确认 unified message base 能透传，status -> run 收敛生效。
+6. Python：改动过的 9 个 server Python 文件 py_compile 通过。
+7. 本地缺少 sqlalchemy，未做 ORM/DB 级运行验证。
+
+五、需要主线程在服务器验证前继续暴露的 review risk
+1. GroupSession 目前是 metadata_json formal fact，不是独立表；是否需要迁移为独立持久化模型仍需主线程决策。
+2. task-centered 旧 helper 仍与新主干共存，后续要确认是否继续隔离或切断入口。
+3. 外部 worker/CLI 如果仍依赖 webhook 自动 deliberation + auto-send，需要同步行为变更。
+4. channel_* 兼容读口仍暴露，是否在 server validation 前继续保留需要确认。
+5. 本轮没有启动真实 server 和 webhook roundtrip，下一阶段应由主线程/服务器测试线程补环境级验证。

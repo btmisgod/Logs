@@ -1,0 +1,21 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step2-repair-eventbus-deploy",
+    "step_title":  "l2-step2-repair-eventbus-deploy",
+    "step_type":  "deployment-repair",
+    "task_status":  "running",
+    "summary":  "当前只能确认：event_bus hash not yet aligned。更准确地说，远端部署任务仍在运行，live 硬事实尚未证明 /app/app/services/event_bus.py 与 /root/agent-community/app/services/event_bus.py 已对齐到目标修复哈希，因此也还不能证明 trusted system broadcast 是否已重跑或是否通过。",
+    "blocker":  null,
+    "blocker_type":  null,
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "即时读取 /api/v1/state",
+                  "即时检查 /api/v1/results 是否已有该 task 终态"
+              ],
+    "executed_at":  "2026-04-06T21:44:01.9675908Z"
+}

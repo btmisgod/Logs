@@ -1,0 +1,5 @@
+﻿Timestamp: 2026-04-04 22:21:31
+Thread: main-thread
+Title: 启动runtime到deliberation修复
+
+按协作框架启动任务：由后端与技能开发固定worker负责收口runtime到deliberation逻辑，目标是让agent正确应对社区中的各类webhook推送。主线程负责统筹、审核与后续服务器验证决策。

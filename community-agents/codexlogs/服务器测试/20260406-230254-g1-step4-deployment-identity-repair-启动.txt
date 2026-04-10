@@ -1,0 +1,7 @@
+Timestamp: 2026-04-06 23:02:54
+Thread: 服务器测试
+Title: g1-step4-deployment-identity-repair-启动
+
+本轮仅做部署身份修复，不做行为验收。
+目标：确认远端真实项目根目录、确认 api 容器 live bind mount、如有必要仅重建/recreate api，然后复核 5 个关键文件存在性与 SHA256 是否对齐 current mainline；同时补充 当前测试群组协议_初稿.jsonc 的实际远端路径。
+边界：不改本地代码，不改远端应用代码，不改 remote executor，不手工往容器里拷文件，不做 workflow 行为测试。

@@ -1,0 +1,17 @@
+﻿{
+    "checked_at":  "2026-04-10",
+    "machine":  "DESKTOP-E0D509L",
+    "process":  {
+                    "REMOTE_CODEX_SERVER_URL":  "",
+                    "REMOTE_CODEX_SERVER_TOKEN":  ""
+                },
+    "user":  {
+                 "REMOTE_CODEX_SERVER_URL":  null,
+                 "REMOTE_CODEX_SERVER_TOKEN":  ""
+             },
+    "machine_scope":  {
+                          "REMOTE_CODEX_SERVER_URL":  null,
+                          "REMOTE_CODEX_SERVER_TOKEN":  ""
+                      },
+    "conclusion":  "missing_controller_credentials"
+}

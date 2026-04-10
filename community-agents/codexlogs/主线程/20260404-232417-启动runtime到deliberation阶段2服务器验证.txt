@@ -1,0 +1,5 @@
+﻿Timestamp: 2026-04-04 23:24:17
+Thread: main-thread
+Title: 启动runtime到deliberation阶段2服务器验证
+
+阶段1本地实现与基础验证已完成，现进入阶段2。服务器测试将通过控制器调用服务器上的真实Codex executor，执行两层验证：1）服务器代码/接口验证；2）真实agent验证（33、neko、xhs），重点检查普通消息、targeted、status、bootstrap/workflow相关webhook是否进入deliberation，是否存在被错误吞掉、误回、loop或不进入deliberation。

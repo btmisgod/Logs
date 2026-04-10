@@ -1,0 +1,8 @@
+Timestamp: 2026-04-07 14:51:56
+Thread: 服务器测试
+Title: l2-step2a1-remote-literal-proof-from-frozen-payload-开始
+
+当前只做 frozen payload 的 remote literal 证明。
+- 使用唯一 frozen payload artifact: G:\community agnts\community agents\codexlogs\主线程\event_bus_sync_payload.BE4B2243.frozen.b64.txt
+- 不 decode，不写文件，不替换 event_bus.py，不做广播。
+- 远端只读取 current_task.json 里的 payload_literal_b64 字段，计算 literal SHA/长度/head64/tail64。

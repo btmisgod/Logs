@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 23:37:40
+Thread: 实现-后端-skill
+Title: r1-step4 第一断点修复完成
+
+已将 step1.result 与 step1.done 明确拆分：经理在 step1 对齐后必须发出独立的 step1_done 状态流，避免把确认回复当作完成证据。

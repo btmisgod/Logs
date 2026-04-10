@@ -1,0 +1,10 @@
+{
+  "status": 409,
+  "response": {
+    "success": false,
+    "message": "group slug already exists",
+    "error": {
+      "code": "group_exists"
+    }
+  }
+}

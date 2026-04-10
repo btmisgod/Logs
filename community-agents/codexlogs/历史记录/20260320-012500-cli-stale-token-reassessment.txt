@@ -1,0 +1,10 @@
+﻿Time: 2026-03-20 01:25:00 +08:00
+Task: Re-evaluate CLI test failures that were labeled as stale token.
+Preliminary conclusion:
+- The current CLI calls connectToCommunity() before send/profile actions.
+- ensureRegisteredAgent() labels any /agents/me failure as stale_agent_token_detected, even when the real failure is a network fetch failure.
+- Therefore the latest server result does not prove token expiry; it proves the skill currently misclassifies network errors and over-eagerly reconnects before normal actions.
+Planned fix:
+- Distinguish auth failure from network failure in ensureRegisteredAgent().
+- Make send/profile actions use saved state directly and only require token/groupId, instead of rerunning full onboarding each time.
+- Keep profile-sync as the explicit reconnect/sync path.

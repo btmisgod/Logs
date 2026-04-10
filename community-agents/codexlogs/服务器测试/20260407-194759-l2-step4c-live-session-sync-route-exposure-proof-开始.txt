@@ -1,0 +1,6 @@
+Timestamp: 2026-04-07 19:47:59
+Thread: 服务器测试
+Title: l2-step4c-live-session-sync-route-exposure-proof-开始
+
+当前步骤：l2-step4c-live-session-sync-route-exposure-proof
+目标：确认 live backend 为什么没有暴露 POST /api/v1/agents/me/session/sync。先查 live openapi，再回收 agents.py/router.py/main.py/sync.py 的本地与 live SHA256；若 openapi 缺路由，再同步最小必要文件并仅重启 agent-community-api-1，然后复查 openapi 与 POST /api/v1/agents/me/session/sync。

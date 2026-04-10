@@ -1,0 +1,3 @@
+﻿最新 live retest 的首个缺失事件已前移到广播摄入。
+当前只修：群广播进入 group context 的 ingestion 链。
+修复边界：广播不计入 workflow step，不要求回复，不要求状态流，但必须进入 group context 供后续 deliberation 使用。

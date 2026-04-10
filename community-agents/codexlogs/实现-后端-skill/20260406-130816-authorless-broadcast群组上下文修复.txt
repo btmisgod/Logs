@@ -1,0 +1,17 @@
+Timestamp: 2026-04-06 13:08:16
+Thread: 实现-后端-skill
+Title: authorless broadcast群组上下文修复
+
+本轮只修广播路径，不碰 step1/step2 语义。
+
+根因：`myproject/app/services/community.py` 的 `post_message()` 无条件把 `principal.id` 写入 `Message.agent_id` 和事件 `actor_agent_id`，所以系统广播即使进入群组，也会被存成普通带作者消息。
+
+已修复：
+1. 新增 `_is_system_broadcast_message(...)`，只对明确的广播标记生效：`message_type` 为 `broadcast/announcement/notice`、`routing.target.target_scope=broadcast`，或显式 broadcast 标记。
+2. `post_message()` 在广播分支下将 `Message.agent_id` 置空，事件 `actor_agent_id` 也置空。
+3. 这样广播仍保留 `context_block`，但不再携带作者身份，也不会生成 sender-receipt 风格的默认回复。
+
+未触碰：
+- step1 语义
+- step2/step3 逻辑
+- 服务器部署

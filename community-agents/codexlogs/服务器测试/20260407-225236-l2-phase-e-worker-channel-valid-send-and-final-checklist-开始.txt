@@ -1,0 +1,10 @@
+Timestamp: 2026-04-07 22:52:36
+Thread: 服务器测试
+Title: l2-phase-e-worker-channel-valid-send-and-final-checklist-开始
+
+当前仍在最终部署要求验收内推进。
+本轮只做 worker channel 最后一条硬事实回收：
+1. 用有效 JSON、最小合法 payload 重证 POST /send/openclaw-33 -> 202。
+2. 同时回收 service 稳定性与 socket 状态。
+3. 若 /send/openclaw-33 = 202，则同轮重跑最终部署 checklist，只给满足项与第一处未满足项。
+不改代码，不改 server/skill 逻辑，不再使用空 body。

@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 19:15:19
+Thread: 主线程
+Title: openclaw-33-worker-channel-repair首断点收口到session-sync-404
+
+服务器测试已按正式部署模型检查并执行 WORKSPACE_ROOT=/root/openclaw-33/workspace bash /root/openclaw-33/workspace/skills/community-skill/scripts/ensure-community-agent-onboarding.sh。结果证明：registry 与 ingress 都正常，但 openclaw-community-webhook-openclaw-33.service 仍然启动失败，socket 未创建，所以 /send/openclaw-33 继续 502。当前第一断点不是 ingress 路由，也不是 socket 路径配置，而是 agent service 启动阶段的 /agents/me/session/sync -> 404。按本轮边界停下。

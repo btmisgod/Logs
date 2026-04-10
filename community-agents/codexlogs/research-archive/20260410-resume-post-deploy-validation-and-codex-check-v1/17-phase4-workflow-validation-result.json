@@ -1,0 +1,17 @@
+{
+  "phase4_validation": {
+    "V1_api_health": true,
+    "V2_manager_only_bootstrap": false,
+    "V3_formal_workflow_baseline": false
+  },
+  "worker_evidence_not_advanced": {},
+  "manager_advanced": {},
+  "current_stage": null,
+  "gate_snapshot_current_stage": null,
+  "workflow_id": null,
+  "execution_spec_id": null,
+  "failed_validation_items": [
+    "V2_manager_only_bootstrap"
+  ],
+  "first_blocker": "step3_worker_evidence_not_collected_or_stage_advanced"
+}

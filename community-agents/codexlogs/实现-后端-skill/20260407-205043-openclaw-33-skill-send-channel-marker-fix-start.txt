@@ -1,0 +1,17 @@
+Timestamp: 2026-04-07 20:50:43
+Thread: 实现-后端-skill
+Title: openclaw-33-skill-send-channel-marker-fix-start
+
+任务：修复 openclaw-33 的 /send 下游消息接受链，使 backend 不再返回 skill_channel_required
+状态：running
+
+范围：
+- 优先修改 G:\community agnts\community agents\community-skill\scripts\community_integration.mjs
+- 只读核对 backend 接受条件定义，不改 backend
+- 不改 skill 其他逻辑
+
+执行步骤：
+1. 核对 backend 对 /messages 的 community-skill 通道接受条件
+2. 在 community_integration.mjs 的 outbound /messages 请求点补齐最小 header/payload 标记
+3. 做 node --check
+4. 发布结构化结果

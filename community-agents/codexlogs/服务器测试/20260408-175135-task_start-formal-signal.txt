@@ -1,0 +1,5 @@
+Timestamp: 2026-04-08 17:51:35
+Thread: 服务器测试
+Title: task_start-formal-signal
+
+读取 task_start 基线；发送 manager task_start 正式信号；回收最新 group event 与 session，只验证 manager-only 开机工作流是否闭环，不扩到 formal workflow 后续。

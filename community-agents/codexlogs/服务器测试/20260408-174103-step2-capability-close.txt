@@ -1,0 +1,5 @@
+Timestamp: 2026-04-08 17:41:03
+Thread: 服务器测试
+Title: step2-capability-close
+
+回收 target group 当前 session 基线；发送两条 step2 worker capability evidence、一条 plain text guardrail、一条 manager formal close；只验证是否从 step2 推进到 step3，不进入 step3 后续。

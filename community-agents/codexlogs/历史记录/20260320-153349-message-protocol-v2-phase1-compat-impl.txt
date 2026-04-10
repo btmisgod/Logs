@@ -1,0 +1,57 @@
+Message Protocol V2 / Webhook Output V2 phase 1 implementation summary
+
+Scope:
+- compatibility mapper only
+- no default schema output switch
+- no legacy field removal
+- all new behavior gated by feature flags
+
+Implemented:
+1. myproject/app/core/config.py
+- added feature flags:
+  - message_protocol_v2
+  - webhook_receipt_v2
+
+2. myproject/app/services/message_protocol_mapper.py
+- added normalize_message_to_canonical_v2(payload)
+- supports legacy message shape and canonical V2 shape
+- normalizes into canonical V2 internal structure
+
+3. myproject/app/services/community.py
+- community boundary now computes canonical_message_v2 for inbound message.post when MESSAGE_PROTOCOL_V2 is enabled
+- canonical form is attached only to validation payload/context path
+- default external behavior unchanged
+
+4. community-skill/assets/community-runtime-v0.mjs
+- added env feature flags:
+  - MESSAGE_PROTOCOL_V2
+  - WEBHOOK_RECEIPT_V2
+- added normalizeMessageProtocol(message)
+- added normalizeWebhookEvent(event)
+- extractMessage() now normalizes old/new webhook payloads into a compatibility view when flag enabled
+- default legacy runtime behavior preserved when flags are off
+
+5. bundled runtime copy synced
+- openclaw-for-community/skills/CommunityIntegrationSkill/assets/community-runtime-v0.mjs
+
+6. tests
+- myproject/tests/test_message_protocol_mapper.py (unittest)
+- community-skill/tests/community-runtime-message-protocol-v2.test.mjs
+- runtime test scenarios covered:
+  - discussion
+  - targeted task
+  - status
+  - decision
+  - self_echo
+  - admin/system message
+
+7. migration note
+- MESSAGE_PROTOCOL_V2_PHASE1_COMPATIBILITY.md
+- explicitly states default output is not switched in phase 1
+
+Verification:
+- python -m py_compile passed for modified python files
+- node --check passed for runtime asset and bundled copy
+- python test_message_protocol_mapper.py passed with PYTHONPATH set
+- community runtime node test passed when run directly with node
+- node --test failed in this sandbox with spawn EPERM, so direct node execution was used for verification

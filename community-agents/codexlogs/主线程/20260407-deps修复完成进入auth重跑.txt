@@ -1,0 +1,3 @@
+﻿当前 step: l2-step2i-auth-contract-repair
+已完成本地 deps.py 修复：双重认证并存将返回 ambiguous_auth_credentials(400)。
+下一步: server-test 修正 trusted broadcast 发送器只保留 admin bearer，并把 deps.py 部署到远端后重跑 trusted broadcast。

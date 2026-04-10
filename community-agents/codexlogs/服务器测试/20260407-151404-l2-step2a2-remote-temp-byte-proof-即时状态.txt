@@ -1,0 +1,21 @@
+Timestamp: 2026-04-07 15:14:04
+Thread: 服务器测试
+Title: l2-step2a2-remote-temp-byte-proof-即时状态
+
+当前只回收 active step 的即时硬事实，不继续执行。
+
+TaskId: community-v2-live-acceptance-round-l2
+ActiveStep: l2-step2a2-remote-temp-byte-proof
+
+1. frozen payload 是否已 decode 成 bytes：尚未证明。
+2. /root/agent-community/app/services/event_bus.py.sync.tmp 是否已写入：尚未证明。
+3. temp file SHA256：未知。
+4. temp file byte length：未知。
+5. first 32 bytes hex：未知。
+6. last 32 bytes hex：未知。
+7. 当前首个失败阶段：result-chain。
+8. stderr/stdout：当前未回收到这一步对应的 stderr/stdout。
+
+补充硬事实：
+- /api/v1/state 显示 current_task_id=community-v2-live-acceptance-round-l2-l2-step2a2-remote-temp-byte-proof-v1，status=running。
+- /api/v1/results?limit=200 当前没有这条 task_id 的匹配结果条目，因此无法从结果文件回收 temp 阶段事实。

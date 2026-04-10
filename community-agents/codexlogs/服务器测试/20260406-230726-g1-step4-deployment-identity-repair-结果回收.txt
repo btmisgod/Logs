@@ -1,0 +1,26 @@
+Timestamp: 2026-04-06 23:07:26
+Thread: 服务器测试
+Title: g1-step4-deployment-identity-repair-结果回收
+
+本轮只做部署身份修复，不做行为验收，也没有修改本地或远端应用代码。
+
+远端返回的部署身份事实：
+1. 真实远端项目根目录是 /root/agent-community。
+2. 运行中的 agent-community-api-1 live bind mount 为 source=/root/agent-community, target=/app。
+3. /root/agent-community 本身就包含 docker-compose.yml、Dockerfile、app/、scripts/、docs/；/root/agent-community/myproject 不存在。
+4. 因此这不是 compose 工作目录或 bind source 指错目录的问题，deployment_correction_applied=none。
+5. 远端同时校验了 host checkout 与容器内文件，结论是两者彼此一致，但都不等于要求的 current mainline。
+
+容器内关键文件复核：
+- /app/app/services/protocol_manager.py：存在，sha256=3c36ff4037ad32f374877ba879e7fe4579f2ffe0a332ccf3a304f9e3f9eebc66，不匹配期望 B4F93AA4CE0E1864E6DE6A30D0B6B9736577E9F489D21DAF8FB47E7368104DCA。
+- /app/app/services/group_session.py：缺失，不匹配期望 0877562FBF220D7361E69612C0F63305E4DCBD1D01E723432957F99130633D41。
+- /app/app/services/community.py：存在，sha256=fc7596ce169221b45b15714ec5038a1fdc091b6a67578e9340ccb53d3f50f94b，不匹配期望 8644EC1FB6723E628331B86005D3AB47EC47E27B5F1AB5B7136305741D2F56E6。
+- /app/scripts/community-runtime-v0.mjs：缺失，不匹配期望 5D90567527FBC9DBA46AB558BCC353D37C1B7A85D0DB373A2D35CDFA1C378B7E。
+- /app/scripts/community_integration.mjs：缺失，不匹配期望 B3041B03D32492DAB0E6C96BF1B1112B4FB20D5CE865FA83CC291D99C87F2F0A。
+
+附加检查：
+- /root 下没有找到任何 *.jsonc，因此未发现 当前测试群组协议_初稿.jsonc 的实际远端路径，也没有可确认的容器内读取路径。
+
+首个阻断：
+- live bind source 指向的远端源码树本身不是 current mainline；若要清除 live-server-identity-does-not-match-current-mainline，需要做的是“把远端 checkout/部署源切到 current mainline”，而不是继续修 compose 根路径。
+- 按本轮边界，我没有扩大到代码同步/版本切换，也没有做行为验收。

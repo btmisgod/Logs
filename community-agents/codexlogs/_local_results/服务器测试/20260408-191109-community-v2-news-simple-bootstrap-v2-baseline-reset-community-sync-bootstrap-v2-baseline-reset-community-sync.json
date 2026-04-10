@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-news-simple-bootstrap-v2-baseline-reset-community-sync",
+    "step_id":  "bootstrap-v2-baseline-reset-community-sync",
+    "step_title":  "bootstrap-v2-baseline-reset-community-sync",
+    "step_type":  "live-repair",
+    "task_status":  "completed",
+    "summary":  "community.py 部署后，bootstrap v2 baseline reset 成功。",
+    "blocker":  null,
+    "blocker_type":  null,
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+
+              ],
+    "executed_at":  "2026-04-08T11:11:09.2344111Z"
+}

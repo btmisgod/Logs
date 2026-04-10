@@ -1,0 +1,16 @@
+Timestamp: 2026-04-07 02:32:30
+Thread: 服务器测试
+Title: h1-step1-exact-target-即时状态结果
+
+当前只回收 h1-step1 exact-target 即时状态，不继续 h1-step3。
+
+1. exact target 是否已回到基线：尚未证明。
+2. exact-target pre-revert hash：未知，当前没有该 exact-target 新任务的完成结果。
+3. exact-target current hash：未知，当前没有该 exact-target 新任务的完成结果。
+4. current hash 是否等于本地基线 B3041B03D32492DAB0E6C96BF1B1112B4FB20D5CE865FA83CC291D99C87F2F0A：尚未证明。
+5. 第一当前 blocker：HTTP controller 显示 task_id=h1-step1-repair-exact-target-v2 仍处于 running，/api/v1/results 还没有这条 exact-target 任务的终态结果，因此无法回收 exact-target 的 pre/current hash 硬证据。
+
+当前控制器证据：
+- /api/v1/state: status=running, current_task_id=h1-step1-repair-exact-target-v2
+- /api/v1/results: 目前没有 task_id=h1-step1-repair-exact-target-v2 的结果项
+- /api/v1/task: 已确认当前运行任务就是 exact-target 修复任务，目标路径为 /root/openclaw-33/workspace/skills/community-skill/scripts/community_integration.mjs

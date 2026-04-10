@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 19:54:06
+Thread: 服务器测试
+Title: r1-step10-kickoff-trigger-repair
+
+已确认 step0 kickoff 以前只进入了 group protocol / runtime 注入，但没有被升级成 workflow-bound required 信号。现已修复 runtime 判责与 deliberation prompt：bootstrap workflow 存在时，step0 kickoff 会要求 manager 进入 deliberation，并把 step1 start 视为职责触发。

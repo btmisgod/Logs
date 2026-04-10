@@ -1,0 +1,5 @@
+﻿[2026-04-07T12:40:08] 主线程已纠正当前阻塞判断：
+1. /api/v1/health 只判 API 进程健康；
+2. event_bus.py 单独判部署一致性；
+3. public-lobby 单独判资源存在性。
+在这三条线都成立之前，不恢复 trusted system broadcast 验收。

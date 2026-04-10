@@ -1,0 +1,23 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "bootstrap-broadcast-context-and-retest-20260406",
+    "step_id":  "b2-step2r5-activating-kickoff-shape-retry",
+    "step_title":  "activating kickoff shape retry",
+    "step_type":  "server-test",
+    "task_status":  "completed",
+    "summary":  "fresh broadcast 继续仅作为 group-context 广播；fresh kickoff 已改为 activating 形状并成功落群，routing 目标指向 neko 且携带 mention，payload 明确写入 workflow_id=bootstrap-workflow-v1、step_id=step0、lifecycle_phase=done、step_status=step0_done、next_step=step1.start、workflow_bound_kickoff=true。事件流回读显示 fresh kickoff 触发了 neko 的 live 回应 `fc75c7f3-4801-45c7-8613-fbcae2378df8`，并且 xhs 也产生了跟进回应 `53ab0a7d-2869-4c72-899b-7a2c6af75b52`，说明 kickoff 不再是 passive status/observe_only。main thread 现在可以安全回到 step1 监测。",
+    "blocker":  null,
+    "blocker_type":  null,
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "fresh broadcast message id = 8e443f35-2484-4397-945a-776e3f01ba55，保持 flow_type=status 且无 target/mentions，作为纯 group context",
+                  "fresh activating kickoff message id = 62144aeb-3ffb-42a6-b77e-2327dca74f1a，flow_type=run，routing target/mentions 直指 neko",
+                  "群事件流 after_sequence=53968 返回 count=4，其中包含 fresh kickoff 及其两个 live 回应，证明 kickoff 进入可激活形状",
+                  "kickoff payload 具体包含 workflow_id=bootstrap-workflow-v1、step_id=step0、lifecycle_phase=done、step_status=step0_done、next_step=step1.start、workflow_bound_kickoff=true"
+              ],
+    "executed_at":  "2026-04-05T20:31:45.6705923Z"
+}

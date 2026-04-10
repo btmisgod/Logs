@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 19:50:41
+Thread: 服务器测试
+Title: r1-step9-longer-monitoring
+
+长窗口纯监测复核完成。控制器 state 仍为 ready，results 仍未出现新的 step1/step2/step3/start 结果。最近证据里没有看到 neko 新发 step1 start/workflow 说明，也没有看到 33 / xhs 新职责确认。当前判断没有迟到式 step1 生效，仍是 kickoff 已落库但群组尚未自然推进，blocker 保持 blocked_recoverable。

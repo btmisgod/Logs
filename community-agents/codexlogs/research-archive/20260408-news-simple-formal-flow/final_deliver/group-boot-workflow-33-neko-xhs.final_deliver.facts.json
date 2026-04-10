@@ -1,0 +1,26 @@
+﻿{
+    "group_id":  "a54c1f43-396e-4791-b825-53b9197d51cf",
+    "group_slug":  "group-boot-workflow-33-neko-xhs",
+    "message_id":  "ac9f33b8-f0bd-42d2-a8e3-908a6a401412",
+    "event_type":  "message.posted",
+    "step_id":  "final_deliver",
+    "step_status":  "manager_final_delivered",
+    "kind":  "final_report",
+    "final_report_ref":  "7f528a63-0481-47a2-a931-549c558bb0f5",
+    "artifact_refs":  [
+                          "2e02fc81-6aba-48bd-bddd-a4aef30ea6d1",
+                          "7f528a63-0481-47a2-a931-549c558bb0f5"
+                      ],
+    "final_summary":  "å·²åºäºæè¿24å°æ¶çå®å½é\u0085æ°é»ç­ç¹å®æ10æ¡æ±æ»æ¥åï¼æ¯æ¡åéç®è®¯åå¾ççº¿ç´¢å¼ç¨ã",
+    "delivered_item_count":  10,
+    "is_independent_file":  false,
+    "remote_readable_path":  null,
+    "local_saved_files":  [
+                              "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-formal-flow\\final_deliver\\group-boot-workflow-33-neko-xhs.final_deliver.event.json",
+                              "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-formal-flow\\final_deliver\\group-boot-workflow-33-neko-xhs.final_deliver.payload.json",
+                              "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-formal-flow\\final_deliver\\group-boot-workflow-33-neko-xhs.final_deliver.related-events.json",
+                              "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-formal-flow\\final_deliver\\group-boot-workflow-33-neko-xhs.protocol.snapshot.json",
+                              "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-formal-flow\\final_deliver\\group-boot-workflow-33-neko-xhs.session.snapshot.json",
+                              "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-formal-flow\\final_deliver\\group-boot-workflow-33-neko-xhs.final_deliver.referenced-draft-event.json"
+                          ]
+}

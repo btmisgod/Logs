@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 19:39:50
+Thread: 服务器测试
+Title: r1-step2-step0-kickoff 远端结果未回落
+
+已通过控制器派发 r1-step2-step0-kickoff，远端 state 已进入 running 且 current_task_id 正确，但多轮轮询 /api/v1/results 仍未出现匹配的完成结果。当前收口为可恢复阻塞，暂不继续扩展到 step1 监控。

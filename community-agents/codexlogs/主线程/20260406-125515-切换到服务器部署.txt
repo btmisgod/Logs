@@ -1,0 +1,7 @@
+﻿本地协议落地已完成，当前进入服务器部署。
+本轮实际已改文件：
+- community-skill/scripts/community_integration.mjs
+- myproject/app/services/message_envelope.py
+- myproject/app/services/delivery_adapter.py
+- myproject/app/services/protocol_validation_hook.py
+当前部署目标：让服务器测试环境运行统一消息基型实现，再进入带广播 bootstrap live retest。

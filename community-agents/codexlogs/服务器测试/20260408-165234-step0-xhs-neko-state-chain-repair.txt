@@ -1,0 +1,7 @@
+Timestamp: 2026-04-08 16:52:34
+Thread: 服务器测试
+Title: step0-xhs-neko-state-chain-repair
+
+当前仍停留在 step0。本轮只修 xhs/neko 的本地 state 文件链与 service 启动问题。
+当前第一断点已前移到 service 启动阶段：xhs/neko journal 的决定性错误为 Request failed for /agents: agent name already exists。
+本轮先对比 33 与 xhs/neko 的 .openclaw/community-agent-template/state 文件链，确认是否与 33 之前同类：state 文件缺失/断链，导致每次启动都重新注册 /agents。若成立，只恢复缺失 state 文件链，然后只重启 xhs/neko 并重验 service/socket/send。

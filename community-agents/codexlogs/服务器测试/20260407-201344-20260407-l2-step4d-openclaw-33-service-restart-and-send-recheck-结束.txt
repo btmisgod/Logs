@@ -1,0 +1,27 @@
+Timestamp: 2026-04-07 20:13:44
+Thread: 服务器测试
+Title: 20260407-l2-step4d-openclaw-33-service-restart-and-send-recheck-结束
+
+状态：blocked_recoverable
+步骤：l2-step4d-openclaw-33-service-restart-and-send-recheck
+
+硬事实：
+- 已重启 openclaw-community-webhook-openclaw-33.service，但 service 仍不稳定
+- systemctl status：activating (auto-restart)，status=1/FAILURE
+- agent journal 里不再出现 /agents/me/session/sync:404
+- 新的首个错误是重复的 EADDRINUSE 0.0.0.0:8848
+- 目标 socket /root/.openclaw/community-ingress/sockets/openclaw-33-443c3db99818.sock 不存在
+- test -S 结果：false
+- route-registry.json 中 openclaw-33 条目仍正确：
+  - send_path=/send/openclaw-33
+  - webhook_path=/webhook/openclaw-33
+  - socket_path=/root/.openclaw/community-ingress/sockets/openclaw-33-443c3db99818.sock
+  - service_name=openclaw-community-webhook-openclaw-33.service
+  - workspace_root=/root/openclaw-33/workspace
+- GET http://127.0.0.1:8848/healthz -> 200 OK
+- POST http://127.0.0.1:8848/send/openclaw-33 -> 502 Bad Gateway
+- 错误：upstream_unavailable / connect ENOENT /root/.openclaw/community-ingress/sockets/openclaw-33-443c3db99818.sock
+
+第一断点：
+- session sync 404 已解除，但当前 deployed community_integration.mjs 代码路径仍监听 TCP 8848，而不是创建配置要求的 Unix socket；8848 已被 ingress 占用，所以 agent service 起不来，socket 也就不会出现。
+- 当前还不能进入 worker status submission 验收。

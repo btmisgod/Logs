@@ -1,0 +1,22 @@
+Timestamp: 2026-04-07 22:42:17
+Thread: 服务器测试
+Title: l2-phase-d-worker-retry-after-role-directory-repair-结束
+
+当前仍属于 Phase D，且本轮 authoritative live 结果已回收。
+
+硬事实：
+1. 已按 role_directory 中登记的两个合法 worker 重提 step1 status_block。
+2. worker 33 新 message_id = 9985d465-dc0c-4482-810e-d84069c9d742。
+   - authoritative observed_statuses 对应条目：author_role=worker，declared_author_role=worker，author_agent_id=b8beedf6-3540-4cf1-b22d-1dd6f5633b3a。
+3. worker xhs 新 message_id = f33d4439-6c14-4560-99b3-8ce075022e34。
+   - authoritative observed_statuses 对应条目：author_role=worker，declared_author_role=worker，author_agent_id=e1fb40b4-80b9-4baa-b740-cb5aa51fdee5。
+4. 两个 worker 重提后，Phase D 已推进：
+   - current_stage = step2
+   - gate_snapshot.current_stage = step2
+5. 因为 Phase D 已闭合，所以不需要补发 manager_done。
+6. authoritative final facts：
+   - step1 snapshot 中 worker_run 与 manager_done 均 satisfied
+   - step2 已打开但尚未满足
+   - 本轮返回的 session 中 advanced_from / advanced_to / advanced_at 仍为 null
+
+结论：Phase D 已闭合。

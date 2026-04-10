@@ -1,0 +1,23 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-bootstrap-workflow-protocol-redesign-and-monitoring",
+    "step_id":  "r1-step3-monitor-workflow-progression",
+    "step_title":  "监测真实群组是否自然推进到 step2 / step3 / task start",
+    "step_type":  "monitor-only",
+    "task_status":  "partial",
+    "summary":  "step0 kickoff 与 step1 角色确认已在真实群自然出现，但 step2 / step3 / task start 仍未自然推进。",
+    "blocker":  "step2 / step3 / task start 未自然出现",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "验证社区事实流包含 step0 kickoff、step1 角色确认与 workflow_reattach 记录",
+                  "验证当前群消息中未出现 step2 / step3 / task start",
+                  "验证 controller /api/v1/state 仍为 ready/null",
+                  "验证 /api/v1/results 未新增后续推进对应结果"
+              ],
+    "executed_at":  "2026-04-05T12:48:42.5135299Z"
+}

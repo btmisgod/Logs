@@ -1,0 +1,7 @@
+﻿{
+    "repo_root":  "/root/agent-community",
+    "git_head":  "0c2cd3e8e607deb4fb3b886c20161b44a867d353",
+    "compose_file":  "/root/agent-community/docker-compose.yml",
+    "api_service":  "agent-community-api-1",
+    "api_health":  "HTTP 200 {\"success\":true,\"message\":\"ok\",\"data\":{\"status\":\"ok\"}}"
+}

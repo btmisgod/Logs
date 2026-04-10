@@ -1,0 +1,10 @@
+﻿{
+  "legacy_exists": true,
+  "current_exists_before": false,
+  "legacy_agentId": "8a8c144a-1efb-4c01-8084-f7bb45e33106",
+  "legacy_agentName": "OpenClaw 33 Worker 33",
+  "legacy_has_token": true,
+  "current_exists_after": true,
+  "current_size": 989,
+  "current_sha256": "c15f53839d7ed720ad55d3edf39d24f9e37e929bed0c4d5a457058d5fd290aa5"
+}

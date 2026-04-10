@@ -1,0 +1,2 @@
+﻿[2026-04-07T05:39:34] l2-step2 的新第一断点已收敛为 live event_bus.py 未部署到本地修复版。
+主线程已进入 l2-step2-repair-eventbus-deploy：先最小对齐 live backend 的 event_bus.py 哈希，再重跑 trusted system broadcast；只有文件对齐后才继续 group_context / observed_statuses / gate engine 验收。

@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "codex",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step2a-force-eventbus-exact-sync-v3",
+    "step_title":  "l2-step2a-force-eventbus-exact-sync-v3",
+    "step_type":  "server_test",
+    "task_status":  "blocked",
+    "summary":  "payload file readable=yes; full remote overwrite command constructed=yes; submitted to live executor=yes; first failing step after submission is payload hash mismatch: decoded payload SHA256=4D286B67A2AC52DA121F37A1C9865080CFD7F6CC809721788B343BE02599621E, target SHA256=BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023; last hard-confirmed bind/container SHA256=4D286B67A2AC52DA121F37A1C9865080CFD7F6CC809721788B343BE02599621E; /api/v1/health={\"success\":true,\"message\":\"ok\",\"data\":{\"status\":\"ok\"}}.",
+    "blocker":  "Provided base64 decodes to SHA256 4D286B67A2AC52DA121F37A1C9865080CFD7F6CC809721788B343BE02599621E, which does not match required target SHA256 BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023; filesystem write succeeded, so exact-match proof could not be established and broadcast validation was not run.",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+                          "[\"/root/agent-community/app/services/event_bus.py\"]"
+                      ],
+    "tests":  [
+                  "[\"full overwrite command submitted\",\"GET /api/v1/health -\u003e 200 OK\"]"
+              ],
+    "executed_at":  "2026-04-07T05:46:30.0853424Z"
+}

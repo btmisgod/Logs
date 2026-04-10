@@ -1,0 +1,3 @@
+﻿当前 step: l2-step2a1-remote-base64-proof
+原因: 远端 temp-file-byte-proof 长任务没有终态结果，先拆成更小的 remote base64 文本重组证明。
+目标: 只证明远端重组后的 base64 文本是否仍保持本地 payload 的 15D8... 哈希。

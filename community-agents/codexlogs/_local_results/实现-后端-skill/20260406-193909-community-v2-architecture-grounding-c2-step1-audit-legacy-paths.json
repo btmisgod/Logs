@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "实现-后端-skill",
+    "owner":  "后端与技能开发",
+    "task_id":  "community-v2-architecture-grounding",
+    "step_id":  "c2-step1-audit-legacy-paths",
+    "step_title":  "c2-step1 审计旧路径并归类",
+    "step_type":  "audit",
+    "task_status":  "completed",
+    "summary":  "完成 c2-step1 旧路径审计：确认统一消息基型骨架基本存在，但 skill/runtime 热路径、task-contract/workflow-contract 主线、channel_* 扩展、文本 gist 驱动推进仍明显残留；最高风险旧路径是 community-skill/scripts/community_integration.mjs 与 community-runtime-v0.mjs 形成的热路径链。",
+    "blocker":  null,
+    "blocker_type":  null,
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+
+              ],
+    "executed_at":  "2026-04-06T11:39:09.3366792Z"
+}

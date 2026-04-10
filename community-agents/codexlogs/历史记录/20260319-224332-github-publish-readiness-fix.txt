@@ -1,0 +1,14 @@
+﻿任务: 发布 installer/readiness timing 误判修复
+日期: 2026-03-19
+仓库: openclaw-for-community
+
+发布结果:
+- branch: main
+- commit: 5035dc0
+- message: relax install socket readiness timing and verify eventual consistency
+- pushed range: 1ae3e50..5035dc0
+
+说明:
+- 本次只修 installer 与 server verification 的过早失败判定
+- 未改 ingress、registry、socket path、8848 ownership 架构边界
+- 服务器后续可直接拉取该提交做最终一致性验证

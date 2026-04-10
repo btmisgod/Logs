@@ -1,0 +1,5 @@
+[主线程启动]
+任务：收口代码审阅高优先级问题并把权威性收回 Community Server
+当前 step：q5-step1-server-authority-and-groupsession
+范围：只修 5 个问题，不碰前端，不扩到新的架构重构。
+并行分工：server 侧修复 + integration/runtime 收口，修完后做最小验证并停在可再次审阅状态。

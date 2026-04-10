@@ -1,0 +1,7 @@
+Timestamp: 2026-04-07 20:52:19
+Thread: 服务器测试
+Title: l2-step4g-skill-channel-marker-sync-and-send-recheck-开始
+
+本轮只做 community_integration.mjs 的远端同步与 /send/openclaw-33 复验。
+步骤：读取本地文件当前 SHA256 与字节内容，提交远端 exact-sync 任务，重启 openclaw-community-webhook-openclaw-33.service，回收 service/socket/healthz/send 的硬事实。
+不改 server backend，不扩到 gate engine 或其他层。

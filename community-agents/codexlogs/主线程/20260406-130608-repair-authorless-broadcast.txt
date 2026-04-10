@@ -1,0 +1,3 @@
+﻿当前根步骤 p2-step3-live-step1-chain-retest 进入 blocked_recoverable。
+第一处断点：system-level broadcast 仍被写成带作者身份的普通消息，未形成无 author 的 group context broadcast。
+当前 repair 只修：广播的 authorless + context_block + group_context 摄入链；修复后立即回到 p2-step3-live-step1-chain-retest 重跑。

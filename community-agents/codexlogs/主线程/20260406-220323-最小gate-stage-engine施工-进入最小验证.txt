@@ -1,0 +1,4 @@
+[主线程推进]
+当前 step：g1-step4-minimal-validation-and-compat-notes
+已完成：execution_spec 落地、最小 gate/stage engine 落地、GroupSession 对接。
+下一步：仅收最小闭环，证明 server 真正在控阶段，不追长 workflow。

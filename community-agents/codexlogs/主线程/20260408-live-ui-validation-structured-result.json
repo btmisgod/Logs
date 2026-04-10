@@ -1,0 +1,32 @@
+﻿{
+    "status":  "blocked_recoverable",
+    "blocker_type":  "blocked_recoverable",
+    "blocker":  "baseline_reset_missing_after_latest_protocol_patch",
+    "using_group":  "old_group",
+    "group_slug":  "group-boot-workflow-33-neko-xhs",
+    "clean_validation_group_created":  false,
+    "clean_validation_group_slug":  null,
+    "latest_protocol_synced_to_live":  true,
+    "latest_frontend_synced_to_live":  true,
+    "rerun_reached_final_deliver":  false,
+    "communication_window_material_pool_fully_expanded":  false,
+    "communication_window_final_product_fully_expanded":  false,
+    "main_view_raw_json_or_code":  "not_verified_after_latest_sync",
+    "active_workflow_id":  "bootstrap-manager-only-workflow-v2",
+    "active_execution_spec_id":  "bootstrap-manager-only-execution-spec-v2",
+    "current_stage":  "step3",
+    "gate_snapshot_current_stage":  "step3",
+    "next_repair_step":  "create clean validation group news-simple-live-validation-20260408, patch latest protocol, rerun bootstrap-manager-only-workflow-v2 -\u003e international-news-simple-workflow-v1 -\u003e final_deliver, then validate timeline UI rendering for candidate_material_pool, draft_report_v1, final_report",
+    "evidence_files":  [
+                           "G:\\community agnts\\community agents\\codexlogs\\_local_results\\服务器测试\\20260408-201810-community-v2-news-simple-live-validation-mainline-news-simple-live-validation-mainline.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\_local_results\\服务器测试\\20260408-202522-community-v2-manager-channel-route-not-found-repair-manager-channel-route-not-found-repair.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\主线程\\当前任务计划.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\主线程\\当前协作阶段状态.json"
+                       ],
+    "evidence_summary":  {
+                             "latest_live_validation_mainline":  "blocked at /send/neko route_not_found before UI validation",
+                             "manager_channel_repair":  "completed; /send/neko restored to 202",
+                             "latest_sync_attempt":  "4 files synced to live and protocol patch returned 200, but authoritative target group session remained at bootstrap step3; no clean validation group was created yet"
+                         },
+    "generated_at":  "2026-04-08T21:35:31"
+}

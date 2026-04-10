@@ -1,0 +1,3 @@
+﻿当前 step: l2-step2a-force-eventbus-exact-sync-v4
+收窄结果: 远端完整覆盖已生效，但载荷传输后变成 4D28...，不是目标 BE4B...。
+下一步: 改为分块传输，在远端先重组并校验 temp SHA=BE4B...，再原子替换 event_bus.py；只有三份哈希全等后才恢复 trusted system broadcast。

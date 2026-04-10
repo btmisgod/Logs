@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 21:41:11
+Thread: 实现-后端-skill
+Title: r2-step1-继续收窄-step1后manager未触发step2
+
+继续收窄 blocker_signature=manager_step2_trigger_missing_after_step1。当前断点判断：runtime/adapter 已接上 progression handler，但 deliberation 层仍仅对 kickoff->step1 给强触发提示，缺少 step1 完成后 manager 必须发起 step2 的明确责任约束，可能导致 neko 在 optional/observe 情况沉默。将做最小补丁，仅增强该触发语义，不扩展无关逻辑。

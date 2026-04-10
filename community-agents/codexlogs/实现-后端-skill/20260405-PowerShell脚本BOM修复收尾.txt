@@ -1,0 +1,4 @@
+已修复 Windows PowerShell 5.1 解析问题：
+- write_thread_log.ps1 / update_collab_stage_state.ps1 以 UTF-8 with BOM 保存为脚本源文件，避免中文字面量被 legacy ANSI 误读。
+- 输出文件继续使用 UTF-8 no BOM。
+- 已完成 5.1 烟雾测试并通过。

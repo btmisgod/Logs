@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 20:04:13
+Thread: 实现-后端-skill
+Title: controller-progression-dedup-fix
+
+已修复 controller 侧推进条件与去重：把 workflow sync/ack 纳入观察集，kickoff 已确认时不再被静默短路。

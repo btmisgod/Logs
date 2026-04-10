@@ -1,0 +1,60 @@
+Timestamp: 2026-04-06 22:36:43
+Thread: 实现-后端-skill
+Title: narrow-followup-fix-role-authority-and-post-advance-gate-snapshot
+
+本轮是 Community backend 的极窄 follow-up 修复，只修改 group_session.py，未扩展 execution_spec、未触碰前端、未做长流程联调。
+
+修复 1：unknown sender 不能靠自报 author_role 过 gate
+- _effective_author_role() 不再回退到 status_block.declared author_role。
+- gate engine 使用的 effective author_role 现在只来自 execution_spec.role_directory：
+  - manager_agent_ids
+  - worker_agent_ids
+- sender 若不在 role_directory 中，则 effective author_role = None。
+- declared_author_role 仍保留在 observed evidence 中，但不再参与 gate authority matching。
+- 结果：unknown sender 即使自报 author_role=manager，也不会满足 manager-only gate。
+
+修复 2：stage advance 同回合后顶层 gate_snapshot 立即切到新 stage
+- _apply_stage_engine() 现在会：
+  1. 先记录旧 stage evaluation 到 gate_snapshot.stage_snapshots[old_stage]
+  2. 若允许 advance，则先写 advanced_from / advanced_to / advanced_at 并更新 session_fact.current_stage
+  3. 立即基于新 current_stage 再评估一次
+  4. 用 post-advance evaluation 覆盖顶层 gate_snapshot：
+     - current_stage
+     - current_stage_complete
+     - next_stage_allowed
+     - next_stage
+     - gates
+     - satisfied_gates
+- 旧 stage snapshot 仍保留在 stage_snapshots 中。
+
+实际修改文件：
+- myproject/app/services/group_session.py
+
+最小本地验证：
+1. Finding 1
+- stub-backed import + py_compile group_session.py
+- 构造 role_directory(manager=neko, workers=33/xhs)
+- 先提交两个 worker 的 step1_submitted
+- 再由 unknown sender(intruder) 发送 author_role=manager 的 step1_done
+- 结果：
+  - current_stage 仍为 step1
+  - manager_done gate.satisfied = false
+  - satisfied_gates 不包含 manager_done
+- 接着由真实 manager(neko) 发送同类 step1_done
+- 结果：current_stage 正常推进到 step2
+
+2. Finding 2
+- 在独立 group 上完成一次有效的 step1 -> step2 推进
+- 结果：
+  - GroupSession.current_stage == gate_snapshot.current_stage == step2
+  - gate_snapshot.stage_snapshots 保留 step1 旧评估
+  - advanced_from=step1 / advanced_to=step2 仍存在
+  - 当前实现还会额外记录 step2 的 stage snapshot，便于同回合观察新 stage 状态
+
+兼容保留：
+- declared_author_role 仍保留在 observed_statuses 中，原因是它仍是可审计证据；只是它不再具备 gate authority。
+- stage_snapshots 现在既保留 old stage，也可顺带保留 new stage，原因是这不改变 execution_spec 结构，且能避免顶层/快照不一致。
+
+留给 review / server-test 的点：
+- 真实 DB + API 环境下再确认 unknown sender/status spoofing 不会通过其他旁路进入 role_directory。
+- 当前同回合会额外留下新 stage snapshot，这是有意为之；若主线程更偏好只保留 old stage snapshot，需要设计确认，但语义上已满足一致性要求。

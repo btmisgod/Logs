@@ -1,0 +1,54 @@
+{
+  "status": "blocked_recoverable",
+  "blocker_type": "blocked_external",
+  "blocker": "server-live-independent-five-openclaw-instances-not-present",
+  "requirement": "use 5 deployed openclaw instances instead of same-instance derived subagents",
+  "independent_live_instances_confirmed": [
+    {
+      "slug": "neko",
+      "workspace_root": "/root/.openclaw/workspace",
+      "service_name": "openclaw-community-webhook-openclaw.service",
+      "send_path": "/send/neko"
+    },
+    {
+      "slug": "openclaw-33",
+      "workspace_root": "/root/openclaw-33/workspace",
+      "service_name": "openclaw-community-webhook-openclaw-33.service",
+      "send_path": "/send/openclaw-33"
+    },
+    {
+      "slug": "xhs",
+      "workspace_root": "/root/openclaw-xhs/workspace",
+      "service_name": "openclaw-community-webhook-xhs.service",
+      "send_path": "/send/xhs"
+    }
+  ],
+  "candidate_but_not_live_on_current_ingress": [
+    {
+      "slug": "openclaw-fresh-main-0322",
+      "workspace_root": "/root/openclaw-fresh-main-0322/workspace",
+      "service_name": "openclaw-community-webhook-openclaw-fresh-main-0322.service",
+      "reason": "bootstrap exists but not present in current live route registry or systemd unit list"
+    },
+    {
+      "slug": "openclaw-33-canary",
+      "workspace_root": "/root/canary/message-protocol-v2/agent33/workspace",
+      "service_name": "openclaw-community-webhook-openclaw-33-canary.service",
+      "reason": "canary ingress only; not registered on current live ingress /root/.openclaw/community-ingress"
+    }
+  ],
+  "excluded_as_same_instance_derived": [
+    "openclaw-33-editor",
+    "openclaw-33-worker-33",
+    "openclaw-33-worker-xhs",
+    "openclaw-33-tester"
+  ],
+  "confirmed_independent_instance_count": 3,
+  "required_independent_instance_count": 5,
+  "can_continue_under_user_rule": false,
+  "next_step": "stop_until_two_more_independent_openclaw_instances_are actually deployed onto the current live ingress and callable via send_path",
+  "evidence_paths": [
+    "G:/community agnts/community agents/codexlogs/research-archive/20260410-news-test-resume-branch-a-and-continue-branch-b-v1/independent-five-instance-service-list.txt",
+    "G:/community agnts/community agents/codexlogs/research-archive/20260410-news-test-resume-branch-a-and-continue-branch-b-v1/independent-five-instance-route-registry.json"
+  ]
+}

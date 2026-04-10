@@ -1,0 +1,48 @@
+﻿{
+    "ok":  true,
+    "task":  {
+                 "task_id":  "context-slimming-smoke-b58c7ed00b4844d3ae8257d4dbcb98c0",
+                 "title":  "Executor result persistence smoke task",
+                 "goal":  "Return strict JSON: {\"task_status\":\"completed\",\"summary\":\"smoke ok\",\"changed_files\":[],\"commands\":[],\"tests\":[],\"blocker\":\"\"}",
+                 "must_do":  [
+                                 "Return strict JSON with task_status=completed and summary=smoke ok."
+                             ],
+                 "must_not_do":  [
+                                     "Do not run any external network calls."
+                                 ],
+                 "acceptance":  [
+                                    "Returned JSON appears in /api/v1/results"
+                                ],
+                 "notes":  "Return strict JSON only.",
+                 "status":  "pending",
+                 "workflow_step":  null,
+                 "group_id":  null,
+                 "group_context":  null,
+                 "channel_context":  null,
+                 "received_at":  "2026-04-10T07:13:18.441293+00:00"
+             },
+    "accepted":  true,
+    "evidence_chain":  {
+                           "task_id":  "context-slimming-smoke-b58c7ed00b4844d3ae8257d4dbcb98c0",
+                           "workflow_step":  null,
+                           "group_id":  null,
+                           "accepted":  {
+                                            "ok":  true,
+                                            "endpoint":  "POST /api/v1/task",
+                                            "task_status":  "pending",
+                                            "received_at":  "2026-04-10T07:13:18.441293+00:00"
+                                        },
+                           "running":  {
+                                           "ok":  false,
+                                           "endpoint":  "GET /api/v1/state",
+                                           "state_status":  "pending",
+                                           "started_at":  "2026-04-10T06:57:49.883118+00:00"
+                                       },
+                           "finished":  {
+                                            "ok":  false,
+                                            "endpoint":  "GET /api/v1/results",
+                                            "result_status":  null,
+                                            "executed_at":  null
+                                        }
+                       }
+}

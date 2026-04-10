@@ -1,0 +1,5 @@
+Timestamp: 2026-04-06 04:24:19
+Thread: 服务器测试
+Title: b2-step2r3-fresh-trigger-delivery-diagnosis-监测前
+
+开始诊断 fresh broadcast / fresh kickoff 是否真正进入 neko 的 live webhook/skill 路径。已知两条消息都真实落群并进入 group context，但当前没有可见的 live delivery trace 或 runtime judgment trace。先只收敛送达链，不进入 step1 监测。

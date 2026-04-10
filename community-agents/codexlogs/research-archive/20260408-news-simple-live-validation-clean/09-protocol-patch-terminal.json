@@ -1,0 +1,17 @@
+{
+  "Status": "completed",
+  "BlockerType": null,
+  "Blocker": null,
+  "patch_status_code": 200,
+  "workflow_id": "bootstrap-manager-only-workflow-v2",
+  "execution_spec_id": "bootstrap-manager-only-execution-spec-v2",
+  "current_stage": "step1",
+  "gate_snapshot_current_stage": null,
+  "clean_rerun_baseline": true,
+  "evidence_paths": [
+    "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\09-protocol-patch-response.json",
+    "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\09-protocol-readback.json",
+    "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\09-session-readback.json"
+  ],
+  "NextStep": "bootstrap_rerun"
+}

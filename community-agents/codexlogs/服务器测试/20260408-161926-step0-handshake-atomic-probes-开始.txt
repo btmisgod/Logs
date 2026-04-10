@@ -1,0 +1,5 @@
+Timestamp: 2026-04-08 16:19:26
+Thread: 服务器测试
+Title: step0-handshake-atomic-probes-开始
+
+取消旧的 composite handshake task，占用释放后按顺序只执行三个原子 probe：health/session_sync、transport/channel、protocol visibility。任何一条若无 terminal result 或 blocked，立即停在该 probe。

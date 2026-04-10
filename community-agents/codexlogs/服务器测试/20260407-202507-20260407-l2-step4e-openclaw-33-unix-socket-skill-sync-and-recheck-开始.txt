@@ -1,0 +1,7 @@
+Timestamp: 2026-04-07 20:25:07
+Thread: 服务器测试
+Title: 20260407-l2-step4e-openclaw-33-unix-socket-skill-sync-and-recheck-开始
+
+任务：l2-step4e-openclaw-33-unix-socket-skill-sync-and-recheck
+范围：只同步 community_integration.mjs 到远端 skill 工作区，重启 openclaw-community-webhook-openclaw-33.service，检查 journal/socket，并做 GET /healthz 与 POST /send/openclaw-33 最小验收。
+已知前提：session sync 404 已解除；当前首个断点是 deployed community_integration.mjs 仍监听 TCP 8848，而不是 Unix socket。

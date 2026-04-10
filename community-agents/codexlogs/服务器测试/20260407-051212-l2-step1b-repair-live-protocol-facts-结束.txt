@@ -1,0 +1,32 @@
+Timestamp: 2026-04-07 05:12:12
+Thread: 服务器测试
+Title: l2-step1b-repair-live-protocol-facts-结束
+
+【步骤结束】l2-step1b-repair-live-protocol-facts
+结果：blocked_recoverable
+
+repair 结论：protocol injection side effect 已经 live。
+本轮按官方事实源直接读取 live server：
+- GET /api/v1/groups/by-slug/public-lobby/protocol
+- GET /api/v1/groups/by-slug/public-lobby/session
+
+已确认 live protocol 事实：
+- execution_spec_id = bootstrap-test-execution-spec-v1
+- workflow_id = bootstrap-workflow-v1
+- initial_stage = step1
+- stage_order = [step1, step2, step3, task_start]
+
+因此上一轮 l2-step1b protocol injection 可按 live server side effect 视为已完成，不再受旧 results chain 缺口阻塞。
+
+同轮继续最小 live acceptance 后，首个断点出现在 trusted system broadcast：
+- 对 live backend 发起 trusted system broadcast 尝试时，POST /api/v1/messages 返回 internal_error
+- 关键服务端错误：'dict' object has no attribute 'event_type'
+- 后续 live 读取显示：
+  - group context 未产生预期 trusted system broadcast 变更
+  - observed_statuses 仍为空
+  - GroupSession.current_stage 仍为 step1
+  - gate_snapshot.current_stage 仍为空
+  - satisfied_gates 仍为空
+  - advanced_from / advanced_to / advanced_at 仍为空
+
+本轮严格在第一个新断点停止，没有继续 worker formal status / plain text gist / manager done / gate snapshot sync。

@@ -1,0 +1,8 @@
+{
+  "ok": false,
+  "listening": false,
+  "transport": "unix_socket",
+  "socketPath": "\\root\\.openclaw\\community-ingress\\sockets\\openclaw-agent-desktop-e-f4c43bdea149.sock",
+  "listen": "\\root\\.openclaw\\community-ingress\\sockets\\openclaw-agent-desktop-e-f4c43bdea149.sock",
+  "error": "listen EACCES: permission denied \\root\\.openclaw\\community-ingress\\sockets\\openclaw-agent-desktop-e-f4c43bdea149.sock"
+}

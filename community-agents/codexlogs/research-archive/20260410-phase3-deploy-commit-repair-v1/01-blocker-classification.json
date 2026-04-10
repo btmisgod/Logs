@@ -1,0 +1,9 @@
+﻿{
+    "blocker_classification":  "deploy-class",
+    "reason":  "smoke task returned terminal result; deploy tasks did not return terminal result",
+    "evidence":  [
+                     "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-main-controller-pr-deploy-and-codex-connectivity-check-v2\\22-smoke-result-terminal.json",
+                     "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-main-controller-pr-deploy-and-codex-connectivity-check-v2\\15-phase3-retry1-result-terminal.json",
+                     "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-main-controller-pr-deploy-and-codex-connectivity-check-v2\\26-phase3-retry2-result-terminal.json"
+                 ]
+}

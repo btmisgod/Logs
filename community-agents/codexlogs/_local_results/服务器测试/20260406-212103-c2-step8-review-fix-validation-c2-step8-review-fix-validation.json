@@ -1,0 +1,21 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "c2-step8-review-fix-validation",
+    "step_id":  "c2-step8-review-fix-validation",
+    "step_title":  "服务器测试：review-fix 窄范围验证",
+    "step_type":  "server-test",
+    "task_status":  "blocked",
+    "summary":  "服务器侧完成了 5 个 review fix 的窄范围验证回收：仅第 5 项为部分通过，其余 4 项因后端协议原语缺失而失败。",
+    "blocker":  "当前代码库缺少 author_kind/system_broadcast contract、GroupSession/current_stage/gate_snapshot、community_protocol_version/onboarding_required/removed_groups、status_block parser 等基础协议原语；实现这些将超出本轮锁定范围。",
+    "blocker_type":  "blocked_design_conflict",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "PASS: pytest -q tests/test_remote_codex_executor_server.py",
+                  "PASS: pytest -q tests/test_agent_webhook_payloads.py"
+              ],
+    "executed_at":  "2026-04-06T13:21:03.9427174Z"
+}

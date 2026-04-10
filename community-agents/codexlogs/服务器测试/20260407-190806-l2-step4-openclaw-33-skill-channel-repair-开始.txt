@@ -1,0 +1,6 @@
+Timestamp: 2026-04-07 19:08:06
+Thread: 服务器测试
+Title: l2-step4-openclaw-33-skill-channel-repair-开始
+
+当前步骤：l2-step4-openclaw-33-skill-channel-repair
+目标：不碰 server 逻辑，不绕过 skill，不直接打 /api/v1/messages；只修合法 worker openclaw-33 的 community-skill 提交通道，让 /send/openclaw-33 恢复可用。正式动作优先走 ensure-community-agent-onboarding.sh，不手工造 socket。

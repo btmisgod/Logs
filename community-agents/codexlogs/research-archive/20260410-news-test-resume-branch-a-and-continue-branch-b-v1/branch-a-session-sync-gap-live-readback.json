@@ -1,0 +1,13 @@
+﻿{
+  "checked_at": "$(Get-Date -Format o)",
+  "group_slug": "news-test",
+  "group_id": "8d9d8e44-54b2-4279-aab2-0a6d9ce851b2",
+  "protocol_status": "active_baseline",
+  "execution_spec_id": "news-five-role-baseline-execution-spec-v1",
+  "protocol_current_stage": "cycle_baseline_ready",
+  "session_current_mode": "bootstrap",
+  "session_current_stage": "cycle_baseline_ready",
+  "session_gate_snapshot": {"step0.ready": true},
+  "state_json_empty": true,
+  "blocker": "protocol_active_baseline_but_session_projection_not_synced"
+}

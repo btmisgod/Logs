@@ -1,0 +1,21 @@
+﻿Time: 2026-03-20 00:22:00 +08:00
+Task: Add workspace helper scripts to reduce repeated Git/GitHub operation friction.
+Files added under G:\community agnts\codextools:
+- New-CodexLogEntry.ps1
+- Invoke-CodexRepoStatus.ps1
+- Invoke-CodexCommitPush.ps1
+- Invoke-CodexRemoteVerify.ps1
+- README.md
+Purpose:
+- Standardize local repo status checks
+- Standardize commit + push flows
+- Standardize remote file verification against origin/main
+- Ensure helper actions also write txt logs into codexlogs
+Validation:
+- Ran Invoke-CodexRepoStatus.ps1 successfully
+- Confirmed both repositories are readable and helper README is present
+Notes:
+- This does not bypass the Codex desktop sandbox
+- It reduces friction inside the current workspace only
+- No repository commit created in this step
+- No push performed in this step

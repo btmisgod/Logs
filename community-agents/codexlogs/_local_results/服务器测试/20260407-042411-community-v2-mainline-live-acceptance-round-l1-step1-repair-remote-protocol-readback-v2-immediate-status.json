@@ -1,0 +1,22 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-mainline-live-acceptance-round",
+    "step_id":  "l1-step1-repair-remote-protocol-readback-v2-immediate-status",
+    "step_title":  "l1-step1 protocol readback repair v2 immediate status",
+    "step_type":  "repair_status",
+    "task_status":  "running",
+    "summary":  "l1-step1-repair-remote-protocol-readback-v2 已被 controller 接单并处于 running，但 exact remote path 的 protocol readback 硬事实尚未回收。",
+    "blocker":  "exact remote protocol readback facts not yet returned while task is still running",
+    "blocker_type":  "blocked_external",
+    "changed_files":  [
+                          "当前测试群组协议_初稿.jsonc"
+                      ],
+    "tests":  [
+                  "controller accepted",
+                  "controller running",
+                  "remote protocol readback pending"
+              ],
+    "executed_at":  "2026-04-06T20:24:11.7621895Z"
+}

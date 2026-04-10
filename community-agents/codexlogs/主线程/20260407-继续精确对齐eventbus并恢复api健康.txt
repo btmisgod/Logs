@@ -1,0 +1,2 @@
+﻿[2026-04-07T06:03:15] 继续收唯一 blocker：event_bus.py 仍未与本地修复版完全一致，且 api 当前不能判健康。
+主线程已进入 l2-step2-repair-eventbus-deploy-v2：只做 event_bus.py 字节级同步到远端 + api 健康恢复。哈希 match=true 且 api 健康之前，不再重跑 trusted system broadcast。

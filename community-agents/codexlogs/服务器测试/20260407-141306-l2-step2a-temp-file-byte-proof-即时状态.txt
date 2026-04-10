@@ -1,0 +1,22 @@
+Timestamp: 2026-04-07 14:13:06
+Thread: 服务器测试
+Title: l2-step2a-temp-file-byte-proof-即时状态
+
+当前只回收 active step 的即时硬事实，不继续执行。
+
+TaskId: community-v2-live-acceptance-round-l2
+ActiveStep: l2-step2a-temp-file-byte-proof
+
+1. 是否已重建 remote base64 text: 否，尚未证明。
+2. reconstructed base64 text SHA256 与长度: 未知。
+3. 是否已从 remote base64 解码出 bytes: 否，尚未证明。
+4. decoded temp file SHA256 与 byte length: 未知。
+5. 是否已写入 /root/agent-community/app/services/event_bus.py.sync.tmp: 否，尚未证明。
+6. temp file first/last 32 bytes hex: 未知。
+7. 当前首个阻断: 这一步的终态结果尚未回收，因此还不能证明失败发生在 transport / reassembly / base64 decode / pre-write bytes / temp write 中的哪一层。
+8. stderr/stdout: 当前未回收到这一步对应的 stderr/stdout。
+
+补充硬事实：
+- controller 当前 state 指向的 active task 就是 community-v2-live-acceptance-round-l2-l2-step2a-temp-file-byte-proof-v1。
+- 该 task 的 finished 结果目前仍未出现在 /api/v1/results。
+- 本地 payload 文件存在，SHA256 = 15D8F3E71234B5D317A89EDE6D52B125C691B7E17683363E92BEE47EDBB7894E。

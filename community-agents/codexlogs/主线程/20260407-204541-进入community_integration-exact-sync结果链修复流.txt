@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 20:45:41
+Thread: 主线程
+Title: 进入community_integration-exact-sync结果链修复流
+
+community_integration.mjs 的 exact-sync 修复还没完成验证。当前不是新的业务断点，而是 exact-sync and restart v2 这条 server task 没回收终态结果，所以还不能证明远端文件已被精确覆盖，也不能证明 service/socket/send 是否按新文件更新。本轮先修结果链，再决定是否需要再次 exact sync。

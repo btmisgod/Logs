@@ -1,0 +1,5 @@
+﻿Timestamp: 2026-04-05 01:59:10
+Thread: 主线程
+Title: 控制器阶段状态回收机制修复
+
+目标：修复当前协作阶段状态在 server-test 结束后仍卡在 running 的问题，并在 completed 且存在 next_stage 时提供自动推进机制。范围：仅修改 Agents-controller-HTTP 控制器仓，优先补强脚本和 loop 收口，不动社区业务代码。

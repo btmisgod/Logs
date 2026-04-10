@@ -1,0 +1,2250 @@
+{
+  "status": 200,
+  "response": {
+    "success": true,
+    "message": "ok",
+    "data": {
+      "group": {
+        "id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+        "name": "News Simple Live Validation 20260408",
+        "slug": "news-simple-live-validation-20260408",
+        "description": "Clean validation group for news simple live validation",
+        "group_type": "project",
+        "metadata_json": {
+          "purpose": "news-simple-live-validation",
+          "community_v2": {
+            "group_context": {
+              "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+              "group_slug": "news-simple-live-validation-20260408"
+            },
+            "group_session": {
+              "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+              "state_json": {
+                "last_message_id": "73e8feda-e7df-4c5c-8e0b-5f0dcb91c91d",
+                "last_status_block": {
+                  "step_id": "final_deliver",
+                  "author_role": "manager",
+                  "step_status": "manager_final_delivered",
+                  "workflow_id": "international-news-simple-workflow-v1",
+                  "author_agent_id": null,
+                  "lifecycle_phase": "result",
+                  "related_message_id": null
+                },
+                "observed_statuses": [
+                  {
+                    "step_id": "task_plan",
+                    "message_id": "3662add5-5d24-467d-988f-29ca7453a3fd",
+                    "author_role": "manager",
+                    "observed_at": "2026-04-08T14:20:16.948752+00:00",
+                    "step_status": "manager_task_plan_done",
+                    "workflow_id": "international-news-simple-workflow-v1",
+                    "author_agent_id": "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+                    "lifecycle_phase": "result",
+                    "related_message_id": null,
+                    "declared_author_role": "manager",
+                    "declared_author_agent_id": null
+                  },
+                  {
+                    "step_id": "material_collect",
+                    "message_id": "5a4865bb-8d20-44aa-9d1b-e06a015570d5",
+                    "author_role": "worker",
+                    "observed_at": "2026-04-08T14:20:56.566508+00:00",
+                    "step_status": "material_pool_submitted",
+                    "workflow_id": "international-news-simple-workflow-v1",
+                    "author_agent_id": "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+                    "lifecycle_phase": "run",
+                    "related_message_id": null,
+                    "declared_author_role": "worker",
+                    "declared_author_agent_id": null
+                  },
+                  {
+                    "step_id": "material_collect",
+                    "message_id": "cf8a18ed-406e-4068-84a3-8c9c0199d99f",
+                    "author_role": "manager",
+                    "observed_at": "2026-04-08T14:21:00.645766+00:00",
+                    "step_status": "manager_materials_approved",
+                    "workflow_id": "international-news-simple-workflow-v1",
+                    "author_agent_id": "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+                    "lifecycle_phase": "result",
+                    "related_message_id": null,
+                    "declared_author_role": "manager",
+                    "declared_author_agent_id": null
+                  },
+                  {
+                    "step_id": "draft_compile",
+                    "message_id": "16cc4e82-c89a-4a51-b431-a080ed4437fa",
+                    "author_role": "worker",
+                    "observed_at": "2026-04-08T14:21:35.524428+00:00",
+                    "step_status": "draft_report_submitted",
+                    "workflow_id": "international-news-simple-workflow-v1",
+                    "author_agent_id": "e1fb40b4-80b9-4baa-b740-cb5aa51fdee5",
+                    "lifecycle_phase": "run",
+                    "related_message_id": null,
+                    "declared_author_role": "worker",
+                    "declared_author_agent_id": null
+                  },
+                  {
+                    "step_id": "draft_compile",
+                    "message_id": "179da8ee-34c9-4787-a1c7-536827f9a423",
+                    "author_role": "manager",
+                    "observed_at": "2026-04-08T14:21:40.947373+00:00",
+                    "step_status": "manager_draft_accepted",
+                    "workflow_id": "international-news-simple-workflow-v1",
+                    "author_agent_id": "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+                    "lifecycle_phase": "result",
+                    "related_message_id": null,
+                    "declared_author_role": "manager",
+                    "declared_author_agent_id": null
+                  },
+                  {
+                    "step_id": "final_deliver",
+                    "message_id": "73e8feda-e7df-4c5c-8e0b-5f0dcb91c91d",
+                    "author_role": "manager",
+                    "observed_at": "2026-04-08T14:21:56.956640+00:00",
+                    "step_status": "manager_final_delivered",
+                    "workflow_id": "international-news-simple-workflow-v1",
+                    "author_agent_id": "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+                    "lifecycle_phase": "result",
+                    "related_message_id": null,
+                    "declared_author_role": "manager",
+                    "declared_author_agent_id": null
+                  }
+                ]
+              },
+              "workflow_id": "international-news-simple-workflow-v1",
+              "current_mode": "bootstrap",
+              "current_stage": "final_deliver",
+              "gate_snapshot": {
+                "gates": {
+                  "manager_done": {
+                    "satisfied": true,
+                    "message_ids": [
+                      "73e8feda-e7df-4c5c-8e0b-5f0dcb91c91d"
+                    ],
+                    "matched_count": 1,
+                    "matched_agent_ids": [
+                      "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                    ],
+                    "required_agent_ids": [
+                      "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                    ]
+                  }
+                },
+                "next_stage": null,
+                "advanced_at": "2026-04-08T14:21:40.947416+00:00",
+                "advanced_to": "final_deliver",
+                "stage_order": [
+                  "task_plan",
+                  "material_collect",
+                  "draft_compile",
+                  "final_deliver"
+                ],
+                "step0.ready": true,
+                "workflow_id": "international-news-simple-workflow-v1",
+                "advanced_from": "draft_compile",
+                "current_stage": "final_deliver",
+                "satisfied_gates": [
+                  "manager_done"
+                ],
+                "stage_snapshots": {
+                  "task_plan": {
+                    "gates": {
+                      "manager_done": {
+                        "satisfied": true,
+                        "message_ids": [
+                          "3662add5-5d24-467d-988f-29ca7453a3fd"
+                        ],
+                        "matched_count": 1,
+                        "matched_agent_ids": [
+                          "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                        ],
+                        "required_agent_ids": [
+                          "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                        ]
+                      }
+                    },
+                    "next_stage": "material_collect",
+                    "evaluated_at": "2026-04-08T14:20:16.948788+00:00",
+                    "satisfied_gates": [
+                      "manager_done"
+                    ],
+                    "next_stage_allowed": true,
+                    "current_stage_complete": true
+                  },
+                  "draft_compile": {
+                    "gates": {
+                      "manager_done": {
+                        "satisfied": true,
+                        "message_ids": [
+                          "179da8ee-34c9-4787-a1c7-536827f9a423"
+                        ],
+                        "matched_count": 1,
+                        "matched_agent_ids": [
+                          "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                        ],
+                        "required_agent_ids": [
+                          "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                        ]
+                      }
+                    },
+                    "next_stage": "final_deliver",
+                    "evaluated_at": "2026-04-08T14:21:40.947416+00:00",
+                    "satisfied_gates": [
+                      "manager_done"
+                    ],
+                    "next_stage_allowed": true,
+                    "current_stage_complete": true
+                  },
+                  "final_deliver": {
+                    "gates": {
+                      "manager_done": {
+                        "satisfied": true,
+                        "message_ids": [
+                          "73e8feda-e7df-4c5c-8e0b-5f0dcb91c91d"
+                        ],
+                        "matched_count": 1,
+                        "matched_agent_ids": [
+                          "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                        ],
+                        "required_agent_ids": [
+                          "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                        ]
+                      }
+                    },
+                    "next_stage": null,
+                    "evaluated_at": "2026-04-08T14:21:56.956691+00:00",
+                    "satisfied_gates": [
+                      "manager_done"
+                    ],
+                    "next_stage_allowed": false,
+                    "current_stage_complete": true
+                  },
+                  "material_collect": {
+                    "gates": {
+                      "manager_done": {
+                        "satisfied": true,
+                        "message_ids": [
+                          "cf8a18ed-406e-4068-84a3-8c9c0199d99f"
+                        ],
+                        "matched_count": 1,
+                        "matched_agent_ids": [
+                          "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                        ],
+                        "required_agent_ids": [
+                          "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                        ]
+                      }
+                    },
+                    "next_stage": "draft_compile",
+                    "evaluated_at": "2026-04-08T14:21:00.645805+00:00",
+                    "satisfied_gates": [
+                      "manager_done"
+                    ],
+                    "next_stage_allowed": true,
+                    "current_stage_complete": true
+                  }
+                },
+                "execution_spec_id": "international-news-simple-execution-spec-v1",
+                "last_evaluated_at": "2026-04-08T14:21:56.956691+00:00",
+                "next_stage_allowed": false,
+                "current_stage_complete": true
+              },
+              "group_session_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+              "protocol_version": "ACP-003",
+              "group_context_version": "group-context:c8ae1c20-2cd7-45bd-9e6c-665e08235508",
+              "group_session_version": "group-session:73e8feda-e7df-4c5c-8e0b-5f0dcb91c91d"
+            },
+            "group_context_version": "group-context:c8ae1c20-2cd7-45bd-9e6c-665e08235508"
+          },
+          "community_protocols": {
+            "channel": {
+              "layer_id": "channel",
+              "name": "News Simple Live Validation 20260408 Group Protocol",
+              "status": "scaffold",
+              "summary": "定义当前 group 的最小行为边界、群组内正式规则来源与可扩展协作约束。",
+              "precedence_rank": 3,
+              "channel": {
+                "group_name": "News Simple Live Validation 20260408",
+                "group_slug": "news-simple-live-validation-20260408"
+              },
+              "scope": [
+                "group.enter",
+                "message.post",
+                "message.reply",
+                "message.process_unread",
+                "message.catch_up",
+                "status.report"
+              ],
+              "sections": {
+                "objective": "定义当前 group 内生效的最小行为边界。",
+                "placeholders": {
+                  "group_boundary": [],
+                  "topic_description": [],
+                  "message_conventions": [],
+                  "group_workflow": [],
+                  "group_capabilities": [],
+                  "notes": []
+                }
+              },
+              "members": {
+                "role_rules": {
+                  "manager_holds_decision_authority_for_step_transition": true,
+                  "only_manager_may_emit_formal_workflow_control_signals": true,
+                  "server_advances_only_on_manager_formal_signals_after_step0": true,
+                  "workers_may_submit_evidence_but_must_not_directly_advance_workflow": true,
+                  "step_scope_should_be_split_when_manager_cannot_finish_control_within_one_step": true
+                },
+                "all_agent_ids": [
+                  "neko",
+                  "33",
+                  "xhs"
+                ],
+                "manager_agent_id": "neko",
+                "role_assignments": {
+                  "manager": {
+                    "agent_id": "neko",
+                    "responsibility": "task planning, worker dispatch, acceptance, final delivery"
+                  },
+                  "draft_compile": {
+                    "agent_id": "xhs",
+                    "responsibility": "compile the final 10-item report based on approved material pool"
+                  },
+                  "material_collect": {
+                    "agent_id": "33",
+                    "responsibility": "collect candidate international hot topics and image candidates"
+                  }
+                },
+                "worker_agent_ids": [
+                  "33",
+                  "xhs"
+                ]
+              },
+              "workflow": {
+                "formal_workflow": {
+                  "goal": "Collect hot international topics from the last 24 hours and deliver a 10-item final report with short briefs and image references.",
+                  "stages": {
+                    "task_plan": {
+                      "goal": "Manager breaks down the task and sends stage-specific instructions to 33 and xhs.",
+                      "owner": "manager",
+                      "phase_kind": "planning",
+                      "output_consumer": "all_participants",
+                      "decision_authority": "manager",
+                      "dispatch_authority": "manager",
+                      "acceptance_authority": "manager",
+                      "manager_formal_output": "task_plan",
+                      "manager_formal_signal": "manager_task_plan_done",
+                      "manager_formal_payload_contract": {
+                        "kind": "task_plan",
+                        "required_fields": [
+                          "task_breakdown",
+                          "worker_assignments",
+                          "acceptance_rules",
+                          "handoff_rule",
+                          "blocking_risks",
+                          "evidence_refs"
+                        ]
+                      }
+                    },
+                    "draft_compile": {
+                      "goal": "Worker xhs compiles the 10-item report from the approved material pool; manager accepts the draft.",
+                      "owner": "manager",
+                      "phase_kind": "content_drafting",
+                      "output_consumer": "server_and_frontend_projection",
+                      "worker_agent_id": "xhs",
+                      "decision_authority": "manager",
+                      "dispatch_authority": "manager",
+                      "acceptance_authority": "manager",
+                      "manager_formal_output": "draft_acceptance",
+                      "manager_formal_signal": "manager_draft_accepted",
+                      "worker_evidence_expected": [
+                        "draft_report_submitted"
+                      ],
+                      "manager_formal_payload_contract": {
+                        "kind": "draft_acceptance",
+                        "required_fields": [
+                          "accepted",
+                          "issue_summary",
+                          "missing_items",
+                          "format_ok",
+                          "content_ok",
+                          "item_count_checked",
+                          "headline_check",
+                          "brief_length_check",
+                          "image_reference_check",
+                          "renderable_body_present",
+                          "evidence_refs"
+                        ]
+                      },
+                      "worker_evidence_payload_contract": {
+                        "kind": "draft_report_v1",
+                        "required_fields": [
+                          "report_title",
+                          "report_markdown",
+                          "items"
+                        ],
+                        "item_required_fields": [
+                          "rank",
+                          "headline",
+                          "brief_100_words",
+                          "source_ref",
+                          "image_url",
+                          "why_selected"
+                        ],
+                        "optional_item_fields": [
+                          "image_attachment_ref"
+                        ],
+                        "delivery_requirements": [
+                          "draft body must be directly renderable",
+                          "every item must provide a directly consumable image reference",
+                          "image hint text alone is not accepted"
+                        ]
+                      }
+                    },
+                    "final_deliver": {
+                      "goal": "Manager publishes the final report and closes the simple news workflow.",
+                      "owner": "manager",
+                      "phase_kind": "delivery",
+                      "output_consumer": "frontend_and_archive",
+                      "decision_authority": "manager",
+                      "dispatch_authority": "manager",
+                      "acceptance_authority": "manager",
+                      "manager_formal_output": "final_report",
+                      "manager_formal_signal": "manager_final_delivered",
+                      "manager_formal_payload_contract": {
+                        "kind": "final_report",
+                        "required_fields": [
+                          "final_report_ref",
+                          "report_title",
+                          "report_markdown",
+                          "items",
+                          "delivered_item_count",
+                          "delivery_complete",
+                          "final_summary",
+                          "item_count_checked",
+                          "headline_check",
+                          "brief_length_check",
+                          "image_reference_check",
+                          "renderable_body_present",
+                          "artifact_refs"
+                        ],
+                        "item_required_fields": [
+                          "rank",
+                          "headline",
+                          "brief_100_words",
+                          "source_ref",
+                          "image_url",
+                          "why_selected"
+                        ],
+                        "optional_item_fields": [
+                          "image_attachment_ref"
+                        ]
+                      }
+                    },
+                    "material_collect": {
+                      "goal": "Worker 33 submits a candidate material pool; manager approves the material set for drafting.",
+                      "owner": "manager",
+                      "phase_kind": "content_collection",
+                      "output_consumer": "draft_compile_worker_and_server",
+                      "worker_agent_id": "33",
+                      "decision_authority": "manager",
+                      "dispatch_authority": "manager",
+                      "acceptance_authority": "manager",
+                      "manager_formal_output": "approved_material_pool",
+                      "manager_formal_signal": "manager_materials_approved",
+                      "worker_evidence_expected": [
+                        "material_pool_submitted"
+                      ],
+                      "manager_formal_payload_contract": {
+                        "kind": "approved_material_pool",
+                        "required_fields": [
+                          "selected_materials",
+                          "rejected_materials",
+                          "rejection_reasons",
+                          "evidence_refs"
+                        ]
+                      },
+                      "worker_evidence_payload_contract": {
+                        "kind": "candidate_material_pool",
+                        "required_fields": [
+                          "candidate_items"
+                        ],
+                        "candidate_item_required_fields": [
+                          "topic_title",
+                          "source",
+                          "published_at",
+                          "why_hot",
+                          "core_fact_summary",
+                          "image_candidate",
+                          "credibility_note"
+                        ]
+                      }
+                    }
+                  },
+                  "task_brief": {
+                    "kind": "task_brief",
+                    "task_goal": "整理24小时内国际新闻热点，输出10条新闻热点汇总成报告，每条新闻附100字的简讯和配1张图",
+                    "time_scope": "last_24_hours",
+                    "topic_scope": "international_news",
+                    "target_count": 10,
+                    "role_assignments": {
+                      "manager": "neko",
+                      "draft_compile": "xhs",
+                      "material_collect": "33"
+                    },
+                    "delivery_contract": {
+                      "optional_item_fields": [
+                        "image_attachment_ref"
+                      ],
+                      "per_item_required_fields": [
+                        "headline",
+                        "brief_100_words",
+                        "source_ref",
+                        "image_url",
+                        "why_selected"
+                      ],
+                      "final_body_required_any_of": [
+                        "report_markdown",
+                        "render_blocks",
+                        "items"
+                      ],
+                      "must_be_directly_renderable": true,
+                      "image_hint_text_only_is_not_accepted": true,
+                      "manager_must_reject_missing_renderable_body": true
+                    },
+                    "per_item_brief_length": 100,
+                    "per_item_requires_image": true
+                  },
+                  "stage_order": [
+                    "task_plan",
+                    "material_collect",
+                    "draft_compile",
+                    "final_deliver"
+                  ],
+                  "workflow_id": "international-news-simple-workflow-v1",
+                  "activation_rule": {
+                    "trigger": "bootstrap task_start visible",
+                    "activation_mode": "patch top-level execution_spec from execution_spec_template",
+                    "first_active_stage": "task_plan"
+                  },
+                  "execution_spec_template": {
+                    "stages": {
+                      "task_plan": {
+                        "stage_id": "task_plan",
+                        "next_stage": "material_collect",
+                        "allowed_roles": [
+                          "manager"
+                        ],
+                        "completion_condition": {
+                          "all_of": [
+                            {
+                              "gate_id": "manager_done",
+                              "min_count": 1,
+                              "required_agent_ids": [
+                                "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                              ]
+                            }
+                          ]
+                        },
+                        "semantic_description": "Server advances only when manager formally closes task planning.",
+                        "accepted_status_blocks": [
+                          {
+                            "gate_id": "manager_start",
+                            "allowed_roles": [
+                              "manager"
+                            ],
+                            "step_statuses": [
+                              "manager_task_plan_started"
+                            ],
+                            "lifecycle_phase": "start"
+                          },
+                          {
+                            "gate_id": "manager_done",
+                            "allowed_roles": [
+                              "manager"
+                            ],
+                            "step_statuses": [
+                              "manager_task_plan_done"
+                            ],
+                            "lifecycle_phase": "result"
+                          }
+                        ]
+                      },
+                      "draft_compile": {
+                        "stage_id": "draft_compile",
+                        "next_stage": "final_deliver",
+                        "allowed_roles": [
+                          "manager"
+                        ],
+                        "completion_condition": {
+                          "all_of": [
+                            {
+                              "gate_id": "manager_done",
+                              "min_count": 1,
+                              "required_agent_ids": [
+                                "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                              ]
+                            }
+                          ]
+                        },
+                        "semantic_description": "Worker xhs submits report draft evidence; server advances only when manager accepts the draft.",
+                        "accepted_status_blocks": [
+                          {
+                            "gate_id": "manager_start",
+                            "allowed_roles": [
+                              "manager"
+                            ],
+                            "step_statuses": [
+                              "manager_draft_compile_started"
+                            ],
+                            "lifecycle_phase": "start"
+                          },
+                          {
+                            "gate_id": "manager_done",
+                            "allowed_roles": [
+                              "manager"
+                            ],
+                            "step_statuses": [
+                              "manager_draft_accepted"
+                            ],
+                            "lifecycle_phase": "result"
+                          }
+                        ]
+                      },
+                      "final_deliver": {
+                        "stage_id": "final_deliver",
+                        "next_stage": null,
+                        "allowed_roles": [
+                          "manager"
+                        ],
+                        "completion_condition": {
+                          "all_of": [
+                            {
+                              "gate_id": "manager_done",
+                              "min_count": 1,
+                              "required_agent_ids": [
+                                "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                              ]
+                            }
+                          ]
+                        },
+                        "semantic_description": "Manager delivers the final report and closes the workflow.",
+                        "accepted_status_blocks": [
+                          {
+                            "gate_id": "manager_done",
+                            "allowed_roles": [
+                              "manager"
+                            ],
+                            "step_statuses": [
+                              "manager_final_delivered"
+                            ],
+                            "lifecycle_phase": "result"
+                          }
+                        ]
+                      },
+                      "material_collect": {
+                        "stage_id": "material_collect",
+                        "next_stage": "draft_compile",
+                        "allowed_roles": [
+                          "manager"
+                        ],
+                        "completion_condition": {
+                          "all_of": [
+                            {
+                              "gate_id": "manager_done",
+                              "min_count": 1,
+                              "required_agent_ids": [
+                                "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                              ]
+                            }
+                          ]
+                        },
+                        "semantic_description": "Worker 33 submits material pool evidence; server advances only when manager approves materials.",
+                        "accepted_status_blocks": [
+                          {
+                            "gate_id": "manager_start",
+                            "allowed_roles": [
+                              "manager"
+                            ],
+                            "step_statuses": [
+                              "manager_material_collect_started"
+                            ],
+                            "lifecycle_phase": "start"
+                          },
+                          {
+                            "gate_id": "manager_done",
+                            "allowed_roles": [
+                              "manager"
+                            ],
+                            "step_statuses": [
+                              "manager_materials_approved"
+                            ],
+                            "lifecycle_phase": "result"
+                          }
+                        ]
+                      }
+                    },
+                    "stage_order": [
+                      "task_plan",
+                      "material_collect",
+                      "draft_compile",
+                      "final_deliver"
+                    ],
+                    "workflow_id": "international-news-simple-workflow-v1",
+                    "initial_stage": "task_plan",
+                    "role_directory": {
+                      "worker_agent_ids": [
+                        "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+                        "e1fb40b4-80b9-4baa-b740-cb5aa51fdee5"
+                      ],
+                      "manager_agent_ids": [
+                        "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                      ]
+                    },
+                    "execution_spec_id": "international-news-simple-execution-spec-v1"
+                  }
+                },
+                "bootstrap_workflow": {
+                  "stages": {
+                    "task_start": {
+                      "goal": "Manager publishes formal task start and hands off to the simple news workflow.",
+                      "owner": "manager",
+                      "phase_kind": "formal_start",
+                      "output_consumer": "formal_workflow_runtime",
+                      "start_condition": "step3.ready_close completed",
+                      "decision_authority": "manager",
+                      "dispatch_authority": "manager",
+                      "acceptance_authority": "server",
+                      "completion_condition": "task_start visible",
+                      "manager_formal_output": "startup_handoff_package",
+                      "manager_formal_signal": "task_start",
+                      "frontend_activation_required": true,
+                      "manager_formal_payload_contract": {
+                        "kind": "startup_handoff_package",
+                        "required_fields": [
+                          "group_context",
+                          "effective_workflow_id",
+                          "handoff_summary",
+                          "first_action",
+                          "artifact_refs"
+                        ]
+                      }
+                    },
+                    "step3.ready_close": {
+                      "goal": "Manager confirms bootstrap is complete and the simple news workflow may start.",
+                      "owner": "manager",
+                      "phase_kind": "readiness",
+                      "redo_policy": "manager may continue collecting readiness evidence inside current step",
+                      "output_consumer": "server_and_all_participants",
+                      "recovery_policy": "runtime_or_transport_breakage_is_recovery",
+                      "start_condition": "step2.capability_close completed",
+                      "decision_authority": "manager",
+                      "dispatch_authority": "manager",
+                      "acceptance_authority": "manager",
+                      "completion_condition": "manager_step3_done visible",
+                      "manager_formal_output": "readiness_summary",
+                      "manager_formal_signal": "manager_step3_done",
+                      "worker_instruction_hint": {
+                        "33": "State whether you are ready to begin material collection once task_plan starts.",
+                        "xhs": "State whether you are ready to compile the report once approved materials are available."
+                      },
+                      "worker_evidence_expected": [
+                        "task_ready_evidence"
+                      ],
+                      "frontend_activation_required": true,
+                      "manager_formal_payload_contract": {
+                        "kind": "readiness_summary",
+                        "required_fields": [
+                          "ready_participants",
+                          "not_ready_participants",
+                          "remaining_blockers",
+                          "formal_start_preconditions_met",
+                          "evidence_refs"
+                        ]
+                      },
+                      "worker_evidence_payload_contract": {
+                        "kind": "task_ready_receipt",
+                        "required_fields": [
+                          "ready",
+                          "dependency_check",
+                          "remaining_blockers",
+                          "expected_first_action"
+                        ]
+                      }
+                    },
+                    "step1.startup_plan": {
+                      "goal": "Manager consumes bootstrap_task_brief, aligns target, and gives task-specific instructions to workers.",
+                      "owner": "manager",
+                      "phase_kind": "alignment",
+                      "redo_policy": "manager may keep collecting evidence within step instead of advancing",
+                      "output_consumer": "server_and_all_participants",
+                      "recovery_policy": "transport_or_sync_failure_is_recovery_not_redo",
+                      "start_condition": "step0.handshake completed and bootstrap_task_brief visible to manager",
+                      "decision_authority": "manager",
+                      "dispatch_authority": "manager",
+                      "acceptance_authority": "manager",
+                      "completion_condition": "manager_step1_done visible",
+                      "manager_formal_output": "startup_plan",
+                      "manager_formal_signal": "manager_step1_done",
+                      "worker_instruction_hint": {
+                        "33": "Explain how you will collect candidate international hot topics within the last 24 hours.",
+                        "xhs": "Explain how you will compile the final report after material approval."
+                      },
+                      "worker_evidence_expected": [
+                        "startup_alignment_submitted"
+                      ],
+                      "frontend_activation_required": true,
+                      "manager_formal_payload_contract": {
+                        "kind": "startup_plan",
+                        "required_fields": [
+                          "startup_goal",
+                          "formal_workflow_summary",
+                          "role_assignments",
+                          "task_brief_ref",
+                          "completion_definition",
+                          "open_questions",
+                          "evidence_refs"
+                        ]
+                      },
+                      "worker_evidence_payload_contract": {
+                        "kind": "startup_alignment_evidence",
+                        "required_fields": [
+                          "understanding_summary",
+                          "role_confirmed",
+                          "known_dependencies",
+                          "questions_or_risks"
+                        ]
+                      }
+                    },
+                    "step2.capability_close": {
+                      "goal": "Manager verifies whether each worker can perform the concrete task assigned in bootstrap_task_brief.",
+                      "owner": "manager",
+                      "phase_kind": "capability_check",
+                      "redo_policy": "business scope mismatch stays inside current step until manager closes it",
+                      "output_consumer": "server_and_all_participants",
+                      "recovery_policy": "permission_or_channel_failure_is_recovery",
+                      "start_condition": "step1.startup_plan completed",
+                      "decision_authority": "manager",
+                      "dispatch_authority": "manager",
+                      "acceptance_authority": "manager",
+                      "completion_condition": "manager_step2_done visible",
+                      "manager_formal_output": "capability_summary",
+                      "manager_formal_signal": "manager_step2_done",
+                      "worker_instruction_hint": {
+                        "33": "Confirm whether you can collect 10 candidate hot topics with source, summary, and image candidate.",
+                        "xhs": "Confirm whether you can compile a 10-item report with 100-word briefs and image references."
+                      },
+                      "worker_evidence_expected": [
+                        "capability_scope_submitted",
+                        "capability_scope_adjusted"
+                      ],
+                      "frontend_activation_required": true,
+                      "manager_formal_payload_contract": {
+                        "kind": "capability_summary",
+                        "required_fields": [
+                          "participant_states",
+                          "capability_ok",
+                          "blocking_summary",
+                          "needs_adjustment",
+                          "evidence_refs"
+                        ]
+                      },
+                      "worker_evidence_payload_contract": {
+                        "kind": "capability_scope_evidence",
+                        "required_fields": [
+                          "skills_checked",
+                          "permissions_checked",
+                          "scope_confirmed",
+                          "blocking_issues",
+                          "needs_adjustment"
+                        ]
+                      }
+                    }
+                  },
+                  "stage_order": [
+                    "step0.handshake",
+                    "step1.startup_plan",
+                    "step2.capability_close",
+                    "step3.ready_close",
+                    "task_start"
+                  ],
+                  "workflow_id": "bootstrap-manager-only-workflow-v2",
+                  "workflow_principle": "server_mechanical_progression_on_manager_only_control_signals",
+                  "bootstrap_task_brief": {
+                    "goal": "Provide manager with the concrete task target before startup alignment begins.",
+                    "kind": "bootstrap_task_brief",
+                    "task_goal": "整理24小时内国际新闻热点，输出10条新闻热点汇总报告，每条新闻附100字简讯和配1张图",
+                    "time_scope": "last_24_hours",
+                    "injected_by": "server",
+                    "topic_scope": "international_news",
+                    "target_count": 10,
+                    "assigned_roles": {
+                      "manager": "neko",
+                      "draft_compile": "xhs",
+                      "material_collect": "33"
+                    },
+                    "injected_after": "step0.handshake",
+                    "delivery_definition": {
+                      "must_include": [
+                        "10 hot topics",
+                        "100-word brief for each topic",
+                        "1 directly consumable image reference for each topic",
+                        "a directly renderable final report body"
+                      ],
+                      "artifact_type": "final_report",
+                      "per_item_image_rule": "each item must include image_url or image_attachment_ref",
+                      "final_body_required_any_of": [
+                        "report_markdown",
+                        "render_blocks",
+                        "items"
+                      ],
+                      "delivery_must_be_directly_renderable": true,
+                      "image_hint_text_only_is_not_accepted": true
+                    },
+                    "per_item_brief_length": 100,
+                    "per_item_requires_image": true,
+                    "server_to_manager_prompt_contract": {
+                      "purpose": "Initialize manager with task target, role assignment, and the requirement to align worker capability during bootstrap.",
+                      "must_include": [
+                        "task_goal",
+                        "role_assignments",
+                        "current_bootstrap_stage",
+                        "required_formal_output_for_this_stage"
+                      ]
+                    }
+                  },
+                  "server_led_preflight": {
+                    "goal": "Verify all required agents can sync, transport, and receive group protocol before bootstrap starts.",
+                    "owner": "server",
+                    "step_id": "step0.handshake",
+                    "done_when": "all_required_agents_ready_for_bootstrap",
+                    "retry_kind": "recovery",
+                    "formal_output": "handshake_report",
+                    "required_checks": [
+                      "backend_health_ok",
+                      "session_sync_ok",
+                      "shared_ingress_ok",
+                      "required_worker_channel_ok",
+                      "protocol_visible_to_agents",
+                      "group_context_available"
+                    ]
+                  }
+                }
+              },
+              "protocol_meta": {
+                "goal": "Verify manager-only bootstrap, then run a simple linear news task workflow in the same group.",
+                "status": "debug_draft",
+                "protocol_id": "bootstrap-news-simple-protocol-v0.5",
+                "protocol_name": "Community bootstrap + simple international news workflow",
+                "source_of_truth": "group_protocol",
+                "protocol_version": "0.5.0-draft"
+              },
+              "execution_spec": {
+                "execution_spec_id": "international-news-simple-execution-spec-v1",
+                "workflow_id": "international-news-simple-workflow-v1",
+                "initial_stage": "task_plan",
+                "stage_order": [
+                  "task_plan",
+                  "material_collect",
+                  "draft_compile",
+                  "final_deliver"
+                ],
+                "role_directory": {
+                  "manager_agent_ids": [
+                    "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                  ],
+                  "worker_agent_ids": [
+                    "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+                    "e1fb40b4-80b9-4baa-b740-cb5aa51fdee5"
+                  ]
+                },
+                "stages": {
+                  "task_plan": {
+                    "stage_id": "task_plan",
+                    "semantic_description": "Server advances only when manager formally closes task planning.",
+                    "allowed_roles": [
+                      "manager"
+                    ],
+                    "accepted_status_blocks": [
+                      {
+                        "gate_id": "manager_start",
+                        "lifecycle_phase": "start",
+                        "step_statuses": [
+                          "manager_task_plan_started"
+                        ],
+                        "allowed_roles": [
+                          "manager"
+                        ],
+                        "required_agent_ids": []
+                      },
+                      {
+                        "gate_id": "manager_done",
+                        "lifecycle_phase": "result",
+                        "step_statuses": [
+                          "manager_task_plan_done"
+                        ],
+                        "allowed_roles": [
+                          "manager"
+                        ],
+                        "required_agent_ids": []
+                      }
+                    ],
+                    "completion_condition": {
+                      "all_of": [
+                        {
+                          "gate_id": "manager_done",
+                          "min_count": 1,
+                          "min_distinct_agents": 0,
+                          "required_agent_ids": [
+                            "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                          ]
+                        }
+                      ]
+                    },
+                    "next_stage": "material_collect"
+                  },
+                  "material_collect": {
+                    "stage_id": "material_collect",
+                    "semantic_description": "Worker 33 submits material pool evidence; server advances only when manager approves materials.",
+                    "allowed_roles": [
+                      "manager"
+                    ],
+                    "accepted_status_blocks": [
+                      {
+                        "gate_id": "manager_start",
+                        "lifecycle_phase": "start",
+                        "step_statuses": [
+                          "manager_material_collect_started"
+                        ],
+                        "allowed_roles": [
+                          "manager"
+                        ],
+                        "required_agent_ids": []
+                      },
+                      {
+                        "gate_id": "manager_done",
+                        "lifecycle_phase": "result",
+                        "step_statuses": [
+                          "manager_materials_approved"
+                        ],
+                        "allowed_roles": [
+                          "manager"
+                        ],
+                        "required_agent_ids": []
+                      }
+                    ],
+                    "completion_condition": {
+                      "all_of": [
+                        {
+                          "gate_id": "manager_done",
+                          "min_count": 1,
+                          "min_distinct_agents": 0,
+                          "required_agent_ids": [
+                            "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                          ]
+                        }
+                      ]
+                    },
+                    "next_stage": "draft_compile"
+                  },
+                  "draft_compile": {
+                    "stage_id": "draft_compile",
+                    "semantic_description": "Worker xhs submits report draft evidence; server advances only when manager accepts the draft.",
+                    "allowed_roles": [
+                      "manager"
+                    ],
+                    "accepted_status_blocks": [
+                      {
+                        "gate_id": "manager_start",
+                        "lifecycle_phase": "start",
+                        "step_statuses": [
+                          "manager_draft_compile_started"
+                        ],
+                        "allowed_roles": [
+                          "manager"
+                        ],
+                        "required_agent_ids": []
+                      },
+                      {
+                        "gate_id": "manager_done",
+                        "lifecycle_phase": "result",
+                        "step_statuses": [
+                          "manager_draft_accepted"
+                        ],
+                        "allowed_roles": [
+                          "manager"
+                        ],
+                        "required_agent_ids": []
+                      }
+                    ],
+                    "completion_condition": {
+                      "all_of": [
+                        {
+                          "gate_id": "manager_done",
+                          "min_count": 1,
+                          "min_distinct_agents": 0,
+                          "required_agent_ids": [
+                            "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                          ]
+                        }
+                      ]
+                    },
+                    "next_stage": "final_deliver"
+                  },
+                  "final_deliver": {
+                    "stage_id": "final_deliver",
+                    "semantic_description": "Manager delivers the final report and closes the workflow.",
+                    "allowed_roles": [
+                      "manager"
+                    ],
+                    "accepted_status_blocks": [
+                      {
+                        "gate_id": "manager_done",
+                        "lifecycle_phase": "result",
+                        "step_statuses": [
+                          "manager_final_delivered"
+                        ],
+                        "allowed_roles": [
+                          "manager"
+                        ],
+                        "required_agent_ids": []
+                      }
+                    ],
+                    "completion_condition": {
+                      "all_of": [
+                        {
+                          "gate_id": "manager_done",
+                          "min_count": 1,
+                          "min_distinct_agents": 0,
+                          "required_agent_ids": [
+                            "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                          ]
+                        }
+                      ]
+                    },
+                    "next_stage": null
+                  }
+                }
+              },
+              "group_identity": {
+                "group_name": "Group Boot Workflow 33 Neko XHS",
+                "group_slug": "group-boot-workflow-33-neko-xhs",
+                "group_type": "bootstrap_test_group",
+                "workflow_mode": "bootstrap_then_formal_workflow",
+                "group_objective": "Run manager-only bootstrap and then a simple product-output workflow for international news aggregation."
+              },
+              "projection_hints": {
+                "required_views": [
+                  "current_stage",
+                  "group_context",
+                  "manager_summary_payloads",
+                  "worker_evidence_timeline",
+                  "gate_snapshot",
+                  "formal_task_artifact_timeline"
+                ],
+                "manager_summary_outputs_should_be_projectable": true,
+                "worker_evidence_may_be_collected_and_replayed_even_when_not_authoritative": true
+              },
+              "transition_rules": {
+                "manager_is_single_formal_transition_authority": true,
+                "plain_text_cannot_replace_manager_formal_signal": true,
+                "worker_inputs_are_evidence_not_transition_gates": true,
+                "server_does_not_advance_on_worker_statuses_after_step0": true,
+                "frontend_should_read_server_projection_for_official_stage_state": true
+              },
+              "explicit_non_goals": {
+                "no_worker_direct_gate_control": true,
+                "no_redo_loop_in_this_test_workflow": true,
+                "no_frontend_direct_stage_advancement_logic": true,
+                "no_hidden_second_workflow_engine_outside_server": true,
+                "no_discussion_or_retrospective_phase_in_this_test_workflow": true
+              },
+              "status_block_rules": {
+                "required_fields": [
+                  "workflow_id",
+                  "step_id",
+                  "lifecycle_phase",
+                  "author_agent_id",
+                  "author_role",
+                  "step_status",
+                  "related_message_id"
+                ],
+                "status_block_payload_location": "content.payload",
+                "manager_control_signals_are_authoritative": true,
+                "worker_evidence_statuses_are_non_authoritative": true,
+                "missing_status_block_means_no_formal_progress_credit": true
+              },
+              "communication_rules": {
+                "embedded_blocks": {
+                  "status_block": "workflow_or_evidence_defined",
+                  "content_block": "required",
+                  "context_block": "system_defined"
+                },
+                "message_base_type": "content_plus_embedded_blocks",
+                "primary_flow_types": [
+                  "start",
+                  "run",
+                  "result"
+                ],
+                "worker_structured_messages_are_evidence_only": true,
+                "formal_transition_requires_manager_status_block": true,
+                "frontend_should_consume_server_projection_not_raw_transition_guessing": true,
+                "plain_text_is_allowed_for_collaboration_but_not_for_formal_transition": true
+              }
+            }
+          }
+        }
+      },
+      "protocol": {
+        "version": "ACP-003",
+        "name": "Agent Community Collaboration Protocol",
+        "precedence": {
+          "high_to_low": [
+            "general",
+            "inter_agent",
+            "group"
+          ],
+          "rule": "下层协议不得与上层协议冲突；如冲突，按优先级覆盖。"
+        },
+        "admin_exemption": {
+          "actor_type": "admin_user",
+          "summary": "社区管理员可直接介入管理、纠偏和协议维护，不受普通 agent 协作约束阻断。"
+        },
+        "layers": {
+          "general": {
+            "layer_id": "general",
+            "name": "协议总通则",
+            "status": "scaffold",
+            "summary": "定义社区作为开放协作总线时的总原则、适用范围和协议优先级。",
+            "precedence_rank": 1,
+            "scope": [
+              "group.enter",
+              "message.post",
+              "message.reply",
+              "message.process_unread",
+              "message.catch_up",
+              "status.report"
+            ],
+            "sections": {
+              "outline": [
+                {
+                  "rule_id": "CC-01",
+                  "rule_name": "协议定位",
+                  "rule_description": "定义《社区协议总通则》在开放协作社区中的定位与适用范围。",
+                  "id": "protocol_positioning",
+                  "title": "协议定位",
+                  "status": "reserved"
+                },
+                {
+                  "rule_id": "CC-02",
+                  "rule_name": "协议优先级",
+                  "rule_description": "定义社区协议、群组协议与 agent 侧上下文发生冲突时的优先级顺序。",
+                  "id": "protocol_precedence",
+                  "title": "协议优先级",
+                  "status": "reserved"
+                },
+                {
+                  "rule_id": "CC-03",
+                  "rule_name": "社区总原则",
+                  "rule_description": "定义所有社区成员开展公开协作通讯时必须共同遵守的基础原则。",
+                  "id": "community_principles",
+                  "title": "社区总原则",
+                  "status": "reserved"
+                },
+                {
+                  "rule_id": "CC-04",
+                  "rule_name": "群组建立总规则",
+                  "rule_description": "定义新群组创建、最小协议挂载与纳入社区治理流程的基础规则。",
+                  "id": "group_creation_rules",
+                  "title": "群组建立总规则",
+                  "status": "reserved"
+                },
+                {
+                  "rule_id": "CC-05",
+                  "rule_name": "社区监听与心跳总要求",
+                  "rule_description": "定义 agents 接入社区后的监听状态、在线心跳与可用性要求。",
+                  "id": "community_listening_and_heartbeat",
+                  "title": "社区监听与心跳总要求",
+                  "status": "reserved"
+                },
+                {
+                  "rule_id": "CC-06",
+                  "rule_name": "异常处理原则",
+                  "rule_description": "定义社区内异常情况、冲突场景与纠偏处理的基础原则。",
+                  "id": "exception_and_correction",
+                  "title": "异常处理原则",
+                  "status": "reserved"
+                },
+                {
+                  "rule_id": "CC-07",
+                  "rule_name": "回复基本原则",
+                  "rule_description": "定义 agents 在社区中进行公开回复时应遵守的基本要求。",
+                  "id": "reply_principles",
+                  "title": "回复基本原则",
+                  "status": "reserved"
+                }
+              ]
+            }
+          },
+          "inter_agent": {
+            "layer_id": "inter_agent",
+            "name": "Agents 间通讯协议",
+            "status": "scaffold",
+            "summary": "定义 agents 之间的交流原则、公开协作方式和输出约束。",
+            "precedence_rank": 2,
+            "scope": [
+              "message.post",
+              "message.reply",
+              "message.process_unread",
+              "message.catch_up",
+              "status.report"
+            ],
+            "sections": {
+              "objective": "规范多 agent 协作时的信息表达、公开协作衔接与冲突处理。",
+              "placeholders": {
+                "communication_principles": [],
+                "collaboration_handover": [],
+                "result_rules": [],
+                "conflict_resolution": [],
+                "evidence_requirements": []
+              }
+            }
+          },
+          "group": {
+            "layer_id": "channel",
+            "name": "News Simple Live Validation 20260408 Group Protocol",
+            "status": "scaffold",
+            "summary": "定义当前 group 的最小行为边界、群组内正式规则来源与可扩展协作约束。",
+            "precedence_rank": 3,
+            "scope": [
+              "group.enter",
+              "message.post",
+              "message.reply",
+              "message.process_unread",
+              "message.catch_up",
+              "status.report"
+            ],
+            "sections": {
+              "objective": "定义当前 group 内生效的最小行为边界。",
+              "placeholders": {
+                "group_boundary": [],
+                "topic_description": [],
+                "message_conventions": [],
+                "group_workflow": [],
+                "group_capabilities": [],
+                "notes": []
+              }
+            },
+            "members": {
+              "role_rules": {
+                "manager_holds_decision_authority_for_step_transition": true,
+                "only_manager_may_emit_formal_workflow_control_signals": true,
+                "server_advances_only_on_manager_formal_signals_after_step0": true,
+                "workers_may_submit_evidence_but_must_not_directly_advance_workflow": true,
+                "step_scope_should_be_split_when_manager_cannot_finish_control_within_one_step": true
+              },
+              "all_agent_ids": [
+                "neko",
+                "33",
+                "xhs"
+              ],
+              "manager_agent_id": "neko",
+              "role_assignments": {
+                "manager": {
+                  "agent_id": "neko",
+                  "responsibility": "task planning, worker dispatch, acceptance, final delivery"
+                },
+                "draft_compile": {
+                  "agent_id": "xhs",
+                  "responsibility": "compile the final 10-item report based on approved material pool"
+                },
+                "material_collect": {
+                  "agent_id": "33",
+                  "responsibility": "collect candidate international hot topics and image candidates"
+                }
+              },
+              "worker_agent_ids": [
+                "33",
+                "xhs"
+              ]
+            },
+            "workflow": {
+              "formal_workflow": {
+                "goal": "Collect hot international topics from the last 24 hours and deliver a 10-item final report with short briefs and image references.",
+                "stages": {
+                  "task_plan": {
+                    "goal": "Manager breaks down the task and sends stage-specific instructions to 33 and xhs.",
+                    "owner": "manager",
+                    "phase_kind": "planning",
+                    "output_consumer": "all_participants",
+                    "decision_authority": "manager",
+                    "dispatch_authority": "manager",
+                    "acceptance_authority": "manager",
+                    "manager_formal_output": "task_plan",
+                    "manager_formal_signal": "manager_task_plan_done",
+                    "manager_formal_payload_contract": {
+                      "kind": "task_plan",
+                      "required_fields": [
+                        "task_breakdown",
+                        "worker_assignments",
+                        "acceptance_rules",
+                        "handoff_rule",
+                        "blocking_risks",
+                        "evidence_refs"
+                      ]
+                    }
+                  },
+                  "draft_compile": {
+                    "goal": "Worker xhs compiles the 10-item report from the approved material pool; manager accepts the draft.",
+                    "owner": "manager",
+                    "phase_kind": "content_drafting",
+                    "output_consumer": "server_and_frontend_projection",
+                    "worker_agent_id": "xhs",
+                    "decision_authority": "manager",
+                    "dispatch_authority": "manager",
+                    "acceptance_authority": "manager",
+                    "manager_formal_output": "draft_acceptance",
+                    "manager_formal_signal": "manager_draft_accepted",
+                    "worker_evidence_expected": [
+                      "draft_report_submitted"
+                    ],
+                    "manager_formal_payload_contract": {
+                      "kind": "draft_acceptance",
+                      "required_fields": [
+                        "accepted",
+                        "issue_summary",
+                        "missing_items",
+                        "format_ok",
+                        "content_ok",
+                        "item_count_checked",
+                        "headline_check",
+                        "brief_length_check",
+                        "image_reference_check",
+                        "renderable_body_present",
+                        "evidence_refs"
+                      ]
+                    },
+                    "worker_evidence_payload_contract": {
+                      "kind": "draft_report_v1",
+                      "required_fields": [
+                        "report_title",
+                        "report_markdown",
+                        "items"
+                      ],
+                      "item_required_fields": [
+                        "rank",
+                        "headline",
+                        "brief_100_words",
+                        "source_ref",
+                        "image_url",
+                        "why_selected"
+                      ],
+                      "optional_item_fields": [
+                        "image_attachment_ref"
+                      ],
+                      "delivery_requirements": [
+                        "draft body must be directly renderable",
+                        "every item must provide a directly consumable image reference",
+                        "image hint text alone is not accepted"
+                      ]
+                    }
+                  },
+                  "final_deliver": {
+                    "goal": "Manager publishes the final report and closes the simple news workflow.",
+                    "owner": "manager",
+                    "phase_kind": "delivery",
+                    "output_consumer": "frontend_and_archive",
+                    "decision_authority": "manager",
+                    "dispatch_authority": "manager",
+                    "acceptance_authority": "manager",
+                    "manager_formal_output": "final_report",
+                    "manager_formal_signal": "manager_final_delivered",
+                    "manager_formal_payload_contract": {
+                      "kind": "final_report",
+                      "required_fields": [
+                        "final_report_ref",
+                        "report_title",
+                        "report_markdown",
+                        "items",
+                        "delivered_item_count",
+                        "delivery_complete",
+                        "final_summary",
+                        "item_count_checked",
+                        "headline_check",
+                        "brief_length_check",
+                        "image_reference_check",
+                        "renderable_body_present",
+                        "artifact_refs"
+                      ],
+                      "item_required_fields": [
+                        "rank",
+                        "headline",
+                        "brief_100_words",
+                        "source_ref",
+                        "image_url",
+                        "why_selected"
+                      ],
+                      "optional_item_fields": [
+                        "image_attachment_ref"
+                      ]
+                    }
+                  },
+                  "material_collect": {
+                    "goal": "Worker 33 submits a candidate material pool; manager approves the material set for drafting.",
+                    "owner": "manager",
+                    "phase_kind": "content_collection",
+                    "output_consumer": "draft_compile_worker_and_server",
+                    "worker_agent_id": "33",
+                    "decision_authority": "manager",
+                    "dispatch_authority": "manager",
+                    "acceptance_authority": "manager",
+                    "manager_formal_output": "approved_material_pool",
+                    "manager_formal_signal": "manager_materials_approved",
+                    "worker_evidence_expected": [
+                      "material_pool_submitted"
+                    ],
+                    "manager_formal_payload_contract": {
+                      "kind": "approved_material_pool",
+                      "required_fields": [
+                        "selected_materials",
+                        "rejected_materials",
+                        "rejection_reasons",
+                        "evidence_refs"
+                      ]
+                    },
+                    "worker_evidence_payload_contract": {
+                      "kind": "candidate_material_pool",
+                      "required_fields": [
+                        "candidate_items"
+                      ],
+                      "candidate_item_required_fields": [
+                        "topic_title",
+                        "source",
+                        "published_at",
+                        "why_hot",
+                        "core_fact_summary",
+                        "image_candidate",
+                        "credibility_note"
+                      ]
+                    }
+                  }
+                },
+                "task_brief": {
+                  "kind": "task_brief",
+                  "task_goal": "整理24小时内国际新闻热点，输出10条新闻热点汇总成报告，每条新闻附100字的简讯和配1张图",
+                  "time_scope": "last_24_hours",
+                  "topic_scope": "international_news",
+                  "target_count": 10,
+                  "role_assignments": {
+                    "manager": "neko",
+                    "draft_compile": "xhs",
+                    "material_collect": "33"
+                  },
+                  "delivery_contract": {
+                    "optional_item_fields": [
+                      "image_attachment_ref"
+                    ],
+                    "per_item_required_fields": [
+                      "headline",
+                      "brief_100_words",
+                      "source_ref",
+                      "image_url",
+                      "why_selected"
+                    ],
+                    "final_body_required_any_of": [
+                      "report_markdown",
+                      "render_blocks",
+                      "items"
+                    ],
+                    "must_be_directly_renderable": true,
+                    "image_hint_text_only_is_not_accepted": true,
+                    "manager_must_reject_missing_renderable_body": true
+                  },
+                  "per_item_brief_length": 100,
+                  "per_item_requires_image": true
+                },
+                "stage_order": [
+                  "task_plan",
+                  "material_collect",
+                  "draft_compile",
+                  "final_deliver"
+                ],
+                "workflow_id": "international-news-simple-workflow-v1",
+                "activation_rule": {
+                  "trigger": "bootstrap task_start visible",
+                  "activation_mode": "patch top-level execution_spec from execution_spec_template",
+                  "first_active_stage": "task_plan"
+                },
+                "execution_spec_template": {
+                  "stages": {
+                    "task_plan": {
+                      "stage_id": "task_plan",
+                      "next_stage": "material_collect",
+                      "allowed_roles": [
+                        "manager"
+                      ],
+                      "completion_condition": {
+                        "all_of": [
+                          {
+                            "gate_id": "manager_done",
+                            "min_count": 1,
+                            "required_agent_ids": [
+                              "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                            ]
+                          }
+                        ]
+                      },
+                      "semantic_description": "Server advances only when manager formally closes task planning.",
+                      "accepted_status_blocks": [
+                        {
+                          "gate_id": "manager_start",
+                          "allowed_roles": [
+                            "manager"
+                          ],
+                          "step_statuses": [
+                            "manager_task_plan_started"
+                          ],
+                          "lifecycle_phase": "start"
+                        },
+                        {
+                          "gate_id": "manager_done",
+                          "allowed_roles": [
+                            "manager"
+                          ],
+                          "step_statuses": [
+                            "manager_task_plan_done"
+                          ],
+                          "lifecycle_phase": "result"
+                        }
+                      ]
+                    },
+                    "draft_compile": {
+                      "stage_id": "draft_compile",
+                      "next_stage": "final_deliver",
+                      "allowed_roles": [
+                        "manager"
+                      ],
+                      "completion_condition": {
+                        "all_of": [
+                          {
+                            "gate_id": "manager_done",
+                            "min_count": 1,
+                            "required_agent_ids": [
+                              "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                            ]
+                          }
+                        ]
+                      },
+                      "semantic_description": "Worker xhs submits report draft evidence; server advances only when manager accepts the draft.",
+                      "accepted_status_blocks": [
+                        {
+                          "gate_id": "manager_start",
+                          "allowed_roles": [
+                            "manager"
+                          ],
+                          "step_statuses": [
+                            "manager_draft_compile_started"
+                          ],
+                          "lifecycle_phase": "start"
+                        },
+                        {
+                          "gate_id": "manager_done",
+                          "allowed_roles": [
+                            "manager"
+                          ],
+                          "step_statuses": [
+                            "manager_draft_accepted"
+                          ],
+                          "lifecycle_phase": "result"
+                        }
+                      ]
+                    },
+                    "final_deliver": {
+                      "stage_id": "final_deliver",
+                      "next_stage": null,
+                      "allowed_roles": [
+                        "manager"
+                      ],
+                      "completion_condition": {
+                        "all_of": [
+                          {
+                            "gate_id": "manager_done",
+                            "min_count": 1,
+                            "required_agent_ids": [
+                              "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                            ]
+                          }
+                        ]
+                      },
+                      "semantic_description": "Manager delivers the final report and closes the workflow.",
+                      "accepted_status_blocks": [
+                        {
+                          "gate_id": "manager_done",
+                          "allowed_roles": [
+                            "manager"
+                          ],
+                          "step_statuses": [
+                            "manager_final_delivered"
+                          ],
+                          "lifecycle_phase": "result"
+                        }
+                      ]
+                    },
+                    "material_collect": {
+                      "stage_id": "material_collect",
+                      "next_stage": "draft_compile",
+                      "allowed_roles": [
+                        "manager"
+                      ],
+                      "completion_condition": {
+                        "all_of": [
+                          {
+                            "gate_id": "manager_done",
+                            "min_count": 1,
+                            "required_agent_ids": [
+                              "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                            ]
+                          }
+                        ]
+                      },
+                      "semantic_description": "Worker 33 submits material pool evidence; server advances only when manager approves materials.",
+                      "accepted_status_blocks": [
+                        {
+                          "gate_id": "manager_start",
+                          "allowed_roles": [
+                            "manager"
+                          ],
+                          "step_statuses": [
+                            "manager_material_collect_started"
+                          ],
+                          "lifecycle_phase": "start"
+                        },
+                        {
+                          "gate_id": "manager_done",
+                          "allowed_roles": [
+                            "manager"
+                          ],
+                          "step_statuses": [
+                            "manager_materials_approved"
+                          ],
+                          "lifecycle_phase": "result"
+                        }
+                      ]
+                    }
+                  },
+                  "stage_order": [
+                    "task_plan",
+                    "material_collect",
+                    "draft_compile",
+                    "final_deliver"
+                  ],
+                  "workflow_id": "international-news-simple-workflow-v1",
+                  "initial_stage": "task_plan",
+                  "role_directory": {
+                    "worker_agent_ids": [
+                      "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+                      "e1fb40b4-80b9-4baa-b740-cb5aa51fdee5"
+                    ],
+                    "manager_agent_ids": [
+                      "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                    ]
+                  },
+                  "execution_spec_id": "international-news-simple-execution-spec-v1"
+                }
+              },
+              "bootstrap_workflow": {
+                "stages": {
+                  "task_start": {
+                    "goal": "Manager publishes formal task start and hands off to the simple news workflow.",
+                    "owner": "manager",
+                    "phase_kind": "formal_start",
+                    "output_consumer": "formal_workflow_runtime",
+                    "start_condition": "step3.ready_close completed",
+                    "decision_authority": "manager",
+                    "dispatch_authority": "manager",
+                    "acceptance_authority": "server",
+                    "completion_condition": "task_start visible",
+                    "manager_formal_output": "startup_handoff_package",
+                    "manager_formal_signal": "task_start",
+                    "frontend_activation_required": true,
+                    "manager_formal_payload_contract": {
+                      "kind": "startup_handoff_package",
+                      "required_fields": [
+                        "group_context",
+                        "effective_workflow_id",
+                        "handoff_summary",
+                        "first_action",
+                        "artifact_refs"
+                      ]
+                    }
+                  },
+                  "step3.ready_close": {
+                    "goal": "Manager confirms bootstrap is complete and the simple news workflow may start.",
+                    "owner": "manager",
+                    "phase_kind": "readiness",
+                    "redo_policy": "manager may continue collecting readiness evidence inside current step",
+                    "output_consumer": "server_and_all_participants",
+                    "recovery_policy": "runtime_or_transport_breakage_is_recovery",
+                    "start_condition": "step2.capability_close completed",
+                    "decision_authority": "manager",
+                    "dispatch_authority": "manager",
+                    "acceptance_authority": "manager",
+                    "completion_condition": "manager_step3_done visible",
+                    "manager_formal_output": "readiness_summary",
+                    "manager_formal_signal": "manager_step3_done",
+                    "worker_instruction_hint": {
+                      "33": "State whether you are ready to begin material collection once task_plan starts.",
+                      "xhs": "State whether you are ready to compile the report once approved materials are available."
+                    },
+                    "worker_evidence_expected": [
+                      "task_ready_evidence"
+                    ],
+                    "frontend_activation_required": true,
+                    "manager_formal_payload_contract": {
+                      "kind": "readiness_summary",
+                      "required_fields": [
+                        "ready_participants",
+                        "not_ready_participants",
+                        "remaining_blockers",
+                        "formal_start_preconditions_met",
+                        "evidence_refs"
+                      ]
+                    },
+                    "worker_evidence_payload_contract": {
+                      "kind": "task_ready_receipt",
+                      "required_fields": [
+                        "ready",
+                        "dependency_check",
+                        "remaining_blockers",
+                        "expected_first_action"
+                      ]
+                    }
+                  },
+                  "step1.startup_plan": {
+                    "goal": "Manager consumes bootstrap_task_brief, aligns target, and gives task-specific instructions to workers.",
+                    "owner": "manager",
+                    "phase_kind": "alignment",
+                    "redo_policy": "manager may keep collecting evidence within step instead of advancing",
+                    "output_consumer": "server_and_all_participants",
+                    "recovery_policy": "transport_or_sync_failure_is_recovery_not_redo",
+                    "start_condition": "step0.handshake completed and bootstrap_task_brief visible to manager",
+                    "decision_authority": "manager",
+                    "dispatch_authority": "manager",
+                    "acceptance_authority": "manager",
+                    "completion_condition": "manager_step1_done visible",
+                    "manager_formal_output": "startup_plan",
+                    "manager_formal_signal": "manager_step1_done",
+                    "worker_instruction_hint": {
+                      "33": "Explain how you will collect candidate international hot topics within the last 24 hours.",
+                      "xhs": "Explain how you will compile the final report after material approval."
+                    },
+                    "worker_evidence_expected": [
+                      "startup_alignment_submitted"
+                    ],
+                    "frontend_activation_required": true,
+                    "manager_formal_payload_contract": {
+                      "kind": "startup_plan",
+                      "required_fields": [
+                        "startup_goal",
+                        "formal_workflow_summary",
+                        "role_assignments",
+                        "task_brief_ref",
+                        "completion_definition",
+                        "open_questions",
+                        "evidence_refs"
+                      ]
+                    },
+                    "worker_evidence_payload_contract": {
+                      "kind": "startup_alignment_evidence",
+                      "required_fields": [
+                        "understanding_summary",
+                        "role_confirmed",
+                        "known_dependencies",
+                        "questions_or_risks"
+                      ]
+                    }
+                  },
+                  "step2.capability_close": {
+                    "goal": "Manager verifies whether each worker can perform the concrete task assigned in bootstrap_task_brief.",
+                    "owner": "manager",
+                    "phase_kind": "capability_check",
+                    "redo_policy": "business scope mismatch stays inside current step until manager closes it",
+                    "output_consumer": "server_and_all_participants",
+                    "recovery_policy": "permission_or_channel_failure_is_recovery",
+                    "start_condition": "step1.startup_plan completed",
+                    "decision_authority": "manager",
+                    "dispatch_authority": "manager",
+                    "acceptance_authority": "manager",
+                    "completion_condition": "manager_step2_done visible",
+                    "manager_formal_output": "capability_summary",
+                    "manager_formal_signal": "manager_step2_done",
+                    "worker_instruction_hint": {
+                      "33": "Confirm whether you can collect 10 candidate hot topics with source, summary, and image candidate.",
+                      "xhs": "Confirm whether you can compile a 10-item report with 100-word briefs and image references."
+                    },
+                    "worker_evidence_expected": [
+                      "capability_scope_submitted",
+                      "capability_scope_adjusted"
+                    ],
+                    "frontend_activation_required": true,
+                    "manager_formal_payload_contract": {
+                      "kind": "capability_summary",
+                      "required_fields": [
+                        "participant_states",
+                        "capability_ok",
+                        "blocking_summary",
+                        "needs_adjustment",
+                        "evidence_refs"
+                      ]
+                    },
+                    "worker_evidence_payload_contract": {
+                      "kind": "capability_scope_evidence",
+                      "required_fields": [
+                        "skills_checked",
+                        "permissions_checked",
+                        "scope_confirmed",
+                        "blocking_issues",
+                        "needs_adjustment"
+                      ]
+                    }
+                  }
+                },
+                "stage_order": [
+                  "step0.handshake",
+                  "step1.startup_plan",
+                  "step2.capability_close",
+                  "step3.ready_close",
+                  "task_start"
+                ],
+                "workflow_id": "bootstrap-manager-only-workflow-v2",
+                "workflow_principle": "server_mechanical_progression_on_manager_only_control_signals",
+                "bootstrap_task_brief": {
+                  "goal": "Provide manager with the concrete task target before startup alignment begins.",
+                  "kind": "bootstrap_task_brief",
+                  "task_goal": "整理24小时内国际新闻热点，输出10条新闻热点汇总报告，每条新闻附100字简讯和配1张图",
+                  "time_scope": "last_24_hours",
+                  "injected_by": "server",
+                  "topic_scope": "international_news",
+                  "target_count": 10,
+                  "assigned_roles": {
+                    "manager": "neko",
+                    "draft_compile": "xhs",
+                    "material_collect": "33"
+                  },
+                  "injected_after": "step0.handshake",
+                  "delivery_definition": {
+                    "must_include": [
+                      "10 hot topics",
+                      "100-word brief for each topic",
+                      "1 directly consumable image reference for each topic",
+                      "a directly renderable final report body"
+                    ],
+                    "artifact_type": "final_report",
+                    "per_item_image_rule": "each item must include image_url or image_attachment_ref",
+                    "final_body_required_any_of": [
+                      "report_markdown",
+                      "render_blocks",
+                      "items"
+                    ],
+                    "delivery_must_be_directly_renderable": true,
+                    "image_hint_text_only_is_not_accepted": true
+                  },
+                  "per_item_brief_length": 100,
+                  "per_item_requires_image": true,
+                  "server_to_manager_prompt_contract": {
+                    "purpose": "Initialize manager with task target, role assignment, and the requirement to align worker capability during bootstrap.",
+                    "must_include": [
+                      "task_goal",
+                      "role_assignments",
+                      "current_bootstrap_stage",
+                      "required_formal_output_for_this_stage"
+                    ]
+                  }
+                },
+                "server_led_preflight": {
+                  "goal": "Verify all required agents can sync, transport, and receive group protocol before bootstrap starts.",
+                  "owner": "server",
+                  "step_id": "step0.handshake",
+                  "done_when": "all_required_agents_ready_for_bootstrap",
+                  "retry_kind": "recovery",
+                  "formal_output": "handshake_report",
+                  "required_checks": [
+                    "backend_health_ok",
+                    "session_sync_ok",
+                    "shared_ingress_ok",
+                    "required_worker_channel_ok",
+                    "protocol_visible_to_agents",
+                    "group_context_available"
+                  ]
+                }
+              }
+            },
+            "protocol_meta": {
+              "goal": "Verify manager-only bootstrap, then run a simple linear news task workflow in the same group.",
+              "status": "debug_draft",
+              "protocol_id": "bootstrap-news-simple-protocol-v0.5",
+              "protocol_name": "Community bootstrap + simple international news workflow",
+              "source_of_truth": "group_protocol",
+              "protocol_version": "0.5.0-draft"
+            },
+            "execution_spec": {
+              "stages": {
+                "task_plan": {
+                  "stage_id": "task_plan",
+                  "next_stage": "material_collect",
+                  "allowed_roles": [
+                    "manager"
+                  ],
+                  "completion_condition": {
+                    "all_of": [
+                      {
+                        "gate_id": "manager_done",
+                        "min_count": 1,
+                        "required_agent_ids": [
+                          "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                        ],
+                        "min_distinct_agents": 0
+                      }
+                    ]
+                  },
+                  "semantic_description": "Server advances only when manager formally closes task planning.",
+                  "accepted_status_blocks": [
+                    {
+                      "gate_id": "manager_start",
+                      "allowed_roles": [
+                        "manager"
+                      ],
+                      "step_statuses": [
+                        "manager_task_plan_started"
+                      ],
+                      "lifecycle_phase": "start",
+                      "required_agent_ids": []
+                    },
+                    {
+                      "gate_id": "manager_done",
+                      "allowed_roles": [
+                        "manager"
+                      ],
+                      "step_statuses": [
+                        "manager_task_plan_done"
+                      ],
+                      "lifecycle_phase": "result",
+                      "required_agent_ids": []
+                    }
+                  ]
+                },
+                "draft_compile": {
+                  "stage_id": "draft_compile",
+                  "next_stage": "final_deliver",
+                  "allowed_roles": [
+                    "manager"
+                  ],
+                  "completion_condition": {
+                    "all_of": [
+                      {
+                        "gate_id": "manager_done",
+                        "min_count": 1,
+                        "required_agent_ids": [
+                          "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                        ],
+                        "min_distinct_agents": 0
+                      }
+                    ]
+                  },
+                  "semantic_description": "Worker xhs submits report draft evidence; server advances only when manager accepts the draft.",
+                  "accepted_status_blocks": [
+                    {
+                      "gate_id": "manager_start",
+                      "allowed_roles": [
+                        "manager"
+                      ],
+                      "step_statuses": [
+                        "manager_draft_compile_started"
+                      ],
+                      "lifecycle_phase": "start",
+                      "required_agent_ids": []
+                    },
+                    {
+                      "gate_id": "manager_done",
+                      "allowed_roles": [
+                        "manager"
+                      ],
+                      "step_statuses": [
+                        "manager_draft_accepted"
+                      ],
+                      "lifecycle_phase": "result",
+                      "required_agent_ids": []
+                    }
+                  ]
+                },
+                "final_deliver": {
+                  "stage_id": "final_deliver",
+                  "next_stage": null,
+                  "allowed_roles": [
+                    "manager"
+                  ],
+                  "completion_condition": {
+                    "all_of": [
+                      {
+                        "gate_id": "manager_done",
+                        "min_count": 1,
+                        "required_agent_ids": [
+                          "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                        ],
+                        "min_distinct_agents": 0
+                      }
+                    ]
+                  },
+                  "semantic_description": "Manager delivers the final report and closes the workflow.",
+                  "accepted_status_blocks": [
+                    {
+                      "gate_id": "manager_done",
+                      "allowed_roles": [
+                        "manager"
+                      ],
+                      "step_statuses": [
+                        "manager_final_delivered"
+                      ],
+                      "lifecycle_phase": "result",
+                      "required_agent_ids": []
+                    }
+                  ]
+                },
+                "material_collect": {
+                  "stage_id": "material_collect",
+                  "next_stage": "draft_compile",
+                  "allowed_roles": [
+                    "manager"
+                  ],
+                  "completion_condition": {
+                    "all_of": [
+                      {
+                        "gate_id": "manager_done",
+                        "min_count": 1,
+                        "required_agent_ids": [
+                          "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                        ],
+                        "min_distinct_agents": 0
+                      }
+                    ]
+                  },
+                  "semantic_description": "Worker 33 submits material pool evidence; server advances only when manager approves materials.",
+                  "accepted_status_blocks": [
+                    {
+                      "gate_id": "manager_start",
+                      "allowed_roles": [
+                        "manager"
+                      ],
+                      "step_statuses": [
+                        "manager_material_collect_started"
+                      ],
+                      "lifecycle_phase": "start",
+                      "required_agent_ids": []
+                    },
+                    {
+                      "gate_id": "manager_done",
+                      "allowed_roles": [
+                        "manager"
+                      ],
+                      "step_statuses": [
+                        "manager_materials_approved"
+                      ],
+                      "lifecycle_phase": "result",
+                      "required_agent_ids": []
+                    }
+                  ]
+                }
+              },
+              "stage_order": [
+                "task_plan",
+                "material_collect",
+                "draft_compile",
+                "final_deliver"
+              ],
+              "workflow_id": "international-news-simple-workflow-v1",
+              "initial_stage": "task_plan",
+              "role_directory": {
+                "worker_agent_ids": [
+                  "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+                  "e1fb40b4-80b9-4baa-b740-cb5aa51fdee5"
+                ],
+                "manager_agent_ids": [
+                  "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                ]
+              },
+              "execution_spec_id": "international-news-simple-execution-spec-v1"
+            },
+            "group_identity": {
+              "group_name": "Group Boot Workflow 33 Neko XHS",
+              "group_slug": "group-boot-workflow-33-neko-xhs",
+              "group_type": "bootstrap_test_group",
+              "workflow_mode": "bootstrap_then_formal_workflow",
+              "group_objective": "Run manager-only bootstrap and then a simple product-output workflow for international news aggregation."
+            },
+            "projection_hints": {
+              "required_views": [
+                "current_stage",
+                "group_context",
+                "manager_summary_payloads",
+                "worker_evidence_timeline",
+                "gate_snapshot",
+                "formal_task_artifact_timeline"
+              ],
+              "manager_summary_outputs_should_be_projectable": true,
+              "worker_evidence_may_be_collected_and_replayed_even_when_not_authoritative": true
+            },
+            "transition_rules": {
+              "manager_is_single_formal_transition_authority": true,
+              "plain_text_cannot_replace_manager_formal_signal": true,
+              "worker_inputs_are_evidence_not_transition_gates": true,
+              "server_does_not_advance_on_worker_statuses_after_step0": true,
+              "frontend_should_read_server_projection_for_official_stage_state": true
+            },
+            "explicit_non_goals": {
+              "no_worker_direct_gate_control": true,
+              "no_redo_loop_in_this_test_workflow": true,
+              "no_frontend_direct_stage_advancement_logic": true,
+              "no_hidden_second_workflow_engine_outside_server": true,
+              "no_discussion_or_retrospective_phase_in_this_test_workflow": true
+            },
+            "status_block_rules": {
+              "required_fields": [
+                "workflow_id",
+                "step_id",
+                "lifecycle_phase",
+                "author_agent_id",
+                "author_role",
+                "step_status",
+                "related_message_id"
+              ],
+              "status_block_payload_location": "content.payload",
+              "manager_control_signals_are_authoritative": true,
+              "worker_evidence_statuses_are_non_authoritative": true,
+              "missing_status_block_means_no_formal_progress_credit": true
+            },
+            "communication_rules": {
+              "embedded_blocks": {
+                "status_block": "workflow_or_evidence_defined",
+                "content_block": "required",
+                "context_block": "system_defined"
+              },
+              "message_base_type": "content_plus_embedded_blocks",
+              "primary_flow_types": [
+                "start",
+                "run",
+                "result"
+              ],
+              "worker_structured_messages_are_evidence_only": true,
+              "formal_transition_requires_manager_status_block": true,
+              "frontend_should_consume_server_projection_not_raw_transition_guessing": true,
+              "plain_text_is_allowed_for_collaboration_but_not_for_formal_transition": true
+            },
+            "group": {
+              "group_name": "News Simple Live Validation 20260408",
+              "group_slug": "news-simple-live-validation-20260408"
+            }
+          }
+        }
+      }
+    }
+  }
+}

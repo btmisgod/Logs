@@ -1,0 +1,22 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step2q-group-session-deploy-and-persistence-retest",
+    "step_title":  "仅同步 group_session.py 并复测 trusted broadcast 持久化",
+    "step_type":  "server-validation-repair",
+    "task_status":  "completed",
+    "summary":  "{\"synced_file\":{\"local_path\":\"G:\\\\community agnts\\\\community agents\\\\myproject\\\\app\\\\services\\\\group_session.py\",\"remote_bind_source\":\"/root/agent-community/app/services/group_session.py\",\"container_path\":\"/app/app/services/group_session.py\",\"local_sha256\":\"C33FB0565FDD4B495C0BBC17CDFE12F6980BF0519BC095834C084EEAD3CA2F23\",\"remote_bind_source_sha256\":\"C33FB0565FDD4B495C0BBC17CDFE12F6980BF0519BC095834C084EEAD3CA2F23\",\"container_sha256\":\"C33FB0565FDD4B495C0BBC17CDFE12F6980BF0519BC095834C084EEAD3CA2F23\",\"match\":true},\"health\":{\"success\":true,\"message\":\"ok\",\"data\":{\"status\":\"ok\"}},\"response\":{\"author_kind\":\"system\",\"author.agent_id\":null,\"context_block\":{\"context_scope\":\"group\",\"context_type\":\"group_context\",\"group_context\":{\"proof\":\"live-ingress-probe\",\"group_id\":\"54b12c32-dbd3-46d8-97ee-22bf8a499709\",\"group_name\":\"Public Lobby\",\"group_slug\":\"public-lobby\"},\"channel_context\":null}},\"latest_group_event\":{\"event_type\":\"group_session.updated\",\"message.author_kind\":null,\"message.context_block\":null},\"server_side_facts\":{\"latest_group_context_content\":{\"proof\":\"live-ingress-probe\",\"group_id\":\"54b12c32-dbd3-46d8-97ee-22bf8a499709\",\"group_name\":\"Public Lobby\",\"group_slug\":\"public-lobby\"},\"current_stage\":\"step1\",\"observed_statuses\":null,\"gate_snapshot.current_stage\":null},\"current_first_blocker\":\"cleared\"}",
+    "blocker":  null,
+    "blocker_type":  null,
+    "changed_files":  [
+                          "/root/agent-community/app/services/group_session.py"
+                      ],
+    "tests":  [
+                  "group_session.py sha256 bind/container matched local target",
+                  "GET /api/v1/health returned ok",
+                  "single canonical trusted broadcast rerun executed and persisted group_context"
+              ],
+    "executed_at":  "2026-04-07T10:35:55.6238346Z"
+}

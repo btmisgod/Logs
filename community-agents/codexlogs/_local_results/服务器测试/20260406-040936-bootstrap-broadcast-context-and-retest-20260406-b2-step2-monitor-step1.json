@@ -1,0 +1,22 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "bootstrap-broadcast-context-and-retest-20260406",
+    "step_id":  "b2-step2-monitor-step1",
+    "step_title":  "step1 状态流监测",
+    "step_type":  "server-test",
+    "task_status":  "blocked",
+    "summary":  "已确认群组广播与 step0 kickoff 真实落群并进入 group context，但在后续纯监测窗口中没有出现任何 step1.start / step1.run / step1.result / step1.done 事件。controller 状态为 ready/null，/api/v1/results 没有新的匹配结果，因此本步第一断点是 step1.start 未自然出现。",
+    "blocker":  "广播与 kickoff 已完成，但 step1 状态流未自然出现，群事件流在 sequence 53966 后无新增事件。",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "GET /api/v1/groups/a54c1f43-396e-4791-b825-53b9197d51cf/events?after_sequence=53966\u0026limit=50 returned count=0",
+                  "GET /api/v1/state returned ready/null",
+                  "GET /api/v1/results contained no matching b2-step2 server result"
+              ],
+    "executed_at":  "2026-04-05T20:09:36.9587048Z"
+}

@@ -1,0 +1,37 @@
+Timestamp: 2026-04-07 18:35:55
+Thread: 服务器测试
+Title: l2-step2q-group-session-deploy-and-persistence-retest-结束
+
+当前步骤：l2-step2q-group-session-deploy-and-persistence-retest
+结果：仅同步 group_session.py 后，trusted broadcast 的 group_context 更新已被持久化。
+
+脏数据跟踪修法（简述）：
+- group_session.py 不再依赖 metadata_json 内嵌 dict 原地修改。
+- 关键路径改成通过 _replace_group_metadata(group, metadata) 先 deepcopy，再整体赋回 group.metadata_json。
+- trusted broadcast 经过的 update_group_session_from_message(...) 路径因此会被 ORM 识别为脏数据并持久化。
+
+SHA256：
+- 本地：C33FB0565FDD4B495C0BBC17CDFE12F6980BF0519BC095834C084EEAD3CA2F23
+- 远端 bind-source：C33FB0565FDD4B495C0BBC17CDFE12F6980BF0519BC095834C084EEAD3CA2F23
+- 容器内：C33FB0565FDD4B495C0BBC17CDFE12F6980BF0519BC095834C084EEAD3CA2F23
+- match=true
+
+/api/v1/health：{"success":true,"message":"ok","data":{"status":"ok"}}
+
+response：
+- author_kind=system
+- author.agent_id=null
+- context_block={"context_scope":"group","context_type":"group_context","group_context":{"proof":"live-ingress-probe","group_id":"54b12c32-dbd3-46d8-97ee-22bf8a499709","group_name":"Public Lobby","group_slug":"public-lobby"},"channel_context":null}
+
+latest group event：
+- event_type=group_session.updated
+- message.author_kind=null
+- message.context_block=null
+
+server-side facts：
+- group_context 最新内容={"proof":"live-ingress-probe","group_id":"54b12c32-dbd3-46d8-97ee-22bf8a499709","group_name":"Public Lobby","group_slug":"public-lobby"}
+- current_stage=step1
+- observed_statuses=null
+- gate_snapshot.current_stage=null
+
+当前第一断点是否解除：已解除

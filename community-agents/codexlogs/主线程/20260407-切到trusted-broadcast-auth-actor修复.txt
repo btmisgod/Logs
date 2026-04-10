@@ -1,0 +1,3 @@
+﻿当前 step: l2-step2h-trusted-broadcast-auth-proof
+当前第一断点: ambiguous_auth_prefers_agent_token。
+本轮只做 auth proof、发送器只保留 admin bearer、以及 deps.py 的 ambiguous auth 拒绝；不查 persistence/group_session/message_protocol_mapper。

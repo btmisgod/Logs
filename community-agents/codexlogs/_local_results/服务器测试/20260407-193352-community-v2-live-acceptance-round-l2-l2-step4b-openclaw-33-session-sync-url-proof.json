@@ -1,0 +1,22 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step4b-openclaw-33-session-sync-url-proof",
+    "step_title":  "查清 openclaw-33 的 session sync 404 第一根因",
+    "step_type":  "server-validation-repair",
+    "task_status":  "completed",
+    "summary":  "{\"service\":{\"name\":\"openclaw-community-webhook-openclaw-33.service\",\"working_directory\":\"/root/openclaw-33/workspace\",\"environment_file\":\"/root/openclaw-33/workspace/.openclaw/community-agent.env\",\"environment\":{\"WORKSPACE_ROOT\":\"/root/openclaw-33/workspace\",\"COMMUNITY_TRANSPORT\":\"unix_socket\",\"COMMUNITY_AGENT_SOCKET_PATH\":\"/root/.openclaw/community-ingress/sockets/openclaw-33-443c3db99818.sock\",\"COMMUNITY_INGRESS_HOME\":\"/root/.openclaw/community-ingress\"},\"exec_start\":\"/root/.nvm/versions/node/v22.22.1/bin/node /root/openclaw-33/workspace/skills/community-skill/scripts/community-webhook-server.mjs\"},\"env_file\":{\"path\":\"/root/openclaw-33/workspace/.openclaw/community-agent.env\",\"COMMUNITY_BASE_URL\":\"http://43.130.233.109:8000/api/v1\",\"COMMUNITY_GROUP_SLUG\":\"public-lobby\",\"COMMUNITY_TRANSPORT\":\"unix_socket\",\"COMMUNITY_AGENT_SOCKET_PATH\":\"/root/.openclaw/community-ingress/sockets/openclaw-33-443c3db99818.sock\",\"COMMUNITY_WEBHOOK_PATH\":\"/webhook/openclaw-33\",\"COMMUNITY_SEND_PATH\":\"/send/openclaw-33\"},\"bootstrap\":{\"path\":\"/root/openclaw-33/workspace/.openclaw/community-agent.bootstrap.json\",\"community_base_url\":\"http://43.130.233.109:8000/api/v1\",\"service_name\":\"openclaw-community-webhook-openclaw-33.service\",\"socket_path\":\"/root/.openclaw/community-ingress/sockets/openclaw-33-443c3db99818.sock\"},\"session_sync_url\":{\"url\":\"http://43.130.233.109:8000/api/v1/agents/me/session/sync\",\"contains_api_v1\":true,\"host\":\"43.130.233.109\",\"port\":8000,\"path\":\"/api/v1/agents/me/session/sync\"},\"probes\":{\"GET_base_health\":{\"url\":\"http://43.130.233.109:8000/api/v1/health\",\"status\":200,\"fact\":\"JSON success ok; data.status=ok\"},\"GET_base_agents_me\":{\"url\":\"http://43.130.233.109:8000/api/v1/agents/me\",\"status\":200,\"fact\":\"JSON success ok; returned agent id b8beedf6-3540-4cf1-b22d-1dd6f5633b3a\"},\"POST_base_agents_me_session_sync\":{\"url\":\"http://43.130.233.109:8000/api/v1/agents/me/session/sync\",\"status\":404,\"fact\":\"JSON body {\\\"detail\\\":\\\"Not Found\\\"}\"}},\"token\":{\"available\":true,\"source\":\"/root/openclaw-33/workspace/.openclaw/community-agent-template/state/community-webhook-state.json\"},\"first_root_cause\":\"backend 路由缺失\"}",
+    "blocker":  null,
+    "blocker_type":  null,
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "GET /api/v1/health -\u003e 200",
+                  "GET /api/v1/agents/me -\u003e 200 with saved worker token",
+                  "POST /api/v1/agents/me/session/sync -\u003e 404"
+              ],
+    "executed_at":  "2026-04-07T11:33:52.0179189Z"
+}

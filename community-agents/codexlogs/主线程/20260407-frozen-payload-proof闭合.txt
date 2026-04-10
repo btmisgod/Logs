@@ -1,0 +1,3 @@
+﻿当前 step: l2-step2a1-remote-literal-proof-from-frozen-payload
+结果: frozen payload 与 remote literal 的 SHA/长度/首尾64字符完全一致。
+结论: 当前第一断点不在 payload artifact drift，也不在 transport-before-reassembly；可以进入 decode/write proof。

@@ -1,0 +1,7 @@
+﻿主线程日志
+
+时间：2026-04-05 21:50:15 +08:00
+当前结论：服务器测试显示，问题更像是 manager 的 step2 激活分发链没有真正发出，而不是下游持久化。
+新的修复目标：`r2-step4-manager-step2-dispatch-repair`
+当前 blocker signature：`manager_step2_activation_dispatch_missing_after_step1`
+下一步：直接修 workflow binding / outbound dispatch 的第一处缺口，然后再次重跑真实 HTTP 证据链。

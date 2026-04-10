@@ -1,0 +1,632 @@
+﻿[
+    {
+        "sequence_id":  54143,
+        "event_id":  "2fc47ffb-a712-4e2f-a6dd-a4c4347d3f70",
+        "group_id":  "a54c1f43-396e-4791-b825-53b9197d51cf",
+        "event_type":  "message.posted",
+        "delivery_scope":  null,
+        "aggregate_type":  "message",
+        "aggregate_id":  "7f528a63-0481-47a2-a931-549c558bb0f5",
+        "actor_agent_id":  "e1fb40b4-80b9-4baa-b740-cb5aa51fdee5",
+        "payload":  {
+                        "message":  {
+                                        "id":  "7f528a63-0481-47a2-a931-549c558bb0f5",
+                                        "author":  {
+                                                       "agent_id":  "e1fb40b4-80b9-4baa-b740-cb5aa51fdee5",
+                                                       "author_kind":  "agent"
+                                                   },
+                                        "content":  {
+                                                        "text":  "xhs æäº¤ 10 æ¡å½é\u0085æ°é»ç­ç¹æ±æ»åç¨¿ã",
+                                                        "blocks":  [
+
+                                                                   ],
+                                                        "payload":  {
+                                                                        "kind":  "draft_report_v1",
+                                                                        "items":  [
+                                                                                      {
+                                                                                          "rank":  1,
+                                                                                          "headline":  "ç¾ä¼å®£å¸ä¸¤å¨åç«ï¼ä¸­ä¸å±å¿æç¼åçº§",
+                                                                                          "image_ref":  "Tehran ceasefire gathering [Majid Asgaripour/WANA via Reuters]",
+                                                                                          "source_ref":  "https://www.aljazeera.com/news/2026/4/8/us-iran-ceasefire-deal-what-are-the-terms-and-whats-next",
+                                                                                          "why_selected":  "è¿æ¯è¿å»24å°æ¶å½é\u0085æ°é»çæ ¸å¿äºä»¶ï¼ç´æ¥å½±åå°åºå®å\u0085¨ä¸å\u0085¨çå¸åºã",
+                                                                                          "brief_100_words":  "ç¾å½ä¸ä¼æå®£å¸ä¸¤å¨åç«ï¼ä¼æåæå¨æéå\u0085æ¢å¤éå°æ¨å\u0085¹æµ·å³¡å®å\u0085¨éè¡ï¼å·´åºæ¯å¦ä¼æ¯å\u0085°å ¡å°æ¿æ¥åç»­è°å¤ãåç«å\u0085åä½äºå¤§è§æ¨¡åçº§é£é©ï¼ä¹è®©å\u0085¨çè½æºä¸èªè¿å¸åºææ¶è·å¾åæ¯ï¼ä½åæ¹å¯¹é¿æåå¹³ä»ä¿æè°¨æ\u0085ã"
+                                                                                      },
+                                                                                      {
+                                                                                          "rank":  2,
+                                                                                          "headline":  "æµ·æ¹¾å¤å½ç§°åç«åä»é­å¯¼å¼¹åæ äººæºè¢­å»",
+                                                                                          "image_ref":  "Kuwait airport smoke [File: AFP]",
+                                                                                          "source_ref":  "https://www.aljazeera.com/news/2026/4/8/uae-kuwait-bahrain-report-attacks-despite-iran-us-ceasefire",
+                                                                                          "why_selected":  "åç«åä»ææå»ï¼æ¯å¤æ­åç«ç¨³å®æ§çå\u0085³é®ç­ç¹ã",
+                                                                                          "brief_100_words":  "é¿èé\u0085ãç§å¨ç¹åå·´æå¨åç«å®£å¸åç¸ç»§æ¥åé­éå¯¼å¼¹ææ äººæºå¨èï¼å\u0085¶ä¸­ç§å¨ç¹ç§°è½æºä¸çµåè®¾æ½é­å°éå¯¹ãäºä»¶è¯´æåç«å¹¶ä¸ä»£è¡¨é£é©ç«å³æ¸\u0085é¶ï¼æµ·æ¹¾å°åºçæ²¹æ°ãæ¸¯å£åå\u0085³é®åºç¡è®¾æ½ä¾ç¶å¤å¨é«åç¶æã"
+                                                                                      },
+                                                                                      {
+                                                                                          "rank":  3,
+                                                                                          "headline":  "å¤å½æ¬¢è¿åç«ï¼å¼åå°½å¿«æä¸´æ¶åç«åææ°¸ä¹\u0085åå¹³",
+                                                                                          "image_ref":  "Anti-war protest outside White House [Nathan Howard/Reuters]",
+                                                                                          "source_ref":  "https://www.aljazeera.com/news/2026/4/8/world-welcomes-us-iran-ceasefire-urges-lasting-peace-in-the-middle-east",
+                                                                                          "why_selected":  "å½é\u0085è¡¨æå³å®åç«åçå¤äº¤æ¹åï¼æ¯å\u0085¨çå±é¢çå\u0085³é®è§å¯ç¹ã",
+                                                                                          "brief_100_words":  "ä»æµ·åä¼æåå°æ¬§æ´²å¤å½ï¼å¤é¨ååºéä¸­å¨âæ¬¢è¿åç«ãå°½å¿«è°å¤âãåæ¹æ¢è¯å®å·´åºæ¯å¦çè°åï¼ä¹å¼ºè°ä¸¤å¨åç«åªæ¯çªå£æï¼çæ­£çå\u0085³é®æ¯æä¸´æ¶æ§åäºæåè½¬æå¯æ§è¡çæ¿æ²»å®æã"
+                                                                                      },
+                                                                                      {
+                                                                                          "rank":  4,
+                                                                                          "headline":  "æµ·åä¼ä¸ä¸­ä¸å¤å½åæ­¥è¡¨æï¼å°åºé²å¡ä¸å¤äº¤è¿å\u0085¥ææçªå£",
+                                                                                          "image_ref":  "Tehran supporter after ceasefire [Francisco Seco/AP]",
+                                                                                          "source_ref":  "https://www.aljazeera.com/news/2026/4/8/gulf-arab-nations-react-to-iran-us-ceasefire-announcement",
+                                                                                          "why_selected":  "å®è¡¥å\u0085\u0085äºå°åºå½å®¶çå®æ¹ç«åºï¼æ¯è§£è¯»ä¸ä¸æ­¥å¤äº¤å¨ä½çç´æ¥çº¿ç´¢ã",
+                                                                                          "brief_100_words":  "ä¸­ä¸å¤å½ä¸è¾¹æ¬¢è¿åç«ï¼ä¸è¾¹ä¿çé«åº¦æå¤ãåºåå½å®¶æ¢æ\u0085å¿å±å¿åæ¬¡å¤æº¢ï¼ä¹å¸æè°å¤å°½å¿«ç¨³å®æµ·å³¡èªè¿ä¸è½æºè¾åºãå¯¹è¿äºå½å®¶æ¥è¯´ï¼åç«ä¸åªæ¯åäºé®é¢ï¼æ´æ¯ç»æµåå½å\u0085å®å\u0085¨é®é¢ã"
+                                                                                      },
+                                                                                      {
+                                                                                          "rank":  5,
+                                                                                          "headline":  "å\u0085å¡å°¼äºè¡ç§°åç«ä¸è¦çé»å·´å«©ï¼å²çªå¤æº¢é£é©ä»å¨",
+                                                                                          "image_ref":  "Netanyahu press image [Ronen Zvulun/Pool via Reuters]",
+                                                                                          "source_ref":  "https://www.aljazeera.com/news/2026/4/8/netanyahu-says-us-iran-ceasefire-does-not-include-lebanon",
+                                                                                          "why_selected":  "å®ç´æ¥çå®äºåç«è¾¹çï¼æ¯å¤æ­å°åºç¨³å®æ§çå¿\u0085è¦æ¡ç®ã",
+                                                                                          "brief_100_words":  "ä»¥è²åæ»çåå\u0085¬å®¤è¡¨ç¤ºæ¯æç¾å½æåå¯¹ä¼ææå»ï¼ä½æç¡®è¯´è¿é¡¹ä¸¤å¨åç«ä¸éç¨äºé»å·´å«©æ¹åãè¿ä¸ªè¡¨ææå³çå³ä¾¿ç¾ä¼ææ¶åç«ï¼é»å·´å«©æçº¿ä»å¯è½ç»§ç»­ç´§å¼ ï¼å°åºå²çªå¤æº¢é£é©æ²¡æçæ­£è§£é¤ã"
+                                                                                      },
+                                                                                      {
+                                                                                          "rank":  6,
+                                                                                          "headline":  "å·´åºæ¯å¦ä¼è°æåç«åé¦ä¸ªæ­£å¼æ¿æ²»çªå£",
+                                                                                          "image_ref":  "Liveblog protest image",
+                                                                                          "source_ref":  "https://www.aljazeera.com/news/liveblog/2026/4/8/iran-war-live-trump-announces-truce-tehran-agrees-safe-transit-in-hormuz?update=4473214",
+                                                                                          "why_selected":  "ä¼è°å®æå³å®åç«ä¹åæ¯å¦è½è¿å\u0085¥æ´ç¨³å®çæ¿æ²»è¿ç¨ã",
+                                                                                          "brief_100_words":  "ä¼æç¡®è®¤å°åå å¨ä¼æ¯å\u0085°å ¡ä¸¾è¡çåç»­ä¼è°ï¼ä½åæ¶å¼ºè°è°å¤ä¸ä»£è¡¨æäºå·²ç»ç»æãè¿è¯´æå½ååç«æ´åä¸æ¬¡é«é£é©æåï¼åæ¹å¨åäºååä¸è½¬åæ¿æ²»è°å¤ï¼ä½çæ­£çå®è´¨æ§å¦¥åä»æªå®æã"
+                                                                                      },
+                                                                                      {
+                                                                                          "rank":  7,
+                                                                                          "headline":  "æ²¹ä»·åè½è¡å¸åå¼¹ï¼ä½éå°æ¨å\u0085¹åéä»å·¦å³å\u0085¨çç»æµ",
+                                                                                          "image_ref":  "Cargo ships in Gulf [File: Reuters]",
+                                                                                          "source_ref":  "https://www.aljazeera.com/news/2026/4/8/oil-prices-slide-stocks-surge-as-trump-announces-two-week-iran-ceasefire",
+                                                                                          "why_selected":  "å®åæ æäºä¸åç«å¦ä½å®æ¶å½±åå\u0085¨çå¸åºï¼æ¯å½é\u0085ç­ç¹çéè¦ç»æµç»´åº¦ã",
+                                                                                          "brief_100_words":  "åç«æ¶æ¯ä¸åºï¼æ²¹ä»·ææ¾åè½ãè¡ç¥¨åå¼¹ï¼å¸åºè¿\u0085éåæ åºå¯¹éå°æ¨å\u0085¹æ¢å¤éè¡çæå¾\u0085ãä¸è¿ï¼å\u0085¨çè½æºåèªè¿ä»åå¶äºåç«è½å¦ç»´æä»¥ååç»­åè®®æ¯å¦è½å°ï¼å æ­¤è¿æ³¢åå¼¹æ´åç­ææ\u0085ç»ªä¿®å¤ï¼èéé£é©å®å\u0085¨è§£é¤ã"
+                                                                                      },
+                                                                                      {
+                                                                                          "rank":  8,
+                                                                                          "headline":  "éå°æ¨å\u0085¹ä¸äººæ°å¸è®®é¢åæ¸©ï¼è½æºç»ç®æ ¼å±ååå\u0085³æ³¨",
+                                                                                          "image_ref":  "Oil tankers near Strait of Hormuz [Altaf Qadri/AP]",
+                                                                                          "source_ref":  "https://www.aljazeera.com/economy/2026/4/8/in-strait-of-hormuz-iran-and-china-take-aim-at-us-dollar-hegemony",
+                                                                                          "why_selected":  "è¿æ¡æå°ç¼å²çªåå\u0085¨çéèç§©åºè¿å¨ä¸èµ·ï¼å\u0085·å¤æ´é¿æçå½é\u0085å½±åã",
+                                                                                          "brief_100_words":  "ä¼æä¸ä¸­å½é½å¨åå½åå±æºæ¨å¨å»ç¾å\u0085ååäºãéçéå°æ¨å\u0085¹æ¢å¤éè¡è¢«çº³å\u0085¥è°å¤æ¡æ¶ï¼å½é\u0085ç¤¾ä¼ä¸ä»\u0085å\u0085³å¿æ²¹æ¯å¦è½è¿åºå»ï¼ä¹å\u0085³æ³¨æªæ¥ç»ç®è´§å¸ãèªè¿æ¶è´¹åéèè§åä¼ä¸ä¼å æ­¤åºç°æ°ååã"
+                                                                                      },
+                                                                                      {
+                                                                                          "rank":  9,
+                                                                                          "headline":  "æå¤§å©æ»çæ¢\u0085æ´å°¼ä¸ç¹ææ®å\u0085³ç³»è½¬ææ¿æ²»è´èµäº§",
+                                                                                          "image_ref":  "Meloni and Trump file photo [AP]",
+                                                                                          "source_ref":  "https://www.aljazeera.com/news/2026/4/8/melonis-trump-trouble-why-italian-pm-is-distancing-herself-from-us-leader",
+                                                                                          "why_selected":  "å®ä½ç°ä¸­ä¸å±æºå¯¹æ¬§æ´²æ¿æ²»çå¤æº¢å½±åï¼å±äºå½é\u0085ç­ç¹å»¶ä¼¸é¢ã",
+                                                                                          "brief_100_words":  "éçç¾å½å¯¹ä¼æ¿ç­åå°åºæäºå¤æº¢æåºæç»­åé\u0085µï¼æå¤§å©æ»çæ¢\u0085æ´å°¼ä¸ç¹ææ®çäº²è¿å\u0085³ç³»ï¼æ­£ä»å¤äº¤èµæ¬è½¬åä¸ºå\u0085æ¿ååãå¯¹æ¬§æ´²æ¥è¯´ï¼è¿è¯´æç¾å½æ¿æ²»ååæ­£å¨ååå¡é æ¬åéä¸¾ä¸èçéç»ã"
+                                                                                      },
+                                                                                      {
+                                                                                          "rank":  10,
+                                                                                          "headline":  "å°æ¹¾å¨éå\u0085ä¸»å¸­åå¹´æ¥é¦æ¬¡è®¿åï¼éæ¾ä¸¤å²¸å¯¹è¯ä¿¡å·",
+                                                                                          "image_ref":  "Cheng Li-wun arrives in Shanghai [Kuomintang via AP]",
+                                                                                          "source_ref":  "https://www.aljazeera.com/news/2026/4/8/on-rare-china-visit-taiwans-opposition-leader-calls-for-reconciliation",
+                                                                                          "why_selected":  "å®è¡¥å\u0085\u0085äºäºæ´²æ¿æ²»ç­ç¹ï¼ä½¿æç»10æ¡æ±æ»ä¸è³äºå®å\u0085¨åç¼©å¨åä¸æçº¿ã",
+                                                                                          "brief_100_words":  "å°æ¹¾ä¸»è¦å¨éå\u0085é¢è¢ç¨ç«æåå¹´æ¥é¦æ¬¡è®¿åï¼æåºå¸æä¸åäº¬å¯¹è¯ä¸åè§£ãå¨å°ç¼å±å¿ç´§ç»·çèæ¯ä¸ï¼è¿ç±»è·¨æµ·å³¡æ¿æ²»å¨ä½å\u0085·æææ¾å½é\u0085å\u0085³æ³¨åº¦ï¼ä¹æå°åºåºåæ¿æ²»æ­£å¨åæ­¥è°æ´èå¥ã"
+                                                                                      }
+                                                                                  ],
+                                                                        "report_title":  "è¿å»24å°æ¶å½é\u0085æ°é»ç­ç¹æ±æ»ï¼10æ¡ï¼"
+                                                                    },
+                                                        "attachments":  [
+
+                                                                        ]
+                                                    },
+                                        "routing":  {
+                                                        "target":  {
+                                                                       "agent_id":  null
+                                                                   },
+                                                        "mentions":  [
+
+                                                                     ]
+                                                    },
+                                        "group_id":  "a54c1f43-396e-4791-b825-53b9197d51cf",
+                                        "flow_type":  "run",
+                                        "relations":  {
+                                                          "thread_id":  "7f528a63-0481-47a2-a931-549c558bb0f5",
+                                                          "parent_message_id":  null
+                                                      },
+                                        "created_at":  "2026-04-08T11:28:19.054268+00:00",
+                                        "extensions":  {
+                                                           "source":  "CommunityIntegrationSkill"
+                                                       },
+                                        "updated_at":  "2026-04-08T11:28:19.054268+00:00",
+                                        "author_kind":  "agent",
+                                        "message_type":  "analysis",
+                                        "status_block":  {
+                                                             "step_id":  "draft_compile",
+                                                             "author_role":  "worker",
+                                                             "step_status":  "draft_report_submitted",
+                                                             "workflow_id":  "international-news-simple-workflow-v1",
+                                                             "author_agent_id":  null,
+                                                             "lifecycle_phase":  "run",
+                                                             "related_message_id":  null
+                                                         },
+                                        "context_block":  {
+
+                                                          }
+                                    }
+                    },
+        "occurred_at":  "2026-04-08T11:28:19.054268Z",
+        "created_at":  "2026-04-08T11:28:19.054268Z"
+    },
+    {
+        "sequence_id":  54147,
+        "event_id":  "9119c4f3-8469-49c4-b659-772059ada45a",
+        "group_id":  "a54c1f43-396e-4791-b825-53b9197d51cf",
+        "event_type":  "message.posted",
+        "delivery_scope":  null,
+        "aggregate_type":  "message",
+        "aggregate_id":  "ac9f33b8-f0bd-42d2-a8e3-908a6a401412",
+        "actor_agent_id":  "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+        "payload":  {
+                        "message":  {
+                                        "id":  "ac9f33b8-f0bd-42d2-a8e3-908a6a401412",
+                                        "author":  {
+                                                       "agent_id":  "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+                                                       "author_kind":  "agent"
+                                                   },
+                                        "content":  {
+                                                        "text":  "neko æäº¤ final_report / manager_final_deliveredã",
+                                                        "blocks":  [
+
+                                                                   ],
+                                                        "payload":  {
+                                                                        "kind":  "final_report",
+                                                                        "artifact_refs":  [
+                                                                                              "2e02fc81-6aba-48bd-bddd-a4aef30ea6d1",
+                                                                                              "7f528a63-0481-47a2-a931-549c558bb0f5"
+                                                                                          ],
+                                                                        "final_summary":  "å·²åºäºæè¿24å°æ¶çå®å½é\u0085æ°é»ç­ç¹å®æ10æ¡æ±æ»æ¥åï¼æ¯æ¡åéç®è®¯åå¾ççº¿ç´¢å¼ç¨ã",
+                                                                        "final_report_ref":  "7f528a63-0481-47a2-a931-549c558bb0f5",
+                                                                        "delivery_complete":  true,
+                                                                        "delivered_item_count":  10
+                                                                    },
+                                                        "attachments":  [
+
+                                                                        ]
+                                                    },
+                                        "routing":  {
+                                                        "target":  {
+                                                                       "agent_id":  null
+                                                                   },
+                                                        "mentions":  [
+
+                                                                     ]
+                                                    },
+                                        "group_id":  "a54c1f43-396e-4791-b825-53b9197d51cf",
+                                        "flow_type":  "run",
+                                        "relations":  {
+                                                          "thread_id":  "ac9f33b8-f0bd-42d2-a8e3-908a6a401412",
+                                                          "parent_message_id":  null
+                                                      },
+                                        "created_at":  "2026-04-08T11:28:42.915895+00:00",
+                                        "extensions":  {
+                                                           "source":  "CommunityIntegrationSkill"
+                                                       },
+                                        "updated_at":  "2026-04-08T11:28:42.915895+00:00",
+                                        "author_kind":  "agent",
+                                        "message_type":  "analysis",
+                                        "status_block":  {
+                                                             "step_id":  "final_deliver",
+                                                             "author_role":  "manager",
+                                                             "step_status":  "manager_final_delivered",
+                                                             "workflow_id":  "international-news-simple-workflow-v1",
+                                                             "author_agent_id":  null,
+                                                             "lifecycle_phase":  "result",
+                                                             "related_message_id":  null
+                                                         },
+                                        "context_block":  {
+
+                                                          }
+                                    }
+                    },
+        "occurred_at":  "2026-04-08T11:28:42.915895Z",
+        "created_at":  "2026-04-08T11:28:42.915895Z"
+    },
+    {
+        "sequence_id":  54148,
+        "event_id":  "cfcfd3c2-de23-467e-95fe-6a8a9004c149",
+        "group_id":  "a54c1f43-396e-4791-b825-53b9197d51cf",
+        "event_type":  "group_session.updated",
+        "delivery_scope":  null,
+        "aggregate_type":  "group_session",
+        "aggregate_id":  "a54c1f43-396e-4791-b825-53b9197d51cf",
+        "actor_agent_id":  "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+        "payload":  {
+                        "group_context":  {
+                                              "group_id":  "a54c1f43-396e-4791-b825-53b9197d51cf",
+                                              "group_context":  {
+                                                                    "group_id":  "a54c1f43-396e-4791-b825-53b9197d51cf",
+                                                                    "group_name":  "Group Boot Workflow 33 Neko XHS",
+                                                                    "group_slug":  "group-boot-workflow-33-neko-xhs",
+                                                                    "group_type":  "project",
+                                                                    "protocol_version":  "ACP-003"
+                                                                },
+                                              "group_context_version":  "group-context:a54c1f43-396e-4791-b825-53b9197d51cf"
+                                          },
+                        "group_session":  {
+                                              "group_id":  "a54c1f43-396e-4791-b825-53b9197d51cf",
+                                              "state_json":  {
+                                                                 "last_message_id":  "ac9f33b8-f0bd-42d2-a8e3-908a6a401412",
+                                                                 "last_status_block":  {
+                                                                                           "step_id":  "final_deliver",
+                                                                                           "author_role":  "manager",
+                                                                                           "step_status":  "manager_final_delivered",
+                                                                                           "workflow_id":  "international-news-simple-workflow-v1",
+                                                                                           "author_agent_id":  null,
+                                                                                           "lifecycle_phase":  "result",
+                                                                                           "related_message_id":  null
+                                                                                       },
+                                                                 "observed_statuses":  [
+                                                                                           {
+                                                                                               "step_id":  "task_plan",
+                                                                                               "message_id":  "75f18e4c-f61b-4894-afe0-e368da1310e3",
+                                                                                               "author_role":  "manager",
+                                                                                               "observed_at":  "2026-04-08T11:27:55.068672+00:00",
+                                                                                               "step_status":  "manager_task_plan_done",
+                                                                                               "workflow_id":  "international-news-simple-workflow-v1",
+                                                                                               "author_agent_id":  "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+                                                                                               "lifecycle_phase":  "result",
+                                                                                               "related_message_id":  null,
+                                                                                               "declared_author_role":  "manager",
+                                                                                               "declared_author_agent_id":  null
+                                                                                           },
+                                                                                           {
+                                                                                               "step_id":  "material_collect",
+                                                                                               "message_id":  "2e02fc81-6aba-48bd-bddd-a4aef30ea6d1",
+                                                                                               "author_role":  "worker",
+                                                                                               "observed_at":  "2026-04-08T11:27:58.991967+00:00",
+                                                                                               "step_status":  "material_pool_submitted",
+                                                                                               "workflow_id":  "international-news-simple-workflow-v1",
+                                                                                               "author_agent_id":  "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+                                                                                               "lifecycle_phase":  "run",
+                                                                                               "related_message_id":  null,
+                                                                                               "declared_author_role":  "worker",
+                                                                                               "declared_author_agent_id":  null
+                                                                                           },
+                                                                                           {
+                                                                                               "step_id":  "material_collect",
+                                                                                               "message_id":  "395d8f06-3ecf-406d-a8c9-15d001ce8e4a",
+                                                                                               "author_role":  "manager",
+                                                                                               "observed_at":  "2026-04-08T11:28:16.033920+00:00",
+                                                                                               "step_status":  "manager_materials_approved",
+                                                                                               "workflow_id":  "international-news-simple-workflow-v1",
+                                                                                               "author_agent_id":  "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+                                                                                               "lifecycle_phase":  "result",
+                                                                                               "related_message_id":  null,
+                                                                                               "declared_author_role":  "manager",
+                                                                                               "declared_author_agent_id":  null
+                                                                                           },
+                                                                                           {
+                                                                                               "step_id":  "draft_compile",
+                                                                                               "message_id":  "7f528a63-0481-47a2-a931-549c558bb0f5",
+                                                                                               "author_role":  "worker",
+                                                                                               "observed_at":  "2026-04-08T11:28:19.069392+00:00",
+                                                                                               "step_status":  "draft_report_submitted",
+                                                                                               "workflow_id":  "international-news-simple-workflow-v1",
+                                                                                               "author_agent_id":  "e1fb40b4-80b9-4baa-b740-cb5aa51fdee5",
+                                                                                               "lifecycle_phase":  "run",
+                                                                                               "related_message_id":  null,
+                                                                                               "declared_author_role":  "worker",
+                                                                                               "declared_author_agent_id":  null
+                                                                                           },
+                                                                                           {
+                                                                                               "step_id":  "draft_compile",
+                                                                                               "message_id":  "e061e7af-de1d-4fa7-ab50-2cfc7c758937",
+                                                                                               "author_role":  "manager",
+                                                                                               "observed_at":  "2026-04-08T11:28:36.740260+00:00",
+                                                                                               "step_status":  "manager_draft_accepted",
+                                                                                               "workflow_id":  "international-news-simple-workflow-v1",
+                                                                                               "author_agent_id":  "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+                                                                                               "lifecycle_phase":  "result",
+                                                                                               "related_message_id":  null,
+                                                                                               "declared_author_role":  "manager",
+                                                                                               "declared_author_agent_id":  null
+                                                                                           },
+                                                                                           {
+                                                                                               "step_id":  "final_deliver",
+                                                                                               "message_id":  "ac9f33b8-f0bd-42d2-a8e3-908a6a401412",
+                                                                                               "author_role":  "manager",
+                                                                                               "observed_at":  "2026-04-08T11:28:42.929811+00:00",
+                                                                                               "step_status":  "manager_final_delivered",
+                                                                                               "workflow_id":  "international-news-simple-workflow-v1",
+                                                                                               "author_agent_id":  "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+                                                                                               "lifecycle_phase":  "result",
+                                                                                               "related_message_id":  null,
+                                                                                               "declared_author_role":  "manager",
+                                                                                               "declared_author_agent_id":  null
+                                                                                           }
+                                                                                       ]
+                                                             },
+                                              "workflow_id":  "international-news-simple-workflow-v1",
+                                              "current_mode":  "bootstrap",
+                                              "current_stage":  "final_deliver",
+                                              "gate_snapshot":  {
+                                                                    "gates":  {
+                                                                                  "manager_done":  {
+                                                                                                       "satisfied":  true,
+                                                                                                       "message_ids":  [
+                                                                                                                           "ac9f33b8-f0bd-42d2-a8e3-908a6a401412"
+                                                                                                                       ],
+                                                                                                       "matched_count":  1,
+                                                                                                       "matched_agent_ids":  [
+                                                                                                                                 "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                                                                                                                             ],
+                                                                                                       "required_agent_ids":  [
+                                                                                                                                  "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                                                                                                                              ]
+                                                                                                   }
+                                                                              },
+                                                                    "next_stage":  null,
+                                                                    "advanced_at":  "2026-04-08T11:28:36.740301+00:00",
+                                                                    "advanced_to":  "final_deliver",
+                                                                    "stage_order":  [
+                                                                                        "task_plan",
+                                                                                        "material_collect",
+                                                                                        "draft_compile",
+                                                                                        "final_deliver"
+                                                                                    ],
+                                                                    "step0.ready":  true,
+                                                                    "workflow_id":  "international-news-simple-workflow-v1",
+                                                                    "advanced_from":  "draft_compile",
+                                                                    "current_stage":  "final_deliver",
+                                                                    "satisfied_gates":  [
+                                                                                            "manager_done"
+                                                                                        ],
+                                                                    "stage_snapshots":  {
+                                                                                            "task_plan":  {
+                                                                                                              "gates":  {
+                                                                                                                            "manager_done":  {
+                                                                                                                                                 "satisfied":  true,
+                                                                                                                                                 "message_ids":  [
+                                                                                                                                                                     "75f18e4c-f61b-4894-afe0-e368da1310e3"
+                                                                                                                                                                 ],
+                                                                                                                                                 "matched_count":  1,
+                                                                                                                                                 "matched_agent_ids":  [
+                                                                                                                                                                           "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                                                                                                                                                                       ],
+                                                                                                                                                 "required_agent_ids":  [
+                                                                                                                                                                            "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                                                                                                                                                                        ]
+                                                                                                                                             }
+                                                                                                                        },
+                                                                                                              "next_stage":  "material_collect",
+                                                                                                              "evaluated_at":  "2026-04-08T11:27:55.068722+00:00",
+                                                                                                              "satisfied_gates":  [
+                                                                                                                                      "manager_done"
+                                                                                                                                  ],
+                                                                                                              "next_stage_allowed":  true,
+                                                                                                              "current_stage_complete":  true
+                                                                                                          },
+                                                                                            "draft_compile":  {
+                                                                                                                  "gates":  {
+                                                                                                                                "manager_done":  {
+                                                                                                                                                     "satisfied":  true,
+                                                                                                                                                     "message_ids":  [
+                                                                                                                                                                         "e061e7af-de1d-4fa7-ab50-2cfc7c758937"
+                                                                                                                                                                     ],
+                                                                                                                                                     "matched_count":  1,
+                                                                                                                                                     "matched_agent_ids":  [
+                                                                                                                                                                               "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                                                                                                                                                                           ],
+                                                                                                                                                     "required_agent_ids":  [
+                                                                                                                                                                                "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                                                                                                                                                                            ]
+                                                                                                                                                 }
+                                                                                                                            },
+                                                                                                                  "next_stage":  "final_deliver",
+                                                                                                                  "evaluated_at":  "2026-04-08T11:28:36.740301+00:00",
+                                                                                                                  "satisfied_gates":  [
+                                                                                                                                          "manager_done"
+                                                                                                                                      ],
+                                                                                                                  "next_stage_allowed":  true,
+                                                                                                                  "current_stage_complete":  true
+                                                                                                              },
+                                                                                            "final_deliver":  {
+                                                                                                                  "gates":  {
+                                                                                                                                "manager_done":  {
+                                                                                                                                                     "satisfied":  true,
+                                                                                                                                                     "message_ids":  [
+                                                                                                                                                                         "ac9f33b8-f0bd-42d2-a8e3-908a6a401412"
+                                                                                                                                                                     ],
+                                                                                                                                                     "matched_count":  1,
+                                                                                                                                                     "matched_agent_ids":  [
+                                                                                                                                                                               "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                                                                                                                                                                           ],
+                                                                                                                                                     "required_agent_ids":  [
+                                                                                                                                                                                "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                                                                                                                                                                            ]
+                                                                                                                                                 }
+                                                                                                                            },
+                                                                                                                  "next_stage":  null,
+                                                                                                                  "evaluated_at":  "2026-04-08T11:28:42.929850+00:00",
+                                                                                                                  "satisfied_gates":  [
+                                                                                                                                          "manager_done"
+                                                                                                                                      ],
+                                                                                                                  "next_stage_allowed":  false,
+                                                                                                                  "current_stage_complete":  true
+                                                                                                              },
+                                                                                            "material_collect":  {
+                                                                                                                     "gates":  {
+                                                                                                                                   "manager_done":  {
+                                                                                                                                                        "satisfied":  true,
+                                                                                                                                                        "message_ids":  [
+                                                                                                                                                                            "395d8f06-3ecf-406d-a8c9-15d001ce8e4a"
+                                                                                                                                                                        ],
+                                                                                                                                                        "matched_count":  1,
+                                                                                                                                                        "matched_agent_ids":  [
+                                                                                                                                                                                  "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                                                                                                                                                                              ],
+                                                                                                                                                        "required_agent_ids":  [
+                                                                                                                                                                                   "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                                                                                                                                                                               ]
+                                                                                                                                                    }
+                                                                                                                               },
+                                                                                                                     "next_stage":  "draft_compile",
+                                                                                                                     "evaluated_at":  "2026-04-08T11:28:16.033976+00:00",
+                                                                                                                     "satisfied_gates":  [
+                                                                                                                                             "manager_done"
+                                                                                                                                         ],
+                                                                                                                     "next_stage_allowed":  true,
+                                                                                                                     "current_stage_complete":  true
+                                                                                                                 }
+                                                                                        },
+                                                                    "execution_spec_id":  "international-news-simple-execution-spec-v1",
+                                                                    "last_evaluated_at":  "2026-04-08T11:28:42.929850+00:00",
+                                                                    "next_stage_allowed":  false,
+                                                                    "current_stage_complete":  true
+                                                                },
+                                              "group_session_id":  "a54c1f43-396e-4791-b825-53b9197d51cf",
+                                              "protocol_version":  "ACP-003",
+                                              "group_context_version":  "group-context:a54c1f43-396e-4791-b825-53b9197d51cf",
+                                              "group_session_version":  "group-session:ac9f33b8-f0bd-42d2-a8e3-908a6a401412"
+                                          },
+                        "group_session_declaration":  {
+                                                          "group_id":  "a54c1f43-396e-4791-b825-53b9197d51cf",
+                                                          "workflow_id":  "international-news-simple-workflow-v1",
+                                                          "current_mode":  "bootstrap",
+                                                          "current_stage":  "final_deliver",
+                                                          "gate_snapshot":  {
+                                                                                "gates":  {
+                                                                                              "manager_done":  {
+                                                                                                                   "satisfied":  true,
+                                                                                                                   "message_ids":  [
+                                                                                                                                       "ac9f33b8-f0bd-42d2-a8e3-908a6a401412"
+                                                                                                                                   ],
+                                                                                                                   "matched_count":  1,
+                                                                                                                   "matched_agent_ids":  [
+                                                                                                                                             "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                                                                                                                                         ],
+                                                                                                                   "required_agent_ids":  [
+                                                                                                                                              "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                                                                                                                                          ]
+                                                                                                               }
+                                                                                          },
+                                                                                "next_stage":  null,
+                                                                                "advanced_at":  "2026-04-08T11:28:36.740301+00:00",
+                                                                                "advanced_to":  "final_deliver",
+                                                                                "stage_order":  [
+                                                                                                    "task_plan",
+                                                                                                    "material_collect",
+                                                                                                    "draft_compile",
+                                                                                                    "final_deliver"
+                                                                                                ],
+                                                                                "step0.ready":  true,
+                                                                                "workflow_id":  "international-news-simple-workflow-v1",
+                                                                                "advanced_from":  "draft_compile",
+                                                                                "current_stage":  "final_deliver",
+                                                                                "satisfied_gates":  [
+                                                                                                        "manager_done"
+                                                                                                    ],
+                                                                                "stage_snapshots":  {
+                                                                                                        "task_plan":  {
+                                                                                                                          "gates":  {
+                                                                                                                                        "manager_done":  {
+                                                                                                                                                             "satisfied":  true,
+                                                                                                                                                             "message_ids":  [
+                                                                                                                                                                                 "75f18e4c-f61b-4894-afe0-e368da1310e3"
+                                                                                                                                                                             ],
+                                                                                                                                                             "matched_count":  1,
+                                                                                                                                                             "matched_agent_ids":  [
+                                                                                                                                                                                       "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                                                                                                                                                                                   ],
+                                                                                                                                                             "required_agent_ids":  [
+                                                                                                                                                                                        "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                                                                                                                                                                                    ]
+                                                                                                                                                         }
+                                                                                                                                    },
+                                                                                                                          "next_stage":  "material_collect",
+                                                                                                                          "evaluated_at":  "2026-04-08T11:27:55.068722+00:00",
+                                                                                                                          "satisfied_gates":  [
+                                                                                                                                                  "manager_done"
+                                                                                                                                              ],
+                                                                                                                          "next_stage_allowed":  true,
+                                                                                                                          "current_stage_complete":  true
+                                                                                                                      },
+                                                                                                        "draft_compile":  {
+                                                                                                                              "gates":  {
+                                                                                                                                            "manager_done":  {
+                                                                                                                                                                 "satisfied":  true,
+                                                                                                                                                                 "message_ids":  [
+                                                                                                                                                                                     "e061e7af-de1d-4fa7-ab50-2cfc7c758937"
+                                                                                                                                                                                 ],
+                                                                                                                                                                 "matched_count":  1,
+                                                                                                                                                                 "matched_agent_ids":  [
+                                                                                                                                                                                           "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                                                                                                                                                                                       ],
+                                                                                                                                                                 "required_agent_ids":  [
+                                                                                                                                                                                            "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                                                                                                                                                                                        ]
+                                                                                                                                                             }
+                                                                                                                                        },
+                                                                                                                              "next_stage":  "final_deliver",
+                                                                                                                              "evaluated_at":  "2026-04-08T11:28:36.740301+00:00",
+                                                                                                                              "satisfied_gates":  [
+                                                                                                                                                      "manager_done"
+                                                                                                                                                  ],
+                                                                                                                              "next_stage_allowed":  true,
+                                                                                                                              "current_stage_complete":  true
+                                                                                                                          },
+                                                                                                        "final_deliver":  {
+                                                                                                                              "gates":  {
+                                                                                                                                            "manager_done":  {
+                                                                                                                                                                 "satisfied":  true,
+                                                                                                                                                                 "message_ids":  [
+                                                                                                                                                                                     "ac9f33b8-f0bd-42d2-a8e3-908a6a401412"
+                                                                                                                                                                                 ],
+                                                                                                                                                                 "matched_count":  1,
+                                                                                                                                                                 "matched_agent_ids":  [
+                                                                                                                                                                                           "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                                                                                                                                                                                       ],
+                                                                                                                                                                 "required_agent_ids":  [
+                                                                                                                                                                                            "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                                                                                                                                                                                        ]
+                                                                                                                                                             }
+                                                                                                                                        },
+                                                                                                                              "next_stage":  null,
+                                                                                                                              "evaluated_at":  "2026-04-08T11:28:42.929850+00:00",
+                                                                                                                              "satisfied_gates":  [
+                                                                                                                                                      "manager_done"
+                                                                                                                                                  ],
+                                                                                                                              "next_stage_allowed":  false,
+                                                                                                                              "current_stage_complete":  true
+                                                                                                                          },
+                                                                                                        "material_collect":  {
+                                                                                                                                 "gates":  {
+                                                                                                                                               "manager_done":  {
+                                                                                                                                                                    "satisfied":  true,
+                                                                                                                                                                    "message_ids":  [
+                                                                                                                                                                                        "395d8f06-3ecf-406d-a8c9-15d001ce8e4a"
+                                                                                                                                                                                    ],
+                                                                                                                                                                    "matched_count":  1,
+                                                                                                                                                                    "matched_agent_ids":  [
+                                                                                                                                                                                              "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                                                                                                                                                                                          ],
+                                                                                                                                                                    "required_agent_ids":  [
+                                                                                                                                                                                               "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+                                                                                                                                                                                           ]
+                                                                                                                                                                }
+                                                                                                                                           },
+                                                                                                                                 "next_stage":  "draft_compile",
+                                                                                                                                 "evaluated_at":  "2026-04-08T11:28:16.033976+00:00",
+                                                                                                                                 "satisfied_gates":  [
+                                                                                                                                                         "manager_done"
+                                                                                                                                                     ],
+                                                                                                                                 "next_stage_allowed":  true,
+                                                                                                                                 "current_stage_complete":  true
+                                                                                                                             }
+                                                                                                    },
+                                                                                "execution_spec_id":  "international-news-simple-execution-spec-v1",
+                                                                                "last_evaluated_at":  "2026-04-08T11:28:42.929850+00:00",
+                                                                                "next_stage_allowed":  false,
+                                                                                "current_stage_complete":  true
+                                                                            },
+                                                          "group_session_id":  "a54c1f43-396e-4791-b825-53b9197d51cf",
+                                                          "protocol_version":  "ACP-003",
+                                                          "group_context_version":  "group-context:a54c1f43-396e-4791-b825-53b9197d51cf",
+                                                          "group_session_version":  "group-session:ac9f33b8-f0bd-42d2-a8e3-908a6a401412"
+                                                      }
+                    },
+        "occurred_at":  "2026-04-08T11:28:42.915895Z",
+        "created_at":  "2026-04-08T11:28:42.915895Z"
+    }
+]

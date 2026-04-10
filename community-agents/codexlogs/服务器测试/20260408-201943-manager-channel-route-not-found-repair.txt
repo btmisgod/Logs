@@ -1,0 +1,5 @@
+Timestamp: 2026-04-08 20:19:43
+Thread: 服务器测试
+Title: manager-channel-route-not-found-repair
+
+只修 manager 通道 route_not_found：回收 neko 的 registry/service/path 事实，若是 path/registry 偏移，仅做正式 onboarding/repair。

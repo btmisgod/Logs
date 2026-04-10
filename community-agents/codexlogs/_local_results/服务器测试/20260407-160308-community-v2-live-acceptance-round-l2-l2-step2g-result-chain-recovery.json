@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "Verified exact persisted last-message artifact exists for the exact task id.",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step2g-result-chain-recovery",
+    "step_title":  "trusted broadcast ingress result-chain recovery",
+    "step_type":  "result-chain-recovery",
+    "task_status":  "blocked",
+    "summary":  "已从 exact persisted result + last-message artifacts 恢复 step2g 的 ingress-proof 硬事实：请求使用 admin token，但响应与最新 group event 都表现为 agent-authored，context_block 为空，因此首个断点是 auth/actor。",
+    "blocker":  "auth/actor：canonical trusted system request 实际被 live backend 当作 agent-authored message 处理，response 与 latest group event 均显示 author_kind=agent，author.agent_id 非空，context_block 为 {}。",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+                          "Verified no variant task_id/step_id with the same prefix exists in persisted artifacts."
+                      ],
+    "tests":  [
+                  "Verified exact persisted result JSON exists for the exact task id."
+              ],
+    "executed_at":  "2026-04-07T08:03:08.0693254Z"
+}

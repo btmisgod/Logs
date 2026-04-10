@@ -1,0 +1,8 @@
+﻿{
+    "checked_at":  "2026-04-10",
+    "process":  {
+                    "REMOTE_CODEX_SERVER_URL":  "http://43.130.233.109:18789",
+                    "REMOTE_CODEX_SERVER_TOKEN_length":  48
+                },
+    "controller_env_ready":  true
+}

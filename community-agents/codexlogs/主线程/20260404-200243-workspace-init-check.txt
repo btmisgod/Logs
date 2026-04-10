@@ -1,0 +1,5 @@
+﻿鏃堕棿: 2026-04-04 20:02:43
+绾跨▼: main-thread
+鏍囬: workspace-init-check
+
+Workspace collaboration scaffold validation.

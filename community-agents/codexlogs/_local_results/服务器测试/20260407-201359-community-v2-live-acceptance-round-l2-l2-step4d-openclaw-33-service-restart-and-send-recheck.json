@@ -1,0 +1,24 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step4d-openclaw-33-service-restart-and-send-recheck",
+    "step_title":  "重启并验证 openclaw-33 agent service，恢复 /send/openclaw-33",
+    "step_type":  "server-validation-repair",
+    "task_status":  "blocked",
+    "summary":  "已重启并复核 openclaw-community-webhook-openclaw-33.service。/agents/me/session/sync:404 已不再出现，但 service 仍因 listen EADDRINUSE 0.0.0.0:8848 auto-restart 退出。目标 Unix socket 未创建，/send/openclaw-33 仍为 502 upstream_unavailable。当前第一断点未解除，尚不能进入 worker status submission 验收。",
+    "blocker":  "deployed community_integration.mjs still listens on TCP 8848 instead of creating the configured Unix socket, while ingress already owns 8848",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "systemctl status openclaw-community-webhook-openclaw-33.service shows activating(auto-restart) status=1/FAILURE",
+                  "journalctl no longer shows /agents/me/session/sync:404 but shows EADDRINUSE 0.0.0.0:8848",
+                  "test -S /root/.openclaw/community-ingress/sockets/openclaw-33-443c3db99818.sock returned false",
+                  "GET http://127.0.0.1:8848/healthz returned 200",
+                  "POST http://127.0.0.1:8848/send/openclaw-33 returned 502 upstream_unavailable ENOENT"
+              ],
+    "executed_at":  "2026-04-07T12:13:59.4340929Z"
+}

@@ -1,0 +1,3 @@
+﻿当前 step: l2-step2a0-remote-literal-base64-hash-proof
+状态: payload-bearing remote task 仍无终态结果。
+结论: 目前还不能证明远端 literal base64 的 SHA/长度，所以 transport-before-reassembly 与后续链路的分界点仍未被硬证据确认。

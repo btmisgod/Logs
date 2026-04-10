@@ -1,0 +1,397 @@
+{
+  // Draft protocol for the group startup workflow.
+  // This version follows the manager-only control principle:
+  // - step0 is server-led handshake/preflight
+  // - step1+ are advanced only by formal manager signals
+  // - worker messages are evidence, not authoritative transition inputs
+
+  "protocol_meta": {
+    "protocol_id": "bootstrap-test-protocol-v0.4",
+    "protocol_name": "Community bootstrap workflow (manager-only control)",
+    "protocol_version": "0.4.0-draft",
+    "status": "debug_draft",
+    "goal": "Run a stable group startup workflow where server advances only on manager formal signals.",
+    "source_of_truth": "group_protocol"
+  },
+
+  "group_identity": {
+    "group_name": "Group Boot Workflow 33 Neko XHS",
+    "group_slug": "group-boot-workflow-33-neko-xhs",
+    "group_type": "bootstrap_test_group",
+    "group_objective": "Verify a manager-only startup workflow before formal business workflow starts.",
+    "workflow_mode": "bootstrap_before_formal_workflow"
+  },
+
+  "members": {
+    "manager_agent_id": "neko",
+    "worker_agent_ids": ["33", "xhs"],
+    "all_agent_ids": ["neko", "33", "xhs"],
+    "role_rules": {
+      "only_manager_may_emit_formal_workflow_control_signals": true,
+      "workers_may_submit_evidence_but_must_not_directly_advance_workflow": true,
+      "server_advances_only_on_manager_formal_signals_after_step0": true,
+      "manager_holds_decision_authority_for_step_transition": true,
+      "step_scope_should_be_split_when_manager_cannot_finish_control_within_one_step": true
+    }
+  },
+
+  "communication_rules": {
+    "message_base_type": "content_plus_embedded_blocks",
+    "primary_flow_types": ["start", "run", "result"],
+    "embedded_blocks": {
+      "content_block": "required",
+      "status_block": "workflow_or_evidence_defined",
+      "context_block": "system_defined"
+    },
+    "plain_text_is_allowed_for_collaboration_but_not_for_formal_transition": true,
+    "formal_transition_requires_manager_status_block": true,
+    "worker_structured_messages_are_evidence_only": true,
+    "frontend_should_consume_server_projection_not_raw_transition_guessing": true
+  },
+
+  "status_block_rules": {
+    "required_fields": [
+      "workflow_id",
+      "step_id",
+      "lifecycle_phase",
+      "author_agent_id",
+      "author_role",
+      "step_status",
+      "related_message_id"
+    ],
+    "status_block_payload_location": "content.payload",
+    "manager_control_signals_are_authoritative": true,
+    "worker_evidence_statuses_are_non_authoritative": true,
+    "missing_status_block_means_no_formal_progress_credit": true
+  },
+
+  "workflow": {
+    "bootstrap_workflow": {
+      "workflow_id": "bootstrap-manager-only-workflow-v1",
+      "workflow_principle": "server_mechanical_progression_on_manager_only_control_signals",
+      "server_led_preflight": {
+        "step_id": "step0.handshake",
+        "owner": "server",
+        "goal": "Verify all required agents can sync, transport, and receive group protocol before bootstrap starts.",
+        "required_checks": [
+          "backend_health_ok",
+          "session_sync_ok",
+          "shared_ingress_ok",
+          "required_worker_channel_ok",
+          "protocol_visible_to_agents",
+          "group_context_available"
+        ],
+        "formal_output": "handshake_report",
+        "retry_kind": "recovery",
+        "done_when": "all_required_agents_ready_for_bootstrap"
+      },
+      "stage_order": [
+        "step0.handshake",
+        "step1.startup_plan",
+        "step2.capability_close",
+        "step3.ready_close",
+        "task_start"
+      ],
+      "stages": {
+        "step1.startup_plan": {
+          "phase_kind": "alignment",
+          "owner": "manager",
+          "dispatch_authority": "manager",
+          "acceptance_authority": "manager",
+          "output_consumer": "server_and_all_participants",
+          "decision_authority": "manager",
+          "goal": "Manager publishes startup plan and collects worker understanding evidence.",
+          "worker_evidence_expected": [
+            "startup_alignment_submitted"
+          ],
+          "worker_evidence_payload_contract": {
+            "kind": "startup_alignment_evidence",
+            "required_fields": [
+              "understanding_summary",
+              "role_confirmed",
+              "known_dependencies",
+              "questions_or_risks"
+            ]
+          },
+          "manager_formal_output": "startup_plan",
+          "manager_formal_signal": "manager_step1_done",
+          "manager_formal_payload_contract": {
+            "kind": "startup_plan",
+            "required_fields": [
+              "startup_goal",
+              "formal_workflow_summary",
+              "role_assignments",
+              "completion_definition",
+              "open_questions",
+              "evidence_refs"
+            ]
+          },
+          "start_condition": "step0.handshake completed",
+          "completion_condition": "manager_step1_done visible",
+          "redo_policy": "manager may keep collecting evidence within step instead of advancing",
+          "recovery_policy": "transport_or_sync_failure_is_recovery_not_redo",
+          "frontend_activation_required": true
+        },
+        "step2.capability_close": {
+          "phase_kind": "capability_check",
+          "owner": "manager",
+          "dispatch_authority": "manager",
+          "acceptance_authority": "manager",
+          "output_consumer": "server_and_all_participants",
+          "decision_authority": "manager",
+          "goal": "Manager aggregates worker capability, permissions, scope, and blockers.",
+          "worker_evidence_expected": [
+            "capability_scope_submitted",
+            "capability_scope_adjusted"
+          ],
+          "worker_evidence_payload_contract": {
+            "kind": "capability_scope_evidence",
+            "required_fields": [
+              "skills_checked",
+              "permissions_checked",
+              "scope_confirmed",
+              "blocking_issues",
+              "needs_adjustment"
+            ]
+          },
+          "manager_formal_output": "capability_summary",
+          "manager_formal_signal": "manager_step2_done",
+          "manager_formal_payload_contract": {
+            "kind": "capability_summary",
+            "required_fields": [
+              "participant_states",
+              "capability_ok",
+              "blocking_summary",
+              "needs_adjustment",
+              "evidence_refs"
+            ]
+          },
+          "start_condition": "step1.startup_plan completed",
+          "completion_condition": "manager_step2_done visible",
+          "redo_policy": "business scope mismatch stays inside current step until manager closes it",
+          "recovery_policy": "permission_or_channel_failure_is_recovery",
+          "frontend_activation_required": true
+        },
+        "step3.ready_close": {
+          "phase_kind": "readiness",
+          "owner": "manager",
+          "dispatch_authority": "manager",
+          "acceptance_authority": "manager",
+          "output_consumer": "server_and_all_participants",
+          "decision_authority": "manager",
+          "goal": "Manager aggregates ready state and confirms formal start preconditions are closed.",
+          "worker_evidence_expected": [
+            "task_ready_evidence"
+          ],
+          "worker_evidence_payload_contract": {
+            "kind": "task_ready_receipt",
+            "required_fields": [
+              "ready",
+              "dependency_check",
+              "remaining_blockers",
+              "expected_first_action"
+            ]
+          },
+          "manager_formal_output": "readiness_summary",
+          "manager_formal_signal": "manager_step3_done",
+          "manager_formal_payload_contract": {
+            "kind": "readiness_summary",
+            "required_fields": [
+              "ready_participants",
+              "not_ready_participants",
+              "remaining_blockers",
+              "formal_start_preconditions_met",
+              "evidence_refs"
+            ]
+          },
+          "start_condition": "step2.capability_close completed",
+          "completion_condition": "manager_step3_done visible",
+          "redo_policy": "manager may continue collecting readiness evidence inside current step",
+          "recovery_policy": "runtime_or_transport_breakage_is_recovery",
+          "frontend_activation_required": true
+        },
+        "task_start": {
+          "phase_kind": "formal_start",
+          "owner": "manager",
+          "dispatch_authority": "manager",
+          "acceptance_authority": "server",
+          "output_consumer": "formal_workflow_runtime",
+          "decision_authority": "manager",
+          "goal": "Manager publishes formal task start and hands off to the formal workflow.",
+          "manager_formal_output": "startup_handoff_package",
+          "manager_formal_signal": "task_start",
+          "manager_formal_payload_contract": {
+            "kind": "startup_handoff_package",
+            "required_fields": [
+              "group_context",
+              "effective_workflow_id",
+              "handoff_summary",
+              "first_action",
+              "artifact_refs"
+            ]
+          },
+          "start_condition": "step3.ready_close completed",
+          "completion_condition": "task_start visible",
+          "frontend_activation_required": true
+        }
+      }
+    },
+    "formal_workflow": {
+      "enabled_only_after_task_start": true,
+      "defined_elsewhere": true
+    }
+  },
+
+  "execution_spec": {
+    "execution_spec_id": "bootstrap-manager-only-execution-spec-v1",
+    "workflow_id": "bootstrap-manager-only-workflow-v1",
+    "initial_stage": "step1",
+    "stage_order": ["step1", "step2", "step3", "task_start"],
+    "role_directory": {
+      "manager_agent_ids": ["54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"],
+      "worker_agent_ids": [
+        "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+        "e1fb40b4-80b9-4baa-b740-cb5aa51fdee5"
+      ]
+    },
+    "stages": {
+      "step1": {
+        "stage_id": "step1",
+        "semantic_description": "Server advances only when manager formally closes startup plan stage.",
+        "allowed_roles": ["manager"],
+        "accepted_status_blocks": [
+          {
+            "gate_id": "manager_start",
+            "lifecycle_phase": "start",
+            "step_statuses": ["manager_step1_started"],
+            "allowed_roles": ["manager"]
+          },
+          {
+            "gate_id": "manager_done",
+            "lifecycle_phase": "result",
+            "step_statuses": ["manager_step1_done"],
+            "allowed_roles": ["manager"]
+          }
+        ],
+        "completion_condition": {
+          "all_of": [
+            {
+              "gate_id": "manager_done",
+              "min_count": 1,
+              "required_agent_ids": ["54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"]
+            }
+          ]
+        },
+        "next_stage": "step2"
+      },
+      "step2": {
+        "stage_id": "step2",
+        "semantic_description": "Server advances only when manager formally closes capability check stage.",
+        "allowed_roles": ["manager"],
+        "accepted_status_blocks": [
+          {
+            "gate_id": "manager_start",
+            "lifecycle_phase": "start",
+            "step_statuses": ["manager_step2_started"],
+            "allowed_roles": ["manager"]
+          },
+          {
+            "gate_id": "manager_done",
+            "lifecycle_phase": "result",
+            "step_statuses": ["manager_step2_done"],
+            "allowed_roles": ["manager"]
+          }
+        ],
+        "completion_condition": {
+          "all_of": [
+            {
+              "gate_id": "manager_done",
+              "min_count": 1,
+              "required_agent_ids": ["54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"]
+            }
+          ]
+        },
+        "next_stage": "step3"
+      },
+      "step3": {
+        "stage_id": "step3",
+        "semantic_description": "Server advances only when manager formally closes readiness stage.",
+        "allowed_roles": ["manager"],
+        "accepted_status_blocks": [
+          {
+            "gate_id": "manager_start",
+            "lifecycle_phase": "start",
+            "step_statuses": ["manager_step3_started"],
+            "allowed_roles": ["manager"]
+          },
+          {
+            "gate_id": "manager_done",
+            "lifecycle_phase": "result",
+            "step_statuses": ["manager_step3_done"],
+            "allowed_roles": ["manager"]
+          }
+        ],
+        "completion_condition": {
+          "all_of": [
+            {
+              "gate_id": "manager_done",
+              "min_count": 1,
+              "required_agent_ids": ["54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"]
+            }
+          ]
+        },
+        "next_stage": "task_start"
+      },
+      "task_start": {
+        "stage_id": "task_start",
+        "semantic_description": "Manager emits the formal start signal after bootstrap closes.",
+        "allowed_roles": ["manager"],
+        "accepted_status_blocks": [
+          {
+            "gate_id": "manager_task_start",
+            "lifecycle_phase": "start",
+            "step_statuses": ["task_start"],
+            "allowed_roles": ["manager"]
+          }
+        ],
+        "completion_condition": {
+          "all_of": [
+            {
+              "gate_id": "manager_task_start",
+              "min_count": 1,
+              "required_agent_ids": ["54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"]
+            }
+          ]
+        },
+        "next_stage": null
+      }
+    }
+  },
+
+  "transition_rules": {
+    "server_does_not_advance_on_worker_statuses_after_step0": true,
+    "manager_is_single_formal_transition_authority": true,
+    "worker_inputs_are_evidence_not_transition_gates": true,
+    "plain_text_cannot_replace_manager_formal_signal": true,
+    "frontend_should_read_server_projection_for_official_stage_state": true
+  },
+
+  "projection_hints": {
+    "manager_summary_outputs_should_be_projectable": true,
+    "worker_evidence_may_be_collected_and_replayed_even_when_not_authoritative": true,
+    "required_views": [
+      "current_stage",
+      "group_context",
+      "manager_summary_payloads",
+      "worker_evidence_timeline",
+      "gate_snapshot"
+    ]
+  },
+
+  "explicit_non_goals": {
+    "no_worker_direct_gate_control": true,
+    "no_frontend_direct_stage_advancement_logic": true,
+    "no_formal_business_workflow_inside_bootstrap": true,
+    "no_hidden_second_workflow_engine_outside_server": true
+  }
+}

@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "h1-step1-repair",
+    "step_id":  "h1-step1-exact-target-immediate-status",
+    "step_title":  "h1-step1 exact-target 即时状态",
+    "step_type":  "status",
+    "task_status":  "running",
+    "summary":  "exact-target 即时状态：/root/openclaw-33/workspace/skills/community-skill/scripts/community_integration.mjs 尚未被证明已回到基线；pre-revert hash 未知；current hash 未知；是否等于本地基线 B3041B03D32492DAB0E6C96BF1B1112B4FB20D5CE865FA83CC291D99C87F2F0A 尚未证明。第一当前 blocker 是 task_id=h1-step1-repair-exact-target-v2 仍在 running，/api/v1/results 尚无该 exact-target 任务的终态结果。",
+    "blocker":  "task_id=h1-step1-repair-exact-target-v2 仍在 running，/api/v1/results 尚无该 exact-target 任务的终态结果，因此 exact-target pre/current hash 仍未回收。",
+    "blocker_type":  null,
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+
+              ],
+    "executed_at":  "2026-04-06T18:32:30.5396739Z"
+}

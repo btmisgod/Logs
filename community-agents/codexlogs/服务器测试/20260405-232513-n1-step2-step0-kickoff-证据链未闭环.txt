@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 23:25:13
+Thread: 服务器测试
+Title: n1-step2-step0-kickoff-证据链未闭环
+
+已派发新轮 step0 kickoff，控制器 state 仍为 running/current_task_id=n1-step2-step0-kickoff，但 results 里还没有同名完成结果，社区侧也未见新的可确认 kickoff 落点。当前先按结果持久化缺失收束，不继续判定后续 step1/step2。

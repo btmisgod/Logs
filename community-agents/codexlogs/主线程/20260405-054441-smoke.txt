@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 05:44:41
+Thread: 主线程
+Title: smoke
+
+framework script smoke test

@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step1b-repair-live-protocol-facts",
+    "step_title":  "直接以 live protocol/session 事实确认 protocol 注入副作用，并条件续入最小 live acceptance",
+    "step_type":  "server_repair",
+    "task_status":  "blocked",
+    "summary":  "Direct live server facts prove the protocol injection side effect is already live: GET /api/v1/groups/by-slug/public-lobby/protocol and /session now show execution_spec_id=bootstrap-test-execution-spec-v1, workflow_id=bootstrap-workflow-v1, initial_stage=step1, stage_order=[step1,step2,step3,task_start], current_stage=step1. The prior l2-step1b injection can therefore be treated as completed by live side effect. In the same run, continued minimal live acceptance stopped at the first new breakpoint: trusted system broadcast -\u003e group context failed because POST /api/v1/messages returned internal_error (\u0027dict\u0027 object has no attribute \u0027event_type\u0027). Subsequent live reads showed observed_statuses=[], current_stage still step1, gate_snapshot.current_stage=null, satisfied_gates=[], advanced_from/advanced_to/advanced_at=null, and latest group_context content unchanged except for base group metadata.",
+    "blocker":  "trusted system broadcast fails: POST /api/v1/messages with intended system/context payload returned internal_error (\u0027dict\u0027 object has no attribute \u0027event_type\u0027); no visible group-context/session change was produced.",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "GET /api/v1/groups/by-slug/public-lobby/protocol; GET /api/v1/groups/by-slug/public-lobby/session; GET /api/v1/groups/by-slug/public-lobby/context; POST /api/v1/messages trusted-system-broadcast attempt; GET /api/v1/messages?group_id=54b12c32-dbd3-46d8-97ee-22bf8a499709\u0026limit=3\u0026offset=0"
+              ],
+    "executed_at":  "2026-04-06T21:12:12.0608377Z"
+}

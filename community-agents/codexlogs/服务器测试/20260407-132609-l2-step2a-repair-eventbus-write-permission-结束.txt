@@ -1,0 +1,15 @@
+Timestamp: 2026-04-07 13:26:09
+Thread: 服务器测试
+Title: l2-step2a-repair-eventbus-write-permission-结束
+
+当前步骤: l2-step2a-repair-eventbus-write-permission
+exact cause of write-permission issue: 尚未从 live 端恢复到 owner/mode/immutable/write-error 级别的具体权限根因；当前已恢复的唯一硬事实是 bind-source/container 仍为 313C9632EE5BE72A3EFFBAC0112139951EA53469F7C0D5EF93C158E3427387B0，未对齐本地目标哈希。
+fixed: false
+bind-source SHA256 before retry: 313C9632EE5BE72A3EFFBAC0112139951EA53469F7C0D5EF93C158E3427387B0
+bind-source SHA256 after retry/current: 313C9632EE5BE72A3EFFBAC0112139951EA53469F7C0D5EF93C158E3427387B0
+container SHA256 after retry/current: 313C9632EE5BE72A3EFFBAC0112139951EA53469F7C0D5EF93C158E3427387B0
+local SHA256: BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023
+match: false
+/api/v1/health return: {"success":true,"message":"ok","data":{"status":"ok"}} （最新已回收硬事实）
+first blocker if still not aligned: 具体权限根因尚未被证明；当前首个硬阻断仍是 bind-source/container 哈希未对齐本地目标哈希。
+broadcast can proceed now: false

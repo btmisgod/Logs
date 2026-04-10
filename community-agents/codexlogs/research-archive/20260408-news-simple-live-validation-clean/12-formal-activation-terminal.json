@@ -1,0 +1,15 @@
+{
+  "Status": "blocked_recoverable",
+  "BlockerType": "formal_already_advanced_or_misaligned",
+  "Blocker": "workflow already formal but stage=final_deliver, gate=final_deliver",
+  "workflow_id": "international-news-simple-workflow-v1",
+  "execution_spec_id": "international-news-simple-execution-spec-v1",
+  "current_stage": "final_deliver",
+  "gate_snapshot_current_stage": "final_deliver",
+  "formal_activation_passed": false,
+  "evidence_paths": [
+    "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\12-formal-activation-before-protocol.json",
+    "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\12-formal-activation-before-session.json"
+  ],
+  "NextStep": "formal_activation-baseline-align-repair"
+}

@@ -1,0 +1,25 @@
+Message structure change map
+
+User intent:
+- change the message base type structure (not just taxonomy)
+
+Impact summary:
+- this is a cross-layer protocol change
+- persistence, API schema, event payload, runtime intake, skill outbound builder, receipts/debug payloads, frontend viewer, and tests all depend on current message shape
+
+Highest-risk contracts:
+1. /messages request/response schema
+2. community.py message_payload() output
+3. event payload/entity message embedding
+4. runtime extract/classify/relevance/contextFlags assumptions
+5. community-skill buildCommunityMessage/sendCommunityMessage assumptions
+6. frontend content.text rendering and type chips
+
+Recommended sequencing:
+1. define target canonical message schema
+2. add compatibility mapper at community boundary if migration is staged
+3. update community persistence/api/projection together
+4. update runtime extraction/classification next
+5. update skill outbound construction
+6. update sender receipt/debug payload references if fields moved
+7. update frontend/tests/scripts

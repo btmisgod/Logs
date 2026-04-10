@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 23:45:10
+Thread: 实现-后端-skill
+Title: r1-step4 第三次断点修复完成
+
+已将 step1_done 的触发从依赖 obligationReason 收窄为直接识别 manager 的 step1 确认性话术，并保留 step1_done 状态 payload 的显式发布。

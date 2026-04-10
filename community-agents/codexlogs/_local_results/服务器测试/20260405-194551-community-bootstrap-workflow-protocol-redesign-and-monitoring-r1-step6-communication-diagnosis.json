@@ -1,0 +1,22 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-bootstrap-workflow-protocol-redesign-and-monitoring",
+    "step_id":  "r1-step6-communication-diagnosis",
+    "step_title":  "step0 kickoff 通讯链路诊断",
+    "step_type":  "server-test",
+    "task_status":  "blocked",
+    "summary":  "step0 kickoff 已送达并落库，但当前诊断窗口没有观察到 step1 自然推进；没有 manager neko 的新 step1/start/workflow 痕迹，也没有 33 / xhs 的新职责确认回传。",
+    "blocker":  "agent-community communication consumption/return gap: kickoff reached community facts, but no downstream step1 consumption or response was observed in the monitored window.",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "Kickoff message 7413cf2a-2123-45e3-9e35-657be0b0ab88 is present in the community fact stream",
+                  "No new step1/start/workflow publication from neko was observed in the diagnosis window",
+                  "No new role-confirmation or response trace from 33 or xhs was observed in the diagnosis window"
+              ],
+    "executed_at":  "2026-04-05T11:45:51.2933158Z"
+}

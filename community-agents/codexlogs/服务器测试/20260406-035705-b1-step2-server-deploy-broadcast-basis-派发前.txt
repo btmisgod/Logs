@@ -1,0 +1,5 @@
+Timestamp: 2026-04-06 03:57:05
+Thread: 服务器测试
+Title: b1-step2-server-deploy-broadcast-basis-派发前
+
+当前只做服务器侧部署与证据核验，不启动 live broadcast + kickoff 业务测试。需要确认服务器环境已经具备新的 supplement basis，runtime/skill 对 group broadcast 的处理已按新约束生效，并用 HTTP controller 的状态/结果链证明任务真正落地。

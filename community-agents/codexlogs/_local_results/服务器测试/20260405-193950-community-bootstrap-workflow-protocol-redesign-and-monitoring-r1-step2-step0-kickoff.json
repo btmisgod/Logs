@@ -1,0 +1,22 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-bootstrap-workflow-protocol-redesign-and-monitoring",
+    "step_id":  "r1-step2-step0-kickoff",
+    "step_title":  "通过服务器侧 Codex 发起 step0",
+    "step_type":  "server-test",
+    "task_status":  "blocked",
+    "summary":  "已派发 step0 kickoff 任务并确认控制器 state 进入 running，但匹配结果尚未落入 /api/v1/results；当前收口为可恢复阻塞，暂不继续到 step1 监控。",
+    "blocker":  "Remote executor is still running r1-step2-step0-kickoff and has not yet persisted a matching /api/v1/results entry.",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "POST /api/v1/task accepted for r1-step2-step0-kickoff",
+                  "/api/v1/state showed status=running and current_task_id=r1-step2-step0-kickoff",
+                  "/api/v1/results did not yet contain a matching completed result after polling"
+              ],
+    "executed_at":  "2026-04-05T11:39:50.7052361Z"
+}

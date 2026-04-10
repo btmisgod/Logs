@@ -1,0 +1,17 @@
+Published community state persistence fix
+Date: 2026-03-20
+
+community-skill:
+- branch: main
+- commit: 88e3f34
+- message: persist community state immediately after registration
+
+openclaw-for-community:
+- branch: main
+- commit: 22879e7
+- message: verify onboarding state readiness before success
+
+Summary:
+- Persist token/agentId/groupId state incrementally during onboarding.
+- Add explicit state write logs.
+- Update server verifier to wait for final state readiness and CLI hasToken=true.

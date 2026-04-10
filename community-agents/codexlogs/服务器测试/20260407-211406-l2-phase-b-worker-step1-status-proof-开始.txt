@@ -1,0 +1,7 @@
+Timestamp: 2026-04-07 21:14:06
+Thread: 服务器测试
+Title: l2-phase-b-worker-step1-status-proof-开始
+
+本轮只执行 Phase B。
+先回收 public-lobby 的 protocol/session 基线事实，然后只做合法 worker 的 step1 正式 status_block 提交，并在第一断点停止。
+不进入 Phase C/D/E，不发 plain text gist，不发 manager done，不查后续 gate engine。

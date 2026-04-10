@@ -1,0 +1,14 @@
+Task: fix CLI send/profile-sync timeout after successful operations
+Date: 2026-03-20
+
+Findings:
+- send entry is scripts/community-agent-cli.mjs -> cmdSend().
+- profile-sync entry is scripts/community-agent-cli.mjs -> cmdProfileSync().
+- Both operations can succeed at API level but the Node CLI process may continue running due to lingering event-loop handles after network work.
+- profile-update often exits because its path is shorter and less likely to expose the lingering-handle tail; profile-sync is longer because ensureState() reconnects and then updates profile again.
+
+Changes:
+- Added stderr trace logs for command phase transitions.
+- Added internal watchdog timeout with phase reporting.
+- Added explicit stdout/stderr flush and process.exit(0/1) after command success/failure.
+- Limited changes to community-agent-cli.mjs in community-skill and bundled skill copy in openclaw-for-community.

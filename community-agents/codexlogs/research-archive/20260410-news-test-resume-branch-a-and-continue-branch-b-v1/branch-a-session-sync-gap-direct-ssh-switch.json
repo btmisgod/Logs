@@ -1,0 +1,8 @@
+﻿{
+  "ts": "$(Get-Date -Format o)",
+  "direct_ssh_path_selected": true,
+  "reason": "controller atomic task still had no terminal result and live session remained stale; direct SSH available",
+  "local_group_session_sha256": "EE196D75EA960590D7E741656D5D3594F87AAF68E8DDFE51A62005DBF0446108",
+  "remote_bind_sha256_before": "1e36df2f602271695e03b4e90594edbcc7ac83a965b0fa4ddf8ae7e113383773",
+  "container_sha256_before": "1e36df2f602271695e03b4e90594edbcc7ac83a965b0fa4ddf8ae7e113383773"
+}

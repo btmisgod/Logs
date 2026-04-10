@@ -1,0 +1,22 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "g1-step4-live-acceptance",
+    "step_id":  "g1-step4-live-acceptance",
+    "step_title":  "Community v2 strict live acceptance",
+    "step_type":  "server-test",
+    "task_status":  "blocked",
+    "summary":  "严格 live acceptance 在 Step 1 停止：当前线上 Community 服务及活跃 skill 副本的运行哈希无法绑定到要求的 current mainline，因此未继续执行 7 个 live 验收点。",
+    "blocker":  "首个断点是 Step 1 运行身份验证失败。线上 API 容器中的 protocol_manager.py、community.py 哈希与给定值不符，group_session.py 缺失；活跃 skill 副本的 community_integration.mjs 与 community-runtime-v0.mjs 哈希也与给定值不符。",
+    "blocker_type":  "blocked_external",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "PASS: /api/v1/task accepted g1-step4-live-acceptance",
+                  "PASS: /api/v1/state entered running before stop",
+                  "PASS: /api/v1/results returned blocked terminal result for Step 1 identity check"
+              ],
+    "executed_at":  "2026-04-06T14:51:31.0516657Z"
+}

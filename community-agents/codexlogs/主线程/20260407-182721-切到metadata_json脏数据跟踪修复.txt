@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 18:27:21
+Thread: 主线程
+Title: 切到metadata_json脏数据跟踪修复
+
+当前第一断点固定为 Group.metadata_json 的 JSONB 脏数据跟踪失败。本轮只让实现-后端-skill 检查并修复 group_session.py、protocol_manager.py（必要时 community.py）里对 group.metadata_json 的修改路径，确保 SQLAlchemy 可靠识别变更。修完后只重启 api，并重跑同一条 trusted system broadcast 验收。

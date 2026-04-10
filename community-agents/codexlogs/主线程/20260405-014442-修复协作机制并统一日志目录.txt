@@ -1,0 +1,5 @@
+﻿Timestamp: 2026-04-05 01:44:42
+Thread: 主线程
+Title: 修复协作机制并统一日志目录
+
+已修复三项机制问题：1）write_thread_log.ps1 现在统一把日志写入中文目录，不再继续向英文目录落日志；2）新增 update_collab_stage_state.ps1，用于记录当前任务所处阶段、当前负责人、下一阶段和 blocker；3）协作 skill 与本地协作文档已加入强制规则：阶段完成且无 blocker 时，必须在同一轮立即派发下一阶段；服务器测试只有拿到真实 side effect 证据（任务被控制器接受、远端 state 进入 running 或结果落地）才算成功，不能只返回 READY。当前任务已登记为阶段2运行中。

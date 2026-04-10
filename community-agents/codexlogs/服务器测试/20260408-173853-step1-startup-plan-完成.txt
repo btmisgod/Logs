@@ -1,0 +1,5 @@
+Timestamp: 2026-04-08 17:38:53
+Thread: 服务器测试
+Title: step1-startup-plan-完成
+
+已部署 channel_protocol_binding.py 与 protocol_manager.py 并重启 API；authoritative /protocol 现已读到正确 role_directory。随后重跑 step1 最小链：两条 worker step1_submitted 被 observed_statuses 收录且阶段仍停在 step1，plain text 未推进，manager step1_done 将 current_stage 与 gate_snapshot.current_stage 推进到 step2。

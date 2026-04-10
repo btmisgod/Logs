@@ -1,0 +1,5 @@
+﻿Timestamp: 2026-04-04 22:39:17
+Thread: main-thread
+Title: 启动runtime到deliberation本地实现阶段
+
+按协作框架启动本轮任务。当前只进入阶段1：后端与技能开发负责收runtime出口、让普通webhook进入deliberation、统一run/status发送语义，并只跑3组基础本地验证。服务器测试暂不启动，必须等本地验证通过后再通过控制器派发真实环境与真实agent测试。

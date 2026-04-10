@@ -1,0 +1,298 @@
+﻿{
+    "sent_at":  "2026-04-10T18:19:44.4097109+08:00",
+    "send":  {
+                 "ok":  true,
+                 "result":  {
+                                "id":  "4ec6116d-9732-49a0-82f4-33f396d82667",
+                                "group_id":  "8d9d8e44-54b2-4279-aab2-0a6d9ce851b2",
+                                "author_kind":  "agent",
+                                "author":  {
+                                               "author_kind":  "agent",
+                                               "agent_id":  "8a8c144a-1efb-4c01-8084-f7bb45e33106"
+                                           },
+                                "flow_type":  "run",
+                                "message_type":  "analysis",
+                                "content":  {
+                                                "text":  "33 ??? 1 ????,?????????????????????????",
+                                                "payload":  {
+                                                                "kind":  "candidate_material_pool",
+                                                                "lane":  "worker-33",
+                                                                "items":  [
+                                                                              {
+                                                                                  "source":  "Al Jazeera",
+                                                                                  "why_hot":  "????????????",
+                                                                                  "image_url":  "https://www.aljazeera.com/wp-content/uploads/2026/04/ap-security-gulf.jpg",
+                                                                                  "topic_title":  "?????????????",
+                                                                                  "published_at":  "2026-04-10T07:20:00Z",
+                                                                                  "credibility_note":  "??????????",
+                                                                                  "core_fact_summary":  "?????????????????,????????????"
+                                                                              },
+                                                                              {
+                                                                                  "source":  "Reuters",
+                                                                                  "why_hot":  "???????????",
+                                                                                  "image_url":  "https://www.reuters.com/resizer/v2/mideast-talks.jpg",
+                                                                                  "topic_title":  "?????????????",
+                                                                                  "published_at":  "2026-04-10T06:10:00Z",
+                                                                                  "credibility_note":  "???????",
+                                                                                  "core_fact_summary":  "????????????????,?????????????"
+                                                                              },
+                                                                              {
+                                                                                  "source":  "BBC",
+                                                                                  "why_hot":  "?????????",
+                                                                                  "image_url":  "https://ichef.bbci.co.uk/news/1024/defence-europe.jpg",
+                                                                                  "topic_title":  "??????????",
+                                                                                  "published_at":  "2026-04-10T05:30:00Z",
+                                                                                  "credibility_note":  "??????,????",
+                                                                                  "core_fact_summary":  "?????????????????????,????????????"
+                                                                              }
+                                                                          ],
+                                                                "cycle_id":  "news-cycle-001",
+                                                                "cycle_index":  1
+                                                            },
+                                                "blocks":  [
+
+                                                           ],
+                                                "attachments":  [
+
+                                                                ]
+                                            },
+                                "status_block":  {
+                                                     "workflow_id":  "news-five-role-workflow-v1",
+                                                     "step_id":  "material_collect",
+                                                     "lifecycle_phase":  "run",
+                                                     "author_agent_id":  "8a8c144a-1efb-4c01-8084-f7bb45e33106",
+                                                     "author_role":  "worker",
+                                                     "step_status":  "material_collect_submitted",
+                                                     "related_message_id":  "news-cycle-001"
+                                                 },
+                                "context_block":  {
+
+                                                  },
+                                "relations":  {
+                                                  "thread_id":  "4ec6116d-9732-49a0-82f4-33f396d82667",
+                                                  "parent_message_id":  null
+                                              },
+                                "routing":  {
+                                                "target":  {
+                                                               "agent_id":  null
+                                                           },
+                                                "mentions":  [
+
+                                                             ]
+                                            },
+                                "extensions":  {
+                                                   "source":  "CommunityIntegrationSkill",
+                                                   "cycle_id":  "news-cycle-001",
+                                                   "cycle_index":  1,
+                                                   "workflow_id":  "news-five-role-workflow-v1"
+                                               },
+                                "created_at":  "2026-04-10T10:19:44.807363Z",
+                                "updated_at":  "2026-04-10T10:19:44.807363Z"
+                            }
+             },
+    "session":  {
+                    "group_id":  "8d9d8e44-54b2-4279-aab2-0a6d9ce851b2",
+                    "group_session_id":  "8d9d8e44-54b2-4279-aab2-0a6d9ce851b2",
+                    "group_session_version":  "group-session:4ec6116d-9732-49a0-82f4-33f396d82667",
+                    "protocol_version":  "ACP-003",
+                    "workflow_id":  "news-five-role-workflow-v1",
+                    "current_mode":  "active_baseline",
+                    "current_stage":  "material_collect",
+                    "group_context_version":  "group-context:8d9d8e44-54b2-4279-aab2-0a6d9ce851b2",
+                    "gate_snapshot":  {
+                                          "gates":  {
+                                                        "worker_run":  {
+                                                                           "satisfied":  false,
+                                                                           "message_ids":  [
+                                                                                               "4ec6116d-9732-49a0-82f4-33f396d82667"
+                                                                                           ],
+                                                                           "matched_count":  1,
+                                                                           "matched_agent_ids":  [
+                                                                                                     "8a8c144a-1efb-4c01-8084-f7bb45e33106"
+                                                                                                 ],
+                                                                           "required_agent_ids":  [
+                                                                                                      "8a8c144a-1efb-4c01-8084-f7bb45e33106",
+                                                                                                      "a734a7b8-1fe1-4779-a92b-f4f5268b4a95"
+                                                                                                  ]
+                                                                       },
+                                                        "manager_done":  {
+                                                                             "satisfied":  false,
+                                                                             "message_ids":  [
+
+                                                                                             ],
+                                                                             "matched_count":  0,
+                                                                             "matched_agent_ids":  [
+
+                                                                                                   ],
+                                                                             "required_agent_ids":  [
+                                                                                                        "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                                                                                                    ]
+                                                                         }
+                                                    },
+                                          "next_stage":  "editorial_review",
+                                          "advanced_at":  "2026-04-10T10:09:18.947951+00:00",
+                                          "advanced_to":  "material_collect",
+                                          "stage_order":  [
+                                                              "cycle_baseline_ready",
+                                                              "material_collect",
+                                                              "editorial_review",
+                                                              "qa_validation",
+                                                              "final_delivery"
+                                                          ],
+                                          "step0.ready":  true,
+                                          "workflow_id":  "news-five-role-workflow-v1",
+                                          "advanced_from":  "cycle_baseline_ready",
+                                          "current_stage":  "material_collect",
+                                          "satisfied_gates":  [
+
+                                                              ],
+                                          "stage_snapshots":  {
+                                                                  "material_collect":  {
+                                                                                           "gates":  {
+                                                                                                         "worker_run":  {
+                                                                                                                            "satisfied":  false,
+                                                                                                                            "message_ids":  [
+                                                                                                                                                "4ec6116d-9732-49a0-82f4-33f396d82667"
+                                                                                                                                            ],
+                                                                                                                            "matched_count":  1,
+                                                                                                                            "matched_agent_ids":  [
+                                                                                                                                                      "8a8c144a-1efb-4c01-8084-f7bb45e33106"
+                                                                                                                                                  ],
+                                                                                                                            "required_agent_ids":  [
+                                                                                                                                                       "8a8c144a-1efb-4c01-8084-f7bb45e33106",
+                                                                                                                                                       "a734a7b8-1fe1-4779-a92b-f4f5268b4a95"
+                                                                                                                                                   ]
+                                                                                                                        },
+                                                                                                         "manager_done":  {
+                                                                                                                              "satisfied":  false,
+                                                                                                                              "message_ids":  [
+
+                                                                                                                                              ],
+                                                                                                                              "matched_count":  0,
+                                                                                                                              "matched_agent_ids":  [
+
+                                                                                                                                                    ],
+                                                                                                                              "required_agent_ids":  [
+                                                                                                                                                         "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                                                                                                                                                     ]
+                                                                                                                          }
+                                                                                                     },
+                                                                                           "next_stage":  "editorial_review",
+                                                                                           "evaluated_at":  "2026-04-10T10:19:44.824530+00:00",
+                                                                                           "satisfied_gates":  [
+
+                                                                                                               ],
+                                                                                           "next_stage_allowed":  false,
+                                                                                           "current_stage_complete":  false
+                                                                                       },
+                                                                  "cycle_baseline_ready":  {
+                                                                                               "gates":  {
+                                                                                                             "manager_cycle_start":  {
+                                                                                                                                         "satisfied":  true,
+                                                                                                                                         "message_ids":  [
+                                                                                                                                                             "9110ad51-e0e5-4524-aeb7-0bdc5a860cab"
+                                                                                                                                                         ],
+                                                                                                                                         "matched_count":  1,
+                                                                                                                                         "matched_agent_ids":  [
+                                                                                                                                                                   "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                                                                                                                                                               ],
+                                                                                                                                         "required_agent_ids":  [
+                                                                                                                                                                    "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                                                                                                                                                                ]
+                                                                                                                                     }
+                                                                                                         },
+                                                                                               "next_stage":  "material_collect",
+                                                                                               "evaluated_at":  "2026-04-10T10:09:18.947951+00:00",
+                                                                                               "satisfied_gates":  [
+                                                                                                                       "manager_cycle_start"
+                                                                                                                   ],
+                                                                                               "next_stage_allowed":  true,
+                                                                                               "current_stage_complete":  true
+                                                                                           }
+                                                              },
+                                          "execution_spec_id":  "news-five-role-baseline-execution-spec-v1",
+                                          "last_evaluated_at":  "2026-04-10T10:19:44.824530+00:00",
+                                          "next_stage_allowed":  false,
+                                          "current_stage_complete":  false
+                                      },
+                    "state_json":  {
+                                       "cycles":  {
+
+                                                  },
+                                       "current_cycle":  null,
+                                       "cycle_identity":  {
+                                                              "payload_fields":  [
+                                                                                     "cycle_id",
+                                                                                     "cycle_index"
+                                                                                 ],
+                                                              "artifact_fields":  [
+                                                                                      "cycle_id",
+                                                                                      "cycle_index",
+                                                                                      "workflow_id"
+                                                                                  ],
+                                                              "state_json_paths":  {
+                                                                                       "current_cycle":  "state_json.current_cycle",
+                                                                                       "cycle_records":  "state_json.cycles",
+                                                                                       "next_cycle_index":  "state_json.next_cycle_index"
+                                                                                   },
+                                                              "status_block_fields":  [
+                                                                                          "cycle_id",
+                                                                                          "cycle_index"
+                                                                                      ]
+                                                          },
+                                       "baseline_status":  "ready_for_cycle_1",
+                                       "last_message_id":  "4ec6116d-9732-49a0-82f4-33f396d82667",
+                                       "next_cycle_index":  1,
+                                       "last_status_block":  {
+                                                                 "step_id":  "material_collect",
+                                                                 "author_role":  "worker",
+                                                                 "step_status":  "material_collect_submitted",
+                                                                 "workflow_id":  "news-five-role-workflow-v1",
+                                                                 "author_agent_id":  "8a8c144a-1efb-4c01-8084-f7bb45e33106",
+                                                                 "lifecycle_phase":  "run",
+                                                                 "related_message_id":  "news-cycle-001"
+                                                             },
+                                       "observed_statuses":  [
+                                                                 {
+                                                                     "step_id":  "cycle_baseline_ready",
+                                                                     "message_id":  "9110ad51-e0e5-4524-aeb7-0bdc5a860cab",
+                                                                     "author_role":  "manager",
+                                                                     "observed_at":  "2026-04-10T10:09:18.947909+00:00",
+                                                                     "step_status":  "cycle_start",
+                                                                     "workflow_id":  "news-five-role-workflow-v1",
+                                                                     "author_agent_id":  "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+                                                                     "lifecycle_phase":  "start",
+                                                                     "related_message_id":  "news-cycle-001",
+                                                                     "declared_author_role":  "manager",
+                                                                     "declared_author_agent_id":  "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                                                                 },
+                                                                 {
+                                                                     "step_id":  "cycle_baseline_ready",
+                                                                     "message_id":  "6d8dd7a1-67ea-40ee-b2ab-b4e028f2dbd8",
+                                                                     "author_role":  "manager",
+                                                                     "observed_at":  "2026-04-10T10:14:36.837818+00:00",
+                                                                     "step_status":  "cycle_start",
+                                                                     "workflow_id":  "news-five-role-workflow-v1",
+                                                                     "author_agent_id":  "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+                                                                     "lifecycle_phase":  "start",
+                                                                     "related_message_id":  "news-cycle-001",
+                                                                     "declared_author_role":  "manager",
+                                                                     "declared_author_agent_id":  "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a"
+                                                                 },
+                                                                 {
+                                                                     "step_id":  "material_collect",
+                                                                     "message_id":  "4ec6116d-9732-49a0-82f4-33f396d82667",
+                                                                     "author_role":  "worker",
+                                                                     "observed_at":  "2026-04-10T10:19:44.824481+00:00",
+                                                                     "step_status":  "material_collect_submitted",
+                                                                     "workflow_id":  "news-five-role-workflow-v1",
+                                                                     "author_agent_id":  "8a8c144a-1efb-4c01-8084-f7bb45e33106",
+                                                                     "lifecycle_phase":  "run",
+                                                                     "related_message_id":  "news-cycle-001",
+                                                                     "declared_author_role":  "worker",
+                                                                     "declared_author_agent_id":  "8a8c144a-1efb-4c01-8084-f7bb45e33106"
+                                                                 }
+                                                             ]
+                                   }
+                }
+}

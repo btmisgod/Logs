@@ -1,0 +1,198 @@
+﻿【复位时间】2026-04-05 03:25:14
+【RESET 请求】
+{
+    "reason":  "executor deployment task restarted its own service and became stale"
+}
+【RESET 结果】
+{
+    "ok":  true,
+    "reset":  true,
+    "message":  "reset stale task phase2-controller-deploy-executor-health-check",
+    "task_id":  "phase2-controller-deploy-executor-health-check"
+}
+【STATE 结果】
+{
+    "ok":  true,
+    "state":  {
+                  "worker_id":  "server-primary",
+                  "status":  "blocked",
+                  "current_task_id":  "phase2-controller-deploy-executor-health-check",
+                  "last_task_started_at":  "2026-04-04T18:41:56.937680+00:00",
+                  "last_task_finished_at":  "2026-04-04T19:25:12.717198+00:00",
+                  "last_heartbeat_at":  "2026-04-04T19:25:12.717918+00:00",
+                  "last_result_status":  "blocked",
+                  "last_result_summary":  "executor reset a stale pending/running task before execution",
+                  "current_blocker":  "executor deployment task restarted its own service and became stale",
+                  "updated_at":  "2026-04-04T19:25:12.717922+00:00"
+              }
+}
+
+【任务A派单时间】2026-04-05 03:25:22
+【任务A POST 请求】
+{
+    "task_id":  "phase2-controller-deploy-repo-and-schedule-restart",
+    "title":  "controller仓拉取并安排executor异步重启",
+    "goal":  "在服务器上拉取 /root/Agents-controller-HTTP 最新 main，记录 commit id，并用 detached 方式安排 codex-remote-executor.service 重启，保证当前任务先返回 strict JSON。",
+    "must_do":  [
+                    "cd /root/Agents-controller-HTTP \u0026\u0026 git pull origin main",
+                    "记录当前 commit id",
+                    "用 detached 方式安排 executor 重启，例如 nohup bash -lc \u0027sleep 2; systemctl restart codex-remote-executor.service\u0027 \u003e/tmp/codex-executor-restart.log 2\u003e\u00261 \u0026",
+                    "当前任务必须在重启发生前先返回 strict JSON",
+                    "输出 commit id、是否已安排重启、当前 blocker"
+                ],
+    "must_not_do":  [
+                        "不要开始社区业务任务",
+                        "不要重跑 phase3",
+                        "不要改社区仓代码",
+                        "不要把任务变成自重启后再等健康检查的长任务"
+                    ],
+    "acceptance":  [
+                       "输出当前 commit id",
+                       "输出是否已安排重启",
+                       "输出当前唯一 blocker；如果没有就写当前没有 blocker"
+                   ],
+    "notes":  "只做仓部署与异步重启安排，不做健康检查。",
+    "cwd":  "/root/Agents-controller-HTTP"
+}
+【任务A POST 结果】
+{
+    "ok":  true,
+    "task":  {
+                 "task_id":  "phase2-controller-deploy-repo-and-schedule-restart",
+                 "title":  "controller??????executor????",
+                 "goal":  "??????? /root/Agents-controller-HTTP ?? main,?? commit id,?? detached ???? codex-remote-executor.service ??,????????? strict JSON?",
+                 "must_do":  [
+                                 "cd /root/Agents-controller-HTTP \u0026\u0026 git pull origin main",
+                                 "???? commit id",
+                                 "? detached ???? executor ??,?? nohup bash -lc \u0027sleep 2; systemctl restart codex-remote-executor.service\u0027 \u003e/tmp/codex-executor-restart.log 2\u003e\u00261 \u0026",
+                                 "??????????????? strict JSON",
+                                 "?? commit id??????????? blocker"
+                             ],
+                 "must_not_do":  [
+                                     "??????????",
+                                     "???? phase3",
+                                     "????????",
+                                     "?????????????????????"
+                                 ],
+                 "acceptance":  [
+                                    "???? commit id",
+                                    "?????????",
+                                    "?????? blocker;?????????? blocker"
+                                ],
+                 "notes":  "????????????,???????",
+                 "cwd":  "/root/Agents-controller-HTTP",
+                 "status":  "pending",
+                 "received_at":  "2026-04-04T19:25:22.105367+00:00"
+             }
+}
+【任务A STATE 结果】
+{
+    "ok":  true,
+    "state":  {
+                  "worker_id":  "server-primary",
+                  "status":  "pending",
+                  "current_task_id":  "phase2-controller-deploy-repo-and-schedule-restart",
+                  "last_task_started_at":  "2026-04-04T18:41:56.937680+00:00",
+                  "last_task_finished_at":  "2026-04-04T19:25:12.717198+00:00",
+                  "last_heartbeat_at":  "2026-04-04T19:25:22.105806+00:00",
+                  "last_result_status":  "blocked",
+                  "last_result_summary":  "executor reset a stale pending/running task before execution",
+                  "current_blocker":  null,
+                  "updated_at":  "2026-04-04T19:25:22.105813+00:00"
+              }
+}
+
+【任务B派单时间】2026-04-05 03:26:19
+【任务B POST 请求】
+{
+    "task_id":  "phase2-controller-post-restart-health-check",
+    "title":  "executor重启后健康验证",
+    "goal":  "在服务器恢复可访问后，验证新 executor 健康，并输出当前 commit id、服务是否正常、当前唯一 blocker。",
+    "must_do":  [
+                    "验证 systemctl status codex-remote-executor.service --no-pager",
+                    "验证 curl http://127.0.0.1:18789/healthz",
+                    "验证 curl -H \"Authorization: Bearer $(cat /root/.codex-remote-executor/auth-token.txt)\" http://127.0.0.1:18789/api/v1/state",
+                    "明确输出当前 commit id、服务是否正常、当前唯一 blocker；如果没有就写当前没有 blocker"
+                ],
+    "must_not_do":  [
+                        "不要开始社区业务任务",
+                        "不要重跑 phase3",
+                        "不要改社区仓代码",
+                        "只做控制器仓部署与 executor 健康验证"
+                    ],
+    "acceptance":  [
+                       "输出当前 commit id",
+                       "输出服务是否正常",
+                       "输出当前唯一 blocker；如果没有就写当前没有 blocker"
+                   ],
+    "notes":  "仅做健康检查，不做业务验证。",
+    "cwd":  "/root/Agents-controller-HTTP"
+}
+【任务B POST 结果】
+{
+    "ok":  true,
+    "task":  {
+                 "task_id":  "phase2-controller-post-restart-health-check",
+                 "title":  "executor???????",
+                 "goal":  "??????????,??? executor ??,????? commit id???????????? blocker?",
+                 "must_do":  [
+                                 "?? systemctl status codex-remote-executor.service --no-pager",
+                                 "?? curl http://127.0.0.1:18789/healthz",
+                                 "?? curl -H \"Authorization: Bearer $(cat /root/.codex-remote-executor/auth-token.txt)\" http://127.0.0.1:18789/api/v1/state",
+                                 "?????? commit id???????????? blocker;?????????? blocker"
+                             ],
+                 "must_not_do":  [
+                                     "??????????",
+                                     "???? phase3",
+                                     "????????",
+                                     "????????? executor ????"
+                                 ],
+                 "acceptance":  [
+                                    "???? commit id",
+                                    "????????",
+                                    "?????? blocker;?????????? blocker"
+                                ],
+                 "notes":  "??????,???????",
+                 "cwd":  "/root/Agents-controller-HTTP",
+                 "status":  "pending",
+                 "received_at":  "2026-04-04T19:26:19.527821+00:00"
+             }
+}
+【任务B STATE 结果】
+{
+    "ok":  true,
+    "state":  {
+                  "worker_id":  "server-primary",
+                  "status":  "pending",
+                  "current_task_id":  "phase2-controller-post-restart-health-check",
+                  "last_task_started_at":  "2026-04-04T19:25:22.488550+00:00",
+                  "last_task_finished_at":  "2026-04-04T19:25:45.782254+00:00",
+                  "last_heartbeat_at":  "2026-04-04T19:26:19.528262+00:00",
+                  "last_result_status":  "completed",
+                  "last_result_summary":  "Ran git pull on /root/Agents-controller-HTTP, repository was already up to date on main. Current commit id is ae3e13e2668db1f3ef3047901d900074085a2f72. HEAD is not detached, so codex-remote-executor.service was not restarted.",
+                  "current_blocker":  null,
+                  "updated_at":  "2026-04-04T19:26:19.528269+00:00"
+              }
+}
+【最终复查时间】2026-04-05 03:26:48
+【最终 STATE】
+{
+    "ok":  true,
+    "state":  {
+                  "worker_id":  "server-primary",
+                  "status":  "ready",
+                  "current_task_id":  null,
+                  "last_task_started_at":  "2026-04-04T19:26:20.788155+00:00",
+                  "last_task_finished_at":  "2026-04-04T19:26:37.766827+00:00",
+                  "last_heartbeat_at":  "2026-04-04T19:26:47.768735+00:00",
+                  "last_result_status":  "completed",
+                  "last_result_summary":  "`codex-remote-executor.service` is active and running. `http://127.0.0.1:18789/healthz` returned healthy status, and authenticated `/api/v1/state` returned `status=running` with `current_task_id=phase2-controller-post-restart-health-check`. Current commit id is `ae3e13e2668db1f3ef3047901d900074085a2f72`. No blocker was reported by the executor API (`current_blocker=null`), and I did not identify any additional blocker from these checks.",
+                  "current_blocker":  null,
+                  "updated_at":  "2026-04-04T19:26:47.768740+00:00"
+              }
+}
+【结论摘要】
+- stale 任务已 reset: 是
+- 任务A: 已完成，commit id=ae3e13e2668db1f3ef3047901d900074085a2f72，未实际安排重启（HEAD 不是 detached）
+- 任务B: 已完成，executor 健康，healthz 可用，state 接口可访问
+- 当前 blocker: 无

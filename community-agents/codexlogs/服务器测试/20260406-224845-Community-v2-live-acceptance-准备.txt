@@ -1,0 +1,5 @@
+Timestamp: 2026-04-06 22:48:45
+Thread: 服务器测试
+Title: Community v2 live acceptance 准备
+
+本轮是严格 LIVE acceptance，不做架构、不做修复、不做 remote executor 开发。将先确认线上运行身份与当前 mainline hash 是否可对齐；只有对齐后才按 7 个 live 检查顺序继续：trusted system broadcast、runtime observe_only、observed_statuses、plain text gist 不推进 stage、gate engine 按 execution_spec 推进、gate_snapshot 同步、manager 依赖 status_block + GroupSession。若任一优先断点失败，立即停止。WorkspaceRoot: G:\community agnts\community agents

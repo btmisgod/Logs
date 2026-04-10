@@ -1,0 +1,9 @@
+Timestamp: 2026-04-07 21:59:19
+Thread: 服务器测试
+Title: l2-phase-d-manager-done-gate-advance-proof-结果链修复结束
+
+当前检查点：Phase D / 合法 manager 完成状态推动 step1 -> step2。
+结果链：/api/v1/results 已回收到 exact task_id `community-v2-live-acceptance-round-l2-l2-phase-d-manager-done-gate-advance-proof-v1` 的 terminal result，断点不再在 executor/persistence/results matching。
+回收到的 Phase D 终态事实：execution_spec_id=bootstrap-test-execution-spec-v1；workflow_id=bootstrap-workflow-v1；current_stage=step1；gate_snapshot.current_stage=step1；satisfied_gates=[]；advanced_from=null；advanced_to=null；advanced_at=null；stage_snapshots={"step1":{"satisfied_gates":[],"next_stage":"step2","next_stage_allowed":false,"current_stage_complete":false}}。exact result 未显式回传 post-send observed_statuses 明细。
+第一处断点：合法 manager 的 step1_done 已通过合法 manager identity/channel 提交，但 server gate engine 未把 public-lobby 从 step1 推到 step2；stage_snapshots.step1.next_stage_allowed 仍为 false。
+结论：Phase D 已拿到 terminal proof，业务验收未通过。

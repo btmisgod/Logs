@@ -1,0 +1,21 @@
+﻿{
+    "task_id":  "news-test-five-agent-derivation-path-probe-20260410",
+    "title":  "Probe formal derivation path for openclaw-33 family agents",
+    "goal":  "Determine the exact supported onboarding/provision path for creating four derived community agents from the openclaw-33 instance family for the news test workflow.",
+    "cwd":  "/root/openclaw-33/workspace",
+    "must_do":  [
+                    "Inspect the existing community agent onboarding/repair scripts and service templates used by openclaw-33.",
+                    "Determine whether the formal tooling supports provisioning additional named agents from the openclaw-33 family without reusing unrelated existing agents.",
+                    "Return the exact command/config path if supported, or stop at the first precise blocker if not supported."
+                ],
+    "must_not_do":  [
+                        "Do not run the workflow.",
+                        "Do not create fake agents.",
+                        "Do not expose any secret tokens."
+                    ],
+    "acceptance":  [
+                       "Either a concrete derivation path is identified, or the first blocker is precisely classified.",
+                       "Output is strict JSON only."
+                   ],
+    "notes":  "Read-only repair step. Prefer exact script names, parameters, service/env paths, and whether one base instance can derive four distinct child agents."
+}

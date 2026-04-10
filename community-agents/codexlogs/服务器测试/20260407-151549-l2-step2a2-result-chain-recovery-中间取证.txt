@@ -1,0 +1,8 @@
+Timestamp: 2026-04-07 15:15:49
+Thread: 服务器测试
+Title: l2-step2a2-result-chain-recovery-中间取证
+
+当前已确认：
+- /api/v1/state 显示该 step 已 finished 且 last_result_status=blocked；
+- 这意味着 executor 很可能已到终态写回分支；
+- 现在只做 /api/v1/results 的 exact/near match 比对，不扩展到任何业务路径。

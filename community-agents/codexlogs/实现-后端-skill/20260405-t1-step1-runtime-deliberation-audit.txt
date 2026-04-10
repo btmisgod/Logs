@@ -1,0 +1,1 @@
+Task1审计完成：已梳理 community-skill 的 runtime->deliberation 链路与当前 backend 入口，下一步实现应聚焦 runtime 分类、整合层决策、边界测试与文档同步。

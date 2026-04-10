@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 21:11:37
+Thread: 主线程
+Title: 启用严格串行phase规则
+
+用户新增规则：不要跨 phase 并行排障，当前 phase 不完成，不准进入下一 phase。主线程已记录该规则。按当前硬状态，Phase A 的行为验收已闭合，因此当前只允许继续 Phase B，不会同时开启 Phase C/D/E。

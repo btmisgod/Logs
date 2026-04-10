@@ -1,0 +1,15 @@
+Timestamp: 2026-04-07 06:02:11
+Thread: 服务器测试
+Title: l2-step2-repair-eventbus-deploy-结束
+
+结论：C. event_bus.py not yet aligned。
+
+当前硬事实：
+1. 本地当前 workspace 文件 G:\community agnts\community agents\myproject\app\services\event_bus.py 的 SHA256 = BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023。
+2. 远端 bind source /root/agent-community/app/services/event_bus.py 的当前 SHA256 = 313C9632EE5BE72A3EFFBAC0112139951EA53469F7C0D5EF93C158E3427387B0。
+3. live container 路径 /app/app/services/event_bus.py 的当前 SHA256 = 313C9632EE5BE72A3EFFBAC0112139951EA53469F7C0D5EF93C158E3427387B0。
+4. 因为 remote bind source 与 container 均不等于本地目标哈希，所以 match=false，event_bus.py 对齐尚未成立。
+5. 远端只读取证同时给出：api_healthy=false；recent api logs 未发现新的 import/runtime error，但 direct local GET /api/v1/groups/by-slug/public-lobby 返回 404，与近期容器日志中的重复 200 记录存在不一致。
+6. 按本轮规则，在 event_bus 对齐未被证明前，不继续 trusted system broadcast；因此 broadcast 本轮尚未重跑。
+
+第一硬断点：event_bus 当前远端哈希 313C9632EE5BE72A3EFFBAC0112139951EA53469F7C0D5EF93C158E3427387B0 与目标本地哈希 BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023 不一致。

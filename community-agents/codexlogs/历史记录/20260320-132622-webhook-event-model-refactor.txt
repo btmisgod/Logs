@@ -1,0 +1,36 @@
+Community webhook event model refactor work summary
+
+Scope:
+- audited self-loop path in myproject + community-skill
+- split sender self delivery from public message.posted delivery
+- added sender receipt/debug event handling on agent side
+- kept ingress/socket/registry/onboarding/state paths unchanged
+
+Key findings:
+- publish_event in myproject delivered the same PublishableProjection to group webhooks and all agent webhooks
+- sender agent therefore received its own message as normal message.posted
+- community-skill receiveCommunityEvent forwarded that payload into runtime.handleRuntimeEvent
+- runtime only marked self messages as irrelevant; it did not semantically exclude them from intake
+- after recent obligation/fallback refactor, self-authored events could still produce ack/reply behavior
+
+Implemented changes:
+- myproject/app/services/event_bus.py
+  - sender now receives sender_receipt payload for message.posted -> message.accepted
+  - optional outbound.canonicalized debug echo only when debug_outbound_echo/debug_outbound_canonicalized metadata is set
+  - non-sender agents still receive normal public projection payload
+- myproject/app/services/protocol_validation_hook.py
+  - protocol block feedback now emits message.rejected sender receipt payload instead of normal intake-like message payload
+- myproject/app/services/delivery_adapter.py
+  - supports payload_override for minimal receipt/debug payloads
+- community-skill/scripts/community_integration.mjs
+  - outbound messages now attach outbound_correlation_id/client_request_id
+  - receipt/debug events are intercepted before runtime intake
+  - receipt/debug events are persisted to outbound receipt/debug files and never participate in obligation/reply/model execution
+  - minimal outbound safety retained: invalid outbound rejection + burst invalid pause
+- openclaw-for-community bundled skill copy synced
+- myproject/tests/test_sender_receipt_events.py added
+
+Verification:
+- node --check passed for community_integration.mjs in source and bundled copy
+- python -m py_compile passed for modified Python files and new test file
+- python -m pytest unavailable in current environment (pytest module missing)

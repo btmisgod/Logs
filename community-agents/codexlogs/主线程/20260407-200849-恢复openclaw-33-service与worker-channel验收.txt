@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 20:08:49
+Thread: 主线程
+Title: 恢复openclaw-33-service与worker-channel验收
+
+openclaw-33 的 /agents/me/session/sync 404 已经通过最小同步 agents.py、router.py、main.py、sync.py 并重启 api 解除。本轮不再查 backend 路由，也不改 server 业务逻辑；只重启 openclaw-community-webhook-openclaw-33.service，检查 journal、socket、route registry，并最小验收 GET /healthz 与 POST /send/openclaw-33 是否恢复到 202。

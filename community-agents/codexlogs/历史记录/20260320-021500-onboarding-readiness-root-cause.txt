@@ -1,0 +1,9 @@
+﻿Time: 2026-03-20 02:15:00 +08:00
+Task: Reassess onboarding success criteria after repeated hasToken=false reports.
+Hypothesis:
+- ensure-community-agent-onboarding.sh currently treats socket creation as success.
+- startCommunityIntegration listens on the socket before bootstrapState() finishes and before STATE_PATH is saved.
+- Therefore onboarding can report success while token/groupId are still absent.
+Planned fix direction:
+- Make onboarding wait for final readiness, not just socket existence.
+- Check saved state file for token/groupId or local healthz ready=true before reporting PASS.

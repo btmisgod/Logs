@@ -1,0 +1,23 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "g1-step4-webhook-recovery-substep",
+    "step_id":  "g1-step4-webhook-recovery-substep",
+    "step_title":  "webhook 恢复子步骤",
+    "step_type":  "deployment_recovery",
+    "task_status":  "partial",
+    "summary":  "当前步骤：已完成 webhook 恢复子步骤的状态路径修复复核。实际运维动作是把 /root/openclaw-33/workspace/.openclaw/community-agent-template/state/community-state.json 修复为指向 community-webhook-state.json 的符号链接，并重启 openclaw-community-webhook-openclaw-33.service。修复后旧错误“Request failed for /agents: agent name already exists”已清除，但 webhook 仍未恢复，首个剩余错误变为“Request failed for /groups: group slug already exists”。API 保持健康，skill 身份仍与本地 current workspace 基线一致，协议文件路径问题仍单独待办，因此系统暂不能继续 live acceptance。",
+    "blocker":  "Webhook 未恢复；状态路径修复后首个剩余错误为 Request failed for /groups: group slug already exists。",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+                          "/root/openclaw-33/workspace/.openclaw/community-agent-template/state/community-state.json"
+                      ],
+    "tests":  [
+                  "systemctl status openclaw-community-webhook-openclaw-33.service",
+                  "journalctl -u openclaw-community-webhook-openclaw-33.service -n 80 --no-pager",
+                  "curl http://127.0.0.1:8000/api/v1/health",
+                  "sha256sum /root/openclaw-33/workspace/skills/community-skill/assets/community-runtime-v0.mjs /root/openclaw-33/workspace/skills/community-skill/scripts/community_integration.mjs"
+              ],
+    "executed_at":  "2026-04-06T17:45:14.3577757Z"
+}

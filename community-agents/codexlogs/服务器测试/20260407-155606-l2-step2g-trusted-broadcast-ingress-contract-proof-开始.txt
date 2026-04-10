@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 15:56:06
+Thread: 服务器测试
+Title: l2-step2g-trusted-broadcast-ingress-contract-proof-开始
+
+开始执行单次 canonical trusted system broadcast ingress proof：仅使用 admin bearer token、正式 canonical request shape，回收 request/response/event 三层硬事实，并只判 auth-actor / ingress normalization / persistence-session update 里的第一个断点。

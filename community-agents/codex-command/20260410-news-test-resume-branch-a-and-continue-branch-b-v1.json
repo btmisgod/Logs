@@ -1,0 +1,147 @@
+{
+  "command_id": "20260410-news-test-resume-branch-a-and-continue-branch-b-v1",
+  "version": "1.0",
+  "created_at": "2026-04-10",
+  "target_thread": "main-controller",
+  "workspace_root": "G:\\community agnts\\community agents",
+  "title": "Resume news test branch A after remote result-chain false positive; continue branch B in parallel",
+  "objective": "Resume the original two-branch task. Branch A must continue from 5-agent topology provisioning and drive the news test workflow to two real cycles. Branch B must continue in parallel on the cycle-filter dropdown/UI work. The previously reported remote /api/v1/results persistence blocker is now cleared and must not be reused as a generic stop reason.",
+  "references": [
+    {
+      "path": "G:\\community agnts\\community agents\\codex command\\20260410-news-test-five-agent-two-cycle-and-ui-cycle-filter-v1.json",
+      "description": "Original two-branch task definition."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-repair-remote-executor-results-persistence-v1\\19-structured-result.json",
+      "description": "Fresh evidence that smoke and provisioning-class probes now have terminal results and the previous remote result-persistence blocker is cleared."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-news-test-five-agent-two-cycle-and-ui-cycle-filter-v1\\branch-a-blocker-remote-provisioning-executor.json",
+      "description": "The old branch A blocker file that is now superseded by the fresh repair evidence."
+    },
+    {
+      "path": "G:\\deepflow\\docs\\design\\newsflow-agentic-workflow-spec.md",
+      "description": "Role and cycle semantics for the 5-role news workflow."
+    }
+  ],
+  "target_group": {
+    "group_name": "news test",
+    "preferred_group_slug": "news-test"
+  },
+  "parallel_branches": [
+    {
+      "branch_id": "branch_a_resume_five_agent_deploy_and_two_cycle_run",
+      "title": "Resume 5-agent deployment and complete two cycles",
+      "required_work": [
+        {
+          "id": "a1_resume_from_topology_provisioning",
+          "description": "Resume branch A from topology provisioning, using the already-proven single-child onboarding path as the immediate provisioning template."
+        },
+        {
+          "id": "a2_complete_five_agent_topology",
+          "description": "Provision or verify all 5 required agents: openclaw-33 as manager, plus four derived subagents for editor, worker-33, worker-xhs, and tester."
+        },
+        {
+          "id": "a3_group_membership_and_role_binding",
+          "description": "Ensure the news test group exists, all five agents are joined, and the role binding for the 5-role workflow is authoritative."
+        },
+        {
+          "id": "a4_deploy_five_role_workflow",
+          "description": "Deploy the 5-role news workflow. Do not silently downgrade to the old 3-role simple news workflow."
+        },
+        {
+          "id": "a5_run_cycle_1",
+          "description": "Run the first real cycle to a terminal workflow closeout or the first precise blocker."
+        },
+        {
+          "id": "a6_run_cycle_2",
+          "description": "Run the second real cycle in the same group. It must be a real second round, not a replay or duplication of cycle 1."
+        },
+        {
+          "id": "a7_collect_cycle_identity_evidence",
+          "description": "Collect evidence that cycle 1 and cycle 2 are distinct in workflow state, messages, and artifacts."
+        }
+      ],
+      "acceptance": [
+        "The 5-agent topology is real and authoritative.",
+        "The deployed workflow remains the 5-role news workflow, not a silent fallback to the old 3-role version.",
+        "Two real cycles complete, or the first precise blocker is surfaced with evidence.",
+        "Cycle identity evidence exists for both cycles."
+      ],
+      "do_not": [
+        "Do not reuse the cleared remote result-persistence blocker as a generic explanation for any new failure.",
+        "Do not declare remote persistence broken again unless fresh evidence proves smoke plus provisioning probe both fail in the same repair window.",
+        "Do not fake cycle 2 by copying cycle 1 artifacts or logs.",
+        "Do not silently substitute unrelated agents for the required four derived subagents."
+      ]
+    },
+    {
+      "branch_id": "branch_b_continue_cycle_filter_dropdown",
+      "title": "Continue cycle-filter dropdown implementation and validation",
+      "required_work": [
+        {
+          "id": "b1_resume_existing_ui_branch",
+          "description": "Resume the existing UI branch rather than restarting from zero."
+        },
+        {
+          "id": "b2_complete_dropdown_and_binding",
+          "description": "Complete the dropdown in the conversation module top-right and bind it to real cycle metadata."
+        },
+        {
+          "id": "b3_validate_against_real_two_cycle_group_data",
+          "description": "Validate all-cycles / cycle 1 / cycle 2 filtering against the news test group after two real cycles exist."
+        }
+      ],
+      "acceptance": [
+        "Dropdown visible in the requested top-right location.",
+        "Cycle 1 filter shows only cycle 1 conversation content.",
+        "Cycle 2 filter shows only cycle 2 conversation content.",
+        "All-cycles restores the mixed conversation view."
+      ],
+      "do_not": [
+        "Do not stall branch B solely because branch A previously had a cleared infrastructure blocker.",
+        "Do not use brittle text guessing instead of explicit cycle mapping."
+      ]
+    }
+  ],
+  "controller_requirements": {
+    "parallel_execution_rule": "Run branch A and branch B in parallel. Branch B must not remain idle just because branch A had an earlier infrastructure repair.",
+    "blocker_discipline_rule": "A task that is still running is not automatically a broken result-persistence case. Do not reclassify it as infrastructure failure without fresh decisive evidence.",
+    "evidence_rule": "Each branch must keep its own evidence trail, then the main controller must publish one final structured summary for both branches."
+  },
+  "deliverables": [
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-news-test-resume-branch-a-and-continue-branch-b-v1",
+      "description": "Evidence folder for the resumed branch A work, continuing branch B work, and final closeout."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\主线程",
+      "description": "Main-controller log root."
+    }
+  ],
+  "working_principles": [
+    "The previous remote result-persistence blocker is cleared. Resume the real task instead of re-litigating the cleared blocker.",
+    "Evidence beats narration. Fresh evidence is required for any new blocker classification.",
+    "Parallel branches stay parallel unless there is a proven hard dependency.",
+    "Do not silently simplify away the 5-agent and two-cycle requirements."
+  ],
+  "result_format": {
+    "required_fields": [
+      "Status",
+      "BlockerType",
+      "Blocker",
+      "BranchAStatus",
+      "BranchBStatus",
+      "ActualGroupName",
+      "ActualGroupSlug",
+      "FiveAgentTopologyReady",
+      "TwoCyclesCompleted",
+      "CycleFilterVisible",
+      "Cycle1FilterWorks",
+      "Cycle2FilterWorks",
+      "evidence_paths",
+      "log_path",
+      "NextStep"
+    ]
+  }
+}

@@ -1,0 +1,185 @@
+{
+  "command_id": "20260410-news-test-five-agent-two-cycle-and-ui-cycle-filter-v1",
+  "version": "1.0",
+  "created_at": "2026-04-10",
+  "target_thread": "main-controller",
+  "workspace_root": "G:\\community agnts\\community agents",
+  "title": "Deploy 5-agent news workflow to new group and add cycle filter dropdown in UI",
+  "objective": "Run two parallel branches. Branch A: deploy the 5-role news workflow into a new community group named 'news test', generate the required 5 agents from the openclaw-33 instance family, and run the workflow for two cycles. Branch B: add a dropdown in the top-right area of the conversation module so the UI can filter and display messages by cycle/round.",
+  "references": [
+    {
+      "path": "G:\\deepflow\\docs\\design\\newsflow-agentic-workflow-spec.md",
+      "description": "Source-of-truth role model and cycle-based news workflow semantics."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\当前测试群组协议_初稿.jsonc",
+      "description": "Current community protocol draft and existing simple news workflow baseline."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\16-final-closeout.json",
+      "description": "Previously validated baseline proving the current community can run bootstrap + simple formal workflow."
+    }
+  ],
+  "target_group": {
+    "group_name": "news test",
+    "preferred_group_slug": "news-test",
+    "if_slug_taken": "use a deterministic variant such as news-test-20260410 and report the actual slug"
+  },
+  "agent_topology": {
+    "source_instance": "openclaw-33",
+    "required_total_agents": 5,
+    "manager": {
+      "agent_source": "openclaw-33 base instance",
+      "role": "manager"
+    },
+    "subagents": [
+      {
+        "derived_from": "openclaw-33",
+        "role": "editor"
+      },
+      {
+        "derived_from": "openclaw-33",
+        "role": "worker-33"
+      },
+      {
+        "derived_from": "openclaw-33",
+        "role": "worker-xhs"
+      },
+      {
+        "derived_from": "openclaw-33",
+        "role": "tester"
+      }
+    ],
+    "hard_rule": "All four non-manager roles must be implemented as subagents or derived agents from the openclaw-33 instance family. Do not source them from unrelated existing agents."
+  },
+  "parallel_branches": [
+    {
+      "branch_id": "branch_a_news_workflow_deploy_and_two_cycle_run",
+      "title": "Deploy and run 5-agent news workflow",
+      "primary_owner": "main-controller via backend/skill + server-test path",
+      "required_work": [
+        {
+          "id": "a1_role_mapping_and_agent_generation",
+          "description": "Create or provision one manager (33 base) and four derived subagents for editor, worker-33, worker-xhs, and tester roles."
+        },
+        {
+          "id": "a2_group_creation_and_membership",
+          "description": "Create the new group named 'news test', join the 5 required agents, and confirm role mapping in the group protocol or deployment metadata."
+        },
+        {
+          "id": "a3_workflow_deployment",
+          "description": "Deploy the news workflow into the new group using the 5-role model from the DeepFlow newsflow spec as the source of truth for roles and cycle semantics."
+        },
+        {
+          "id": "a4_bootstrap_and_cycle_1",
+          "description": "Run bootstrap/startup if required by the community runtime, then complete cycle 1 of the news workflow."
+        },
+        {
+          "id": "a5_cycle_2",
+          "description": "Run cycle 2 of the same workflow in the same group. The second cycle must be a real second round, not a copied artifact or log replay."
+        },
+        {
+          "id": "a6_cycle_artifact_and_round_evidence",
+          "description": "Collect evidence that both cycles produced distinct cycle/round identities and distinct conversation/artifact traces."
+        }
+      ],
+      "acceptance": [
+        "A new group named 'news test' (or reported deterministic slug variant) exists.",
+        "Exactly 5 agents are present for this workflow topology: 33 as manager plus four derived subagents for editor, worker-33, worker-xhs, and tester.",
+        "The deployed workflow is not silently downgraded to the old 3-role simple workflow.",
+        "Two real cycles complete or a precise first design/runtime blocker is surfaced.",
+        "Artifacts or messages can be attributed to cycle 1 vs cycle 2."
+      ],
+      "do_not": [
+        "Do not silently reuse neko/xhs/other unrelated agents as substitutes.",
+        "Do not quietly downgrade this request to the previously validated 3-agent simple workflow.",
+        "Do not fake the second cycle by duplicating logs, artifacts, or messages from cycle 1.",
+        "Do not blur a 5-role design/runtime incompatibility into a generic 'workflow failed'; classify the first real blocker."
+      ]
+    },
+    {
+      "branch_id": "branch_b_ui_cycle_filter_dropdown",
+      "title": "Add cycle filter dropdown in conversation module",
+      "primary_owner": "frontend thread, with minimal backend/projection support only if required",
+      "ui_target": {
+        "page_area": "conversation module",
+        "location": "top-right area inside the red-box conversation panel, matching the blue-box position from the user screenshot"
+      },
+      "required_work": [
+        {
+          "id": "b1_add_dropdown_ui",
+          "description": "Add a dropdown control in the specified top-right position of the conversation module."
+        },
+        {
+          "id": "b2_define_filter_options",
+          "description": "Provide at least 'all cycles', 'cycle 1', and 'cycle 2' options once two-cycle data exists."
+        },
+        {
+          "id": "b3_bind_cycle_filter_to_message_rendering",
+          "description": "Filter the displayed conversation content by selected cycle/round so the message list only shows items belonging to that cycle."
+        },
+        {
+          "id": "b4_add_minimal_data_support_if_needed",
+          "description": "If the frontend cannot reliably identify cycle membership from current projection data, add the minimum backend/projection field needed. Do not redesign the whole API."
+        },
+        {
+          "id": "b5_validate_with_real_two_cycle_group_data",
+          "description": "Validate the dropdown against the new 'news test' group after cycle 1 and cycle 2 exist."
+        }
+      ],
+      "acceptance": [
+        "A dropdown is visible in the requested top-right position of the conversation module.",
+        "Selecting cycle 1 only shows cycle 1 conversation content.",
+        "Selecting cycle 2 only shows cycle 2 conversation content.",
+        "An all-cycles option can restore the full mixed conversation view.",
+        "The solution uses explicit cycle metadata or explicit projection mapping, not brittle text guessing."
+      ],
+      "do_not": [
+        "Do not place the control in another module or hide it in a debug area.",
+        "Do not rely on raw JSON text inspection in the browser to infer cycle membership.",
+        "Do not redesign the whole dashboard or add unrelated UI work."
+      ]
+    }
+  ],
+  "controller_requirements": {
+    "parallel_execution_rule": "The main controller must open these two branches in parallel. Do not serialize branch B behind branch A unless a hard shared blocker makes that unavoidable.",
+    "coordination_rule": "If branch B needs minimal backend/projection support for cycle metadata, treat that as a focused repair inside branch B instead of collapsing both branches into one serial task.",
+    "evidence_rule": "Each branch must leave its own evidence files and log trail, then the main controller must publish one final structured summary that includes both branch outcomes."
+  },
+  "deliverables": [
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-news-test-five-agent-two-cycle-and-ui-cycle-filter-v1",
+      "description": "Main evidence folder for both branches."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\主线程",
+      "description": "Main-controller log root."
+    }
+  ],
+  "working_principles": [
+    "Do the work in parallel branches, not as one giant serial checklist.",
+    "Use the DeepFlow newsflow spec for role semantics; use the community runtime as the deployment target.",
+    "Do not silently simplify away the user's 5-agent / 2-cycle requirement.",
+    "For the UI branch, prefer minimal explicit data support over heuristic guessing.",
+    "If current community runtime cannot support the required 5-role two-cycle deployment, stop at the first real blocker with evidence instead of pretending the deployment succeeded."
+  ],
+  "result_format": {
+    "required_fields": [
+      "Status",
+      "BlockerType",
+      "Blocker",
+      "BranchAStatus",
+      "BranchBStatus",
+      "ActualGroupName",
+      "ActualGroupSlug",
+      "FiveAgentTopologyReady",
+      "TwoCyclesCompleted",
+      "CycleFilterVisible",
+      "Cycle1FilterWorks",
+      "Cycle2FilterWorks",
+      "evidence_paths",
+      "log_path",
+      "NextStep"
+    ]
+  }
+}

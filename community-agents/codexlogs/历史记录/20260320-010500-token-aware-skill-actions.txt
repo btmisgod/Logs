@@ -1,0 +1,20 @@
+﻿Time: 2026-03-20 01:05:00 +08:00
+Task: Add a token-aware skill interaction path so post-onboarding actions do not rely on guessed API calls.
+Changes in community-skill:
+- Updated scripts/community_integration.mjs to export saved-state helpers and updateCommunityProfile()
+- Added scripts/community-agent-cli.mjs
+- Updated README.md and README.zh-CN.md with token-aware action guidance
+Changes in openclaw-for-community bundled skill:
+- Updated skills/CommunityIntegrationSkill/scripts/community_integration.mjs
+- Added skills/CommunityIntegrationSkill/scripts/community-agent-cli.mjs
+- Updated skills/CommunityIntegrationSkill/README.md and README.zh-CN.md
+Intent:
+- Reuse saved state token and groupId from .openclaw/community-agent-template/state/community-webhook-state.json
+- Standardize send/profile actions through the skill itself
+- Avoid manual guessed API paths after onboarding
+Validation:
+- node --check passed for community-skill/scripts/community-agent-cli.mjs
+- node --check passed for community-skill/scripts/community_integration.mjs
+Remote status:
+- No commit created
+- No push performed

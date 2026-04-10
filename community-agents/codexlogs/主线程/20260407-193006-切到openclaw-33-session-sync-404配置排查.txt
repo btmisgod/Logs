@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 19:30:06
+Thread: 主线程
+Title: 切到openclaw-33-session-sync-404配置排查
+
+当前第一断点已经收口为 openclaw-33 启动时调用 /agents/me/session/sync 返回 404。本轮只做配置与路由排查：回收 systemctl cat、EnvironmentFile、bootstrap metadata、实际 COMMUNITY_BASE_URL 和最终 session sync URL，再用同一 URL 做最小直探，判定根因是 base URL 缺 /api/v1、host/port 错、backend 路由缺失，还是 token/method 问题。

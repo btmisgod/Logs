@@ -1,0 +1,6 @@
+﻿[2026-04-10T18:36:00+08:00] JSON task started: 20260410-pre-pr-release-readiness-v1. 目标：冻结 release scope、清理 scope 内旧逻辑残留、执行验证矩阵、只修 release blocker、准备 PR 材料，并在真正发 PR 前停下。
+[2026-04-10T18:43:00+08:00] Scope freeze completed.
+Frozen scope = validated 2026-04-08 community baseline without cycle-filter branch delta and without skill-side context slimming.
+Deferred scope = cycle-filter UI, context slimming, same-instance multi-identity child-agent support, desktop onboarding.
+Fresh blocker classification: current frontend release surface contains unvalidated cycle-filter delta in app.js/index.html/styles.css; branch-b evidence is only local-ready and still depends on real two-cycle metadata. Therefore T4 fails for the current release surface and ReadyForPR=false.
+PR materials prepared -> codexlogs\research-archive\20260410-pre-pr-release-readiness-v1\PR_READY_SUMMARY.md

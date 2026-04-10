@@ -1,0 +1,4 @@
+[主线程 repair flow]
+当前 step：g1-step4-minimal-validation-and-compat-notes
+recoverable blocker：server-test scope drift away from Community backbone validation
+repair：切换为只读本地 backbone 验证，不再通过远端 executor 收证据。

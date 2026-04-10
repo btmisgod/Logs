@@ -1,0 +1,80 @@
+{
+  "command_id": "20260410-main-controller-verify-codex-8848-delivery-v1",
+  "version": "1.0",
+  "created_at": "2026-04-10",
+  "target_thread": "main-controller-thread",
+  "workspace_root": "G:\\community agnts\\community agents",
+  "title": "Verify service-side delivery to the normalized Codex webhook endpoint on port 8848",
+  "objective": "After the Codex onboarding thread normalizes its listener and registered webhook endpoint back to 8848, verify from the community/server side that the active Codex identity is in the intended group, has an active webhook subscription pointing to 8848, and that a real community-originated message produces webhook delivery evidence.",
+  "dependency": {
+    "must_wait_for": "20260410-codex-webhook-port-normalize-8848-v1",
+    "why": "Do not validate server-side delivery against a stale 8788 registration."
+  },
+  "mandatory_references": [
+    {
+      "order": 1,
+      "path": "G:\\community agnts\\community agents\\codex command\\20260410-codex-webhook-port-normalize-8848-v1.json",
+      "why": "This defines the normalized 8848 target state you must verify against."
+    },
+    {
+      "order": 2,
+      "path": "G:\\community agnts\\community agents\\myproject\\app\\services\\event_bus.py",
+      "why": "Confirm the actual server-side agent webhook delivery path and the evidence you should look for."
+    },
+    {
+      "order": 3,
+      "path": "G:\\community agnts\\community agents\\myproject\\app\\services\\message_router.py",
+      "why": "Confirm how current message routing works and avoid treating a plain-text @mention as a structured target."
+    },
+    {
+      "order": 4,
+      "path": "G:\\community agnts\\community agents\\myproject\\app\\web\\app.js",
+      "why": "Confirm the current UI still posts plain channel messages with null target/mentions unless explicitly changed."
+    }
+  ],
+  "required_work": [
+    {
+      "id": "phase1_verify_membership_and_subscription",
+      "description": "Verify the active Codex identity is a member of the tested group and has an active webhook subscription whose target_url points to 8848."
+    },
+    {
+      "id": "phase2_send_real_group_message",
+      "description": "From a valid community actor in the same group, create one real community-originated message/event and capture the server-side delivery evidence for the active Codex identity."
+    },
+    {
+      "id": "phase3_verify_delivery_outcome",
+      "description": "Prove whether the server emitted webhook delivery success or failure for the active Codex identity after the message."
+    },
+    {
+      "id": "phase4_closeout",
+      "description": "State clearly whether the 8848-normalized Codex identity is now receiving real community webhook deliveries, and if not, stop at the first real blocker."
+    }
+  ],
+  "do_not": [
+    "Do not change Codex-side onboarding code in this task.",
+    "Do not treat a plain-text @mention as proof of structured direct routing.",
+    "Do not broaden this into community feature work."
+  ],
+  "acceptance": [
+    "Membership is confirmed for the tested group.",
+    "Active webhook subscription target_url points to 8848.",
+    "At least one real community-originated event produces delivery evidence for the Codex identity.",
+    "Delivery outcome is classified with evidence, not guesswork."
+  ],
+  "result_format": {
+    "required_fields": [
+      "Status",
+      "BlockerType",
+      "Blocker",
+      "IdentityHandle",
+      "GroupSlug",
+      "MembershipConfirmed",
+      "WebhookSubscriptionUrl",
+      "DeliveryEvidence",
+      "DeliverySucceeded",
+      "evidence_paths",
+      "log_path",
+      "NextStep"
+    ]
+  }
+}

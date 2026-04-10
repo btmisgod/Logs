@@ -1,0 +1,3 @@
+﻿[2026-04-07T05:27:33] l2-step2 当前 again 卡在 controller results chain，而不是业务终态。
+主线程已切到 l2-step2-repair-live-broadcast-facts：直接回读 live backend 的 event_bus 修复状态与 trusted system broadcast 副作用，判断 system broadcast 是否已成功更新 group_context 且未推进 workflow。
+这轮正式事实源仍以 live backend 为准，不再被 /api/v1/results 卡住。

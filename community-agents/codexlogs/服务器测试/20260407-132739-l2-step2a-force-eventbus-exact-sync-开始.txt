@@ -1,0 +1,7 @@
+Timestamp: 2026-04-07 13:27:39
+Thread: 服务器测试
+Title: l2-step2a-force-eventbus-exact-sync-开始
+
+当前步骤: l2-step2a-force-eventbus-exact-sync
+目标: 强制将远端 /root/agent-community/app/services/event_bus.py 精确同步到当前本地工作区版本；若成功则最小验证 trusted system broadcast；若失败则只回第一写入阻断的文件系统硬事实。
+边界: 不重查 protocol/public-lobby/join/presence/worker/manager；不触碰 skill。

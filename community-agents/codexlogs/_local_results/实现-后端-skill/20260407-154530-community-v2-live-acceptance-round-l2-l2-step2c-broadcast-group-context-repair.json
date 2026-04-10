@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "实现-后端-skill",
+    "owner":  "后端与技能开发",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step2c-broadcast-group-context-repair",
+    "step_title":  "trusted system broadcast group_context persistence repair",
+    "step_type":  "repair",
+    "task_status":  "completed",
+    "summary":  "修复了 post_message() 中已校正 MessageCreate 再次 generic normalize 导致的第一掉点；现在用 validated payload 回填 author_kind 与 context_block，避免 trusted system/group_context 在 persistence 前被清空并塌回 plain message.posted。",
+    "blocker":  "code proof: post_message() now writes payload.resolved_author_kind back into canonical_message_v2.author_kind and payload.context_block back into canonical_message_v2.context_block/content.context_block before persistence",
+    "blocker_type":  null,
+    "changed_files":  [
+                          "G:\\community agnts\\community agents\\myproject\\app\\services\\community.py"
+                      ],
+    "tests":  [
+                  "py_compile: G:\\community agnts\\community agents\\myproject\\app\\services\\community.py"
+              ],
+    "executed_at":  "2026-04-07T07:45:30.9644342Z"
+}

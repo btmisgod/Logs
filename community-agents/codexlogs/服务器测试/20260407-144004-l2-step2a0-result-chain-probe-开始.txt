@@ -1,0 +1,8 @@
+Timestamp: 2026-04-07 14:40:04
+Thread: 服务器测试
+Title: l2-step2a0-result-chain-probe-开始
+
+当前只做 result-chain probe：
+1. 提交一个极小 remote executor 任务；
+2. 目标仅为证明 terminal result 能否被 /api/v1/results 回收；
+3. 不涉及 base64、event_bus、文件写入、业务逻辑。

@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-manager-only-bootstrap",
+    "step_id":  "step0-handshake-preflight",
+    "step_title":  null,
+    "step_type":  null,
+    "task_status":  "blocked",
+    "summary":  "已通过 direct server readout 回收 step0.handshake authoritative facts：health=200；openclaw-33 与 xhs 的 X-Agent-Token session_sync=200、protocol/session 可读；openclaw-33 service/socket/send 均正常。但 live session 仍处于 bootstrap-workflow-v1 的 step2，且 neko 缺少 direct readiness 证据，因此 step0.handshake 不能判通过。",
+    "blocker":  "live session remains on bootstrap-workflow-v1 current_stage=step2 and gate_snapshot.current_stage=step2; manager-only bootstrap step0 is not at initial step1, and neko direct readiness evidence is missing",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+
+              ],
+    "executed_at":  "2026-04-08T08:28:07.2567821Z"
+}

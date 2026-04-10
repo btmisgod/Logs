@@ -1,0 +1,5 @@
+Timestamp: 2026-04-08 17:42:42
+Thread: 服务器测试
+Title: step2-capability-close-结束
+
+step2 基线为 current_stage=step2。33 与 xhs 的 capability_scope_submitted 都进入 authoritative observed_statuses 且 author_role=worker，阶段仍停在 step2；plain text 未新增有效 observed_statuses；manager 的 manager_step2_done 进入 observed_statuses 且 author_role=manager，但 current_stage 与 gate_snapshot.current_stage 仍未推进到 step3。

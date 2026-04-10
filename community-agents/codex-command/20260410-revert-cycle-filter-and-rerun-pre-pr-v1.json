@@ -1,0 +1,102 @@
+{
+  "command_id": "20260410-revert-cycle-filter-and-rerun-pre-pr-v1",
+  "version": "1.0",
+  "created_at": "2026-04-10",
+  "target_thread": "main-controller",
+  "workspace_root": "G:\\community agnts\\community agents",
+  "title": "Revert cycle-filter UI branch from release surface and rerun pre-PR readiness",
+  "objective": "Take the current frontend release surface back to the last validated UI baseline by removing the unvalidated cycle-filter branch delta, then rerun the pre-PR readiness task and stop at the last safe point before PR. Do not add new features, do not keep cycle-filter code in the release surface, and do not open the PR.",
+  "why_now": "Fresh pre-PR evidence proves the only current blocker is that cycle-filter UI code already exists in the release surface but has not completed real two-cycle live validation. The fastest correct path to PR-ready is to remove that branch delta from the release surface.",
+  "references": [
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-pre-pr-release-readiness-v1\\99-structured-result.json",
+      "description": "Current pre-PR blocker classification showing ReadyForPR=false because the cycle-filter UI branch is unvalidated."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-pre-pr-release-readiness-v1\\PR_READY_SUMMARY.md",
+      "description": "Human-readable summary of the current blocker and the two allowed repair paths."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codex command\\20260410-pre-pr-release-readiness-v1.json",
+      "description": "The pre-PR readiness task that must be rerun after the release surface is repaired."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\16-final-closeout.json",
+      "description": "Last clean live proof for the validated UI main-view baseline without the cycle-filter branch delta."
+    }
+  ],
+  "required_work": [
+    {
+      "id": "phase1_identify_cycle_filter_release_delta",
+      "description": "Inspect the current frontend release surface and isolate the cycle-filter branch delta that entered the release files. Limit this to the current known frontend files."
+    },
+    {
+      "id": "phase2_revert_cycle_filter_release_delta",
+      "description": "Remove or revert the cycle-filter UI branch delta from the release surface so the frontend matches the last validated baseline behavior. This means removing the unvalidated cycle selector rendering and its filtering behavior from the current release files."
+    },
+    {
+      "id": "phase3_verify_ui_baseline_local",
+      "description": "Run a local correctness check on the reverted frontend files to confirm the main-view baseline still renders and the release surface no longer contains the cycle-filter branch behavior."
+    },
+    {
+      "id": "phase4_rerun_pre_pr_readiness",
+      "description": "Rerun the pre-PR readiness task after the frontend release surface is repaired. Reuse the existing readiness discipline: frozen scope, validation matrix, and PR materials."
+    },
+    {
+      "id": "phase5_closeout_before_pr",
+      "description": "Write the final structured result stating whether the project is now ReadyForPR. Stop there. Do not create, push, or open the PR."
+    }
+  ],
+  "allowed_change_scope": [
+    "G:\\community agnts\\community agents\\myproject\\app\\web\\app.js",
+    "G:\\community agnts\\community agents\\myproject\\app\\web\\index.html",
+    "G:\\community agnts\\community agents\\myproject\\app\\web\\styles.css",
+    "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-pre-pr-release-readiness-v1",
+    "G:\\community agnts\\community agents\\codexlogs\\主线程"
+  ],
+  "do_not": [
+    "Do not continue or finish the cycle-filter feature in this task.",
+    "Do not keep any unvalidated cycle-filter branch logic in the release surface.",
+    "Do not modify backend, protocol, workflow, or skill logic for this task.",
+    "Do not open a PR.",
+    "Do not push a branch.",
+    "Do not expand scope into the deferred 5-agent two-cycle workflow or Codex community onboarding work."
+  ],
+  "working_principles": [
+    "The goal is release-surface cleanup, not feature completion.",
+    "Prefer reverting unvalidated code over carrying it into the release.",
+    "Reuse the already-established validated UI baseline as the target behavior.",
+    "After the revert, rerun readiness instead of arguing from assumption."
+  ],
+  "acceptance": [
+    "The current release files no longer include the unvalidated cycle-filter branch behavior.",
+    "Local verification shows the UI baseline remains intact.",
+    "The pre-PR readiness task is rerun on the repaired release surface.",
+    "The final structured result clearly states either ReadyForPR=true or the next first hard blocker."
+  ],
+  "deliverables": [
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-revert-cycle-filter-and-rerun-pre-pr-v1",
+      "description": "Evidence bundle for cycle-filter revert, local verification, rerun pre-PR readiness, and final closeout."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\主线程\\20260410-revert-cycle-filter-and-rerun-pre-pr-v1.txt",
+      "description": "Detailed execution log for this task."
+    }
+  ],
+  "result_format": {
+    "required_fields": [
+      "Status",
+      "BlockerType",
+      "Blocker",
+      "CycleFilterRemovedFromReleaseSurface",
+      "LocalUiBaselineCheckPassed",
+      "PrePrReadinessRerun",
+      "ReadyForPR",
+      "changed_files",
+      "evidence_paths",
+      "log_path",
+      "NextStep"
+    ]
+  }
+}

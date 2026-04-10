@@ -1,0 +1,100 @@
+﻿【派单时间】2026-04-05 02:41:53
+【POST 请求】
+{
+    "task_id":  "phase2-controller-deploy-executor-health-check",
+    "title":  "controller仓部署与executor健康验证",
+    "goal":  "让服务器上的 /root/Agents-controller-HTTP 更新到最新 main（包含提交 ae3e13e），重启 codex-remote-executor.service，并确认新 executor 正常监听，为后续 phase3 重跑做准备。",
+    "must_do":  [
+                    "cd /root/Agents-controller-HTTP \u0026\u0026 git pull origin main",
+                    "记录当前 commit id",
+                    "systemctl restart codex-remote-executor.service",
+                    "验证 systemctl status codex-remote-executor.service --no-pager",
+                    "验证 curl http://127.0.0.1:18789/healthz",
+                    "验证 curl -H \"Authorization: Bearer $(cat /root/.codex-remote-executor/auth-token.txt)\" http://127.0.0.1:18789/api/v1/state",
+                    "明确输出当前 commit id、服务是否正常、当前唯一 blocker；如果没有就写当前没有 blocker"
+                ],
+    "must_not_do":  [
+                        "不要开始新的社区业务任务",
+                        "不要重跑 phase3 业务验证",
+                        "不要顺手改服务器上的社区代码",
+                        "只做控制器仓部署与 executor 健康验证"
+                    ],
+    "acceptance":  [
+                       "输出当前 commit id",
+                       "输出服务是否正常",
+                       "输出当前唯一 blocker；如果没有就写当前没有 blocker"
+                   ],
+    "notes":  "仅做仓部署与 executor 健康检查，不开展社区业务测试。",
+    "cwd":  "/root/Agents-controller-HTTP"
+}
+【POST 结果】
+{
+    "ok":  true,
+    "task":  {
+                 "task_id":  "phase2-controller-deploy-executor-health-check",
+                 "title":  "controller????executor????",
+                 "goal":  "?????? /root/Agents-controller-HTTP ????? main(???? ae3e13e),?? codex-remote-executor.service,???? executor ????,??? phase3 ??????",
+                 "must_do":  [
+                                 "cd /root/Agents-controller-HTTP \u0026\u0026 git pull origin main",
+                                 "???? commit id",
+                                 "systemctl restart codex-remote-executor.service",
+                                 "?? systemctl status codex-remote-executor.service --no-pager",
+                                 "?? curl http://127.0.0.1:18789/healthz",
+                                 "?? curl -H \"Authorization: Bearer $(cat /root/.codex-remote-executor/auth-token.txt)\" http://127.0.0.1:18789/api/v1/state",
+                                 "?????? commit id???????????? blocker;?????????? blocker"
+                             ],
+                 "must_not_do":  [
+                                     "????????????",
+                                     "???? phase3 ????",
+                                     "??????????????",
+                                     "????????? executor ????"
+                                 ],
+                 "acceptance":  [
+                                    "???? commit id",
+                                    "????????",
+                                    "?????? blocker;?????????? blocker"
+                                ],
+                 "notes":  "?????? executor ????,??????????",
+                 "cwd":  "/root/Agents-controller-HTTP",
+                 "status":  "pending",
+                 "received_at":  "2026-04-04T18:41:53.343765+00:00"
+             }
+}
+【STATE 结果】
+{
+    "ok":  true,
+    "state":  {
+                  "worker_id":  "server-primary",
+                  "status":  "pending",
+                  "current_task_id":  "phase2-controller-deploy-executor-health-check",
+                  "last_task_started_at":  "2026-04-04T18:11:56.245169+00:00",
+                  "last_task_finished_at":  "2026-04-04T18:22:31.728942+00:00",
+                  "last_heartbeat_at":  "2026-04-04T18:41:53.344163+00:00",
+                  "last_result_status":  "blocked",
+                  "last_result_summary":  "executor could not parse Codex result as JSON",
+                  "current_blocker":  null,
+                  "updated_at":  "2026-04-04T18:41:53.344170+00:00"
+              }
+}
+
+【复查时间】2026-04-05 02:41:59
+【STATE 复查结果】
+{
+    "ok":  true,
+    "state":  {
+                  "worker_id":  "server-primary",
+                  "status":  "running",
+                  "current_task_id":  "phase2-controller-deploy-executor-health-check",
+                  "last_task_started_at":  "2026-04-04T18:41:56.937680+00:00",
+                  "last_task_finished_at":  "2026-04-04T18:22:31.728942+00:00",
+                  "last_heartbeat_at":  "2026-04-04T18:41:56.938207+00:00",
+                  "last_result_status":  "blocked",
+                  "last_result_summary":  "executor could not parse Codex result as JSON",
+                  "current_blocker":  null,
+                  "updated_at":  "2026-04-04T18:41:56.938212+00:00"
+              }
+}
+【复查时间】2026-04-05 02:42:22
+【状态摘要】
+当前 state.status=running，current_task_id=phase2-controller-deploy-executor-health-check。
+最近三次复查均为 running；last_result_summary 仍显示旧的 "executor could not parse Codex result as JSON"，current_blocker 为空。

@@ -1,0 +1,16 @@
+Timestamp: 2026-04-07 18:27:55
+Thread: 实现-后端-skill
+Title: trusted-broadcast-group-context-jsonb-dirty-tracking-start
+
+任务：trusted broadcast -> group_context JSONB 脏数据跟踪修复
+状态：running
+
+本轮范围：
+- 仅修 Group.metadata_json 的 SQLAlchemy JSONB 脏数据跟踪
+- 优先检查 group_session.py、protocol_manager.py，必要时再看 community.py
+- 不触碰 skill/frontend/event_bus/阶段推进逻辑
+
+执行计划：
+1. 定位本地所有关键 group.metadata_json 修改点
+2. 在真正写回 ORM 的路径上补 flag_modified(group, "metadata_json") 或改成新对象整体赋值
+3. 做最小 py_compile 验证并发布结果

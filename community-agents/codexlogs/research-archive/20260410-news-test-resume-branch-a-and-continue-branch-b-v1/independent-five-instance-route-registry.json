@@ -1,0 +1,68 @@
+﻿{
+  "agents": {
+    "xhs": {
+      "agent_slug": "xhs",
+      "workspace_root": "/root/openclaw-xhs/workspace",
+      "service_name": "openclaw-community-webhook-xhs.service",
+      "webhook_path": "/webhook/xhs",
+      "send_path": "/send/xhs",
+      "socket_path": "/root/.openclaw/community-ingress/sockets/xhs-fc1dba5f8f24.sock"
+    },
+    "openclaw-33": {
+      "agent_slug": "openclaw-33",
+      "workspace_root": "/root/openclaw-33/workspace",
+      "service_name": "openclaw-community-webhook-openclaw-33.service",
+      "webhook_path": "/webhook/openclaw-33",
+      "send_path": "/send/openclaw-33",
+      "socket_path": "/root/.openclaw/community-ingress/sockets/openclaw-33-443c3db99818.sock"
+    },
+    "neko": {
+      "agent_slug": "neko",
+      "workspace_root": "/root/.openclaw/workspace",
+      "service_name": "openclaw-community-webhook-openclaw.service",
+      "webhook_path": "/webhook/neko",
+      "send_path": "/send/neko",
+      "socket_path": "/root/.openclaw/community-ingress/sockets/openclaw-96a4bc260265.sock"
+    },
+    "openclaw-33-editor-probe": {
+      "agent_slug": "openclaw-33-editor-probe",
+      "workspace_root": "/root/openclaw-33/workspace/.probe-workspaces/openclaw-33-editor-probe",
+      "service_name": "openclaw-community-webhook-openclaw-33-editor-probe.service",
+      "webhook_path": "/webhook/openclaw-33-editor-probe",
+      "send_path": "/send/openclaw-33-editor-probe",
+      "socket_path": "/root/.openclaw/community-ingress/sockets/openclaw-33-editor-probe.sock"
+    },
+    "openclaw-33-editor": {
+      "agent_slug": "openclaw-33-editor",
+      "workspace_root": "/root/openclaw-33-editor/workspace",
+      "service_name": "openclaw-community-webhook-openclaw-33-editor.service",
+      "webhook_path": "/webhook/openclaw-33-editor",
+      "send_path": "/send/openclaw-33-editor",
+      "socket_path": "/root/.openclaw/community-ingress/sockets/openclaw-33-editor-9da1a254d989.sock"
+    },
+    "openclaw-33-worker-33": {
+      "agent_slug": "openclaw-33-worker-33",
+      "workspace_root": "/root/openclaw-33-worker-33/workspace",
+      "service_name": "openclaw-community-webhook-openclaw-33-worker-33.service",
+      "webhook_path": "/webhook/openclaw-33-worker-33",
+      "send_path": "/send/openclaw-33-worker-33",
+      "socket_path": "/root/.openclaw/community-ingress/sockets/openclaw-33-worker-33-2525062ba5d4.sock"
+    },
+    "openclaw-33-worker-xhs": {
+      "agent_slug": "openclaw-33-worker-xhs",
+      "workspace_root": "/root/openclaw-33-worker-xhs/workspace",
+      "service_name": "openclaw-community-webhook-openclaw-33-worker-xhs.service",
+      "webhook_path": "/webhook/openclaw-33-worker-xhs",
+      "send_path": "/send/openclaw-33-worker-xhs",
+      "socket_path": "/root/.openclaw/community-ingress/sockets/openclaw-33-worker-xhs-3edb2237867a.sock"
+    },
+    "openclaw-33-tester": {
+      "agent_slug": "openclaw-33-tester",
+      "workspace_root": "/root/openclaw-33-tester/workspace",
+      "service_name": "openclaw-community-webhook-openclaw-33-tester.service",
+      "webhook_path": "/webhook/openclaw-33-tester",
+      "send_path": "/send/openclaw-33-tester",
+      "socket_path": "/root/.openclaw/community-ingress/sockets/openclaw-33-tester-cdde6c10a5b7.sock"
+    }
+  }
+}

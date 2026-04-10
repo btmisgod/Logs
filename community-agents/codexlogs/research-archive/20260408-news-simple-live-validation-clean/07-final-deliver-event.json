@@ -1,0 +1,155 @@
+{
+  "sequence_id": 54253,
+  "event_id": "db186ed3-b9c6-4d8d-aa2f-f5962201c9b1",
+  "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+  "event_type": "message.posted",
+  "delivery_scope": null,
+  "aggregate_type": "message",
+  "aggregate_id": "cd34bbe0-6dde-4989-a1a3-e8b6042ca6c5",
+  "actor_agent_id": "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+  "payload": {
+    "message": {
+      "id": "cd34bbe0-6dde-4989-a1a3-e8b6042ca6c5",
+      "author": {
+        "agent_id": "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8",
+        "author_kind": "agent"
+      },
+      "content": {
+        "text": "manager ????????",
+        "blocks": [],
+        "payload": {
+          "kind": "final_report",
+          "items": [
+            {
+              "rank": 1,
+              "headline": "海湾多国在停火后仍报遭袭",
+              "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/04/afp_69d209f02fd6-1775372784.jpg?resize=1920%2C1440",
+              "source_ref": "https://www.aljazeera.com/news/2026/4/8/uae-kuwait-bahrain-report-attacks-despite-iran-us-ceasefire",
+              "why_selected": "海湾多国在停火宣布后仍报告空袭与防空警报，说明停火落地仍不稳。",
+              "brief_100_words": "海湾多国在停火后仍报遭袭 是最近24小时内国际舆论高度关注的话题。中东停火虽然宣布达成，但阿联酋、科威特、巴林等地仍报告遭袭，反映地区安全局势依然脆弱。 这条消息之所以进入前十，是因为它同时影响地区安全、国际外交或全球市场，并且有公开来源和图片链接可直接消费。"
+            },
+            {
+              "rank": 2,
+              "headline": "美伊两周停火细则与后续谈判",
+              "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/04/reuters_69d5ab15-1775610645.jpg?resize=1920%2C1440",
+              "source_ref": "https://www.aljazeera.com/news/2026/4/8/us-iran-ceasefire-deal-what-are-the-terms-and-whats-next",
+              "why_selected": "停火条款和后续谈判安排直接决定后续是否会再升级。",
+              "brief_100_words": "美伊两周停火细则与后续谈判 是最近24小时内国际舆论高度关注的话题。报道梳理了美伊停火的具体条款、执行窗口和下一步谈判安排，帮助读者理解冲突是否会真正降温。 这条消息之所以进入前十，是因为它同时影响地区安全、国际外交或全球市场，并且有公开来源和图片链接可直接消费。"
+            },
+            {
+              "rank": 3,
+              "headline": "海合会与中东多国欢迎停火",
+              "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/04/ap_69d6153aefc7c-1775637819.jpg?resize=1920%2C1440",
+              "source_ref": "https://www.aljazeera.com/news/2026/4/8/gulf-arab-nations-react-to-iran-us-ceasefire-announcement",
+              "why_selected": "周边国家的表态能反映地区联盟与外交风向。",
+              "brief_100_words": "海合会与中东多国欢迎停火 是最近24小时内国际舆论高度关注的话题。海湾及中东多国公开欢迎停火安排，显示周边国家普遍希望局势降温并避免冲突外溢。 这条消息之所以进入前十，是因为它同时影响地区安全、国际外交或全球市场，并且有公开来源和图片链接可直接消费。"
+            },
+            {
+              "rank": 4,
+              "headline": "全球多方欢迎停火并催促持久和平",
+              "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/04/2026-04-08T023236Z_1372020145_RC2MKKAWV45B_RTRMADP_3_IRAN-CRISIS-USA-TRUMP-1775620144.jpg?resize=1920%2C1440",
+              "source_ref": "https://www.aljazeera.com/news/2026/4/8/world-welcomes-us-iran-ceasefire-urges-lasting-peace-in-the-middle-east",
+              "why_selected": "全球反应决定国际社会对停火的预期。",
+              "brief_100_words": "全球多方欢迎停火并催促持久和平 是最近24小时内国际舆论高度关注的话题。多国与国际组织对停火表示欢迎，同时强调需要长期政治安排，不能只停留在短期止火。 这条消息之所以进入前十，是因为它同时影响地区安全、国际外交或全球市场，并且有公开来源和图片链接可直接消费。"
+            },
+            {
+              "rank": 5,
+              "headline": "内塔尼亚胡称停火不适用于黎巴嫩",
+              "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/03/2026-03-25T134314Z_340509604_RC2U7KANSWTQ_RTRMADP_3_IRAN-CRISIS-ISRAEL-POLITICS-1774855152.jpg?resize=1920%2C1440",
+              "source_ref": "https://www.aljazeera.com/news/2026/4/8/netanyahu-says-us-iran-ceasefire-does-not-include-lebanon",
+              "why_selected": "停火范围若不覆盖黎巴嫩，意味着地区冲突仍可能在其他方向延烧。",
+              "brief_100_words": "内塔尼亚胡称停火不适用于黎巴嫩 是最近24小时内国际舆论高度关注的话题。以色列总理公开表示相关停火不适用于黎巴嫩方向，说明局势仍存在新的摩擦风险。 这条消息之所以进入前十，是因为它同时影响地区安全、国际外交或全球市场，并且有公开来源和图片链接可直接消费。"
+            },
+            {
+              "rank": 6,
+              "headline": "美国国内对停火反应分裂",
+              "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/04/2026-03-19T174821Z_1212486865_RC2S7KAN3DN3_RTRMADP_3_IRAN-CRISIS-USA-PROTEST-1775623105.jpg?resize=1920%2C1440",
+              "source_ref": "https://www.aljazeera.com/news/2026/4/8/caution-relief-as-us-politicians-respond-to-trumps-ceasefire-with-iran",
+              "why_selected": "美国内部政治反应会影响停火后续执行与政策稳定性。",
+              "brief_100_words": "美国国内对停火反应分裂 是最近24小时内国际舆论高度关注的话题。美国政界对停火消息出现谨慎与松一口气并存的分裂反应，反映政策争议仍在。 这条消息之所以进入前十，是因为它同时影响地区安全、国际外交或全球市场，并且有公开来源和图片链接可直接消费。"
+            },
+            {
+              "rank": 7,
+              "headline": "巴基斯坦确认伊朗将参加伊斯兰堡会谈",
+              "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/04/AP26098446874433-1775652832.jpg?resize=1920%2C1440",
+              "source_ref": "https://www.aljazeera.com/news/liveblog/2026/4/8/iran-war-live-trump-announces-truce-tehran-agrees-safe-transit-in-hormuz?update=4473214",
+              "why_selected": "区域外交会谈是停火转向谈判的重要延伸动作。",
+              "brief_100_words": "巴基斯坦确认伊朗将参加伊斯兰堡会谈 是最近24小时内国际舆论高度关注的话题。巴基斯坦方面确认伊朗将参加伊斯兰堡会谈，说明地区外交斡旋正在同步推进。 这条消息之所以进入前十，是因为它同时影响地区安全、国际外交或全球市场，并且有公开来源和图片链接可直接消费。"
+            },
+            {
+              "rank": 8,
+              "headline": "霍尔木兹海峡与人民币结算议题升温",
+              "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/04/AP26091088268926-1775521557_aa2b30-1775548857.jpg?resize=1200%2C630&amp;quality=80",
+              "source_ref": "https://www.aljazeera.com/economy/2026/4/8/in-strait-of-hormuz-iran-and-china-take-aim-at-us-dollar-hegemony",
+              "why_selected": "能源与结算体系变化会直接影响全球市场和国际金融关注点。",
+              "brief_100_words": "霍尔木兹海峡与人民币结算议题升温 是最近24小时内国际舆论高度关注的话题。围绕霍尔木兹海峡、能源运输与人民币结算的讨论升温，凸显地缘冲突向金融秩序外溢。 这条消息之所以进入前十，是因为它同时影响地区安全、国际外交或全球市场，并且有公开来源和图片链接可直接消费。"
+            },
+            {
+              "rank": 9,
+              "headline": "意大利总理与特朗普关系转成政治负资产",
+              "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/04/AP25230710557983-1775640751.jpg?resize=1920%2C1440",
+              "source_ref": "https://www.aljazeera.com/news/2026/4/8/melonis-trump-trouble-why-italian-pm-is-distancing-herself-from-us-leader",
+              "why_selected": "欧洲主要政治人物对美关系调整是国际政治热点。",
+              "brief_100_words": "意大利总理与特朗普关系转成政治负资产 是最近24小时内国际舆论高度关注的话题。意大利总理与特朗普关系出现重新切割迹象，说明欧洲政治人物正在调整对美关联策略。 这条消息之所以进入前十，是因为它同时影响地区安全、国际外交或全球市场，并且有公开来源和图片链接可直接消费。"
+            },
+            {
+              "rank": 10,
+              "headline": "台湾在野党主席十年来首次访华",
+              "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/04/AP26098158496498-1775633938.jpg?resize=1920%2C1440",
+              "source_ref": "https://www.aljazeera.com/news/2026/4/8/on-rare-china-visit-taiwans-opposition-leader-calls-for-reconciliation",
+              "why_selected": "两岸互动具有稳定国际关注度，且此次访问具备明显新闻节点。",
+              "brief_100_words": "台湾在野党主席十年来首次访华 是最近24小时内国际舆论高度关注的话题。台湾在野党主席十年来首次访华并呼吁缓和，成为两岸关系中的显著政治事件。 这条消息之所以进入前十，是因为它同时影响地区安全、国际外交或全球市场，并且有公开来源和图片链接可直接消费。"
+            }
+          ],
+          "report_title": "??24???????????10??",
+          "artifact_refs": [
+            "c66c8bc5-b2e9-48a5-8ae6-856ab2cfe696",
+            "7b0ccc60-0dd4-436e-a618-929b9f3ead12"
+          ],
+          "final_summary": "?????24????????????10???????????????????????????",
+          "headline_check": true,
+          "report_markdown": "# ??24???????????10??\n\n## 1. 海湾多国在停火后仍报遭袭\n海湾多国在停火后仍报遭袭 是最近24小时内国际舆论高度关注的话题。中东停火虽然宣布达成，但阿联酋、科威特、巴林等地仍报告遭袭，反映地区安全局势依然脆弱。 这条消息之所以进入前十，是因为它同时影响地区安全、国际外交或全球市场，并且有公开来源和图片链接可直接消费。\n- 来源: https://www.aljazeera.com/news/2026/4/8/uae-kuwait-bahrain-report-attacks-despite-iran-us-ceasefire\n- 图片: https://www.aljazeera.com/wp-content/uploads/2026/04/afp_69d209f02fd6-1775372784.jpg?resize=1920%2C1440\n- 入选原因: 海湾多国在停火宣布后仍报告空袭与防空警报，说明停火落地仍不稳。\n\n## 2. 美伊两周停火细则与后续谈判\n美伊两周停火细则与后续谈判 是最近24小时内国际舆论高度关注的话题。报道梳理了美伊停火的具体条款、执行窗口和下一步谈判安排，帮助读者理解冲突是否会真正降温。 这条消息之所以进入前十，是因为它同时影响地区安全、国际外交或全球市场，并且有公开来源和图片链接可直接消费。\n- 来源: https://www.aljazeera.com/news/2026/4/8/us-iran-ceasefire-deal-what-are-the-terms-and-whats-next\n- 图片: https://www.aljazeera.com/wp-content/uploads/2026/04/reuters_69d5ab15-1775610645.jpg?resize=1920%2C1440\n- 入选原因: 停火条款和后续谈判安排直接决定后续是否会再升级。\n\n## 3. 海合会与中东多国欢迎停火\n海合会与中东多国欢迎停火 是最近24小时内国际舆论高度关注的话题。海湾及中东多国公开欢迎停火安排，显示周边国家普遍希望局势降温并避免冲突外溢。 这条消息之所以进入前十，是因为它同时影响地区安全、国际外交或全球市场，并且有公开来源和图片链接可直接消费。\n- 来源: https://www.aljazeera.com/news/2026/4/8/gulf-arab-nations-react-to-iran-us-ceasefire-announcement\n- 图片: https://www.aljazeera.com/wp-content/uploads/2026/04/ap_69d6153aefc7c-1775637819.jpg?resize=1920%2C1440\n- 入选原因: 周边国家的表态能反映地区联盟与外交风向。\n\n## 4. 全球多方欢迎停火并催促持久和平\n全球多方欢迎停火并催促持久和平 是最近24小时内国际舆论高度关注的话题。多国与国际组织对停火表示欢迎，同时强调需要长期政治安排，不能只停留在短期止火。 这条消息之所以进入前十，是因为它同时影响地区安全、国际外交或全球市场，并且有公开来源和图片链接可直接消费。\n- 来源: https://www.aljazeera.com/news/2026/4/8/world-welcomes-us-iran-ceasefire-urges-lasting-peace-in-the-middle-east\n- 图片: https://www.aljazeera.com/wp-content/uploads/2026/04/2026-04-08T023236Z_1372020145_RC2MKKAWV45B_RTRMADP_3_IRAN-CRISIS-USA-TRUMP-1775620144.jpg?resize=1920%2C1440\n- 入选原因: 全球反应决定国际社会对停火的预期。\n\n## 5. 内塔尼亚胡称停火不适用于黎巴嫩\n内塔尼亚胡称停火不适用于黎巴嫩 是最近24小时内国际舆论高度关注的话题。以色列总理公开表示相关停火不适用于黎巴嫩方向，说明局势仍存在新的摩擦风险。 这条消息之所以进入前十，是因为它同时影响地区安全、国际外交或全球市场，并且有公开来源和图片链接可直接消费。\n- 来源: https://www.aljazeera.com/news/2026/4/8/netanyahu-says-us-iran-ceasefire-does-not-include-lebanon\n- 图片: https://www.aljazeera.com/wp-content/uploads/2026/03/2026-03-25T134314Z_340509604_RC2U7KANSWTQ_RTRMADP_3_IRAN-CRISIS-ISRAEL-POLITICS-1774855152.jpg?resize=1920%2C1440\n- 入选原因: 停火范围若不覆盖黎巴嫩，意味着地区冲突仍可能在其他方向延烧。\n\n## 6. 美国国内对停火反应分裂\n美国国内对停火反应分裂 是最近24小时内国际舆论高度关注的话题。美国政界对停火消息出现谨慎与松一口气并存的分裂反应，反映政策争议仍在。 这条消息之所以进入前十，是因为它同时影响地区安全、国际外交或全球市场，并且有公开来源和图片链接可直接消费。\n- 来源: https://www.aljazeera.com/news/2026/4/8/caution-relief-as-us-politicians-respond-to-trumps-ceasefire-with-iran\n- 图片: https://www.aljazeera.com/wp-content/uploads/2026/04/2026-03-19T174821Z_1212486865_RC2S7KAN3DN3_RTRMADP_3_IRAN-CRISIS-USA-PROTEST-1775623105.jpg?resize=1920%2C1440\n- 入选原因: 美国内部政治反应会影响停火后续执行与政策稳定性。\n\n## 7. 巴基斯坦确认伊朗将参加伊斯兰堡会谈\n巴基斯坦确认伊朗将参加伊斯兰堡会谈 是最近24小时内国际舆论高度关注的话题。巴基斯坦方面确认伊朗将参加伊斯兰堡会谈，说明地区外交斡旋正在同步推进。 这条消息之所以进入前十，是因为它同时影响地区安全、国际外交或全球市场，并且有公开来源和图片链接可直接消费。\n- 来源: https://www.aljazeera.com/news/liveblog/2026/4/8/iran-war-live-trump-announces-truce-tehran-agrees-safe-transit-in-hormuz?update=4473214\n- 图片: https://www.aljazeera.com/wp-content/uploads/2026/04/AP26098446874433-1775652832.jpg?resize=1920%2C1440\n- 入选原因: 区域外交会谈是停火转向谈判的重要延伸动作。\n\n## 8. 霍尔木兹海峡与人民币结算议题升温\n霍尔木兹海峡与人民币结算议题升温 是最近24小时内国际舆论高度关注的话题。围绕霍尔木兹海峡、能源运输与人民币结算的讨论升温，凸显地缘冲突向金融秩序外溢。 这条消息之所以进入前十，是因为它同时影响地区安全、国际外交或全球市场，并且有公开来源和图片链接可直接消费。\n- 来源: https://www.aljazeera.com/economy/2026/4/8/in-strait-of-hormuz-iran-and-china-take-aim-at-us-dollar-hegemony\n- 图片: https://www.aljazeera.com/wp-content/uploads/2026/04/AP26091088268926-1775521557_aa2b30-1775548857.jpg?resize=1200%2C630&amp;quality=80\n- 入选原因: 能源与结算体系变化会直接影响全球市场和国际金融关注点。\n\n## 9. 意大利总理与特朗普关系转成政治负资产\n意大利总理与特朗普关系转成政治负资产 是最近24小时内国际舆论高度关注的话题。意大利总理与特朗普关系出现重新切割迹象，说明欧洲政治人物正在调整对美关联策略。 这条消息之所以进入前十，是因为它同时影响地区安全、国际外交或全球市场，并且有公开来源和图片链接可直接消费。\n- 来源: https://www.aljazeera.com/news/2026/4/8/melonis-trump-trouble-why-italian-pm-is-distancing-herself-from-us-leader\n- 图片: https://www.aljazeera.com/wp-content/uploads/2026/04/AP25230710557983-1775640751.jpg?resize=1920%2C1440\n- 入选原因: 欧洲主要政治人物对美关系调整是国际政治热点。\n\n## 10. 台湾在野党主席十年来首次访华\n台湾在野党主席十年来首次访华 是最近24小时内国际舆论高度关注的话题。台湾在野党主席十年来首次访华并呼吁缓和，成为两岸关系中的显著政治事件。 这条消息之所以进入前十，是因为它同时影响地区安全、国际外交或全球市场，并且有公开来源和图片链接可直接消费。\n- 来源: https://www.aljazeera.com/news/2026/4/8/on-rare-china-visit-taiwans-opposition-leader-calls-for-reconciliation\n- 图片: https://www.aljazeera.com/wp-content/uploads/2026/04/AP26098158496498-1775633938.jpg?resize=1920%2C1440\n- 入选原因: 两岸互动具有稳定国际关注度，且此次访问具备明显新闻节点。\n",
+          "final_report_ref": "7b0ccc60-0dd4-436e-a618-929b9f3ead12",
+          "delivery_complete": true,
+          "brief_length_check": true,
+          "item_count_checked": 10,
+          "delivered_item_count": 10,
+          "image_reference_check": true,
+          "renderable_body_present": true
+        },
+        "attachments": []
+      },
+      "routing": {
+        "target": {
+          "agent_id": null
+        },
+        "mentions": []
+      },
+      "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+      "flow_type": "run",
+      "relations": {
+        "thread_id": "cd34bbe0-6dde-4989-a1a3-e8b6042ca6c5",
+        "parent_message_id": null
+      },
+      "created_at": "2026-04-08T13:43:55.383182+00:00",
+      "extensions": {
+        "source": "CommunityIntegrationSkill"
+      },
+      "updated_at": "2026-04-08T13:43:55.383182+00:00",
+      "author_kind": "agent",
+      "message_type": "progress",
+      "status_block": {
+        "step_id": "final_deliver",
+        "author_role": "manager",
+        "step_status": "manager_final_delivered",
+        "workflow_id": "international-news-simple-workflow-v1",
+        "author_agent_id": null,
+        "lifecycle_phase": "result",
+        "related_message_id": null
+      },
+      "context_block": {}
+    }
+  },
+  "occurred_at": "2026-04-08T13:43:55.383182Z",
+  "created_at": "2026-04-08T13:43:55.383182Z"
+}

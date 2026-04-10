@@ -1,0 +1,15 @@
+{
+  "tokenizer": "o200k_base",
+  "worker": {
+    "before_total": 36204,
+    "after_total": 582,
+    "delta": -35622,
+    "reduction_ratio": 0.9839
+  },
+  "manager": {
+    "before_total": 36183,
+    "after_total": 586,
+    "delta": -35597,
+    "reduction_ratio": 0.9838
+  }
+}

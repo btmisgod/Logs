@@ -1,0 +1,77 @@
+﻿【派单时间】2026-04-05 19:24:38
+【task_id】t2-step4-formal-start
+【POST 请求】
+{
+    "task_id":  "t2-step4-formal-start",
+    "title":  "Group bootstrap step4: formal start",
+    "goal":  "Have manager neko publish task start in Chinese, confirm the formal workflow has begun, confirm 33, neko, and xhs are participating correctly, collect real group evidence, and return strict JSON only. Do not touch step3 or any other step.",
+    "must_do":  [
+                    "Manager neko must publish task start in Chinese",
+                    "Confirm the formal workflow has begun",
+                    "Confirm 33, neko, and xhs are participating correctly in the formal workflow",
+                    "Collect real group evidence of the start and participation",
+                    "Return strict JSON only"
+                ],
+    "must_not_do":  [
+                        "Do not touch any other step",
+                        "Do not start or modify step3",
+                        "Do not expand scope",
+                        "Do not modify business code"
+                    ],
+    "acceptance":  [
+                       "manager published task start",
+                       "formal workflow began",
+                       "33 / neko / xhs participated correctly",
+                       "no key blocker"
+                   ],
+    "notes":  "All community-facing content must be Chinese.",
+    "cwd":  "/root/agent-community"
+}
+【POST 结果】
+{
+    "ok":  true,
+    "task":  {
+                 "task_id":  "t2-step4-formal-start",
+                 "title":  "Group bootstrap step4: formal start",
+                 "goal":  "Have manager neko publish task start in Chinese, confirm the formal workflow has begun, confirm 33, neko, and xhs are participating correctly, collect real group evidence, and return strict JSON only. Do not touch step3 or any other step.",
+                 "must_do":  [
+                                 "Manager neko must publish task start in Chinese",
+                                 "Confirm the formal workflow has begun",
+                                 "Confirm 33, neko, and xhs are participating correctly in the formal workflow",
+                                 "Collect real group evidence of the start and participation",
+                                 "Return strict JSON only"
+                             ],
+                 "must_not_do":  [
+                                     "Do not touch any other step",
+                                     "Do not start or modify step3",
+                                     "Do not expand scope",
+                                     "Do not modify business code"
+                                 ],
+                 "acceptance":  [
+                                    "manager published task start",
+                                    "formal workflow began",
+                                    "33 / neko / xhs participated correctly",
+                                    "no key blocker"
+                                ],
+                 "notes":  "All community-facing content must be Chinese.",
+                 "cwd":  "/root/agent-community",
+                 "status":  "pending",
+                 "received_at":  "2026-04-05T11:24:38.413263+00:00"
+             }
+}
+【STATE 结果】
+{
+    "ok":  true,
+    "state":  {
+                  "worker_id":  "server-primary",
+                  "status":  "running",
+                  "current_task_id":  "t2-step4-formal-start",
+                  "last_task_started_at":  "2026-04-05T11:24:38.720752+00:00",
+                  "last_task_finished_at":  "2026-04-05T11:18:28.668508+00:00",
+                  "last_heartbeat_at":  "2026-04-05T11:24:38.721063+00:00",
+                  "last_result_status":  "completed",
+                  "last_result_summary":  "已在真实群 `group-boot-workflow-33-neko-xhs` 完成 step1，未进入 step2。真实证据如下：1）manager neko 已发布任务目标与 formal workflow，并明确“仅执行 step1，不进入 step2”，群消息 ID `7103a7ac-be3f-4970-8a06-81a4546225d2`；2）neko 已在该消息中确认自己是 manager，负责协调流程与纠正偏差；3）33 已在同线程用中文确认角色与职责，群消息 ID `e2cedbae-2797-4cd7-993f-5dc71be7a499`；4）xhs 已在同线程用中文确认角色与职责，群消息 ID `e55c35e0-c430-45c4-ae08-ae667f5b3f1c`，另有较早确认消息 ID `6f0e7774-7365-4ff2-a557-7a8ae0b94aa7`；5）管理员触发 neko/33/xhs 的真实群消息分别为 `2947134f-9585-405c-9868-893d1fee7f73`、`9d8f9a2e-bc3e-40fa-bc61-d426686d5817`、`55d295f4-3126-462b-b2eb-6dddea7a6255`；6）服务日志显示真实 agent webhook 往返，例如 `neko`/`33`/`xhs` 对应 `43.130.233.109:8848` 的 webhook 曾返回 `202 Accepted`，且 API 记录了这些 agent 真实 POST 回群。未观察到需要 manager 纠正的明确角色误解，因此没有额外纠偏消息。",
+                  "current_blocker":  null,
+                  "updated_at":  "2026-04-05T11:24:38.721069+00:00"
+              }
+}

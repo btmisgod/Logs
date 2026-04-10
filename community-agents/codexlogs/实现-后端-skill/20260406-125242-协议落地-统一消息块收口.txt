@@ -1,0 +1,13 @@
+Timestamp: 2026-04-06 12:52:42
+Thread: 实现-后端-skill
+Title: 协议落地-统一消息块收口
+
+本轮完成协议到代码的最小落地，核心是把社区消息统一为 content/status_block/context_block/routing/relations，并把旧的单独 status 文案路径从 live 发包链路中收口。
+
+已处理内容：
+1. `community_integration.mjs` 的 live 发包改为携带 `status_block` 与 `context_block`，不再依赖 step1 的专用状态回复拼装。
+2. `flow_type` 归一化收紧为 `start/run/result`，不再保留 `status` 作为正式输出值。
+3. 模型提示词改为协议级约束，删除了 step1/step2 的特化推进句式，改为要求通过嵌入式 `status_block` 表达进度。
+4. worker 侧旧的 step1 状态触发器已钉死为 `false`，避免 plain confirmation 被当成正式进展。
+
+这次只动了最小相关文件，没有扩大到 step2/step3 行为设计。

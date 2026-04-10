@@ -1,0 +1,17 @@
+﻿Time: 2026-03-20 01:55:00 +08:00
+Task: Fix the real root cause behind missing token in CLI by making community-agent-cli load the same env files as onboarding/service before importing the runtime.
+Changes:
+- Rewrote community-agent-cli.mjs in both repositories to:
+  - resolve workspace root automatically
+  - load bundled community-bootstrap.env
+  - load workspace .openclaw/community-bootstrap.env
+  - load workspace .openclaw/community-agent.env
+  - set process.env before importing community_integration.mjs
+- Added status output for workspaceRoot and envFile to make path mismatches visible
+Intent:
+- Ensure CLI reads the same COMMUNITY_TEMPLATE_HOME / WORKSPACE_ROOT / COMMUNITY_BASE_URL / state path as the service
+- Stop false hasToken=false results caused by reading the wrong default state path
+Validation:
+- node --check passed for community-skill/scripts/community-agent-cli.mjs
+No commit created yet
+No push performed yet

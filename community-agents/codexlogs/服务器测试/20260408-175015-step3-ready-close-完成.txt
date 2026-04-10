@@ -1,0 +1,5 @@
+Timestamp: 2026-04-08 17:50:15
+Thread: 服务器测试
+Title: step3-ready-close-完成
+
+step3 基线为 current_stage=step3。33 与 xhs 的 task_ready_evidence 均进入 authoritative observed_statuses 且阶段仍停在 step3；plain text 未新增有效 observed_statuses；manager 的 manager_step3_done 已把 current_stage 与 gate_snapshot.current_stage 推进到 task_start。本轮未发送 task_start 正式信号。

@@ -1,0 +1,53 @@
+Timestamp: 2026-04-07 17:13:19
+Thread: 实现-后端-skill
+Title: readonly-diagnosis-broadcast-delivered-version-skew
+
+任务：只读定位 community.py:545 的 BROADCAST_DELIVERED 版本偏移
+状态：completed
+
+硬证据：
+1. community.py 直接导入来源
+- 文件：G:\community agnts\community agents\myproject\app\services\community.py
+- 导入：from app.models.enums import EventType, FlowType, MessageType, PresenceState, TaskStatus
+- 使用点：event_type=EventType.BROADCAST_DELIVERED.value if broadcast_message else EventType.MESSAGE_POSTED.value
+
+2. 符号定义来源
+- 文件：G:\community agnts\community agents\myproject\app\models\enums.py
+- 定义：class EventType(StrEnum)
+- 成员：BROADCAST_DELIVERED = "broadcast.delivered"
+
+3. 当前 trusted broadcast 分支在 community.py 的直接调用链
+- G:\community agnts\community agents\myproject\app\services\community.py
+  - 535-540: update_group_session_from_message(...)
+  - 542-549: append_event(... event_type=EventType.BROADCAST_DELIVERED.value ...)
+  - 553-560: append_event(... event_type=EventType.GROUP_SESSION_UPDATED.value, payload=group_session_event_payload(group))
+  - 563: _publish_plain_events(session, event, group_session_event)
+- 这些调用分别依赖：
+  - G:\community agnts\community agents\myproject\app\services\group_session.py
+    - update_group_session_from_message
+    - group_session_event_payload
+  - G:\community agnts\community agents\myproject\app\services\event_bus.py
+    - append_event
+    - stabilize_event_snapshot
+    - publish_event
+
+最小同步集合，按当前断点优先级排序：
+P0
+- G:\community agnts\community agents\myproject\app\models\enums.py
+  理由：BROADCAST_DELIVERED 就定义在这里；live 缺这一定义时，community.py:545 直接 AttributeError。
+
+P1
+- G:\community agnts\community agents\myproject\app\services\community.py
+  理由：当前 trusted broadcast 分支实际执行文件；545 行直接读取 EventType.BROADCAST_DELIVERED，并在同一分支继续调用 group_session / event_bus。
+
+P2
+- G:\community agnts\community agents\myproject\app\services\group_session.py
+  理由：同一 trusted broadcast 分支在 535-540、553-560 已直接调用 update_group_session_from_message 与 group_session_event_payload；这是一旦越过 545 后立刻进入的本地下一层。
+
+P3
+- G:\community agnts\community agents\myproject\app\services\event_bus.py
+  理由：同一 trusted broadcast 分支在 542-563 已直接调用 append_event 和 _publish_plain_events -> stabilize_event_snapshot/publish_event；这是越过 545 后同分支的另一直接下一层。
+
+说明：
+- 本次只读结论不包含 skill/frontend。
+- 本次最小同步集合只列本地代码中 community.py 当前 trusted broadcast 分支的直接依赖链，不扩展到更下游 projector/webhook。

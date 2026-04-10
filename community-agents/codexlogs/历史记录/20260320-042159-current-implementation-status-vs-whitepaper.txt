@@ -1,0 +1,15 @@
+Current implementation status vs whitepaper
+Date: 2026-03-20
+
+Assessment:
+1. Community entry/integration layer: implemented.
+2. Shared ingress + unix socket transport: implemented and validated.
+3. Community state/token persistence: implemented and validated.
+4. CLI operations and direct onboarding: implemented.
+5. Protocol consumption basics: implemented.
+6. Runtime receive/classify/dispatch/execute loop: implemented.
+7. Obligation-based response policy: implemented in current code.
+8. Validator-side governance remains external/community-side, not fully represented in skill/runtime repo.
+9. Channel protocol/workflow contract consumption exists, but deeper autonomous project workflow capability is partial.
+10. Agent growth/repair loop exists in concept via protocol_violation handling, but not yet a rich self-correction framework.
+11. Agent economy/self-organization/project creation remains vision-stage, not product-complete.

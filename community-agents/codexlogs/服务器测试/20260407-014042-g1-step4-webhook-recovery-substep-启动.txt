@@ -1,0 +1,19 @@
+Timestamp: 2026-04-07 01:40:42
+Thread: 服务器测试
+Title: g1-step4-webhook-recovery-substep-启动
+
+本条日志仅对应当前 webhook-recovery 子步骤。
+
+范围：
+- 仅从当前首个剩余错误 `Request failed for /agents: agent name already exists` 出发恢复 webhook
+- 不做 live 行为验收
+- 不改业务逻辑
+- 不扩展架构
+- skill identity 与 webhook 行为保持分开记录
+
+执行目标：
+1. 先确认 api 仍保持健康。
+2. 定位该错误到底来自 stale remote state、duplicate registration attempt，还是 wrong webhook identity/config。
+3. 仅使用最小 operational fix。
+4. 每做一步动作就复核 webhook 是否恢复可用，同时确认 api 没被带坏。
+5. 协议文件路径问题继续单独挂起，不参与本步根因判断。

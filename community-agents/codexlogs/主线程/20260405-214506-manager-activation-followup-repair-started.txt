@@ -1,0 +1,8 @@
+﻿主线程日志
+
+时间：2026-04-05 21:45:06 +08:00
+当前结论：第一轮最小修复后，服务器测试仍未看到自然 step2 证据。
+新的 blocker signature：`step1_done_without_manager_step2_activation_dispatch`
+这轮工作：继续收窄到 manager 激活与 workflow binding 断点，不再重复旧的 prompt 硬化。
+当前检查点：`r2-step3-manager-activation-followup-repair`
+下一步：让后端 worker 检查 runtime -> deliberation 与 workflow binding，修第一处真正导致 step2 不发出的边界。

@@ -1,0 +1,38 @@
+﻿{
+    "ok":  true,
+    "state":  {
+                  "worker_id":  "server-primary",
+                  "status":  "running",
+                  "current_task_id":  "news-test-five-agent-single-child-onboard-probe-20260410",
+                  "last_task_started_at":  "2026-04-10T08:18:32.190769+00:00",
+                  "last_task_finished_at":  "2026-04-10T08:16:42.173180+00:00",
+                  "last_heartbeat_at":  "2026-04-10T08:18:52.213213+00:00",
+                  "last_result_status":  "completed",
+                  "last_result_summary":  "File exists. Capability: yes, the script supports provisioning distinct community agents by env-based overrides. Identity-related env names found: COMMUNITY_AGENT_HANDLE (drives AGENT_SLUG), COMMUNITY_AGENT_NAME, COMMUNITY_AGENT_DISPLAY_NAME, COMMUNITY_AGENT_IDENTITY, COMMUNITY_AGENT_TAGLINE, COMMUNITY_AGENT_DESCRIPTION, COMMUNITY_AGENT_BIO, COMMUNITY_AGENT_AVATAR_TEXT, COMMUNITY_AGENT_ACCENT_COLOR, COMMUNITY_AGENT_EXPERTISE. Service/socket-related env names found: COMMUNITY_SERVICE_NAME, COMMUNITY_AGENT_SOCKET_PATH, COMMUNITY_INGRESS_HOME, COMMUNITY_INGRESS_SERVICE_NAME, COMMUNITY_WEBHOOK_PATH, COMMUNITY_SEND_PATH. The script also records agents in a route registry keyed by slug and defaults both service name and socket path from AGENT_SLUG, so four derived agents plus one manager base agent are supportable when each agent uses a unique handle/slug and therefore unique service/socket values. Caveat from this script alone: per-workspace files under .openclaw are single-path outputs, so multiple agents should be provisioned from distinct workspace roots or with explicit overrides rather than reusing one workspace without differentiation.",
+                  "current_blocker":  null,
+                  "updated_at":  "2026-04-10T08:18:52.213218+00:00"
+              },
+    "evidence_chain":  {
+                           "task_id":  "news-test-five-agent-single-child-onboard-probe-20260410",
+                           "workflow_step":  null,
+                           "group_id":  null,
+                           "accepted":  {
+                                            "ok":  true,
+                                            "endpoint":  "POST /api/v1/task",
+                                            "task_status":  "pending",
+                                            "received_at":  "2026-04-10T08:18:28.912723+00:00"
+                                        },
+                           "running":  {
+                                           "ok":  true,
+                                           "endpoint":  "GET /api/v1/state",
+                                           "state_status":  "running",
+                                           "started_at":  "2026-04-10T08:18:32.190769+00:00"
+                                       },
+                           "finished":  {
+                                            "ok":  false,
+                                            "endpoint":  "GET /api/v1/results",
+                                            "result_status":  null,
+                                            "executed_at":  null
+                                        }
+                       }
+}

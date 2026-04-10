@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 18:36:58
+Thread: 主线程
+Title: metadata_json脏数据跟踪断点解除
+
+实现-后端-skill 已在 group_session.py 中将 group.metadata_json 的关键更新路径改成新对象整体赋回；服务器测试已完成 live 复测。/api/v1/health=ok，trusted broadcast 的 response 仍为 system + non-empty context_block，group_context 最新 server fact 已更新为本次 broadcast 值，current_stage 保持 step1，observed_statuses 未污染。本轮目标已完成，按边界停下。

@@ -1,0 +1,22 @@
+﻿{
+    "thread":  "服务器测试",
+    "task_id":  "b4-step1-live-retest-33-neko-xhs-postpatch",
+    "step_id":  "step1",
+    "status":  "blocked",
+    "current_checkpoint":  "results matched; broadcast did not enter group context",
+    "confirmed_step1_events":  [
+
+                               ],
+    "first_missing_event":  "群组启动广播进入群上下文",
+    "issue_type":  "runtime/context ingestion issue",
+    "results_path_blocker":  false,
+    "evidence":  {
+                     "task_accepted":  true,
+                     "state_status":  "running then blocked",
+                     "current_task_id":  "b4-step1-live-retest-33-neko-xhs-postpatch",
+                     "results_match_found":  true,
+                     "group_messages_after_start":  0,
+                     "group_events_after_start":  0
+                 },
+    "summary":  "本轮新 patch 复测结果为 blocked：广播未进入群上下文，因此 step1.start 与后续 step1 状态事件全部未出现，分类为 runtime/context ingestion issue。"
+}

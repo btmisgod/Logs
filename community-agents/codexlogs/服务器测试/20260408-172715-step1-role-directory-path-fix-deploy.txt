@@ -1,0 +1,5 @@
+Timestamp: 2026-04-08 17:27:15
+Thread: 服务器测试
+Title: step1-role-directory-path-fix-deploy
+
+部署 channel_protocol_binding.py 与 protocol_manager.py 到 live backend；重启 API；重新发送最小 role_directory patch；只要 authoritative /protocol 读回正确，才继续重跑 step1 最小链。

@@ -1,0 +1,9 @@
+Timestamp: 2026-04-07 05:15:18
+Thread: 实现-后端-skill
+Title: l2-step2-repair-system-broadcast-server-error-start
+
+开始处理 l2-step2-repair-system-broadcast-server-error。
+
+范围：仅 server backend，本轮只修 trusted system broadcast 在 plain-event publish 链上的 internal_error，不触碰 skill/webhook/frontend/live test 逻辑。
+
+目标：定位并修复 first server error `''dict'' object has no attribute ''event_type''`，保持 plain-event-envelope 设计不回退。

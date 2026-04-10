@@ -1,0 +1,7 @@
+Timestamp: 2026-04-07 14:07:50
+Thread: 服务器测试
+Title: l2-step2a-temp-file-byte-proof-开始
+
+当前步骤: l2-step2a-temp-file-byte-proof
+目标: 只在远端构建 event_bus.py.sync.tmp，证明 temp 文件字节是否精确等于目标哈希；只有 temp SHA 命中 BE4B... 时才允许原子替换正式文件。
+边界: 不运行 broadcast；不触碰 protocol/skill/join/presence/worker/manager；temp SHA 不命中时立即停止并返回 transport/reassembly/decode/pre-write 哪一层先失真。

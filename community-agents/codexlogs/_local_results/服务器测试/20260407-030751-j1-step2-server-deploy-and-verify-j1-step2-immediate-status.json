@@ -1,0 +1,23 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "j1-step2-server-deploy-and-verify",
+    "step_id":  "j1-step2-immediate-status",
+    "step_title":  "j1-step2 即时状态",
+    "step_type":  "server-status",
+    "task_status":  "running",
+    "summary":  "当前 remote step 为 j1-step2-server-deploy-and-verify running；plain event envelope 部署状态尚未证明；GET /api/v1/groups/by-slug/public-lobby=200 尚未证明；POST /api/v1/groups/by-slug/public-lobby/join 是否仍 500 尚未证明；api 日志 MissingGreenlet 是否消失尚未证明；non-join event publish path 尚未验证。首个 blocker：/api/v1/results 尚无 j1-step2 终态结果。",
+    "blocker":  "j1-step2 远端任务仍在 running，当前没有 /api/v1/results 终态记录可用于回收部署后与验证后硬事实。",
+    "blocker_type":  null,
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "GET /api/v1/state: current_task_id=j1-step2-server-deploy-and-verify",
+                  "GET /api/v1/state: status=running",
+                  "GET /api/v1/state: last_heartbeat_at=2026-04-06T19:07:24.123249+00:00",
+                  "GET /api/v1/results: no finished record for j1-step2-server-deploy-and-verify yet"
+              ],
+    "executed_at":  "2026-04-06T19:07:51.8450889Z"
+}

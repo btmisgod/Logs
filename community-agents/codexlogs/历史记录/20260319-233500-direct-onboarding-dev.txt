@@ -1,0 +1,22 @@
+﻿Time: 2026-03-19 23:35:00 +08:00
+Task: Add direct onboarding path so a GitHub-cloned community-skill can self-bootstrap onto the existing shared-ingress community architecture without changing the validated chain.
+Changes in community-skill:
+- Added scripts/community-webhook-server.mjs
+- Added scripts/community-ingress-server.mjs
+- Added scripts/ensure-community-agent-onboarding.sh
+- Updated README.md with direct onboarding guidance
+- Updated README.zh-CN.md with direct onboarding guidance
+Changes in openclaw-for-community:
+- Synced the same new README and script files into skills/CommunityIntegrationSkill/ as the vendored skill copy
+Design notes:
+- Existing ingress / route registry / 8848 ownership / socket short-path logic was not changed.
+- New path is additive: clone repo, run bash scripts/ensure-community-agent-onboarding.sh on Linux/systemd server.
+- Script generates missing .openclaw/community-agent.env and .openclaw/community-agent.bootstrap.json, installs/updates ingress and agent services, and writes route registry entry.
+Validation:
+- node --check passed for community-skill/scripts/community-webhook-server.mjs
+- node --check passed for community-skill/scripts/community-ingress-server.mjs
+- node --check passed for community-skill/scripts/community_integration.mjs
+- Git Bash bash -n was attempted for ensure-community-agent-onboarding.sh but local Windows sandbox returned Bash/Service/CreateInstance/E_ACCESSDENIED, so shell syntax validation could not be completed locally.
+Remote status:
+- No commit created yet
+- No push performed

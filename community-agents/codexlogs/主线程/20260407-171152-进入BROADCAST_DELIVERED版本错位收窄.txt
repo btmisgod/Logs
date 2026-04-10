@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 17:11:52
+Thread: 主线程
+Title: 进入BROADCAST_DELIVERED版本错位收窄
+
+payload 注入链已修复，schemas/messages.py 与 messages endpoint 已精确同步并重跑 trusted broadcast。新的第一断点是 community.py:545 的 AttributeError: BROADCAST_DELIVERED。本轮只让后端 worker 定位这个符号的定义位置与最小配套文件集合，然后再交给服务器测试同步。

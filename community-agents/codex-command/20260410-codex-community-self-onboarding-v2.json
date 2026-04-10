@@ -1,0 +1,177 @@
+{
+  "command_id": "20260410-codex-community-self-onboarding-v2",
+  "version": "2.0",
+  "created_at": "2026-04-10",
+  "target_thread": "new-feature-thread",
+  "workspace_root": "G:\\community agnts\\community agents",
+  "title": "Connect desktop Codex into Agent Community as one new identity without modifying community",
+  "objective": "Use the existing community integration model as reference, but do not modify the community backend, protocol, workflow engine, or UI. The only task is to make this Codex-side capability obtain one valid community identity, join a target group, and prove that it can correctly receive community-directed work and send compliant responses back through the community channel.",
+  "target_outcome": {
+    "identity_goal": "Desktop Codex side obtains exactly one new community identity.",
+    "integration_goal": "That identity can join a target group, receive community-originated work, and send correct community responses.",
+    "boundary_goal": "No community-side code or protocol is changed."
+  },
+  "mandatory_reference_order": [
+    {
+      "order": 1,
+      "path": "G:\\community agnts\\community agents\\openclaw-for-community\\skills\\CommunityIntegrationSkill\\README.md",
+      "why": "Read first to understand the intended behavior and deployment assumptions of a community-connected agent."
+    },
+    {
+      "order": 2,
+      "path": "G:\\community agnts\\community agents\\openclaw-for-community\\skills\\CommunityIntegrationSkill\\scripts\\ensure-community-agent-onboarding.sh",
+      "why": "Read second to understand the exact onboarding artifacts, identity env vars, route registration behavior, and state file locations."
+    },
+    {
+      "order": 3,
+      "path": "G:\\community agnts\\community agents\\openclaw-for-community\\skills\\CommunityIntegrationSkill\\scripts\\community_integration.mjs",
+      "why": "Read third to understand the current community-facing runtime contract: state file, webhook path, send path, socket/listen model, outbound send path, and auth usage."
+    },
+    {
+      "order": 4,
+      "path": "G:\\community agnts\\community agents\\openclaw-for-community\\community-agent.env.example",
+      "why": "Read fourth to identify the minimum environment bundle required for one community-connected identity."
+    },
+    {
+      "order": 5,
+      "path": "G:\\community agnts\\Agents-controller-HTTP\\README.md",
+      "why": "Read fifth only if direct reuse of the OpenClaw skill model is not appropriate. This is the prior HTTP-controller pattern to reference for a thin Codex-community bridge."
+    },
+    {
+      "order": 6,
+      "path": "https://docs.openclaw.ai/tools/skills",
+      "why": "Use as the official source for workspace-scoped skill behavior."
+    },
+    {
+      "order": 7,
+      "path": "https://docs.openclaw.ai/tools/subagents",
+      "why": "Use to avoid incorrectly treating OpenClaw sub-agents as fully isolated independent agents."
+    },
+    {
+      "order": 8,
+      "path": "https://docs.openclaw.ai/concepts/multi-agent",
+      "why": "Use to distinguish independent agents from sub-agent sessions."
+    }
+  ],
+  "must_not_research_beyond": [
+    "Do not scan the community backend repo to look for a place to patch community behavior.",
+    "Do not investigate community UI implementation for this task.",
+    "Do not investigate workflow templates or group protocol redesign for this task.",
+    "Do not perform broad repo-wide archaeology outside the mandatory references unless one of the mandatory references directly points to an additional file needed to complete the one-identity integration."
+  ],
+  "allowed_work_areas": [
+    {
+      "path": "G:\\community agnts\\community agents\\openclaw-for-community\\skills\\CommunityIntegrationSkill",
+      "scope": "Reference and, only if necessary, adapt agent-side integration behavior for Codex-side use. Do not broaden this into multi-identity support."
+    },
+    {
+      "path": "G:\\community agnts\\Agents-controller-HTTP",
+      "scope": "Reference or reuse the prior direct-control bridge pattern if a thin Codex-community bridge is the cleaner route."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-codex-community-self-onboarding-v2",
+      "scope": "Write evidence, implementation notes, onboarding proof, and closeout."
+    }
+  ],
+  "forbidden_work_areas": [
+    {
+      "path": "G:\\community agnts\\community agents\\myproject",
+      "scope": "Do not modify any backend/community/frontend code here."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\community-skill",
+      "scope": "Do not treat this task as a community boundary or workflow repair task."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\openclaw-for-community\\newsflow-workflow",
+      "scope": "Do not turn this into a workflow deployment task."
+    }
+  ],
+  "starting_points": [
+    "First decide whether the correct route is direct reuse/adaptation of CommunityIntegrationSkill behavior or a thinner Codex-community bridge.",
+    "Then define one Codex-side identity bundle: handle, local state file, auth token storage, outbound identity binding, and inbound task source.",
+    "Then implement only the minimum local bridge/onboarding needed for one identity.",
+    "Then prove one round-trip: community task/message in, Codex-side handling, community-compliant response out."
+  ],
+  "assumptions": [
+    "This thread may add or modify only Codex-side adapter/bridge code or local support scripts.",
+    "This task is explicitly single-identity only.",
+    "If direct reuse of CommunityIntegrationSkill is awkward for desktop Codex, a thin bridge is acceptable as long as the community-facing contract remains correct."
+  ],
+  "required_work": [
+    {
+      "id": "phase1_choose_integration_route",
+      "description": "Choose and justify the correct integration route based only on the mandatory references: direct skill adaptation or thin bridge."
+    },
+    {
+      "id": "phase2_define_one_identity_bundle",
+      "description": "Define the one Codex-connected community identity bundle: handle/name, local state path, auth material storage, outbound identity binding, and target group join path."
+    },
+    {
+      "id": "phase3_implement_local_codex_side_integration",
+      "description": "Implement the minimum local integration needed for one Codex identity to register or reuse an identity, join the target group, receive community-directed work, and send compliant messages back."
+    },
+    {
+      "id": "phase4_onboard_one_identity",
+      "description": "Run onboarding for exactly one new Codex-connected identity and capture identity/state evidence."
+    },
+    {
+      "id": "phase5_prove_receive_and_respond",
+      "description": "Prove the new Codex-connected identity can receive a community-originated task/message and send a structurally correct response back."
+    },
+    {
+      "id": "phase6_closeout",
+      "description": "Write a closeout that states what was built, what identity was created, what message path was used, and why no community-side modification was required."
+    }
+  ],
+  "do_not": [
+    "Do not modify the community backend code.",
+    "Do not modify community protocol definitions.",
+    "Do not modify the workflow engine or group-session logic.",
+    "Do not modify community UI code.",
+    "Do not broaden the task into multi-identity or multi-agent support.",
+    "Do not solve identity by trusting a payload self-declared id without authenticated identity binding."
+  ],
+  "working_principles": [
+    "Community remains the communication bus and identity authority.",
+    "Desktop Codex remains an external execution capability.",
+    "If a bridge is required, keep it thin: identity/auth, message translation, task handoff, result return.",
+    "Prefer the smallest correct solution that yields one real community identity and one proven round-trip.",
+    "Use the mandatory references first and stop broad repo exploration."
+  ],
+  "acceptance": [
+    "A clear integration route is chosen and justified with the listed references.",
+    "Exactly one new Codex-connected community identity is onboarded or reused successfully.",
+    "That identity can be shown as a valid community member/agent identity.",
+    "A real receive-and-respond proof exists.",
+    "No community backend/protocol/UI code was modified."
+  ],
+  "deliverables": [
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-codex-community-self-onboarding-v2",
+      "description": "Evidence folder for route choice, implementation, onboarding proof, round-trip proof, and final closeout."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\主线程\\20260410-codex-community-self-onboarding-v2.txt",
+      "description": "Detailed execution log for this thread."
+    }
+  ],
+  "result_format": {
+    "required_fields": [
+      "Status",
+      "BlockerType",
+      "Blocker",
+      "ChosenIntegrationRoute",
+      "CommunityCodeChanged",
+      "IdentityOnboarded",
+      "IdentityHandle",
+      "GroupJoined",
+      "ReceiveAndRespondProof",
+      "MandatoryReferencesUsed",
+      "changed_files",
+      "evidence_paths",
+      "log_path",
+      "NextStep"
+    ]
+  }
+}

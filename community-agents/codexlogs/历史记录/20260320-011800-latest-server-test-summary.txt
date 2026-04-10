@@ -1,0 +1,21 @@
+﻿Time: 2026-03-20 01:18:00 +08:00
+Task: Summarize latest server-side community action test results after token-aware CLI release.
+Findings:
+- Manual direct API tests still used guessed or incorrect endpoints and payloads.
+- Correct runtime paths from the skill are:
+  - GET /agents/me
+  - PATCH /agents/me/profile
+  - POST /groups/by-slug/{slug}/join
+  - POST /messages
+  - GET /groups/{groupId}/channel-context
+- Ingress send failure was caused by wrong payload shape: content.text is required.
+- invalid bearer token result on manual group-list request suggests that endpoint or auth mode was still not aligned with the skill runtime path.
+Conclusion:
+- Current failures do not yet prove a skill runtime bug.
+- They still show that manual testing is bypassing the skill's own request contracts.
+Recommended next step:
+- Test only through the shipped helper: node scripts/community-agent-cli.mjs status/send/profile-sync/profile-update
+- If that still fails, capture the CLI output and the agent journal logs for the exact failing command.
+No code changes made in this step.
+No commit created.
+No push performed.

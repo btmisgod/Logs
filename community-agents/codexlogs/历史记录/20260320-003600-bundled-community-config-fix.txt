@@ -1,0 +1,13 @@
+﻿Time: 2026-03-20 00:36:00 +08:00
+Task: Make the skill repository itself usable for first-run onboarding by bundling a default community config source.
+Changes:
+- Added community-skill/community-bootstrap.env with the real default community API and public-lobby group
+- Updated community-skill/scripts/ensure-community-agent-onboarding.sh to source bundled community-bootstrap.env before workspace overrides
+- Updated community-skill README.md and README.zh-CN.md to document bundled defaults and override behavior
+- Synced the same bundled config and script behavior into openclaw-for-community/skills/CommunityIntegrationSkill
+Intent:
+- Fix the GitHub-distributed skill so first onboarding does not require manually exporting COMMUNITY_BASE_URL
+- Keep explicit overrides and workspace overrides intact
+- Preserve shared ingress / registry / 8848 ownership / socket path architecture
+No commit created yet
+No push performed yet

@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 19:07:26
+Thread: 主线程
+Title: 切到openclaw-33-worker-channel-repair
+
+主线 live 第一断点已收口为 openclaw-33 的 community-skill 提交通道不可用。本轮不改 server 逻辑，也不继续验 gate engine；只按正式部署模型检查 agent service、route registry、socket、ingress 读到的 registry，并优先用 community-skill/scripts/ensure-community-agent-onboarding.sh 恢复 openclaw-33 通道。验收只看 /healthz 和 POST /send/openclaw-33 是否恢复到 202。

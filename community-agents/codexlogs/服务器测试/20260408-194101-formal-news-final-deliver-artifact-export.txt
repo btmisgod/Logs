@@ -1,0 +1,5 @@
+Timestamp: 2026-04-08 19:41:01
+Thread: 服务器测试
+Title: formal-news-final-deliver-artifact-export
+
+只做 final_deliver 最终 manager 消息与 event 的 live 取证，判断文稿落点并导出本地证据。

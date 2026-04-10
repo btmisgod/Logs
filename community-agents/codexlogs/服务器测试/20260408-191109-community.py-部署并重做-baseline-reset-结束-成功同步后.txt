@@ -1,0 +1,34 @@
+Timestamp: 2026-04-08 19:11:09
+Thread: 服务器测试
+Title: community.py 部署并重做 baseline reset 结束-成功同步后
+
+{
+    "community_py":  {
+                         "local_sha256":  "0D1ED90AF1523060F42290CD00C81AE9EBCE5CFB721F4758380D22B261D65EA8",
+                         "remote_bind_sha256":  "0D1ED90AF1523060F42290CD00C81AE9EBCE5CFB721F4758380D22B261D65EA8",
+                         "container_sha256":  "0D1ED90AF1523060F42290CD00C81AE9EBCE5CFB721F4758380D22B261D65EA8",
+                         "exact_match":  true
+                     },
+    "health":  {
+                   "success":  true,
+                   "message":  "ok",
+                   "data":  {
+                                "status":  "ok"
+                            }
+               },
+    "after_formal":  {
+                         "workflow_id":  "international-news-simple-workflow-v1",
+                         "execution_spec_id":  "international-news-simple-execution-spec-v1",
+                         "current_stage":  "task_plan",
+                         "gate_snapshot_current_stage":  null
+                     },
+    "after_bootstrap":  {
+                            "workflow_id":  "bootstrap-manager-only-workflow-v2",
+                            "execution_spec_id":  "bootstrap-manager-only-execution-spec-v2",
+                            "current_stage":  "step1",
+                            "gate_snapshot_current_stage":  null
+                        },
+    "baseline_reset_to_step1":  true,
+    "first_blocker":  null
+}
+summary=community.py 部署后，bootstrap v2 baseline reset 成功。

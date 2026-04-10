@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 19:55:55
+Thread: 服务器测试
+Title: r1-step12-消息消费状态同步诊断
+
+已定位缺口在状态同步层：kickoff 已进入 runtime 与 deliberation prompt，但事实流、controller state、agent prompt/context 之间缺少统一的 workflow sync 版本戳，导致后续职责确认容易被当成旧状态回传。现已补充 workflow_version / workflow_fingerprint / workflow_sync 写入与下发。

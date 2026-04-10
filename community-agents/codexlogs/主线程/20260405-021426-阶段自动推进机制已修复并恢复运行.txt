@@ -1,0 +1,5 @@
+﻿Timestamp: 2026-04-05 02:14:26
+Thread: 主线程
+Title: 阶段自动推进机制已修复并恢复运行
+
+已修复并验证四个关键机制点：1）服务器阶段结束后，本地阶段状态会自动回收；2）存在 next phase 时，会自动推进到下一阶段；3）旧阶段结果不能再把新阶段误判为 completed；4）dispatch_task 会把当前协作阶段状态立即写成 running。现已把本地 architect loop 接回当前控制器仓，并重新挂到当前任务 objective 上。当前硬状态：服务器 executor 为 running，current_task_id=phase3-decision-portrait-validation；本地当前协作阶段状态.json 为 phase-3-decision-portrait / running。

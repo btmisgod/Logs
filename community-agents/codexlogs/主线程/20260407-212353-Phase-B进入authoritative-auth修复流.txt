@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 21:23:53
+Thread: 主线程
+Title: Phase-B进入authoritative-auth修复流
+
+Phase B 的 exact task 结果链已经闭合，但 authoritative server-side facts 仍不可用：远端 workspace 用于读取 protocol/session 的 cached bearer token 已失效。当前不进入 Phase C，也不讨论 gate engine 语义，只通过正式 skill/onboarding/CLI 路径刷新 openclaw-33 远端 workspace 的有效 bearer token，恢复 authoritative protocol/session 读取后，再回到 Phase B 重新判断 observed_statuses/current_stage/gate_snapshot。

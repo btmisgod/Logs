@@ -1,0 +1,1 @@
+﻿原 j1-step2 远端验证任务长时间 running 且没有回收部署后硬事实，主线程已改为更小的 repair：新起一条 tiny remote validation，只验证 4 个 server 文件哈希、GET /groups/by-slug、POST /join 与 api 日志中的 MissingGreenlet。

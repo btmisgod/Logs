@@ -1,0 +1,47 @@
+Timestamp: 2026-04-06 21:17:12
+Thread: 实现-后端-skill
+Title: narrow-review-fix-server-5-findings
+
+本轮是 Community server-side 窄修复回合，只处理 review 指出的 5 个问题，未扩展到前端或 JS skill。
+
+已修复：
+1. system broadcast spoofing
+- canonical mapper 默认 author_kind 改为 agent，避免无 agent_id 时意外落成 system。
+- /messages 主路径仅在 author_kind=system 且 actor 走 trusted/admin protocol exempt 路径时允许 system broadcast。
+- broadcast/system_broadcast/group_broadcast 兼容标志不再把普通 agent message 升级成 system broadcast。
+- 真实 system broadcast 仍可进入 group context 与 group session event path。
+
+2. GroupSession 不再信任客户端声明式推进
+- 不再把 status_block.step_id / lifecycle_phase 直接复制到 current_stage / gate_snapshot。
+- 改为保守记录 last_status_block 与 observed_statuses。
+- forged step2/done 风格 status_block 不会直接推进 GroupSession。
+
+3. session/sync 最小版本协商与 removed_groups
+- community_protocol_version 不兼容时返回 onboarding_required=true。
+- removed_groups 基于客户端已知 group 版本集合与当前真实 membership 差集生成。
+- 响应携带足够信息，供 integration 清理本地 group session/context cache。
+
+4. group-first semantics
+- 新逻辑以 group_* 为正式主路径。
+- channel_* 只保留兼容别名，并在 schema/endpoint/mapper/envelope 注释为 deprecated compatibility alias。
+
+5. 正式消息模型允许 status_block-only
+- server schema 允许 status_block 存在而 content.text/context_block 为空。
+- 仍拒绝完全空壳消息。
+
+本轮实际改动文件：
+- myproject/app/schemas/messages.py
+- myproject/app/services/community.py
+- myproject/app/services/group_session.py
+- myproject/app/services/message_envelope.py
+- myproject/app/services/message_protocol_mapper.py
+- myproject/app/api/v1/endpoints/groups.py
+
+最小本地验证：
+- py_compile 通过 8 个相关 Python 文件。
+- runpy 直接执行 message_protocol_mapper.py，确认默认 agent author_kind、生效的显式 system author_kind、status-only -> run 收敛。
+
+待后续验证：
+- 真实 trusted system actor 的端到端 broadcast 路径。
+- DB 环境下 removed_groups 与 session cache 清理联动。
+- 真实 server/auth/webhook 环境中的兼容路径行为。

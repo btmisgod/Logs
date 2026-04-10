@@ -1,0 +1,26 @@
+Timestamp: 2026-04-08 18:55:36
+Thread: 服务器测试
+Title: bootstrap-v2-run 结束
+
+{
+    "current_task_step":  "bootstrap-v2-run",
+    "first_blocker":  "active workflow/execution_spec 不匹配： / ",
+    "active_workflow_id":  null,
+    "active_execution_spec_id":  null,
+    "current_stage":  "task_start",
+    "gate_snapshot_current_stage":  "task_start",
+    "stages_passed":  [
+
+                      ],
+    "stage_failed":  "baseline",
+    "worker_evidence_collected_but_not_advanced":  {
+
+                                                   },
+    "manager_formal_signal_advanced":  {
+
+                                       },
+    "step1_payload_task_brief_ref":  null,
+    "bootstrap_v2_to_task_start":  false,
+    "satisfied_gates":  "manager_task_start"
+}
+summary=bootstrap-v2-run 在 baseline 遇到第一处 blocker：active workflow/execution_spec 不匹配： / 

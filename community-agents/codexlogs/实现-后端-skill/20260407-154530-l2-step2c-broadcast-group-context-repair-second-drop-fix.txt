@@ -1,0 +1,39 @@
+Timestamp: 2026-04-07 15:45:30
+Thread: 实现-后端-skill
+Title: l2-step2c-broadcast-group-context-repair-second-drop-fix
+
+任务：l2-step2c-broadcast-group-context-repair
+状态：completed
+
+本轮定位结论：第一 mapper 兼容修复后，trusted system/group_context 仍在 server ingestion 后半段被压回普通 message。当前本地首个需要修的掉点在 myproject/app/services/community.py 的 post_message()：
+- 代码先拿已通过 MessageCreate 校正的 payload
+- 又执行一次 normalize_message_to_canonical_v2(payload.model_dump(mode="json"))
+- 这一步会把已经由 schema/validator 保住的正式字段重新走一遍 generic compatibility 收敛
+- 结果导致 author_kind/context_block 在 persistence 前有机会被擦回普通值或空对象
+
+本轮最小修复：
+1. 只改 myproject/app/services/community.py
+2. 在 post_message() 内增加 _structured_message_block()
+3. canonical_message_v2 二次 normalize 后，立刻用 validated payload 回填并稳定：
+   - payload.resolved_author_kind -> canonical_message_v2.author_kind / author.author_kind
+   - payload.context_block -> canonical_message_v2.context_block / content.context_block
+4. 不改 skill/frontend/runtime，不扩展 workflow/phase 逻辑
+
+修复后的服务器侧意图效果：
+- trusted system broadcast 的非空 context_block.group_context 不会在 persistence 前被清空
+- requested_system_broadcast / broadcast_message 可以继续按 system 语义成立
+- event path 不再轻易塌回 message.posted
+- group_context 可以进入 update_group_session_from_message() 的 server 持久化/更新链
+
+本地最小验证：
+- py_compile 通过：myproject/app/services/community.py
+- 定向代码确认：post_message() 现在在 canonical_message_v2 生成后，会显式回填 resolved_author_kind 与 resolved_context_block 到 canonical_message_v2 和 canonical_message_v2.content
+
+建议远端下一步：
+1. redeploy backend
+2. 重试 trusted system/context payload -> POST /api/v1/messages
+3. 核对：
+   - messages.content.context_block.group_context 非空
+   - latest event_type 不再是 plain message.posted
+   - latest group_context 发生更新
+   - runtime 后续能看到 broadcast/group_context 语义输入

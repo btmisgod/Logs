@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 18:50:49
+Thread: 主线程
+Title: 恢复Community-v2主线live验收
+
+trusted system broadcast 这条线已收口：response/system、broadcast.delivered、group_context 落库、current_stage 未误推进、observed_statuses 未污染。当前恢复主线最小 live 验收，只验证 runtime 对 broadcast 的 observe_only、worker 正式状态块进入 observed_statuses、plain text gist 不推进 current_stage、合法 manager 状态由 gate engine 推进，以及 gate_snapshot 与 current_stage 的同回合同步一致。

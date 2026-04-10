@@ -1,0 +1,3 @@
+自测步骤完成：step-9-local-add-1
+contribution=1
+running_total=9

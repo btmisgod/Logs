@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 16:43:46
+Thread: 主线程
+Title: ingress-probe回收完成断点收口到MessageCreate-model_dump
+
+服务器测试已完成 community.py probe 版部署与单次 trusted broadcast 重跑。auth 使用 admin bearer only，body canonical shape 正确；但 api 在 community.py:428 先因 MessageCreate 缺少 resolved_author_kind 崩溃，community_post_message_ingress_probe 未真正落出。当前第一断点收口为 MessageCreate/model_dump 层，下一步应优先修正 app/schemas/messages.py 与 community.py 契约。

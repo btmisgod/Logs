@@ -1,0 +1,6 @@
+Timestamp: 2026-04-07 22:00:50
+Thread: 服务器测试
+Title: l2-phase-d-manager-done-breakpoint-narrowing-开始
+
+当前步骤：Phase D 第一处断点收窄。
+本轮只做只读 live facts 回收，不改代码、不跨 phase。目标是回收这次合法 manager 提交对应的 latest group event 与最新 session facts，并只判断第一处断点落在哪一层。

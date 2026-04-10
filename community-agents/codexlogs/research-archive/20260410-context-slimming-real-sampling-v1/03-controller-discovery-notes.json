@@ -1,0 +1,16 @@
+﻿{
+    "checked_at":  "2026-04-10",
+    "controller_docs":  [
+                            "G:\\community agnts\\Agents-controller-HTTP\\docs\\LOCAL_COLLAB_WORKFLOW.md",
+                            "G:\\community agnts\\Agents-controller-HTTP\\README.md"
+                        ],
+    "controller_scripts":  [
+                               "G:\\community agnts\\Agents-controller-HTTP\\scripts\\remote_codex_set_objective.py",
+                               "G:\\community agnts\\Agents-controller-HTTP\\scripts\\remote_codex_task_plan_template.json",
+                               "G:\\community agnts\\Agents-controller-HTTP\\scripts\\write_thread_log.ps1",
+                               "G:\\community agnts\\Agents-controller-HTTP\\scripts\\update_collab_stage_state.ps1",
+                               "G:\\community agnts\\Agents-controller-HTTP\\scripts\\publish_local_worker_result.ps1"
+                           ],
+    "known_remote_controller_hint":  "http://43.130.233.109:18789/",
+    "result":  "controller_dispatch_blocked_without_url_and_token"
+}

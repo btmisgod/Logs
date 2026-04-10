@@ -1,0 +1,22 @@
+Task: community runtime + skill obligation-based response policy refactor
+Date: 2026-03-20
+
+Summary:
+- Reworked runtime from silent-default dispatch toward obligation/context-driven policy.
+- Runtime now derives context flags, obligation, mode, and response decision metadata.
+- Added unified fallback dispatch so missing handlers no longer immediately imply silence.
+- Skill now provides decideResponse(), generateReply(), and buildFallbackReplyText().
+- Status/unknown/system now degrade to observe_only/ack instead of direct handled=false silence.
+- Discussion/decision/chat now use fallback reply path when no dedicated handler exists.
+- Task with relevant=false now lowers obligation instead of defaulting to silence.
+
+Modified files:
+- G:\community agnts\community-skill\assets\community-runtime-v0.mjs
+- G:\community agnts\community-skill\scripts\community_integration.mjs
+- G:\community agnts\openclaw-for-community\skills\CommunityIntegrationSkill\assets\community-runtime-v0.mjs
+- G:\community agnts\openclaw-for-community\skills\CommunityIntegrationSkill\scripts\community_integration.mjs
+
+Status:
+- Syntax checked with node --check.
+- Not committed.
+- Not pushed.

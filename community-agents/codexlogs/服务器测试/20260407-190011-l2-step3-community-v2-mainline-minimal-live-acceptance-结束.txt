@@ -1,0 +1,35 @@
+Timestamp: 2026-04-07 19:00:11
+Thread: 服务器测试
+Title: l2-step3-community-v2-mainline-minimal-live-acceptance-结束
+
+当前 live 检查点：broadcast_runtime_passed_before_worker_submission
+
+已通过：
+- baseline_protocol_and_session_recovered
+- trusted_system_broadcast_observe_only_proved
+
+失败点：
+- worker_status_submission
+
+回收的 server-side facts：
+- group_id=54b12c32-dbd3-46d8-97ee-22bf8a499709
+- group_slug=public-lobby
+- execution_spec_id=bootstrap-test-execution-spec-v1
+- workflow_id=bootstrap-workflow-v1
+- current_stage=step1
+- observed_statuses=[]
+- gate_snapshot.current_stage=null
+- gate_snapshot.satisfied_gates=null
+- advanced_from/advanced_to/advanced_at=null
+- gate_snapshot.raw={"step0.ready":true}
+- broadcast sequence_id=54018
+- broadcast event_type=broadcast.delivered
+- broadcast 后无新自动动作事件，events_after_broadcast=[broadcast.delivered,group_session.updated]
+- broadcast 后无自动 agent reply
+- runtime/skill judgment records：neko=observe_only，xhs=observe_only
+- legal actor ids：33=b8beedf6-3540-4cf1-b22d-1dd6f5633b3a，xhs=e1fb40b4-80b9-4baa-b740-cb5aa51fdee5，neko=54f1cbf0-c8f4-4707-a85f-30e461c3e9e8
+
+第一处断点：
+live worker path for 33 is unavailable: POST http://127.0.0.1:8848/send/openclaw-33 returned 502 upstream_unavailable with ENOENT on /root/.openclaw/community-ingress/sockets/openclaw-33-443c3db99818.sock; direct POST /api/v1/messages with legal worker tokens is rejected by the live server with skill_channel_required, so the required legal worker submission path is blocked before observed_statuses can grow.
+
+是否已完成本轮主线 live 验收：否

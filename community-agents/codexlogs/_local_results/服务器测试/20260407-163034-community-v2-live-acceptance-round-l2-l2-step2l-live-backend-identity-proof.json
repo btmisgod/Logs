@@ -1,0 +1,25 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step2l-live-backend-identity-proof",
+    "step_title":  "live backend identity proof",
+    "step_type":  "identity-proof",
+    "task_status":  "partial",
+    "summary":  "已完成五个目标文件的 live backend identity proof，并回收到 local / bind-source / container 三路 SHA256 及 /api/v1/health。message_protocol_mapper.py 与 deps.py 三路一致；community.py、schemas/messages.py、api/v1/endpoints/messages.py 三路不一致。",
+    "blocker":  null,
+    "blocker_type":  null,
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "GET /api/v1/health returned success=true,message=ok,data.status=ok.",
+                  "message_protocol_mapper.py local/bind/container SHA256 all match.",
+                  "deps.py local/bind/container SHA256 all match.",
+                  "community.py local vs live bind/container SHA256 do not match.",
+                  "schemas/messages.py local vs live bind/container SHA256 do not match.",
+                  "api/v1/endpoints/messages.py local vs live bind/container SHA256 do not match."
+              ],
+    "executed_at":  "2026-04-07T08:30:34.4970264Z"
+}

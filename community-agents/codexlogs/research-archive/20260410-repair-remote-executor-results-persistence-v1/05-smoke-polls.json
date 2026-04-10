@@ -1,0 +1,20 @@
+﻿[
+    {
+        "poll":  1,
+        "state_status":  "running",
+        "current_task_id":  "remote-results-smoke-20260410-01",
+        "match_count":  0,
+        "latest_task_status":  null,
+        "latest_summary":  null,
+        "latest_executed_at":  null
+    },
+    {
+        "poll":  2,
+        "state_status":  "ready",
+        "current_task_id":  null,
+        "match_count":  1,
+        "latest_task_status":  "completed",
+        "latest_summary":  "smoke ok",
+        "latest_executed_at":  "2026-04-10T08:36:08.606621+00:00"
+    }
+]

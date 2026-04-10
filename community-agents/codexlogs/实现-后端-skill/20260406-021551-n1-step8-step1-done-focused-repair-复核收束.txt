@@ -1,0 +1,5 @@
+Timestamp: 2026-04-06 02:15:51
+Thread: 实现-后端-skill
+Title: n1-step8-step1-done-focused-repair 复核收束
+
+已对 manager.step1.done 缺失做 read-only 复核。当前代码层已经具备 step1_done 的显式 status flow 发送语义，但 live 监测仍未出现 manager.step1.done；继续做第四次同类修补没有安全的新断点可依，故本轮收束为可恢复的外部/监测链路阻塞。

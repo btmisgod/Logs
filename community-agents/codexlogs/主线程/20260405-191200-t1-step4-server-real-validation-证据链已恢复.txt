@@ -1,0 +1,10 @@
+Timestamp: 2026-04-05 19:12:00
+Thread: 主线程
+Title: t1-step4-server-real-validation 证据链已恢复
+
+已恢复 t1-step4-server-real-validation 的服务器证据链：
+- /api/v1/task 已受理
+- /api/v1/state 显示 status=running 且 current_task_id 正确
+- /api/v1/results 现在已包含匹配结果
+
+建议主线程据此重试/收口原始 step4，不需要扩大到 task2。

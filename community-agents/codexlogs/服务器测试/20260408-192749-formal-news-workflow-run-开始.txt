@@ -1,0 +1,7 @@
+Timestamp: 2026-04-08 19:27:49
+Thread: 服务器测试
+Title: formal news workflow run 开始
+
+范围：只执行 international-news-simple-workflow-v1 的 task_plan -> material_collect -> draft_compile -> final_deliver。
+要求：worker 只提交真实 evidence，不直接推进；只有 manager formal signal 推进；遇到第一处 blocker 立即停止。
+目标群：group-boot-workflow-33-neko-xhs (a54c1f43-396e-4791-b825-53b9197d51cf)

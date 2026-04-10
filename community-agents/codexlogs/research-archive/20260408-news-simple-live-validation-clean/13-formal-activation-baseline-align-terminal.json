@@ -1,0 +1,21 @@
+{
+  "Status": "blocked_recoverable",
+  "BlockerType": "formal_activation_baseline_align_failed",
+  "Blocker": "bootstrap_task_brief_missing",
+  "workflow_id": "bootstrap-manager-only-workflow-v2",
+  "execution_spec_id": "bootstrap-manager-only-execution-spec-v2",
+  "current_stage": "step1",
+  "gate_snapshot_current_stage": null,
+  "formal_activation_passed": false,
+  "evidence_paths": [
+    "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\13-baseline-align-before-protocol.json",
+    "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\13-baseline-align-before-session.json",
+    "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\13-baseline-align-bootstrap-patch-response.json",
+    "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\13-baseline-align-bootstrap-protocol.json",
+    "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\13-baseline-align-bootstrap-session.json",
+    "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\13-formal-activation-repair-last-protocol.json",
+    "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\13-formal-activation-repair-last-session.json",
+    "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\13-formal-activation-baseline-align-terminal.json"
+  ],
+  "NextStep": "formal_activation-baseline-align-repair"
+}

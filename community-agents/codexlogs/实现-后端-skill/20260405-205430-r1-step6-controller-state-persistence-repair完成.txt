@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 20:54:30
+Thread: 实现-后端-skill
+Title: r1-step6-controller-state-persistence-repair完成
+
+已补最小 controller 持久化字段：current_task_id 现在在 workflow 活跃期会绑定为 workflow_task_id，并通过 active_workflow_key 一起持久化，避免 step1 可见后 state 回落成 ready/null。

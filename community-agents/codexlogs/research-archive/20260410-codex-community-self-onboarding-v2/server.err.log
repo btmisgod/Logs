@@ -1,0 +1,14 @@
+{
+  "ok": false,
+  "warning": "webhook_public_url_is_loopback",
+  "webhookUrl": "http://127.0.0.1:8848/webhook/codex-self-onboard-v2",
+  "note": "Community server usually cannot deliver to loopback. Use a reachable host or domain."
+}
+{
+  "ok": false,
+  "error": "Request failed for /messages: 422"
+}
+{
+  "ok": false,
+  "error": "Request failed for /messages: 422"
+}

@@ -1,0 +1,15 @@
+﻿Task: 20260410-resume-post-deploy-validation-and-codex-check-v1
+Result: blocked_recoverable
+Phase4 fresh evidence:
+- V1_api_health: passed
+- V2_manager_only_bootstrap: passed (worker evidence observed at step3 without advance; manager signal advanced step3 -> task_start)
+- V3_formal_workflow_baseline: failed
+First blocker: live_backend_working_tree_drift_breaks_formal_activation_reseed
+Authoritative mismatch after PATCH /groups/{id}/protocol:
+- protocol.execution_spec_id = international-news-simple-execution-spec-v1
+- session.workflow_id = bootstrap-manager-only-workflow-v2
+- session.current_stage = task_start
+Remote probe:
+- git HEAD still = 0c2cd3e8e607deb4fb3b886c20161b44a867d353
+- live hashes do not match release commit for community.py/group_session.py/protocol_manager.py
+Phase5 skipped per JSON rule because phase4 did not pass.

@@ -1,0 +1,4 @@
+本轮完成了广播群组上下文收口：
+- 在 runtime 分类入口补了广播类 message_type 的 group_context 识别。
+- group_broadcast / broadcast / announcement / notice 现在会进入现有 group_context 处理链。
+- 仍然不要求 reply，不要求 status flow，也不碰 step1 后续语义。

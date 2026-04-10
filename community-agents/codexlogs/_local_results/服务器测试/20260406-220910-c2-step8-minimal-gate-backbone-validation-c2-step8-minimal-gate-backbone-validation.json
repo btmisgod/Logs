@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "c2-step8-minimal-gate-backbone-validation",
+    "step_id":  "c2-step8-minimal-gate-backbone-validation",
+    "step_title":  "服务器测试：execution_spec/gate-stage/GroupSession 最小验证",
+    "step_type":  "server-test",
+    "task_status":  "blocked",
+    "summary":  "服务器端任务证据链已闭合，但本轮最小 backbone 验证无效：执行器再次改动远端 executor contract，而未可信证明 Community 主干的 execution_spec/gate-stage/GroupSession 闭环。",
+    "blocker":  "服务器执行器范围漂移到 /root/agent-community 下的 remote executor 文件 scripts/remote_codex_executor_server.py 与 tests/test_remote_codex_executor_server.py，违反只读验证与不扩展范围要求，因此 execution_spec、gate engine、GroupSession 的目标系统证据不成立。",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+
+              ],
+    "executed_at":  "2026-04-06T14:09:10.7385187Z"
+}

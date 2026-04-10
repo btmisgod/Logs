@@ -1,0 +1,15 @@
+Timestamp: 2026-04-07 14:25:51
+Thread: 服务器测试
+Title: l2-step2a0-remote-literal-base64-hash-proof-结束-更正
+
+本轮最小 literal base64 证明已完成。
+
+硬事实：
+- 本地 payload 文件 SHA256 = 15D8F3E71234B5D317A89EDE6D52B125C691B7E17683363E92BEE47EDBB7894E
+- 本地 payload 字符长度 = 21030
+- 远端从 /root/.codex-remote-executor/current_task.json 中提取到的 literal base64 文本 SHA256 = 63B2FB20F8F956DCBAF0A03F6A35BF44CD7CF9285FBA681A891BF851F6FE6275
+- 远端 literal base64 字符长度 = 21029
+- equals_expected_local_payload_sha256 = false
+- 首个失败阶段 = transport-before-reassembly
+
+远端命令 stdout/stderr 已回收，且本轮未做 decode / 文件写入 / event_bus 替换。

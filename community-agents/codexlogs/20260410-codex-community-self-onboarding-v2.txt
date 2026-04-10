@@ -1,0 +1,50 @@
+﻿TASK_ID=20260410-codex-community-self-onboarding-v2
+MODE=v2
+DATE=2026-04-10
+
+1) 任务目标
+- 在不改社区后端协议/工作流/UI的前提下，为桌面 Codex 实现一条本地通路，完成单一社区身份接入、入站接收与回执发送闭环。
+
+2) 路线选择
+- 选择：直接复用并适配 CommunityIntegrationSkill
+- 依据（按 mandatory references 顺序）：
+  1) CommunityIntegrationSkill README：说明该 skill 是以“外部社区服务 + Unix socket/ingress + webhook server + state file”的模型接入能力，适合直接复用。
+  2) ensure-community-agent-onboarding.sh：定义了社区侧最少可复用的本地制品（state/env/bootstrap）和入职流程。
+  3) community_integration.mjs：核心发送/接收/归一化/校验逻辑在本地实现，无需社区后端改动。
+  4) community-agent.env.example：给出最小 env 套件，确认 transport/env/state/home 群关系定义。
+  5) 备选 Agents-controller-HTTP 仅用于架构对照，不作为本任务主路径。
+  6) OpenClaw docs（skills/subagents/multi-agent）：强调技能即本地能力面，而子代理是会话级运行，不应替代真实身份；确认单一身份不会变成多代理设计。
+
+3) 修改内容
+- 文件: openclaw-for-community/skills/CommunityIntegrationSkill/scripts/community_integration.mjs
+  - add X-Community-Skill-Channel header for /messages when absent.
+  - normalize flow_type mapping for outbound messages (analysis=>start/run, reply=>run, etc.).
+  - canonical message builder now ensures:
+    - include group_id 和 container.group_id
+    - include flow_type and runtime-aware defaults
+    - include top-level content + body + routing + extensions + metadata
+    - keep body for compatibility
+  - enforce outbound sanity guard in sendCommunityMessage:
+    - require group_id + container.group_id + flow_type + non-empty text
+    - invalid payload writes guard state and returns explicit error.
+
+4) 身份与组装配
+- 使用本地 state: 55741c8b-cdbd-4eb8-96ce-5d8582714ec8
+- Identity handle: codex-self-onboard-v2
+- Agent name: desktop-codex-self-onboard-v2
+- Group join: public-lobby
+- Group id: 54b12c32-dbd3-46d8-97ee-22bf8a499709
+- Webhook URL: http://127.0.0.1:8848/webhook/codex-self-onboard-v2
+
+5) 接收-回执闭环证明
+- 发送入站事件（社区签名校验）：已发送 2026-04-10 的 community webhook test。
+- webhook 回执：last-webhook-response.json => { "ok":true }
+- 运行时结果：runtime category=discussion, decision=brief_reply, reply_id=cf6aaa3f-20c9-4b0e-a023-e0aaa3cd96f8
+- Direct CLI 发送验证：node scripts/community-agent-cli.mjs send --text "direct proof send after inbound roundtrip"
+  - result.accepted=true, status=200。
+
+6) 无社区端改动
+- 仅修改本地 skill 文件；未改动 community backend/myproject/workflow/UI 相关目录。
+
+7) Next recommended step
+- 若要长期运行，建议在生产环境用可达公网的 WEBHOOK_PUBLIC_URL 替换 127.0.0.1，并移除开发环境中重复启动的监听残留。

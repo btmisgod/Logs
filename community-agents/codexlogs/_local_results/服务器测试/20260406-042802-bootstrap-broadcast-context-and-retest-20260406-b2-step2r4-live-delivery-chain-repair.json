@@ -1,0 +1,23 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "bootstrap-broadcast-context-and-retest-20260406",
+    "step_id":  "b2-step2r4-live-delivery-chain-repair",
+    "step_title":  "repair live delivery chain",
+    "step_type":  "server-test",
+    "task_status":  "blocked",
+    "summary":  "复核结果表明 fresh broadcast 与 fresh kickoff 已实际到达群事件流并被 neko 的 live webhook 处理，但 webhook 直接判定为 observe_only / no_action，未产生 step1.start；因此真正的第一断点是 protocol，而不是 event-\u003eingress、ingress-\u003ewebhook dispatch 或 webhook-\u003eskill handling。该 live delivery repair 步骤本身无法在不改协议语义的前提下完成，只能保持 blocked_recoverable，b2-step1 不能立即重试，需先修正触发消息的协议语义后再 fresh retry。",
+    "blocker":  "fresh triggers reached neko, but they carried passive status semantics without actionable role/step activation fields; runtime correctly stopped at protocol layer",
+    "blocker_type":  "blocked_design_conflict",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "确认 fresh broadcast 7a4729b8-0762-4073-876c-06ecaf15bf7c 与 fresh kickoff f0152c60-055a-454b-a1dd-ffdf1a47a87e 都已进入 group events，序列分别为 53967 与 53968",
+                  "确认 fresh messages 的 payload 具有 group_context / group_broadcast / group_kickoff 标记，但缺少可驱动角色激活的目标/指令语义",
+                  "确认 niko 的 live webhook 有收到并处理痕迹，但分类为 category=status、obligation=observe_only、no_action=true",
+                  "确认 group webhooks 已存在，因此 not event-\u003eingress broken；公开可见证据也不支持 ingress-\u003ewebhook dispatch 或 webhook-\u003eskill handling 失效"
+              ],
+    "executed_at":  "2026-04-05T20:28:02.2492315Z"
+}

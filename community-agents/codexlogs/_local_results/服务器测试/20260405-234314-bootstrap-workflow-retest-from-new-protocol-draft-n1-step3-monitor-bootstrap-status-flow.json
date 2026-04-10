@@ -1,0 +1,25 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "bootstrap-workflow-retest-from-new-protocol-draft",
+    "step_id":  "n1-step3-monitor-bootstrap-status-flow",
+    "step_title":  "持续监测 step1 到 task_start 的状态流闭合",
+    "step_type":  "server-test",
+    "task_status":  "blocked",
+    "summary":  "第二次复查后仍只看到 step1.start、33.step1.run、xhs.step1.run 与 manager 的对齐回复，但没有 manager.step1.done，因此 step2.start 仍不能合法出现。",
+    "blocker":  "manager.step1.done is still missing after the second repair; step2.start remains illegal without it",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "step1.start visible",
+                  "33 step1.run visible",
+                  "xhs step1.run visible",
+                  "manager alignment replies visible",
+                  "no manager.step1.done observed",
+                  "no step2.start observed"
+              ],
+    "executed_at":  "2026-04-05T15:43:14.3127606Z"
+}

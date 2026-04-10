@@ -1,0 +1,86 @@
+﻿[
+  {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json",
+      "date": "Fri, 10 Apr 2026 13:50:53 GMT",
+      "connection": "keep-alive",
+      "keep-alive": "timeout=5",
+      "transfer-encoding": "chunked"
+    },
+    "body": "{\"status\":\"ok\",\"ready\":false,\"agent\":\"desktop-codex-pro\",\"agentId\":null,\"webhookPath\":\"/webhook/codex-pro\",\"listen\":\"127.0.0.1:8848\",\"bootstrapError\":null,\"skill\":\"CommunityIntegrationSkill\",\"runtimePath\":\"\\\\root\\\\.openclaw\\\\workspace\\\\scripts\\\\community-runtime-v0.mjs\",\"agentProtocolPath\":\"G:\\\\community agnts\\\\community agents\\\\.openclaw\\\\community-agent-template\\\\assets\\\\AGENT_PROTOCOL.md\",\"timestamp\":\"2026-04-10T13:50:53.016Z\"}",
+    "path": "/healthz",
+    "method": "GET"
+  },
+  {
+    "name": "root-posted",
+    "status": -1,
+    "body": "read ECONNRESET",
+    "path": "/webhook/codex-pro",
+    "method": "POST",
+    "headers": {
+      "x-community-webhook-signature": "7b1e2a512253f7ae2d8c902abc61c80d965b15abdd7be9e9e8eefb126112c76e"
+    }
+  },
+  {
+    "name": "reply-posted",
+    "status": -1,
+    "body": "connect ECONNREFUSED 127.0.0.1:8848",
+    "path": "/webhook/codex-pro",
+    "method": "POST",
+    "headers": {
+      "x-community-webhook-signature": "a9ed00b38d2202603986088b0a0082d448da17d4556c2ff4978a2a33021fda9b"
+    }
+  },
+  {
+    "name": "outbound-receipt",
+    "status": -1,
+    "body": "connect ECONNREFUSED 127.0.0.1:8848",
+    "path": "/webhook/codex-pro",
+    "method": "POST",
+    "headers": {
+      "x-community-webhook-signature": "5c2de9971ac1b750cf0a948a40ce825bab1701ab3172d015d10232be11616387"
+    }
+  },
+  {
+    "name": "bad-signature",
+    "status": -1,
+    "body": "connect ECONNREFUSED 127.0.0.1:8848",
+    "path": "/webhook/codex-pro",
+    "method": "POST",
+    "headers": {
+      "x-community-webhook-signature": "b4de42288f5f7a6bf99411c8d30f5d8dbdb6df2f16c21ebe020fcb4c352e9326"
+    }
+  },
+  {
+    "name": "no-signature",
+    "status": -1,
+    "body": "connect ECONNREFUSED 127.0.0.1:8848",
+    "path": "/webhook/codex-pro",
+    "method": "POST",
+    "headers": {
+      "content-type": "application/json"
+    }
+  },
+  {
+    "name": "wrong-path",
+    "status": -1,
+    "body": "connect ECONNREFUSED 127.0.0.1:8848",
+    "path": "/webhook/not-your-path",
+    "method": "POST",
+    "headers": {
+      "content-type": "application/json",
+      "x-community-webhook-signature": "b4de42288f5f7a6bf99411c8d30f5d8dbdb6df2f16c21ebe020fcb4c352e9326"
+    }
+  },
+  {
+    "name": "send-path",
+    "status": -1,
+    "body": "connect ECONNREFUSED 127.0.0.1:8848",
+    "path": "/send/codex-pro",
+    "method": "POST",
+    "headers": {
+      "content-type": "application/json"
+    }
+  }
+]

@@ -1,0 +1,38 @@
+Timestamp: 2026-04-07 01:42:05
+Thread: 实现-后端-skill
+Title: readonly-diagnosis-agent-name-already-exists-after-api-recovery
+
+本轮为只读诊断，未改代码。
+
+读取链路结论：
+- community-skill/scripts/community_integration.mjs 启动链路是：startCommunityIntegration() -> connectToCommunity(loadSavedCommunityState()) -> ensureAgent(state)。
+- ensureAgent(state) 只有在 state.token 为空时才会 POST /agents。
+- server 侧 /agents 对应 api/v1/endpoints/agents.py -> services/community.py::register_agent()。
+- register_agent() 先按 Agent.name 查询；若已存在，则直接返回 409：agent name already exists。
+- integration 的 request() 对非 2xx 响应会抛错，并优先表面化 payload.message，所以会直接冒出：Request failed for /agents: agent name already exists。
+
+精确触发条件：
+1. 本地 integration 启动时，没有读到可用的 state.token。
+2. 此时 AGENT_NAME 仍是旧值：
+   - COMMUNITY_AGENT_NAME
+   - 或默认值 community-agent-${hostname}
+3. 远端 server/DB 中已经有同名 Agent 记录。
+4. integration 再次 POST /agents，于是触发 name 唯一性冲突。
+
+从当前代码看，最容易在“api recovery 后”出现这个问题的原因是：
+- duplicate registration attempt（首因）
+- 具体形态是：远端 Agent 记录还在，但本地 state/token 没命中，于是 skill 重新走注册而不是复用旧 token。
+- 这里还有一个很小但真实的操作窗口：connectToCommunity() 在 ensureAgent() 成功后并不会立刻保存 state，而是要等 ensureGroup / ensureAgentWebhook / sync 完成后才 saveCommunityState()。如果上一次启动在 /agents 成功后、最终 save 前中断，下一次启动就会重复注册同名 agent。
+
+最小运维修复（不改业务逻辑）：
+- 首选：恢复并固定实际使用的 COMMUNITY_TEMPLATE_HOME/state/community-state.json，使其中 token/agentId/agentName 能在重启后继续被读到。
+- 如果这份本地 state 已无法恢复，但需要先恢复服务：
+  - 临时给 COMMUNITY_AGENT_NAME 一个新的唯一值；或
+  - 清理远端同名 agent 记录后再启动。
+
+下一步应检查的远端状态 / 服务 / 配置：
+1. 远端 server/DB 是否已经存在同名 Agent.name。
+2. 实际运行进程使用的 COMMUNITY_TEMPLATE_HOME、WORKSPACE_ROOT 是否变化，导致 STATE_PATH 指到新的空目录。
+3. 实际运行时的 COMMUNITY_AGENT_NAME / COMMUNITY_AGENT_HANDLE 是否与旧实例复用了同一身份。
+4. 本地 COMMUNITY_TEMPLATE_HOME/state/community-state.json 是否存在、是否含 token。
+5. 上一次启动日志里是否出现：/agents 已成功，但随后在 /groups、/agents/me/webhook、/agents/me/session/sync 之一失败，导致最终 state 未保存。

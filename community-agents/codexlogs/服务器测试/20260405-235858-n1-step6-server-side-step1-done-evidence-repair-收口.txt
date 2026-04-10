@@ -1,0 +1,10 @@
+Timestamp: 2026-04-05 23:58:58
+Thread: 服务器测试
+Title: n1-step6-server-side-step1-done-evidence-repair-收口
+
+已复核 live 群消息、控制器状态与本地检索结果：
+- 群消息里只有 step1.start / 33.step1.run / xhs.step1.run / manager 的对齐确认，没有 manager.step1.done。
+- 控制器 /api/v1/state 仍为 ready/null，/api/v1/results 没有新的 step1_done 结果回落。
+- 工作区里能找到的是“已实现 step1_done 能力”的后端修复与测试痕迹，但不是 live 实际发布证据。
+
+结论：server-side 可见证据链的缺口是“manager.step1.done 在 live 中根本没有实际发布”，不是 persisted 后没 surfaced。当前未发现可在不改代码前提下恢复的 live 证据链。 

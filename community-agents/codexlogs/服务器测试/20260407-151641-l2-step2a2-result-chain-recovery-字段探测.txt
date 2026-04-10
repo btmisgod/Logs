@@ -1,0 +1,7 @@
+Timestamp: 2026-04-07 15:16:41
+Thread: 服务器测试
+Title: l2-step2a2-result-chain-recovery-字段探测
+
+当前只探测 exact result 的顶层字段：
+- 看 temp/sha/hex/byte/length/health/broadcast/stage/group_context 这些关键字段有没有被持久化到 /api/v1/results 的结果对象本身；
+- 不再做任何业务动作。

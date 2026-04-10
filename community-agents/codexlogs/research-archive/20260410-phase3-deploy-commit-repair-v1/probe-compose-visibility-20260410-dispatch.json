@@ -1,0 +1,52 @@
+﻿{
+    "ok":  true,
+    "task":  {
+                 "must_do":  [
+                                 "Locate docker-compose.yml path used for the API service.",
+                                 "Run `docker compose ps` or equivalent for api.",
+                                 "Return compose file path used."
+                             ],
+                 "must_not_do":  [
+                                     "Do not restart services in this probe."
+                                 ],
+                 "goal":  "Check docker compose context and api service visibility",
+                 "title":  "Probe docker compose visibility",
+                 "task_id":  "probe-compose-visibility-20260410",
+                 "cwd":  "/root/agent-community",
+                 "acceptance":  [
+                                    "Return docker compose ps output or equivalent for api",
+                                    "Return compose file path used"
+                                ],
+                 "notes":  "Read-only probe.",
+                 "status":  "pending",
+                 "workflow_step":  null,
+                 "group_id":  null,
+                 "group_context":  null,
+                 "channel_context":  null,
+                 "received_at":  "2026-04-10T13:01:23.761282+00:00"
+             },
+    "accepted":  true,
+    "evidence_chain":  {
+                           "task_id":  "probe-compose-visibility-20260410",
+                           "workflow_step":  null,
+                           "group_id":  null,
+                           "accepted":  {
+                                            "ok":  true,
+                                            "endpoint":  "POST /api/v1/task",
+                                            "task_status":  "pending",
+                                            "received_at":  "2026-04-10T13:01:23.761282+00:00"
+                                        },
+                           "running":  {
+                                           "ok":  false,
+                                           "endpoint":  "GET /api/v1/state",
+                                           "state_status":  "pending",
+                                           "started_at":  "2026-04-10T13:00:24.921968+00:00"
+                                       },
+                           "finished":  {
+                                            "ok":  false,
+                                            "endpoint":  "GET /api/v1/results",
+                                            "result_status":  null,
+                                            "executed_at":  null
+                                        }
+                       }
+}

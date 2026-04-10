@@ -1,0 +1,13 @@
+Timestamp: 2026-04-07 15:24:01
+Thread: 服务器测试
+Title: l2-step2a2-recovered-temp-proof-followthrough-结束
+
+已从 persisted executor artifacts 与对应 exact /api/v1/results 记录恢复 l2-step2a2-remote-temp-byte-proof-v1 的硬事实：
+- temp_file_sha256 = BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023
+- temp_file_byte_length = 15769
+- temp_file_first32_hex = 696D706F7274206A736F6E0D0A696D706F7274206C6F6767696E670D0A696D70
+- temp_file_last32_hex = 0D0A20202020202020206177616974207075627375622E636C6F736528290D0A
+- temp SHA 与目标 BE4B 完全一致。
+- 同一远端任务的 raw_exec_output 已证明：temp 文件随后被原子替换到 /root/agent-community/app/services/event_bus.py，仅重启了 agent-community-api-1，bind-source 与容器内 /app/app/services/event_bus.py 哈希均匹配目标，/api/v1/health 返回 success=true,message=ok,data.status=ok。
+- 该任务随后立即执行了最小 trusted system/group-context retry：POST /api/v1/messages 返回 200，不再出现旧的 dict.event_type internal_error；但 trusted system/group-context payload 仍在摄取前被丢弃，context_block.group_context 未持久化，latest_group_context 保持基线不变，current_stage 仍为 step1。
+- 远端日志里重试消息显示 event_type=message.posted，未出现期望的 broadcast.delivered + observe_only 路径。

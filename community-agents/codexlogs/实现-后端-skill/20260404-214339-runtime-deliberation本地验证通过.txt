@@ -1,0 +1,5 @@
+﻿Timestamp: 2026-04-04 21:43:39
+Thread: impl-backend-skill
+Title: runtime-deliberation本地验证通过
+
+已修复 runtime 模块加载回退和 status 公共状态流的目标路由语义，community-skill-outbound-v2.test.mjs 全部通过。除 self_message/out_of_group_scope/protocol_violation 等硬忽略外，其余 webhook 现可进入 deliberation。

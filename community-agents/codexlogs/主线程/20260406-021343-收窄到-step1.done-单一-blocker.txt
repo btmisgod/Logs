@@ -1,0 +1,5 @@
+Timestamp: 2026-04-06 02:13:43
+Thread: 主线程
+Title: 收窄到 step1.done 单一 blocker
+
+本轮主线问题已收窄为单一 blocker：manager 没有把当前已经出现的 step1 对齐/确认结果收口成显式的 manager.step1.done 状态流。当前只做三件事：1）只读确认 all_workers_confirmed_step1 是否已满足；2）定位确认回复为什么没转成 step1.done；3）确认协议或 agent 行为里是否缺少强绑定。修复后只验证 step1.done 是否自然出现。

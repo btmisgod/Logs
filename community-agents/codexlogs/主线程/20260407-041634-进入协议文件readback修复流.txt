@@ -1,0 +1,1 @@
+﻿Community v2 live 验收当前只卡在第一处断点：远端协议文件可读性没有 readback 证据。主线程已进入 blocked_recoverable repair flow，只收 tiny protocol sync + readback，不继续发散到 broadcast 或 gate。

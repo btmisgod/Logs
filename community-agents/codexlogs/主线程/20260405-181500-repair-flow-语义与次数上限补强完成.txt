@@ -1,0 +1,32 @@
+﻿目标
+把 blocked_recoverable 的行为从“机械回原 step”修正为“进入基于 blocker 的 repair flow”，并让 repair flow 正式应用已有次数上限约定。
+
+改动
+1. 在 remote_codex_architect_loop.py 中新增 repair_success_mode，支持：
+   - retry_original_step
+   - complete_original_and_continue
+2. recovery step 继续保留兼容字段，但对外语义改为 blocker-targeted repair step。
+3. repair step 完成后：
+   - retry_original_step: 自动回原 step 重试
+   - complete_original_and_continue: 直接把原 step 记为 completed_from_repair，然后继续原 step 的 on_success
+4. max_recovery_attempts 现在明确受 controller policy 的 max_fix_operations 约束，不能绕过 3 次 fix 上限。
+5. repair flow 中新增阈值处理：
+   - 超过 design_review_after_repairs 时，不再继续自动 repair，提升为 design-conflict 语义
+   - 超过 max_repairs 时终止
+6. is_local_controlled_step 增加 impl-backend-skill / impl-frontend alias 识别，避免本地 repair step 因 owner alias 不被主控回收。
+7. 更新 SKILL.md、MAIN_THREAD_USAGE.md、LOCAL_COLLAB_WORKFLOW.md、remote_codex_architect_prompt.txt、remote_codex_task_plan_template.json、openai.yaml。
+8. 更新 selftest_recoverable_blocker_workflow.ps1，使其同时可验证两种 repair_success_mode。
+
+验证
+1. py_compile 通过：remote_codex_architect_loop.py。
+2. retry_original_step 自测通过：
+   - workspace: C:\Users\user\AppData\Local\Temp\community-collab-recovery-selftest-fdbb04b14301450aab17cbf01e26d17b
+   - runtime: C:\Users\user\AppData\Local\Temp\community-collab-recovery-runtime-ea0fa4e1501841d68ff0dda9fec4e78e
+3. complete_original_and_continue 自测通过：
+   - workspace: C:\Users\user\AppData\Local\Temp\community-collab-recovery-selftest-7d1f1b05885d44658d422df660595491
+   - runtime: C:\Users\user\AppData\Local\Temp\community-collab-recovery-runtime-69ec37d8398b4ca88ab0823e4453f0bd
+4. 两条链路都证明：task 在 blocked_recoverable 期间进入 recovering，而不是整体停机。
+5. retry 路径的 events.jsonl 为 5 条；absorb 路径的 events.jsonl 为 4 条，符合两种 repair_success_mode 预期。
+
+结论
+现在 blocked_recoverable 的标准行为已经是“进入 blocker repair flow”。repair 成功后不再只有一种机械回跳，而是按 repair_success_mode 决定继续方式，并且该 repair flow 会受既有尝试次数上限约束。

@@ -1,0 +1,5 @@
+Timestamp: 2026-04-08 18:41:21
+Thread: 服务器测试
+Title: bootstrap-task-brief-inject
+
+只做 bootstrap_task_brief 注入：读取 target group 基线 session/protocol 与事件基线，用 admin bearer 通过正式消息入口注入一条 system brief，回收 message_id、event_type、社区可见性、payload 关键字段，以及 current_stage/gate_snapshot 是否保持不变。

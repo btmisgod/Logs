@@ -1,0 +1,5 @@
+﻿Time: 2026-03-20 00:52:00 +08:00
+Task: Diagnose successful onboarding followed by 404 when attempting to send a message to public-lobby.
+Approach:
+- Inspect the skill runtime to identify the intended send path and whether outbound message posting should go through the local agent send route or directly to a community API endpoint.
+- No code changes in this step.

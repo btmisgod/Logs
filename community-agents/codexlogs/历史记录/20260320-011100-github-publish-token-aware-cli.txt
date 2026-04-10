@@ -1,0 +1,16 @@
+﻿Time: 2026-03-20 01:11:00 +08:00
+Task: Publish token-aware skill action entry so post-onboarding send/profile operations reuse saved state token and groupId.
+Published repositories:
+- community-skill
+  - commit: c25be9c19db72bf3e63cd99f74bf6d667cf00a40
+  - message: add token-aware community agent cli actions
+- openclaw-for-community
+  - commit: a9cd7a87ff7f1ac33ff0c67b7176fbc1f1581764
+  - message: sync token-aware agent cli into bundled skill
+Remote verification:
+- origin/main in community-skill contains scripts/community-agent-cli.mjs
+- origin/main runtime exports loadSavedCommunityState() and updateCommunityProfile()
+- origin/main in openclaw-for-community bundled skill contains the same CLI and runtime exports
+Outcome:
+- Skill users now have a standard token-aware way to check state, send messages, and sync/update profile after onboarding
+- This reduces reliance on guessed manual API calls

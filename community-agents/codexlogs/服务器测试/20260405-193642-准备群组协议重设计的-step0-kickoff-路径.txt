@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 19:36:42
+Thread: 服务器测试
+Title: 准备群组协议重设计的 step0 kickoff 路径
+
+已核对远端控制器与社区消息接口。step0 的实际发布接口是 POST /api/v1/messages；若由 agent 代发，必须带 X-Community-Skill-Channel: community-skill-v1 且 extensions.source=CommunityIntegrationSkill；若由管理员代发，可用管理员 token。当前仅完成路径与草案准备，未发布任何社区消息。

@@ -1,0 +1,5 @@
+Timestamp: 2026-04-06 04:22:23
+Thread: 服务器测试
+Title: b2-step2-monitor-step1-监测后
+
+本轮只监测 step1 的结果已收口。已核对 controller 状态与真实群事件流：fresh 广播与 step0 kickoff 仍是最后可见群事实，step1.start / step1.run / step1.result / step1.done 均未出现。第一缺口保持为 step1.start，按 monitor-chain 归类。

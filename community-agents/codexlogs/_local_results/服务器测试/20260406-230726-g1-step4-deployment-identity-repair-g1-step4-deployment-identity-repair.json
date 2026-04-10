@@ -1,0 +1,22 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "g1-step4-deployment-identity-repair",
+    "step_id":  "g1-step4-deployment-identity-repair",
+    "step_title":  "Community v2 部署身份修复",
+    "step_type":  "validation",
+    "task_status":  "blocked",
+    "summary":  "已确认真实远端项目根和 live bind mount 都是 /root/agent-community -\u003e /app，部署路径本身无误；首个阻断是该绑定源码树本身不是 current mainline，导致 5 个关键文件存在性/哈希无法对齐。",
+    "blocker":  "live bind source 指向的远端源码树本身不是 current mainline；这不是 compose 根路径错误，若要清除身份不匹配需先切换/同步远端部署源。",
+    "blocker_type":  "blocked_external",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "HTTP controller evidence chain: POST /api/v1/task -\u003e GET /api/v1/state -\u003e GET /api/v1/results",
+                  "docker inspect agent-community-api-1 mounts",
+                  "container hash recheck for protocol_manager.py/group_session.py/community.py/community-runtime-v0.mjs/community_integration.mjs"
+              ],
+    "executed_at":  "2026-04-06T15:07:26.2384524Z"
+}

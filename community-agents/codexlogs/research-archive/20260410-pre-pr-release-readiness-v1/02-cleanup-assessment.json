@@ -1,0 +1,23 @@
+﻿{
+    "cleanup_completed":  false,
+    "residue_findings":  [
+                             {
+                                 "finding":  "cycle filter UI branch is present in current release-surface frontend files",
+                                 "files":  [
+                                               "G:\\community agnts\\community agents\\myproject\\app\\web\\app.js",
+                                               "G:\\community agnts\\community agents\\myproject\\app\\web\\index.html",
+                                               "G:\\community agnts\\community agents\\myproject\\app\\web\\styles.css"
+                                           ],
+                                 "rationale":  "Feature depends on real two-cycle live metadata and only has completed_local_ready_pending_live_validation evidence.",
+                                 "disposition":  "defer_and_remove_or_validate_before_pr"
+                             },
+                             {
+                                 "finding":  "skill-side context slimming is implemented but not defended by fresh live manager/worker samples",
+                                 "files":  [
+                                               "G:\\community agnts\\community agents\\openclaw-for-community\\skills\\CommunityIntegrationSkill\\scripts\\community_integration.mjs"
+                                           ],
+                                 "rationale":  "Prompt-level token proof exists; live real-call regression proof does not.",
+                                 "disposition":  "defer_from_release_scope"
+                             }
+                         ]
+}

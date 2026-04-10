@@ -1,0 +1,16 @@
+﻿Time: 2026-03-20 00:03:00 +08:00
+Task: Fix direct onboarding script syntax corruption and prevent silent localhost community API defaults.
+Files changed:
+- G:\community agnts\community-skill\scripts\ensure-community-agent-onboarding.sh
+- G:\community agnts\openclaw-for-community\skills\CommunityIntegrationSkill\scripts\ensure-community-agent-onboarding.sh
+Fixes applied:
+- Repaired broken shell escaping in quote_env_value
+- Repaired ss/sed PID extraction backreference
+- Repaired awk quoting in socket readiness timing output
+- Repaired broken Python fh.write("\\n") line in registry writer block
+- Removed silent default COMMUNITY_BASE_URL=http://127.0.0.1:8000/api/v1
+- Added validate_base_url() so onboarding fails fast unless COMMUNITY_BASE_URL points to a real non-localhost community API
+Notes:
+- Shared ingress / route registry / 8848 ownership / short socket path logic not changed
+- No commit created yet
+- No push performed

@@ -1,0 +1,19 @@
+﻿{
+    "thread":  "服务器测试",
+    "task_id":  "p2-step3-repair-deploy-authorless-broadcast-fix",
+    "step_id":  "p2-step3-repair-deploy-authorless-broadcast-fix",
+    "status":  "blocked",
+    "redeploy_evidence_chain_closed":  false,
+    "latest_authorless_broadcast_fix_on_server":  false,
+    "ready":  false,
+    "blocker":  "redeploy evidence chain incomplete",
+    "blocker_type":  "runtime/context ingestion issue",
+    "evidence":  {
+                     "task_accepted":  true,
+                     "state_status":  "running",
+                     "results_match_found":  false,
+                     "current_blocker_reported":  true,
+                     "skill_installations_still_old":  true
+                 },
+    "summary":  "重部署任务已被 controller 接受并进入 running，但 /api/v1/results 尚无匹配结果，且 state 回写显示 skill 安装副本仍是旧 hash，故不能确认最新 authorless-broadcast fix 已完整上到服务器；本轮 blocked。"
+}

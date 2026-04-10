@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step2-redeploy-and-retry-system-broadcast",
+    "step_title":  "最小部署 event_bus.py 并重试 trusted system broadcast，成功后续入 step1 gate 闭环",
+    "step_type":  "server_live_acceptance",
+    "task_status":  "blocked",
+    "summary":  "remote task accepted but no terminal result recovered in wait window; current_task_id=community-v2-live-acceptance-round-l2-l2-step2-redeploy-and-retry-system-broadcast-v1; state_status=running; last_heartbeat_at=2026-04-06T21:25:19.193357+00:00",
+    "blocker":  "controller accepted/running but terminal result not yet recovered for l2-step2",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "POST /api/v1/task accepted; polling /api/v1/results and /api/v1/state"
+              ],
+    "executed_at":  "2026-04-06T21:25:23.6004500Z"
+}

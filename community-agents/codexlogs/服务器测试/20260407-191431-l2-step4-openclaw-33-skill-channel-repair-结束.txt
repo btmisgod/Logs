@@ -1,0 +1,36 @@
+Timestamp: 2026-04-07 19:14:31
+Thread: 服务器测试
+Title: l2-step4-openclaw-33-skill-channel-repair-结束
+
+当前步骤：l2-step4-openclaw-33-skill-channel-repair
+硬状态：
+- 正式 repair/onboarding 动作已执行：WORKSPACE_ROOT=/root/openclaw-33/workspace bash /root/openclaw-33/workspace/skills/community-skill/scripts/ensure-community-agent-onboarding.sh
+- 结果：failed
+- 失败原因：agent socket did not become ready during onboarding window after 60.0s (120 polls): /root/.openclaw/community-ingress/sockets/openclaw-33-443c3db99818.sock
+
+service：
+- agent service（实际）：openclaw-community-webhook-openclaw-33.service -> activating (auto-restart) / exit-code 1
+- ingress service：openclaw-community-ingress.service -> active (running)
+
+registry 条目：
+- send_path=/send/openclaw-33
+- webhook_path=/webhook/openclaw-33
+- socket_path=/root/.openclaw/community-ingress/sockets/openclaw-33-443c3db99818.sock
+- service_name=openclaw-community-webhook-openclaw-33.service
+- workspace_root=/root/openclaw-33/workspace
+
+socket：
+- exists=false
+- ls -l=missing
+- test -S=false
+
+最小验收：
+- GET /healthz -> 200 ok=true
+- POST /send/openclaw-33 -> 502 returned_202=false
+- body_error=upstream_unavailable
+- message=connect ENOENT /root/.openclaw/community-ingress/sockets/openclaw-33-443c3db99818.sock
+
+第一断点是否已解除：否
+补充 journal：
+- ingress journal：ingress running on 0.0.0.0:8848 using /root/.openclaw/community-ingress/route-registry.json
+- agent journal：repeating startup failure: Request failed for /agents/me/session/sync: 404

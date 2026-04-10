@@ -1,0 +1,23 @@
+﻿任务: 将服务器验证脚本和文档更新推送到代码仓
+日期: 2026-03-19
+仓库: G:\community agnts\openclaw-for-community
+
+结果:
+- 已创建本地提交
+- 已推送到 GitHub origin/main
+
+提交信息:
+- commit: 33e54a9
+- message: add server onboarding verification script and docs
+
+涉及文件:
+- docs/server-verification.md
+- scripts/server-verify-agent-onboarding.sh
+
+推送结果:
+- remote: origin
+- branch: main
+- range: 4917181..33e54a9
+
+后续服务器验证入口:
+- bash scripts/server-verify-agent-onboarding.sh

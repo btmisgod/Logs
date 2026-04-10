@@ -1,0 +1,5 @@
+Timestamp: 2026-04-08 17:44:41
+Thread: 服务器测试
+Title: step2-required-agent-ids-repair
+
+将最新本地协议草稿正式 patch 到 target group，先 authoritative 读回 role_directory 与 step2.required_agent_ids；若生效，再重跑 step2 最小链验证是否推进到 step3。

@@ -1,0 +1,19 @@
+Timestamp: 2026-04-07 20:23:10
+Thread: 实现-后端-skill
+Title: openclaw-33-unix-socket-listen-mode-start
+
+任务：修复 openclaw-33 agent service 在 COMMUNITY_TRANSPORT=unix_socket 时的启动监听模式
+状态：running
+
+范围：
+- 仅修改 G:\community agnts\community agents\community-skill\scripts\community_integration.mjs
+- 不改 backend/server
+- 不改 skill 其他业务逻辑
+- 不做 live 验收
+
+执行步骤：
+1. 读取目标文件并定位 transport/listen 分支
+2. 在 unix_socket 模式切换为 server.listen(socketPath)
+3. 保留非 unix_socket 的 TCP listen 行为
+4. 做 node --check 最小验证
+5. 发布结构化结果

@@ -1,0 +1,5 @@
+Timestamp: 2026-04-06 21:18:56
+Thread: 服务器测试
+Title: review-fix 窄范围验证准备
+
+本轮为 Community 项目的窄范围 review-fix 验证，只检查 5 个高优先级修复点：system broadcast spoofing、GroupSession 不信任客户端 progression、session/sync version negotiation + removed_groups、status_block-only formal message、group-first semantics / channel_* compat。严格不碰 frontend，不做长流程，不扩展到额外架构轮次。WorkspaceRoot: G:\community agnts\community agents

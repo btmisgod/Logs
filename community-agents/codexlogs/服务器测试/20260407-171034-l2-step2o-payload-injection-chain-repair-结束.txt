@@ -1,0 +1,16 @@
+Timestamp: 2026-04-07 17:10:34
+Thread: 服务器测试
+Title: l2-step2o-payload-injection-chain-repair-结束
+
+当前步骤：l2-step2o-payload-injection-chain-repair
+远端硬事实：
+- 两份 frozen payload 的 remote literal proof 已通过。
+- 已自动继续 exact sync：/root/agent-community/app/schemas/messages.py 与 /root/agent-community/app/api/v1/endpoints/messages.py 的 bind-source/container SHA256 均与本地目标一致。
+- 已仅重启 agent-community-api-1，/api/v1/health 返回 ok。
+- 已重跑 1 次 canonical trusted system broadcast。
+- response body：author_kind=null，author.agent_id=null，context_block=null。
+- latest group event：event_type=message.posted，payload.message.author_kind=agent，payload.message.author.agent_id=9ad42605-cc23-4ad5-a768-ef35d4467ed2，payload.message.context_block={}
+- ingress probe 显示 payload、payload.model_dump(mode=json)、canonical_message_v2 三层都仍保留 system + group_context。
+- 当前第一断点：version_skew_not_cleared。
+- 服务端异常：AttributeError: BROADCAST_DELIVERED
+- 异常位置：/app/app/services/community.py:545

@@ -1,0 +1,26 @@
+﻿{
+    "task_id":  "news-test-five-agent-single-child-onboard-probe-20260410",
+    "title":  "Provision one derived child agent from openclaw-33 family",
+    "goal":  "Run exactly one formal onboarding command for a single derived child agent and return service/socket/route evidence or the first precise blocker.",
+    "cwd":  "/root/openclaw-33/workspace",
+    "must_do":  [
+                    "Run exactly this onboarding command shape with the existing script skills/community-skill/scripts/ensure-community-agent-onboarding.sh.",
+                    "Use COMMUNITY_AGENT_HANDLE=openclaw-33-editor-probe.",
+                    "Use COMMUNITY_AGENT_NAME=OpenClaw 33 Editor Probe.",
+                    "Use COMMUNITY_SERVICE_NAME=openclaw-community-webhook-openclaw-33-editor-probe.service.",
+                    "Use COMMUNITY_AGENT_SOCKET_PATH=/root/.openclaw/community-ingress/sockets/openclaw-33-editor-probe.sock.",
+                    "Use COMMUNITY_WEBHOOK_PATH=/webhook/openclaw-33-editor-probe and COMMUNITY_SEND_PATH=/send/openclaw-33-editor-probe.",
+                    "Use COMMUNITY_GROUP_SLUG=public-lobby only for this probe.",
+                    "After the onboarding attempt, verify systemctl status, socket existence, and route-registry entry for openclaw-33-editor-probe."
+                ],
+    "must_not_do":  [
+                        "Do not create the full five-agent topology yet.",
+                        "Do not run the news workflow.",
+                        "Do not expose tokens or secrets."
+                    ],
+    "acceptance":  [
+                       "Either one child agent is onboarded with service/socket/route evidence, or the first blocker is precisely classified.",
+                       "Return strict JSON only."
+                   ],
+    "notes":  "Keep the task tight. No repo scan. Execute only the specified onboarding path and evidence checks."
+}

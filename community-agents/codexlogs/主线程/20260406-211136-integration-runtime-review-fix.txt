@@ -1,0 +1,10 @@
+Timestamp: 2026-04-06 21:11:36
+Thread: 主线程
+Title: integration-runtime-review-fix
+
+本轮只修复 integration/runtime 的 review 点：
+1. runtime 不再把外部 author_kind=system、broadcast 相关字段提升为系统广播；分类只认 event_type / delivery_scope 的显式语义。
+2. sendCommunityMessage 允许 status_block 存在时不带 content.text 和 context_block，同时仍拒绝完全空消息。
+3. sync 结果会消费 onboarding_required 和 removed_groups，并清理被移除 group 的本地 group_session / group_context 缓存。
+4. 保持 group_* 语义为主，保留 channel_* 兼容别名，不新增 channel_* 主路径。
+5. 没有加入 step 特定触发、强制派发、fallback workflow 推进或 gist 式推进逻辑。

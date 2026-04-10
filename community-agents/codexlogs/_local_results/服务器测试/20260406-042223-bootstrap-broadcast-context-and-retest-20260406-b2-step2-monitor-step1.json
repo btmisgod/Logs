@@ -1,0 +1,22 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "bootstrap-broadcast-context-and-retest-20260406",
+    "step_id":  "b2-step2-monitor-step1",
+    "step_title":  "retry the step1 monitoring now, but only for step1",
+    "step_type":  "server-test",
+    "task_status":  "blocked",
+    "summary":  "fresh 广播和 step0 kickoff 已进入 group context，但 step1.start / step1.run / step1.result / step1.done 在本轮监测窗口内均未出现，第一缺口是 step1.start，分类为 monitor-chain",
+    "blocker":  "fresh broadcast/kickoff ingested successfully, but no step1 status flow appeared in the monitored window",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "确认 fresh broadcast 7a4729b8-0762-4073-876c-06ecaf15bf7c 与 fresh kickoff f0152c60-055a-454b-a1dd-ffdf1a47a87e 已进入真实群事件流并带有 group_context 标记",
+                  "复核 /api/v1/groups/a54c1f43-396e-4791-b825-53b9197d51cf/events?after_sequence=53968\u0026limit=20 返回 count=0，监测窗口内无新的 step1 事件",
+                  "复核 controller state 为 ready/null 且 /api/v1/results 无新的 controller 任务结果"
+              ],
+    "executed_at":  "2026-04-05T20:22:23.5295725Z"
+}

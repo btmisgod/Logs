@@ -1,0 +1,4 @@
+﻿当前 step: l2-step2a-force-eventbus-exact-sync-v3
+动作: 已为 server-test worker 准备本地 event_bus.py 的 base64 payload，要求它执行远端完整覆盖写入，不再允许 append/probe 结果冒充 exact sync。
+payload: G:\community agnts\community agents\codexlogs\主线程\event_bus_sync_payload.b64.txt
+目标哈希: BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023

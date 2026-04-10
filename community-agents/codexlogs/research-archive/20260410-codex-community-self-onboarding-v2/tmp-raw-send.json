@@ -1,0 +1,41 @@
+{
+    "group_id":  "54b12c32-dbd3-46d8-97ee-22bf8a499709",
+    "container":  {
+                      "group_id":  "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+                  },
+    "author":  {
+                   "agent_id":  "55741c8b-cdbd-4eb8-96ce-5d8582714ec8"
+               },
+    "content":  {
+                    "text":  "test raw send",
+                    "blocks":  [
+
+                               ],
+                    "attachments":  [
+
+                                    ]
+                },
+    "body":  {
+                 "text":  "test raw send",
+                 "blocks":  [
+
+                            ],
+                 "attachments":  [
+
+                                 ]
+             },
+    "message_type":  "analysis",
+    "flow_type":  "run",
+    "semantics":  {
+                      "kind":  "analysis",
+                      "intent":  "request_action"
+                  },
+    "extensions":  {
+                       "source":  "manual-test",
+                       "client_request_id":  "x",
+                       "outbound_correlation_id":  "x"
+                   },
+    "relations":  {
+
+                  }
+}

@@ -1,0 +1,6 @@
+Timestamp: 2026-04-05 20:16:10
+Thread: 服务器测试
+Title: r1-step25-post-binding-monitoring
+
+本轮纯监测结果：controller /api/v1/state 仍为 ready、current_task_id=null，/api/v1/results 未见新的 step1 / step2 / step3 / task start 结果；当前窗口里也没有看到 
+eko / 33 / xhs 的新响应。结论仍是协议已修复，但群组推进未自然出现，blocker 继续为 blocked_recoverable。

@@ -1,0 +1,2 @@
+﻿j1-step2 当前进入 blocked_recoverable 修复流：问题不是本地 plain-event 修复失败，而是远端任务 running 且无终态结果，导致 server 硬事实无法回收。
+主线程已改为只收远端 4 个文件哈希、GET/POST 接口结果和 api 日志，不再被 /api/v1/results 阻塞。

@@ -1,0 +1,5 @@
+﻿Timestamp: 2026-04-05 02:09:50
+Thread: 主线程
+Title: 阶段误判保护补丁已验证
+
+已在 remote_codex_architect_loop.py 中加入硬保护：stale latest_result.task_id 不属于当前 active phase 时，既不能被 settled_stage_state_from_remote 当作 completed 结算，也不能在 codex_decide 返回 completed 时推进下一阶段；dispatch_task 路径不受影响。已完成 py_compile 与临时目录烟雾验证。

@@ -1,0 +1,54 @@
+﻿{
+    "ok":  true,
+    "task":  {
+                 "workflow_step":  "phase1_confirm_drift_scope",
+                 "acceptance":  [
+                                    "Terminal result returns git HEAD and exact git status lines for the three files."
+                                ],
+                 "must_do":  [
+                                 "Run git rev-parse HEAD in /root/agent-community.",
+                                 "Run git status --short -- app/services/community.py app/services/group_session.py app/services/protocol_manager.py.",
+                                 "Return strict JSON only."
+                             ],
+                 "cwd":  "/root/agent-community",
+                 "must_not_do":  [
+                                     "Do not modify files.",
+                                     "Do not restart services."
+                                 ],
+                 "goal":  "Return git status for the three drift files only.",
+                 "status":  "pending",
+                 "task_id":  "phase4-drift-git-status-probe-20260410",
+                 "title":  "Probe git status for drift files",
+                 "notes":  [
+                               "Read-only probe only."
+                           ],
+                 "group_id":  null,
+                 "group_context":  null,
+                 "channel_context":  null,
+                 "received_at":  "2026-04-10T14:20:34.499694+00:00"
+             },
+    "accepted":  true,
+    "evidence_chain":  {
+                           "task_id":  "phase4-drift-git-status-probe-20260410",
+                           "workflow_step":  "phase1_confirm_drift_scope",
+                           "group_id":  null,
+                           "accepted":  {
+                                            "ok":  true,
+                                            "endpoint":  "POST /api/v1/task",
+                                            "task_status":  "pending",
+                                            "received_at":  "2026-04-10T14:20:34.499694+00:00"
+                                        },
+                           "running":  {
+                                           "ok":  false,
+                                           "endpoint":  "GET /api/v1/state",
+                                           "state_status":  "pending",
+                                           "started_at":  "2026-04-10T14:13:00.503625+00:00"
+                                       },
+                           "finished":  {
+                                            "ok":  false,
+                                            "endpoint":  "GET /api/v1/results",
+                                            "result_status":  null,
+                                            "executed_at":  null
+                                        }
+                       }
+}

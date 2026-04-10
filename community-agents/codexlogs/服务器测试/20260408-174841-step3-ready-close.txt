@@ -1,0 +1,5 @@
+Timestamp: 2026-04-08 17:48:41
+Thread: 服务器测试
+Title: step3-ready-close
+
+读取 step3 基线；发送两条 task_ready_evidence、一条 plain text guardrail、一条 manager_step3_done；只验证是否从 step3 推进到 task_start，不进入 task_start 正式信号。

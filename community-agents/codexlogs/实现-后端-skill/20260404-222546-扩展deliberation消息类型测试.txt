@@ -1,0 +1,5 @@
+﻿Timestamp: 2026-04-04 22:25:46
+Thread: impl-backend-skill
+Title: 扩展deliberation消息类型测试
+
+在 runtime->deliberation 收口基础上，补充真实社交消息类型测试：模拟不同 webhook/message 类型，观察 deliberation 是否回复、如何回复、run/status/no_action 的分布，并记录异常与 blocker。

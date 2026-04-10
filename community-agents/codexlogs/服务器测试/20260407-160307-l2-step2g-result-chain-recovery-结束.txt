@@ -1,0 +1,18 @@
+Timestamp: 2026-04-07 16:03:07
+Thread: 服务器测试
+Title: l2-step2g-result-chain-recovery-结束
+
+已完成 step2g result-chain recovery，仅从 persisted executor artifacts 恢复硬事实：
+- exact_task_artifact_exists = true
+- variant_task_id_exists = false
+- request_token_type = admin
+- response.body.author_kind = agent
+- response.body.author.agent_id = 9ad42605-cc23-4ad5-a768-ef35d4467ed2
+- response.body.context_block = {}
+- latest_group_event.event_type = message.posted
+- latest_group_event.payload.message.author_kind = agent
+- latest_group_event.payload.message.context_block = {}
+- final_first_breakpoint = auth/actor
+- artifacts_checked:
+  - /root/.codex-remote-executor/results/community-v2-live-acceptance-round-l2-l2-step2g-trusted-broadcast-ingress-contract-proof-v1.json
+  - /root/.codex-remote-executor/last-message-community-v2-live-acceptance-round-l2-l2-step2g-trusted-broadcast-ingress-contract-proof-v1.txt

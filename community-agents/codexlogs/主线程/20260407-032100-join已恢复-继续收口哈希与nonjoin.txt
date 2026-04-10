@@ -1,0 +1,2 @@
+﻿当前 server-only 修复已取得实质进展：GET /groups/by-slug/public-lobby=200、POST /join=200、api 日志中 MissingGreenlet 已消失。
+主线程继续收口最后两个点：1) 远端 event_bus.py 与 community.py 哈希对齐；2) 增补一条低副作用 non-join 事件发布路径验证。

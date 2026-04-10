@@ -1,0 +1,117 @@
+{
+  "command_id": "20260410-codex-webhook-port-normalize-8848-v1",
+  "version": "1.0",
+  "created_at": "2026-04-10",
+  "target_thread": "codex-community-self-onboarding-thread",
+  "workspace_root": "G:\\community agnts\\community agents",
+  "title": "Normalize Codex community bridge listener and registered webhook endpoint back to port 8848",
+  "objective": "Stop the current dual-track webhook state. Make the Codex-side community bridge listen on port 8848, ensure the registered community webhook target_url also points to 8848, and prove one real inbound webhook can reach the bridge through the normalized 8848 path.",
+  "frozen_requirements": {
+    "required_listener_port": 8848,
+    "required_webhook_base": "http://192.168.1.9:8848",
+    "do_not_change_community_code": true,
+    "do_not_expand_scope": true
+  },
+  "mandatory_references": [
+    {
+      "order": 1,
+      "path": "G:\\community agnts\\community agents\\codex command\\20260410-codex-community-self-onboarding-v2.json",
+      "why": "Use the existing Codex self-onboarding task as the source of current route choice and accepted boundaries."
+    },
+    {
+      "order": 2,
+      "path": "G:\\community agnts\\community agents\\openclaw-for-community\\skills\\CommunityIntegrationSkill\\README.md",
+      "why": "Confirm the expected community-connected agent behavior and listener model."
+    },
+    {
+      "order": 3,
+      "path": "G:\\community agnts\\community agents\\openclaw-for-community\\skills\\CommunityIntegrationSkill\\scripts\\ensure-community-agent-onboarding.sh",
+      "why": "Use the existing onboarding/env variables and route registration assumptions instead of inventing a new model."
+    },
+    {
+      "order": 4,
+      "path": "G:\\community agnts\\community agents\\openclaw-for-community\\skills\\CommunityIntegrationSkill\\scripts\\community_integration.mjs",
+      "why": "Confirm webhook/send path behavior and how the listener and outbound send flow are expected to work."
+    },
+    {
+      "order": 5,
+      "path": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+      "why": "This is the current local identity/state record and contains the currently registered webhook URL that must be reconciled."
+    }
+  ],
+  "allowed_work_areas": [
+    "G:\\community agnts\\community agents\\openclaw-for-community\\skills\\CommunityIntegrationSkill",
+    "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-codex-community-port-normalize-8848-v1"
+  ],
+  "forbidden_work_areas": [
+    "G:\\community agnts\\community agents\\myproject",
+    "G:\\community agnts\\community agents\\community-skill",
+    "G:\\community agnts\\community agents\\openclaw-for-community\\newsflow-workflow"
+  ],
+  "required_work": [
+    {
+      "id": "phase1_reconcile_current_state",
+      "description": "Identify the actual active Codex-side listener, the currently registered community webhook URL, and whether they disagree on port/path/handle."
+    },
+    {
+      "id": "phase2_normalize_local_listener_to_8848",
+      "description": "Update the Codex-side bridge/listener so the active local listener is on port 8848. Do not leave 8788 as the active ingress for community webhooks."
+    },
+    {
+      "id": "phase3_reregister_or_refresh_webhook_target",
+      "description": "Ensure the community-facing webhook target_url for the active Codex identity is updated to the 8848 endpoint. The final state must not point at 8788 or a stale tunnel URL."
+    },
+    {
+      "id": "phase4_verify_normalized_health",
+      "description": "Prove the 8848 listener is alive, externally reachable on the intended path, and matches the active identity handle/path."
+    },
+    {
+      "id": "phase5_prove_real_inbound_webhook",
+      "description": "Produce one real inbound webhook proof after normalization. A local health check alone is not enough."
+    },
+    {
+      "id": "phase6_closeout",
+      "description": "Write a closeout that states exactly what was changed, what the final listener port is, what webhook URL is registered in community, and whether real inbound delivery on 8848 is confirmed."
+    }
+  ],
+  "do_not": [
+    "Do not change any community backend/frontend/protocol/workflow code.",
+    "Do not leave both 8788 and 8848 active as competing community ingress routes.",
+    "Do not treat local healthz success as proof of real webhook delivery.",
+    "Do not broaden this into a new onboarding architecture task."
+  ],
+  "working_principles": [
+    "One listener port, one registered webhook URL, one active identity path.",
+    "The final 8848 path must be the authoritative path from community to Codex.",
+    "Use evidence, not assumptions: state file, actual listener, and real webhook delivery must agree."
+  ],
+  "acceptance": [
+    "Active Codex-side listener is on port 8848.",
+    "Registered community webhook target_url points to the 8848 endpoint.",
+    "No stale 8788 path remains as the active community ingress.",
+    "A real inbound webhook reaches the normalized 8848 listener."
+  ],
+  "deliverables": [
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-codex-community-port-normalize-8848-v1",
+      "description": "Evidence folder for state reconciliation, port normalization, webhook registration proof, and inbound webhook proof."
+    }
+  ],
+  "result_format": {
+    "required_fields": [
+      "Status",
+      "BlockerType",
+      "Blocker",
+      "IdentityHandle",
+      "PreviousListenerPort",
+      "FinalListenerPort",
+      "PreviousRegisteredWebhookUrl",
+      "FinalRegisteredWebhookUrl",
+      "InboundWebhookProof",
+      "changed_files",
+      "evidence_paths",
+      "log_path",
+      "NextStep"
+    ]
+  }
+}

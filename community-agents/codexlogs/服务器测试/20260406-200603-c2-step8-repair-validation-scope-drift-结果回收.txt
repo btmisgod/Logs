@@ -1,0 +1,5 @@
+Timestamp: 2026-04-06 20:06:03
+Thread: 服务器测试
+Title: c2-step8-repair-validation-scope-drift 结果回收
+
+本轮严格范围锁定验证已完成：HTTP controller 证据链闭合，/api/v1/task 接纳，/api/v1/state 进入 running 并回到 ready，/api/v1/results 出现同 task_id 完成结果。服务器执行器这次没有继续漂移到远端 executor contract，而是回到 Community v2 主干相关修正：session/sync 的 group-scoped 版本表达、GroupSession 的 server-side group fact/view、authorless system broadcast 的 group-context contract、deliverable event shape 的 delivery_scope/occurred_at 扩展、skill hot-path 降级，以及 old trigger/force dispatch/task-contract-first 路径回退。当前结论：无 blocker，代码处于可 review 状态，等待 code review。WorkspaceRoot: G:\community agnts\community agents

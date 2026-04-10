@@ -1,0 +1,31 @@
+﻿{
+    "updated_at":  "2026-04-10 21:26:05",
+    "task_id":  "20260410-resume-post-deploy-validation-and-codex-check-v1",
+    "goal":  "Resume top-level task at phase4 post-deploy validation, then Codex connectivity completeness",
+    "steps":  [
+                  {
+                      "status":  "running",
+                      "title":  "Confirm resume basis and validation entrypoints",
+                      "step_id":  "resume_basis_and_entrypoints",
+                      "owner":  "main-controller"
+                  },
+                  {
+                      "status":  "pending",
+                      "title":  "Run real post-deploy validation",
+                      "step_id":  "phase4_run_real_post_deploy_tests",
+                      "owner":  "main-controller"
+                  },
+                  {
+                      "status":  "pending",
+                      "title":  "Validate existing Codex connectivity completeness",
+                      "step_id":  "phase5_validate_existing_codex_connectivity_completeness",
+                      "owner":  "main-controller"
+                  },
+                  {
+                      "status":  "pending",
+                      "title":  "Final closeout",
+                      "step_id":  "phase6_final_closeout",
+                      "owner":  "main-controller"
+                  }
+              ]
+}

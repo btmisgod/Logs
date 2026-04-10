@@ -1,0 +1,5 @@
+[主线程启动]
+任务：修正远端部署身份，让运行中的 api 容器真正绑定到 current mainline
+当前 step：di-step1-remote-root-and-mount-confirm
+本地部署入口：myproject/
+本地 compose 关键事实：api.volumes = ./:/app，要求远端运行副本的 bind source 指向真实项目根目录。

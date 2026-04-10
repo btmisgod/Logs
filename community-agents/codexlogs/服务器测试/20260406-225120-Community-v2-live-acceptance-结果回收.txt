@@ -1,0 +1,5 @@
+Timestamp: 2026-04-06 22:51:20
+Thread: 服务器测试
+Title: Community v2 live acceptance 结果回收
+
+本轮严格 live acceptance 已按规则在 Step 1 停止。原因不是架构问题，而是当前线上 Community 服务运行身份无法与要求的 current mainline hash 集合对齐：运行中的 agent-community-api-1 内 /app/app/services/protocol_manager.py 与 /app/app/services/community.py 哈希均不匹配给定值，/app/app/services/group_session.py 缺失；运行中的 skill 副本 community_integration.mjs 与 community-runtime-v0.mjs 哈希也不匹配给定值。由于 live 部署身份未能绑定到本轮要求的主线版本，未继续执行 7 个 live 验收点。WorkspaceRoot: G:\community agnts\community agents

@@ -1,0 +1,158 @@
+{
+  "command_id": "20260410-pre-pr-release-readiness-v1",
+  "version": "1.0",
+  "created_at": "2026-04-10",
+  "target_thread": "main-controller",
+  "workspace_root": "G:\\community agnts\\community agents",
+  "title": "Drive community + skill to PR-ready state, then stop before the actual PR",
+  "objective": "Take the current community + skill work to the last safe point before opening a PR. Freeze the release scope, clean old-logic residue inside that scope, run release validation, fix only the minimum blockers needed for release readiness, prepare PR materials, and then stop. Do not create the PR, do not push, and do not commit unless explicitly required for local test flow and already approved by the user later.",
+  "release_goal": {
+    "primary": "Reach a defensible PR-ready state for the current community + skill version.",
+    "stop_line": "Stop at the moment where the branch is ready for PR review, with evidence, test results, and PR materials prepared, but without actually opening or publishing the PR."
+  },
+  "mandatory_references": [
+    {
+      "path": "G:\\community agnts\\community agents\\AGENTS.md",
+      "why": "Thread-wide behavior and collaboration rules."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\docs\\control-plane\\community-llm-context-slimming-v1.md",
+      "why": "Current skill-side slimming requirement and acceptance target."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\16-final-closeout.json",
+      "why": "Latest clean proof that manager-only bootstrap + simple news formal workflow + UI main-view rendering have already been validated."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-repair-remote-executor-results-persistence-v1\\19-structured-result.json",
+      "why": "Fresh evidence that the earlier remote executor result-persistence blocker is no longer a valid excuse."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\openclaw-for-community\\skills\\CommunityIntegrationSkill\\scripts\\community_integration.mjs",
+      "why": "Current main skill implementation under release consideration."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\myproject",
+      "why": "Current community backend/frontend codebase under release consideration."
+    }
+  ],
+  "required_work": [
+    {
+      "id": "phase1_freeze_release_scope",
+      "description": "Define exactly what is in the PR scope and what is out of scope. Use current implemented code and proven evidence, not wishful scope. Explicitly exclude next-stage ideas that are not ready, including multi-identity OpenClaw child-agent support and desktop Codex community onboarding work unless they already exist in code and have passing validation."
+    },
+    {
+      "id": "phase2_clean_old_logic_residue",
+      "description": "Before running final validation, remove old logic residue inside the frozen release scope. Focus on dead paths, stale compatibility leftovers, duplicate prompt injection leftovers, obsolete UI fallback branches, and stale test scaffolding that now conflicts with the intended behavior. Do not broaden this into architectural redesign."
+    },
+    {
+      "id": "phase3_run_release_validation_matrix",
+      "description": "Run the release validation matrix for the frozen scope. Any feature that remains in scope must have fresh evidence. Any feature that cannot be validated must either be fixed, explicitly removed from scope, or marked as a hard blocker that stops PR readiness."
+    },
+    {
+      "id": "phase4_fix_only_release_blockers",
+      "description": "If validation finds blockers, fix only the minimum code needed to make the frozen release scope defensible. No speculative feature work."
+    },
+    {
+      "id": "phase5_prepare_pr_materials",
+      "description": "Prepare PR-ready materials: change summary, validation summary, known risks, deferred work, and a draft PR description/body file. These materials must match the frozen scope, not future plans."
+    },
+    {
+      "id": "phase6_final_pre_pr_closeout",
+      "description": "Write the final structured result that states whether the codebase is PR-ready. If yes, stop there. If no, stop at the first hard blocker with evidence."
+    }
+  ],
+  "validation_matrix": [
+    {
+      "id": "T1_cold_start_new_group",
+      "required": true,
+      "description": "A fresh group can be created and initialized without dirty baseline leakage."
+    },
+    {
+      "id": "T2_manager_only_bootstrap",
+      "required": true,
+      "description": "Bootstrap manager-only control still holds: worker evidence does not advance, plain text does not advance, only manager formal signals advance."
+    },
+    {
+      "id": "T3_simple_formal_workflow",
+      "required": true,
+      "description": "The current simple news formal workflow in scope can run to final deliver with real artifacts."
+    },
+    {
+      "id": "T4_ui_main_view_artifacts",
+      "required": true,
+      "description": "Main view renders scope-relevant artifacts without raw JSON dominating."
+    },
+    {
+      "id": "T5_skill_real_call_regression",
+      "required": true,
+      "description": "If context slimming remains in release scope, there must be at least one worker and one manager real-call sample showing the new prompt path does not regress behavior. If this cannot be proven, either prove it or remove that change from release scope."
+    },
+    {
+      "id": "T6_fault_classification_sanity",
+      "required": false,
+      "description": "Strongly recommended: prove the current control-plane does not misclassify an in-flight state as a broken infrastructure state."
+    }
+  ],
+  "scope_exclusion_defaults": [
+    "OpenClaw same-instance multi-identity child-agent support",
+    "Desktop Codex direct community onboarding / Codex-community bridge",
+    "New workflow concepts not already implemented in the current release branch",
+    "Large community architecture redesign"
+  ],
+  "do_not": [
+    "Do not open a PR.",
+    "Do not push a branch for publication.",
+    "Do not create a commit purely for publication unless the user later explicitly asks for git actions.",
+    "Do not keep unvalidated changes silently inside the PR scope.",
+    "Do not expand into next-stage feature work under the name of cleanup.",
+    "Do not treat old, already-cleared external blockers as current blockers without fresh evidence."
+  ],
+  "working_principles": [
+    "Scope first. A feature is either in scope and freshly validated, or out of scope and clearly deferred.",
+    "Cleanup means removing residue that increases release risk, not inventing new architecture.",
+    "Fresh evidence beats old logs and old assumptions.",
+    "If a feature cannot be defended with tests, either fix it, defer it, or block the PR. Do not hand-wave it through.",
+    "Stop at the last safe point before PR publication."
+  ],
+  "deliverables": [
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-pre-pr-release-readiness-v1",
+      "description": "Evidence bundle for scope freeze, cleanup decisions, validation results, blocker fixes, and PR materials."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\主线程\\20260410-pre-pr-release-readiness-v1.txt",
+      "description": "Detailed execution log for the pre-PR preparation thread."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-pre-pr-release-readiness-v1\\PR_READY_SUMMARY.md",
+      "description": "Human-readable pre-PR summary including scope, test matrix, risks, deferred items, and recommended PR title/body."
+    }
+  ],
+  "acceptance": [
+    "The release scope is explicitly frozen and recorded.",
+    "Old logic residue inside the frozen scope is either removed or consciously retained with justification.",
+    "The required validation matrix passes for all features still inside scope.",
+    "Any unvalidated or broken feature is either fixed, excluded from scope, or raised as the first hard blocker.",
+    "PR materials are prepared.",
+    "The final result clearly says either ReadyForPR=true or the first hard blocker that prevents PR readiness."
+  ],
+  "result_format": {
+    "required_fields": [
+      "Status",
+      "BlockerType",
+      "Blocker",
+      "FrozenScope",
+      "DeferredScope",
+      "CleanupCompleted",
+      "ValidationPassed",
+      "FailedValidationItems",
+      "ReadyForPR",
+      "PRMaterialsPrepared",
+      "changed_files",
+      "evidence_paths",
+      "log_path",
+      "NextStep"
+    ]
+  }
+}

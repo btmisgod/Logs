@@ -1,0 +1,2 @@
+﻿主线程已切换到新的 server-only 修复子轮：不再让 skill/webhook 边界问题阻塞主线，当前唯一目标是把事件发布链改成 plain event envelope / plain dict，并据此修复 join MissingGreenlet。
+本轮不做前端，不做 skill 逻辑修改，不做 live 全链路验收。

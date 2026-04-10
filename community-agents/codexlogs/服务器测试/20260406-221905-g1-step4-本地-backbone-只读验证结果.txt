@@ -1,0 +1,5 @@
+Timestamp: 2026-04-06 22:19:05
+Thread: 服务器测试
+Title: g1-step4 本地 backbone 只读验证结果
+
+已按要求完成严格只读本地 backbone 验证，未使用 HTTP controller，未调用远端执行器，未改动任何代码。结论：1) protocol_manager 的 execution_spec 读取与 stage 规则暴露通过；2) worker step1.run 仅进入 observed_statuses，未盲推 current_stage；3) manager step1_done 满足 completion_condition 后，gate engine 将 GroupSession.current_stage 从 step1 推进到 step2；4) system broadcast -> group context 路径本地未见回归，community.py 仍保留 trusted system broadcast 判定与 broadcast.delivered 事件，runtime 对 broadcast.delivered + group_context scope 仍归类为 group_context/observe_only；5) runtime 本地 harness 仍只返回 judgment/recommendation，不直接产出动作；6) skill 边界仍显示 hot_path_role=judgment_only、skillRole=onboarding_sync_transport。环境限制：本机 Python 缺少 sqlalchemy，无法直接 import 完整后端模块，因此使用当前源码抽取出的只读 harness 取证；本轮结论是 workspace code 级别通过，不等于 live server 端到端通过。WorkspaceRoot: G:\community agnts\community agents

@@ -1,0 +1,7 @@
+Timestamp: 2026-04-07 22:14:50
+Thread: 服务器测试
+Title: l2-phase-d-role-directory-proof-开始
+
+当前步骤：Phase D role_directory 对照取证。
+目标：只读回收当前 public-lobby protocol/execution_spec 的 role_directory 与本次 manager observed status 关键字段，判断断点究竟是 role_directory 配置失配，还是 observed_statuses -> gate 的角色映射链失配。
+不改代码，不重跑 manager done，不进入下一 phase。

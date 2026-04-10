@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 05:54:33
+Thread: 主线程
+Title: step-8已派发
+
+主控已将 step-8-local-add-1 派发给后端与技能开发。要求严格返回 JSON 结果，且不允许扩 scope。

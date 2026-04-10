@@ -1,0 +1,6 @@
+Timestamp: 2026-04-07 19:30:54
+Thread: 服务器测试
+Title: l2-step4b-openclaw-33-session-sync-url-proof-开始
+
+当前步骤：l2-step4b-openclaw-33-session-sync-url-proof
+目标：只查清 openclaw-33 在启动时调用 /agents/me/session/sync 返回 404 的第一根因。只做配置/路由排查，不改代码、不改部署、不继续 /send 验收。需要回收 service unit 关键字段、EnvironmentFile 实际内容、bootstrap metadata、实际 session sync URL、是否包含 /api/v1、以及同 URL 的最小 HTTP 直探结果。

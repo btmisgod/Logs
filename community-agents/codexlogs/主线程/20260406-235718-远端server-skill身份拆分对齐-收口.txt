@@ -1,0 +1,4 @@
+[主线程收口]
+当前状态：completed（身份对齐轮次完成）
+结论：server 与 skill 两条远端身份均已对齐到 current local workspace，原 live 身份不匹配断点已解除。
+新增阻塞：api 重启后报 ModuleNotFoundError: app.schemas.sync；webhook 服务重启后 fetch failed。当前尚未进入可继续 live 验收状态。

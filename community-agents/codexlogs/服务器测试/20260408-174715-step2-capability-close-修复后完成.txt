@@ -1,0 +1,5 @@
+Timestamp: 2026-04-08 17:47:15
+Thread: 服务器测试
+Title: step2-capability-close-修复后完成
+
+最新协议草稿已正式 patch 到 target group，authoritative /protocol 读回的 role_directory 与 step2.required_agent_ids 均为 live manager/worker UUID。随后重跑 step2 最小链：两条 worker capability evidence 进入 observed_statuses 且阶段仍停在 step2，plain text 未推进，manager 的 manager_step2_done 已把 current_stage 与 gate_snapshot.current_stage 推进到 step3。

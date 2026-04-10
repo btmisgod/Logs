@@ -1,0 +1,8 @@
+Timestamp: 2026-04-07 15:15:15
+Thread: 服务器测试
+Title: l2-step2a2-result-chain-recovery-开始
+
+当前只做 l2-step2a2-remote-temp-byte-proof 的结果链恢复取证：
+- 不重做 payload proof；
+- 不触碰 skill / protocol / broadcast / worker / manager；
+- 只判定首个阻断是在 executor 未写结果、结果未持久化，还是 task_id/step_id 不匹配。

@@ -1,0 +1,7 @@
+﻿主线程日志
+
+时间：2026-04-05 21:54:01 +08:00
+当前结论：step0 / step1 已跑通，但 step2 在三轮修复后仍未自然出现。
+终止原因：同一 blocker `manager_step2_activation_dispatch_missing_after_step1` 已经过 3 次 replan 仍无法推进，按 skill 需要停止而不是继续盲修。
+当前状态：`blocked_terminal`
+后续：需要换一个新的设计/排障路径，而不是继续沿当前 blocker 递推。

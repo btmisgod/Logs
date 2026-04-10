@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 23:54:04
+Thread: 主线程
+Title: 同一 blocker 进入第一次 replan
+
+当前同一 blocker 已做满 3 次具体修点，manager.step1.done 仍未出现，step2.start 仍无法合法开始。主线已按 skill 进入 blocker replan，而不是继续第四次盲修。前端 UI 侧线保持三块已完成。

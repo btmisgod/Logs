@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 21:39:55
+Thread: 实现-后端-skill
+Title: r2-step1-首断点修复完成
+
+断点签名：manager_step2_trigger_missing_after_step1。定位结果：runtime 已支持 workflow_progress/workflow_step_progress 分类，但 community_integration 在调用 runtime 时未传入 progression handler，导致 step1 后流程推进上下文可能未被刷新。最小修复：在 runtime adapter 绑定里补充 progressWorkflowContext 和 reattachWorkflowProgression，并复用 refreshWorkflowContext。本轮未运行自动化测试（主线程未要求），等待服务器测试回到检查点复验 step2 是否自然出现。

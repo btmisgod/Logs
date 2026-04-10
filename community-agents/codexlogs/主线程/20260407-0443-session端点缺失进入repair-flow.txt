@@ -1,0 +1,4 @@
+﻿[2026-04-07T04:42:46] l2-step1-read-server-group-facts 收到第一处断点：live backend 的正式 /api/v1/groups/by-slug/public-lobby/session 路径返回 404。
+已按 blocked_recoverable 进入 repair flow。
+当前 repair step：l2-step1-repair-session-endpoint。
+目标：只修 formal session endpoint 缺失，修复后立即回到 Step A 重跑 group/protocol/session 事实读取；暂不发散到 protocol 注入或后续 live 行为点。

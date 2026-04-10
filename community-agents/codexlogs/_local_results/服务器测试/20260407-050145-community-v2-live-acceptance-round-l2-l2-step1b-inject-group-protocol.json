@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step1b-inject-group-protocol",
+    "step_title":  "正式注入 group protocol 并继续最小 live acceptance 闭环",
+    "step_type":  "server_live_acceptance",
+    "task_status":  "running",
+    "summary":  "remote live-acceptance task was accepted but no terminal result was recovered within the wait window; current_task_id=community-v2-live-acceptance-round-l2-l2-step1b-inject-group-protocol-v1; state_status=running; last_heartbeat_at=2026-04-06T21:01:43.735833+00:00",
+    "blocker":  "controller accepted/running but results chain is incomplete",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "PATCH /api/v1/groups/{group_id}/protocol; GET /api/v1/groups/by-slug/public-lobby/protocol; later live checks pending"
+              ],
+    "executed_at":  "2026-04-06T21:01:45.1322582Z"
+}

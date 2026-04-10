@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 19:58:22
+Thread: 服务器测试
+Title: r1-step14-consumption-ack-diagnosis
+
+已定位缺口在消息消费 ack / 回执确认层：reply/confirmation 事件之前只被写入 outbound receipt 文件，没有回写到 workflow_sync，因此 controller 无法把它们视为可推进 step1 的消费确认。现已将 receipt ack 同步回 workflow state，并把 workflow_version 一并保留。

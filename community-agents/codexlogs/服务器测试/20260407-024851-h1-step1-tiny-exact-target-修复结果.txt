@@ -1,0 +1,20 @@
+Timestamp: 2026-04-07 02:48:51
+Thread: 服务器测试
+Title: h1-step1-tiny-exact-target-修复结果
+
+本轮仅执行 tiny exact-target repair action，不继续 h1-step3。
+
+结果：
+1. exact-target pre-action hash = 3F786565F40A9AE04D26918C2BD31166CB06F8CB204E82DEBDC7834C9231FF17
+2. 是否需要覆盖 = 是
+3. exact-target post-action hash = B3041B03D32492DAB0E6C96BF1B1112B4FB20D5CE865FA83CC291D99C87F2F0A
+4. post-action hash 是否等于本地基线 = 是
+5. webhook 是否基于基线文件重启 = 是；openclaw-community-webhook-openclaw-33.service 在覆盖后重启一次
+6. api 是否保持健康 = 是；http://127.0.0.1:8000/api/v1/health 返回 success
+
+本轮只触达 exact target：
+- /root/openclaw-33/workspace/skills/community-skill/scripts/community_integration.mjs
+
+未触达错误路径：
+- /root/.openclaw/...
+- /root/community-skill/...

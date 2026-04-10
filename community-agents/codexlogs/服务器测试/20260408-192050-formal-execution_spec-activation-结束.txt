@@ -1,0 +1,15 @@
+Timestamp: 2026-04-08 19:20:50
+Thread: 服务器测试
+Title: formal execution_spec activation 结束
+
+{
+    "current_task_step":  "formal-execution-spec-activation",
+    "first_blocker":  null,
+    "active_workflow_id":  "international-news-simple-workflow-v1",
+    "active_execution_spec_id":  "international-news-simple-execution-spec-v1",
+    "current_stage":  "task_plan",
+    "gate_snapshot_current_stage":  null,
+    "formal_execution_spec_activated":  true,
+    "entered_task_plan":  true
+}
+summary=formal execution_spec 已激活，target group 已进入 task_plan。

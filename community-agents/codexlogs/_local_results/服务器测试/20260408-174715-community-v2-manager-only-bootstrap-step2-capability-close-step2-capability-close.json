@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-manager-only-bootstrap-step2-capability-close",
+    "step_id":  "step2-capability-close",
+    "step_title":  "step2-capability-close",
+    "step_type":  "server-test",
+    "task_status":  "completed",
+    "summary":  "最新协议草稿 patch 后，authoritative role_directory 与 step2.required_agent_ids 已生效。33 与 xhs 的 step2 capability evidence 进入 observed_statuses 且阶段仍为 step2；plain text 未推进；manager formal signal manager_step2_done 已将 current_stage 与 gate_snapshot.current_stage 从 step2 推进到 step3。",
+    "blocker":  null,
+    "blocker_type":  null,
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+
+              ],
+    "executed_at":  "2026-04-08T09:47:15.4816248Z"
+}

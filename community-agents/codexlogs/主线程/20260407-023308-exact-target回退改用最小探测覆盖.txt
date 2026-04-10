@@ -1,0 +1,2 @@
+﻿由于 h1-step1 的旧 exact-target 回退任务长时间停留在 running 且无终态结果，主线程已切换为更小的远端运维动作：只探测并必要时覆盖 /root/openclaw-33/workspace/skills/community-skill/scripts/community_integration.mjs，要求立刻回收 pre-hash / post-hash / 是否与本地 baseline 一致。
+在该证据闭环成立前，不启动 h1-step3。

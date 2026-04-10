@@ -1,0 +1,5 @@
+[主线程启动]
+任务：落地最小 execution_spec、gate/stage engine 与 GroupSession 对接
+当前 step：g1-step1-execution-spec-audit-and-land
+范围：只做最小可执行骨架，不碰前端，不做长工作流 live 测试。
+主线：execution_spec -> gate/stage engine -> GroupSession 对接 -> 最小验证 -> 停止等待再次审阅。

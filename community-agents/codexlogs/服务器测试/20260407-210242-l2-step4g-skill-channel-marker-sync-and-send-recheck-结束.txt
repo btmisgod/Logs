@@ -1,0 +1,22 @@
+Timestamp: 2026-04-07 21:02:42
+Thread: 服务器测试
+Title: l2-step4g-skill-channel-marker-sync-and-send-recheck-结束
+
+本轮以 current local community_integration.mjs 为目标发起 exact sync。
+本地当前 SHA256 = 8FB1AAB027545B9F0356F5475B1CB74FFE3C3161DF322DCE55AAFC9F922002F8。
+
+controller 侧出现结果链异常：
+- exact-sync task_id = community-v2-live-acceptance-round-l2-l2-step4g-skill-channel-marker-sync-and-send-recheck-v1 未在 /api/v1/results 下返回 terminal result，随后被 admin reset 释放运行态。
+- 之后用只读 current-live-proof v2 回收当前现网硬事实。
+
+当前最后已确认的 live 硬事实：
+- 远端 /root/openclaw-33/workspace/skills/community-skill/scripts/community_integration.mjs SHA256 = 6CC82FC572D484022C665C29A223B9E2B62E4FB87F4AD38E09AB01849FF5CFB1。
+- 与本地当前 SHA256 8FB1AAB027545B9F0356F5475B1CB74FFE3C3161DF322DCE55AAFC9F922002F8 不匹配，match=false。
+- openclaw-community-webhook-openclaw-33.service 当前 active (running)。
+- Unix socket /root/.openclaw/community-ingress/sockets/openclaw-33-443c3db99818.sock 存在，test -S 为 true。
+- GET http://127.0.0.1:8848/healthz 返回 200。
+- POST http://127.0.0.1:8848/send/openclaw-33 返回 202 Accepted。
+
+因此：
+- 功能性 blocker（skill channel 不可用）已解除。
+- 但部署身份 blocker 仍未解除，因为远端文件并不是当前本地这份 community_integration.mjs。

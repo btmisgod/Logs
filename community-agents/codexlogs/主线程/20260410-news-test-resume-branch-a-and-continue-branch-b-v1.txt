@@ -1,0 +1,40 @@
+﻿[2026-04-10T16:55:25.3532437+08:00] JSON task started: 20260410-news-test-resume-branch-a-and-continue-branch-b-v1 目标：恢复 branch A 的 5-agent topology + 两轮 news test，同时继续 branch B 的 cycle filter UI。 规则：branch A / branch B 并行，各自保留证据链，最终统一收口。
+
+[2026-04-10T17:23:59.2683970+08:00] Branch A a3 authoritative result recovered from raw terminal output. group_id=8d9d8e44-54b2-4279-aab2-0a6d9ce851b2 group_slug=news-test five-agent membership complete; role binding declared on protocol/context. Controller projection marked blocked because top-level task_status was not lifted from raw_exec_output, but business step itself completed. Extracted evidence -> codexlogs\\research-archive\\20260410-news-test-resume-branch-a-and-continue-branch-b-v1\\branch-a-group-membership-role-binding-terminal-extracted.json
+
+
+[2026-04-10T17:40:21.9814829+08:00] Branch A a4 first blocker confirmed. news-test group_id=8d9d8e44-54b2-4279-aab2-0a6d9ce851b2 still reads protocol_meta.status=declared_only, workflow.formal_workflow.status=declared_only, execution_spec_id=news-five-role-binding-execution-spec-v1, current_stage=step1, gate_snapshot={step0.ready=true}. Activation task was reset after long-running with no authoritative state change. Readback evidence -> codexlogs\\research-archive\\20260410-news-test-resume-branch-a-and-continue-branch-b-v1\\branch-a-five-role-workflow-activation-authoritative-readback.json
+
+
+[2026-04-10T18:22:00+08:00] User redirected execution: stop same-instance child-agent identity line. Verified current live ingress only has 3 independent OpenClaw instances callable via send_path (neko/openclaw-33/xhs). openclaw-fresh-main-0322 has bootstrap only and is not registered on current live ingress; openclaw-33-canary belongs to separate canary ingress. Per user rule, task stopped because 5 independent instances are not present. Evidence -> codexlogs\\research-archive\\20260410-news-test-resume-branch-a-and-continue-branch-b-v1\\independent-five-instance-existence-check-terminal.json
+
+
+[2026-04-10T18:33:00+08:00] 用户提供 5 个测试 agent 地址后，已完成核实。
+核实对象：
+- openclaw-33 -> /root/openclaw-33/workspace
+- openclaw-33-editor -> /root/openclaw-33-editor/workspace
+- openclaw-33-tester -> /root/openclaw-33-tester/workspace
+- openclaw-33-worker-33 -> /root/openclaw-33-worker-33/workspace
+- openclaw-33-worker-xhs -> /root/openclaw-33-worker-xhs/workspace
+
+结论：
+1. 上述 5 个 workspace 都存在。
+2. 上述 5 个 workspace 下的 .openclaw/community-agent.bootstrap.json 都存在。
+3. 当前 live route registry 里也都存在对应条目，send_path 分别为：
+   - /send/openclaw-33
+   - /send/openclaw-33-editor
+   - /send/openclaw-33-tester
+   - /send/openclaw-33-worker-33
+   - /send/openclaw-33-worker-xhs
+4. 当前健康状态：
+   - openclaw-33: active，socket 存在
+   - openclaw-33-worker-33: active，socket 存在
+   - openclaw-33-editor: activating(auto-restart)，socket 不存在
+   - openclaw-33-tester: activating(auto-restart)，socket 不存在
+   - openclaw-33-worker-xhs: activating(auto-restart)，socket 不存在
+5. 三个异常服务的最新 journal 一致报错：Request failed for /agents: agent name already exists
+
+判断：
+- 你的 5 个测试 agent 地址这件事本身是对的，它们确实已经部署成 5 个测试 workspace，并且已经挂进当前 live ingress 的 route registry。
+- 但“5 个都可直接用于 workflow 测试”这件事目前不成立，因为 editor/tester/worker-xhs 还没有稳定启动成功。
+

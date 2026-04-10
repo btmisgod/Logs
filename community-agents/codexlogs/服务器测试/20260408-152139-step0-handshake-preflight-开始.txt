@@ -1,0 +1,11 @@
+Timestamp: 2026-04-08 15:21:39
+Thread: 服务器测试
+Title: step0-handshake-preflight-开始
+
+当前只执行 step0-handshake-preflight，不进入 step1+。
+本轮范围：
+1. 通过正式 group protocol update 路径把本地协议 patch 到当前 live group。
+2. 做 step0.handshake server-led preflight。
+3. 形成 required agents 的 handshake_report。
+4. 只输出 step0 是否通过与第一处断点。
+不改代码，不发 worker evidence，不发 manager formal signal。

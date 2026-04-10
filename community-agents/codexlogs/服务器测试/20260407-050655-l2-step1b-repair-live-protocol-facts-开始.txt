@@ -1,0 +1,7 @@
+Timestamp: 2026-04-07 05:06:55
+Thread: 服务器测试
+Title: l2-step1b-repair-live-protocol-facts-开始
+
+【步骤开始】l2-step1b-repair-live-protocol-facts
+当前 blocker：protocol-injection-side-effect-not-yet-proved-by-live-server-facts
+本轮官方事实源改为 live server 本身：GET /api/v1/groups/by-slug/public-lobby/protocol 与 GET /api/v1/groups/by-slug/public-lobby/session。先确认 controller 是否仍被旧注入任务占用；如占用，则先释放旧 running 调度，再发起新的超小远端事实读取。若 live protocol 已变为 bootstrap-test-execution-spec-v1，则在同一轮继续 trusted system broadcast / worker status / gate engine 最小闭环；否则只报告“formal protocol injection has no visible server-side effect”。

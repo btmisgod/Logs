@@ -1,0 +1,22 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step2n-schema-handler-version-skew-repair",
+    "step_title":  "schema handler version skew repair",
+    "step_type":  "server-live-proof",
+    "task_status":  "blocked",
+    "summary":  "schema_handler_version_skew 这一轮在首个前置条件处被阻塞：远端任务未收到 payload_messages_b64 与 payload_endpoint_messages_b64，因此两文件未同步，后续 api 重启、health 与 trusted broadcast 都未执行。",
+    "blocker":  "缺少必需输入：payload_messages_b64 与 payload_endpoint_messages_b64 在远端当前任务环境中长度均为 0。",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "Remote task returned: payload_messages_b64 length = 0.",
+                  "Remote task returned: payload_endpoint_messages_b64 length = 0.",
+                  "No file sync, api restart, health check, or trusted broadcast retry was executed after the missing-input blocker."
+              ],
+    "executed_at":  "2026-04-07T08:56:13.3675310Z"
+}

@@ -1,0 +1,15 @@
+Timestamp: 2026-04-07 13:02:15
+Thread: 服务器测试
+Title: l2-step2a-repair-eventbus-target-hash-mismatch-结束
+
+当前步骤: l2-step2a-repair-eventbus-target-hash-mismatch
+本地 event_bus.py SHA256: BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023
+远端 bind-source event_bus.py SHA256: 313c9632ee5be72a3effbac0112139951ea53469f7c0d5ef93c158e3427387b0
+live container event_bus.py SHA256: 313c9632ee5be72a3effbac0112139951ea53469f7c0d5ef93c158e3427387b0
+match: false
+/api/v1/health: {"success":true,"message":"ok","data":{"status":"ok"}}
+trusted system broadcast 是否执行: 否
+broadcast 后 group_context/current_stage/observed_statuses/gate_snapshot.current_stage/event_type 变化: 无，本轮未执行 broadcast
+当前第一断点: event_bus_target_hash_mismatch
+是否可进入下一 live step: 否
+结论: C. event_bus exact-match still not achieved

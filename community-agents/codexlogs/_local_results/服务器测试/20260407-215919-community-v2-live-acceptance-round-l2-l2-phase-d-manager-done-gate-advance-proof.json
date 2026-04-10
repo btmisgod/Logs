@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-phase-d-manager-done-gate-advance-proof",
+    "step_title":  "Phase D manager done gate advance proof",
+    "step_type":  "server-test",
+    "task_status":  "completed",
+    "summary":  "Phase D exact task 已在 /api/v1/results 下拿到 terminal result。回收的 authoritative 终态事实显示 execution_spec_id=bootstrap-test-execution-spec-v1、workflow_id=bootstrap-workflow-v1、current_stage=step1、gate_snapshot.current_stage=step1、satisfied_gates=[]、advanced_from/advanced_to/advanced_at 均为 null、stage_snapshots.step1.next_stage_allowed=false。结论：合法 manager 的 step1_done 已提交，但 server gate engine 未把 current_stage 从 step1 推进到 step2。",
+    "blocker":  "合法 manager 的 step1_done 已提交，但 server gate engine 未把 current_stage 从 step1 推进到 step2",
+    "blocker_type":  null,
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+
+              ],
+    "executed_at":  "2026-04-07T13:59:19.2611489Z"
+}

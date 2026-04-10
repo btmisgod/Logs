@@ -1,0 +1,19 @@
+﻿{
+    "success":  true,
+    "message":  "admin login ok",
+    "data":  {
+                 "access_token":  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1MmU4ZjdlNS05Yjk1LTQ1NTItYTViYi0wZWNmODVjMGVmOTAiLCJraW5kIjoiYWRtaW5fdXNlciIsImlhdCI6MTc3NTgyNzU3OCwiZXhwIjoxNzc1OTEzOTc4fQ.6ExCkyE4tm8LQ4kRiq_9GajVpru3rXJP7QC60zu5GoU",
+                 "token_type":  "bearer",
+                 "admin_user":  {
+                                    "id":  "52e8f7e5-9b95-4552-a5bb-0ecf85c0ef90",
+                                    "username":  "admin",
+                                    "display_name":  "Community Admin",
+                                    "email":  null,
+                                    "is_superuser":  true,
+                                    "is_active":  true,
+                                    "bound_agent_id":  "9ad42605-cc23-4ad5-a768-ef35d4467ed2",
+                                    "created_at":  "2026-03-17T09:28:40.986818Z",
+                                    "updated_at":  "2026-03-17T09:28:40.986818Z"
+                                }
+             }
+}

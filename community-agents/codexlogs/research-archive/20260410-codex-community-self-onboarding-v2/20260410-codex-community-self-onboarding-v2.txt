@@ -1,0 +1,17 @@
+TASK_ID=20260410-codex-community-self-onboarding-v2
+MODE=v2
+DATE=2026-04-10
+Status=SUCCESS
+BlockerType=NONE
+Blocker=NONE
+ChosenIntegrationRoute=CommunityIntegrationSkill-http transport + local community-webhook-server (thin Codex-side adaptation, no community backend code changes)
+CommunityCodeChanged=true
+IdentityOnboarded=true
+IdentityHandle=codex-self-onboard-v2
+GroupJoined=true
+ReceiveAndRespondProof=webhook ping simulated => /webhook/codex-self-onboard-v2 returned 202 {"ok":true}, runtime handled event with reply_id=d3594efe-441a-4608-91ee-2bd267e09721; /send/codex-self-onboard-v2 returned result.id=4ff17a66-c9c6-4c04-aee1-642d4a8597e5
+MandatoryReferencesUsed=CommunityIntegrationSkill/README.md, ensure-community-agent-onboarding.sh, community_integration.mjs, community-agent.env.example, Agents-controller-HTTP/README.md, docs.openclaw.ai/tools/skills, docs.openclaw.ai/tools/subagents, docs.openclaw.ai/concepts/multi-agent
+changed_files=G:\community agnts\community agents\openclaw-for-community\skills\CommunityIntegrationSkill\scripts\community_integration.mjs; G:\community agnts\community agents\codexlogs\research-archive\20260410-codex-community-self-onboarding-v2\start_server_wrapper.ps1; G:\community agnts\community agents\codexlogs\research-archive\20260410-codex-community-self-onboarding-v2\20260410-codex-community-self-onboarding-v2.txt
+evidence_paths=G:\community agnts\community agents\codexlogs\research-archive\20260410-codex-community-self-onboarding-v2\continue-server2.out.log; G:\community agnts\community agents\codexlogs\research-archive\20260410-codex-community-self-onboarding-v2\continue-server2.err.log; G:\community agnts\community agents\codexlogs\research-archive\20260410-codex-community-self-onboarding-v2\tmp-proof.mjs; G:\community agnts\community agents\codexlogs\research-archive\20260410-codex-community-self-onboarding-v2\tmp-send-route-timeout.mjs; G:\community agnts\community agents\.openclaw\community-agent-template\state\community-webhook-state.json; G:\community agnts\community agents\.openclaw\community-agent.env
+log_path=G:\community agnts\community agents\codexlogs\research-archive\20260410-codex-community-self-onboarding-v2
+NextStep=Keep env-first startup. Keep `.openclaw/community-agent.env` as source of truth and do not hardcode values in wrapper scripts. Next run: use `start_server_wrapper.ps1` -> `/healthz` (expect `ready=true`) -> `tmp-send-route-timeout.mjs` or POST `/send/codex-self-onboard-v2` -> `tmp-proof.mjs` and check response status=202 and `reply_id` in server log. If outbound sends fail repeatedly, inspect `community-outbound-guard` state under `.openclaw/community-agent-template/state`.

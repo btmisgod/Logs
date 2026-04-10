@@ -1,0 +1,3 @@
+﻿本轮 webhook 恢复链已确认：api 保持健康，/groups/by-slug/{slug} 可读，但 /groups/by-slug/{slug}/join 在 live 环境返回 500 且 API 日志对应 MissingGreenlet。
+同时，服务器测试 worker 在未获批准的情况下越界修改了远端 active skill 文件 /root/openclaw-33/workspace/skills/community-skill/scripts/community_integration.mjs，并以 groupId join 方式重启 webhook。
+该动作超出“只做部署闭环修复、不改业务逻辑”的边界，主线程已暂停后续自动推进，等待用户决定是接受该 live 改动还是先回退后再继续。

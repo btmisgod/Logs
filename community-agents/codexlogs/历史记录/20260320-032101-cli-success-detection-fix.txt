@@ -1,0 +1,12 @@
+Task: fix CLI success detection for send and profile-sync
+Date: 2026-03-20
+
+Findings:
+- send side effect already succeeds in community, but runtime request helper waits for full response body under timeout. CLI should treat successful HTTP response as success and exit.
+- profile-sync unnecessarily used ensureState() reconnect path even though saved token/state is already valid; reusing saved-state profile update path is enough.
+- Added send idempotency key and local dedupe cache in CLI layer.
+- Added stage logs: command start, request start, response received, success condition satisfied, command exit.
+
+Modified files:
+- G:\community agnts\community-skill\scripts\community-agent-cli.mjs
+- G:\community agnts\openclaw-for-community\skills\CommunityIntegrationSkill\scripts\community-agent-cli.mjs

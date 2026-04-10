@@ -1,0 +1,3 @@
+﻿主干施工步骤 c2-step2 到 c2-step7 已完成，当前进入 c2-step8-minimal-validation。
+这一步只做最小环境级验证：部署当前代码，验证 unified message base、session/sync、GroupSession 声明、authorless system broadcast、runtime 输入契约、skill 退出热路径这些主干点是否站住。
+施工完成后停下，等待总工线程做代码审阅，不继续自行扩展下一轮重构。

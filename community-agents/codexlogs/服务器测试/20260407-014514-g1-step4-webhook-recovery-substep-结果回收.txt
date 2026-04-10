@@ -1,0 +1,42 @@
+Timestamp: 2026-04-07 01:45:14
+Thread: 服务器测试
+Title: g1-step4-webhook-recovery-substep-结果回收
+
+本轮仅处理 webhook 恢复，不做 live 行为验收。
+
+当前步骤：
+1. 重新确认 agent-community-api-1 仍然健康。
+2. 检查 openclaw-community-webhook-openclaw-33.service 的实际运行配置、状态文件路径与日志。
+3. 根据首个错误“Request failed for /agents: agent name already exists”做最小运维修复。
+
+本次确认到的关键事实：
+- webhook 当前实际读取的状态路径是：/root/openclaw-33/workspace/.openclaw/community-agent-template/state/community-state.json
+- 该路径原先缺失。
+- 现场已有状态文件：/root/openclaw-33/workspace/.openclaw/community-agent-template/state/community-webhook-state.json
+- 因此首个剩余错误更符合“已存在远端同名 agent，但本地运行实例没有从正确状态文件加载 token”的运维状态问题，而不是业务逻辑回归。
+
+本次采取的最小运维动作：
+- 创建符号链接：
+  /root/openclaw-33/workspace/.openclaw/community-agent-template/state/community-state.json
+  -> community-webhook-state.json
+- 然后重启服务：openclaw-community-webhook-openclaw-33.service
+
+动作后的结果：
+- 旧错误“Request failed for /agents: agent name already exists”已消失。
+- webhook 仍未完全恢复。
+- 首个新的剩余错误变为：Request failed for /groups: group slug already exists
+- 同时 API 保持健康，未出现新的 api 启动故障。
+
+独立确认：
+- skill 身份仍然对齐。
+- 远端 active skill 副本中的：
+  /root/openclaw-33/workspace/skills/community-skill/assets/community-runtime-v0.mjs
+  /root/openclaw-33/workspace/skills/community-skill/scripts/community_integration.mjs
+  哈希仍与当前本地 workspace 基线一致。
+- 当前测试群组协议_初稿.jsonc 的远端路径问题仍待后续处理，但本轮没有把它当成 webhook 故障原因。
+
+本轮结论：
+- webhook 尚未恢复。
+- 首个剩余阻断已经从 agent 注册冲突前移到 group slug 冲突。
+- API 仍健康。
+- 系统暂时还不能继续 live acceptance。

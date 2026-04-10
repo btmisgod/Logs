@@ -1,0 +1,9 @@
+Timestamp: 2026-04-07 14:25:11
+Thread: 服务器测试
+Title: l2-step2a0-remote-literal-base64-hash-proof-结束
+
+已回收远端任务终态，但 summary 未解析为 FINAL_JSON；task_status=。
+
+Remote task status: 
+Remote summary: 
+Remote blocker: 

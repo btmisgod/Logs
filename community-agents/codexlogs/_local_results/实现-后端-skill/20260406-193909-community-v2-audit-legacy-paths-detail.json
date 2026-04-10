@@ -1,0 +1,120 @@
+{
+    "thread":  "实现-后端-skill",
+    "task_id":  "community-v2-architecture-grounding",
+    "step_id":  "c2-step1-audit-legacy-paths",
+    "status":  "completed",
+    "executed_at":  "2026-04-06T11:39:09.1447644Z",
+    "source_of_truth":  [
+                            "G:\\community agnts\\community agents\\设计文档\\当前设计文档\\Agent Community 协议设计文档.txt",
+                            "G:\\community agnts\\community agents\\设计文档\\当前设计文档\\Agent Community 数据模型设计文档.txt",
+                            "G:\\community agnts\\community agents\\设计文档\\当前设计文档\\Agent Community 社区层设计文档.txt",
+                            "G:\\community agnts\\community agents\\设计文档\\当前设计文档\\Agent Community 群组协议与任务合同设计文档.txt",
+                            "G:\\community agnts\\community agents\\设计文档\\当前设计文档\\Agent Community Runtime 设计文档.txt",
+                            "G:\\community agnts\\community agents\\设计文档\\当前设计文档\\Agent Community Skill 设计文档.txt",
+                            "G:\\community agnts\\community agents\\设计文档\\当前设计文档\\Agent Community 系统架构文档（完整版）.txt"
+                        ],
+    "audited_files":  [
+                          "G:\\community agnts\\community agents\\myproject\\app\\schemas\\messages.py",
+                          "G:\\community agnts\\community agents\\myproject\\app\\services\\message_envelope.py",
+                          "G:\\community agnts\\community agents\\myproject\\app\\services\\message_protocol_mapper.py",
+                          "G:\\community agnts\\community agents\\myproject\\app\\services\\event_bus.py",
+                          "G:\\community agnts\\community agents\\myproject\\app\\services\\protocol_context_assembler.py",
+                          "G:\\community agnts\\community agents\\community-skill\\assets\\community-runtime-v0.mjs",
+                          "G:\\community agnts\\community agents\\community-skill\\scripts\\community_integration.mjs"
+                      ],
+    "findings":  {
+                     "should_keep":  [
+                                         {
+                                             "path":  "G:\\community agnts\\community agents\\myproject\\app\\schemas\\messages.py",
+                                             "subject":  "统一消息基型骨架",
+                                             "reason":  "author/relations/content/status_block/context_block/routing/extensions 这一层收口与设计文档一致，是后续落地的可保留基础。"
+                                         },
+                                         {
+                                             "path":  "G:\\community agnts\\community agents\\myproject\\app\\services\\message_protocol_mapper.py",
+                                             "subject":  "canonical v2 归一化主干",
+                                             "reason":  "围绕 group_id、content、status_block、context_block、relations、routing、extensions 的归一化/存储映射主干可继续作为 server 侧统一消息入口。"
+                                         },
+                                         {
+                                             "path":  "G:\\community agnts\\community agents\\myproject\\app\\services\\event_bus.py",
+                                             "subject":  "Event 保留为 server 侧记录与投递基础设施",
+                                             "reason":  "Event、webhook、projection、sender receipt/debug 内外分层总体符合文档中 replay/audit/projection 保留原则。"
+                                         }
+                                     ],
+                     "should_isolate":  [
+                                            {
+                                                "path":  "G:\\community agnts\\community agents\\myproject\\app\\schemas\\messages.py",
+                                                "subject":  "status/channel 兼容入口",
+                                                "reason":  "flow_type=status -\u003e run 与 ContextBlock.channel_context 只能保留为兼容吸收层，不能继续成为正式语义入口。"
+                                            },
+                                            {
+                                                "path":  "G:\\community agnts\\community agents\\myproject\\app\\services\\message_protocol_mapper.py",
+                                                "subject":  "legacy metadata/custom/channel_* 吸收层",
+                                                "reason":  "从 metadata/custom/group_context/channel_context 多路兜底吸收旧格式是迁移期需要，但必须隔离在 mapper 边界，停止向下游扩散。"
+                                            },
+                                            {
+                                                "path":  "G:\\community agnts\\community agents\\myproject\\app\\services\\event_bus.py",
+                                                "subject":  "sender receipt/debug 内部回执事件",
+                                                "reason":  "这类事件可继续保留，但必须明确为非 runtime intake 的内部事件，不应被误认为正式消息主线。"
+                                            },
+                                            {
+                                                "path":  "G:\\community agnts\\community agents\\myproject\\app\\services\\protocol_context_assembler.py",
+                                                "subject":  "group_context 构造与 channel 兼容别名",
+                                                "reason":  "group_context/context_block 的构造能力可留下，但 build_group_channel_context 和 channel_context 回填应仅剩只读兼容。"
+                                            },
+                                            {
+                                                "path":  "G:\\community agnts\\community agents\\myproject\\app\\services\\message_envelope.py",
+                                                "subject":  "旧 bus envelope 适配层",
+                                                "reason":  "若短期无法删除，可仅作为 legacy adapter 隔离；不能继续充当社区正式消息或 server-\u003eagent 正式投递契约。"
+                                            }
+                                        ],
+                     "should_deprecate_disable":  [
+                                                      {
+                                                          "path":  "G:\\community agnts\\community agents\\community-skill\\assets\\community-runtime-v0.mjs",
+                                                          "subject":  "Runtime 越界语义与 step-specific 逻辑",
+                                                          "reason":  "文件仍在做 workflow_contract / workflow_reattach / group_context 分类处理、kickoff 文本识别、manager 身份猜测、status 流程分支，直接违反 Runtime 只做 judgment 的边界。"
+                                                      },
+                                                      {
+                                                          "path":  "G:\\community agnts\\community agents\\community-skill\\scripts\\community_integration.mjs",
+                                                          "subject":  "Skill 热路径承接消息接收、模型 deliberation、出站封装、workflow patching",
+                                                          "reason":  "文件同时承担 webhook intake、runtime 调用、agent deliberation、send / workflow contract / channel context 持久化，直接违背 Skill 只做 onboarding/update 的设计。"
+                                                      },
+                                                      {
+                                                          "path":  "G:\\community agnts\\community agents\\myproject\\app\\services\\protocol_context_assembler.py",
+                                                          "subject":  "三层协议骨架与 Agent Protocol 旧主线",
+                                                          "reason":  "general/inter_agent/group 三层协议文档拼装、admin exemption、自声明规则仍在复活旧 Agent Protocol 主线，不符合当前社区协议+群组协议的收口。"
+                                                      },
+                                                      {
+                                                          "path":  "G:\\community agnts\\community agents\\myproject\\app\\services\\message_envelope.py",
+                                                          "subject":  "channel_* 新语义写入口",
+                                                          "reason":  "channel_message/channel_id/channel_members 等命名仍是写时主模型，和文档要求的 group/event/message 契约不兼容，应停止继续扩展。"
+                                                      }
+                                                  ]
+                 },
+    "old_paths_found":  [
+                            "独立 status 消息/flow_type=status 仍在 schema、mapper、runtime 分支中残留。",
+                            "task-contract-first / workflow-contract 主线仍在 runtime + community_integration 热路径中继续生效。",
+                            "Skill 仍在承担消息接收、模型 deliberation、出站封装、workflow patching。",
+                            "Runtime 仍在做 kickoff 文本识别、manager 激活、step-specific trigger、force dispatch 式义务判定。",
+                            "channel_* 仍在 envelope、context assembler、mapper、integration state 文件中被继续扩展，而不是只读兼容。",
+                            "workflow 推进仍可被普通文本 gist / kickoff 关键词影响，而不是只由 status_block + GroupSession 决定。",
+                            "protocol_context_assembler 仍保留旧三层协议/Agent Protocol 拼装路径。"
+                        ],
+    "highest_risk_old_path":  {
+                                  "path":  "G:\\community agnts\\community agents\\community-skill\\scripts\\community_integration.mjs",
+                                  "paired_runtime":  "G:\\community agnts\\community agents\\community-skill\\assets\\community-runtime-v0.mjs",
+                                  "risk":  "最高",
+                                  "reason":  "这是当前最重的旧热路径汇合点：Skill 直接承接 intake -\u003e runtime -\u003e deliberation -\u003e send -\u003e workflow contract/context patching，使 task-contract-first、step-specific patch、文本 gist 推进、channel_* 扩展同时继续存活。"
+                              },
+    "next_grounding":  [
+                           "先把 server-\u003eagent 正式输入收口到设计文档定义的最小可投递消息事件：event_id / event_type / group_id / occurred_at / message / delivery_scope。",
+                           "把正式推进依据收口到统一消息内嵌 status_block + server 维护的 GroupSession，停止任何普通文本 gist、kickoff 关键词、manager 猜测式推进。",
+                           "把 Runtime 缩回最小 judgment：只产出 signals / obligation / recommendation，不再加载 workflow contract、不再刷新 context、不再输出动作层语义。",
+                           "把 Skill 从热路径退出，只保留 onboarding / update；消息接收、deliberation、出站封装不再默认挂在 skill。",
+                           "把 channel_* 全部降为只读兼容别名，停止新写入；正式写口径统一为 group_*。",
+                           "把 status 兼容和旧 payload 吸收严格隔离在 mapper/schema 入口，不再让旧语义进入 runtime、skill、server 主线。"
+                       ],
+    "notes":  [
+                  "本轮只做审计与归类，没有改动业务实现。",
+                  "community_integration.mjs 当前文件内容存在明显编码/落盘异常痕迹，但仍可恢复出旧热路径逻辑；后续改造前需避免误覆盖他人工作。"
+              ]
+}

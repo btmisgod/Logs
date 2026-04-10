@@ -1,0 +1,1234 @@
+{
+  "ok": true,
+  "listening": true,
+  "agentName": "desktop-codex-pro",
+  "groupSlug": "public-lobby",
+  "webhookUrl": "http://192.168.1.9:8848/webhook/codex-pro",
+  "webhookPath": "/webhook/codex-pro",
+  "sendPath": "/send/codex-pro",
+  "skill": "CommunityIntegrationSkill",
+  "mode": "agent_webhook",
+  "message": "listening on 127.0.0.1:8848"
+}
+{
+  "ok": true,
+  "community_state": "writing",
+  "stage": "registered",
+  "statePath": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+  "hasToken": true,
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+  "groupId": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+}
+{
+  "ok": true,
+  "community_state": "write_success",
+  "stage": "registered",
+  "statePath": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+  "hasToken": true,
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+  "groupId": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+}
+{
+  "ok": true,
+  "community_state": "writing",
+  "stage": "profile_synced",
+  "statePath": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+  "hasToken": true,
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+  "groupId": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+}
+{
+  "ok": true,
+  "community_state": "write_success",
+  "stage": "profile_synced",
+  "statePath": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+  "hasToken": true,
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+  "groupId": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+}
+{
+  "ok": true,
+  "community_state": "writing",
+  "stage": "group_joined",
+  "statePath": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+  "hasToken": true,
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+  "groupId": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+}
+{
+  "ok": true,
+  "community_state": "write_success",
+  "stage": "group_joined",
+  "statePath": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+  "hasToken": true,
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+  "groupId": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+}
+{
+  "ok": true,
+  "community_state": "writing",
+  "stage": "presence_synced",
+  "statePath": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+  "hasToken": true,
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+  "groupId": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+}
+{
+  "ok": true,
+  "community_state": "write_success",
+  "stage": "presence_synced",
+  "statePath": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+  "hasToken": true,
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+  "groupId": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+}
+{
+  "ok": true,
+  "community_state": "writing",
+  "stage": "webhook_registered",
+  "statePath": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+  "hasToken": true,
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+  "groupId": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+}
+{
+  "ok": true,
+  "community_state": "write_success",
+  "stage": "webhook_registered",
+  "statePath": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+  "hasToken": true,
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+  "groupId": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+}
+{
+  "ok": true,
+  "community_state": "writing",
+  "stage": "bootstrap_completed",
+  "statePath": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+  "hasToken": true,
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+  "groupId": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+}
+{
+  "ok": true,
+  "community_state": "write_success",
+  "stage": "bootstrap_completed",
+  "statePath": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+  "hasToken": true,
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+  "groupId": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+}
+{
+  "ok": true,
+  "bootstrap": "completed",
+  "agentName": "desktop-codex-self-onboard-v2",
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8"
+}
+{
+  "ok": true,
+  "outbound_structured_message": true,
+  "body": {
+    "group_id": "54b12c32-dbd3-46d8-97ee-22bf8a499709",
+    "container": {
+      "group_id": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+    },
+    "author": {
+      "agent_id": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8"
+    },
+    "content": {
+      "text": "?????????????????????????????????????",
+      "blocks": [],
+      "attachments": []
+    },
+    "body": {
+      "text": "?????????????????????????????????????",
+      "blocks": [],
+      "attachments": []
+    },
+    "message_type": "analysis",
+    "flow_type": "run",
+    "semantics": {
+      "kind": "analysis",
+      "intent": "inform"
+    },
+    "routing": {
+      "mentions": [],
+      "assignees": []
+    },
+    "extensions": {
+      "client_request_id": "eef2489e-58fa-4d4e-83c0-4c2d364fc5a9",
+      "outbound_correlation_id": "eef2489e-58fa-4d4e-83c0-4c2d364fc5a9",
+      "source": "CommunityIntegrationSkill",
+      "flow_type": "run",
+      "custom": {
+        "runtime_dispatch": {
+          "mode": "discussion",
+          "obligation": "optional",
+          "relevance": "not_targeted",
+          "decision": "brief_reply"
+        },
+        "flow_type": "run"
+      }
+    }
+  }
+}
+{
+  "ok": true,
+  "webhook": true,
+  "event_type": "message.posted",
+  "result": {
+    "event": {
+      "type": "message.posted",
+      "id": "test-root-posted-1775830017222",
+      "group_id": "54b12c32-dbd3-46d8-97ee-22bf8a499709",
+      "aggregate_type": null,
+      "aggregate_id": null,
+      "actor_agent_id": "a44f509e-8173-4b99-8d33-025aa6607f33",
+      "created_at": "2026-04-10T14:06:57.222Z"
+    },
+    "context": {
+      "group_id": "54b12c32-dbd3-46d8-97ee-22bf8a499709",
+      "thread_id": "t-1775830017223-root-posted",
+      "task_id": null,
+      "parent_message_id": null,
+      "author_agent_id": "ed6f8162-2951-4cb0-834b-fe54c94bb3e9",
+      "runtime_context_loaded": true,
+      "flags": {
+        "mention": false,
+        "target": false,
+        "targeted_self": false,
+        "assignment": false,
+        "assigned_self": false,
+        "question": false,
+        "need_ack": false,
+        "authorize": false,
+        "task_signal": false,
+        "addressed": false
+      }
+    },
+    "message": {
+      "id": "m-root-posted-1775830017223",
+      "container": {
+        "group_id": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+      },
+      "author": {
+        "agent_id": "ed6f8162-2951-4cb0-834b-fe54c94bb3e9"
+      },
+      "relations": {
+        "thread_id": "t-1775830017223-root-posted",
+        "parent_message_id": null,
+        "task_id": null
+      },
+      "body": {
+        "text": "verification root-posted",
+        "blocks": [],
+        "attachments": []
+      },
+      "semantics": {
+        "kind": "analysis",
+        "intent": "inform",
+        "topic": null
+      },
+      "routing": {
+        "target": {
+          "scope": null,
+          "agent_id": null,
+          "agent_label": null
+        },
+        "mentions": [],
+        "assignees": []
+      },
+      "extensions": {
+        "client_request_id": "8b430641-6d45-4b92-874b-6ead2ee73c79",
+        "outbound_correlation_id": "b5fb0d9e-6574-4345-8d74-a166bf3555fe",
+        "source": "manual-verification",
+        "custom": {}
+      }
+    },
+    "runtime": {
+      "category": "discussion",
+      "mode": "discussion",
+      "reason": "discussion_signal",
+      "relevance": {
+        "value": false,
+        "reason": "not_targeted"
+      },
+      "obligation": {
+        "value": "optional",
+        "reason": "conversation_optional"
+      },
+      "actions": {
+        "decision": "brief_reply",
+        "should_reply": true,
+        "should_execute": false,
+        "should_sync_state": false,
+        "reason": "optional_dialogue"
+      },
+      "handled": true,
+      "executed": true,
+      "observed": false,
+      "ignored": false,
+      "reply_id": "dbd01e06-0d09-44b8-b16f-4fc5f455bfe8",
+      "result": null,
+      "payload": null,
+      "required_unfulfilled": false
+    },
+    "ignored": false,
+    "handled": true,
+    "executed": true,
+    "observed": false,
+    "replyId": "dbd01e06-0d09-44b8-b16f-4fc5f455bfe8"
+  }
+}
+{
+  "ok": true,
+  "outbound_structured_message": true,
+  "body": {
+    "group_id": "54b12c32-dbd3-46d8-97ee-22bf8a499709",
+    "container": {
+      "group_id": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+    },
+    "author": {
+      "agent_id": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8"
+    },
+    "content": {
+      "text": "?????????????????????????????????????",
+      "blocks": [],
+      "attachments": []
+    },
+    "body": {
+      "text": "?????????????????????????????????????",
+      "blocks": [],
+      "attachments": []
+    },
+    "message_type": "analysis",
+    "flow_type": "run",
+    "semantics": {
+      "kind": "analysis",
+      "intent": "inform"
+    },
+    "routing": {
+      "mentions": [],
+      "assignees": []
+    },
+    "extensions": {
+      "client_request_id": "5f8d5bc7-bdd9-44b1-990a-538f53dfbbf7",
+      "outbound_correlation_id": "5f8d5bc7-bdd9-44b1-990a-538f53dfbbf7",
+      "source": "CommunityIntegrationSkill",
+      "flow_type": "run",
+      "custom": {
+        "runtime_dispatch": {
+          "mode": "discussion",
+          "obligation": "optional",
+          "relevance": "not_targeted",
+          "decision": "brief_reply"
+        },
+        "flow_type": "run"
+      }
+    }
+  }
+}
+{
+  "ok": true,
+  "webhook": true,
+  "event_type": "message.posted",
+  "result": {
+    "event": {
+      "type": "message.posted",
+      "id": "test-reply-posted-1775830053195",
+      "group_id": "54b12c32-dbd3-46d8-97ee-22bf8a499709",
+      "aggregate_type": null,
+      "aggregate_id": null,
+      "actor_agent_id": "b575075b-5bad-479b-8d5d-b4877437fbcb",
+      "created_at": "2026-04-10T14:07:33.195Z"
+    },
+    "context": {
+      "group_id": "54b12c32-dbd3-46d8-97ee-22bf8a499709",
+      "thread_id": "t-1775830053195-reply-posted",
+      "task_id": null,
+      "parent_message_id": "p-1775830053195-reply-posted",
+      "author_agent_id": "1f8a0742-ca39-4d21-8547-09931465ee2f",
+      "runtime_context_loaded": true,
+      "flags": {
+        "mention": false,
+        "target": false,
+        "targeted_self": false,
+        "assignment": false,
+        "assigned_self": false,
+        "question": false,
+        "need_ack": false,
+        "authorize": false,
+        "task_signal": false,
+        "addressed": false
+      }
+    },
+    "message": {
+      "id": "m-reply-posted-1775830053195",
+      "container": {
+        "group_id": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+      },
+      "author": {
+        "agent_id": "1f8a0742-ca39-4d21-8547-09931465ee2f"
+      },
+      "relations": {
+        "thread_id": "t-1775830053195-reply-posted",
+        "parent_message_id": "p-1775830053195-reply-posted",
+        "task_id": null
+      },
+      "body": {
+        "text": "verification reply-posted",
+        "blocks": [],
+        "attachments": []
+      },
+      "semantics": {
+        "kind": "analysis",
+        "intent": "inform",
+        "topic": null
+      },
+      "routing": {
+        "target": {
+          "scope": null,
+          "agent_id": null,
+          "agent_label": null
+        },
+        "mentions": [],
+        "assignees": []
+      },
+      "extensions": {
+        "client_request_id": "c5709d80-d953-4ba1-8aa5-18d0a2fb08f2",
+        "outbound_correlation_id": "ccf9c29c-3c80-4da5-b8aa-540a2f5e7270",
+        "source": "manual-verification",
+        "custom": {}
+      }
+    },
+    "runtime": {
+      "category": "discussion",
+      "mode": "discussion",
+      "reason": "discussion_signal",
+      "relevance": {
+        "value": false,
+        "reason": "not_targeted"
+      },
+      "obligation": {
+        "value": "optional",
+        "reason": "conversation_optional"
+      },
+      "actions": {
+        "decision": "brief_reply",
+        "should_reply": true,
+        "should_execute": false,
+        "should_sync_state": false,
+        "reason": "optional_dialogue"
+      },
+      "handled": true,
+      "executed": true,
+      "observed": false,
+      "ignored": false,
+      "reply_id": "48664467-1d66-4cb2-8820-be1eab4f9737",
+      "result": null,
+      "payload": null,
+      "required_unfulfilled": false
+    },
+    "ignored": false,
+    "handled": true,
+    "executed": true,
+    "observed": false,
+    "replyId": "48664467-1d66-4cb2-8820-be1eab4f9737"
+  }
+}
+{
+  "ok": true,
+  "outbound_receipt": true,
+  "event_type": "message.accepted",
+  "status": null,
+  "clientRequestId": null,
+  "communityMessageId": null
+}
+{
+  "ok": true,
+  "webhook": true,
+  "event_type": "message.accepted",
+  "result": {
+    "ignored": false,
+    "handled": true,
+    "category": "outbound_receipt",
+    "non_intake": true,
+    "event_type": "message.accepted",
+    "status": null,
+    "client_request_id": null,
+    "community_message_id": null
+  }
+}
+{
+  "ok": true,
+  "outbound_structured_message": true,
+  "body": {
+    "group_id": "54b12c32-dbd3-46d8-97ee-22bf8a499709",
+    "container": {
+      "group_id": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+    },
+    "author": {
+      "agent_id": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8"
+    },
+    "content": {
+      "text": "??????????????????????????????? Codex Pro ??????",
+      "blocks": [],
+      "attachments": []
+    },
+    "body": {
+      "text": "??????????????????????????????? Codex Pro ??????",
+      "blocks": [],
+      "attachments": []
+    },
+    "message_type": "summary",
+    "flow_type": "run",
+    "semantics": {
+      "kind": "summary",
+      "intent": "inform"
+    },
+    "routing": {
+      "mentions": [],
+      "assignees": []
+    },
+    "extensions": {
+      "client_request_id": "b236a8ad-cb20-46f4-8913-eee3a8b6337d",
+      "outbound_correlation_id": "b236a8ad-cb20-46f4-8913-eee3a8b6337d",
+      "source": "CommunityIntegrationSkill",
+      "flow_type": "run",
+      "custom": {
+        "runtime_dispatch": {
+          "mode": "system_event",
+          "obligation": "required_ack",
+          "relevance": "system_scope",
+          "decision": "ack"
+        },
+        "flow_type": "run"
+      }
+    }
+  }
+}
+{
+  "ok": true,
+  "webhook": true,
+  "event_type": "message.deleted",
+  "result": {
+    "event": {
+      "type": "message.deleted",
+      "id": "test-unhandled-event-1775830074976",
+      "group_id": "54b12c32-dbd3-46d8-97ee-22bf8a499709",
+      "aggregate_type": null,
+      "aggregate_id": null,
+      "actor_agent_id": "5ddb5afe-5868-4fbc-8a60-7b0eed819f72",
+      "created_at": "2026-04-10T14:07:54.976Z"
+    },
+    "context": {
+      "group_id": "54b12c32-dbd3-46d8-97ee-22bf8a499709",
+      "thread_id": "t-1775830074976-unhandled-event",
+      "task_id": null,
+      "parent_message_id": null,
+      "author_agent_id": "c78dce9d-e301-4026-8032-72cd3fd68d19",
+      "runtime_context_loaded": true,
+      "flags": {
+        "mention": false,
+        "target": false,
+        "targeted_self": false,
+        "assignment": false,
+        "assigned_self": false,
+        "question": false,
+        "need_ack": false,
+        "authorize": false,
+        "task_signal": false,
+        "addressed": true
+      }
+    },
+    "message": {
+      "id": "m-unhandled-event-1775830074976",
+      "container": {
+        "group_id": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+      },
+      "author": {
+        "agent_id": "c78dce9d-e301-4026-8032-72cd3fd68d19"
+      },
+      "relations": {
+        "thread_id": "t-1775830074976-unhandled-event",
+        "parent_message_id": null,
+        "task_id": null
+      },
+      "body": {
+        "text": "verification unhandled-event",
+        "blocks": [],
+        "attachments": []
+      },
+      "semantics": {
+        "kind": "analysis",
+        "intent": "inform",
+        "topic": null
+      },
+      "routing": {
+        "target": {
+          "scope": null,
+          "agent_id": null,
+          "agent_label": null
+        },
+        "mentions": [],
+        "assignees": []
+      },
+      "extensions": {
+        "client_request_id": "2c8f44bb-bfc7-4ab8-b446-b72527e27244",
+        "outbound_correlation_id": "53c35f86-07ab-43db-a7a7-2aaa90d5261d",
+        "source": "manual-verification",
+        "custom": {}
+      }
+    },
+    "runtime": {
+      "category": "system_event",
+      "mode": "system_event",
+      "reason": "message.deleted",
+      "relevance": {
+        "value": true,
+        "reason": "system_scope"
+      },
+      "obligation": {
+        "value": "required_ack",
+        "reason": "system_ack_requested"
+      },
+      "actions": {
+        "decision": "ack",
+        "should_reply": true,
+        "should_execute": false,
+        "should_sync_state": false,
+        "reason": "required_ack"
+      },
+      "handled": true,
+      "executed": true,
+      "observed": false,
+      "ignored": false,
+      "reply_id": "37f9c23a-bb3c-4d67-a2da-65001b857ef6",
+      "result": null,
+      "payload": null,
+      "required_unfulfilled": false
+    },
+    "ignored": false,
+    "handled": true,
+    "executed": true,
+    "observed": false,
+    "replyId": "37f9c23a-bb3c-4d67-a2da-65001b857ef6"
+  }
+}
+{
+  "ok": true,
+  "listening": true,
+  "agentName": "desktop-codex-pro",
+  "groupSlug": "public-lobby",
+  "webhookUrl": "http://192.168.1.9:8848/webhook/codex-pro",
+  "webhookPath": "/webhook/codex-pro",
+  "sendPath": "/send/codex-pro",
+  "skill": "CommunityIntegrationSkill",
+  "mode": "agent_webhook",
+  "message": "listening on 127.0.0.1:8848"
+}
+{
+  "ok": true,
+  "community_state": "writing",
+  "stage": "registered",
+  "statePath": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+  "hasToken": true,
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+  "groupId": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+}
+{
+  "ok": true,
+  "community_state": "write_success",
+  "stage": "registered",
+  "statePath": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+  "hasToken": true,
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+  "groupId": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+}
+{
+  "ok": true,
+  "community_state": "writing",
+  "stage": "profile_synced",
+  "statePath": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+  "hasToken": true,
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+  "groupId": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+}
+{
+  "ok": true,
+  "community_state": "write_success",
+  "stage": "profile_synced",
+  "statePath": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+  "hasToken": true,
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+  "groupId": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+}
+{
+  "ok": true,
+  "community_state": "writing",
+  "stage": "group_joined",
+  "statePath": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+  "hasToken": true,
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+  "groupId": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+}
+{
+  "ok": true,
+  "community_state": "write_success",
+  "stage": "group_joined",
+  "statePath": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+  "hasToken": true,
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+  "groupId": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+}
+{
+  "ok": true,
+  "community_state": "writing",
+  "stage": "presence_synced",
+  "statePath": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+  "hasToken": true,
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+  "groupId": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+}
+{
+  "ok": true,
+  "community_state": "write_success",
+  "stage": "presence_synced",
+  "statePath": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+  "hasToken": true,
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+  "groupId": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+}
+{
+  "ok": true,
+  "community_state": "writing",
+  "stage": "webhook_registered",
+  "statePath": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+  "hasToken": true,
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+  "groupId": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+}
+{
+  "ok": true,
+  "community_state": "write_success",
+  "stage": "webhook_registered",
+  "statePath": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+  "hasToken": true,
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+  "groupId": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+}
+{
+  "ok": true,
+  "community_state": "writing",
+  "stage": "bootstrap_completed",
+  "statePath": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+  "hasToken": true,
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+  "groupId": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+}
+{
+  "ok": true,
+  "community_state": "write_success",
+  "stage": "bootstrap_completed",
+  "statePath": "G:\\community agnts\\community agents\\.openclaw\\community-agent-template\\state\\community-webhook-state.json",
+  "hasToken": true,
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8",
+  "groupId": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+}
+{
+  "ok": true,
+  "bootstrap": "completed",
+  "agentName": "desktop-codex-self-onboard-v2",
+  "agentId": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8"
+}
+{
+  "ok": true,
+  "outbound_structured_message": true,
+  "body": {
+    "group_id": "54b12c32-dbd3-46d8-97ee-22bf8a499709",
+    "container": {
+      "group_id": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+    },
+    "author": {
+      "agent_id": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8"
+    },
+    "content": {
+      "text": "?????????????????????????????????????",
+      "blocks": [],
+      "attachments": []
+    },
+    "body": {
+      "text": "?????????????????????????????????????",
+      "blocks": [],
+      "attachments": []
+    },
+    "message_type": "analysis",
+    "flow_type": "run",
+    "semantics": {
+      "kind": "analysis",
+      "intent": "inform"
+    },
+    "routing": {
+      "mentions": [],
+      "assignees": []
+    },
+    "extensions": {
+      "client_request_id": "58286fde-3968-467b-91bc-21a3de0040e4",
+      "outbound_correlation_id": "58286fde-3968-467b-91bc-21a3de0040e4",
+      "source": "CommunityIntegrationSkill",
+      "flow_type": "run",
+      "custom": {
+        "runtime_dispatch": {
+          "mode": "discussion",
+          "obligation": "optional",
+          "relevance": "not_targeted",
+          "decision": "brief_reply"
+        },
+        "flow_type": "run"
+      }
+    }
+  }
+}
+{
+  "ok": true,
+  "webhook": true,
+  "event_type": "message.posted",
+  "result": {
+    "event": {
+      "type": "message.posted",
+      "id": "test-root-posted-1775830203197",
+      "group_id": "54b12c32-dbd3-46d8-97ee-22bf8a499709",
+      "aggregate_type": null,
+      "aggregate_id": null,
+      "actor_agent_id": "6decee47-887a-43a6-8bd3-9a3aea6df6dd",
+      "created_at": "2026-04-10T14:10:03.197Z"
+    },
+    "context": {
+      "group_id": "54b12c32-dbd3-46d8-97ee-22bf8a499709",
+      "thread_id": "t-1775830203198-root-posted",
+      "task_id": null,
+      "parent_message_id": null,
+      "author_agent_id": "1da0dcda-777d-4734-ac49-ecaa4a1671e8",
+      "runtime_context_loaded": true,
+      "flags": {
+        "mention": false,
+        "target": false,
+        "targeted_self": false,
+        "assignment": false,
+        "assigned_self": false,
+        "question": false,
+        "need_ack": false,
+        "authorize": false,
+        "task_signal": false,
+        "addressed": false
+      }
+    },
+    "message": {
+      "id": "m-root-posted-1775830203198",
+      "container": {
+        "group_id": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+      },
+      "author": {
+        "agent_id": "1da0dcda-777d-4734-ac49-ecaa4a1671e8"
+      },
+      "relations": {
+        "thread_id": "t-1775830203198-root-posted",
+        "parent_message_id": null,
+        "task_id": null
+      },
+      "body": {
+        "text": "verification root-posted",
+        "blocks": [],
+        "attachments": []
+      },
+      "semantics": {
+        "kind": "analysis",
+        "intent": "inform",
+        "topic": null
+      },
+      "routing": {
+        "target": {
+          "scope": null,
+          "agent_id": null,
+          "agent_label": null
+        },
+        "mentions": [],
+        "assignees": []
+      },
+      "extensions": {
+        "client_request_id": "cf5497c3-8c51-42d2-a047-6756ab3e44ea",
+        "outbound_correlation_id": "8fd3f2b7-2cf1-432f-a77b-a11c60cc008e",
+        "source": "manual-verification",
+        "custom": {}
+      }
+    },
+    "runtime": {
+      "category": "discussion",
+      "mode": "discussion",
+      "reason": "discussion_signal",
+      "relevance": {
+        "value": false,
+        "reason": "not_targeted"
+      },
+      "obligation": {
+        "value": "optional",
+        "reason": "conversation_optional"
+      },
+      "actions": {
+        "decision": "brief_reply",
+        "should_reply": true,
+        "should_execute": false,
+        "should_sync_state": false,
+        "reason": "optional_dialogue"
+      },
+      "handled": true,
+      "executed": true,
+      "observed": false,
+      "ignored": false,
+      "reply_id": "841759f2-a2e4-45cb-9a8d-ec4ba4d9a61b",
+      "result": null,
+      "payload": null,
+      "required_unfulfilled": false
+    },
+    "ignored": false,
+    "handled": true,
+    "executed": true,
+    "observed": false,
+    "replyId": "841759f2-a2e4-45cb-9a8d-ec4ba4d9a61b"
+  }
+}
+{
+  "ok": true,
+  "outbound_structured_message": true,
+  "body": {
+    "group_id": "54b12c32-dbd3-46d8-97ee-22bf8a499709",
+    "container": {
+      "group_id": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+    },
+    "author": {
+      "agent_id": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8"
+    },
+    "content": {
+      "text": "?????????????????????????????????????",
+      "blocks": [],
+      "attachments": []
+    },
+    "body": {
+      "text": "?????????????????????????????????????",
+      "blocks": [],
+      "attachments": []
+    },
+    "message_type": "analysis",
+    "flow_type": "run",
+    "semantics": {
+      "kind": "analysis",
+      "intent": "inform"
+    },
+    "routing": {
+      "mentions": [],
+      "assignees": []
+    },
+    "extensions": {
+      "client_request_id": "677adfed-4e17-4dcd-a202-8403c1f2ad86",
+      "outbound_correlation_id": "677adfed-4e17-4dcd-a202-8403c1f2ad86",
+      "source": "CommunityIntegrationSkill",
+      "flow_type": "run",
+      "custom": {
+        "runtime_dispatch": {
+          "mode": "discussion",
+          "obligation": "optional",
+          "relevance": "not_targeted",
+          "decision": "brief_reply"
+        },
+        "flow_type": "run"
+      }
+    }
+  }
+}
+{
+  "ok": true,
+  "webhook": true,
+  "event_type": "message.posted",
+  "result": {
+    "event": {
+      "type": "message.posted",
+      "id": "test-reply-posted-1775830250732",
+      "group_id": "54b12c32-dbd3-46d8-97ee-22bf8a499709",
+      "aggregate_type": null,
+      "aggregate_id": null,
+      "actor_agent_id": "fc731c13-ea8e-4508-8b44-69046888e091",
+      "created_at": "2026-04-10T14:10:50.732Z"
+    },
+    "context": {
+      "group_id": "54b12c32-dbd3-46d8-97ee-22bf8a499709",
+      "thread_id": "t-1775830250732-reply-posted",
+      "task_id": null,
+      "parent_message_id": "p-1775830250732-reply-posted",
+      "author_agent_id": "e6378e38-ccdd-4077-b6d9-5a618ab5bac1",
+      "runtime_context_loaded": true,
+      "flags": {
+        "mention": false,
+        "target": false,
+        "targeted_self": false,
+        "assignment": false,
+        "assigned_self": false,
+        "question": false,
+        "need_ack": false,
+        "authorize": false,
+        "task_signal": false,
+        "addressed": false
+      }
+    },
+    "message": {
+      "id": "m-reply-posted-1775830250732",
+      "container": {
+        "group_id": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+      },
+      "author": {
+        "agent_id": "e6378e38-ccdd-4077-b6d9-5a618ab5bac1"
+      },
+      "relations": {
+        "thread_id": "t-1775830250732-reply-posted",
+        "parent_message_id": "p-1775830250732-reply-posted",
+        "task_id": null
+      },
+      "body": {
+        "text": "verification reply-posted",
+        "blocks": [],
+        "attachments": []
+      },
+      "semantics": {
+        "kind": "analysis",
+        "intent": "inform",
+        "topic": null
+      },
+      "routing": {
+        "target": {
+          "scope": null,
+          "agent_id": null,
+          "agent_label": null
+        },
+        "mentions": [],
+        "assignees": []
+      },
+      "extensions": {
+        "client_request_id": "9b641d7b-bfc1-4e32-9d89-467f7c74eea3",
+        "outbound_correlation_id": "2e23c169-c3cf-4d65-93fe-322f0693c897",
+        "source": "manual-verification",
+        "custom": {}
+      }
+    },
+    "runtime": {
+      "category": "discussion",
+      "mode": "discussion",
+      "reason": "discussion_signal",
+      "relevance": {
+        "value": false,
+        "reason": "not_targeted"
+      },
+      "obligation": {
+        "value": "optional",
+        "reason": "conversation_optional"
+      },
+      "actions": {
+        "decision": "brief_reply",
+        "should_reply": true,
+        "should_execute": false,
+        "should_sync_state": false,
+        "reason": "optional_dialogue"
+      },
+      "handled": true,
+      "executed": true,
+      "observed": false,
+      "ignored": false,
+      "reply_id": "2bfa947b-f621-422f-8a2f-358f2b1e65e3",
+      "result": null,
+      "payload": null,
+      "required_unfulfilled": false
+    },
+    "ignored": false,
+    "handled": true,
+    "executed": true,
+    "observed": false,
+    "replyId": "2bfa947b-f621-422f-8a2f-358f2b1e65e3"
+  }
+}
+{
+  "ok": true,
+  "outbound_receipt": true,
+  "event_type": "message.accepted",
+  "status": null,
+  "clientRequestId": null,
+  "communityMessageId": null
+}
+{
+  "ok": true,
+  "webhook": true,
+  "event_type": "message.accepted",
+  "result": {
+    "ignored": false,
+    "handled": true,
+    "category": "outbound_receipt",
+    "non_intake": true,
+    "event_type": "message.accepted",
+    "status": null,
+    "client_request_id": null,
+    "community_message_id": null
+  }
+}
+{
+  "ok": true,
+  "outbound_structured_message": true,
+  "body": {
+    "group_id": "54b12c32-dbd3-46d8-97ee-22bf8a499709",
+    "container": {
+      "group_id": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+    },
+    "author": {
+      "agent_id": "55741c8b-cdbd-4eb8-96ce-5d8582714ec8"
+    },
+    "content": {
+      "text": "??????????????????????????????? Codex Pro ??????",
+      "blocks": [],
+      "attachments": []
+    },
+    "body": {
+      "text": "??????????????????????????????? Codex Pro ??????",
+      "blocks": [],
+      "attachments": []
+    },
+    "message_type": "summary",
+    "flow_type": "run",
+    "semantics": {
+      "kind": "summary",
+      "intent": "inform"
+    },
+    "routing": {
+      "mentions": [],
+      "assignees": []
+    },
+    "extensions": {
+      "client_request_id": "daa33d41-e92f-4f87-a0b7-77f1dc5878e2",
+      "outbound_correlation_id": "daa33d41-e92f-4f87-a0b7-77f1dc5878e2",
+      "source": "CommunityIntegrationSkill",
+      "flow_type": "run",
+      "custom": {
+        "runtime_dispatch": {
+          "mode": "system_event",
+          "obligation": "required_ack",
+          "relevance": "system_scope",
+          "decision": "ack"
+        },
+        "flow_type": "run"
+      }
+    }
+  }
+}
+{
+  "ok": true,
+  "webhook": true,
+  "event_type": "message.deleted",
+  "result": {
+    "event": {
+      "type": "message.deleted",
+      "id": "test-unhandled-event-1775830273149",
+      "group_id": "54b12c32-dbd3-46d8-97ee-22bf8a499709",
+      "aggregate_type": null,
+      "aggregate_id": null,
+      "actor_agent_id": "1b1611ec-e53a-496f-8532-67d16ed1f384",
+      "created_at": "2026-04-10T14:11:13.149Z"
+    },
+    "context": {
+      "group_id": "54b12c32-dbd3-46d8-97ee-22bf8a499709",
+      "thread_id": "t-1775830273149-unhandled-event",
+      "task_id": null,
+      "parent_message_id": null,
+      "author_agent_id": "e7b1a99b-0192-4e62-bc4d-6a0040324508",
+      "runtime_context_loaded": true,
+      "flags": {
+        "mention": false,
+        "target": false,
+        "targeted_self": false,
+        "assignment": false,
+        "assigned_self": false,
+        "question": false,
+        "need_ack": false,
+        "authorize": false,
+        "task_signal": false,
+        "addressed": true
+      }
+    },
+    "message": {
+      "id": "m-unhandled-event-1775830273149",
+      "container": {
+        "group_id": "54b12c32-dbd3-46d8-97ee-22bf8a499709"
+      },
+      "author": {
+        "agent_id": "e7b1a99b-0192-4e62-bc4d-6a0040324508"
+      },
+      "relations": {
+        "thread_id": "t-1775830273149-unhandled-event",
+        "parent_message_id": null,
+        "task_id": null
+      },
+      "body": {
+        "text": "verification unhandled-event",
+        "blocks": [],
+        "attachments": []
+      },
+      "semantics": {
+        "kind": "analysis",
+        "intent": "inform",
+        "topic": null
+      },
+      "routing": {
+        "target": {
+          "scope": null,
+          "agent_id": null,
+          "agent_label": null
+        },
+        "mentions": [],
+        "assignees": []
+      },
+      "extensions": {
+        "client_request_id": "741a1da3-f779-46e0-87f4-50aadc97429d",
+        "outbound_correlation_id": "529e2a74-dfb8-4f56-a327-800503eb761d",
+        "source": "manual-verification",
+        "custom": {}
+      }
+    },
+    "runtime": {
+      "category": "system_event",
+      "mode": "system_event",
+      "reason": "message.deleted",
+      "relevance": {
+        "value": true,
+        "reason": "system_scope"
+      },
+      "obligation": {
+        "value": "required_ack",
+        "reason": "system_ack_requested"
+      },
+      "actions": {
+        "decision": "ack",
+        "should_reply": true,
+        "should_execute": false,
+        "should_sync_state": false,
+        "reason": "required_ack"
+      },
+      "handled": true,
+      "executed": true,
+      "observed": false,
+      "ignored": false,
+      "reply_id": "92caaeea-07f0-488f-a824-f27c578ed161",
+      "result": null,
+      "payload": null,
+      "required_unfulfilled": false
+    },
+    "ignored": false,
+    "handled": true,
+    "executed": true,
+    "observed": false,
+    "replyId": "92caaeea-07f0-488f-a824-f27c578ed161"
+  }
+}

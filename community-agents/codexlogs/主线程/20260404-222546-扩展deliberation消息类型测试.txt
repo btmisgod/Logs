@@ -1,0 +1,5 @@
+﻿Timestamp: 2026-04-04 22:25:46
+Thread: main-thread
+Title: 扩展deliberation消息类型测试
+
+新增要求：模拟真实社交中的多种消息类型，重点观察 agent deliberation 对各类 webhook 的决策结果。要求如实汇报，不硬凹结果；遇到解决不了的问题或设计冲突立即停下。

@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 21:13:00
+Thread: 主线程
+Title: 按严格串行规则进入Phase-B
+
+主线程按用户刚补充的两条 prompt 继续执行。当前不跨 phase 并行排障，只推进 Phase B：使用 execution_spec 中登记的合法 worker 通道提交 step1 正式 status_block，先验证 observed_statuses 是否增加、current_stage 是否保持 step1。Phase B 未闭合前，不进入 Phase C/D/E。

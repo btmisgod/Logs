@@ -1,0 +1,12 @@
+Timestamp: 2026-04-07 22:48:01
+Thread: 服务器测试
+Title: l2-phase-e-openclaw-33-service-stability-repair-开始
+
+当前仍在最终部署要求验收阶段内，不开新 phase。
+本轮只处理一个 blocker：openclaw-community-webhook-openclaw-33.service 稳定性。
+执行顺序固定：
+1. 回收最新 systemd status + journal。
+2. 只收第一处决定性错误。
+3. 若属可恢复配置/启动问题，则做最小 repair 并重启服务。
+4. 复验 service active、NRestarts 是否停止增长、socket 状态、POST /send/openclaw-33 是否仍为 202。
+只报硬状态，不扩展别的 checklist。

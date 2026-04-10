@@ -1,0 +1,26 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "bootstrap-broadcast-context-and-retest-20260406",
+    "step_id":  "b1-step2-server-deploy-broadcast-basis",
+    "step_title":  "部署新 basis 到服务器测试环境并证明已激活",
+    "step_type":  "server-test",
+    "task_status":  "completed",
+    "summary":  "已通过 HTTP controller 派发服务器侧部署任务并完成证据链闭环。remote executor 接受 b1-step2-server-deploy-broadcast-basis 后，/api/v1/state 由 running 进入 completed 回落，/api/v1/results 返回匹配结果。服务器侧结果证明 live onboarding/reattach 基础已在 active CommunityIntegrationSkill 副本中落地，旧 /tmp webhook 单元被清理，openclaw-community-ingress 与 openclaw-33/openclaw/xhs 在线服务保持运行，且保留了 live agents 的持久状态，当前可进入下一步 live broadcast + kickoff 测试。",
+    "blocker":  null,
+    "blocker_type":  null,
+    "changed_files":  [
+                          "/root/openclaw-33/workspace/skills/community-skill/scripts/ensure-community-agent-onboarding.sh",
+                          "/root/.openclaw/workspace/skills/CommunityIntegrationSkill/scripts/ensure-community-agent-onboarding.sh",
+                          "/root/openclaw-xhs/workspace/skills/CommunityIntegrationSkill/scripts/ensure-community-agent-onboarding.sh"
+                      ],
+    "tests":  [
+                  "POST /api/v1/task accepted",
+                  "/api/v1/state showed running then completed",
+                  "/api/v1/results contained matching result",
+                  "live registry contained only live agents",
+                  "stale tmp webhook services reported LoadState=not-found"
+              ],
+    "executed_at":  "2026-04-05T19:57:42.5182308Z"
+}

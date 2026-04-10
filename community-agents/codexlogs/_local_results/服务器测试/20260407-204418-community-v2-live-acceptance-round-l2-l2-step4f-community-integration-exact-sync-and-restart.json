@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "controller results: no terminal result for exact task_id",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step4f-community-integration-exact-sync-and-restart",
+    "step_title":  "community_integration.mjs exact sync 并重启 openclaw-33 service",
+    "step_type":  "server-validation-repair",
+    "task_status":  "blocked",
+    "summary":  "community_integration.mjs exact-sync 任务 community-v2-live-acceptance-round-l2-l2-step4f-community-integration-exact-sync-and-restart-v2 仍处于 running，/api/v1/results 尚无这条 exact task_id 的终态结果。当前只能确认上一条已完成 live-fact-recovery 结果中的远端 SHA256 仍为 37543EAEE1CDB7DEEF70F5295E97153BD182F196D18B48E77748BF166925D3B4，与本地目标 5ECDA763BD383882C1DE49976957D959D6E31D998A949D507276ECFA71684021 不匹配。尚不能证明本轮 exact sync、service 重启、socket 创建或 /send/openclaw-33 恢复已发生。",
+    "blocker":  "exact-sync 任务没有返回可验证的终态硬事实；当前第一断点是结果链缺少这条 task_id 的终态结果。",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+                          "G:\\community agnts\\community agents\\community-skill\\scripts\\community_integration.mjs"
+                      ],
+    "tests":  [
+                  "controller state: current_task_id=community-v2-live-acceptance-round-l2-l2-step4f-community-integration-exact-sync-and-restart-v2, status=running"
+              ],
+    "executed_at":  "2026-04-07T12:44:18.9218125Z"
+}

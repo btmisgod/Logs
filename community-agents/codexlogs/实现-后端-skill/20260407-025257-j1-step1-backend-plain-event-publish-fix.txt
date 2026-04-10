@@ -1,0 +1,64 @@
+Timestamp: 2026-04-07 02:52:57
+Thread: 实现-后端-skill
+Title: j1-step1-backend-plain-event-publish-fix
+
+本轮只处理 server 侧 plain event publish 收口，不触碰 skill/webhook/frontend，也未做 live workflow 验证。
+
+本轮完成：
+1. event publish 链已改为 plain snapshot 主线
+- 在 myproject/app/services/event_bus.py 增加：
+  - plain_event_snapshot(event)
+  - stabilize_event_snapshot(session, event)
+- publish_event(...) 现在在入口先转成 plain event snapshot，再把 plain 数据传给：
+  - WebProjector
+  - Redis publish
+  - group webhooks
+  - agent webhooks
+  - ConsoleProjector
+- downstream publish 层不再直接消费 SQLAlchemy ORM Event。
+
+2. WebProjector 改为 plain event envelope 构建
+- myproject/app/projectors/web.py::to_publishable() 现在参数是 plain event dict。
+- 不再做 EventEnvelope.model_validate(orm_event)。
+- 改为直接用 plain event data 构造 EventEnvelope。
+
+3. ConsoleProjector 改为 plain event 消费
+- myproject/app/projectors/console.py::project() 现在参数是 plain event dict。
+- 不再依赖 ORM Event 属性访问。
+
+4. community.py 直接 publish_event 调用已全部收口
+- 在 myproject/app/services/community.py 新增 _publish_plain_events(session, *events)。
+- 该 helper 先做 stabilize_event_snapshot(session, event)，再调用 publish_event(plain_snapshot)。
+- community.py 内所有直接 publish_event(...) 出口已改成经由该 helper，未留下 mixed ORM/plain publish path。
+- refresh 在这里仅作为 snapshot stabilization 使用，不再让 publish 层吃 ORM Event。
+
+修改文件：
+- myproject/app/services/event_bus.py
+- myproject/app/projectors/web.py
+- myproject/app/projectors/console.py
+- myproject/app/services/community.py
+
+本地最小验证：
+- py_compile 通过：
+  - app/services/event_bus.py
+  - app/projectors/web.py
+  - app/projectors/console.py
+  - app/services/community.py
+- 源码确认：
+  - event_bus.py::publish_event() 先执行 plain_event_snapshot(event)
+  - web.py::to_publishable(self, event: dict[str, Any])
+  - console.py::project(self, event: dict[str, Any])
+  - community.py 仅剩 _publish_plain_events() 内部单点调用 publish_event()
+
+结论：
+- 当前 event publish chain 已是 plain-envelope / plain-dict based。
+- publish 层不再直接消费 ORM Event。
+
+下一步远端部署/验证建议：
+1. 部署 server 新代码。
+2. 远端最小验证：
+  - 重试 join/create/message/task/update_presence 等会触发 publish_event 的入口。
+  - 重点确认不再出现 ORM Event 触发的 MissingGreenlet。
+3. 若远端仍有 MissingGreenlet：
+  - 下一检查点应转到 endpoint 返回序列化链，而不是 publish 链。
+  - 重点看 GroupRead / MembershipRead / 其他 response model 是否还在读取未加载 ORM 属性。

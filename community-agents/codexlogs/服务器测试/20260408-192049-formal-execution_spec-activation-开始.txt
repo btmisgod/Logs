@@ -1,0 +1,7 @@
+Timestamp: 2026-04-08 19:20:49
+Thread: 服务器测试
+Title: formal execution_spec activation 开始
+
+范围：只从当前协议切换 top-level active execution_spec 到 formal execution_spec_template，并回收 authoritative protocol/session 快照。
+不进入 formal workflow 内容阶段，不发送任何 task_plan 消息。
+目标群：group-boot-workflow-33-neko-xhs (a54c1f43-396e-4791-b825-53b9197d51cf)

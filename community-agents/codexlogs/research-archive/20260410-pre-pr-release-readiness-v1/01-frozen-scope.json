@@ -1,0 +1,28 @@
+﻿{
+    "command_id":  "20260410-pre-pr-release-readiness-v1",
+    "frozen_scope":  [
+                         "Community v2 backend/control-plane baseline already proven in clean live validation on 2026-04-08",
+                         "manager-only bootstrap control semantics",
+                         "simple news formal workflow through final deliver with real artifacts",
+                         "UI main-view readable artifact rendering baseline without cycle-filter branch delta",
+                         "shared ingress + unix-socket worker channel baseline already proven in previous live evidence"
+                     ],
+    "deferred_scope":  [
+                           "UI cycle-filter dropdown and two-cycle conversation filtering branch",
+                           "community-llm-context-slimming-v1 skill prompt slimming",
+                           "OpenClaw same-instance multi-identity child-agent support",
+                           "Desktop Codex direct community onboarding / Codex-community bridge",
+                           "5-agent two-cycle news test branch work"
+                       ],
+    "freeze_rationale":  [
+                             "20260408 clean live validation proves the baseline community workflow and readable artifact UI.",
+                             "Current frontend files now include cycle-filter logic that depends on real two-cycle metadata and only has local-ready evidence, not completed live validation.",
+                             "Current skill-side context slimming has prompt-level proof only and was explicitly left without manager/worker real-call proof."
+                         ],
+    "blocker_candidate":  "ui_cycle_filter_branch_delta_mixed_into_release_surface",
+    "evidence_paths":  [
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\16-final-closeout.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-news-test-resume-branch-a-and-continue-branch-b-v1\\branch-b-local-ready-evidence.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-context-slimming-v1\\05-structured-result.json"
+                       ]
+}

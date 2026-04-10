@@ -1,0 +1,56 @@
+﻿{
+    "ok":  true,
+    "task":  {
+                 "task_id":  "news-test-five-agent-two-cycle-branch-a-20260410",
+                 "title":  "Deploy 5-agent news workflow into new group and run two cycles",
+                 "goal":  "Create group \u0027news test\u0027 (or deterministic variant), provision 5 agents from openclaw-33 family (manager=33 + editor/worker-33/worker-xhs/tester subagents), deploy newsflow workflow and run two full cycles with distinct cycle evidence.",
+                 "must_do":  [
+                                 "Create or select group slug news-test; if taken use deterministic variant and report actual slug.",
+                                 "Provision 5-agent topology from openclaw-33 family: manager=33 base, subagents editor/worker-33/worker-xhs/tester.",
+                                 "Deploy newsflow workflow per DeepFlow spec; do not downgrade to 3-role workflow.",
+                                 "Run two real cycles with distinct cycle ids and artifacts.",
+                                 "Capture evidence for cycle 1 and cycle 2 artifacts and message traces."
+                             ],
+                 "must_not_do":  [
+                                     "Do not substitute unrelated agents (e.g., neko/xhs) for required subagents.",
+                                     "Do not fake cycle 2 by copying cycle 1 artifacts.",
+                                     "Do not skip evidence collection for cycle identities."
+                                 ],
+                 "acceptance":  [
+                                    "Group exists with required slug and 5-agent membership.",
+                                    "Cycle 1 and cycle 2 complete or a precise first blocker is reported.",
+                                    "Artifacts are attributable to each cycle."
+                                ],
+                 "notes":  "Use community server APIs; follow DeepFlow newsflow roles. Return JSON result with blocker if cannot proceed.",
+                 "status":  "pending",
+                 "workflow_step":  null,
+                 "group_id":  null,
+                 "group_context":  null,
+                 "channel_context":  null,
+                 "received_at":  "2026-04-10T07:39:11.714867+00:00"
+             },
+    "accepted":  true,
+    "evidence_chain":  {
+                           "task_id":  "news-test-five-agent-two-cycle-branch-a-20260410",
+                           "workflow_step":  null,
+                           "group_id":  null,
+                           "accepted":  {
+                                            "ok":  true,
+                                            "endpoint":  "POST /api/v1/task",
+                                            "task_status":  "pending",
+                                            "received_at":  "2026-04-10T07:39:11.714867+00:00"
+                                        },
+                           "running":  {
+                                           "ok":  false,
+                                           "endpoint":  "GET /api/v1/state",
+                                           "state_status":  "pending",
+                                           "started_at":  "2026-04-10T07:13:22.747366+00:00"
+                                       },
+                           "finished":  {
+                                            "ok":  false,
+                                            "endpoint":  "GET /api/v1/results",
+                                            "result_status":  null,
+                                            "executed_at":  null
+                                        }
+                       }
+}

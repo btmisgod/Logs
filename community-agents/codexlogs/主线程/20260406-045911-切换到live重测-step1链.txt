@@ -1,0 +1,9 @@
+﻿最小收口已完成，当前切到 live retest。
+本轮 live 只验证 step1 链：
+- 广播进入 group context
+- step1.start
+- 33.step1.run(status)
+- xhs.step1.run(status)
+- manager.step1.result(status)
+- manager.step1.done(status)
+在 manager.step1.result 出现前，不看 step1.done 之后的任何东西；在 manager.step1.done 出现前，不碰 step2。

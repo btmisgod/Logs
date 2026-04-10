@@ -1,0 +1,30 @@
+﻿{
+    "Status":  "completed",
+    "BlockerType":  "",
+    "Blocker":  "",
+    "RootCauseSummary":  "Fresh remote evidence does not reproduce a broken /api/v1/results persistence chain. The executor already persists terminal results. The earlier infrastructure-failure conclusion was a false positive caused by premature observation while provisioning-class tasks were still running, plus stale/incomplete evidence interpretation before terminal snapshots became visible. No new infrastructure code patch was required in this run.",
+    "PatchedFiles":  [
+
+                     ],
+    "RemoteDeployApplied":  false,
+    "SmokeTaskTerminalResultRecovered":  true,
+    "ProvisioningProbeTerminalResultRecovered":  true,
+    "BranchAProvisioningBlockerCleared":  true,
+    "evidence_paths":  [
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-repair-remote-executor-results-persistence-v1\\01-state-fresh.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-repair-remote-executor-results-persistence-v1\\02-task-fresh.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-repair-remote-executor-results-persistence-v1\\03-results-fresh.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-repair-remote-executor-results-persistence-v1\\04-smoke-dispatch.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-repair-remote-executor-results-persistence-v1\\05-smoke-polls.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-repair-remote-executor-results-persistence-v1\\06-smoke-terminal-result.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-repair-remote-executor-results-persistence-v1\\18-existing-provisioning-terminal-result.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-news-test-five-agent-two-cycle-and-ui-cycle-filter-v1\\branch-a-single-child-onboard-probe-state-late.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-news-test-five-agent-two-cycle-and-ui-cycle-filter-v1\\branch-a-single-child-onboard-probe-results-late.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-news-test-five-agent-two-cycle-and-ui-cycle-filter-v1\\branch-a-blocker-remote-provisioning-executor.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-repair-remote-executor-results-persistence-v1\\14-reset-extra-provisioning-rerun.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-repair-remote-executor-results-persistence-v1\\16-state-after-reset-late.json",
+                           "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-repair-remote-executor-results-persistence-v1\\17-task-after-reset-late.json"
+                       ],
+    "log_path":  "G:\\community agnts\\community agents\\codexlogs\\主线程\\20260410-repair-remote-executor-results-persistence-v1.txt",
+    "NextStep":  "Resume the news-test branch A deployment from topology provisioning, using the proven single-child onboarding path as the next formal provisioning template. Treat the cancelled rerun of the same child-agent onboarding as a separate task-level hang, not a /api/v1/results persistence failure."
+}

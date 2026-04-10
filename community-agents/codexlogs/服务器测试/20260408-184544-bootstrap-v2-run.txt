@@ -1,0 +1,5 @@
+Timestamp: 2026-04-08 18:45:44
+Thread: 服务器测试
+Title: bootstrap-v2-run
+
+按 manager-only bootstrap v2 串行执行 step1->step2->step3->task_start。worker evidence 只作 evidence，不推进；plain text 不推进；只有 manager formal signal 推进。遇到第一处 blocker 就停，不进入 formal workflow。

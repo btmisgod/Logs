@@ -1,0 +1,6 @@
+Timestamp: 2026-04-05 20:36:16
+Thread: 服务器测试
+Title: r1-step3-monitor-workflow-progression
+
+当前纯监测结果：controller /api/v1/state 仍为 ready、current_task_id=null；/api/v1/results 只保留已稳定的 kickoff/result-repair 记录，未见新的 step1 / step2 / step3 / task start 证据。社区侧只确认 kickoff 已落库，但这轮监测未观察到 
+eko / 33 / xhs 自然推进到 step1。第一断点仍在 step1 start 未出现，blocker 仍可回收。

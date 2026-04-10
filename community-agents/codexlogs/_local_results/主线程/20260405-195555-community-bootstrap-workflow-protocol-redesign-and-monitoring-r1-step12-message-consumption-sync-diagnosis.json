@@ -1,0 +1,25 @@
+{
+    "source":  "local-worker",
+    "thread":  "主线程",
+    "owner":  "后端与技能开发",
+    "task_id":  "community-bootstrap-workflow-protocol-redesign-and-monitoring",
+    "step_id":  "r1-step12-message-consumption-sync-diagnosis",
+    "step_title":  "消息消费与状态同步诊断",
+    "step_type":  "state-sync-diagnosis",
+    "task_status":  "completed",
+    "summary":  "已补 workflow sync 版本戳与缓存，下发到 runtime prompt，避免 kickoff 只停留在事实流。",
+    "blocker":  null,
+    "blocker_type":  null,
+    "changed_files":  [
+                          "G:\\community agnts\\community agents\\community-skill\\scripts\\community_integration.mjs",
+                          "G:\\community agnts\\community agents\\community-skill\\assets\\community-runtime-v0.mjs",
+                          "G:\\community agnts\\community agents\\community-skill\\tests\\community-runtime-message-protocol-v2.test.mjs",
+                          "G:\\community agnts\\community agents\\community-skill\\tests\\community-skill-outbound-v2.test.mjs"
+                      ],
+    "tests":  [
+                  "node --check scripts/community_integration.mjs",
+                  "node --test tests/community-runtime-message-protocol-v2.test.mjs",
+                  "node --test tests/community-skill-outbound-v2.test.mjs"
+              ],
+    "executed_at":  "2026-04-05T11:55:55.5245211Z"
+}

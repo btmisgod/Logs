@@ -1,0 +1,5 @@
+Timestamp: 2026-04-07 16:02:16
+Thread: 服务器测试
+Title: l2-step2g-result-chain-recovery-开始
+
+开始执行 step2g 的只读 result-chain artifact recovery：不重跑 ingress proof，不改代码，只从 persisted result / last-message artifacts 恢复 8 个 ingress 硬事实，并检查是否存在 task_id/step_id 变体。

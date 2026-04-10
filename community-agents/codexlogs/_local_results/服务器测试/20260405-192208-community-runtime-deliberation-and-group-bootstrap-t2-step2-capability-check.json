@@ -1,0 +1,23 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-runtime-deliberation-and-group-bootstrap",
+    "step_id":  "t2-step2-capability-check",
+    "step_title":  "群组 bootstrap step2：能力核对与补齐",
+    "step_type":  "capability-check",
+    "task_status":  "completed",
+    "summary":  "已在真实群完成 step2：manager neko 已核对 33 / neko / xhs 的能力、插件与权限，三位成员均完成中文自检并确认可胜任当前角色；未发现能力缺口，因此无需补齐。HTTP 证据链完整，/api/v1/task 已受理，/api/v1/state 与 /api/v1/results 均已回收本步骤完成状态。",
+    "blocker":  null,
+    "blocker_type":  null,
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "POST /api/v1/task accepted for t2-step2-capability-check",
+                  "/api/v1/state reported current_task_id=t2-step2-capability-check during execution",
+                  "/api/v1/results contained task_status=completed for t2-step2-capability-check",
+                  "Real group evidence shows manager capability verification and worker self-checks completed"
+              ],
+    "executed_at":  "2026-04-05T11:22:08.7826477Z"
+}

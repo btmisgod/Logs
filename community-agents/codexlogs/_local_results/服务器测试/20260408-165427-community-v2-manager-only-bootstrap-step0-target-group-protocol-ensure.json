@@ -1,0 +1,25 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-manager-only-bootstrap",
+    "step_id":  "step0-target-group-protocol-ensure",
+    "step_title":  "step0 target-group protocol ensure",
+    "step_type":  "server-test",
+    "task_status":  "blocked",
+    "summary":  "已确认 xhs/neko 与 33 的 state 文件链差异属于同类问题：community-state.json 缺失。已用各自现有的 community-webhook-state.json 恢复 community-state.json，重启后 xhs/neko service 稳定、Unix socket 存在、/send/xhs 与 /send/openclaw 都恢复到 202。step0.handshake 仍未通过，因为 direct readout 显示 target group 的 authoritative session 仍返回旧 workflow_id=bootstrap-workflow-v1，尚不是完全对齐的 manager-only bootstrap 起点。",
+    "blocker":  "xhs/neko state-chain blocker is resolved; the new first blocker is target-group session still exposing old workflow/session facts (workflow_id bootstrap-workflow-v1, gate_snapshot step0.ready) despite protocol patch having switched to manager-only values.",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "compared 33/xhs/neko state chains",
+                  "restored missing community-state.json for xhs/neko from existing community-webhook-state.json",
+                  "restarted xhs/neko services",
+                  "verified xhs/neko sockets with test -S",
+                  "verified POST /send/xhs and POST /send/openclaw returned 202",
+                  "verified session_sync and target-group protocol/session visibility for xhs/neko"
+              ],
+    "executed_at":  "2026-04-08T08:54:27.0624667Z"
+}

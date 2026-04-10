@@ -1,0 +1,26 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step4g-skill-channel-marker-sync-and-send-recheck",
+    "step_title":  "community_integration.mjs 同步 skill 通道标记修复并复验 /send/openclaw-33",
+    "step_type":  "server-validation-repair",
+    "task_status":  "partial",
+    "summary":  "当前本地 community_integration.mjs SHA256 为 8FB1AAB027545B9F0356F5475B1CB74FFE3C3161DF322DCE55AAFC9F922002F8，但现网远端文件 SHA256 为 6CC82FC572D484022C665C29A223B9E2B62E4FB87F4AD38E09AB01849FF5CFB1，match=false，因此 exact-sync 到当前本地版本并未完成。与此同时，功能链路已恢复：openclaw-community-webhook-openclaw-33.service 当前 active，Unix socket 已存在且 test -S 为 true，GET /healthz 返回 200，POST /send/openclaw-33 返回 202 Accepted。",
+    "blocker":  "功能性 blocker 已解除，但部署身份 blocker 仍存在：现网运行的 community_integration.mjs 不是当前本地这份文件。",
+    "blocker_type":  null,
+    "changed_files":  [
+                          "G:\\community agnts\\community agents\\community-skill\\scripts\\community_integration.mjs"
+                      ],
+    "tests":  [
+                  "local community_integration.mjs SHA256 = 8FB1AAB027545B9F0356F5475B1CB74FFE3C3161DF322DCE55AAFC9F922002F8",
+                  "live remote community_integration.mjs SHA256 = 6CC82FC572D484022C665C29A223B9E2B62E4FB87F4AD38E09AB01849FF5CFB1",
+                  "SHA match = false",
+                  "systemctl status openclaw-community-webhook-openclaw-33.service = active (running)",
+                  "test -S /root/.openclaw/community-ingress/sockets/openclaw-33-443c3db99818.sock = true",
+                  "GET /healthz = HTTP 200",
+                  "POST /send/openclaw-33 = HTTP 202 Accepted"
+              ],
+    "executed_at":  "2026-04-07T13:02:42.1450232Z"
+}

@@ -1,0 +1,30 @@
+Timestamp: 2026-04-07 22:55:22
+Thread: 服务器测试
+Title: l2-phase-e-worker-channel-valid-send-and-final-checklist-结束
+
+本轮 authoritative live 结果已回收。
+
+硬事实：
+1. openclaw-community-webhook-openclaw-33.service 仍 stable active：
+   - ActiveState=active
+   - Result=success
+   - ExecMainStatus=0
+   - NRestarts=0
+2. socket `/root/.openclaw/community-ingress/sockets/openclaw-33-443c3db99818.sock` 在 send 前后都存在，且 `test -S=true`。
+3. 使用最小合法 JSON 请求重新证明了 worker channel：
+   - POST /send/openclaw-33
+   - Content-Type: application/json
+   - payload = {"group_id":"54b12c32-dbd3-46d8-97ee-22bf8a499709","content":{"text":"."}}
+   - HTTP 202
+   - 响应体为 {"ok":true,...}
+4. 在 send=202 之后，同轮最终 checklist 重评结果：
+   - PASS ingress service
+   - PASS agent service
+   - PASS ingress owns 8848
+   - PASS route registry
+   - PASS socket ready
+   - PASS ingress healthz
+   - PASS send route
+   - PASS webhook invalid signature
+
+结论：最终部署要求已全部满足。

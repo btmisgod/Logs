@@ -1,0 +1,139 @@
+{
+  "command_id": "20260410-phase3-deploy-commit-repair-v1",
+  "version": "1.0",
+  "created_at": "2026-04-10",
+  "target_thread": "main-controller",
+  "workspace_root": "G:\\community agnts\\community agents",
+  "title": "Repair phase3 deployment to the PR commit by isolating the failing deploy-class step and completing the server update",
+  "objective": "The PR is already created. The only current blocker is phase3_update_server_to_pr_commit. General executor result persistence is not the blocker, because the smoke task returned a terminal result. Treat this as a deploy-class task repair. Isolate which deploy sub-step hangs or fails, then complete the server update to the exact PR commit and prove it.",
+  "mandatory_references": [
+    {
+      "path": "G:\\community agnts\\community agents\\AGENTS.md",
+      "why": "Controller behavior and structured-result discipline."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-main-controller-pr-deploy-and-codex-connectivity-check-v2\\99-structured-result.json",
+      "why": "Current top-level blocked state and next-step context."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-main-controller-pr-deploy-and-codex-connectivity-check-v2\\05-phase3-task-dispatch.json",
+      "why": "Original deploy task contents and acceptance."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-main-controller-pr-deploy-and-codex-connectivity-check-v2\\22-smoke-result-terminal.json",
+      "why": "Proof that the executor can still return terminal results for cheap tasks."
+    }
+  ],
+  "release_target": {
+    "repo": "G:\\community agnts\\community agents\\myproject",
+    "server_repo_expected": "/root/agent-community",
+    "release_branch": "codex/pr-community-v2-live-baseline-20260410",
+    "release_commit": "0c2cd3e8e607deb4fb3b886c20161b44a867d353",
+    "pr_url": "https://github.com/btmisgod/myproject/pull/1"
+  },
+  "required_work": [
+    {
+      "id": "phase1_classify_the_blocker_correctly",
+      "description": "Start by explicitly classifying the blocker as deploy-class task failure or hang, not as general executor result-persistence failure, unless fresh evidence disproves the existing smoke-task proof."
+    },
+    {
+      "id": "phase2_stepwise_deploy_probes",
+      "description": "Break the original deploy task into stepwise remote probes with terminal-result checkpoints after each probe. At minimum isolate: repo path/probe, git fetch/checkout target commit, docker compose status probe, and API restart/health probe."
+    },
+    {
+      "id": "phase3_complete_server_update",
+      "description": "Once the failing sub-step is isolated or repaired, complete the deployment so the server actually runs release commit 0c2cd3e8e607deb4fb3b886c20161b44a867d353."
+    },
+    {
+      "id": "phase4_prove_the_deployed_state",
+      "description": "Prove the final deployed state with exact git HEAD, service/container status, and API health evidence."
+    },
+    {
+      "id": "phase5_resume_top_level_task_only_if_phase3_is_closed",
+      "description": "If and only if deployment is proven complete, state that the main top-level PR/deploy/validate task can resume at phase4_post_deploy_debug_validation. Do not silently keep going in this task."
+    }
+  ],
+  "stepwise_probe_requirements": [
+    {
+      "id": "probe_repo_presence",
+      "goal": "Confirm actual repo root used on server and prove it can be accessed.",
+      "acceptance": [
+        "Return repo root path used",
+        "Return pwd",
+        "Return ls or equivalent proof that repo exists"
+      ]
+    },
+    {
+      "id": "probe_git_target",
+      "goal": "Confirm target branch/commit is fetchable and checkout-able.",
+      "acceptance": [
+        "Return git remote origin",
+        "Return whether branch codex/pr-community-v2-live-baseline-20260410 exists remotely",
+        "Return resulting git rev-parse HEAD after checkout attempt"
+      ]
+    },
+    {
+      "id": "probe_compose_visibility",
+      "goal": "Confirm docker compose context and API service visibility before restart.",
+      "acceptance": [
+        "Return docker compose ps output or equivalent for api",
+        "Return compose file path actually used"
+      ]
+    },
+    {
+      "id": "probe_api_restart_and_health",
+      "goal": "Restart only the API service and verify health.",
+      "acceptance": [
+        "Return restart command used",
+        "Return post-restart service status",
+        "Return GET /api/v1/health result"
+      ]
+    }
+  ],
+  "do_not": [
+    "Do not reopen PR scope questions.",
+    "Do not re-run the whole top-level PR/deploy/validate task from scratch.",
+    "Do not keep doing blind reset/retry loops without stepwise evidence.",
+    "Do not classify the blocker as general executor result-chain failure unless a fresh smoke task now fails too.",
+    "Do not proceed to phase4_post_deploy_debug_validation until the server update is proven."
+  ],
+  "working_principles": [
+    "Because smoke-task terminal result already succeeded, treat this as a deploy-class repair unless new evidence disproves that.",
+    "Split the deployment into smaller executor tasks so the first failing sub-step is visible.",
+    "Use fresh evidence at every sub-step.",
+    "Stop at the first real blocker if deployment still cannot be completed."
+  ],
+  "deliverables": [
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-phase3-deploy-commit-repair-v1",
+      "description": "Evidence bundle for deploy-step probes, repair attempts, and final deployment proof."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\主线程\\20260410-phase3-deploy-commit-repair-v1.txt",
+      "description": "Detailed main-controller log for this deployment repair task."
+    }
+  ],
+  "acceptance": [
+    "The first failing deploy sub-step is identified with evidence, or the deployment is completed.",
+    "If completed, server HEAD equals 0c2cd3e8e607deb4fb3b886c20161b44a867d353.",
+    "If completed, API service status is healthy and proven.",
+    "If not completed, the first real blocker is precisely classified as deploy-step-specific, infrastructure-specific, or environment-specific."
+  ],
+  "result_format": {
+    "required_fields": [
+      "Status",
+      "BlockerType",
+      "Blocker",
+      "FailingDeploySubstep",
+      "ReleaseCommit",
+      "ServerUpdatedToReleaseCommit",
+      "ApiServiceHealthy",
+      "DeployProbeSummary",
+      "TopLevelTaskMayResume",
+      "changed_files",
+      "evidence_paths",
+      "log_path",
+      "NextStep"
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "Status": "completed",
+  "BlockerType": null,
+  "Blocker": null,
+  "group_id": "dbf3e236-a4e0-41aa-9401-93a778dbb1cf",
+  "group_slug": "news-simple-live-validation-20260408",
+  "create_status_code": 409,
+  "by_slug_status_code": 200,
+  "members_joined": [
+    "9ad42605-cc23-4ad5-a768-ef35d4467ed2",
+    "b8beedf6-3540-4cf1-b22d-1dd6f5633b3a",
+    "e1fb40b4-80b9-4baa-b740-cb5aa51fdee5",
+    "54f1cbf0-c8f4-4707-a85f-30e461c3e9e8"
+  ],
+  "evidence_paths": [
+    "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\08-group-create-response.json",
+    "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\08-group-by-slug.json",
+    "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260408-news-simple-live-validation-clean\\08-group-members.json"
+  ],
+  "NextStep": "protocol_patch",
+  "existed_already": true,
+  "reusable": true
+}

@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "实现-后端-skill",
+    "owner":  "后端与技能开发",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step2c-broadcast-group-context-repair",
+    "step_title":  "trusted system broadcast group_context ingestion repair",
+    "step_type":  "repair",
+    "task_status":  "completed",
+    "summary":  "仅在 message_protocol_mapper.py 补齐 extensions.author_kind 与 extensions.context_block/group_context 的 server 侧 canonical ingestion，避免 trusted system/group_context payload 被错误降成普通 message.posted，并恢复 group_context 进入 server 持久化/广播语义链。",
+    "blocker":  "canonical proof: formal top-level + extensions nested + extensions.custom nested all preserve author_kind=system and context_block.group_context after normalize_message_to_canonical_v2",
+    "blocker_type":  null,
+    "changed_files":  [
+                          "G:\\community agnts\\community agents\\myproject\\app\\services\\message_protocol_mapper.py"
+                      ],
+    "tests":  [
+                  "py_compile: G:\\community agnts\\community agents\\myproject\\app\\services\\message_protocol_mapper.py"
+              ],
+    "executed_at":  "2026-04-07T07:32:42.9712632Z"
+}

@@ -1,0 +1,38 @@
+﻿{
+    "ok":  true,
+    "state":  {
+                  "worker_id":  "server-primary",
+                  "status":  "running",
+                  "current_task_id":  "phase3-deploy-pr-commit-20260410-retry1",
+                  "last_task_started_at":  "2026-04-10T12:43:20.450831+00:00",
+                  "last_task_finished_at":  "2026-04-10T12:43:15.447266+00:00",
+                  "last_heartbeat_at":  "2026-04-10T12:44:50.533332+00:00",
+                  "last_result_status":  "blocked",
+                  "last_result_summary":  "executor cancelled a stale running task",
+                  "current_blocker":  null,
+                  "updated_at":  "2026-04-10T12:44:50.533336+00:00"
+              },
+    "evidence_chain":  {
+                           "task_id":  "phase3-deploy-pr-commit-20260410-retry1",
+                           "workflow_step":  null,
+                           "group_id":  null,
+                           "accepted":  {
+                                            "ok":  true,
+                                            "endpoint":  "POST /api/v1/task",
+                                            "task_status":  "pending",
+                                            "received_at":  "2026-04-10T12:43:15.866716+00:00"
+                                        },
+                           "running":  {
+                                           "ok":  true,
+                                           "endpoint":  "GET /api/v1/state",
+                                           "state_status":  "running",
+                                           "started_at":  "2026-04-10T12:43:20.450831+00:00"
+                                       },
+                           "finished":  {
+                                            "ok":  false,
+                                            "endpoint":  "GET /api/v1/results",
+                                            "result_status":  null,
+                                            "executed_at":  null
+                                        }
+                       }
+}

@@ -1,0 +1,103 @@
+{
+  "command_id": "20260410-repair-remote-executor-results-persistence-v1",
+  "version": "1.0",
+  "created_at": "2026-04-10",
+  "target_thread": "main-controller",
+  "workspace_root": "G:\\community agnts\\community agents",
+  "title": "Repair remote executor /api/v1/results persistence and prove recovery",
+  "objective": "Repair the remote executor result-persistence chain so terminal task results are durably visible through /api/v1/results. Treat this as infrastructure work, not workflow work. Finish with proof: a cheap smoke task must yield a terminal result in /api/v1/results, and then one provisioning-class probe must also yield a terminal result.",
+  "references": [
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-context-slimming-end-to-end-repair-v1\\09-structured-result.json",
+      "description": "Most recent proof that smoke task itself failed to produce a terminal result, implying remote executor result persistence is broken."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-news-test-five-agent-two-cycle-and-ui-cycle-filter-v1\\branch-a-blocker-remote-provisioning-executor.json",
+      "description": "Current branch A blocker showing provisioning-class tasks are accepted/running but never land terminal results."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\主线程\\20260410-branch-a-remote-provisioning-blocker.txt",
+      "description": "Main-thread summary of the current remote provisioning blocker."
+    },
+    {
+      "path": "G:\\community agnts\\Agents-controller-HTTP\\README.md",
+      "description": "Controller/executor operator documentation."
+    },
+    {
+      "path": "G:\\community agnts\\Agents-controller-HTTP\\scripts\\remote_codex_architect_loop.py",
+      "description": "Current remote controller dispatch path."
+    }
+  ],
+  "required_work": [
+    {
+      "id": "phase1_reproduce_and_capture_current_failure",
+      "description": "Read fresh remote /api/v1/state and /api/v1/results facts. Confirm the failure mode with new evidence before patching: tasks are accepted/running but terminal results are not durably returned by /api/v1/results."
+    },
+    {
+      "id": "phase2_trace_result_persistence_chain",
+      "description": "Locate the exact result-persistence path in the remote controller/executor stack. Identify where terminal task outcomes are supposed to be written, indexed, or exposed to /api/v1/results, and determine why the write/visibility step is failing."
+    },
+    {
+      "id": "phase3_patch_and_deploy_infrastructure_fix",
+      "description": "Implement the smallest correct fix in the controller/executor infrastructure, deploy it to the remote environment, and document exactly what changed. This is an infrastructure repair task; do not mix in workflow feature changes."
+    },
+    {
+      "id": "phase4_verify_with_smoke_task",
+      "description": "Run one cheap smoke task whose only purpose is to produce a strict terminal JSON result. Confirm that the task reaches terminal state and that the result becomes visible through /api/v1/results."
+    },
+    {
+      "id": "phase5_verify_with_one_provisioning_probe",
+      "description": "After the smoke task passes, run exactly one provisioning-class probe, preferably the single-child onboard probe already used in branch A. Confirm that it also produces a terminal result in /api/v1/results."
+    },
+    {
+      "id": "phase6_write_closeout_and_handoff_status",
+      "description": "Write detailed logs and a final structured result. If both smoke and provisioning probe now persist results, explicitly mark branch A blocker as unblocked at infrastructure level. If not, stop at the first new blocker with evidence."
+    }
+  ],
+  "do_not": [
+    "Do not continue the full 5-agent workflow deployment before /api/v1/results persistence is proven fixed.",
+    "Do not treat this as a community workflow bug unless the remote result chain is first proven healthy.",
+    "Do not stop at shallow polling or another narration-only status update.",
+    "Do not keep redispatching expensive or repeated provisioning tasks without first proving result persistence with a cheap smoke task.",
+    "Do not mix UI work, protocol redesign, or unrelated feature work into this task."
+  ],
+  "acceptance": [
+    "A root-cause analysis of the /api/v1/results persistence failure is captured.",
+    "A concrete infrastructure fix is implemented and deployed, or the first hard blocker to deployment is captured with evidence.",
+    "At least one smoke task yields a terminal result that is visible through /api/v1/results.",
+    "At least one provisioning-class probe yields a terminal result that is visible through /api/v1/results.",
+    "The final structured result states clearly whether the branch A remote provisioning blocker is now unblocked at infrastructure level."
+  ],
+  "deliverables": [
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260410-repair-remote-executor-results-persistence-v1",
+      "description": "Evidence folder for reproduction, root cause, patch/deploy, smoke verification, provisioning-probe verification, and final closeout."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\主线程",
+      "description": "Main-thread log root for the detailed execution log."
+    }
+  ],
+  "working_principles": [
+    "This is infrastructure repair first. Business workflow deployment remains downstream of result persistence.",
+    "Evidence beats narration. Fresh remote state/results evidence must be captured before and after the fix.",
+    "Use the cheapest decisive verification first: smoke task, then one provisioning probe.",
+    "If the fix cannot be deployed, stop at the first real blocker and state it precisely."
+  ],
+  "result_format": {
+    "required_fields": [
+      "Status",
+      "BlockerType",
+      "Blocker",
+      "RootCauseSummary",
+      "PatchedFiles",
+      "RemoteDeployApplied",
+      "SmokeTaskTerminalResultRecovered",
+      "ProvisioningProbeTerminalResultRecovered",
+      "BranchAProvisioningBlockerCleared",
+      "evidence_paths",
+      "log_path",
+      "NextStep"
+    ]
+  }
+}

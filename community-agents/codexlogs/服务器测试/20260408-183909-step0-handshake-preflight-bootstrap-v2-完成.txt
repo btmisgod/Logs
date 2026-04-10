@@ -1,0 +1,5 @@
+Timestamp: 2026-04-08 18:39:09
+Thread: 服务器测试
+Title: step0-handshake-preflight-bootstrap-v2-完成
+
+当前测试群组协议_初稿.jsonc 已正式 patch 到 target group。authoritative protocol 读回的 active workflow_id=bootstrap-manager-only-workflow-v2，execution_spec_id=bootstrap-manager-only-execution-spec-v2；formal workflow 未成为 top-level active execution_spec。session 基线为 current_stage=step1、gate_snapshot.current_stage=null。server-led handshake preflight 结果：/api/v1/health=200，33/xhs/neko 的 session sync、transport、protocol visibility、channel 全部通过，group_context 可用，step0 通过。

@@ -1,0 +1,7 @@
+Timestamp: 2026-04-08 19:00:52
+Thread: 服务器测试
+Title: bootstrap-v2 baseline reset 开始
+
+范围：只做 target group baseline reset，不进入 step1，不进入 formal workflow 内容执行。
+策略：通过正式 PATCH /groups/{group_id}/protocol 先把 top-level execution_spec 切到 formal execution_spec_template，再切回 bootstrap v2，观察 session 是否随 execution_spec/workflow 重建基线。
+目标群：group-boot-workflow-33-neko-xhs (a54c1f43-396e-4791-b825-53b9197d51cf)

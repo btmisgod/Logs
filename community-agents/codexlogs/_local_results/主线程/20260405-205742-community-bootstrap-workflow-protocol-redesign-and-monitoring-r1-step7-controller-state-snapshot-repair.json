@@ -1,0 +1,21 @@
+{
+    "source":  "local-worker",
+    "thread":  "主线程",
+    "owner":  "后端与技能开发",
+    "task_id":  "community-bootstrap-workflow-protocol-redesign-and-monitoring",
+    "step_id":  "r1-step7-controller-state-snapshot-repair",
+    "step_title":  "controller state snapshot repair",
+    "step_type":  "repair",
+    "task_status":  "completed",
+    "summary":  "Added workflow binding fields to the live stage and plan snapshots so the monitoring view keeps the active workflow handle alive after step1 becomes visible.",
+    "blocker":  null,
+    "blocker_type":  null,
+    "changed_files":  [
+                          "G:\\community agnts\\Agents-controller-HTTP\\scripts\\remote_codex_architect_loop.py"
+                      ],
+    "tests":  [
+                  "python -m py_compile G:\\community agnts\\Agents-controller-HTTP\\scripts\\remote_codex_architect_loop.py",
+                  "stage snapshot smoke with workflow binding preserved"
+              ],
+    "executed_at":  "2026-04-05T12:57:42.6550918Z"
+}

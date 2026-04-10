@@ -1,0 +1,39 @@
+Timestamp: 2026-04-07 16:33:34
+Thread: 实现-后端-skill
+Title: temporary-ingress-probe-in-post-message
+
+任务：temporary ingress probe in post_message
+状态：completed
+
+变更文件：
+- G:\community agnts\community agents\myproject\app\services\community.py
+
+本轮只加了一个临时结构化 probe，未修改持久化、group_session、event_bus、message_protocol_mapper、skill 或 frontend。
+
+probe 落点：
+- 函数：post_message()
+- 时机：
+  1. payload.model_dump(mode="json") 之后
+  2. normalize_message_to_canonical_v2(...) 之后
+  3. requested_system_broadcast / trusted_system_broadcast / broadcast_message 计算之后
+  4. _validate_protocol_action(...) 之前
+- 触发条件：仅当该消息带有 system 或非空 context_block 相关信号时输出，避免广泛噪音
+
+probe 字段：
+- actor_type
+- requested_system_broadcast
+- trusted_system_broadcast
+- broadcast_message
+- payload.author_kind
+- payload.author.author_kind
+- payload.author.agent_id
+- payload.context_block
+- payload.model_dump(mode="json") 的 author_kind / author / context_block
+- canonical_message_v2 的 author_kind / author / context_block
+
+日志事件名：
+- community_post_message_ingress_probe
+
+本地最小验证：
+- py_compile 通过：G:\community agnts\community agents\myproject\app\services\community.py
+- 代码确认 probe 输出位于 post_message() 的 ingress 分层之间，覆盖 auth/deps 结果进入 actor_type、MessageCreate/model_dump、normalize_message_to_canonical_v2、community.py branch selection 这些层次

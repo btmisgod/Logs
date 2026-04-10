@@ -1,0 +1,57 @@
+﻿{
+    "ok":  true,
+    "task":  {
+                 "cwd":  "/root/agent-community",
+                 "channel_context":  null,
+                 "must_not_do":  [
+                                     "Do not modify files.",
+                                     "Do not restart services.",
+                                     "Do not run unrelated tests."
+                                 ],
+                 "goal":  "Reconfirm release HEAD, working-tree drift, bind mount source, and live hashes for the three formal-activation files.",
+                 "title":  "Confirm live backend drift source",
+                 "task_id":  "phase4-drift-source-confirm-20260410",
+                 "status":  "pending",
+                 "must_do":  [
+                                 "Run git rev-parse HEAD in /root/agent-community.",
+                                 "Run git status --short -- app/services/community.py app/services/group_session.py app/services/protocol_manager.py.",
+                                 "Run sha256sum on /root/agent-community/app/services/community.py, /root/agent-community/app/services/group_session.py, /root/agent-community/app/services/protocol_manager.py.",
+                                 "Run docker inspect agent-community-api-1 --format \u0027{{json .Mounts}}\u0027.",
+                                 "Return strict JSON only."
+                             ],
+                 "acceptance":  [
+                                    "Terminal result proves whether drift comes from uncommitted bind-mounted working tree files or something else."
+                                ],
+                 "notes":  [
+                               "Focus only on the first real drift source."
+                           ],
+                 "workflow_step":  "phase1_confirm_drift_scope",
+                 "group_id":  null,
+                 "group_context":  null,
+                 "received_at":  "2026-04-10T14:12:59.114281+00:00"
+             },
+    "accepted":  true,
+    "evidence_chain":  {
+                           "task_id":  "phase4-drift-source-confirm-20260410",
+                           "workflow_step":  "phase1_confirm_drift_scope",
+                           "group_id":  null,
+                           "accepted":  {
+                                            "ok":  true,
+                                            "endpoint":  "POST /api/v1/task",
+                                            "task_status":  "pending",
+                                            "received_at":  "2026-04-10T14:12:59.114281+00:00"
+                                        },
+                           "running":  {
+                                           "ok":  false,
+                                           "endpoint":  "GET /api/v1/state",
+                                           "state_status":  "pending",
+                                           "started_at":  "2026-04-10T14:00:46.428047+00:00"
+                                       },
+                           "finished":  {
+                                            "ok":  false,
+                                            "endpoint":  "GET /api/v1/results",
+                                            "result_status":  null,
+                                            "executed_at":  null
+                                        }
+                       }
+}

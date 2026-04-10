@@ -1,0 +1,5 @@
+Timestamp: 2026-04-08 15:59:03
+Thread: 服务器测试
+Title: step0-protocol-patch-payload-rebuild-开始
+
+重建本地 frozen protocol payload，重发新的最小 protocol patch task，并立即核 controller 侧保存的 Target protocol JSON 是否完整；若输入完整则短轮询 terminal result，不进入 handshake。

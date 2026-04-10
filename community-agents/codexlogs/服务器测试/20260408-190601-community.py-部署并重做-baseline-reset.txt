@@ -1,0 +1,7 @@
+Timestamp: 2026-04-08 19:06:01
+Thread: 服务器测试
+Title: community.py 部署并重做 baseline reset
+
+范围：只同步 community.py，重启 api，然后重做 baseline reset（formal -> bootstrap v2），验证 session 是否真正回到 step1 干净起点。
+不进入 step1，不发送任何 worker/manager 消息。
+目标群：group-boot-workflow-33-neko-xhs (a54c1f43-396e-4791-b825-53b9197d51cf)

@@ -1,0 +1,5 @@
+Timestamp: 2026-04-05 20:51:47
+Thread: 实现-后端-skill
+Title: r1-step5-step2-step3-transition-repair完成
+
+已补最小工作流 progression hook：workflow_reattach 现在会先刷新上下文，再写入 step1->step2->step3->task_start 的 progression 提示，供 manager 激活路径继续自然推进；未伪造任何 agent 输出，Codex 仍然只监测并刷新上下文。

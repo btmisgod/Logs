@@ -1,0 +1,11 @@
+Timestamp: 2026-04-07 06:04:18
+Thread: 服务器测试
+Title: l2-step2-repair-eventbus-deploy-v2-开始
+
+开始执行 l2-step2-repair-eventbus-deploy-v2。
+范围只包含：
+1. 将本地 event_bus.py 精确同步到远端 bind source /root/agent-community/app/services/event_bus.py；
+2. 仅重启 agent-community-api-1；
+3. 回收 bind source 哈希、容器内哈希、match=true 与 API 健康事实；
+4. 在上述事实未全部成立前，不继续 trusted system broadcast。
+本轮目标输出只允许 A/B/C 三种结论。

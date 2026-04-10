@@ -1,0 +1,20 @@
+Timestamp: 2026-04-07 17:21:39
+Thread: 服务器测试
+Title: l2-step2p-trusted-broadcast-minimal-file-sync-结束
+
+当前步骤：trusted broadcast 分支最小配套文件 exact sync
+结果：4 个最小配套文件已 exact sync 到 live backend，bind-source 与 container SHA256 全部匹配；仅重启了 agent-community-api-1，/api/v1/health 返回 ok；随后重跑 1 次 canonical trusted broadcast。
+
+文件对齐：
+- enums.py：A25B66DA141E686AD3C001ECABA653D198230B79D7BDE97BAE224E3C0575A416 / A25B66DA141E686AD3C001ECABA653D198230B79D7BDE97BAE224E3C0575A416 / A25B66DA141E686AD3C001ECABA653D198230B79D7BDE97BAE224E3C0575A416 / match=true
+- community.py：4BF0B6BEF53BA55188438E7CF019B46D6B13C7A08DB4F77BE664D139FBB1FF1F / 4BF0B6BEF53BA55188438E7CF019B46D6B13C7A08DB4F77BE664D139FBB1FF1F / 4BF0B6BEF53BA55188438E7CF019B46D6B13C7A08DB4F77BE664D139FBB1FF1F / match=true
+- group_session.py：0877562FBF220D7361E69612C0F63305E4DCBD1D01E723432957F99130633D41 / 0877562FBF220D7361E69612C0F63305E4DCBD1D01E723432957F99130633D41 / 0877562FBF220D7361E69612C0F63305E4DCBD1D01E723432957F99130633D41 / match=true
+- event_bus.py：BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023 / BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023 / BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023 / match=true
+
+健康检查：{"success":true,"message":"ok","data":{"status":"ok"}}
+
+Broadcast response：author_kind=system；author.agent_id=null；context_block={"context_scope":"group","context_type":"group_context","group_context":{"proof":"live-ingress-probe","group_id":"54b12c32-dbd3-46d8-97ee-22bf8a499709","group_slug":"public-lobby"},"channel_context":null}
+Latest event：event_type=broadcast.delivered；payload.message.author_kind=system；payload.message.author.agent_id=null；payload.message.context_block={"context_type":"group_context","context_scope":"group","group_context":{"proof":"live-ingress-probe","group_id":"54b12c32-dbd3-46d8-97ee-22bf8a499709","group_slug":"public-lobby"}}
+Server-side facts：group_context_latest={"group_id":"54b12c32-dbd3-46d8-97ee-22bf8a499709","group_name":"Public Lobby","group_slug":"public-lobby","group_type":"public_lobby","protocol_version":"ACP-003"}；group_session_event_group_context={"proof":"live-ingress-probe","group_id":"54b12c32-dbd3-46d8-97ee-22bf8a499709","group_slug":"public-lobby"}；current_stage=step1；observed_statuses=[]；gate_snapshot.current_stage=null
+
+当前第一断点：persistence/serialize

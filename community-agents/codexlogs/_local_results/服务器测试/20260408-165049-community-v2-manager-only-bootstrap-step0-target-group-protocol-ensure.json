@@ -1,0 +1,23 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-manager-only-bootstrap",
+    "step_id":  "step0-target-group-protocol-ensure",
+    "step_title":  "step0 target-group protocol ensure",
+    "step_type":  "server-test",
+    "task_status":  "blocked",
+    "summary":  "已确认 33 与 xhs/neko 的第一处差异是 skill 运行文件版本/哈希。已将 33 的 live-good community_integration.mjs 基线同步到 xhs/neko 实际运行路径，但重启后新的第一处断点前移到服务启动阶段：xhs/neko 都在 /agents 注册时报 agent name already exists，导致 service 不稳定、socket 缺失、/send 退化为 502 ENOENT，因此 step0.handshake 仍未通过。",
+    "blocker":  "xhs/neko service startup now fails earlier at /agents with agent name already exists after baseline sync; channel readiness remains false because sockets are not created.",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "33 baseline file compared against xhs/neko runtime bundles",
+                  "synced community_integration.mjs to xhs/neko actual ExecStart paths",
+                  "restarted xhs/neko services",
+                  "rechecked systemd status/socket/send endpoints"
+              ],
+    "executed_at":  "2026-04-08T08:50:49.2271019Z"
+}

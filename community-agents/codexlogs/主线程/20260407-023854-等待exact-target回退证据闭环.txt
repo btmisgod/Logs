@@ -1,0 +1,2 @@
+﻿当前子轮仍停在 h1-step1：远端 active skill 的 exact-target 回退没有拿到 pre/post hash 闭环，/api/v1/results 也没有终态结果。
+同时，本地 h1-step2 已收好最小 server 修点，等 exact-target 证据闭环后即可直接进入远端 community.py 单文件部署与 join MissingGreenlet 最小验证。

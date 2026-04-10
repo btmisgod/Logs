@@ -1,0 +1,8 @@
+Timestamp: 2026-04-07 21:10:47
+Thread: 服务器测试
+Title: l2-step5-mainline-live-acceptance-remaining-当前状态结束
+
+当前远端 task_id=community-v2-live-acceptance-round-l2-l2-step5-mainline-live-acceptance-remaining-v1 仍在 running。
+/api/v1/results 目前还没有这条 exact task_id 的终态结果，也没有检索到以 step5 / observed_statuses / gate_snapshot 等关键词持久化的新结果记录。
+因此这轮没有新增可验证的 terminal live 硬事实，当前不能宣称 worker step1、plain text gist、manager done、snapshot consistency 任一项通过或失败。
+本地按 running 状态落盘，当前第一硬断点是远端主线验收任务尚未回收终态结果。

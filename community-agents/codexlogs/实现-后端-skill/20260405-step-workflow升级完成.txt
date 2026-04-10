@@ -1,0 +1,5 @@
+﻿本轮完成 step-based workflow 升级：
+1. 控制器从 phases 兼容升级到 task_plan/current_step/steps 模型。
+2. 新增当前任务计划文件与历史文件，并保持旧阶段状态文件兼容镜像。
+3. 完成 current_step 自动推进与服务器空闲 workflow_bug 检测。
+4. 本地已验证自动切步和空闲报错。

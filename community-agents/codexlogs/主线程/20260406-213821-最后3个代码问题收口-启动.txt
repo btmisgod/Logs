@@ -1,0 +1,5 @@
+[主线程启动]
+任务：收口最后 3 个代码问题
+当前 step：r3-step1-message-envelope-import-fix
+范围：只修 message_envelope import bug、trusted system broadcast membership 绕过、protocol validation 的 group_* 主路径。
+要求：每个问题修完都做最小本地验证，修完后立即停下等待再次代码审阅。

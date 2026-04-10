@@ -1,0 +1,20 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-phase-e-final-live-checklist",
+    "step_title":  "Phase E final live deployment checklist",
+    "step_type":  "server_test",
+    "task_status":  "partial",
+    "summary":  "Phase E 最终 checklist 已回收 authoritative live 硬事实。已满足：1) /api/v1/health=200 ok；2) POST /api/v1/agents/me/session/sync=200；3) shared ingress 独占 8848，openclaw-33 配置为 Unix socket，route registry 指向正确 socket。第一处未满足条件是 worker channel 的 service 稳定运行要求：openclaw-community-webhook-openclaw-33.service 当前为 activating(auto-restart)，Result=exit-code，ExecMainStatus=1，NRestarts=870。因此最终部署要求尚未全部满足。",
+    "blocker":  "第一处未满足条件：openclaw-community-webhook-openclaw-33.service 不是稳定运行状态；systemd 报告 activating(auto-restart)、Result=exit-code、ExecMainStatus=1、NRestarts=870。",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+
+              ],
+    "executed_at":  "2026-04-07T14:46:44.6227039Z"
+}

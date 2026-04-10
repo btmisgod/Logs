@@ -1,0 +1,4 @@
+﻿本轮框架修补完成：
+1. 远端终态结果到达时，本地 task plan/state 现在会回收到 completed/blocked，不再停留在 running。
+2. 自动切步仍然同轮进行，且派发任务会显式保留 current step 的 owner/type/step_id。
+3. 机对机模板文件已改成英文，PowerShell 写入器也切成无 BOM UTF-8。

@@ -1,0 +1,24 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-manager-only-bootstrap",
+    "step_id":  "step1-startup-plan",
+    "step_title":  "step1 startup plan",
+    "step_type":  "server-test",
+    "task_status":  "blocked",
+    "summary":  "step1 最小 live 验收已完成：两条合法 worker evidence 都通过 33/xhs 通道进入消息流并写入 authoritative observed_statuses，current_stage 仍保持 step1；plain text guardrail 未产生新的有效 gate 推进条目，也未把阶段推进。manager formal signal 已通过合法 manager 通道写入 observed_statuses，但 current_stage 仍停在 step1，gate_snapshot.current_stage 仍是 step1，satisfied_gates 仍为空，未推进到 step2。当前第一断点是 target group execution_spec.role_directory 仍为空，导致 authoritative observed_statuses 中 author_role 统一落成 null，gate engine 无法把 worker_run / manager_done 认成满足。",
+    "blocker":  "Worker evidence and manager formal signal both entered authoritative observed_statuses, but role_directory is empty so author_role stays null for all entries; gate engine does not satisfy worker_run or manager_done, and step1 does not advance to step2.",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+
+                      ],
+    "tests":  [
+                  "read step1 baseline session on target group",
+                  "sent worker evidence via /send/openclaw-33 and /send/xhs",
+                  "verified worker evidence entered observed_statuses and did not advance current_stage",
+                  "sent plain text guardrail and verified no progression",
+                  "sent manager formal close via /send/openclaw and verified step1 still did not advance"
+              ],
+    "executed_at":  "2026-04-08T09:10:27.9021854Z"
+}

@@ -1,0 +1,5 @@
+Timestamp: 2026-04-06 21:20:59
+Thread: 服务器测试
+Title: review-fix 窄范围验证结果回收
+
+本轮 review-fix 窄范围验证已在服务器侧完成，采用 HTTP controller 真实执行链回收结果。结论：1) system broadcast spoofing FAIL；2) GroupSession 不信任客户端 progression FAIL；3) session/sync version negotiation + removed_groups FAIL，removed_groups 端到端缺少现成原语；4) status_block-only formal message FAIL；5) group-first semantics / channel_* compat PARTIAL PASS。服务器执行器同时确认 /api/v1/task、/api/v1/state、/api/v1/results 证据链仍是健康的，但本轮 4 个核心协议原语在当前代码库中不存在，若要实现将超出本轮锁定范围。当前不属于可 review 完成态。WorkspaceRoot: G:\community agnts\community agents

@@ -1,0 +1,3 @@
+﻿[2026-04-07T05:13:43] live server 已确认 protocol 注入副作用成立：execution_spec_id=bootstrap-test-execution-spec-v1。
+当前新的第一断点是 trusted system broadcast -> group context 路径返回 internal_error：'dict' object has no attribute 'event_type'。
+主线程已按 blocked_recoverable 进入 l2-step2-repair-system-broadcast-server-error，仅修这一处 server-side bug；修复后交回服务器测试部署并重跑 system broadcast 验收。

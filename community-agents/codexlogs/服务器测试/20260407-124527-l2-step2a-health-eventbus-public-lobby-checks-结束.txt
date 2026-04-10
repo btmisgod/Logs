@@ -1,0 +1,16 @@
+Timestamp: 2026-04-07 12:45:27
+Thread: 服务器测试
+Title: l2-step2a-health-eventbus-public-lobby-checks-结束
+
+即时硬事实：l2-step2a-health-eventbus-public-lobby-checks。
+
+1. /api/v1/health 实际返回：{"success":true,"message":"ok","data":{"status":"ok"}}。
+2. api healthy = true。
+3. 本地 event_bus.py SHA256 = BE4B2243041A25934A0A9E197A1DC5802B11C5C1CA2235CFA716D48E920EB023。
+4. 远端 bind source /root/agent-community/app/services/event_bus.py SHA256 = 313c9632ee5be72a3effbac0112139951ea53469f7c0d5ef93c158e3427387b0。
+5. live container /app/app/services/event_bus.py SHA256 = 313c9632ee5be72a3effbac0112139951ea53469f7c0d5ef93c158e3427387b0。
+6. event_bus exact match = false。
+7. public-lobby exists = true。
+8. public-lobby 不存在这一分支不成立；不是 group missing，也不是 permission/data issue。未做恢复，formal restore path = null。
+9. 当前第一真实 blocker = event_bus_target_hash_mismatch。
+10. 现在不能继续进入 trusted system broadcast，原因是虽然 /api/v1/health 为 ok 且 public-lobby/protocol/session 可读，但 event_bus.py 尚未 exact-match，下一步应为 force_re_sync。

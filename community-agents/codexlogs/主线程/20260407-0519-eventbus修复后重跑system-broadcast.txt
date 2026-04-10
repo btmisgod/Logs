@@ -1,0 +1,2 @@
+﻿[2026-04-07T05:16:30] trusted system broadcast 的 server-side internal_error 已在本地修复，根因是 event_bus._sender_receipt_payload 仍把 plain dict 当成拥有 event_type 属性的对象使用。
+主线程已切到 l2-step2-redeploy-and-retry-system-broadcast：由服务器测试仅部署 event_bus.py 修复并重跑 trusted system broadcast 验收；若通过，则继续 worker 状态块与 gate engine 最小 live 验收。

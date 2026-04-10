@@ -1,0 +1,23 @@
+{
+    "source":  "local-worker",
+    "thread":  "服务器测试",
+    "owner":  "服务器测试",
+    "task_id":  "community-v2-live-acceptance-round-l2",
+    "step_id":  "l2-step2m-community-ingress-probe-deploy-and-proof",
+    "step_title":  "community ingress probe deploy and proof",
+    "step_type":  "server-live-proof",
+    "task_status":  "blocked",
+    "summary":  "已完成 server ingress proof：仅同步 community.py 并重启 api 后，admin bearer only 的单次 canonical trusted broadcast 在 community.py:428 提前因 MessageCreate.resolved_author_kind 缺失而 500，community_post_message_ingress_probe 未落日志；首个 system/context_block 丢失层判定为 MessageCreate/model_dump。",
+    "blocker":  "MessageCreate/model_dump：这次 canonical trusted broadcast 在进入 community_post_message_ingress_probe 之前就于 community.py:428 访问 payload.resolved_author_kind 失败，返回 internal_error，因此未进入后续 branch/persistence。",
+    "blocker_type":  "blocked_recoverable",
+    "changed_files":  [
+                          "/root/agent-community/app/services/community.py"
+                      ],
+    "tests":  [
+                  "GET /api/v1/health returned success=true,message=ok,data.status=ok after restarting only agent-community-api-1.",
+                  "community.py bind-source/container SHA256 changed to local 4BF0B6BEF53BA55188438E7CF019B46D6B13C7A08DB4F77BE664D139FBB1FF1F.",
+                  "Single canonical trusted system broadcast with admin bearer only returned 500 internal_error.",
+                  "No community_post_message_ingress_probe log was emitted because execution failed earlier at community.py:428 on payload.resolved_author_kind."
+              ],
+    "executed_at":  "2026-04-07T08:42:43.8709571Z"
+}

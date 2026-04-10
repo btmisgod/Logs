@@ -1,0 +1,54 @@
+{
+  "source": "local-worker",
+  "thread": "实现-后端-skill",
+  "task_id": "audit-containment-and-step1-only-bootstrap-retest",
+  "step_id": "audit-step1-gating-and-bootstrap-special-cases",
+  "step_title": "审计 step1 门控与 bootstrap 特化逻辑",
+  "step_type": "audit",
+  "task_status": "completed",
+  "summary": "协议稿本身保持了 step1.result / step1.done 的正式状态门控，但 runtime 与 deliberation 路径里仍存在基于文本、payload、上下文和兜底 dispatch 的 step2 激活捷径。建议在 live retest 前先隔离/停用这些链路，避免 ordinary confirmation 或 gist 推断伪装成正式推进。",
+  "keep": [
+    {
+      "file": "G:\\community agnts\\community agents\\当前测试群组协议_初稿.jsonc",
+      "item": "step1.result 和 step1.done 分离，且明确要求普通确认不能替代正式状态流"
+    },
+    {
+      "file": "G:\\community agnts\\community agents\\myproject\\community\\protocols\\layer3.channel.template.json",
+      "item": "bootstrap step0-step4 的形状定义可保留为协议骨架"
+    }
+  ],
+  "isolate": [
+    {
+      "file": "G:\\community agnts\\community agents\\community-skill\\assets\\community-runtime-v0.mjs",
+      "item": "workflowBoundKickoff 的 kickoff/bootstrap/task start 文本匹配属于测试便利特化，应限定在上下文注入，不要继续扩成通用推进依据"
+    },
+    {
+      "file": "G:\\community agnts\\community agents\\community-skill\\scripts\\community_integration.mjs",
+      "item": "workflowProgressionHintFromProtocol 只应作为上下文提示，不应被后续逻辑当作状态门控"
+    }
+  ],
+  "disable_or_rollback": [
+    {
+      "file": "G:\\community agnts\\community agents\\community-skill\\assets\\community-runtime-v0.mjs",
+      "item": "workflowStep2ActivationTrigger 通过 text/payload/context 识别 step1Done 并触发 step2 activation，属于按消息 gist 推进"
+    },
+    {
+      "file": "G:\\community agnts\\community agents\\community-skill\\scripts\\community_integration.mjs",
+      "item": "forceManagerStep2Dispatch 的 deterministic fallback dispatch 会在无自然回复时直接合成 step2 start/run，绕过 step1.result / step1.done 的正式可见链路"
+    },
+    {
+      "file": "G:\\community agnts\\community agents\\community-skill\\scripts\\community_integration.mjs",
+      "item": "managerStep1DoneTrigger 用普通确认文本/回复内容判断 step1 完成，容易把 ordinary manager confirmation 当作 progression"
+    }
+  ],
+  "contain_before_retest": true,
+  "first_problematic_logic": {
+    "file": "G:\\community agnts\\community agents\\community-skill\\assets\\community-runtime-v0.mjs",
+    "line": 223,
+    "logic": "workflowStep2ActivationTrigger 先把文本/payload/context 归一成 step1Done，再以 nextStep/currentStep/step2PendingByContext 决定是否激活 step2；这允许普通消息事实而不是正式状态事件触发推进。"
+  },
+  "blocker": null,
+  "blocker_type": null,
+  "changed_files": [],
+  "tests": []
+}

@@ -1,0 +1,2 @@
+﻿[2026-04-07T13:03:20] 当前唯一 blocker 仍是 event_bus_target_hash_mismatch。
+主线程已把 repair step 收窄为 l2-step2a-repair-eventbus-target-hash-mismatch-v2：只做 active bind-source /root/agent-community/app/services/event_bus.py 的字节级覆盖，并回收覆盖前后 SHA256；在 local==remote==container==target hash 成立前，不恢复 trusted system broadcast。

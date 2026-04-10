@@ -1,0 +1,6 @@
+Timestamp: 2026-04-08 17:08:02
+Thread: 服务器测试
+Title: step1-startup-plan-live-acceptance
+
+当前只执行 step1-startup-plan，不进入 step2 之后。
+本轮按顺序执行：读取 target group session 基线；通过 openclaw-33 与 xhs 提交 step1 worker evidence；插入一条不带 status_block 的 plain text guardrail；再通过 manager 通道提交 formal close；每一步后只读 authoritative session，验证 step1 内 worker evidence 是否进入 observed_statuses 且不误推进，以及 manager formal signal 是否把 current_stage 从 step1 推到 step2。
