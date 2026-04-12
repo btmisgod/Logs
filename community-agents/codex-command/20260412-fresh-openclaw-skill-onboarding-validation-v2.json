@@ -1,0 +1,186 @@
+{
+  "command_id": "20260412-fresh-openclaw-skill-onboarding-validation-v2",
+  "version": "2.0",
+  "created_at": "2026-04-12",
+  "target_thread": "server-test",
+  "workspace_root": "G:\\community agnts\\community agents",
+  "title": "Provision a fresh upstream OpenClaw agent, install community-skill from GitHub, scrub baked-in bootstrap defaults, onboard it into the cleaned community, and validate real post-onboarding behavior",
+  "objective": "Do not reuse any preconfigured local OpenClaw instance, do not use openclaw-for-community as the base agent, and do not trust any old workspace residue or any baked-in GitHub bootstrap defaults as the test truth. Start from a fresh upstream OpenClaw download, clone community-skill fresh from GitHub, explicitly inspect and override any shipped bootstrap defaults, install the skill into that fresh agent workspace, connect that fresh agent to the now-clean community, and validate the real behavior of the installed skill after onboarding.",
+  "frozen_context": {
+    "community_state": "community has been reset to no connected agents",
+    "instance_state": "all prior community-connected agent instances have already been removed",
+    "must_not_use": [
+      "any existing configured OpenClaw workspace on the server",
+      "openclaw-for-community as the base agent source",
+      "copying an old installed skill directory from another instance",
+      "old route registry entries, old sockets, old systemd units, or old state files as proof"
+    ],
+    "known_repo_contamination": [
+      "community-skill ships with a community-bootstrap.env that already points to a concrete COMMUNITY_BASE_URL",
+      "community-skill ships with a default COMMUNITY_GROUP_SLUG",
+      "these baked-in defaults must not be treated as a clean universal baseline"
+    ],
+    "skill_repo_url": "https://github.com/btmisgod/community-skill.git",
+    "skill_expected_branch": "main",
+    "fixed_ingress_port": 8848
+  },
+  "mandatory_references": [
+    {
+      "order": 1,
+      "path": "G:\\community agnts\\community agents\\memory\\library\\CURRENT_STATE.json",
+      "why": "Use the current project truth and do not reopen deferred lines."
+    },
+    {
+      "order": 2,
+      "path": "G:\\community agnts\\community agents\\memory\\library\\cards\\TESTING_AND_VALIDATION_MODEL.md",
+      "why": "This task must follow the newer system-level validation standard: fresh onboarding, asset parity, feature matrix, and canonical-effect verification."
+    },
+    {
+      "order": 3,
+      "path": "G:\\community agnts\\community agents\\memory\\library\\cards\\HTTP_CONTROLLER_USAGE_STANDARD.md",
+      "why": "Follow the server-side evidence standard and return structured evidence, not a chat-only summary."
+    },
+    {
+      "order": 4,
+      "path": "G:\\community agnts\\community agents\\community-skill\\README.md",
+      "why": "This is the canonical operator-facing installation and onboarding reference for the skill-body repo."
+    },
+    {
+      "order": 5,
+      "path": "G:\\community agnts\\community agents\\community-skill\\SKILL.md",
+      "why": "Use the skill manifest and entrypoints as the source of truth for first-install onboarding."
+    },
+    {
+      "order": 6,
+      "path": "G:\\community agnts\\community agents\\community-skill\\community-bootstrap.env",
+      "why": "Explicitly inspect the baked-in bootstrap defaults and prove they were reviewed and overridden intentionally rather than inherited blindly."
+    }
+  ],
+  "required_work": [
+    {
+      "id": "phase1_prepare_fresh_install_surface",
+      "description": "Create a brand-new clean test root on the server. Do not reuse any old OpenClaw workspace path or any old community agent home. Confirm the target test root has no preexisting .openclaw community state, route registry residue, old sockets, or old service names."
+    },
+    {
+      "id": "phase2_fetch_fresh_upstream_openclaw",
+      "description": "Download a fresh upstream OpenClaw source into that clean test root. Do not use openclaw-for-community. Record the exact git URL, branch, and commit used. If the canonical upstream OpenClaw source is not already known on the server, determine it explicitly and record it before continuing."
+    },
+    {
+      "id": "phase3_fetch_fresh_skill_from_github",
+      "description": "Clone community-skill fresh from GitHub into the new fresh OpenClaw workspace or its expected skill installation path. Record the exact commit checked out. Do not copy the skill from any local preinstalled workspace."
+    },
+    {
+      "id": "phase4_audit_and_override_baked_in_defaults",
+      "description": "Before onboarding, inspect the cloned skill repo for baked-in bootstrap defaults such as COMMUNITY_BASE_URL, COMMUNITY_GROUP_SLUG, and any other environment defaults that would bias the test. Record those defaults, then explicitly override the fresh test workspace configuration so the test uses deliberate values rather than blindly inheriting the repo defaults."
+    },
+    {
+      "id": "phase5_install_skill_cleanly",
+      "description": "Install the skill into the fresh OpenClaw workspace strictly through the supported skill/install path. Use the skill-body repo's own setup/onboarding entrypoints. Record the actual installed skill path and the installed runtime asset path."
+    },
+    {
+      "id": "phase6_run_fresh_onboarding",
+      "description": "Run the first-install onboarding flow for the fresh agent. Complete the real community connection path, including profile/identity creation or reuse rules as applicable, webhook registration, send route setup, and service startup. This task must prove the fresh agent really enters the community from zero."
+    },
+    {
+      "id": "phase7_validate_install_surface_parity",
+      "description": "Compare the installed runtime asset and installed integration script on the fresh agent against the cloned community-skill GitHub source under test. Record hashes or exact content equality for the hot-path files at minimum."
+    },
+    {
+      "id": "phase8_validate_post_onboarding_behavior",
+      "description": "Test the fresh agent's actual behavior after onboarding. This must include inbound and outbound verification, not just onboarding success. At minimum verify send route success, webhook acceptance, and one real message.posted path that yields canonical effect rather than just HTTP 202."
+    },
+    {
+      "id": "phase9_capture_feature_matrix",
+      "description": "Produce a small but real feature matrix for this one fresh agent: identity/state ready, webhook active, send route valid, inbound message handling valid, canonical effect observed, install-surface parity, and proof that repo-shipped bootstrap defaults were intentionally overridden."
+    }
+  ],
+  "required_checks": [
+    {
+      "id": "C1_fresh_source_provenance",
+      "required": true,
+      "description": "Evidence proves that the tested agent came from a fresh upstream OpenClaw download and a fresh GitHub clone of community-skill, not from any preconfigured local template or old instance."
+    },
+    {
+      "id": "C2_bootstrap_contamination_audited",
+      "required": true,
+      "description": "The shipped bootstrap defaults were inspected and recorded, and the test configuration was explicitly overridden rather than inherited blindly."
+    },
+    {
+      "id": "C3_onboarding_completed",
+      "required": true,
+      "description": "Fresh skill onboarding completed and the agent has a real saved community state and active webhook registration."
+    },
+    {
+      "id": "C4_asset_parity_verified",
+      "required": true,
+      "description": "Installed runtime asset and installed integration hot-path files match the GitHub skill version under test, or the exact mismatch is proven."
+    },
+    {
+      "id": "C5_inbound_canonical_effect_verified",
+      "required": true,
+      "description": "At least one real inbound message.posted path reaches canonical effect on the fresh agent. HTTP 202 alone does not satisfy this check."
+    },
+    {
+      "id": "C6_single_agent_feature_matrix_completed",
+      "required": true,
+      "description": "A concise feature matrix exists covering identity ready, webhook ready, send route, inbound handling, canonical effect, install-surface parity, and bootstrap override proof."
+    }
+  ],
+  "test_design": {
+    "principles": [
+      "This is a fresh-agent skill validation, not a template regression.",
+      "Do not accept source repo green as proof of installed runtime truth.",
+      "Do not accept repo-shipped bootstrap defaults as proof of a clean baseline.",
+      "Do not accept HTTP 200 or 202 as the final proof of behavior.",
+      "Do not treat service active as proof that the runtime actually processed the event.",
+      "Prefer one clean fresh agent with strong evidence over many dirty reused instances."
+    ]
+  },
+  "do_not": [
+    "Do not use openclaw-for-community as the base agent source for this task.",
+    "Do not reuse any existing configured OpenClaw workspace.",
+    "Do not copy a preinstalled skill directory from an old instance.",
+    "Do not inherit the repo's shipped community-bootstrap.env blindly.",
+    "Do not stop at onboarding green without testing real post-onboarding behavior.",
+    "Do not report success based only on service active, route reachable, or HTTP 202.",
+    "Do not patch community server code in this task.",
+    "Do not expand this into multi-agent workflow testing in this task."
+  ],
+  "deliverables": [
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260412-fresh-openclaw-skill-onboarding-validation-v2",
+      "description": "Evidence bundle for fresh upstream OpenClaw + fresh GitHub skill installation and onboarding validation with bootstrap-default audit."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260412-fresh-openclaw-skill-onboarding-validation-v2\\main-server-test-log.txt",
+      "description": "Execution log for the remote server test run."
+    }
+  ],
+  "result_format": {
+    "required_fields": [
+      "Status",
+      "BlockerType",
+      "Blocker",
+      "FreshOpenClawGitUrl",
+      "FreshOpenClawCommit",
+      "FreshSkillGitUrl",
+      "FreshSkillCommit",
+      "SkillVersionUnderTest",
+      "FreshWorkspaceRoot",
+      "RepoBootstrapDefaultsFound",
+      "BootstrapDefaultsOverrideApplied",
+      "InstalledSkillPath",
+      "InstalledRuntimeParity",
+      "OnboardingCompleted",
+      "CommunityIdentityReady",
+      "WebhookSubscriptionActive",
+      "SendRouteAccepted",
+      "InboundMessagePostedAccepted",
+      "CanonicalEffectVerified",
+      "SingleAgentFeatureMatrix",
+      "RecommendedNextStep",
+      "evidence_paths",
+      "log_path"
+    ]
+  }
+}
