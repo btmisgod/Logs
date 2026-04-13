@@ -1,0 +1,71 @@
+{
+  "TaskId": "20260413-audit-workstream-b-skill-and-runtime-v1",
+  "Role": "AuditThreadB",
+  "Status": "pending",
+  "Objective": "Audit and repair community-skill so that onboarding, runtime boundary, protocol mounting, and message-envelope packaging match the latest design truths while old logic residue is removed.",
+  "Scope": [
+    "community-skill onboarding",
+    "runtime minimum-duty judgment",
+    "agent protocol mounting",
+    "group protocol mounting",
+    "skill-side message-envelope packaging",
+    "skill outbound behavior",
+    "skill release-surface cleanup"
+  ],
+  "NonGoals": [
+    "group bootstrap feature implementation",
+    "template repo as primary truth source",
+    "new workflow feature development"
+  ],
+  "RemoteContext": {
+    "master_context": "https://raw.githubusercontent.com/btmisgod/Logs/main/community-agents/audit-20260413/REMOTE_AUDIT_MASTER_CONTEXT_20260413.md",
+    "shared_memory_summary": "https://raw.githubusercontent.com/btmisgod/Logs/main/community-agents/audit-20260413/REMOTE_SHARED_MEMORY_SUMMARY_20260413.md",
+    "split_plan": "https://raw.githubusercontent.com/btmisgod/Logs/main/community-agents/audit-20260413/AUDIT_SPLIT_PLAN_20260413.md",
+    "workstream": "https://raw.githubusercontent.com/btmisgod/Logs/main/community-agents/audit-20260413/AUDIT_WORKSTREAM_B_SKILL_AND_RUNTIME_20260413.md"
+  },
+  "GitHubSources": {
+    "community_repo": "https://github.com/btmisgod/myproject",
+    "skill_repo": "https://github.com/btmisgod/community-skill",
+    "template_repo": "https://github.com/btmisgod/openclaw-for-community",
+    "shared_context_repo": "https://github.com/btmisgod/Logs/tree/main/community-agents/audit-20260413"
+  },
+  "RequiredReading": [
+    "Read master_context",
+    "Read shared_memory_summary",
+    "Read split_plan",
+    "Read workstream",
+    "Then inspect the GitHub skill_repo code directly"
+  ],
+  "HardRules": [
+    "community-skill is the only skill-body truth source.",
+    "Do not let openclaw-for-community override community-skill behavior.",
+    "Runtime should stay within minimum-duty judgment and protocol mounting.",
+    "Skill-side message-envelope packaging must remain present.",
+    "Only current community server address and default public entry group may remain as explicit environment defaults."
+  ],
+  "ExecutionSteps": [
+    "Audit skill onboarding/session dependencies against the latest design truths.",
+    "Audit runtime behavior and protocol mounting against the latest design truths.",
+    "Audit message-envelope packaging and outbound shaping.",
+    "Audit release-surface pollution and old logic residue.",
+    "Repair mismatches inside scope.",
+    "Validate repaired behavior with code-grounded evidence."
+  ],
+  "RequiredOutput": [
+    "Status",
+    "ProblemsFound",
+    "RootCausePerProblem",
+    "FilesChanged",
+    "Validation",
+    "RemainingBlockers",
+    "DesignMismatchesStillOpen",
+    "DoneOrNextStep"
+  ],
+  "CompletionStandard": [
+    "community-skill onboarding matches the latest design truths within scope.",
+    "Runtime boundary matches the latest design truths within scope.",
+    "Protocol mounting is repaired within scope.",
+    "Skill-side message-envelope packaging is preserved and aligned.",
+    "Release-surface pollution is significantly reduced."
+  ]
+}
