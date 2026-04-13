@@ -1,0 +1,179 @@
+{
+  "command_id": "20260413-server-live-deploy-and-fresh-validation-v1",
+  "version": "1.0",
+  "created_at": "2026-04-13",
+  "target_thread": "server-test",
+  "workspace_root": "G:\\community agnts\\community agents",
+  "title": "Deploy the audited myproject baseline to live, then rerun fresh upstream OpenClaw plus fresh GitHub community-skill validation",
+  "objective": "Use the 2026-04-13 unified audit repair package as the only truth source, deploy myproject main commit 8de4dc6 to the live community server, verify that the live OpenAPI now exposes POST /api/v1/agents/me/session/sync, and then rerun the fresh-surface validation using a fresh upstream OpenClaw checkout plus a fresh GitHub checkout of community-skill main commit 3e99fdd. Do not treat HTTP 200 or 202 as final proof. The validation must end on canonical effect or a new real blocker.",
+  "frozen_context": {
+    "myproject_main_commit": "8de4dc6",
+    "community_skill_main_commit": "3e99fdd",
+    "openclaw_for_community_main_commit": "2c022f8",
+    "known_live_blocker_before_this_task": "live community openapi still did not expose POST /api/v1/agents/me/session/sync",
+    "skill_truth_source": "community-skill only",
+    "template_truth_position": "openclaw-for-community is a tool/template surface only, not the skill-body authority",
+    "fresh_validation_rule": "must use fresh upstream OpenClaw plus fresh GitHub community-skill; do not reuse any configured instance"
+  },
+  "mandatory_references": [
+    {
+      "order": 1,
+      "url": "https://raw.githubusercontent.com/btmisgod/Logs/main/community-agents/audit-20260413/20260413-engineering-audit-repair-package/TOTAL_ENGINEERING_CODE_AUDIT_REPAIR_REPORT_20260413.md",
+      "why": "Unified repair truth. Do not let outdated single-workstream claims override it."
+    },
+    {
+      "order": 2,
+      "url": "https://raw.githubusercontent.com/btmisgod/Logs/main/community-agents/audit-20260413/20260413-engineering-audit-repair-package/AUDIT_WORKSTREAM_A_LOCAL_BRIEF_20260413.json",
+      "why": "Server and data-contract scope, especially session/sync and message fields."
+    },
+    {
+      "order": 3,
+      "url": "https://raw.githubusercontent.com/btmisgod/Logs/main/community-agents/audit-20260413/20260413-engineering-audit-repair-package/AUDIT_WORKSTREAM_B_LOCAL_BRIEF_20260413.json",
+      "why": "Skill/runtime scope, but do not reuse its outdated pre-C conclusions; the total report takes priority."
+    },
+    {
+      "order": 4,
+      "url": "https://raw.githubusercontent.com/btmisgod/Logs/main/community-agents/audit-20260413/20260413-engineering-audit-repair-package/AUDIT_WORKSTREAM_C_LOCAL_BRIEF_20260413.json",
+      "why": "Fresh-install/live-surface validation scope and canonical-effect standard."
+    },
+    {
+      "order": 5,
+      "url": "https://raw.githubusercontent.com/btmisgod/Logs/main/community-agents/audit-20260413/20260413-engineering-audit-repair-package/myproject-cbacdc6.patch",
+      "why": "Exact myproject repair package that led to main commit 8de4dc6."
+    },
+    {
+      "order": 6,
+      "url": "https://raw.githubusercontent.com/btmisgod/Logs/main/community-agents/audit-20260413/20260413-engineering-audit-repair-package/community-skill-e737109.patch",
+      "why": "Exact community-skill repair package that led to main commit 3e99fdd."
+    },
+    {
+      "order": 7,
+      "url": "https://raw.githubusercontent.com/btmisgod/Logs/main/community-agents/audit-20260413/20260413-engineering-audit-repair-package/openclaw-for-community-cfcd3f6.patch",
+      "why": "Template/tooling repair package that led to main commit 2c022f8."
+    }
+  ],
+  "github_sources": {
+    "myproject": {
+      "repo": "https://github.com/btmisgod/myproject",
+      "expected_commit": "8de4dc6"
+    },
+    "community_skill": {
+      "repo": "https://github.com/btmisgod/community-skill",
+      "expected_commit": "3e99fdd"
+    },
+    "openclaw_for_community": {
+      "repo": "https://github.com/btmisgod/openclaw-for-community",
+      "expected_commit": "2c022f8"
+    },
+    "openclaw_upstream": {
+      "repo": "https://github.com/openclaw/openclaw.git",
+      "note": "Use a fresh upstream OpenClaw checkout. Record the exact commit you validated."
+    }
+  },
+  "required_work": [
+    {
+      "id": "phase1_update_live_myproject_code",
+      "description": "Fetch btmisgod/myproject main on the server, verify that the target code matches or fast-forwards to commit 8de4dc6, and deploy that code to the live community service. If the live deployment process needs a controlled restart, do it. Do not silently keep the old live process."
+    },
+    {
+      "id": "phase2_verify_live_session_sync_route",
+      "description": "After deployment, verify that the live OpenAPI or direct endpoint behavior now exposes POST /api/v1/agents/me/session/sync. If this route is still missing or returns a deployment-level 404, stop and classify that as the first blocker."
+    },
+    {
+      "id": "phase3_prepare_fresh_validation_surface",
+      "description": "Create a brand-new clean validation root on the server. Do not reuse any old OpenClaw workspace, old installed skill directory, old state path, old socket, old route registry slug, or old systemd unit as proof."
+    },
+    {
+      "id": "phase4_fetch_fresh_upstream_openclaw_and_skill",
+      "description": "Download a fresh upstream OpenClaw checkout and a fresh GitHub checkout of community-skill at commit 3e99fdd. Record the exact OpenClaw commit. community-skill is the only skill-body truth source."
+    },
+    {
+      "id": "phase5_run_fresh_onboarding_against_live",
+      "description": "Install the fresh community-skill into the fresh upstream OpenClaw workspace, override any shipped bootstrap defaults deliberately, and complete the real onboarding flow against the live community."
+    },
+    {
+      "id": "phase6_verify_real_post_onboarding_behavior",
+      "description": "Run the real post-onboarding checks: saved community state, active webhook registration, send route, inbound message.posted path, and canonical message materialization in the live community. Do not stop at service active or HTTP 202."
+    }
+  ],
+  "required_checks": [
+    {
+      "id": "C1_live_myproject_deployed",
+      "required": true,
+      "description": "Live community service is running the new myproject baseline or a clearly identified later equivalent."
+    },
+    {
+      "id": "C2_live_session_sync_exposed",
+      "required": true,
+      "description": "POST /api/v1/agents/me/session/sync is now visible and callable on the live service."
+    },
+    {
+      "id": "C3_fresh_openclaw_provenance",
+      "required": true,
+      "description": "Evidence proves that the validated agent came from a fresh upstream OpenClaw checkout."
+    },
+    {
+      "id": "C4_fresh_skill_provenance",
+      "required": true,
+      "description": "Evidence proves that the installed skill came from fresh GitHub community-skill commit 3e99fdd."
+    },
+    {
+      "id": "C5_onboarding_completed",
+      "required": true,
+      "description": "Fresh onboarding completed and saved real state."
+    },
+    {
+      "id": "C6_canonical_effect_verified",
+      "required": true,
+      "description": "A real inbound message path reaches canonical effect in the live community."
+    }
+  ],
+  "do_not": [
+    "Do not reuse any existing configured OpenClaw workspace.",
+    "Do not use openclaw-for-community as the skill-body authority.",
+    "Do not cite the outdated claim that community-skill removed session/sync dependency.",
+    "Do not stop at HTTP 200/202.",
+    "Do not patch new workflow/bootstrap logic in this task.",
+    "Do not treat a stale live process as acceptable once the new code has been deployed."
+  ],
+  "working_principles": [
+    "Total audit report first.",
+    "myproject live deployment first.",
+    "Fresh upstream OpenClaw plus fresh GitHub community-skill validation second.",
+    "Canonical effect is the end condition, not HTTP acceptance."
+  ],
+  "deliverables": [
+    {
+      "path": "/root/Logs/community-agents/codexlogs/research-archive/20260413-server-live-deploy-and-fresh-validation-v1",
+      "description": "Evidence bundle for live deploy plus fresh validation."
+    },
+    {
+      "path": "/root/Logs/community-agents/codexlogs/research-archive/20260413-server-live-deploy-and-fresh-validation-v1/main-server-test-log.txt",
+      "description": "Main execution log."
+    }
+  ],
+  "result_format": {
+    "required_fields": [
+      "Status",
+      "BlockerType",
+      "Blocker",
+      "MyprojectLiveDeployCommit",
+      "LiveSessionSyncRouteAvailable",
+      "FreshOpenClawGitUrl",
+      "FreshOpenClawCommit",
+      "FreshSkillGitUrl",
+      "FreshSkillCommit",
+      "FreshWorkspaceRoot",
+      "OnboardingCompleted",
+      "CommunityIdentityReady",
+      "WebhookSubscriptionActive",
+      "SendRouteAccepted",
+      "InboundMessagePostedAccepted",
+      "CanonicalEffectVerified",
+      "SingleAgentFeatureMatrix",
+      "RecommendedNextStep",
+      "evidence_paths",
+      "log_path"
+    ]
+  }
+}
