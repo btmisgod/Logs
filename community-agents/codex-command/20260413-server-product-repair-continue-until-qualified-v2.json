@@ -1,0 +1,140 @@
+{
+  "command_id": "20260413-server-product-repair-continue-until-qualified-v2",
+  "version": "2.0",
+  "created_at": "2026-04-13",
+  "target_thread": "server-codex",
+  "workspace_root": "G:\\community agnts\\community agents",
+  "title": "Continue product-level repair after execution-bridge fix until community foundation is qualified",
+  "objective": "Use the latest design truths, audit conclusions, and the newly repaired canonical reply chain as the current baseline. Continue auditing, repairing, validating, and cleaning myproject and community-skill until the foundation can be considered a qualified product base. Do not implement group bootstrap or new workflow features in this task.",
+  "remote_context": {
+    "previous_master_context": "https://raw.githubusercontent.com/btmisgod/Logs/main/community-agents/product-repair-20260413/REMOTE_PRODUCT_REPAIR_MASTER_CONTEXT_20260413.md",
+    "continuation_context": "https://raw.githubusercontent.com/btmisgod/Logs/main/community-agents/product-repair-20260413/REMOTE_PRODUCT_REPAIR_CONTINUATION_CONTEXT_20260413.md",
+    "total_audit_report": "https://raw.githubusercontent.com/btmisgod/Logs/main/community-agents/audit-20260413/20260413-engineering-audit-repair-package/TOTAL_ENGINEERING_CODE_AUDIT_REPAIR_REPORT_20260413.md",
+    "audit_workstream_a_brief": "https://raw.githubusercontent.com/btmisgod/Logs/main/community-agents/audit-20260413/20260413-engineering-audit-repair-package/AUDIT_WORKSTREAM_A_LOCAL_BRIEF_20260413.json",
+    "audit_workstream_b_brief": "https://raw.githubusercontent.com/btmisgod/Logs/main/community-agents/audit-20260413/20260413-engineering-audit-repair-package/AUDIT_WORKSTREAM_B_LOCAL_BRIEF_20260413.json",
+    "audit_workstream_c_brief": "https://raw.githubusercontent.com/btmisgod/Logs/main/community-agents/audit-20260413/20260413-engineering-audit-repair-package/AUDIT_WORKSTREAM_C_LOCAL_BRIEF_20260413.json"
+  },
+  "server_local_evidence": {
+    "previous_run_summary": "/root/Logs/community-agents/codexlogs/research-archive/20260413-server-product-repair-long-run-v1/result-summary.json",
+    "previous_run_log": "/root/Logs/community-agents/codexlogs/research-archive/20260413-server-product-repair-long-run-v1/main-server-log.txt",
+    "journal_excerpt": "/root/Logs/community-agents/codexlogs/research-archive/20260413-server-product-repair-long-run-v1/real-inbound2-journal-excerpt.txt",
+    "reply_db_evidence": "/root/Logs/community-agents/codexlogs/research-archive/20260413-server-product-repair-long-run-v1/real-inbound2-reply-db.txt",
+    "product_repair_patch": "/root/Logs/community-agents/codexlogs/research-archive/20260413-server-product-repair-long-run-v1/community-skill-product-repair.patch"
+  },
+  "github_sources": {
+    "myproject_repo": "https://github.com/btmisgod/myproject",
+    "community_skill_repo": "https://github.com/btmisgod/community-skill",
+    "openclaw_template_repo": "https://github.com/btmisgod/openclaw-for-community"
+  },
+  "frozen_truths": [
+    "myproject is the community engineering main repo.",
+    "community-skill is the only skill-body truth source.",
+    "openclaw-for-community is only a template/tool repo and not the skill-body authority.",
+    "community server is a general community-level server, not a single-group custom server.",
+    "runtime only does minimum-duty judgment and protocol mounting.",
+    "skill must keep unified message-envelope packaging on the agent side.",
+    "group bootstrap/workflow functionality is intentionally deferred in this task.",
+    "the inbound message.posted -> needs_agent_judgment -> local OpenClaw bridge -> canonical reply chain is already repaired and becomes the new baseline."
+  ],
+  "main_goal": "Continue from the repaired baseline and keep repairing myproject and community-skill until the remaining foundation-level design mismatches and old logic residues are removed or properly downgraded, and the community foundation can be judged qualified.",
+  "required_work": [
+    {
+      "id": "phase1_reconcile_latest_reality",
+      "description": "Read the continuation context and the previous run evidence first. Verify that the repaired canonical reply chain is real and use it as the current baseline before doing more changes."
+    },
+    {
+      "id": "phase2_continue_foundation_mismatch_audit",
+      "description": "Continue producing a concrete mismatch list between the latest design truths and the actual implementation in myproject and community-skill. Focus only on foundation scope."
+    },
+    {
+      "id": "phase3_repair_remaining_myproject_foundation_gaps",
+      "description": "Repair remaining myproject foundation gaps around data contracts, server consumption of unified message fields, sessions, events, group sessions, and old residues."
+    },
+    {
+      "id": "phase4_repair_remaining_community_skill_foundation_gaps",
+      "description": "Repair remaining community-skill foundation gaps around protocol mounting, agent-side execution handoff, unified message-envelope packaging, ingress assumptions, and release pollution."
+    },
+    {
+      "id": "phase5_clean_old_logic_residue",
+      "description": "Remove or downgrade misleading legacy residue, stale compatibility assumptions, and defaults that contradict the current design truths."
+    },
+    {
+      "id": "phase6_validate_after_each_batch",
+      "description": "After every meaningful repair batch, rerun the relevant validation. Do not accept HTTP 200/202 as final proof; use canonical effect and persisted facts."
+    },
+    {
+      "id": "phase7_stop_only_on_real_blocker_or_qualified_foundation",
+      "description": "Continue until the foundation is qualified or the next blocker is real, external, and cannot be solved in the current server-side scope."
+    }
+  ],
+  "in_scope": [
+    "myproject server foundation",
+    "community-skill foundation",
+    "message/event/AgentSession/GroupSession handling",
+    "server consumption of unified message fields",
+    "runtime minimum-duty judgment boundary",
+    "agent protocol and group protocol mounting into the execution chain",
+    "skill-side message-envelope packaging",
+    "agent-side execution bridge stability",
+    "old logic residue cleanup",
+    "release/default configuration pollution cleanup where it affects product foundation"
+  ],
+  "out_of_scope": [
+    "group bootstrap feature implementation",
+    "step0/step1/step2/formal_start product rollout",
+    "new workflow features",
+    "single-group hardcoded logic",
+    "template-first development",
+    "using openclaw-for-community as the main authority"
+  ],
+  "hard_rules": [
+    "Do not implement group bootstrap in this task.",
+    "Do not expand into new workflow feature development.",
+    "Do not treat openclaw-for-community as the skill-body truth source.",
+    "Do not cite the outdated claim that community-skill removed session/sync dependency.",
+    "Do not collapse runtime into a full manager orchestrator.",
+    "Do not delete duplicated author_kind yet; keep it as an audited compatibility residue.",
+    "Do not accept HTTP 200/202 as final success.",
+    "Do not regress the repaired needs_agent_judgment -> canonical reply chain by replacing it with a fake generic reply."
+  ],
+  "key_focus_order": [
+    "1. Remaining implementation/design mismatches in myproject and community-skill.",
+    "2. Remaining weak points around the repaired agent execution bridge.",
+    "3. Skill-side message-envelope packaging correctness and residue cleanup.",
+    "4. Remaining data-contract and field-consumption mismatches.",
+    "5. Old logic residue and release/default pollution cleanup."
+  ],
+  "qualification_bar": [
+    "Fresh install plus live community validation remains green on onboarding, send, and inbound canonical effect.",
+    "No critical foundation-level design mismatch remains open in myproject or community-skill main paths.",
+    "No known old logic residue remains on the repaired main path that can invalidate later group-feature work.",
+    "The foundation can be handed off for later group/bootstrap implementation without hiding a fresh product blocker."
+  ],
+  "deliverables": [
+    {
+      "path": "/root/Logs/community-agents/codexlogs/research-archive/20260413-server-product-repair-continue-until-qualified-v2",
+      "description": "Evidence bundle for the continuation run."
+    },
+    {
+      "path": "/root/Logs/community-agents/codexlogs/research-archive/20260413-server-product-repair-continue-until-qualified-v2/main-server-log.txt",
+      "description": "Execution log."
+    }
+  ],
+  "result_format": {
+    "required_fields": [
+      "Status",
+      "CurrentDesignMismatchList",
+      "ProblemsFound",
+      "RootCausePerProblem",
+      "FilesChanged",
+      "ValidationRuns",
+      "CurrentBlockerType",
+      "CurrentBlocker",
+      "FoundationQualifiedSoFar",
+      "WhatStillDoesNotMatchDesign",
+      "RecommendedNextStep",
+      "evidence_paths",
+      "log_path"
+    ]
+  }
+}
