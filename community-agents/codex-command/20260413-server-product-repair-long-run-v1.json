@@ -1,0 +1,132 @@
+{
+  "command_id": "20260413-server-product-repair-long-run-v1",
+  "version": "1.0",
+  "created_at": "2026-04-13",
+  "target_thread": "server-codex",
+  "workspace_root": "G:\\community agnts\\community agents",
+  "title": "Long-run product repair for community server and skill based on current design truths and audit results",
+  "objective": "Use the latest design truths and audit results as the only authority, then iteratively audit, repair, validate, and continue repairing myproject and community-skill until the two repositories form a qualified product foundation. This task is about infrastructure/product repair, not about group bootstrap feature implementation.",
+  "remote_context": {
+    "product_repair_master_context": "https://raw.githubusercontent.com/btmisgod/Logs/main/community-agents/product-repair-20260413/REMOTE_PRODUCT_REPAIR_MASTER_CONTEXT_20260413.md",
+    "total_audit_report": "https://raw.githubusercontent.com/btmisgod/Logs/main/community-agents/audit-20260413/20260413-engineering-audit-repair-package/TOTAL_ENGINEERING_CODE_AUDIT_REPAIR_REPORT_20260413.md",
+    "audit_workstream_a_brief": "https://raw.githubusercontent.com/btmisgod/Logs/main/community-agents/audit-20260413/20260413-engineering-audit-repair-package/AUDIT_WORKSTREAM_A_LOCAL_BRIEF_20260413.json",
+    "audit_workstream_b_brief": "https://raw.githubusercontent.com/btmisgod/Logs/main/community-agents/audit-20260413/20260413-engineering-audit-repair-package/AUDIT_WORKSTREAM_B_LOCAL_BRIEF_20260413.json",
+    "audit_workstream_c_brief": "https://raw.githubusercontent.com/btmisgod/Logs/main/community-agents/audit-20260413/20260413-engineering-audit-repair-package/AUDIT_WORKSTREAM_C_LOCAL_BRIEF_20260413.json"
+  },
+  "github_sources": {
+    "myproject_repo": "https://github.com/btmisgod/myproject",
+    "community_skill_repo": "https://github.com/btmisgod/community-skill",
+    "openclaw_template_repo": "https://github.com/btmisgod/openclaw-for-community"
+  },
+  "frozen_truths": [
+    "myproject is the community engineering main repo.",
+    "community-skill is the only skill-body truth source.",
+    "openclaw-for-community is only a template/tool repo and not the skill-body authority.",
+    "community server is a general community-level server, not a single-group custom server.",
+    "runtime only does minimum-duty judgment and protocol mounting.",
+    "skill must keep unified message-envelope packaging on the agent side.",
+    "group bootstrap/workflow functionality is intentionally deferred in this task.",
+    "the current real blocker proven by fresh live validation is inbound message.posted reaching needs_agent_judgment but producing outbound=null."
+  ],
+  "main_goal": "Repair community infrastructure until myproject and community-skill align with the current design truths, old logic residue is removed, and the product foundation is stable enough for later group/bootstrap implementation.",
+  "required_work": [
+    {
+      "id": "phase1_read_truth_and_reconcile_current_state",
+      "description": "Read the remote context documents first. Treat the total audit report plus design-truth master context as the current truth. Reconcile that truth against the actual latest code in myproject and community-skill before making changes."
+    },
+    {
+      "id": "phase2_continue_systematic_audit",
+      "description": "Produce and maintain a concrete mismatch list between design truths and actual implementation in myproject and community-skill. Focus on foundation/infrastructure, not group-feature implementation."
+    },
+    {
+      "id": "phase3_repair_myproject_foundation",
+      "description": "Repair myproject where its current implementation still diverges from the design truths, especially around onboarding/session/sync, data-contract consumption, message/event/session/group-session handling, and remaining old server-side residues."
+    },
+    {
+      "id": "phase4_repair_community_skill_foundation",
+      "description": "Repair community-skill where its current implementation still diverges from the design truths, especially around onboarding/session alignment, runtime minimum-duty boundary, protocol mounting, skill-side message-envelope packaging, and the agent-side execution bridge after needs_agent_judgment."
+    },
+    {
+      "id": "phase5_remove_old_logic_residue",
+      "description": "Remove or downgrade obsolete logic that no longer belongs in the product foundation. This includes historical compatibility drift, stale assumptions, misleading defaults, and any code path that contradicts the current design truths."
+    },
+    {
+      "id": "phase6_validate_after_each_repair",
+      "description": "After each meaningful repair batch, validate the repaired chain. Do not accept HTTP 200/202 as final proof. Use canonical effect and real behavior as the pass condition."
+    },
+    {
+      "id": "phase7_continue_until_foundation_is_qualified",
+      "description": "Continue auditing and repairing until the community and skill foundations are aligned enough to be considered a qualified product base, or stop only on a real blocker that cannot be solved inside the current server-side scope."
+    }
+  ],
+  "in_scope": [
+    "myproject server foundation",
+    "community-skill foundation",
+    "onboarding/session/sync contract alignment",
+    "message/event/AgentSession/GroupSession handling",
+    "runtime minimum-duty judgment boundary",
+    "agent protocol and group protocol mounting into the execution chain",
+    "skill-side message-envelope packaging",
+    "agent-side execution bridge after needs_agent_judgment",
+    "old logic residue cleanup",
+    "release/default configuration pollution cleanup where it affects product foundation"
+  ],
+  "out_of_scope": [
+    "group bootstrap feature implementation",
+    "step0/step1/step2/formal_start product rollout",
+    "new workflow features",
+    "single-group hardcoded logic",
+    "template-first development",
+    "using openclaw-for-community as the main authority"
+  ],
+  "hard_rules": [
+    "Do not implement group bootstrap in this task.",
+    "Do not expand into new workflow feature development.",
+    "Do not treat openclaw-for-community as the skill-body truth source.",
+    "Do not cite the outdated claim that community-skill removed session/sync dependency.",
+    "Do not collapse runtime into a full manager orchestrator.",
+    "Do not delete duplicated author_kind yet; keep it as an audited compatibility residue.",
+    "Do not accept HTTP 200/202 as final success.",
+    "Do not stop on a small issue if it belongs to the same repair chain and can be fixed within scope."
+  ],
+  "key_focus_order": [
+    "1. Real implementation/design mismatches in myproject and community-skill.",
+    "2. The message.posted -> needs_agent_judgment -> agent-side execution -> outbound reply chain.",
+    "3. Skill-side message-envelope packaging correctness.",
+    "4. Remaining data-contract and field-consumption mismatches.",
+    "5. Old logic residue cleanup."
+  ],
+  "validation_requirements": [
+    "A repair is not complete unless the corresponding real behavior is revalidated.",
+    "For inbound behavior, the chain must reach canonical effect, not just accepted transport.",
+    "When fixing myproject and community-skill together, verify both the contract level and the runtime behavior level.",
+    "If a blocker is found, classify it precisely and stop at the first real blocker only when the current repair chain cannot continue."
+  ],
+  "deliverables": [
+    {
+      "path": "/root/Logs/community-agents/codexlogs/research-archive/20260413-server-product-repair-long-run-v1",
+      "description": "Long-run evidence bundle for design-truth reconciliation, repairs, validations, and blockers."
+    },
+    {
+      "path": "/root/Logs/community-agents/codexlogs/research-archive/20260413-server-product-repair-long-run-v1/main-server-log.txt",
+      "description": "Execution log."
+    }
+  ],
+  "result_format": {
+    "required_fields": [
+      "Status",
+      "CurrentDesignMismatchList",
+      "ProblemsFound",
+      "RootCausePerProblem",
+      "FilesChanged",
+      "ValidationRuns",
+      "CurrentBlockerType",
+      "CurrentBlocker",
+      "FoundationQualifiedSoFar",
+      "WhatStillDoesNotMatchDesign",
+      "RecommendedNextStep",
+      "evidence_paths",
+      "log_path"
+    ]
+  }
+}
