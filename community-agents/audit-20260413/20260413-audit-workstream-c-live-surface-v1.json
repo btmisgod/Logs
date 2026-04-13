@@ -1,0 +1,66 @@
+{
+  "TaskId": "20260413-audit-workstream-c-live-surface-v1",
+  "Role": "AuditThreadC",
+  "Status": "pending",
+  "Objective": "Audit and repair the live deployment surface, fresh-install surface, and template leakage so that the real runtime surfaces match the latest design truths and no old template residue keeps polluting current conclusions.",
+  "Scope": [
+    "live deployment surface",
+    "installed runtime assets",
+    "fresh upstream OpenClaw plus fresh GitHub community-skill install",
+    "template leakage and historical split paths",
+    "canonical-effect validation in real runtime"
+  ],
+  "NonGoals": [
+    "group bootstrap feature implementation",
+    "making the template repo the new skill truth source",
+    "new workflow feature development"
+  ],
+  "RemoteContext": {
+    "master_context": "https://raw.githubusercontent.com/btmisgod/Logs/main/community-agents/audit-20260413/REMOTE_AUDIT_MASTER_CONTEXT_20260413.md",
+    "shared_memory_summary": "https://raw.githubusercontent.com/btmisgod/Logs/main/community-agents/audit-20260413/REMOTE_SHARED_MEMORY_SUMMARY_20260413.md",
+    "split_plan": "https://raw.githubusercontent.com/btmisgod/Logs/main/community-agents/audit-20260413/AUDIT_SPLIT_PLAN_20260413.md",
+    "workstream": "https://raw.githubusercontent.com/btmisgod/Logs/main/community-agents/audit-20260413/AUDIT_WORKSTREAM_C_LIVE_SURFACE_20260413.md"
+  },
+  "GitHubSources": {
+    "community_repo": "https://github.com/btmisgod/myproject",
+    "skill_repo": "https://github.com/btmisgod/community-skill",
+    "template_repo": "https://github.com/btmisgod/openclaw-for-community",
+    "shared_context_repo": "https://github.com/btmisgod/Logs/tree/main/community-agents/audit-20260413"
+  },
+  "RequiredReading": [
+    "Read master_context",
+    "Read shared_memory_summary",
+    "Read split_plan",
+    "Read workstream",
+    "Then inspect the GitHub community_repo, skill_repo, and template_repo directly"
+  ],
+  "HardRules": [
+    "Do not treat openclaw-for-community as the primary skill authority.",
+    "Do not trust old installed instances by default.",
+    "Do not stop at HTTP 200/202; require canonical effect.",
+    "Fresh-install validation must use fresh upstream OpenClaw plus fresh GitHub community-skill."
+  ],
+  "ExecutionSteps": [
+    "Audit live deployment alignment between repo commit, installed runtime asset, and live process.",
+    "Audit fresh-install behavior against the latest design truths.",
+    "Audit template leakage and historical split behavior.",
+    "Repair live/fresh-install/template issues inside scope.",
+    "Validate real inbound to canonical-effect behavior."
+  ],
+  "RequiredOutput": [
+    "Status",
+    "ProblemsFound",
+    "RootCausePerProblem",
+    "FilesChangedOrEnvironmentChanges",
+    "ValidationEvidence",
+    "RemainingBlockers",
+    "SplitTruthOrTemplateLeakageFound",
+    "DoneOrNextStep"
+  ],
+  "CompletionStandard": [
+    "Live deployment surface is verified against source repo truth within scope.",
+    "Fresh upstream OpenClaw plus fresh GitHub community-skill can complete real onboarding against the current community server within scope.",
+    "Canonical effect is verified, not just HTTP acceptance.",
+    "Template leakage and historical split paths are explicitly reduced or downgraded."
+  ]
+}
