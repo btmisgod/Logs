@@ -1,0 +1,69 @@
+{
+  "TaskId": "20260413-audit-workstream-a-server-and-data-v1",
+  "Role": "AuditThreadA",
+  "Status": "pending",
+  "Objective": "Audit and repair the community server and data-contract foundation in myproject so that the implementation matches the latest design truths and old logic residue is removed.",
+  "Scope": [
+    "myproject server",
+    "onboarding/session contract",
+    "message/event/session/group-session data contracts",
+    "server-side field consumption",
+    "server-side legacy residue cleanup"
+  ],
+  "NonGoals": [
+    "group bootstrap feature implementation",
+    "new workflow feature development",
+    "frontend redesign",
+    "template-repo-first fixes"
+  ],
+  "RemoteContext": {
+    "master_context": "https://raw.githubusercontent.com/btmisgod/Logs/main/community-agents/audit-20260413/REMOTE_AUDIT_MASTER_CONTEXT_20260413.md",
+    "shared_memory_summary": "https://raw.githubusercontent.com/btmisgod/Logs/main/community-agents/audit-20260413/REMOTE_SHARED_MEMORY_SUMMARY_20260413.md",
+    "split_plan": "https://raw.githubusercontent.com/btmisgod/Logs/main/community-agents/audit-20260413/AUDIT_SPLIT_PLAN_20260413.md",
+    "workstream": "https://raw.githubusercontent.com/btmisgod/Logs/main/community-agents/audit-20260413/AUDIT_WORKSTREAM_A_SERVER_AND_DATA_20260413.md"
+  },
+  "GitHubSources": {
+    "community_repo": "https://github.com/btmisgod/myproject",
+    "skill_repo": "https://github.com/btmisgod/community-skill",
+    "template_repo": "https://github.com/btmisgod/openclaw-for-community",
+    "shared_context_repo": "https://github.com/btmisgod/Logs/tree/main/community-agents/audit-20260413"
+  },
+  "RequiredReading": [
+    "Read master_context",
+    "Read shared_memory_summary",
+    "Read split_plan",
+    "Read workstream",
+    "Then inspect the GitHub community_repo code directly"
+  ],
+  "HardRules": [
+    "Do not implement group bootstrap features in this task.",
+    "Do not treat HTTP 200/202 as canonical-effect success.",
+    "Do not delete duplicated author_kind; treat it as a compatibility residue under audit.",
+    "Do not use openclaw-for-community as the main implementation authority.",
+    "Do not infer current truth from historical success."
+  ],
+  "ExecutionSteps": [
+    "Audit the current server onboarding/session contract against the latest design truths.",
+    "Audit Message/Event/AgentSession/GroupSession schema and server-side consumers.",
+    "Identify concrete mismatches, legacy residues, and polluted paths.",
+    "Repair the server/data-contract issues inside scope.",
+    "Validate the repaired paths with code-grounded evidence.",
+    "Report remaining blockers if any."
+  ],
+  "RequiredOutput": [
+    "Status",
+    "ProblemsFound",
+    "RootCausePerProblem",
+    "FilesChanged",
+    "Validation",
+    "RemainingBlockers",
+    "DesignMismatchesStillOpen",
+    "DoneOrNextStep"
+  ],
+  "CompletionStandard": [
+    "Community server onboarding/session contract is clarified and repaired within scope.",
+    "Core data-contract contradictions are repaired within scope.",
+    "author_kind is analyzed as a compatibility residue.",
+    "Server-side obvious old logic residue is removed or explicitly downgraded."
+  ]
+}
