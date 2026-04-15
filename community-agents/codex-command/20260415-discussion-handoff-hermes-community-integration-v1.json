@@ -1,0 +1,249 @@
+{
+  "task": "discussion_handoff_hermes_community_integration_20260415",
+  "from_role": "discussion",
+  "to_role": "implementation",
+  "phase": "workflow_testing",
+  "feature_line": "hermes_community_integration_and_fresh_profile_validation",
+  "summary": "Build a Hermes-native Community integration line from the existing OpenClaw CommunityIntegrationSkill capabilities, then validate a fresh Hermes agent/profile against the current Community server contract without destabilizing the merged OpenClaw baseline.",
+  "clarified_scope": {
+    "in_scope": [
+      "Design and implement a Hermes-side Community integration artifact that preserves the current Community onboarding, session/sync, state, send-route, and canonical-effect contract.",
+      "Reuse framework-agnostic logic from the current OpenClaw skill where it is still correct, but remove OpenClaw-specific filesystem, config, and service assumptions.",
+      "Run fresh Hermes validation on a fresh isolated Hermes profile/environment, then report success or the first real blocker with evidence.",
+      "Escalate live or server-host validation through the project-standard HTTP-controller path if local Linux validation is not sufficient."
+    ],
+    "out_of_scope": [
+      "Protocol grand redesign.",
+      "Changing the Community server contract just to fit Hermes.",
+      "Reopening or destabilizing the already-merged OpenClaw release baseline as part of the first Hermes spike.",
+      "Pretending a plain Hermes skill alone is enough when the work actually needs a plugin/tool plus runtime bridge."
+    ]
+  },
+  "key_conclusions": [
+    "This should not be implemented as a plain Hermes skill only. Hermes official docs state that skills are for instructions plus existing tools, while auth flows, API-keyed integrations, multi-component configuration, and real-time events belong in a Tool or Plugin.",
+    "The Hermes-native shape should be: Hermes plugin for precise tools and stateful operations, bundled Hermes skill for operator workflow guidance, and a thin local bridge for any Community webhook/send contract Hermes does not natively match.",
+    "Preserve the current Community-side contract first. Do not weaken signature validation, silently drop the active send route, or rename the Community webhook shape just because Hermes has different defaults.",
+    "Keep the current OpenClaw line isolated. A first Hermes implementation should be developed in an isolated work root or separate artifact path, then merged intentionally only after validation passes."
+  ],
+  "authoritative_inputs": [
+    {
+      "path": "G:\\community agnts\\community agents\\memory\\library\\cards\\OPENCLAW_AND_SKILL_SCOPE.md",
+      "purpose": "Repo ownership and the rule that openclaw-for-community is template/reference, not the release repo."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\memory\\library\\cards\\TESTING_AND_VALIDATION_MODEL.md",
+      "purpose": "Stable acceptance layers and the required fresh-onboarding validation model."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\memory\\library\\cards\\COMMUNITY_SKILL_MODULE_MAP.md",
+      "purpose": "Current skill-body entrypoints and existing formal tests."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\myproject\\docs\\design-facts\\Agent Community Skill设计文档.txt",
+      "purpose": "Skill boundary: onboarding/update/access prep and canonical message packaging belong in the skill/integration layer."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\myproject\\docs\\design-facts\\Agent Community Onboarding与Session合同设计文档.txt",
+      "purpose": "Fresh-install success means identity plus session/sync plus local state plus send route plus canonical effect."
+    },
+    {
+      "path": "https://hermes-agent.nousresearch.com/docs/developer-guide/creating-skills/",
+      "purpose": "Hermes official rule for when work should be a Skill versus a Tool."
+    },
+    {
+      "path": "https://hermes-agent.nousresearch.com/docs/guides/build-a-hermes-plugin/",
+      "purpose": "Hermes official plugin mechanism, including plugin-bundled skills and env gating."
+    },
+    {
+      "path": "https://hermes-agent.nousresearch.com/docs/user-guide/profiles",
+      "purpose": "Fresh isolated Hermes profiles for clean validation."
+    },
+    {
+      "path": "https://hermes-agent.nousresearch.com/docs/user-guide/messaging/webhooks",
+      "purpose": "Hermes webhook capabilities and limits; compare carefully against the current Community webhook contract."
+    },
+    {
+      "path": "https://hermes-agent.nousresearch.com/docs/guides/migrate-from-openclaw",
+      "purpose": "Hermes official OpenClaw migration model and destination paths for imported skills."
+    }
+  ],
+  "current_code_evidence": [
+    {
+      "path": "G:\\community agnts\\community agents\\community-skill\\scripts\\community-agent-cli.mjs",
+      "finding": "Current CLI probes .openclaw, openclaw.json, and OpenClaw model/provider layout directly; this cannot be carried into Hermes unchanged."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\community-skill\\scripts\\ensure-community-agent-onboarding.sh",
+      "finding": "Current onboarding path is tightly coupled to Linux systemd, OpenClaw ingress/service names, .openclaw paths, Unix socket layout, and port-8848 ingress management."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\community-skill\\scripts\\community_integration.mjs",
+      "finding": "Current runtime exposes both /webhook/<agent_handle> and /send/<agent_handle>, validates x-community-webhook-signature, and persists Community state under template/state paths."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\community-skill\\tests\\community-skill-outbound-v2.test.mjs",
+      "finding": "Existing tests already encode canonical outbound message shape and representative inbound required-reply behavior; this is reusable acceptance logic."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\community-skill\\tests\\community-runtime-message-protocol-v2.test.mjs",
+      "finding": "Existing runtime tests encode obligation classification semantics that should remain stable across agent frameworks."
+    }
+  ],
+  "environment_facts": [
+    "This discussion thread is running in Windows PowerShell under G:\\community agnts.",
+    "Hermes CLI is not installed on the Windows host shell.",
+    "WSL2 Ubuntu exists locally and can be used as the first realistic Linux validation surface.",
+    "Hermes CLI is not currently installed inside WSL Ubuntu either.",
+    "The community-skill repo currently has user changes in scripts/community_integration.mjs, scripts/ensure-community-agent-onboarding.sh, and tests/community-skill-outbound-v2.test.mjs; do not revert unrelated work."
+  ],
+  "recommended_architecture": {
+    "artifact_shape": [
+      "Hermes plugin: owns exact Community API operations, saved state, onboarding/profile tools, and any env-gated credentials.",
+      "Bundled Hermes skill: tells Hermes when and how to use the plugin tools for Community onboarding, status, profile sync, and structured reply flows.",
+      "Thin bridge process: preserves any Community contract Hermes does not natively match, especially exact webhook path/header behavior and the active local send route."
+    ],
+    "why_not_plain_skill": [
+      "Community integration needs auth flows and saved tokens.",
+      "Community integration needs precise request shaping every time.",
+      "Community integration needs real-time inbound webhook handling and active send routing.",
+      "Hermes official docs classify those needs under Tool/Plugin, not plain skill-only behavior."
+    ],
+    "reuse_plan": [
+      "Reuse Community API request and canonical message normalization logic where it is framework-agnostic.",
+      "Reuse acceptance semantics from the existing Node tests instead of inventing a new success definition.",
+      "Do not reuse .openclaw paths, OpenClaw config probing, service names, or template directory assumptions."
+    ],
+    "contract_preservation_rules": [
+      "Preserve Community ingress expectation on port 8848 unless there is explicit new evidence that the contract has changed.",
+      "Do not silently swap x-community-webhook-signature for a different header without an adapter or contract update.",
+      "Do not silently drop /send/<agent_handle>; if Hermes-native tooling cannot provide it directly, implement an adapter/bridge."
+    ]
+  },
+  "implementation_strategy": {
+    "ownership": [
+      {
+        "area": "hermes_plugin_and_bridge",
+        "owner": "implementation_thread",
+        "reason": "This work is high-coupling backend/skill/runtime integration and should not be split into frontend work."
+      },
+      {
+        "area": "local_linux_validation",
+        "owner": "implementation_thread",
+        "reason": "WSL2 Ubuntu is available and is the fastest first validation surface."
+      },
+      {
+        "area": "server_live_validation",
+        "owner": "live_or_main_controller_path",
+        "reason": "Real server-side validation, deployment, or environment repair should still go through the HTTP controller path."
+      }
+    ],
+    "suggested_work_root": "Use an isolated Hermes-specific local path or worktree first instead of modifying the merged OpenClaw release path in place.",
+    "stages": [
+      {
+        "step_id": "stage0_environment",
+        "title": "Prepare Linux-capable Hermes environment",
+        "actions": [
+          "Use WSL2 Ubuntu or another Linux host.",
+          "Install Hermes CLI and verify hermes commands actually run.",
+          "Record exact install steps and versions used for reproducibility."
+        ],
+        "acceptance": [
+          "hermes --version works in the chosen Linux environment.",
+          "hermes profile create works in the chosen Linux environment."
+        ]
+      },
+      {
+        "step_id": "stage1_shape",
+        "title": "Create Hermes-native integration shape",
+        "actions": [
+          "Create a Hermes plugin directory and register plugin tools for onboarding, status, send, profile sync, and profile update.",
+          "Add a bundled Hermes skill that calls those tools instead of embedding fragile prose-only logic.",
+          "Implement a thin bridge for Community webhook/send compatibility where Hermes native webhook behavior is insufficient."
+        ],
+        "acceptance": [
+          "There is a clearly loadable Hermes plugin.",
+          "There is a clearly loadable Hermes skill or plugin-bundled skill.",
+          "OpenClaw-specific config assumptions are removed from the Hermes line."
+        ]
+      },
+      {
+        "step_id": "stage2_local_tests",
+        "title": "Port and run local formal tests",
+        "actions": [
+          "Port or adapt the reusable canonical-message and runtime-obligation tests.",
+          "Add Hermes-side tests for saved state location and bridge behavior where needed.",
+          "Report exactly which test layer passed."
+        ],
+        "acceptance": [
+          "Repository-local tests pass for the Hermes integration line.",
+          "Canonical outbound shape and representative inbound handling are covered."
+        ]
+      },
+      {
+        "step_id": "stage3_fresh_profile_validation",
+        "title": "Run fresh Hermes profile validation",
+        "actions": [
+          "Create a fresh isolated Hermes profile for the test. Prefer clone-based profile creation if model/API config reuse is needed, but keep Community state fresh.",
+          "Install or register the Hermes integration artifact in that fresh profile.",
+          "Run onboarding against the current Community server.",
+          "Verify identity, webhook or equivalent inbound path, session/sync, saved local state, active send route, and canonical effect."
+        ],
+        "acceptance": [
+          "Fresh Hermes profile onboarding succeeds under the formal Community success definition, not just partial identity creation.",
+          "At least one representative inbound-to-canonical-effect case succeeds."
+        ]
+      },
+      {
+        "step_id": "stage4_live_or_server_followup",
+        "title": "Escalate only if real-environment proof is still needed",
+        "actions": [
+          "If local Linux validation is not enough, create a main-controller or live JSON task for real server-side validation.",
+          "Attach evidence paths and logs instead of loose prose."
+        ],
+        "acceptance": [
+          "Any live or server result is backed by structured evidence and log paths."
+        ]
+      }
+    ]
+  },
+  "fresh_hermes_validation_definition": [
+    "Identity created or recovered successfully.",
+    "Webhook or equivalent inbound subscription is active under the current Community contract.",
+    "Session or sync succeeds.",
+    "Recoverable local Community state is written under the Hermes-side environment/profile.",
+    "Local send route is usable.",
+    "An inbound Community message can produce canonical effect, not just HTTP acceptance."
+  ],
+  "acceptance": [
+    "Do not report success on identity-only creation.",
+    "Do not report success on webhook 202 or listener health alone.",
+    "Do not report success on service active alone.",
+    "Report syntax or lint, repository-local tests, local Linux validation, and any live validation as separate layers.",
+    "If the bridge is required for exact Community compatibility, include a direct proof that it preserves the expected webhook header and route behavior."
+  ],
+  "blocker_rules": [
+    {
+      "when": "Hermes is not installed in the chosen Linux environment",
+      "action": "Treat it as the first real blocker, install or document installation failure, then continue."
+    },
+    {
+      "when": "Hermes native webhook support does not match the Community header or path contract",
+      "action": "Add a thin adapter or bridge; do not silently weaken auth or mutate the server contract."
+    },
+    {
+      "when": "The only evidence is HTTP acceptance, route reachability, or a running process",
+      "action": "Do not mark success; continue until session/sync, saved state, send route, and canonical effect are proven or a blocker is reached."
+    },
+    {
+      "when": "A proposed Hermes-side change would destabilize the already-merged OpenClaw release line",
+      "action": "Keep the Hermes line isolated and surface the integration boundary explicitly."
+    }
+  ],
+  "deliverables": [
+    "Short implementation summary: what was built and why this shape was chosen.",
+    "Exact local Linux validation commands and results.",
+    "Exact fresh Hermes profile creation method used for the test.",
+    "Evidence for identity, session/sync, local state, send route, and canonical effect.",
+    "If blocked, the first real blocker plus the next safe step."
+  ]
+}
