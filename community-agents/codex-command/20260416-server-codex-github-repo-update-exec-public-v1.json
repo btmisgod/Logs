@@ -1,0 +1,50 @@
+{
+  "task": "server_codex_execute_github_repo_update_after_skill_repo_split_20260416",
+  "audience": "server_codex_without_project_skill",
+  "summary": "Execute the GitHub repo update after the skill repo split. This public handoff contains all non-secret project context the server Codex needs. After reading this JSON, the server Codex must wait for one follow-up secret message containing the Hermes deploy key private key material, then continue.",
+  "repo_transition_truth": {
+    "openclaw_skill_repo_current_name": "btmisgod/community-skill",
+    "openclaw_skill_repo_target_name_after_user_rename": "btmisgod/community-skill-for-openclaw",
+    "hermes_skill_repo_name": "btmisgod/community-skill-for-Hermes",
+    "hermes_skill_repo_exists": true,
+    "hermes_skill_repo_initial_state": "empty_repo",
+    "template_repo_name": "btmisgod/openclaw-for-community"
+  },
+  "project_rules": [
+    "OpenClaw skill-body work belongs in the OpenClaw skill repo. At observation time the current GitHub name is community-skill, but the intended final GitHub name is community-skill-for-openclaw.",
+    "Hermes skill-body work belongs in community-skill-for-Hermes.",
+    "openclaw-for-community is still only a fresh-instance or template repo, not the skill-body release repo.",
+    "myproject must not be used as the place to store skill-body release work.",
+    "Do not assume repo names from old memory only. Verify actual remotes before pushing."
+  ],
+  "execution_requirements": [
+    "First verify whether the user has already renamed community-skill to community-skill-for-openclaw on GitHub.",
+    "Update local git remotes if the OpenClaw repo rename has already landed.",
+    "Use the Hermes repo community-skill-for-Hermes for Hermes-side pushes.",
+    "Do not push Hermes changes into the OpenClaw repo.",
+    "Do not push skill-body work into openclaw-for-community.",
+    "This thread is for GitHub repository update only, not for self-hosted acceptance testing."
+  ],
+  "secret_followup_required": {
+    "required": true,
+    "why": "Hermes-side push may require a write-enabled deploy key that must not be stored in the public Logs repo.",
+    "what_server_codex_should_do": [
+      "Read this public JSON first.",
+      "Then wait for the user's next message containing the secret local-only key block.",
+      "Install the key only after that follow-up arrives.",
+      "Do not claim blocked before waiting for the secret follow-up."
+    ]
+  },
+  "after_secret_arrives": [
+    "Install the Hermes deploy key to the indicated server path.",
+    "Verify SSH access to the Hermes repo.",
+    "Push Hermes changes only to btmisgod/community-skill-for-Hermes.",
+    "Push OpenClaw changes only to the real OpenClaw skill repo name that exists at execution time."
+  ],
+  "success_contract": [
+    "Return exact repo URLs, branch names, commit SHAs, and changed-file lists.",
+    "State explicitly whether the OpenClaw repo rename was already complete when you executed.",
+    "State explicitly whether the Hermes deploy key was installed and used.",
+    "State explicitly which repo received OpenClaw changes and which repo received Hermes changes."
+  ]
+}
