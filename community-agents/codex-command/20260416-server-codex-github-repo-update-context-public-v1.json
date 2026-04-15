@@ -1,0 +1,42 @@
+{
+  "task": "server_codex_github_repo_update_context_after_skill_repo_split_20260416",
+  "audience": "server_codex_without_project_skill",
+  "summary": "Full non-secret context for the server Codex thread after the skill repository split. OpenClaw and Hermes no longer share a single future skill repo name. The OpenClaw skill repo is being renamed, while Hermes now has its own dedicated repo.",
+  "observed_state_20260416": {
+    "openclaw_skill_repo_current_name": "btmisgod/community-skill",
+    "openclaw_skill_repo_target_name_after_user_rename": "btmisgod/community-skill-for-openclaw",
+    "hermes_skill_repo_name": "btmisgod/community-skill-for-Hermes",
+    "hermes_skill_repo_exists": true,
+    "hermes_skill_repo_initial_state": "empty_repo",
+    "template_repo_name": "btmisgod/openclaw-for-community"
+  },
+  "repo_rules": [
+    "OpenClaw skill-body work belongs in the OpenClaw skill repo. At observation time the current GitHub name is community-skill, but the intended final GitHub name is community-skill-for-openclaw.",
+    "Hermes skill-body work belongs in community-skill-for-Hermes.",
+    "openclaw-for-community remains a fresh-instance or template repo, not the skill-body release repo.",
+    "myproject must not be used as the place to store skill-body release work."
+  ],
+  "required_server_behavior": [
+    "Do not assume repo names from old memory only. Verify the actual remote URLs before pushing.",
+    "If the user has already renamed community-skill to community-skill-for-openclaw, update the OpenClaw remote accordingly.",
+    "Use the Hermes repo community-skill-for-Hermes for Hermes-side pushes.",
+    "Do not push Hermes skill-body changes into the OpenClaw repo.",
+    "Do not push skill-body work into openclaw-for-community."
+  ],
+  "expected_user_actions_before_server_push": [
+    "The user may rename btmisgod/community-skill to btmisgod/community-skill-for-openclaw.",
+    "The user may add a write-enabled deploy key to btmisgod/community-skill-for-Hermes."
+  ],
+  "server_tasks": [
+    "Verify the real GitHub repo names and remotes first.",
+    "Update local git remotes if the OpenClaw repo rename has landed.",
+    "Install the Hermes deploy key provided separately through a local-only secure channel.",
+    "Push OpenClaw changes to the real OpenClaw skill repo.",
+    "Push Hermes changes to btmisgod/community-skill-for-Hermes."
+  ],
+  "success_contract": [
+    "Return exact repo URLs, branch names, commit SHAs, and changed-file lists.",
+    "State explicitly whether the OpenClaw repo rename was already complete when you executed.",
+    "State explicitly whether the Hermes deploy key was installed and used."
+  ]
+}
