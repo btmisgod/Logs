@@ -1,0 +1,254 @@
+{
+  "task": "discussion_handoff_hermes_community_integration_20260415_v2",
+  "from_role": "discussion",
+  "to_role": "implementation",
+  "phase": "workflow_testing",
+  "feature_line": "hermes_skill_adapter_for_existing_community_contract",
+  "summary": "Adapt the existing OpenClaw CommunityIntegrationSkill into a Hermes-side skill/integration implementation that preserves all existing requirements, configuration surfaces, and user-visible capabilities. Do not modify community engineering. Repair blockers inside the Hermes/skill boundary and continue testing until success unless a true boundary blocker is proven.",
+  "hard_boundaries": {
+    "must_do": [
+      "All implementation and repair work must stay on the Hermes side and the skill/integration side.",
+      "Use the current OpenClaw CommunityIntegrationSkill as the parity baseline for features, config inputs, state handling, onboarding behavior, send behavior, and runtime integration.",
+      "Keep testing and repairing inside scope until the Hermes line reaches real success.",
+      "Treat OpenClaw skill parity as the baseline, not as optional inspiration."
+    ],
+    "must_not_do": [
+      "Do not modify myproject.",
+      "Do not modify the Community server contract just to make Hermes easier.",
+      "Do not invent new Community features, new workflow semantics, or a new product line.",
+      "Do not silently drop OpenClaw skill capabilities or configuration expectations.",
+      "Do not stop just because a blocker is found if that blocker can be repaired inside the Hermes/skill boundary."
+    ],
+    "scope_floor": [
+      "The minimum acceptable result is not a partial demo.",
+      "The minimum acceptable result is Hermes-side adaptation that preserves the existing OpenClaw skill requirements and passes fresh Hermes validation against the current Community contract."
+    ]
+  },
+  "source_of_truth": [
+    {
+      "path": "G:\\community agnts\\community agents\\community-skill\\SKILL.md",
+      "purpose": "Current formal skill surface and exported capabilities."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\community-skill\\README.md",
+      "purpose": "Current operational behavior, onboarding flow, CLI surface, and configuration expectations."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\community-skill\\community-bootstrap.env",
+      "purpose": "Current config shape and default environment expectations."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\community-skill\\scripts\\community_integration.mjs",
+      "purpose": "Current runtime/send/webhook/onboarding implementation baseline."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\community-skill\\scripts\\community-agent-cli.mjs",
+      "purpose": "Current CLI and state-management baseline."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\community-skill\\scripts\\ensure-community-agent-onboarding.sh",
+      "purpose": "Current onboarding automation baseline."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\community-skill\\tests\\community-skill-outbound-v2.test.mjs",
+      "purpose": "Current canonical outbound message expectations."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\community-skill\\tests\\community-runtime-message-protocol-v2.test.mjs",
+      "purpose": "Current runtime obligation and inbound handling expectations."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\myproject\\docs\\design-facts\\Agent Community Skill设计文档.txt",
+      "purpose": "Stable skill boundary. Community engineering must not be redesigned here."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\myproject\\docs\\design-facts\\Agent Community Onboarding与Session合同设计文档.txt",
+      "purpose": "Formal definition of real onboarding success."
+    }
+  ],
+  "parity_requirements": {
+    "capabilities": [
+      "connectToCommunity",
+      "installRuntime",
+      "installAgentProtocol",
+      "receiveCommunityEvent",
+      "loadGroupContext or exact Hermes-side equivalent",
+      "loadWorkflowContract",
+      "buildCommunityMessage",
+      "buildDirectedCollaborationMessage",
+      "sendCommunityMessage",
+      "handleProtocolViolation",
+      "startCommunityIntegration"
+    ],
+    "cli_or_operator_surface": [
+      "onboarding-entry",
+      "onboarding-select",
+      "status",
+      "send",
+      "profile-sync",
+      "profile-update",
+      "version",
+      "release-list",
+      "self-update",
+      "rollback"
+    ],
+    "config_and_state": [
+      "Preserve current Community-related env/config inputs or provide explicit 1:1 Hermes-side mapping for each one.",
+      "Preserve current bootstrap config meaning, not just variable names.",
+      "Preserve saved Community state semantics: token, agent identity, group/session context, webhook state, outbound receipts, protocol violations, and related local recoverable state.",
+      "Preserve the current port-8848 ingress expectation unless explicit evidence proves otherwise."
+    ],
+    "transport_and_contract": [
+      "Preserve current Community webhook contract or add Hermes-side adapter code that preserves behavior externally.",
+      "Preserve current active send-route semantics or add Hermes-side adapter code that preserves behavior externally.",
+      "Preserve current canonical outbound message packaging.",
+      "Preserve current session or sync expectations against the existing Community server."
+    ]
+  },
+  "current_code_evidence": [
+    {
+      "path": "G:\\community agnts\\community agents\\community-skill\\scripts\\community-agent-cli.mjs",
+      "finding": "Current implementation is deeply tied to .openclaw paths and OpenClaw model/provider config probing. That must be adapted on the Hermes side, not by changing Community engineering."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\community-skill\\scripts\\ensure-community-agent-onboarding.sh",
+      "finding": "Current onboarding automation encodes service names, sockets, route behavior, and bootstrap outputs that define real baseline behavior."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\community-skill\\scripts\\community_integration.mjs",
+      "finding": "Current runtime baseline includes exact webhook path handling, x-community-webhook-signature verification, active send route handling, local state persistence, and canonical Community message output."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\community-skill\\tests\\community-skill-outbound-v2.test.mjs",
+      "finding": "This test file is a direct parity target for canonical outbound payload behavior and representative inbound-to-reply flow."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\community-skill\\tests\\community-runtime-message-protocol-v2.test.mjs",
+      "finding": "This test file is a direct parity target for runtime obligation classification semantics."
+    }
+  ],
+  "implementation_rules": [
+    "Start by building a parity matrix from the current OpenClaw skill before changing code.",
+    "For every OpenClaw-specific dependency, replace it with a Hermes-side equivalent or adapter inside the skill/integration line.",
+    "Do not shrink scope by deleting or ignoring hard parts such as onboarding, saved state, active send route, or webhook handling.",
+    "Do not touch myproject or Community server code even if that looks easier.",
+    "If a Community-side incompatibility appears, first prove that it cannot be solved inside the Hermes adapter boundary before treating it as a terminal blocker."
+  ],
+  "repair_and_continue_policy": {
+    "default_rule": "When a blocker appears, classify it, narrow it, repair it inside the Hermes/skill boundary, rerun the exact failed check, and continue. Do not convert normal repair work into a stop signal.",
+    "allowed_stop_conditions": [
+      "A proven blocker requires modifying myproject or the Community server contract, which is out of scope by explicit user boundary.",
+      "A required external dependency or permission is missing and cannot be repaired by the implementation thread.",
+      "A proven Hermes-side hard limitation blocks parity and no Hermes-side adapter or bridge can realistically close the gap."
+    ],
+    "not_allowed": [
+      "Stopping just because the first implementation attempt failed.",
+      "Stopping at identity-created, webhook-202, service-active, or listener-health pseudo-success.",
+      "Stopping and asking for redesign when the issue is still a normal Hermes-side repair."
+    ],
+    "loop_rule": [
+      "Keep a tight repair loop: reproduce -> isolate -> patch -> rerun exact check -> continue.",
+      "Do not widen into unrelated cleanup or new feature work."
+    ]
+  },
+  "implementation_strategy": {
+    "ownership": [
+      {
+        "area": "hermes_skill_adapter",
+        "owner": "implementation_thread",
+        "reason": "All work must stay on the Hermes/skill side."
+      },
+      {
+        "area": "fresh_hermes_validation",
+        "owner": "implementation_thread",
+        "reason": "Validation is part of the required delivery, not a separate optional follow-up."
+      }
+    ],
+    "stages": [
+      {
+        "step_id": "stage0_parity_matrix",
+        "title": "Extract exact OpenClaw skill parity baseline",
+        "actions": [
+          "List every current capability, CLI action, config input, saved-state surface, transport contract, and test expectation from the OpenClaw skill baseline.",
+          "Produce an explicit mapping plan for how each one will exist on the Hermes side."
+        ],
+        "acceptance": [
+          "No major OpenClaw skill capability is left uncategorized.",
+          "No required config or state surface is ignored."
+        ]
+      },
+      {
+        "step_id": "stage1_hermes_adapter",
+        "title": "Implement Hermes-side skill/integration adaptation",
+        "actions": [
+          "Implement the Hermes-side skill/integration package and any required helper scripts or bridge code.",
+          "Replace OpenClaw-specific pathing and runtime assumptions with Hermes-side equivalents or adapters.",
+          "Keep behavior aligned to the OpenClaw baseline instead of inventing a new behavior model."
+        ],
+        "acceptance": [
+          "Hermes-side code exists for the full baseline, not a subset.",
+          "No Community engineering changes are required for the implemented path."
+        ]
+      },
+      {
+        "step_id": "stage2_parity_tests",
+        "title": "Run and repair formal parity checks",
+        "actions": [
+          "Port or recreate the baseline tests needed to prove Hermes-side parity.",
+          "Add any Hermes-side tests needed for adapter-specific behavior.",
+          "Repair failures and keep rerunning until the formal local test layer passes or a true stop condition is proven."
+        ],
+        "acceptance": [
+          "Canonical outbound message behavior passes.",
+          "Representative inbound runtime obligation behavior passes.",
+          "Hermes-side adapter-specific tests pass."
+        ]
+      },
+      {
+        "step_id": "stage3_fresh_hermes_validation",
+        "title": "Run real fresh Hermes validation",
+        "actions": [
+          "Create a fresh Hermes environment/profile.",
+          "Install or register the Hermes-side adapted skill/integration.",
+          "Run real onboarding and follow the same real success definition used for the OpenClaw baseline."
+        ],
+        "acceptance": [
+          "Identity created or recovered.",
+          "Session or sync works.",
+          "Recoverable local Community state exists and is usable.",
+          "Active send route or exact Hermes-side equivalent is usable.",
+          "At least one inbound case produces canonical effect."
+        ]
+      },
+      {
+        "step_id": "stage4_closeout",
+        "title": "Finish only after true success",
+        "actions": [
+          "Do not close on partial success.",
+          "Close only after parity and fresh validation are both satisfied or a true allowed stop condition is proven with evidence."
+        ],
+        "acceptance": [
+          "The final report distinguishes real success from partial progress.",
+          "Any remaining gap is a proven boundary blocker, not an unfixed normal repair item."
+        ]
+      }
+    ]
+  },
+  "acceptance": [
+    "No myproject changes.",
+    "No Community server contract changes.",
+    "No new feature development.",
+    "OpenClaw skill baseline functionality is preserved on the Hermes side.",
+    "OpenClaw skill baseline configuration expectations are preserved or mapped explicitly 1:1.",
+    "Fresh Hermes validation succeeds under the formal onboarding/session/state/send/canonical-effect definition.",
+    "Final report clearly states which exact checks were run and passed."
+  ],
+  "deliverables": [
+    "Hermes-side implementation summary with explicit statement that no Community engineering changes were made.",
+    "OpenClaw-to-Hermes parity matrix or equivalent mapping summary.",
+    "Config mapping summary for all preserved or mapped inputs.",
+    "Formal test results.",
+    "Fresh Hermes validation results with evidence for identity, session/sync, local state, send route, and canonical effect.",
+    "If work truly cannot continue, the first proven allowed stop condition with direct evidence."
+  ]
+}
