@@ -1,0 +1,94 @@
+{
+  "task": "server_publish_openclaw_hermes_skill_changes_to_github_20260416",
+  "from_role": "discussion",
+  "to_role": "live",
+  "phase": "workflow_testing",
+  "feature_line": "publish_server_resident_skill_changes_to_authoritative_github_repos",
+  "summary": "On the server, locate the already-modified OpenClaw and Hermes skill working copies, verify the intended changes, and safely publish them to their authoritative GitHub skill repositories. This thread is for repository publication and evidence, not for fresh self-hosted validation.",
+  "clarified_scope": {
+    "in_scope": [
+      "Inspect the server-side OpenClaw and Hermes skill working copies that already contain the intended changes.",
+      "Identify the authoritative GitHub remotes and target repositories for both skill lines.",
+      "Review local diffs and confirm only the intended skill-side changes are being published.",
+      "Create intentional commits or branches as needed and push them to GitHub safely.",
+      "Report exact repository URLs, branches, commit SHAs, and changed-file lists for both lines."
+    ],
+    "out_of_scope": [
+      "Treating server execution as self-hosted agent validation.",
+      "Modifying myproject.",
+      "Modifying Community server.",
+      "Doing a new feature pass unrelated to publishing the existing skill changes.",
+      "Force-resetting or overwriting unknown local work."
+    ]
+  },
+  "design_conclusion": [
+    "The modified skills currently live on the server, but authoritative collaboration needs those changes promoted into GitHub skill repos first.",
+    "This thread is a release-or-publication step, not the local self-hosted acceptance step.",
+    "The publication result must be strong enough that a local thread can later sync from GitHub and reproduce the intended skill behavior."
+  ],
+  "repo_truth": [
+    {
+      "repo_or_path": "community-skill",
+      "role": "authoritative OpenClaw skill-body repo that must receive the OpenClaw-side changes"
+    },
+    {
+      "repo_or_path": "server-resident Hermes skill or adapter repo with a GitHub remote",
+      "role": "authoritative Hermes-side skill repo that must receive the Hermes-side changes"
+    },
+    {
+      "repo_or_path": "myproject",
+      "role": "must not be modified in this publication task"
+    }
+  ],
+  "hard_boundaries": {
+    "must_do": [
+      "Inspect git status, current branch, remotes, and diff before pushing anything.",
+      "Publish only the intended OpenClaw skill and Hermes skill or adapter changes.",
+      "Record exact GitHub repo names, branch names, commit SHAs, and changed files."
+    ],
+    "must_not_do": [
+      "Do not publish from an ambiguous dirty tree without first separating unrelated changes.",
+      "Do not force-push unless there is a proven need and the evidence is written down.",
+      "Do not claim completion without GitHub URLs that can be independently opened.",
+      "Do not do fresh-agent validation in this thread and count it as self-hosted acceptance."
+    ]
+  },
+  "execution_order": [
+    "Locate the server-side OpenClaw and Hermes skill working copies.",
+    "Inspect git status, remotes, and local diffs for both lines.",
+    "Separate intended skill changes from unrelated local dirt if needed.",
+    "Commit or branch intentionally.",
+    "Push to the authoritative GitHub repositories.",
+    "Return the exact GitHub evidence for downstream local sync."
+  ],
+  "publication_requirements": {
+    "openclaw_line": [
+      "Find the server working copy containing the intended OpenClaw skill changes.",
+      "Determine the authoritative GitHub remote and repository.",
+      "Commit and push the OpenClaw skill changes safely."
+    ],
+    "hermes_line": [
+      "Find the server working copy containing the intended Hermes skill or adapter changes.",
+      "Determine the authoritative GitHub remote and repository.",
+      "Commit and push the Hermes-side changes safely."
+    ],
+    "evidence": [
+      "Provide repo URL, branch, final commit SHA, and changed-file list for OpenClaw.",
+      "Provide repo URL, branch, final commit SHA, and changed-file list for Hermes.",
+      "If a repo cannot be published, provide the first real blocker with direct evidence."
+    ]
+  },
+  "minimum_acceptance": [
+    "OpenClaw skill changes are published to the authoritative GitHub repo or a real publication blocker is proven.",
+    "Hermes skill or adapter changes are published to the authoritative GitHub repo or a real publication blocker is proven.",
+    "Both lines include exact GitHub URLs, branch names, commit SHAs, and changed-file lists.",
+    "The report clearly states that this thread did not perform and did not claim self-hosted acceptance."
+  ],
+  "deliverables": [
+    "OpenClaw publication summary.",
+    "Hermes publication summary.",
+    "Exact GitHub file or commit URLs.",
+    "Repo paths, branches, commit SHAs, and changed-file lists.",
+    "If blocked, the first real publication blocker with evidence."
+  ]
+}
