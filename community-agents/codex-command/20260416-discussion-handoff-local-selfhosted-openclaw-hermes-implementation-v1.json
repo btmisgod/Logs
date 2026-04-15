@@ -1,0 +1,173 @@
+{
+  "task": "local_self_hosted_openclaw_hermes_implementation_and_validation_20260416",
+  "from_role": "discussion",
+  "to_role": "implementation",
+  "phase": "workflow_testing",
+  "feature_line": "local_self_hosted_openclaw_hermes_join_community",
+  "summary": "Use the local machine, not the community server, to implement and validate strict self-hosted Community access for both OpenClaw and Hermes. First sync the authoritative skill repositories from GitHub, then create fresh local OpenClaw and Hermes instances, and use the newly aligned skills to join the community.",
+  "clarified_scope": {
+    "in_scope": [
+      "Sync the authoritative skill repositories from GitHub before any local implementation or testing.",
+      "Prepare a supported local runtime surface on this machine for strict self-hosted validation.",
+      "Create a fresh local OpenClaw instance on this machine and connect it to Community through the aligned skill.",
+      "Create a fresh local Hermes instance on this machine and connect it to Community through the aligned skill or adapter.",
+      "Validate the updated self-hosted-first design end to end on the local machine.",
+      "Record evidence and structured results under codexlogs research-archive."
+    ],
+    "out_of_scope": [
+      "Treating server-side execution as self-hosted validation.",
+      "Modifying myproject.",
+      "Modifying Community server.",
+      "Counting preflight-only checks as full live acceptance.",
+      "Adding unrelated new features."
+    ]
+  },
+  "why_this_thread_exists": [
+    "The stricter interpretation of self-hosted means the tested OpenClaw and Hermes agents must run on the user's own machine, not on the community server host.",
+    "Codex is only the operator. The real object under test is the fresh local OpenClaw or Hermes instance.",
+    "Previous local independent validation proved only partial OpenClaw pre-runtime behavior and did not prove local live acceptance; Hermes local carrier was missing."
+  ],
+  "authoritative_inputs": [
+    {
+      "path": "community agents/memory/library/CURRENT_STATE.json",
+      "purpose": "Shared-memory truth for self-hosted-first design and model-config inheritance rules."
+    },
+    {
+      "path": "community agents/memory/library/cards/ARCHITECTURE_AND_PROTOCOL.md",
+      "purpose": "Architecture truth and self-hosted-agent boundaries."
+    },
+    {
+      "path": "community agents/memory/library/cards/DESIGN_PHILOSOPHY.md",
+      "purpose": "Design rules including fail-closed and no foreign model-key handoff."
+    },
+    {
+      "path": "myproject/docs/design-facts/Agent Community 架构设计文档.txt",
+      "purpose": "Architecture design baseline."
+    },
+    {
+      "path": "myproject/docs/design-facts/Agent Community Skill设计文档.txt",
+      "purpose": "Skill design baseline."
+    },
+    {
+      "path": "myproject/docs/design-facts/Agent Community Onboarding与Session合同设计文档.txt",
+      "purpose": "Onboarding and session success contract."
+    },
+    {
+      "path": "G:\\community agnts\\community agents\\codexlogs\\research-archive\\20260416-openclaw-hermes-selfhosted-independent-validation\\99-summary.md",
+      "purpose": "Local independent validation summary showing what is already proven and what is still blocked."
+    }
+  ],
+  "repo_truth": [
+    {
+      "repo_or_path": "community-skill",
+      "role": "authoritative OpenClaw skill-body repo"
+    },
+    {
+      "repo_or_path": "Hermes skill or adapter repo from GitHub",
+      "role": "authoritative Hermes implementation line that must be present locally before validation"
+    },
+    {
+      "repo_or_path": "openclaw-for-community",
+      "role": "template or tool repo only; do not treat it as the primary OpenClaw skill authority"
+    },
+    {
+      "repo_or_path": "myproject",
+      "role": "community engineering repo; do not modify it in this task"
+    }
+  ],
+  "design_conclusion": [
+    "Strict self-hosted validation means the tested agent instances must run on the user's own machine.",
+    "A local WSL or Linux runtime on the user's own machine still counts as local self-hosted, because the machine is local even if the execution surface is Linux.",
+    "Formal local model config is the truth source.",
+    "community-agent.env and similar files are only snapshot or compatibility surfaces, not the only truth source.",
+    "If formal local model config cannot be inherited or proven, the skill must fail closed.",
+    "Fresh live success requires identity, active webhook subscription, session or sync, recoverable local state, usable send route, canonical effect, and running-service model-config inheritance."
+  ],
+  "hard_boundaries": {
+    "must_do": [
+      "Sync the relevant GitHub skill repositories first and record the exact branch and commit SHA used.",
+      "Use a supported local runtime surface on this machine. If native Windows is not supported for the full live path, move execution into local WSL or local Linux on this same machine.",
+      "Keep OpenClaw and Hermes validation aligned to the same updated self-hosted-first design."
+    ],
+    "must_not_do": [
+      "Do not use the community server host as the place where the tested fresh agents run.",
+      "Do not destroy or overwrite dirty local work to sync repos; if the local repo is dirty, create a clean sibling clone or equivalent safe working copy.",
+      "Do not modify myproject or Community server.",
+      "Do not claim live success from config files alone."
+    ]
+  },
+  "execution_order": [
+    "Read the authoritative design and memory surfaces.",
+    "Inspect local repo state and sync the OpenClaw and Hermes skill repositories from GitHub safely.",
+    "Record the synced repo paths, branches, and commit SHAs.",
+    "Build or verify a supported local Linux runtime surface on this same machine, such as local WSL with the needed dependencies.",
+    "Provision a fresh local OpenClaw instance and a fresh local Hermes instance on this machine.",
+    "Use the newly aligned skills to connect both fresh instances to Community.",
+    "Run formal tests, fresh live validation, fail-closed negative validation, and if possible dual live validation."
+  ],
+  "implementation_requirements": {
+    "repo_sync": [
+      "Fetch or pull the authoritative OpenClaw skill repo from GitHub.",
+      "Fetch or pull the authoritative Hermes skill or adapter repo from GitHub.",
+      "If the existing local checkout is dirty and a safe pull is unclear, create a clean sibling clone instead of force-resetting."
+    ],
+    "local_runtime": [
+      "Ensure the local machine has a supported runtime for full live execution.",
+      "For OpenClaw, if Linux or systemd is required, satisfy that on the local machine before claiming live validation is possible.",
+      "For Hermes, ensure the real local implementation carrier exists before testing."
+    ],
+    "openclaw_local": [
+      "Create a fresh local OpenClaw instance.",
+      "Prove it inherits runnable model config from the proper local truth source.",
+      "Start the real running service locally.",
+      "Validate identity, active webhook subscription, session or sync, recoverable local state, usable send route, canonical effect, and running-service model-config inheritance."
+    ],
+    "hermes_local": [
+      "Create a fresh local Hermes instance.",
+      "Prove it inherits runnable model config from the proper local truth source.",
+      "Start the real running service locally.",
+      "Validate identity, active webhook subscription, session or sync, recoverable local state, usable send route, canonical effect, and running-service model-config inheritance."
+    ],
+    "negative_validation": [
+      "Run a missing-formal-model-config fail-closed test for OpenClaw.",
+      "Run a missing-formal-model-config fail-closed test for Hermes.",
+      "Clearly distinguish preflight fail-closed and running-service readiness fail-closed."
+    ],
+    "dual_live": [
+      "If both fresh local instances are running, validate OpenClaw to Hermes live flow.",
+      "Validate Hermes to OpenClaw live flow.",
+      "For both directions, prove send route, targeted inbound delivery, and canonical effect."
+    ]
+  },
+  "minimum_acceptance": [
+    "The skill repos used for the task are synced from GitHub and their branch plus commit SHAs are recorded.",
+    "A supported local runtime surface is actually present on the user's own machine.",
+    "Fresh local OpenClaw live onboarding is proven end to end.",
+    "Fresh local Hermes live onboarding is proven end to end.",
+    "Running-service model-config inheritance is proven for both lines.",
+    "Fail-closed negative behavior is proven for both lines.",
+    "Dual live validation is proven in both directions, if both fresh instances can run on the local machine."
+  ],
+  "blocker_rule": {
+    "default": "Repair and continue when the problem is inside local environment preparation or skill implementation scope.",
+    "allowed_stop_conditions": [
+      "A required fix would modify myproject or Community server.",
+      "A required local dependency cannot be installed or enabled on this machine.",
+      "The authoritative Hermes implementation carrier cannot be obtained locally from GitHub.",
+      "A framework-hard limitation blocks local self-hosted execution on this machine."
+    ],
+    "not_allowed": [
+      "Stopping after only preflight inheritance proof.",
+      "Stopping because the server-side path works while the local self-hosted path is still unproven."
+    ]
+  },
+  "deliverables": [
+    "Repo sync summary with exact repo paths, branches, and commit SHAs.",
+    "OpenClaw local implementation and validation summary.",
+    "Hermes local implementation and validation summary.",
+    "Dual live validation summary.",
+    "Fail-closed negative validation summary.",
+    "Structured evidence paths under a new codexlogs research-archive directory.",
+    "A final hard conclusion: fully_validated, partially_validated, or not_validated."
+  ]
+}
