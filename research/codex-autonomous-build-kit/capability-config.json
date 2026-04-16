@@ -1,6 +1,6 @@
 {
   "name": "codex_autonomous_build_capability",
-  "version": "1.0",
+  "version": "1.1",
   "updated_at": "2026-04-16",
   "state": "capability_only",
   "auto_execute": false,
@@ -10,6 +10,7 @@
       "Read a GitHub-hosted research pack before planning work.",
       "Convert a design document into a requirement pack and acceptance criteria.",
       "Create a multi-thread workflow for planning, implementation, review, testing, and runtime validation.",
+      "Decompose long tasks into bounded subtasks and assign them to subthreads when the work can be safely parallelized.",
       "Operate with stage gates, handoff artifacts, and failure rollback rules.",
       "Delay execution until explicit activation conditions are met."
     ],
@@ -55,14 +56,15 @@
     "allowed_without_execution": [
       "Read and summarize the research pack.",
       "Build reusable workflow templates.",
-      "Prepare role definitions, stage gates, and artifact templates.",
+      "Prepare role definitions, stage gates, artifact templates, and decomposition rules.",
       "Explain how future execution would work."
     ],
     "blocked_without_execution_request": [
       "Creating implementation branches.",
       "Editing project files.",
       "Running project-changing commands.",
-      "Declaring a project in progress."
+      "Declaring a project in progress.",
+      "Spawning execution subthreads that mutate a target project."
     ]
   },
   "required_inputs_for_future_execution": [
@@ -99,6 +101,88 @@
       "Requirement ambiguity must be recorded as assumptions instead of silently resolved.",
       "Shared files require serialized ownership or an explicit merge step."
     ]
+  },
+  "dynamic_subthread_capability": {
+    "enabled": true,
+    "purpose": "Allow Codex to break long or structurally separable work into bounded subthreads during execution.",
+    "spawn_only_when": [
+      "The parent task is too large for one thread to complete efficiently.",
+      "The work can be split into clearly scoped subtasks.",
+      "Each subtask has a concrete deliverable.",
+      "Write ownership can be kept disjoint or explicitly serialized.",
+      "The parent thread has enough context to define acceptance conditions for each subthread."
+    ],
+    "do_not_spawn_when": [
+      "The immediate next step is blocked on a single unresolved critical-path task.",
+      "The work requires shared edits in the same files without a merge plan.",
+      "The task is too vague to assign objective completion criteria.",
+      "Parallelization would create more coordination cost than execution benefit."
+    ],
+    "subthread_types": [
+      {
+        "name": "planner_subthread",
+        "use_for": "Refining a long task into a task graph, dependency map, and ownership map."
+      },
+      {
+        "name": "implementation_subthread",
+        "use_for": "Implementing a bounded module or feature slice with a fixed write scope."
+      },
+      {
+        "name": "review_subthread",
+        "use_for": "Reviewing a completed slice for bugs, regressions, and requirement drift."
+      },
+      {
+        "name": "test_subthread",
+        "use_for": "Creating or running tests for a bounded area without owning the implementation."
+      },
+      {
+        "name": "runtime_validation_subthread",
+        "use_for": "Running environment or end-to-end validation that can happen independently of other implementation work."
+      }
+    ],
+    "subthread_contract": {
+      "required_fields": [
+        "task_name",
+        "goal",
+        "input_context",
+        "owned_files_or_modules",
+        "non_owned_files_or_modules",
+        "expected_deliverables",
+        "completion_checks"
+      ],
+      "mandatory_rules": [
+        "Every subthread must know exactly what it owns.",
+        "Subthreads must not revert or overwrite work outside their ownership boundary.",
+        "Subthreads must return evidence, not just conclusions.",
+        "Subthreads must report blockers immediately instead of silently improvising."
+      ]
+    },
+    "parent_thread_responsibilities": [
+      "Decompose the parent task before spawning workers.",
+      "Keep the critical path local when immediate progress depends on it.",
+      "Track subthread status and integrate outputs.",
+      "Resolve conflicts across subthread outputs.",
+      "Decide whether a returned result satisfies the acceptance checks."
+    ],
+    "coordination_rules": [
+      "At most one subthread may own write access to a shared file at a time unless a merge strategy is explicit.",
+      "Review and test subthreads should validate implementation subthreads, not duplicate them.",
+      "Parent thread should avoid waiting unless it is genuinely blocked.",
+      "Subthread output must be merged back through the parent orchestration layer."
+    ],
+    "completion_policy": {
+      "success_requires": [
+        "Expected deliverables are returned.",
+        "Completion checks are satisfied.",
+        "No ownership violations occurred.",
+        "Returned evidence is sufficient for integration."
+      ],
+      "failure_requires": [
+        "Blocker is reported with evidence.",
+        "Incomplete or conflicting work is surfaced clearly.",
+        "Parent thread decides whether to retry, re-scope, or serialize the work."
+      ]
+    }
   },
   "workflow_template": {
     "phases": [
@@ -140,10 +224,11 @@
       },
       {
         "name": "parallel_implementation",
-        "goal": "Implement scoped workstreams within fixed ownership boundaries.",
+        "goal": "Implement scoped workstreams within fixed ownership boundaries and split long tasks into subthreads when safe.",
         "deliverables": [
           "module_changes",
-          "local_validation_results"
+          "local_validation_results",
+          "subthread_status_log"
         ]
       },
       {
@@ -186,6 +271,7 @@
   "stage_gates": [
     "Do not enter implementation before requirements are testable.",
     "Do not enter parallel work before ownership boundaries are explicit.",
+    "Do not spawn implementation subthreads before subtasks have objective completion checks.",
     "Do not pass review if high-severity findings remain unresolved.",
     "Do not claim success from unit tests alone; require integration and runtime evidence.",
     "Do not continue normal execution when the environment cannot be brought up; switch to failure diagnosis."
@@ -200,7 +286,8 @@
       "Never start project-changing work without explicit execution permission.",
       "Never collapse requirement, implementation, review, and testing into one unchecked thread.",
       "Never hide ambiguity; record assumptions and unresolved questions explicitly.",
-      "Never equate green tests with real-world correctness without runtime validation."
+      "Never equate green tests with real-world correctness without runtime validation.",
+      "Never spawn subthreads without clear ownership and acceptance criteria."
     ]
   },
   "deliverables_before_any_real_execution": [
@@ -208,12 +295,14 @@
     "role_design",
     "state_machine",
     "artifact_templates",
-    "rollback_policy"
+    "rollback_policy",
+    "decomposition_policy"
   ],
   "future_execution_success_signals": [
     "Requirement pack is explicit and testable.",
     "Task graph is complete and non-redundant.",
     "Implementation ownership is conflict-minimized.",
+    "Long tasks are decomposed into bounded subtasks with clear owners.",
     "Independent review signs off on major risks.",
     "Tests pass across the intended layers.",
     "Runtime validation proves the real environment works.",
