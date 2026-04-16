@@ -1,0 +1,228 @@
+{
+  "name": "codex_autonomous_build_capability",
+  "version": "1.0",
+  "updated_at": "2026-04-16",
+  "state": "capability_only",
+  "auto_execute": false,
+  "intent": "Equip Codex with the ability to bootstrap a multi-thread software delivery workflow from a design document and a runnable environment, without forcing immediate execution.",
+  "capability_summary": {
+    "can_do": [
+      "Read a GitHub-hosted research pack before planning work.",
+      "Convert a design document into a requirement pack and acceptance criteria.",
+      "Create a multi-thread workflow for planning, implementation, review, testing, and runtime validation.",
+      "Operate with stage gates, handoff artifacts, and failure rollback rules.",
+      "Delay execution until explicit activation conditions are met."
+    ],
+    "cannot_assume": [
+      "That design documents are complete or unambiguous.",
+      "That tests passing means the system is production-ready.",
+      "That runtime environments will work without validation.",
+      "That full autonomous software delivery is already perfectly reliable."
+    ]
+  },
+  "bootstrap": {
+    "enabled": true,
+    "load_on_session_start": true,
+    "load_order": [
+      "README.md",
+      "execution-playbook.md",
+      "papers.json",
+      "codex-prompt.md"
+    ],
+    "source_repo": "btmisgod/Logs",
+    "github_urls": [
+      "https://github.com/btmisgod/Logs/blob/main/research/codex-autonomous-build-kit/README.md",
+      "https://github.com/btmisgod/Logs/blob/main/research/codex-autonomous-build-kit/execution-playbook.md",
+      "https://github.com/btmisgod/Logs/blob/main/research/codex-autonomous-build-kit/papers.json",
+      "https://github.com/btmisgod/Logs/blob/main/research/codex-autonomous-build-kit/codex-prompt.md"
+    ],
+    "raw_urls": [
+      "https://raw.githubusercontent.com/btmisgod/Logs/main/research/codex-autonomous-build-kit/README.md",
+      "https://raw.githubusercontent.com/btmisgod/Logs/main/research/codex-autonomous-build-kit/execution-playbook.md",
+      "https://raw.githubusercontent.com/btmisgod/Logs/main/research/codex-autonomous-build-kit/papers.json",
+      "https://raw.githubusercontent.com/btmisgod/Logs/main/research/codex-autonomous-build-kit/codex-prompt.md"
+    ],
+    "fallback_rule": "If GitHub file tools are unavailable, use raw URLs. If raw URLs are unavailable, request the materials explicitly before planning."
+  },
+  "activation_contract": {
+    "mode": "armed_not_running",
+    "execution_starts_only_when": [
+      "bootstrap_completed",
+      "design_document_available",
+      "runnable_environment_available",
+      "explicit_user_execution_request_received"
+    ],
+    "allowed_without_execution": [
+      "Read and summarize the research pack.",
+      "Build reusable workflow templates.",
+      "Prepare role definitions, stage gates, and artifact templates.",
+      "Explain how future execution would work."
+    ],
+    "blocked_without_execution_request": [
+      "Creating implementation branches.",
+      "Editing project files.",
+      "Running project-changing commands.",
+      "Declaring a project in progress."
+    ]
+  },
+  "required_inputs_for_future_execution": [
+    {
+      "name": "design_document",
+      "description": "The source document that defines product scope, requirements, constraints, and expected behavior."
+    },
+    {
+      "name": "runnable_environment",
+      "description": "A real execution environment where setup, tests, and runtime validation can be performed."
+    }
+  ],
+  "optional_inputs_for_future_execution": [
+    "repository_url_or_workspace",
+    "deployment_target",
+    "deadline_or_priority",
+    "cost_or_model_constraints",
+    "preferred_stack",
+    "security_or_compliance_requirements"
+  ],
+  "thread_model": {
+    "minimum_roles": [
+      "orchestrator",
+      "requirements",
+      "planning",
+      "implementation",
+      "review",
+      "testing",
+      "runtime_validation"
+    ],
+    "role_rules": [
+      "Implementation threads must have explicit file or module boundaries.",
+      "Review and testing must be independent from implementation.",
+      "Requirement ambiguity must be recorded as assumptions instead of silently resolved.",
+      "Shared files require serialized ownership or an explicit merge step."
+    ]
+  },
+  "workflow_template": {
+    "phases": [
+      {
+        "name": "bootstrap",
+        "goal": "Load research materials and derive reusable execution rules.",
+        "deliverables": [
+          "research_summary",
+          "workflow_rules",
+          "capability_status"
+        ]
+      },
+      {
+        "name": "requirements_normalization",
+        "goal": "Transform a design document into a structured and testable requirement pack.",
+        "deliverables": [
+          "requirements.md",
+          "assumptions.md",
+          "acceptance_criteria.md"
+        ]
+      },
+      {
+        "name": "planning_and_ownership",
+        "goal": "Create a task graph, dependency plan, and role ownership map.",
+        "deliverables": [
+          "task_graph.json",
+          "ownership_map.md",
+          "milestones.md"
+        ]
+      },
+      {
+        "name": "architecture_and_setup",
+        "goal": "Define the project structure, setup flow, and test strategy.",
+        "deliverables": [
+          "architecture.md",
+          "setup_plan.md",
+          "test_strategy.md"
+        ]
+      },
+      {
+        "name": "parallel_implementation",
+        "goal": "Implement scoped workstreams within fixed ownership boundaries.",
+        "deliverables": [
+          "module_changes",
+          "local_validation_results"
+        ]
+      },
+      {
+        "name": "independent_review",
+        "goal": "Review the implementation for defects, regressions, and requirement drift.",
+        "deliverables": [
+          "review_report.md",
+          "findings.json"
+        ]
+      },
+      {
+        "name": "test_and_repair_loop",
+        "goal": "Run tests, repair failures, and verify there is no test hacking or shallow pass behavior.",
+        "deliverables": [
+          "test_report.md",
+          "verification_matrix.md",
+          "repair_log.md"
+        ]
+      },
+      {
+        "name": "runtime_validation",
+        "goal": "Verify the system in a real runnable environment.",
+        "deliverables": [
+          "runtime_validation.md",
+          "run_logs.md",
+          "demo_checklist.md"
+        ]
+      },
+      {
+        "name": "delivery",
+        "goal": "Produce a final, evidence-backed delivery summary.",
+        "deliverables": [
+          "delivery_summary.md",
+          "known_limits.md",
+          "handoff_notes.md"
+        ]
+      }
+    ]
+  },
+  "stage_gates": [
+    "Do not enter implementation before requirements are testable.",
+    "Do not enter parallel work before ownership boundaries are explicit.",
+    "Do not pass review if high-severity findings remain unresolved.",
+    "Do not claim success from unit tests alone; require integration and runtime evidence.",
+    "Do not continue normal execution when the environment cannot be brought up; switch to failure diagnosis."
+  ],
+  "guardrails": {
+    "research_usage": [
+      "Use the research pack to shape workflow design, not to mimic paper wording.",
+      "Prefer the official paper pages listed in papers.json when citing or verifying claims.",
+      "Acknowledge limits from DevEval-style and OSWorld-style findings when discussing autonomy."
+    ],
+    "execution_safety": [
+      "Never start project-changing work without explicit execution permission.",
+      "Never collapse requirement, implementation, review, and testing into one unchecked thread.",
+      "Never hide ambiguity; record assumptions and unresolved questions explicitly.",
+      "Never equate green tests with real-world correctness without runtime validation."
+    ]
+  },
+  "deliverables_before_any_real_execution": [
+    "research_summary",
+    "role_design",
+    "state_machine",
+    "artifact_templates",
+    "rollback_policy"
+  ],
+  "future_execution_success_signals": [
+    "Requirement pack is explicit and testable.",
+    "Task graph is complete and non-redundant.",
+    "Implementation ownership is conflict-minimized.",
+    "Independent review signs off on major risks.",
+    "Tests pass across the intended layers.",
+    "Runtime validation proves the real environment works.",
+    "Delivery includes evidence, not just claims."
+  ],
+  "references": {
+    "research_pack_root": "https://github.com/btmisgod/Logs/tree/main/research/codex-autonomous-build-kit",
+    "papers_index": "https://github.com/btmisgod/Logs/blob/main/research/codex-autonomous-build-kit/papers.json",
+    "execution_playbook": "https://github.com/btmisgod/Logs/blob/main/research/codex-autonomous-build-kit/execution-playbook.md",
+    "prompt_template": "https://github.com/btmisgod/Logs/blob/main/research/codex-autonomous-build-kit/codex-prompt.md"
+  }
+}
