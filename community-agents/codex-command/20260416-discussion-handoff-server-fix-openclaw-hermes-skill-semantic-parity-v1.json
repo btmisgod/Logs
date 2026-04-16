@@ -1,0 +1,85 @@
+{
+  "task": "server_fix_openclaw_hermes_skill_semantic_parity_20260416",
+  "from_role": "discussion",
+  "to_role": "live",
+  "phase": "workflow_testing",
+  "feature_line": "github_uploaded_openclaw_and_hermes_skill_semantic_alignment",
+  "summary": "Fix the semantic misalignment between the GitHub-uploaded OpenClaw skill line and Hermes skill line. The target is contract parity, not identical internal code. Server Codex must align both skill repos so they present the same Community-facing semantics while keeping framework-specific adapter logic separate.",
+  "clarified_scope": {
+    "in_scope": [
+      "Audit the current GitHub-published OpenClaw skill line and Hermes skill line for semantic drift.",
+      "Fix both repos so their Community-facing contract is semantically aligned.",
+      "Keep framework-specific implementation differences only where adapter-level differences are necessary.",
+      "Update tests and validation so semantic parity is explicitly proven.",
+      "Push the fixes back to the correct GitHub skill repos."
+    ],
+    "out_of_scope": [
+      "Modifying myproject.",
+      "Modifying Community server.",
+      "Adding unrelated new features.",
+      "Forcing OpenClaw and Hermes to use identical internal code paths.",
+      "Treating template repo openclaw-for-community as the skill-body release repo."
+    ]
+  },
+  "observed_repo_state_20260416": {
+    "openclaw_skill_repo_current_name": "btmisgod/community-skill",
+    "openclaw_skill_repo_target_name_if_user_renamed": "btmisgod/community-skill-for-openclaw",
+    "hermes_skill_repo_name": "btmisgod/community-skill-for-Hermes",
+    "template_repo_name": "btmisgod/openclaw-for-community",
+    "repo_rule": "verify the real remote names before pushing; do not rely on stale repo naming assumptions"
+  },
+  "design_conclusion": [
+    "OpenClaw and Hermes do not need identical internal code, but they do need the same Community-facing contract.",
+    "The correct principle is contract parity and adapter separation.",
+    "Do not allow contract drift just because the frameworks are different.",
+    "Do not require code-shape sameness where framework-specific runtime or config surfaces differ.",
+    "If a framework difference exists, solve it inside the skill or adapter layer without changing community engineering."
+  ],
+  "semantic_parity_requirements": [
+    "The meaning of readiness must align across OpenClaw and Hermes.",
+    "The meaning of model-config inheritance must align across OpenClaw and Hermes.",
+    "The meaning of fail-closed behavior when formal model config is missing must align across OpenClaw and Hermes.",
+    "The meaning of onboarding success must align across OpenClaw and Hermes.",
+    "The meaning of identity, active webhook subscription, session or sync, recoverable local state, usable send route, and canonical effect must align across OpenClaw and Hermes.",
+    "User-visible commands or operations with the same purpose must preserve equivalent semantics and config meaning across both lines, unless a framework-specific rename is unavoidable and clearly documented."
+  ],
+  "hard_boundaries": {
+    "must_do": [
+      "Audit both skill repos against the same semantic contract, not against superficial code similarity.",
+      "Produce an explicit parity checklist or matrix before finalizing.",
+      "Push OpenClaw fixes only to the real OpenClaw skill repo.",
+      "Push Hermes fixes only to the Hermes skill repo."
+    ],
+    "must_not_do": [
+      "Do not modify myproject or Community server to hide skill-side drift.",
+      "Do not silently drop functionality on one side in order to fake parity.",
+      "Do not count syntax-only success as semantic alignment.",
+      "Do not stop after finding drift; repair it and rerun the exact failed checks."
+    ]
+  },
+  "execution_order": [
+    "Verify the real current GitHub remotes and local working copies for both skill lines.",
+    "Build a semantic parity matrix comparing OpenClaw and Hermes.",
+    "Identify every real contract drift item.",
+    "Patch OpenClaw and Hermes skill repos as needed to close the drift.",
+    "Run repo-local tests and any targeted semantic validation checks.",
+    "Push the fixes to the correct GitHub repos.",
+    "Return exact repo URLs, branches, commit SHAs, changed files, parity summary, and validation evidence."
+  ],
+  "minimum_acceptance": [
+    "A written semantic parity summary exists for OpenClaw and Hermes.",
+    "The identified semantic drift items are actually repaired, not only documented.",
+    "Repo-local tests are green for both skill lines.",
+    "The final report explains which semantics were previously misaligned and how each one was aligned.",
+    "OpenClaw fixes are pushed to the correct OpenClaw skill repo.",
+    "Hermes fixes are pushed to the correct Hermes skill repo."
+  ],
+  "deliverables": [
+    "OpenClaw semantic drift summary.",
+    "Hermes semantic drift summary.",
+    "Cross-line parity matrix or checklist.",
+    "Repo URLs, branches, final commit SHAs, and changed-file lists.",
+    "Validation results.",
+    "If blocked, the first real blocker with direct evidence."
+  ]
+}
