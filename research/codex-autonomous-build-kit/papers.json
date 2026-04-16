@@ -1,0 +1,245 @@
+{
+  "name": "codex_autonomous_build_research_pack",
+  "version": "1.0",
+  "updated_at": "2026-04-16",
+  "purpose": "Machine-readable reading pack for building a multi-thread Codex workflow that starts from a design document and a runnable environment.",
+  "usage_order": [
+    "execution-playbook.md",
+    "papers.json",
+    "official paper pages",
+    "codex-prompt.md"
+  ],
+  "papers": [
+    {
+      "id": "archcode_acl_2024",
+      "title": "ArchCode: Incorporating Software Requirements in Code Generation with Large Language Models",
+      "venue": "ACL 2024",
+      "authority_type": "conference",
+      "priority": "core",
+      "official_page": "https://aclanthology.org/2024.acl-long.730/",
+      "pdf_url": "https://aclanthology.org/2024.acl-long.730.pdf",
+      "focus": [
+        "design-doc-to-requirements",
+        "requirements-to-tests",
+        "functional-and-non-functional-requirements"
+      ],
+      "best_for": "Turning a design document into a structured requirement pack and testable acceptance criteria.",
+      "actionable_lessons": [
+        "Extract explicit requirements from natural language descriptions.",
+        "Infer missing but necessary requirements instead of coding against a vague prompt.",
+        "Generate tests aligned to each requirement and use them to rank candidate implementations."
+      ],
+      "warning": "Good for requirement grounding, not a full project orchestration method by itself."
+    },
+    {
+      "id": "metagpt_iclr_2024",
+      "title": "MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework",
+      "venue": "ICLR 2024 Oral",
+      "authority_type": "conference",
+      "priority": "core",
+      "official_page": "https://iclr.cc/virtual/2024/oral/19756",
+      "pdf_url": "https://proceedings.iclr.cc/paper_files/paper/2024/file/6507b115562bb0a305f1958ccc87355a-Paper-Conference.pdf",
+      "focus": [
+        "multi-agent-software-company",
+        "sop-driven-collaboration",
+        "role-based-execution"
+      ],
+      "best_for": "Designing a role-based software delivery pipeline instead of letting all threads improvise.",
+      "actionable_lessons": [
+        "Encode a standard operating procedure before launching worker threads.",
+        "Separate roles such as planning, architecture, implementation, and testing.",
+        "Use intermediate artifacts as handoff boundaries between threads."
+      ],
+      "warning": "Useful for orchestration design, but still needs hard execution gates and environment-aware tooling."
+    },
+    {
+      "id": "agent_oriented_planning_iclr_2025",
+      "title": "Agent-Oriented Planning in Multi-Agent Systems",
+      "venue": "ICLR 2025",
+      "authority_type": "conference",
+      "priority": "core",
+      "official_page": "https://openreview.net/forum?id=EqcLAU6gyU",
+      "pdf_url": "https://openreview.net/pdf?id=EqcLAU6gyU",
+      "focus": [
+        "task-decomposition",
+        "multi-agent-planning",
+        "coordination-correctness"
+      ],
+      "best_for": "Building a principled task graph for parallel execution.",
+      "actionable_lessons": [
+        "Subtasks should be solvable, complete, and non-redundant.",
+        "Task decomposition quality directly affects downstream collaboration quality.",
+        "Parallelism without dependency control creates coordination debt."
+      ],
+      "warning": "Planning quality does not guarantee good code unless paired with strong repository tools and validation."
+    },
+    {
+      "id": "rtadev_findings_acl_2025",
+      "title": "RTADev: Intention Aligned Multi-Agent Framework for Software Development",
+      "venue": "Findings of ACL 2025",
+      "authority_type": "conference",
+      "priority": "core",
+      "official_page": "https://aclanthology.org/2025.findings-acl.80/",
+      "pdf_url": "https://aclanthology.org/2025.findings-acl.80.pdf",
+      "focus": [
+        "alignment",
+        "software-development-collaboration",
+        "adaptive-review"
+      ],
+      "best_for": "Preventing threads from drifting away from the same intent during long-running project work.",
+      "actionable_lessons": [
+        "Inject alignment checks rather than assuming all threads share the same interpretation.",
+        "Use review meetings only when drift appears, not at every step.",
+        "Track intent mismatch as a first-class failure mode."
+      ],
+      "warning": "Alignment mechanisms add overhead; use them at explicit checkpoints."
+    },
+    {
+      "id": "swe_agent_neurips_2024",
+      "title": "SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering",
+      "venue": "NeurIPS 2024",
+      "authority_type": "conference",
+      "priority": "core",
+      "official_page": "https://papers.nips.cc/paper_files/paper/2024/hash/5a7c947568c1b1328ccc5230172e1e7c-Abstract-Conference.html",
+      "pdf_url": "https://papers.nips.cc/paper_files/paper/2024/file/5a7c947568c1b1328ccc5230172e1e7c-Paper-Conference.pdf",
+      "focus": [
+        "repository-level-execution",
+        "agent-computer-interface",
+        "tool-use"
+      ],
+      "best_for": "Designing the file, search, edit, and test interfaces that coding agents need to work on real repositories.",
+      "actionable_lessons": [
+        "Interface design matters as much as model quality for software engineering tasks.",
+        "Agents need structured tools for repo navigation, file edits, command execution, and testing.",
+        "Repository-level coding should be treated as interactive work, not single-shot generation."
+      ],
+      "warning": "Strong on execution interface design, not a full multi-thread project management recipe by itself."
+    },
+    {
+      "id": "swe_dev_findings_acl_2025",
+      "title": "SWE-Dev: Building Software Engineering Agents with Training and Inference Scaling",
+      "venue": "Findings of ACL 2025",
+      "authority_type": "conference",
+      "priority": "core",
+      "official_page": "https://aclanthology.org/2025.findings-acl.193/",
+      "pdf_url": "https://aclanthology.org/2025.findings-acl.193.pdf",
+      "focus": [
+        "open-swe-agents",
+        "test-synthesis",
+        "patch-evaluation"
+      ],
+      "best_for": "Learning how modern SWE agents use test synthesis and large trajectory data to improve patch quality.",
+      "actionable_lessons": [
+        "Patch evaluation quality depends heavily on test quality.",
+        "Strong SWE agents need more than code generation; they need validated trajectories and test evidence.",
+        "Inference-time workflow design can materially change solve rates."
+      ],
+      "warning": "Strong benchmark paper, but it is still centered on issue resolution rather than full greenfield delivery."
+    },
+    {
+      "id": "tdflow_eacl_2026",
+      "title": "TDFlow: Agentic Workflows for Test Driven Development",
+      "venue": "EACL 2026",
+      "authority_type": "conference",
+      "priority": "core",
+      "official_page": "https://aclanthology.org/2026.eacl-long.70/",
+      "pdf_url": "https://aclanthology.org/2026.eacl-long.70.pdf",
+      "focus": [
+        "test-driven-development",
+        "sub-agent-specialization",
+        "repository-repair"
+      ],
+      "best_for": "Designing a test-first execution loop with separate proposing, debugging, revision, and test-generation roles.",
+      "actionable_lessons": [
+        "Force-decouple patch proposing, debugging, patch revision, and optional test generation.",
+        "Use tests as the main control signal instead of free-form self-judgment.",
+        "Treat reproduction test generation as a separate hard problem."
+      ],
+      "warning": "Excellent for test-driven repair, but the paper itself says reproduction test generation remains the frontier."
+    },
+    {
+      "id": "codeagent_emnlp_2024",
+      "title": "CodeAgent: Autonomous Communicative Agents for Code Review",
+      "venue": "EMNLP 2024",
+      "authority_type": "conference",
+      "priority": "core",
+      "official_page": "https://aclanthology.org/2024.emnlp-main.632/",
+      "pdf_url": "https://aclanthology.org/2024.emnlp-main.632.pdf",
+      "focus": [
+        "code-review",
+        "review-automation",
+        "quality-assurance"
+      ],
+      "best_for": "Separating review from implementation and turning review into an explicit autonomous stage.",
+      "actionable_lessons": [
+        "Review should check requirement alignment, defects, vulnerabilities, and maintainability.",
+        "Independent review threads catch risks that implementation threads will miss.",
+        "Review artifacts should be structured and actionable, not just free-form comments."
+      ],
+      "warning": "Review automation improves quality control, but cannot replace runtime validation."
+    },
+    {
+      "id": "full_sdlc_case_study_coling_2025",
+      "title": "Prompting Large Language Models to Tackle the Full Software Development Lifecycle: A Case Study",
+      "venue": "COLING 2025",
+      "authority_type": "conference",
+      "priority": "supporting",
+      "official_page": "https://aclanthology.org/2025.coling-main.502/",
+      "pdf_url": "https://aclanthology.org/2025.coling-main.502.pdf",
+      "focus": [
+        "full-software-lifecycle",
+        "failure-analysis",
+        "realistic-expectations"
+      ],
+      "best_for": "Reality-checking claims about end-to-end autonomous project delivery.",
+      "actionable_lessons": [
+        "Do not assume good coding performance means full lifecycle competence.",
+        "Design, setup, implementation, acceptance testing, and unit testing all introduce different failure modes.",
+        "A realistic autonomous workflow needs explicit fallback and stop conditions."
+      ],
+      "warning": "Use this as a brake pedal: it is better at showing limits than giving a full orchestration recipe."
+    },
+    {
+      "id": "osworld_openreview_2024",
+      "title": "OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments",
+      "venue": "NeurIPS 2024 Datasets and Benchmarks",
+      "authority_type": "conference",
+      "priority": "supporting",
+      "official_page": "https://openreview.net/forum?id=tN61DTr4Ed",
+      "pdf_url": "https://openreview.net/pdf?id=tN61DTr4Ed",
+      "focus": [
+        "real-computer-environments",
+        "gui-and-multi-app-workflows",
+        "runtime-validation"
+      ],
+      "best_for": "Understanding how much harder real environment execution is than repository-only coding.",
+      "actionable_lessons": [
+        "Treat GUI and multi-application execution as a separate capability tier.",
+        "Runtime validation should be evidence-based, not inferred from code or tests.",
+        "Computer-use benchmarks expose failures that pure coding benchmarks miss."
+      ],
+      "warning": "If your workflow requires real desktop or browser operations, plan for lower reliability and more guardrails."
+    },
+    {
+      "id": "gitgoodbench_realm_2025",
+      "title": "GitGoodBench: A Novel Benchmark For Evaluating Agentic Performance On Git",
+      "venue": "REALM 2025",
+      "authority_type": "workshop",
+      "priority": "supporting",
+      "official_page": "https://aclanthology.org/2025.realm-1.19/",
+      "pdf_url": "https://aclanthology.org/2025.realm-1.19.pdf",
+      "focus": [
+        "git-workflows",
+        "branching-and-merge-operations",
+        "developer-tooling"
+      ],
+      "best_for": "Extending autonomous coding from file edits to actual Git workflows.",
+      "actionable_lessons": [
+        "Version control is part of software engineering, not a side detail.",
+        "Agents need explicit competence for branching, commits, and conflict handling.",
+        "A project workflow that ignores Git operations is incomplete."
+      ],
+      "warning": "Workshop paper, but highly relevant if the workflow includes real repository operations."
+    }
+  ]
+}
